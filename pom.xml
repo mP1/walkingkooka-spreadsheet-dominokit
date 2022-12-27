@@ -25,7 +25,7 @@
         <connection>scm:git:https://github.com/mP1/walkingkooka-spreadsheet-dominokit.git</connection>
         <developerConnection>scm:git:git@github.com:mP1/walkingkooka-spreadsheet-dominokit.git
         </developerConnection>
-        <url>https://github.com/mP1/walkingkooka</url>
+        <url>https://github.com/mP1/walkingkooka-spreadsheet-dominokit</url>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
