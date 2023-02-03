@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <inherits name="org.dominokit.domino.ui.DominoUI"/>
+    <inherits name="com.google.gwt.user.User" />
+
+    <source path="" />
+    <public path="public"/>
+
+    <entry-point class="walkingkooka.spreadsheet.dominokit.App" />
+</module>
