@@ -237,9 +237,9 @@
                         <codeserverArg>-src</codeserverArg>
                         <codeserverArg>${project.basedir}/target/generated-sources/annotations</codeserverArg>
 
-                        <!-- place files into a directory which is served by walkingkooka-spreadsheet-platform-->
+                        <!-- this dir will be used by walkingkooka-spreadsheet-server-platform as the source of gwt output-->
                         <codeserverArg>-launcherDir</codeserverArg>
-                        <codeserverArg>${project.basedir}/../../walkingkooka-spreadsheet-server-platform/target/classes</codeserverArg>
+                        <codeserverArg>${project.basedir}/target/gwt/out</codeserverArg>-->
                     </codeserverArgs>
                 </configuration>
             </plugin>
