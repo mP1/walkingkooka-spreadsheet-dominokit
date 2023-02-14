@@ -3,7 +3,9 @@
 <inherits name="walkingkooka.spreadsheet.Spreadsheet" />-->
     <inherits name="org.dominokit.domino.ui.DominoUI"/>
 
-    <source path="" />
+    <source path="">
+        <exclude name="public"/>
+    </source>
     <public path="public"/>
 
     <entry-point class="walkingkooka.spreadsheet.dominokit.App" />
