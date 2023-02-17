@@ -151,6 +151,14 @@
             <artifactId>gwt-editor-processor</artifactId>
             <version>1.0.0-RC1</version>
         </dependency>
+
+        <!-- test scope is important to avoid clash with gwt-compiler -->
+        <dependency>
+            <groupId>walkingkooka</groupId>
+            <artifactId>walkingkooka-spreadsheet</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
