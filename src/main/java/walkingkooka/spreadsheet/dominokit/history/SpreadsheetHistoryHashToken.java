@@ -22,6 +22,8 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -35,6 +37,9 @@ public abstract class SpreadsheetHistoryHashToken implements HasUrlFragment {
     final static UrlFragment DELETE = UrlFragment.SLASH.append(UrlFragment.with("delete"));
 
     final static UrlFragment FREEZE = UrlFragment.SLASH.append(UrlFragment.with("freeze"));
+
+    final static UrlFragment LABEL = UrlFragment.SLASH.append(UrlFragment.with("label"))
+            .append(UrlFragment.SLASH);
 
     final static UrlFragment MENU = UrlFragment.SLASH.append(UrlFragment.with("menu"));
 
@@ -198,6 +203,27 @@ public abstract class SpreadsheetHistoryHashToken implements HasUrlFragment {
      */
     public static SpreadsheetColumnOrRowUnfreezeHistoryHashToken columnOrRowUnfreeze(final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetColumnOrRowUnfreezeHistoryHashToken.with(viewportSelection);
+    }
+
+    /**
+     * {@see SpreadsheetLabelMappingSelectHistoryHashToken}
+     */
+    public static SpreadsheetLabelMappingSelectHistoryHashToken labelMapping(final SpreadsheetLabelName label) {
+        return SpreadsheetLabelMappingSelectHistoryHashToken.with(label);
+    }
+
+    /**
+     * {@see SpreadsheetLabelMappingDeleteHistoryHashToken}
+     */
+    public static SpreadsheetLabelMappingDeleteHistoryHashToken labelMappingDelete(final SpreadsheetLabelName labelName) {
+        return SpreadsheetLabelMappingDeleteHistoryHashToken.with(labelName);
+    }
+
+    /**
+     * {@see SpreadsheetLabelMappingSaveHistoryHashToken}
+     */
+    public static SpreadsheetLabelMappingSaveHistoryHashToken labelMappingSave(final SpreadsheetLabelMapping mapping) {
+        return SpreadsheetLabelMappingSaveHistoryHashToken.with(mapping);
     }
 
     SpreadsheetHistoryHashToken() {
