@@ -344,6 +344,17 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
         );
     }
 
+    /**
+     * {@see SpreadsheetSelectHistoryHashToken}
+     */
+    public static SpreadsheetSelectHistoryHashToken select(final SpreadsheetId id,
+                                                           final SpreadsheetName name) {
+        return SpreadsheetSelectHistoryHashToken.with(
+                id,
+                name
+        );
+    }
+
     SpreadsheetHistoryHashToken(final SpreadsheetId id) {
         super();
 
