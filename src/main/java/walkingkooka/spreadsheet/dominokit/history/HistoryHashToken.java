@@ -24,4 +24,26 @@ public abstract class HistoryHashToken implements HasUrlFragment {
     HistoryHashToken() {
         super();
     }
+
+    // Object...........................................................................................................
+
+    @Override
+    public final int hashCode() {
+        return this.urlFragment().hashCode();
+    }
+
+    @Override
+    public final boolean equals(final Object other) {
+        return this == other ||
+                (other != null && this.getClass().equals(other.getClass()) && this.equals0((HistoryHashToken) other));
+    }
+
+    private boolean equals0(final HistoryHashToken other) {
+        return this.urlFragment().equals(other.urlFragment());
+    }
+
+    @Override
+    public final String toString() {
+        return this.urlFragment().toString();
+    }
 }
