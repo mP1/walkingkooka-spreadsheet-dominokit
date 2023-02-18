@@ -17,9 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-public abstract class SpreadsheetHistoryHashTokenTokenTestCase<T extends SpreadsheetHistoryHashToken> extends HistoryHashTokenTokenTestCase<T> {
+import walkingkooka.net.HasUrlFragment;
 
-    SpreadsheetHistoryHashTokenTokenTestCase() {
+public abstract class HistoryHashToken implements HasUrlFragment {
+
+    HistoryHashToken() {
         super();
     }
 }
