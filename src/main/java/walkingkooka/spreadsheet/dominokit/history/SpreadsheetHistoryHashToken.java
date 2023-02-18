@@ -59,15 +59,6 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     final static UrlFragment UNFREEZE = UrlFragment.SLASH
             .append(UrlFragment.with("unfreeze"));
 
-
-    public static SpreadsheetHistoryHashToken parse(final UrlFragment fragment) {
-        Objects.requireNonNull(fragment, "fragment");
-
-        final TextCursor cursor = TextCursors.charSequence(fragment.value());
-
-        return null;
-    }
-
     /**
      * {@see SpreadsheetCellSelectHistoryHashToken}
      */
