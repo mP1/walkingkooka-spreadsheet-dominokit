@@ -7,7 +7,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public abstract class SpreadsheetCellHistoryHashTokenTestCase<T extends SpreadsheetCellHistoryHashToken> extends SpreadsheetSelectionHistoryHashTokenTestCase<T> {
+public abstract class SpreadsheetCellHistoryHashTokenTestCase<T extends SpreadsheetCellHistoryHashToken> extends SpreadsheetViewportSelectionHistoryHashTokenTestCase<T> {
 
     final static SpreadsheetCellReference CELL = SpreadsheetSelection.parseCell("A1");
 
