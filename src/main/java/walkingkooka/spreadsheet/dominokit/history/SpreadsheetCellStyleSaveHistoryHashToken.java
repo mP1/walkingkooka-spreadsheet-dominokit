@@ -18,25 +18,38 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 final public class SpreadsheetCellStyleSaveHistoryHashToken<T> extends SpreadsheetCellStyleHistoryHashToken {
 
-    static <T> SpreadsheetCellStyleSaveHistoryHashToken<T> with(final SpreadsheetViewportSelection viewportSelection,
+    static <T> SpreadsheetCellStyleSaveHistoryHashToken<T> with(final SpreadsheetId id,
+                                                                final SpreadsheetName name,
+                                                                final SpreadsheetViewportSelection viewportSelection,
                                                                 final TextStylePropertyName<T> propertyName,
                                                                 final T propertyValue) {
         return new SpreadsheetCellStyleSaveHistoryHashToken<>(
+                id,
+                name,
                 viewportSelection,
                 propertyName,
                 propertyValue
         );
     }
 
-    private SpreadsheetCellStyleSaveHistoryHashToken(final SpreadsheetViewportSelection viewportSelection,
+    private SpreadsheetCellStyleSaveHistoryHashToken(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final SpreadsheetViewportSelection viewportSelection,
                                                      final TextStylePropertyName<T> propertyName,
                                                      final T propertyValue) {
-        super(viewportSelection, propertyName);
+        super(
+                id,
+                name,
+                viewportSelection,
+                propertyName
+        );
         this.propertyValue = propertyValue;
     }
 

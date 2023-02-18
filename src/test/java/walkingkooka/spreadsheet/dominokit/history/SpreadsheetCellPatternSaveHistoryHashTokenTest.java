@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
@@ -28,14 +30,14 @@ public final class SpreadsheetCellPatternSaveHistoryHashTokenTest extends Spread
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/cell/A1/pattern/date-format/save/yyyy-mm-dd");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/pattern/date-format/save/yyyy-mm-dd");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
-                "/cell/B2:C3/top-left/pattern/date-format/save/yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/pattern/date-format/save/yyyy-mm-dd"
         );
     }
 
@@ -43,13 +45,17 @@ public final class SpreadsheetCellPatternSaveHistoryHashTokenTest extends Spread
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/cell/Label123/pattern/date-format/save/yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/Label123/pattern/date-format/save/yyyy-mm-dd"
         );
     }
 
     @Override
-    SpreadsheetCellPatternSaveHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetCellPatternSaveHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetCellPatternSaveHistoryHashToken.with(
+                id,
+                name,
                 viewportSelection,
                 PATTERN
         );

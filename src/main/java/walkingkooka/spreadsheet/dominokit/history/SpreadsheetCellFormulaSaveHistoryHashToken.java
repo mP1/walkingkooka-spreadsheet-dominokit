@@ -19,23 +19,35 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 import java.util.Objects;
 
 public final class SpreadsheetCellFormulaSaveHistoryHashToken extends SpreadsheetCellFormulaHistoryHashToken {
 
-    static SpreadsheetCellFormulaSaveHistoryHashToken with(final SpreadsheetViewportSelection viewportSelection,
+    static SpreadsheetCellFormulaSaveHistoryHashToken with(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final SpreadsheetViewportSelection viewportSelection,
                                                            final SpreadsheetFormula formula) {
         return new SpreadsheetCellFormulaSaveHistoryHashToken(
+                id,
+                name,
                 viewportSelection,
                 formula
         );
     }
 
-    private SpreadsheetCellFormulaSaveHistoryHashToken(final SpreadsheetViewportSelection viewportSelection,
+    private SpreadsheetCellFormulaSaveHistoryHashToken(final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final SpreadsheetViewportSelection viewportSelection,
                                                        final SpreadsheetFormula formula) {
-        super(viewportSelection);
+        super(
+                id,
+                name,
+                viewportSelection
+        );
 
         this.formula = Objects.requireNonNull(formula, "formula");
     }

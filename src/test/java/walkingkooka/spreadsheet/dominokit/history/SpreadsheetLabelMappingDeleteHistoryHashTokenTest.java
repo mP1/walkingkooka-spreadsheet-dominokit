@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 public final class SpreadsheetLabelMappingDeleteHistoryHashTokenTest extends SpreadsheetLabelMappingHistoryHashTokenTestCase<SpreadsheetLabelMappingDeleteHistoryHashToken> {
@@ -26,13 +28,19 @@ public final class SpreadsheetLabelMappingDeleteHistoryHashTokenTest extends Spr
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/label/Label123/delete"
+                "/123/SpreadsheetName456/label/Label123/delete"
         );
     }
 
     @Override
-    SpreadsheetLabelMappingDeleteHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetLabelName label) {
-        return SpreadsheetLabelMappingDeleteHistoryHashToken.with(label);
+    SpreadsheetLabelMappingDeleteHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                                    final SpreadsheetName name,
+                                                                                    final SpreadsheetLabelName label) {
+        return SpreadsheetLabelMappingDeleteHistoryHashToken.with(
+                id,
+                name,
+                label
+        );
     }
 
     @Override

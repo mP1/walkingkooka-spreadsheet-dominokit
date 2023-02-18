@@ -18,22 +18,35 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 final public class SpreadsheetCellStyleSelectHistoryHashToken extends SpreadsheetCellStyleHistoryHashToken {
 
-    static SpreadsheetCellStyleSelectHistoryHashToken with(final SpreadsheetViewportSelection viewportSelection,
+    static SpreadsheetCellStyleSelectHistoryHashToken with(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final SpreadsheetViewportSelection viewportSelection,
                                                            final TextStylePropertyName<?> propertyName) {
         return new SpreadsheetCellStyleSelectHistoryHashToken(
+                id,
+                name,
                 viewportSelection,
                 propertyName
         );
     }
 
-    private SpreadsheetCellStyleSelectHistoryHashToken(final SpreadsheetViewportSelection viewportSelection,
+    private SpreadsheetCellStyleSelectHistoryHashToken(final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final SpreadsheetViewportSelection viewportSelection,
                                                        final TextStylePropertyName<?> propertyName) {
-        super(viewportSelection, propertyName);
+        super(
+                id,
+                name,
+                viewportSelection,
+                propertyName
+        );
     }
 
     @Override

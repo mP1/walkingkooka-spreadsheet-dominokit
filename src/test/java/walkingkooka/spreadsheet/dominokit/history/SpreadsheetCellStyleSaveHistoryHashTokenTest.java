@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -26,14 +28,14 @@ public final class SpreadsheetCellStyleSaveHistoryHashTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/cell/A1/style/color/save/#123456");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/style/color/save/#123456");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
-                "/cell/B2:C3/top-left/style/color/save/#123456"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color/save/#123456"
         );
     }
 
@@ -41,14 +43,18 @@ public final class SpreadsheetCellStyleSaveHistoryHashTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/cell/Label123/style/color/save/#123456"
+                "/123/SpreadsheetName456/cell/Label123/style/color/save/#123456"
         );
     }
 
     @Override
-    SpreadsheetCellStyleSaveHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection,
+    SpreadsheetCellStyleSaveHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final SpreadsheetViewportSelection viewportSelection,
                                                                                final TextStylePropertyName<?> propertyName) {
         return SpreadsheetCellStyleSaveHistoryHashToken.with(
+                id,
+                name,
                 viewportSelection,
                 PROPERTY_NAME,
                 PROPERTY_VALUE

@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
@@ -25,17 +27,27 @@ import java.util.Objects;
 
 public final class SpreadsheetCellPatternSelectHistoryHashToken extends SpreadsheetCellPatternHistoryHashToken {
 
-    static SpreadsheetCellPatternSelectHistoryHashToken with(final SpreadsheetViewportSelection viewportSelection,
+    static SpreadsheetCellPatternSelectHistoryHashToken with(final SpreadsheetId id,
+                                                             final SpreadsheetName name,
+                                                             final SpreadsheetViewportSelection viewportSelection,
                                                              final SpreadsheetPatternKind patternKind) {
         return new SpreadsheetCellPatternSelectHistoryHashToken(
+                id,
+                name,
                 viewportSelection,
                 patternKind
         );
     }
 
-    private SpreadsheetCellPatternSelectHistoryHashToken(final SpreadsheetViewportSelection viewportSelection,
+    private SpreadsheetCellPatternSelectHistoryHashToken(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final SpreadsheetViewportSelection viewportSelection,
                                                          final SpreadsheetPatternKind patternKind) {
-        super(viewportSelection);
+        super(
+                id,
+                name,
+                viewportSelection
+        );
 
         this.patternKind = Objects.requireNonNull(patternKind, "patternKind");
     }

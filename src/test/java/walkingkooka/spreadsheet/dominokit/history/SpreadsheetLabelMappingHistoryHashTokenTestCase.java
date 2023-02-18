@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -42,8 +44,22 @@ public abstract class SpreadsheetLabelMappingHistoryHashTokenTestCase<T extends 
     }
 
     final T createSpreadsheetHistoryHashToken() {
-        return this.createSpreadsheetHistoryHashToken(LABEL);
+        return this.createSpreadsheetHistoryHashToken(
+                ID,
+                NAME,
+                LABEL
+        );
     }
 
-    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetLabelName label);
+    final T createSpreadsheetHistoryHashToken(final SpreadsheetLabelName label) {
+        return this.createSpreadsheetHistoryHashToken(
+                ID,
+                NAME,
+                label
+        );
+    }
+
+    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final SpreadsheetLabelName label);
 }

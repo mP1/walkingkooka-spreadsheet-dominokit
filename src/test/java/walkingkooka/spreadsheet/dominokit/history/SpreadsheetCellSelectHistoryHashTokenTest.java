@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
@@ -25,14 +27,14 @@ public final class SpreadsheetCellSelectHistoryHashTokenTest extends Spreadsheet
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/cell/A1");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
-                "/cell/B2:C3/top-left"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left"
         );
     }
 
@@ -40,13 +42,19 @@ public final class SpreadsheetCellSelectHistoryHashTokenTest extends Spreadsheet
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/cell/Label123"
+                "/123/SpreadsheetName456/cell/Label123"
         );
     }
 
     @Override
-    SpreadsheetCellSelectHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellSelectHistoryHashToken.with(viewportSelection);
+    SpreadsheetCellSelectHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                            final SpreadsheetName name,
+                                                                            final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellSelectHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     @Override

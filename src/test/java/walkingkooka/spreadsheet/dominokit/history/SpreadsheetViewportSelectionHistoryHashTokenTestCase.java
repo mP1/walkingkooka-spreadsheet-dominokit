@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public abstract class SpreadsheetViewportSelectionHistoryHashTokenTestCase<T extends SpreadsheetViewportSelectionHistoryHashToken> extends SpreadsheetSelectionHistoryHashTokenTestCase<T> {
@@ -28,10 +30,24 @@ public abstract class SpreadsheetViewportSelectionHistoryHashTokenTestCase<T ext
     final void urlFragmentAndCheck(final SpreadsheetViewportSelection viewportSelection,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createSpreadsheetHistoryHashToken(viewportSelection),
+                this.createSpreadsheetHistoryHashToken(
+                        ID,
+                        NAME,
+                        viewportSelection
+                ),
                 expected
         );
     }
 
-    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection);
+    final T createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
+        return this.createSpreadsheetHistoryHashToken(
+                ID,
+                NAME,
+                viewportSelection
+        );
+    }
+
+    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final SpreadsheetViewportSelection viewportSelection);
 }
