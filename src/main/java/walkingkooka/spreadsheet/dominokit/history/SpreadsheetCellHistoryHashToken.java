@@ -4,7 +4,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetSelectionHistoryHashToken {
+abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewportSelectionHistoryHashToken {
 
     SpreadsheetCellHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
         super(viewportSelection);

@@ -8,7 +8,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public abstract class SpreadsheetColumnOrRowHistoryHashTokenTestCase<T extends SpreadsheetColumnOrRowHistoryHashToken> extends SpreadsheetSelectionHistoryHashTokenTestCase<T> {
+public abstract class SpreadsheetColumnOrRowHistoryHashTokenTestCase<T extends SpreadsheetColumnOrRowHistoryHashToken> extends SpreadsheetViewportSelectionHistoryHashTokenTestCase<T> {
 
     final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("A");
 
