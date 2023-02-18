@@ -228,24 +228,4 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     SpreadsheetHistoryHashToken() {
         super();
     }
-
-    @Override
-    public int hashCode() {
-        return this.urlFragment().hashCode();
-    }
-
-    @Override
-    public final boolean equals(final Object other) {
-        return this == other ||
-                (other != null && this.getClass().equals(other.getClass()) && this.equals0((SpreadsheetHistoryHashToken) other));
-    }
-
-    private boolean equals0(final SpreadsheetHistoryHashToken other) {
-        return this.urlFragment().equals(other.urlFragment());
-    }
-
-    @Override
-    public final String toString() {
-        return this.urlFragment().toString();
-    }
 }
