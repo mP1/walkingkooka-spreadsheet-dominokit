@@ -24,11 +24,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Objects;
 
 /**
  * Instances represent a token within a history hash.
