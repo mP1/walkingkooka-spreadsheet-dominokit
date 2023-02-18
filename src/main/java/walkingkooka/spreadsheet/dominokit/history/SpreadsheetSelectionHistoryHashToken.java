@@ -17,9 +17,33 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
+
+import java.util.Objects;
+
 abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetHistoryHashToken {
 
-    SpreadsheetSelectionHistoryHashToken() {
-        super();
+    SpreadsheetSelectionHistoryHashToken(final SpreadsheetId id,
+                                         final SpreadsheetName name) {
+        super(id);
+
+        this.name = Objects.requireNonNull(name, "name");
     }
+
+    public SpreadsheetName name() {
+        return this.name;
+    }
+
+    private final SpreadsheetName name;
+
+    @Override
+    final UrlFragment spreadsheetUrlFragment() {
+        return this.name.urlFragment().append(
+                this.selectionUrlFragment()
+        );
+    }
+
+    abstract UrlFragment selectionUrlFragment();
 }

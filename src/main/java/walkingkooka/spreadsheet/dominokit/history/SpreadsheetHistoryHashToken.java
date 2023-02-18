@@ -19,12 +19,16 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Objects;
 
 /**
  * Instances represent a token within a history hash.
@@ -58,23 +62,39 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     /**
      * {@see SpreadsheetCellSelectHistoryHashToken}
      */
-    public static SpreadsheetCellSelectHistoryHashToken cell(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellSelectHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetCellSelectHistoryHashToken cell(final SpreadsheetId id,
+                                                             final SpreadsheetName name,
+                                                             final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellSelectHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetCellFormulaSelectHistoryHashToken}
      */
-    public static SpreadsheetCellFormulaSelectHistoryHashToken formula(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellFormulaSelectHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetCellFormulaSelectHistoryHashToken formula(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellFormulaSelectHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetCellFormulaSaveHistoryHashToken}
      */
-    public static SpreadsheetCellFormulaSaveHistoryHashToken formulaSave(final SpreadsheetViewportSelection viewportSelection,
+    public static SpreadsheetCellFormulaSaveHistoryHashToken formulaSave(final SpreadsheetId id,
+                                                                         final SpreadsheetName name,
+                                                                         final SpreadsheetViewportSelection viewportSelection,
                                                                          final SpreadsheetFormula formula) {
         return SpreadsheetCellFormulaSaveHistoryHashToken.formulaSave(
+                id,
+                name,
                 viewportSelection,
                 formula
         );
@@ -83,37 +103,65 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     /**
      * {@see SpreadsheetCellClearHistoryHashToken}
      */
-    public static SpreadsheetCellClearHistoryHashToken cellClear(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellClearHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetCellClearHistoryHashToken cellClear(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellClearHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetCellDeleteHistoryHashToken}
      */
-    public static SpreadsheetCellDeleteHistoryHashToken cellDelete(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellDeleteHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetCellDeleteHistoryHashToken cellDelete(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellDeleteHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetCellFreezeHistoryHashToken}
      */
-    public static SpreadsheetCellFreezeHistoryHashToken cellFreeze(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellFreezeHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetCellFreezeHistoryHashToken cellFreeze(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellFreezeHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetCellMenuHistoryHashToken}
      */
-    public static SpreadsheetCellMenuHistoryHashToken cellMenu(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellMenuHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetCellMenuHistoryHashToken cellMenu(final SpreadsheetId id,
+                                                               final SpreadsheetName name,
+                                                               final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellMenuHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetCellPatternSelectHistoryHashToken}
      */
-    public static SpreadsheetCellPatternSelectHistoryHashToken cellPattern(final SpreadsheetViewportSelection viewportSelection,
+    public static SpreadsheetCellPatternSelectHistoryHashToken cellPattern(final SpreadsheetId id,
+                                                                           final SpreadsheetName name,
+                                                                           final SpreadsheetViewportSelection viewportSelection,
                                                                            final SpreadsheetPatternKind patternKind) {
         return SpreadsheetCellPatternSelectHistoryHashToken.with(
+                id,
+                name,
                 viewportSelection,
                 patternKind
         );
@@ -122,9 +170,13 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     /**
      * {@see SpreadsheetCellPatternSaveHistoryHashToken}
      */
-    public static SpreadsheetCellPatternSaveHistoryHashToken cellPatternSave(final SpreadsheetViewportSelection viewportSelection,
+    public static SpreadsheetCellPatternSaveHistoryHashToken cellPatternSave(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final SpreadsheetViewportSelection viewportSelection,
                                                                              final SpreadsheetPattern pattern) {
         return SpreadsheetCellPatternSaveHistoryHashToken.with(
+                id,
+                name,
                 viewportSelection,
                 pattern
         );
@@ -133,9 +185,13 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     /**
      * {@see SpreadsheetCellStyleSelectHistoryHashToken}
      */
-    public static SpreadsheetCellStyleSelectHistoryHashToken cellStyle(final SpreadsheetViewportSelection viewportSelection,
+    public static SpreadsheetCellStyleSelectHistoryHashToken cellStyle(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final SpreadsheetViewportSelection viewportSelection,
                                                                        final TextStylePropertyName<?> propertyName) {
         return SpreadsheetCellStyleSelectHistoryHashToken.with(
+                id,
+                name,
                 viewportSelection,
                 propertyName
         );
@@ -144,10 +200,14 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     /**
      * {@see SpreadsheetCellStyleSaveHistoryHashToken}
      */
-    public static <T> SpreadsheetCellStyleSaveHistoryHashToken<T> cellStyleSave(final SpreadsheetViewportSelection viewportSelection,
+    public static <T> SpreadsheetCellStyleSaveHistoryHashToken<T> cellStyleSave(final SpreadsheetId id,
+                                                                                final SpreadsheetName name,
+                                                                                final SpreadsheetViewportSelection viewportSelection,
                                                                                 final TextStylePropertyName<T> propertyName,
                                                                                 final T propertyValue) {
         return SpreadsheetCellStyleSaveHistoryHashToken.with(
+                id,
+                name,
                 viewportSelection,
                 propertyName,
                 propertyValue
@@ -157,75 +217,152 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     /**
      * {@see SpreadsheetCellUnfreezeHistoryHashToken}
      */
-    public static SpreadsheetCellUnfreezeHistoryHashToken cellUnfreeze(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellUnfreezeHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetCellUnfreezeHistoryHashToken cellUnfreeze(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellUnfreezeHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
-
 
     /**
      * {@see SpreadsheetColumnOrRowSelectHistoryHashToken}
      */
-    public static SpreadsheetColumnOrRowSelectHistoryHashToken columnOrRow(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowSelectHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetColumnOrRowSelectHistoryHashToken columnOrRow(final SpreadsheetId id,
+                                                                           final SpreadsheetName name,
+                                                                           final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnOrRowSelectHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetColumnOrRowClearHistoryHashToken}
      */
-    public static SpreadsheetColumnOrRowClearHistoryHashToken columnOrRowClear(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowClearHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetColumnOrRowClearHistoryHashToken columnOrRowClear(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnOrRowClearHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetColumnOrRowDeleteHistoryHashToken}
      */
-    public static SpreadsheetColumnOrRowDeleteHistoryHashToken columnOrRowDelete(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowDeleteHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetColumnOrRowDeleteHistoryHashToken columnOrRowDelete(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnOrRowDeleteHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetColumnOrRowFreezeHistoryHashToken}
      */
-    public static SpreadsheetColumnOrRowFreezeHistoryHashToken columnOrRowFreeze(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowFreezeHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetColumnOrRowFreezeHistoryHashToken columnOrRowFreeze(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnOrRowFreezeHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetColumnOrRowMenuHistoryHashToken}
      */
-    public static SpreadsheetColumnOrRowMenuHistoryHashToken columnOrRowMenu(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowMenuHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetColumnOrRowMenuHistoryHashToken columnOrRowMenu(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnOrRowMenuHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetColumnOrRowUnfreezeHistoryHashToken}
      */
-    public static SpreadsheetColumnOrRowUnfreezeHistoryHashToken columnOrRowUnfreeze(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowUnfreezeHistoryHashToken.with(viewportSelection);
+    public static SpreadsheetColumnOrRowUnfreezeHistoryHashToken columnOrRowUnfreeze(final SpreadsheetId id,
+                                                                                     final SpreadsheetName name,
+                                                                                     final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnOrRowUnfreezeHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     /**
      * {@see SpreadsheetLabelMappingSelectHistoryHashToken}
      */
-    public static SpreadsheetLabelMappingSelectHistoryHashToken labelMapping(final SpreadsheetLabelName label) {
-        return SpreadsheetLabelMappingSelectHistoryHashToken.with(label);
+    public static SpreadsheetLabelMappingSelectHistoryHashToken labelMapping(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final SpreadsheetLabelName label) {
+        return SpreadsheetLabelMappingSelectHistoryHashToken.with(
+                id,
+                name,
+                label
+        );
     }
 
     /**
      * {@see SpreadsheetLabelMappingDeleteHistoryHashToken}
      */
-    public static SpreadsheetLabelMappingDeleteHistoryHashToken labelMappingDelete(final SpreadsheetLabelName labelName) {
-        return SpreadsheetLabelMappingDeleteHistoryHashToken.with(labelName);
+    public static SpreadsheetLabelMappingDeleteHistoryHashToken labelMappingDelete(final SpreadsheetId id,
+                                                                                   final SpreadsheetName name,
+                                                                                   final SpreadsheetLabelName labelName) {
+        return SpreadsheetLabelMappingDeleteHistoryHashToken.with(
+                id,
+                name,
+                labelName
+        );
     }
 
     /**
      * {@see SpreadsheetLabelMappingSaveHistoryHashToken}
      */
-    public static SpreadsheetLabelMappingSaveHistoryHashToken labelMappingSave(final SpreadsheetLabelMapping mapping) {
-        return SpreadsheetLabelMappingSaveHistoryHashToken.with(mapping);
+    public static SpreadsheetLabelMappingSaveHistoryHashToken labelMappingSave(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final SpreadsheetLabelMapping mapping) {
+        return SpreadsheetLabelMappingSaveHistoryHashToken.with(
+                id,
+                name,
+                mapping
+        );
     }
 
-    SpreadsheetHistoryHashToken() {
+    SpreadsheetHistoryHashToken(final SpreadsheetId id) {
         super();
+
+        this.id = Objects.requireNonNull(id, "id");
     }
+
+    public final SpreadsheetId id() {
+        return this.id;
+    }
+
+    private final SpreadsheetId id;
+
+    @Override
+    public final UrlFragment urlFragment() {
+        return this.id.urlFragment().append(this.spreadsheetUrlFragment());
+    }
+
+    /**
+     * Sub-classes should append additional components to the final {@link UrlFragment}.
+     */
+    abstract UrlFragment spreadsheetUrlFragment();
 }

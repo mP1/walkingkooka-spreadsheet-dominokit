@@ -18,18 +18,31 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public class SpreadsheetColumnOrRowMenuHistoryHashToken extends SpreadsheetColumnOrRowHistoryHashToken {
 
-    static SpreadsheetColumnOrRowMenuHistoryHashToken with(final SpreadsheetViewportSelection viewportSelection) {
-        return new SpreadsheetColumnOrRowMenuHistoryHashToken(viewportSelection);
+    static SpreadsheetColumnOrRowMenuHistoryHashToken with(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final SpreadsheetViewportSelection viewportSelection) {
+        return new SpreadsheetColumnOrRowMenuHistoryHashToken(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
-    private SpreadsheetColumnOrRowMenuHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
-        super(viewportSelection);
+    private SpreadsheetColumnOrRowMenuHistoryHashToken(final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final SpreadsheetViewportSelection viewportSelection) {
+        super(
+                id,
+                name,
+                viewportSelection
+        );
     }
-
 
     @Override
     UrlFragment columnOrRowUrlFragment() {

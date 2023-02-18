@@ -18,24 +18,31 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 import java.util.Objects;
 
 public abstract class SpreadsheetViewportSelectionHistoryHashToken extends SpreadsheetSelectionHistoryHashToken {
 
-    SpreadsheetViewportSelectionHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
-        super();
+    SpreadsheetViewportSelectionHistoryHashToken(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final SpreadsheetViewportSelection viewportSelection) {
+        super(
+                id,
+                name
+        );
         this.viewportSelection = Objects.requireNonNull(viewportSelection, "viewportSelection");
     }
 
     private final SpreadsheetViewportSelection viewportSelection;
 
     @Override
-    public final UrlFragment urlFragment() {
+    final UrlFragment selectionUrlFragment() {
         return this.viewportSelection.urlFragment()
-                .append(this.selectionUrlFragment());
+                .append(this.selectionViewportUrlFragment());
     }
 
-    abstract UrlFragment selectionUrlFragment();
+    abstract UrlFragment selectionViewportUrlFragment();
 }

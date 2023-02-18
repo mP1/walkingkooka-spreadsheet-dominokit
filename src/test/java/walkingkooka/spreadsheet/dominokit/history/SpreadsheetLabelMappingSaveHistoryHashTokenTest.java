@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -27,7 +29,7 @@ public final class SpreadsheetLabelMappingSaveHistoryHashTokenTest extends Sprea
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/label/Label123/save/A1"
+                "/123/SpreadsheetName456/label/Label123/save/A1"
         );
     }
 
@@ -35,15 +37,21 @@ public final class SpreadsheetLabelMappingSaveHistoryHashTokenTest extends Sprea
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 SpreadsheetLabelMappingSaveHistoryHashToken.with(
+                        ID,
+                        NAME,
                         LABEL.mapping(SpreadsheetSelection.parseCellRange("B2:C3"))
                 ),
-                "/label/Label123/save/B2:C3"
+                "/123/SpreadsheetName456/label/Label123/save/B2:C3"
         );
     }
 
     @Override
-    SpreadsheetLabelMappingSaveHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetLabelName label) {
+    SpreadsheetLabelMappingSaveHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                                  final SpreadsheetName name,
+                                                                                  final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingSaveHistoryHashToken.with(
+                id,
+                name,
                 label.mapping(CELL)
         );
     }

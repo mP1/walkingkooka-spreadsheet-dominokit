@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
@@ -25,12 +27,23 @@ import java.util.Objects;
 
 public final class SpreadsheetLabelMappingSaveHistoryHashToken extends SpreadsheetLabelMappingHistoryHashToken {
 
-    static SpreadsheetLabelMappingSaveHistoryHashToken with(final SpreadsheetLabelMapping mapping) {
-        return new SpreadsheetLabelMappingSaveHistoryHashToken(mapping);
+    static SpreadsheetLabelMappingSaveHistoryHashToken with(final SpreadsheetId id,
+                                                            final SpreadsheetName name,
+                                                            final SpreadsheetLabelMapping mapping) {
+        return new SpreadsheetLabelMappingSaveHistoryHashToken(
+                id,
+                name,
+                mapping
+        );
     }
 
-    private SpreadsheetLabelMappingSaveHistoryHashToken(final SpreadsheetLabelMapping mapping) {
-        super();
+    private SpreadsheetLabelMappingSaveHistoryHashToken(final SpreadsheetId id,
+                                                        final SpreadsheetName name,
+                                                        final SpreadsheetLabelMapping mapping) {
+        super(
+                id,
+                name
+        );
         this.mapping = Objects.requireNonNull(mapping, "mapping");
     }
 

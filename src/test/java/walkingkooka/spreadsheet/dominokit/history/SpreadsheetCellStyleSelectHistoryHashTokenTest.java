@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -26,14 +28,14 @@ public final class SpreadsheetCellStyleSelectHistoryHashTokenTest extends Spread
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/cell/A1/style/color");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/style/color");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
-                "/cell/B2:C3/top-left/style/color"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color"
         );
     }
 
@@ -41,14 +43,18 @@ public final class SpreadsheetCellStyleSelectHistoryHashTokenTest extends Spread
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/cell/Label123/style/color"
+                "/123/SpreadsheetName456/cell/Label123/style/color"
         );
     }
 
     @Override
-    SpreadsheetCellStyleSelectHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection,
+    SpreadsheetCellStyleSelectHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final SpreadsheetViewportSelection viewportSelection,
                                                                                  final TextStylePropertyName<?> propertyName) {
         return SpreadsheetCellStyleSelectHistoryHashToken.with(
+                id,
+                name,
                 viewportSelection,
                 PROPERTY_NAME
         );

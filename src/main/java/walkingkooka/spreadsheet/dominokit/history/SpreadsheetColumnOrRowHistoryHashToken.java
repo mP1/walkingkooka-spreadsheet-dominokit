@@ -18,15 +18,24 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 abstract public class SpreadsheetColumnOrRowHistoryHashToken extends SpreadsheetViewportSelectionHistoryHashToken {
 
-    SpreadsheetColumnOrRowHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
-        super(viewportSelection);
+    SpreadsheetColumnOrRowHistoryHashToken(final SpreadsheetId id,
+                                           final SpreadsheetName name,
+                                           final SpreadsheetViewportSelection viewportSelection) {
+        super(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
-    final UrlFragment selectionUrlFragment() {
+    @Override
+    final UrlFragment selectionViewportUrlFragment() {
         return this.columnOrRowUrlFragment();
     }
 

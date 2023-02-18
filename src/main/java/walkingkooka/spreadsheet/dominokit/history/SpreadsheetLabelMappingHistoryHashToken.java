@@ -18,19 +18,25 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 public abstract class SpreadsheetLabelMappingHistoryHashToken extends SpreadsheetSelectionHistoryHashToken {
 
-    SpreadsheetLabelMappingHistoryHashToken() {
-        super();
+    SpreadsheetLabelMappingHistoryHashToken(final SpreadsheetId id,
+                                            final SpreadsheetName name) {
+        super(
+                id,
+                name
+        );
     }
 
     /**
      * /label/$label...
      */
     @Override
-    public final UrlFragment urlFragment() {
+    final UrlFragment selectionUrlFragment() {
         return LABEL.append(UrlFragment.with(this.labelName().value()))
                 .append(this.labelUrlFragment());
     }

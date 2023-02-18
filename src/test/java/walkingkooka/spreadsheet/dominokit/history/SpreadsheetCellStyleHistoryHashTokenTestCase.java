@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.color.Color;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -32,13 +34,19 @@ public abstract class SpreadsheetCellStyleHistoryHashTokenTestCase<T extends Spr
     }
 
     @Override
-    T createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
+    T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                        final SpreadsheetName name,
+                                        final SpreadsheetViewportSelection viewportSelection) {
         return this.createSpreadsheetHistoryHashToken(
+                id,
+                name,
                 viewportSelection,
                 PROPERTY_NAME
         );
     }
 
-    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection,
+    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final SpreadsheetViewportSelection viewportSelection,
                                                  final TextStylePropertyName<?> propertyName);
 }

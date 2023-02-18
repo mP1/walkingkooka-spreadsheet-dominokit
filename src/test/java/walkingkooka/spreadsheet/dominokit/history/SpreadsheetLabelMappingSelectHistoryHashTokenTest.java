@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 public final class SpreadsheetLabelMappingSelectHistoryHashTokenTest extends SpreadsheetLabelMappingHistoryHashTokenTestCase<SpreadsheetLabelMappingSelectHistoryHashToken> {
@@ -26,13 +28,19 @@ public final class SpreadsheetLabelMappingSelectHistoryHashTokenTest extends Spr
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/label/Label123"
+                "/123/SpreadsheetName456/label/Label123"
         );
     }
 
     @Override
-    SpreadsheetLabelMappingSelectHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetLabelName label) {
-        return SpreadsheetLabelMappingSelectHistoryHashToken.with(label);
+    SpreadsheetLabelMappingSelectHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                                    final SpreadsheetName name,
+                                                                                    final SpreadsheetLabelName label) {
+        return SpreadsheetLabelMappingSelectHistoryHashToken.with(
+                id,
+                name,
+                label
+        );
     }
 
     @Override

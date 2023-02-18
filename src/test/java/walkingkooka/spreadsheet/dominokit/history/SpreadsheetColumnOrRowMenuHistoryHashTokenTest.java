@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
@@ -27,14 +29,14 @@ public final class SpreadsheetColumnOrRowMenuHistoryHashTokenTest extends Spread
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
                 COLUMN,
-                "/column/A/menu");
+                "/123/SpreadsheetName456/column/A/menu");
     }
 
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
-                "/column/B:C/right/menu"
+                "/123/SpreadsheetName456/column/B:C/right/menu"
         );
     }
 
@@ -42,7 +44,7 @@ public final class SpreadsheetColumnOrRowMenuHistoryHashTokenTest extends Spread
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
                 ROW,
-                "/row/1/menu"
+                "/123/SpreadsheetName456/row/1/menu"
         );
     }
 
@@ -50,13 +52,19 @@ public final class SpreadsheetColumnOrRowMenuHistoryHashTokenTest extends Spread
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
                 ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
-                "/row/2:3/bottom/menu"
+                "/123/SpreadsheetName456/row/2:3/bottom/menu"
         );
     }
 
     @Override
-    SpreadsheetColumnOrRowMenuHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowMenuHistoryHashToken.with(viewportSelection);
+    SpreadsheetColumnOrRowMenuHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnOrRowMenuHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
     }
 
     @Override

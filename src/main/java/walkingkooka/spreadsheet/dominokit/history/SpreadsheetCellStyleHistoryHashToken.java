@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -25,9 +27,15 @@ import java.util.Objects;
 
 abstract public class SpreadsheetCellStyleHistoryHashToken extends SpreadsheetCellHistoryHashToken {
 
-    SpreadsheetCellStyleHistoryHashToken(final SpreadsheetViewportSelection viewportSelection,
+    SpreadsheetCellStyleHistoryHashToken(final SpreadsheetId id,
+                                         final SpreadsheetName name,
+                                         final SpreadsheetViewportSelection viewportSelection,
                                          final TextStylePropertyName<?> propertyName) {
-        super(viewportSelection);
+        super(
+                id,
+                name,
+                viewportSelection
+        );
 
         this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
     }

@@ -18,13 +18,21 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewportSelectionHistoryHashToken {
 
-    SpreadsheetCellHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
-        super(viewportSelection);
+    SpreadsheetCellHistoryHashToken(final SpreadsheetId id,
+                                    final SpreadsheetName name,
+                                    final SpreadsheetViewportSelection viewportSelection) {
+        super(
+                id,
+                name,
+                viewportSelection
+        );
 
         final SpreadsheetSelection selection = viewportSelection.selection();
         if (false == (selection.isCellReference() || selection.isCellRange() || selection.isLabelName())) {
@@ -32,7 +40,8 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
         }
     }
 
-    final UrlFragment selectionUrlFragment() {
+    @Override
+    final UrlFragment selectionViewportUrlFragment() {
         return this.cellUrlFragment();
     }
 
