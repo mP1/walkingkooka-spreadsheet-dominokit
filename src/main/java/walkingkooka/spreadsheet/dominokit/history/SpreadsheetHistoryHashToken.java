@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -25,12 +24,16 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Objects;
 
 /**
  * Instances represent a token within a history hash.
  */
-public abstract class SpreadsheetHistoryHashToken implements HasUrlFragment {
+public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
 
     final static UrlFragment CLEAR = UrlFragment.SLASH.append(UrlFragment.with("clear"));
 
@@ -55,6 +58,15 @@ public abstract class SpreadsheetHistoryHashToken implements HasUrlFragment {
 
     final static UrlFragment UNFREEZE = UrlFragment.SLASH
             .append(UrlFragment.with("unfreeze"));
+
+
+    public static SpreadsheetHistoryHashToken parse(final UrlFragment fragment) {
+        Objects.requireNonNull(fragment, "fragment");
+
+        final TextCursor cursor = TextCursors.charSequence(fragment.value());
+
+        return null;
+    }
 
     /**
      * {@see SpreadsheetCellSelectHistoryHashToken}
