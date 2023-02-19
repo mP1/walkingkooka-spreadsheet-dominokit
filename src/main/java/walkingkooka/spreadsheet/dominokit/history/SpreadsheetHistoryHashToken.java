@@ -345,10 +345,19 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     }
 
     /**
+     * {@see SpreadsheetLoadHistoryHashToken}
+     */
+    public static SpreadsheetLoadHistoryHashToken spreadsheetLoad(final SpreadsheetId id) {
+        return SpreadsheetLoadHistoryHashToken.with(
+                id
+        );
+    }
+
+    /**
      * {@see SpreadsheetSelectHistoryHashToken}
      */
-    public static SpreadsheetSelectHistoryHashToken select(final SpreadsheetId id,
-                                                           final SpreadsheetName name) {
+    public static SpreadsheetSelectHistoryHashToken spreadsheetSelect(final SpreadsheetId id,
+                                                                      final SpreadsheetName name) {
         return SpreadsheetSelectHistoryHashToken.with(
                 id,
                 name
