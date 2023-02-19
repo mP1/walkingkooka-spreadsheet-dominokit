@@ -32,7 +32,7 @@ abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetHi
         this.name = Objects.requireNonNull(name, "name");
     }
 
-    public SpreadsheetName name() {
+    public final SpreadsheetName name() {
         return this.name;
     }
 
