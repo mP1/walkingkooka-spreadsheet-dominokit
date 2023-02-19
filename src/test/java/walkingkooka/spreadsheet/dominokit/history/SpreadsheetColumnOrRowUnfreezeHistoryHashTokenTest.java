@@ -57,9 +57,9 @@ public final class SpreadsheetColumnOrRowUnfreezeHistoryHashTokenTest extends Sp
     }
 
     @Override
-    SpreadsheetColumnOrRowUnfreezeHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                                     final SpreadsheetName name,
-                                                                                     final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetColumnOrRowUnfreezeHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
+                                                                          final SpreadsheetName name,
+                                                                          final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetColumnOrRowUnfreezeHistoryHashToken.with(
                 id,
                 name,

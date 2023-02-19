@@ -57,9 +57,9 @@ public final class SpreadsheetColumnOrRowDeleteHistoryHashTokenTest extends Spre
     }
 
     @Override
-    SpreadsheetColumnOrRowDeleteHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                                   final SpreadsheetName name,
-                                                                                   final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetColumnOrRowDeleteHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
+                                                                        final SpreadsheetName name,
+                                                                        final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetColumnOrRowDeleteHistoryHashToken.with(
                 id,
                 name,

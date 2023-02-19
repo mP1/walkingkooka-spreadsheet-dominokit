@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.gwtproject.editor.shaded.afu.org.checkerframework.checker.oigj.qual.O;
 import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
@@ -46,7 +45,7 @@ public abstract class HistoryHashTokenTokenTestCase<T extends HistoryHashToken> 
 
     @Test
     public final void testEqualsDifferentTypeSameUrgent() {
-        final T token = this.createSpreadsheetHistoryHashToken();
+        final T token = this.createHistoryHashToken();
 
         this.checkNotEquals(
                 token,
@@ -61,7 +60,7 @@ public abstract class HistoryHashTokenTokenTestCase<T extends HistoryHashToken> 
 
     final void urlFragmentAndCheck(final String expected) {
         this.urlFragmentAndCheck(
-                this.createSpreadsheetHistoryHashToken(),
+                this.createHistoryHashToken(),
                 expected
         );
     }
@@ -74,11 +73,11 @@ public abstract class HistoryHashTokenTokenTestCase<T extends HistoryHashToken> 
         );
     }
 
-    abstract T createSpreadsheetHistoryHashToken();
+    abstract T createHistoryHashToken();
 
     @Override
     public final T createObject() {
-        return this.createSpreadsheetHistoryHashToken();
+        return this.createHistoryHashToken();
     }
 
     // ClassTesting.....................................................................................................

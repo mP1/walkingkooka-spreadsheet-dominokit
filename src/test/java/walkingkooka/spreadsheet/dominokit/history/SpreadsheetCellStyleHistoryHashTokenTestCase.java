@@ -34,9 +34,9 @@ public abstract class SpreadsheetCellStyleHistoryHashTokenTestCase<T extends Spr
     }
 
     @Override
-    T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                        final SpreadsheetName name,
-                                        final SpreadsheetViewportSelection viewportSelection) {
+    T createHistoryHashToken(final SpreadsheetId id,
+                             final SpreadsheetName name,
+                             final SpreadsheetViewportSelection viewportSelection) {
         return this.createSpreadsheetHistoryHashToken(
                 id,
                 name,
