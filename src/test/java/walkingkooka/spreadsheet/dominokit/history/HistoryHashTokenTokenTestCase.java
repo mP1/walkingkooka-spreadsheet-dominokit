@@ -17,16 +17,46 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.gwtproject.editor.shaded.afu.org.checkerframework.checker.oigj.qual.O;
+import org.junit.jupiter.api.Test;
+import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public abstract class HistoryHashTokenTokenTestCase<T extends HistoryHashToken> implements ClassTesting<T>, ToStringTesting {
+public abstract class HistoryHashTokenTokenTestCase<T extends HistoryHashToken> implements ClassTesting<T>, HashCodeEqualsDefinedTesting2<T>, ToStringTesting {
 
     HistoryHashTokenTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testEqualsDifferentType() {
+        this.checkNotEquals(
+                new HistoryHashToken() {
+                    @Override
+                    public UrlFragment urlFragment() {
+                        return UrlFragment.SLASH;
+                    }
+                }
+        );
+    }
+
+    @Test
+    public final void testEqualsDifferentTypeSameUrgent() {
+        final T token = this.createSpreadsheetHistoryHashToken();
+
+        this.checkNotEquals(
+                token,
+                new HistoryHashToken() {
+                    @Override
+                    public UrlFragment urlFragment() {
+                        return token.urlFragment();
+                    }
+                }
+        );
     }
 
     final void urlFragmentAndCheck(final String expected) {
@@ -45,6 +75,11 @@ public abstract class HistoryHashTokenTokenTestCase<T extends HistoryHashToken> 
     }
 
     abstract T createSpreadsheetHistoryHashToken();
+
+    @Override
+    public final T createObject() {
+        return this.createSpreadsheetHistoryHashToken();
+    }
 
     // ClassTesting.....................................................................................................
 
