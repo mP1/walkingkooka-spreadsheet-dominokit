@@ -43,7 +43,7 @@ public abstract class SpreadsheetLabelMappingHistoryHashTokenTestCase<T extends 
         );
     }
 
-    final T createSpreadsheetHistoryHashToken() {
+    final T createHistoryHashToken() {
         return this.createSpreadsheetHistoryHashToken(
                 ID,
                 NAME,

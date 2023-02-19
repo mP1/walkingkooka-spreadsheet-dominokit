@@ -42,7 +42,7 @@ public abstract class SpreadsheetColumnOrRowHistoryHashTokenTestCase<T extends S
     final void urlFragmentAndCheck(final SpreadsheetColumnOrRowReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createSpreadsheetHistoryHashToken(
+                this.createHistoryHashToken(
                         reference.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                 ),
                 expected
@@ -52,7 +52,7 @@ public abstract class SpreadsheetColumnOrRowHistoryHashTokenTestCase<T extends S
     final void urlFragmentAndCheck(final SpreadsheetColumnReferenceRange reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createSpreadsheetHistoryHashToken(
+                this.createHistoryHashToken(
                         reference.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                 ),
                 expected
@@ -62,15 +62,15 @@ public abstract class SpreadsheetColumnOrRowHistoryHashTokenTestCase<T extends S
     final void urlFragmentAndCheck(final SpreadsheetRowReferenceRange reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createSpreadsheetHistoryHashToken(
+                this.createHistoryHashToken(
                         reference.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                 ),
                 expected
         );
     }
 
-    final T createSpreadsheetHistoryHashToken() {
-        return this.createSpreadsheetHistoryHashToken(
+    final T createHistoryHashToken() {
+        return this.createHistoryHashToken(
                 COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
         );
     }

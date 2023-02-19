@@ -30,7 +30,7 @@ public abstract class SpreadsheetViewportSelectionHistoryHashTokenTestCase<T ext
     final void urlFragmentAndCheck(final SpreadsheetViewportSelection viewportSelection,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createSpreadsheetHistoryHashToken(
+                this.createHistoryHashToken(
                         ID,
                         NAME,
                         viewportSelection
@@ -39,15 +39,15 @@ public abstract class SpreadsheetViewportSelectionHistoryHashTokenTestCase<T ext
         );
     }
 
-    final T createSpreadsheetHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
-        return this.createSpreadsheetHistoryHashToken(
+    final T createHistoryHashToken(final SpreadsheetViewportSelection viewportSelection) {
+        return this.createHistoryHashToken(
                 ID,
                 NAME,
                 viewportSelection
         );
     }
 
-    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
-                                                 final SpreadsheetViewportSelection viewportSelection);
+    abstract T createHistoryHashToken(final SpreadsheetId id,
+                                      final SpreadsheetName name,
+                                      final SpreadsheetViewportSelection viewportSelection);
 }
