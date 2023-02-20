@@ -19,9 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
-
-import java.util.Objects;
 
 public final class SpreadsheetLoadHistoryHashToken extends SpreadsheetHistoryHashToken {
 
