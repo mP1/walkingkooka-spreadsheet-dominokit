@@ -92,7 +92,7 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
                                                                          final SpreadsheetName name,
                                                                          final SpreadsheetViewportSelection viewportSelection,
                                                                          final SpreadsheetFormula formula) {
-        return SpreadsheetCellFormulaSaveHistoryHashToken.formulaSave(
+        return SpreadsheetCellFormulaSaveHistoryHashToken.with(
                 id,
                 name,
                 viewportSelection,
