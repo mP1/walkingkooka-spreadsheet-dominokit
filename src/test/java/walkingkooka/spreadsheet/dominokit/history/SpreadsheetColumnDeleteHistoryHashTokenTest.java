@@ -23,44 +23,28 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public final class SpreadsheetColumnOrRowMenuHistoryHashTokenTest extends SpreadsheetColumnOrRowHistoryHashTokenTestCase<SpreadsheetColumnOrRowMenuHistoryHashToken> {
+public final class SpreadsheetColumnDeleteHistoryHashTokenTest extends SpreadsheetColumnHistoryHashTokenTestCase<SpreadsheetColumnDeleteHistoryHashToken> {
 
     @Test
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
                 COLUMN,
-                "/123/SpreadsheetName456/column/A/menu");
+                "/123/SpreadsheetName456/column/A/delete");
     }
 
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/B:C/right/menu"
-        );
-    }
-
-    @Test
-    public void testUrlFragmentRow() {
-        this.urlFragmentAndCheck(
-                ROW,
-                "/123/SpreadsheetName456/row/1/menu"
-        );
-    }
-
-    @Test
-    public void testUrlFragmentRowRange() {
-        this.urlFragmentAndCheck(
-                ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/2:3/bottom/menu"
+                "/123/SpreadsheetName456/column/B:C/right/delete"
         );
     }
 
     @Override
-    SpreadsheetColumnOrRowMenuHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
-                                                                      final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowMenuHistoryHashToken.with(
+    SpreadsheetColumnDeleteHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnDeleteHistoryHashToken.with(
                 id,
                 name,
                 viewportSelection
@@ -68,7 +52,7 @@ public final class SpreadsheetColumnOrRowMenuHistoryHashTokenTest extends Spread
     }
 
     @Override
-    public Class<SpreadsheetColumnOrRowMenuHistoryHashToken> type() {
-        return SpreadsheetColumnOrRowMenuHistoryHashToken.class;
+    public Class<SpreadsheetColumnDeleteHistoryHashToken> type() {
+        return SpreadsheetColumnDeleteHistoryHashToken.class;
     }
 }

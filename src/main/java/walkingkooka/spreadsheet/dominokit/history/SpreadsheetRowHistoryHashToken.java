@@ -20,27 +20,23 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-public abstract class SpreadsheetLabelMappingHistoryHashToken extends SpreadsheetSelectionHistoryHashToken {
+abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewportSelectionHistoryHashToken {
 
-    SpreadsheetLabelMappingHistoryHashToken(final SpreadsheetId id,
-                                            final SpreadsheetName name) {
+    SpreadsheetRowHistoryHashToken(final SpreadsheetId id,
+                                   final SpreadsheetName name,
+                                   final SpreadsheetViewportSelection viewportSelection) {
         super(
                 id,
-                name
+                name,
+                viewportSelection
         );
     }
 
-    /**
-     * /label/$label...
-     */
-    @Override final UrlFragment selectionUrlFragment() {
-        return LABEL.append(UrlFragment.with(this.labelName().value()))
-                .append(this.labelUrlFragment());
+    @Override final UrlFragment selectionViewportUrlFragment() {
+        return this.rowUrlFragment();
     }
 
-    abstract SpreadsheetLabelName labelName();
-
-    abstract UrlFragment labelUrlFragment();
+    abstract UrlFragment rowUrlFragment();
 }

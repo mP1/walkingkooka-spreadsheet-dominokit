@@ -22,21 +22,21 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-public class SpreadsheetColumnOrRowFreezeHistoryHashToken extends SpreadsheetColumnOrRowHistoryHashToken {
+public class SpreadsheetRowDeleteHistoryHashToken extends SpreadsheetRowHistoryHashToken {
 
-    static SpreadsheetColumnOrRowFreezeHistoryHashToken with(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
-                                                             final SpreadsheetViewportSelection viewportSelection) {
-        return new SpreadsheetColumnOrRowFreezeHistoryHashToken(
+    static SpreadsheetRowDeleteHistoryHashToken with(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final SpreadsheetViewportSelection viewportSelection) {
+        return new SpreadsheetRowDeleteHistoryHashToken(
                 id,
                 name,
                 viewportSelection
         );
     }
 
-    private SpreadsheetColumnOrRowFreezeHistoryHashToken(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
-                                                         final SpreadsheetViewportSelection viewportSelection) {
+    private SpreadsheetRowDeleteHistoryHashToken(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final SpreadsheetViewportSelection viewportSelection) {
         super(
                 id,
                 name,
@@ -45,7 +45,7 @@ public class SpreadsheetColumnOrRowFreezeHistoryHashToken extends SpreadsheetCol
     }
 
     @Override
-    UrlFragment columnOrRowUrlFragment() {
-        return FREEZE;
+    UrlFragment rowUrlFragment() {
+        return DELETE;
     }
 }

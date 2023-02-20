@@ -22,21 +22,21 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-public class SpreadsheetColumnOrRowUnfreezeHistoryHashToken extends SpreadsheetColumnOrRowHistoryHashToken {
+public class SpreadsheetRowUnfreezeHistoryHashToken extends SpreadsheetRowHistoryHashToken {
 
-    static SpreadsheetColumnOrRowUnfreezeHistoryHashToken with(final SpreadsheetId id,
-                                                               final SpreadsheetName name,
-                                                               final SpreadsheetViewportSelection viewportSelection) {
-        return new SpreadsheetColumnOrRowUnfreezeHistoryHashToken(
+    static SpreadsheetRowUnfreezeHistoryHashToken with(final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final SpreadsheetViewportSelection viewportSelection) {
+        return new SpreadsheetRowUnfreezeHistoryHashToken(
                 id,
                 name,
                 viewportSelection
         );
     }
 
-    private SpreadsheetColumnOrRowUnfreezeHistoryHashToken(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
-                                                           final SpreadsheetViewportSelection viewportSelection) {
+    private SpreadsheetRowUnfreezeHistoryHashToken(final SpreadsheetId id,
+                                                   final SpreadsheetName name,
+                                                   final SpreadsheetViewportSelection viewportSelection) {
         super(
                 id,
                 name,
@@ -45,7 +45,7 @@ public class SpreadsheetColumnOrRowUnfreezeHistoryHashToken extends SpreadsheetC
     }
 
     @Override
-    UrlFragment columnOrRowUrlFragment() {
+    UrlFragment rowUrlFragment() {
         return UNFREEZE;
     }
 }

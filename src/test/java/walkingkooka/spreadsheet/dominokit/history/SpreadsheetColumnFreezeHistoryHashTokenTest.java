@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public final class SpreadsheetColumnOrRowFreezeHistoryHashTokenTest extends SpreadsheetColumnOrRowHistoryHashTokenTestCase<SpreadsheetColumnOrRowFreezeHistoryHashToken> {
+public final class SpreadsheetColumnFreezeHistoryHashTokenTest extends SpreadsheetColumnHistoryHashTokenTestCase<SpreadsheetColumnFreezeHistoryHashToken> {
 
     @Test
     public void testUrlFragmentColumn() {
@@ -40,27 +40,11 @@ public final class SpreadsheetColumnOrRowFreezeHistoryHashTokenTest extends Spre
         );
     }
 
-    @Test
-    public void testUrlFragmentRow() {
-        this.urlFragmentAndCheck(
-                ROW,
-                "/123/SpreadsheetName456/row/1/freeze"
-        );
-    }
-
-    @Test
-    public void testUrlFragmentRowRange() {
-        this.urlFragmentAndCheck(
-                ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/2:3/bottom/freeze"
-        );
-    }
-
     @Override
-    SpreadsheetColumnOrRowFreezeHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
-                                                                        final SpreadsheetName name,
-                                                                        final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowFreezeHistoryHashToken.with(
+    SpreadsheetColumnFreezeHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnFreezeHistoryHashToken.with(
                 id,
                 name,
                 viewportSelection
@@ -68,7 +52,7 @@ public final class SpreadsheetColumnOrRowFreezeHistoryHashTokenTest extends Spre
     }
 
     @Override
-    public Class<SpreadsheetColumnOrRowFreezeHistoryHashToken> type() {
-        return SpreadsheetColumnOrRowFreezeHistoryHashToken.class;
+    public Class<SpreadsheetColumnFreezeHistoryHashToken> type() {
+        return SpreadsheetColumnFreezeHistoryHashToken.class;
     }
 }

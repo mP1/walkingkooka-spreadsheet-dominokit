@@ -22,21 +22,11 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-public class SpreadsheetColumnOrRowSelectHistoryHashToken extends SpreadsheetColumnOrRowHistoryHashToken {
+abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewportSelectionHistoryHashToken {
 
-    static SpreadsheetColumnOrRowSelectHistoryHashToken with(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
-                                                             final SpreadsheetViewportSelection viewportSelection) {
-        return new SpreadsheetColumnOrRowSelectHistoryHashToken(
-                id,
-                name,
-                viewportSelection
-        );
-    }
-
-    private SpreadsheetColumnOrRowSelectHistoryHashToken(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
-                                                         final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetColumnHistoryHashToken(final SpreadsheetId id,
+                                      final SpreadsheetName name,
+                                      final SpreadsheetViewportSelection viewportSelection) {
         super(
                 id,
                 name,
@@ -44,8 +34,9 @@ public class SpreadsheetColumnOrRowSelectHistoryHashToken extends SpreadsheetCol
         );
     }
 
-    @Override
-    UrlFragment columnOrRowUrlFragment() {
-        return SELECT;
+    @Override final UrlFragment selectionViewportUrlFragment() {
+        return this.columnUrlFragment();
     }
+
+    abstract UrlFragment columnUrlFragment();
 }
