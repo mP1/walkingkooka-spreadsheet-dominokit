@@ -23,28 +23,13 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public final class SpreadsheetColumnOrRowUnfreezeHistoryHashTokenTest extends SpreadsheetColumnOrRowHistoryHashTokenTestCase<SpreadsheetColumnOrRowUnfreezeHistoryHashToken> {
-
-    @Test
-    public void testUrlFragmentColumn() {
-        this.urlFragmentAndCheck(
-                COLUMN,
-                "/123/SpreadsheetName456/column/A/unfreeze");
-    }
-
-    @Test
-    public void testUrlFragmentColumnRange() {
-        this.urlFragmentAndCheck(
-                COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/B:C/right/unfreeze"
-        );
-    }
+public final class SpreadsheetRowMenuHistoryHashTokenTest extends SpreadsheetRowHistoryHashTokenTestCase<SpreadsheetRowMenuHistoryHashToken> {
 
     @Test
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
                 ROW,
-                "/123/SpreadsheetName456/row/1/unfreeze"
+                "/123/SpreadsheetName456/row/1/menu"
         );
     }
 
@@ -52,15 +37,15 @@ public final class SpreadsheetColumnOrRowUnfreezeHistoryHashTokenTest extends Sp
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
                 ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/2:3/bottom/unfreeze"
+                "/123/SpreadsheetName456/row/2:3/bottom/menu"
         );
     }
 
     @Override
-    SpreadsheetColumnOrRowUnfreezeHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
-                                                                          final SpreadsheetName name,
-                                                                          final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowUnfreezeHistoryHashToken.with(
+    SpreadsheetRowMenuHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
+                                                              final SpreadsheetName name,
+                                                              final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetRowMenuHistoryHashToken.with(
                 id,
                 name,
                 viewportSelection
@@ -68,7 +53,7 @@ public final class SpreadsheetColumnOrRowUnfreezeHistoryHashTokenTest extends Sp
     }
 
     @Override
-    public Class<SpreadsheetColumnOrRowUnfreezeHistoryHashToken> type() {
-        return SpreadsheetColumnOrRowUnfreezeHistoryHashToken.class;
+    public Class<SpreadsheetRowMenuHistoryHashToken> type() {
+        return SpreadsheetRowMenuHistoryHashToken.class;
     }
 }

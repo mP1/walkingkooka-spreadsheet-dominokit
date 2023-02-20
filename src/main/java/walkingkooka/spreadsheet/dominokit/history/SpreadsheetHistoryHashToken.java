@@ -228,77 +228,77 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     }
 
     /**
-     * {@see SpreadsheetColumnOrRowSelectHistoryHashToken}
+     * {@see SpreadsheetColumnSelectHistoryHashToken}
      */
-    public static SpreadsheetColumnOrRowSelectHistoryHashToken columnOrRow(final SpreadsheetId id,
+    public static SpreadsheetColumnSelectHistoryHashToken column(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnSelectHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetColumnClearHistoryHashToken}
+     */
+    public static SpreadsheetColumnClearHistoryHashToken columnClear(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnClearHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetColumnDeleteHistoryHashToken}
+     */
+    public static SpreadsheetColumnDeleteHistoryHashToken columnDelete(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnDeleteHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetColumnFreezeHistoryHashToken}
+     */
+    public static SpreadsheetColumnFreezeHistoryHashToken columnFreeze(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnFreezeHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetColumnMenuHistoryHashToken}
+     */
+    public static SpreadsheetColumnMenuHistoryHashToken columnMenu(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnMenuHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetColumnUnfreezeHistoryHashToken}
+     */
+    public static SpreadsheetColumnUnfreezeHistoryHashToken columnUnfreeze(final SpreadsheetId id,
                                                                            final SpreadsheetName name,
                                                                            final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowSelectHistoryHashToken.with(
-                id,
-                name,
-                viewportSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetColumnOrRowClearHistoryHashToken}
-     */
-    public static SpreadsheetColumnOrRowClearHistoryHashToken columnOrRowClear(final SpreadsheetId id,
-                                                                               final SpreadsheetName name,
-                                                                               final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowClearHistoryHashToken.with(
-                id,
-                name,
-                viewportSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetColumnOrRowDeleteHistoryHashToken}
-     */
-    public static SpreadsheetColumnOrRowDeleteHistoryHashToken columnOrRowDelete(final SpreadsheetId id,
-                                                                                 final SpreadsheetName name,
-                                                                                 final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowDeleteHistoryHashToken.with(
-                id,
-                name,
-                viewportSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetColumnOrRowFreezeHistoryHashToken}
-     */
-    public static SpreadsheetColumnOrRowFreezeHistoryHashToken columnOrRowFreeze(final SpreadsheetId id,
-                                                                                 final SpreadsheetName name,
-                                                                                 final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowFreezeHistoryHashToken.with(
-                id,
-                name,
-                viewportSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetColumnOrRowMenuHistoryHashToken}
-     */
-    public static SpreadsheetColumnOrRowMenuHistoryHashToken columnOrRowMenu(final SpreadsheetId id,
-                                                                             final SpreadsheetName name,
-                                                                             final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowMenuHistoryHashToken.with(
-                id,
-                name,
-                viewportSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetColumnOrRowUnfreezeHistoryHashToken}
-     */
-    public static SpreadsheetColumnOrRowUnfreezeHistoryHashToken columnOrRowUnfreeze(final SpreadsheetId id,
-                                                                                     final SpreadsheetName name,
-                                                                                     final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowUnfreezeHistoryHashToken.with(
+        return SpreadsheetColumnUnfreezeHistoryHashToken.with(
                 id,
                 name,
                 viewportSelection
@@ -341,6 +341,84 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
                 id,
                 name,
                 mapping
+        );
+    }
+
+    /**
+     * {@see SpreadsheetRowSelectHistoryHashToken}
+     */
+    public static SpreadsheetRowSelectHistoryHashToken row(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetRowSelectHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetRowClearHistoryHashToken}
+     */
+    public static SpreadsheetRowClearHistoryHashToken rowClear(final SpreadsheetId id,
+                                                               final SpreadsheetName name,
+                                                               final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetRowClearHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetRowDeleteHistoryHashToken}
+     */
+    public static SpreadsheetRowDeleteHistoryHashToken rowDelete(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetRowDeleteHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetRowFreezeHistoryHashToken}
+     */
+    public static SpreadsheetRowFreezeHistoryHashToken rowFreeze(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetRowFreezeHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetRowMenuHistoryHashToken}
+     */
+    public static SpreadsheetRowMenuHistoryHashToken rowMenu(final SpreadsheetId id,
+                                                             final SpreadsheetName name,
+                                                             final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetRowMenuHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetRowUnfreezeHistoryHashToken}
+     */
+    public static SpreadsheetRowUnfreezeHistoryHashToken rowUnfreeze(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetRowUnfreezeHistoryHashToken.with(
+                id,
+                name,
+                viewportSelection
         );
     }
 

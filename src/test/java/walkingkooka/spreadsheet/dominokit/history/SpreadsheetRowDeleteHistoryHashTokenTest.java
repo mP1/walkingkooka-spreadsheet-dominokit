@@ -23,22 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public final class SpreadsheetColumnOrRowDeleteHistoryHashTokenTest extends SpreadsheetColumnOrRowHistoryHashTokenTestCase<SpreadsheetColumnOrRowDeleteHistoryHashToken> {
-
-    @Test
-    public void testUrlFragmentColumn() {
-        this.urlFragmentAndCheck(
-                COLUMN,
-                "/123/SpreadsheetName456/column/A/delete");
-    }
-
-    @Test
-    public void testUrlFragmentColumnRange() {
-        this.urlFragmentAndCheck(
-                COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/B:C/right/delete"
-        );
-    }
+public final class SpreadsheetRowDeleteHistoryHashTokenTest extends SpreadsheetRowHistoryHashTokenTestCase<SpreadsheetRowDeleteHistoryHashToken> {
 
     @Test
     public void testUrlFragmentRow() {
@@ -57,10 +42,10 @@ public final class SpreadsheetColumnOrRowDeleteHistoryHashTokenTest extends Spre
     }
 
     @Override
-    SpreadsheetColumnOrRowDeleteHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
-                                                                        final SpreadsheetName name,
-                                                                        final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowDeleteHistoryHashToken.with(
+    SpreadsheetRowDeleteHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
+                                                                final SpreadsheetName name,
+                                                                final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetRowDeleteHistoryHashToken.with(
                 id,
                 name,
                 viewportSelection
@@ -68,7 +53,7 @@ public final class SpreadsheetColumnOrRowDeleteHistoryHashTokenTest extends Spre
     }
 
     @Override
-    public Class<SpreadsheetColumnOrRowDeleteHistoryHashToken> type() {
-        return SpreadsheetColumnOrRowDeleteHistoryHashToken.class;
+    public Class<SpreadsheetRowDeleteHistoryHashToken> type() {
+        return SpreadsheetRowDeleteHistoryHashToken.class;
     }
 }

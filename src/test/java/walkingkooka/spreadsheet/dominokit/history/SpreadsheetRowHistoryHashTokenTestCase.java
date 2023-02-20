@@ -17,39 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public abstract class SpreadsheetColumnOrRowHistoryHashTokenTestCase<T extends SpreadsheetColumnOrRowHistoryHashToken> extends SpreadsheetViewportSelectionHistoryHashTokenTestCase<T> {
-
-    final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("A");
-
-    final static SpreadsheetColumnReferenceRange COLUMN_RANGE = SpreadsheetSelection.parseColumnRange("B:C");
+public abstract class SpreadsheetRowHistoryHashTokenTestCase<T extends SpreadsheetRowHistoryHashToken> extends SpreadsheetViewportSelectionHistoryHashTokenTestCase<T> {
 
     final static SpreadsheetRowReference ROW = SpreadsheetSelection.parseRow("1");
 
     final static SpreadsheetRowReferenceRange ROW_RANGE = SpreadsheetSelection.parseRowRange("2:3");
 
-    SpreadsheetColumnOrRowHistoryHashTokenTestCase() {
+    SpreadsheetRowHistoryHashTokenTestCase() {
         super();
     }
 
-    final void urlFragmentAndCheck(final SpreadsheetColumnOrRowReference reference,
-                                   final String expected) {
-        this.urlFragmentAndCheck(
-                this.createHistoryHashToken(
-                        reference.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
-                ),
-                expected
-        );
-    }
-
-    final void urlFragmentAndCheck(final SpreadsheetColumnReferenceRange reference,
+    final void urlFragmentAndCheck(final SpreadsheetRowReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
                 this.createHistoryHashToken(
@@ -71,7 +54,7 @@ public abstract class SpreadsheetColumnOrRowHistoryHashTokenTestCase<T extends S
 
     final T createHistoryHashToken() {
         return this.createHistoryHashToken(
-                COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
         );
     }
 }

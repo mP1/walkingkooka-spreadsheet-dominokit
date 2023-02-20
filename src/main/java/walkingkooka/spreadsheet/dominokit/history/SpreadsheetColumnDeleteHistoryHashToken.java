@@ -22,21 +22,21 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-public class SpreadsheetColumnOrRowClearHistoryHashToken extends SpreadsheetColumnOrRowHistoryHashToken {
+public class SpreadsheetColumnDeleteHistoryHashToken extends SpreadsheetColumnHistoryHashToken {
 
-    static SpreadsheetColumnOrRowClearHistoryHashToken with(final SpreadsheetId id,
-                                                            final SpreadsheetName name,
-                                                            final SpreadsheetViewportSelection viewportSelection) {
-        return new SpreadsheetColumnOrRowClearHistoryHashToken(
+    static SpreadsheetColumnDeleteHistoryHashToken with(final SpreadsheetId id,
+                                                        final SpreadsheetName name,
+                                                        final SpreadsheetViewportSelection viewportSelection) {
+        return new SpreadsheetColumnDeleteHistoryHashToken(
                 id,
                 name,
                 viewportSelection
         );
     }
 
-    private SpreadsheetColumnOrRowClearHistoryHashToken(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final SpreadsheetViewportSelection viewportSelection) {
+    private SpreadsheetColumnDeleteHistoryHashToken(final SpreadsheetId id,
+                                                    final SpreadsheetName name,
+                                                    final SpreadsheetViewportSelection viewportSelection) {
         super(
                 id,
                 name,
@@ -45,7 +45,7 @@ public class SpreadsheetColumnOrRowClearHistoryHashToken extends SpreadsheetColu
     }
 
     @Override
-    UrlFragment columnOrRowUrlFragment() {
-        return CLEAR;
+    UrlFragment columnUrlFragment() {
+        return DELETE;
     }
 }

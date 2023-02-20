@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public final class SpreadsheetColumnOrRowSelectHistoryHashTokenTest extends SpreadsheetColumnOrRowHistoryHashTokenTestCase<SpreadsheetColumnOrRowSelectHistoryHashToken> {
+public final class SpreadsheetColumnSelectHistoryHashTokenTest extends SpreadsheetColumnHistoryHashTokenTestCase<SpreadsheetColumnSelectHistoryHashToken> {
 
     @Test
     public void testUrlFragmentColumn() {
@@ -40,27 +40,11 @@ public final class SpreadsheetColumnOrRowSelectHistoryHashTokenTest extends Spre
         );
     }
 
-    @Test
-    public void testUrlFragmentRow() {
-        this.urlFragmentAndCheck(
-                ROW,
-                "/123/SpreadsheetName456/row/1"
-        );
-    }
-
-    @Test
-    public void testUrlFragmentRowRange() {
-        this.urlFragmentAndCheck(
-                ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/2:3/bottom"
-        );
-    }
-
     @Override
-    SpreadsheetColumnOrRowSelectHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
-                                                                        final SpreadsheetName name,
-                                                                        final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetColumnOrRowSelectHistoryHashToken.with(
+    SpreadsheetColumnSelectHistoryHashToken createHistoryHashToken(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetColumnSelectHistoryHashToken.with(
                 id,
                 name,
                 viewportSelection
@@ -68,7 +52,7 @@ public final class SpreadsheetColumnOrRowSelectHistoryHashTokenTest extends Spre
     }
 
     @Override
-    public Class<SpreadsheetColumnOrRowSelectHistoryHashToken> type() {
-        return SpreadsheetColumnOrRowSelectHistoryHashToken.class;
+    public Class<SpreadsheetColumnSelectHistoryHashToken> type() {
+        return SpreadsheetColumnSelectHistoryHashToken.class;
     }
 }
