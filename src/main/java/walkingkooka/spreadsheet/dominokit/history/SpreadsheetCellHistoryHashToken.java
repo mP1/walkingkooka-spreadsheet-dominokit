@@ -58,7 +58,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    final HistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+    final SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         return cellStyle(
                 this.id(),
                 this.name(),
@@ -68,8 +68,8 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    final <T> HistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
-                                         final T propertyValue) {
+    final <T> SpreadsheetViewportSelectionHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
+                                                                     final T propertyValue) {
         return cellStyleSave(
                 this.id(),
                 this.name(),
