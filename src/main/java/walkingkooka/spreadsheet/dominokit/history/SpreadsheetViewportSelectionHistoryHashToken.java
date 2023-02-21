@@ -51,6 +51,10 @@ public abstract class SpreadsheetViewportSelectionHistoryHashToken extends Sprea
 
     abstract UrlFragment selectionViewportUrlFragment();
 
+    /**
+     * Creates a clear {@link HistoryHashToken}.
+     */
+    abstract SpreadsheetViewportSelectionHistoryHashToken clear();
 
     /**
      * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name.
