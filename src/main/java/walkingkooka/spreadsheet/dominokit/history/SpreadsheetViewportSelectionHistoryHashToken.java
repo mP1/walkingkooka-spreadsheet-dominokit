@@ -67,6 +67,11 @@ public abstract class SpreadsheetViewportSelectionHistoryHashToken extends Sprea
     abstract SpreadsheetViewportSelectionHistoryHashToken freeze();
 
     /**
+     * Creates a menu {@link HistoryHashToken}.
+     */
+    abstract SpreadsheetViewportSelectionHistoryHashToken menu();
+
+    /**
      * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name.
      */
     abstract SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName);
