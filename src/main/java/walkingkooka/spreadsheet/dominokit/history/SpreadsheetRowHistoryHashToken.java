@@ -51,14 +51,15 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
         );
     }
 
+
     @Override
-    final SpreadsheetHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+    final SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    final <T> SpreadsheetHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
-                                                    final T propertyValue) {
+    final <T> SpreadsheetViewportSelectionHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
+                                                                     final T propertyValue) {
         throw new UnsupportedOperationException();
     }
 }

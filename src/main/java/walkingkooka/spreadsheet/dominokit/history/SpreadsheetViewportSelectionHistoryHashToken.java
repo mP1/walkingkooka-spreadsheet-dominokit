@@ -59,11 +59,11 @@ public abstract class SpreadsheetViewportSelectionHistoryHashToken extends Sprea
     /**
      * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name.
      */
-    abstract HistoryHashToken style(final TextStylePropertyName<?> propertyName);
+    abstract SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName);
 
     /**
      * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name and value.
      */
-    abstract <T> HistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
-                                            final T propertyValue);
+    abstract <T> SpreadsheetViewportSelectionHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
+                                                                        final T propertyValue);
 }
