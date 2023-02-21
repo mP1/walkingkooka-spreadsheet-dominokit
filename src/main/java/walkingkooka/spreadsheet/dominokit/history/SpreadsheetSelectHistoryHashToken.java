@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 import java.util.Objects;
 
@@ -49,5 +51,37 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetHistoryH
     @Override
     UrlFragment spreadsheetUrlFragment() {
         return this.name.urlFragment();
+    }
+
+    SpreadsheetViewportSelectionHistoryHashToken cell(final SpreadsheetViewportSelection viewportSelection) {
+        return cell(
+                this.id(),
+                this.name(),
+                viewportSelection
+        );
+    }
+
+    SpreadsheetViewportSelectionHistoryHashToken column(final SpreadsheetViewportSelection viewportSelection) {
+        return column(
+                this.id(),
+                this.name(),
+                viewportSelection
+        );
+    }
+
+    SpreadsheetLabelMappingSelectHistoryHashToken labelMapping(final SpreadsheetLabelName labelName) {
+        return labelMapping(
+                this.id(),
+                this.name(),
+                labelName
+        );
+    }
+
+    SpreadsheetViewportSelectionHistoryHashToken row(final SpreadsheetViewportSelection viewportSelection) {
+        return row(
+                this.id(),
+                this.name(),
+                viewportSelection
+        );
     }
 }
