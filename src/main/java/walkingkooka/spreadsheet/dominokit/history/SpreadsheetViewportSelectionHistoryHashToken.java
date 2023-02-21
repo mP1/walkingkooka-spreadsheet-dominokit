@@ -36,6 +36,10 @@ public abstract class SpreadsheetViewportSelectionHistoryHashToken extends Sprea
         this.viewportSelection = Objects.requireNonNull(viewportSelection, "viewportSelection");
     }
 
+    public final SpreadsheetViewportSelection viewportSelection() {
+        return this.viewportSelection;
+    }
+
     private final SpreadsheetViewportSelection viewportSelection;
 
     @Override
