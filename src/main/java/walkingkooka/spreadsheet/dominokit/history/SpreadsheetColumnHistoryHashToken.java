@@ -88,4 +88,13 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
                                                                      final T propertyValue) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    SpreadsheetViewportSelectionHistoryHashToken unfreeze() {
+        return columnUnfreeze(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
 }
