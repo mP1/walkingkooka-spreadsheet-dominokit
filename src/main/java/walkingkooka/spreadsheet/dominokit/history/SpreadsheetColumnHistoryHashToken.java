@@ -52,6 +52,15 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
+    SpreadsheetViewportSelectionHistoryHashToken delete() {
+        return columnDelete(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     final SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         throw new UnsupportedOperationException();
     }

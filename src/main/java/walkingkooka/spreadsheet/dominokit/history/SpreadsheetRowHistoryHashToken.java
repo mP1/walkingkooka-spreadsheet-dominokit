@@ -51,6 +51,14 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
         );
     }
 
+    @Override
+    SpreadsheetViewportSelectionHistoryHashToken delete() {
+        return rowDelete(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
 
     @Override
     final SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
