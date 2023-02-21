@@ -70,6 +70,15 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
     }
 
     @Override
+    SpreadsheetViewportSelectionHistoryHashToken menu() {
+        return rowMenu(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     final SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         throw new UnsupportedOperationException();
     }
