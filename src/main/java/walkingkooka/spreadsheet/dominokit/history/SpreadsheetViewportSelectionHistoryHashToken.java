@@ -81,4 +81,9 @@ public abstract class SpreadsheetViewportSelectionHistoryHashToken extends Sprea
      */
     abstract <T> SpreadsheetViewportSelectionHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
                                                                         final T propertyValue);
+
+    /**
+     * Creates a unfreeze {@link HistoryHashToken}.
+     */
+    abstract SpreadsheetViewportSelectionHistoryHashToken unfreeze();
 }

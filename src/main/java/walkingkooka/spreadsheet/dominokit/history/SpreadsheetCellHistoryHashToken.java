@@ -105,4 +105,13 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
                 propertyValue
         );
     }
+
+    @Override
+    SpreadsheetViewportSelectionHistoryHashToken unfreeze() {
+        return cellUnfreeze(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
 }
