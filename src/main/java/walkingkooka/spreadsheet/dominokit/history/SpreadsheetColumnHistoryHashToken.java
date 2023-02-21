@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewportSelectionHistoryHashToken {
 
@@ -34,9 +35,22 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
         );
     }
 
-    @Override final UrlFragment selectionViewportUrlFragment() {
+    @Override
+    final UrlFragment selectionViewportUrlFragment() {
         return this.columnUrlFragment();
     }
 
     abstract UrlFragment columnUrlFragment();
+
+
+    @Override
+    final SpreadsheetHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    final <T> SpreadsheetHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
+                                                    final T propertyValue) {
+        throw new UnsupportedOperationException();
+    }
 }

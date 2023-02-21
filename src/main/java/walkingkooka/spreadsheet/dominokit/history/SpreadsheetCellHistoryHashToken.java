@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewportSelectionHistoryHashToken {
 
@@ -46,4 +47,27 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     abstract UrlFragment cellUrlFragment();
+
+
+    @Override
+    final HistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+        return cellStyle(
+                this.id(),
+                this.name(),
+                this.viewportSelection(),
+                propertyName
+        );
+    }
+
+    @Override
+    final <T> HistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
+                                         final T propertyValue) {
+        return cellStyleSave(
+                this.id(),
+                this.name(),
+                this.viewportSelection(),
+                propertyName,
+                propertyValue
+        );
+    }
 }
