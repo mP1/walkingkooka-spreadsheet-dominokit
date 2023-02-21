@@ -67,6 +67,15 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
+    SpreadsheetViewportSelectionHistoryHashToken freeze() {
+        return cellFreeze(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     final SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         return cellStyle(
                 this.id(),
