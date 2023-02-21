@@ -42,6 +42,14 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
 
     abstract UrlFragment rowUrlFragment();
 
+    @Override
+    SpreadsheetViewportSelectionHistoryHashToken clear() {
+        return rowClear(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
 
     @Override
     final SpreadsheetHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
