@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 
@@ -60,6 +61,11 @@ public final class SpreadsheetLabelMappingDeleteHistoryHashToken extends Spreads
 
     @Override
     SpreadsheetSelectionHistoryHashToken delete() {
+        return this;
+    }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
         return this;
     }
 }

@@ -67,4 +67,9 @@ public final class SpreadsheetCellPatternSaveHistoryHashToken extends Spreadshee
                 .append(SAVE)
                 .append(pattern.urlFragment());
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
+        return this;
+    }
 }

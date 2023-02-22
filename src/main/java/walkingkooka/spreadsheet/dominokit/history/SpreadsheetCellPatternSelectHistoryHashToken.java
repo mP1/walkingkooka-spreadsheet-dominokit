@@ -64,4 +64,16 @@ public final class SpreadsheetCellPatternSelectHistoryHashToken extends Spreadsh
                 .urlFragment()
                 .append(SELECT);
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String pattern) {
+        final SpreadsheetPatternKind patternKind = this.patternKind();
+
+        return cellPatternSave(
+                this.id(),
+                this.name(),
+                this.viewportSelection(),
+                patternKind.parse(pattern)
+        );
+    }
 }

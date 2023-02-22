@@ -57,4 +57,9 @@ public final class SpreadsheetCellSelectHistoryHashToken extends SpreadsheetCell
                 this.viewportSelection()
         );
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
+        return this;
+    }
 }

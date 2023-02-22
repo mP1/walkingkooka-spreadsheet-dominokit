@@ -53,4 +53,9 @@ public final class SpreadsheetCellUnfreezeHistoryHashToken extends SpreadsheetCe
     SpreadsheetSelectionHistoryHashToken formula() {
         return this;
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
+        return this;
+    }
 }

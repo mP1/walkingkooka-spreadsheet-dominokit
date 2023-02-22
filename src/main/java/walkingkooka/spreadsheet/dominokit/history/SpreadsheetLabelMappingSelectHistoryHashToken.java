@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 
@@ -64,6 +65,17 @@ public final class SpreadsheetLabelMappingSelectHistoryHashToken extends Spreads
                 this.id(),
                 this.name(),
                 this.labelName()
+        );
+    }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
+        return labelMappingSave(
+                this.id(),
+                this.name(),
+                this.labelName().mapping(
+                        SpreadsheetSelection.parseExpressionReference(value)
+                )
         );
     }
 }

@@ -71,12 +71,6 @@ public abstract class SpreadsheetLabelMappingHistoryHashToken extends Spreadshee
     }
 
     @Override
-    final <T> SpreadsheetHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
-                                                    final T propertyValue) {
-        return this;
-    }
-
-    @Override
     final SpreadsheetSelectionHistoryHashToken unfreeze() {
         return this;
     }
