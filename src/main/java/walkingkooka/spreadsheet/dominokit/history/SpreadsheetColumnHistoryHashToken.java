@@ -84,14 +84,13 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
-        return this; // column/A/style not currently supported
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
+        return this;
     }
 
     @Override
-    final <T> SpreadsheetHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
-                                                    final T propertyValue) {
-        throw new UnsupportedOperationException();
+    final SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+        return this; // column/A/style not currently supported
     }
 
     @Override

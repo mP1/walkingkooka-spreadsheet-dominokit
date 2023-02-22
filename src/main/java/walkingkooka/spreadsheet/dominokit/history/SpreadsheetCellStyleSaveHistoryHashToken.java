@@ -65,4 +65,9 @@ final public class SpreadsheetCellStyleSaveHistoryHashToken<T> extends Spreadshe
                 UrlFragment.with(String.valueOf(this.propertyValue()))
         );
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
+        return this;
+    }
 }

@@ -74,15 +74,14 @@ abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetHi
     abstract SpreadsheetSelectionHistoryHashToken menu();
 
     /**
+     * Creates a save {@link HistoryHashToken} after attempting to parse the value..
+     */
+    abstract SpreadsheetSelectionHistoryHashToken save(final String value);
+
+    /**
      * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name.
      */
     abstract SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName);
-
-    /**
-     * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name and value.
-     */
-    abstract <T> SpreadsheetHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
-                                                       final T propertyValue);
 
     /**
      * Creates a unfreeze {@link HistoryHashToken}.

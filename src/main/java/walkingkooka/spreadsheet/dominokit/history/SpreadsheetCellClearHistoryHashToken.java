@@ -53,4 +53,9 @@ public final class SpreadsheetCellClearHistoryHashToken extends SpreadsheetCellH
     SpreadsheetSelectionHistoryHashToken formula() {
         return this;
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
+        return this;
+    }
 }

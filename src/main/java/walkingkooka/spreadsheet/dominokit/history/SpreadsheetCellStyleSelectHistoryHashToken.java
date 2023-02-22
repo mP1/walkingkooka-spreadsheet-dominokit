@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -52,5 +53,20 @@ final public class SpreadsheetCellStyleSelectHistoryHashToken extends Spreadshee
     @Override
     UrlFragment styleUrlFragment() {
         return SELECT;
+    }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken save(final String value) {
+        final TextStylePropertyName<?> propertyName = this.propertyName();
+
+        return cellStyleSave(
+                this.id(),
+                this.name(),
+                this.viewportSelection(),
+                propertyName,
+                Cast.to(
+                        propertyName.parseValue(value)
+                )
+        );
     }
 }
