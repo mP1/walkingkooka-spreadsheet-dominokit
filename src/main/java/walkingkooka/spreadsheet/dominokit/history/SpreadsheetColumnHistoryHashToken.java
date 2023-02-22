@@ -43,7 +43,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     abstract UrlFragment columnUrlFragment();
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken clear() {
+    final SpreadsheetViewportSelectionHistoryHashToken clear() {
         return columnClear(
                 this.id(),
                 this.name(),
@@ -52,7 +52,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken delete() {
+    final SpreadsheetViewportSelectionHistoryHashToken delete() {
         return columnDelete(
                 this.id(),
                 this.name(),
@@ -61,7 +61,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken freeze() {
+    final SpreadsheetViewportSelectionHistoryHashToken freeze() {
         return columnFreeze(
                 this.id(),
                 this.name(),
@@ -70,7 +70,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken menu() {
+    final SpreadsheetViewportSelectionHistoryHashToken menu() {
         return columnMenu(
                 this.id(),
                 this.name(),
@@ -90,7 +90,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken unfreeze() {
+    final SpreadsheetViewportSelectionHistoryHashToken unfreeze() {
         return columnUnfreeze(
                 this.id(),
                 this.name(),

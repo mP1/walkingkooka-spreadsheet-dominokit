@@ -49,7 +49,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     abstract UrlFragment cellUrlFragment();
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken clear() {
+    final SpreadsheetViewportSelectionHistoryHashToken clear() {
         return cellClear(
                 this.id(),
                 this.name(),
@@ -58,7 +58,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken delete() {
+    final SpreadsheetViewportSelectionHistoryHashToken delete() {
         return cellDelete(
                 this.id(),
                 this.name(),
@@ -67,7 +67,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken freeze() {
+    final SpreadsheetViewportSelectionHistoryHashToken freeze() {
         return cellFreeze(
                 this.id(),
                 this.name(),
@@ -76,7 +76,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    SpreadsheetViewportSelectionHistoryHashToken menu() {
+    final SpreadsheetViewportSelectionHistoryHashToken menu() {
         return cellMenu(
                 this.id(),
                 this.name(),
