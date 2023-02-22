@@ -60,4 +60,9 @@ public final class SpreadsheetLabelMappingSaveHistoryHashToken extends Spreadshe
                 UrlFragment.with(this.mapping.reference().toString())
         );
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken delete() {
+        return this;
+    }
 }

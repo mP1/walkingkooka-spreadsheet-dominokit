@@ -50,40 +50,4 @@ public abstract class SpreadsheetViewportSelectionHistoryHashToken extends Sprea
     }
 
     abstract UrlFragment selectionViewportUrlFragment();
-
-    /**
-     * Creates a clear {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetViewportSelectionHistoryHashToken clear();
-
-    /**
-     * Creates a delete {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetViewportSelectionHistoryHashToken delete();
-
-    /**
-     * Creates a freeze {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetViewportSelectionHistoryHashToken freeze();
-
-    /**
-     * Creates a menu {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetViewportSelectionHistoryHashToken menu();
-
-    /**
-     * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name.
-     */
-    abstract SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName);
-
-    /**
-     * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name and value.
-     */
-    abstract <T> SpreadsheetViewportSelectionHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
-                                                                        final T propertyValue);
-
-    /**
-     * Creates a unfreeze {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetViewportSelectionHistoryHashToken unfreeze();
 }

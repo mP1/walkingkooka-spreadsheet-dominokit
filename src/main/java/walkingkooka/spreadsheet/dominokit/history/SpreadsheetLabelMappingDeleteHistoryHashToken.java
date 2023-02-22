@@ -57,4 +57,9 @@ public final class SpreadsheetLabelMappingDeleteHistoryHashToken extends Spreads
     UrlFragment labelUrlFragment() {
         return DELETE;
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken delete() {
+        return this;
+    }
 }

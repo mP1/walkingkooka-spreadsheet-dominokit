@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 public abstract class SpreadsheetLabelMappingHistoryHashToken extends SpreadsheetSelectionHistoryHashToken {
 
@@ -43,4 +44,35 @@ public abstract class SpreadsheetLabelMappingHistoryHashToken extends Spreadshee
     abstract SpreadsheetLabelName labelName();
 
     abstract UrlFragment labelUrlFragment();
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken clear() {
+        return this;
+    }
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken freeze() {
+        return this;
+    }
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken menu() {
+        return this;
+    }
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+        return this;
+    }
+
+    @Override
+    final <T> SpreadsheetHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
+                                                    final T propertyValue) {
+        return this;
+    }
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken unfreeze() {
+        return this;
+    }
 }
