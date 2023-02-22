@@ -61,6 +61,11 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
+    final SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
+
+    @Override
     final SpreadsheetSelectionHistoryHashToken freeze() {
         return columnFreeze(
                 this.id(),

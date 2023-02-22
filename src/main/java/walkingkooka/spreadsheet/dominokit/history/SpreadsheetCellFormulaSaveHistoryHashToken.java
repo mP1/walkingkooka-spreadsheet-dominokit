@@ -52,10 +52,6 @@ public final class SpreadsheetCellFormulaSaveHistoryHashToken extends Spreadshee
         this.formula = Objects.requireNonNull(formula, "formula");
     }
 
-    public SpreadsheetFormula formula() {
-        return this.formula;
-    }
-
     private final SpreadsheetFormula formula;
 
     @Override

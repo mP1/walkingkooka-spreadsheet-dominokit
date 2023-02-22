@@ -48,4 +48,9 @@ public final class SpreadsheetCellMenuHistoryHashToken extends SpreadsheetCellHi
     UrlFragment cellUrlFragment() {
         return MENU;
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
 }

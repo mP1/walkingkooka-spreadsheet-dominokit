@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -58,6 +57,11 @@ abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetHi
      * Creates a delete {@link HistoryHashToken}.
      */
     abstract SpreadsheetSelectionHistoryHashToken delete();
+
+    /**
+     * Creates a formula {@link HistoryHashToken}.
+     */
+    abstract SpreadsheetSelectionHistoryHashToken formula();
 
     /**
      * Creates a freeze {@link HistoryHashToken}.

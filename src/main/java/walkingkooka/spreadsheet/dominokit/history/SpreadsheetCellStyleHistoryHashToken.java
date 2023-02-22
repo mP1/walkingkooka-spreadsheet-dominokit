@@ -53,4 +53,9 @@ abstract public class SpreadsheetCellStyleHistoryHashToken extends SpreadsheetCe
     }
 
     abstract UrlFragment styleUrlFragment();
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
 }

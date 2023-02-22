@@ -48,4 +48,13 @@ public final class SpreadsheetCellSelectHistoryHashToken extends SpreadsheetCell
     UrlFragment cellUrlFragment() {
         return SELECT;
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken formula() {
+        return formula(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
 }
