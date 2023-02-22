@@ -51,6 +51,11 @@ public abstract class SpreadsheetLabelMappingHistoryHashToken extends Spreadshee
     }
 
     @Override
+    final SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
+
+    @Override
     final SpreadsheetSelectionHistoryHashToken freeze() {
         return this;
     }

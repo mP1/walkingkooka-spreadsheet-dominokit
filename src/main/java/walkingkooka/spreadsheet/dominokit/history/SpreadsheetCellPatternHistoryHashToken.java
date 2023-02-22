@@ -40,4 +40,9 @@ abstract public class SpreadsheetCellPatternHistoryHashToken extends Spreadsheet
     }
 
     abstract UrlFragment patternUrlFragment();
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
 }

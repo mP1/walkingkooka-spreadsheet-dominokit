@@ -48,4 +48,9 @@ public final class SpreadsheetCellUnfreezeHistoryHashToken extends SpreadsheetCe
     UrlFragment cellUrlFragment() {
         return UNFREEZE;
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
 }

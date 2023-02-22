@@ -43,4 +43,9 @@ abstract public class SpreadsheetCellFormulaHistoryHashToken extends Spreadsheet
             .append(UrlFragment.with("formula"));
 
     abstract UrlFragment formulaUrlFragment();
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
 }

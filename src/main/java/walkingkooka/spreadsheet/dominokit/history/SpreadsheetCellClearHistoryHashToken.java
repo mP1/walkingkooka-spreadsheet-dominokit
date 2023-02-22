@@ -48,4 +48,9 @@ public final class SpreadsheetCellClearHistoryHashToken extends SpreadsheetCellH
     UrlFragment cellUrlFragment() {
         return CLEAR;
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
 }

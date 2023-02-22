@@ -48,4 +48,9 @@ public final class SpreadsheetCellDeleteHistoryHashToken extends SpreadsheetCell
     UrlFragment cellUrlFragment() {
         return DELETE;
     }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
 }
