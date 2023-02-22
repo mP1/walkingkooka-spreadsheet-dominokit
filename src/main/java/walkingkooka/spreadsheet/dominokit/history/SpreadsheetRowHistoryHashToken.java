@@ -80,7 +80,7 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
 
     @Override
     final SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
-        throw new UnsupportedOperationException();
+        return this; // row/1/style not currently supported
     }
 
     @Override
