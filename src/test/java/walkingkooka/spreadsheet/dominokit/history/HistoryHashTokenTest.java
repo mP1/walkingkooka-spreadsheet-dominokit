@@ -1,0 +1,1102 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.history;
+
+import org.junit.jupiter.api.Test;
+import walkingkooka.color.Color;
+import walkingkooka.net.UrlFragment;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.test.ParseStringTesting;
+import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Optional;
+
+public final class HistoryHashTokenTest implements ClassTesting<HistoryHashToken>, ParseStringTesting<Optional<HistoryHashToken>> {
+
+    private final static SpreadsheetId ID = SpreadsheetId.parse("123");
+
+    private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
+
+    private static final SpreadsheetSelectHistoryHashToken SPREADSHEET_ID_SPREADSHEET_NAME_HHT = SpreadsheetHistoryHashToken.spreadsheetSelect(
+            ID,
+            NAME
+    );
+
+    private final static SpreadsheetCellReference CELL = SpreadsheetSelection.parseCell("A1");
+
+    private static final SpreadsheetCellSelectHistoryHashToken CELL_HHT = SpreadsheetHistoryHashToken.cell(
+            ID,
+            NAME,
+            CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+    );
+
+    private final static SpreadsheetCellRange CELL_RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
+
+    private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
+
+    private static final SpreadsheetLabelMappingSelectHistoryHashToken LABEL_MAPPING_HHT = SpreadsheetHistoryHashToken.labelMapping(
+            ID,
+            NAME,
+            LABEL
+    );
+
+    private final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("AA");
+
+    private final static SpreadsheetColumnReferenceRange COLUMN_RANGE = SpreadsheetSelection.parseColumnRange("BB:CC");
+
+    private final static SpreadsheetRowReference ROW = SpreadsheetSelection.parseRow("11");
+
+    private final static SpreadsheetRowReferenceRange ROW_RANGE = SpreadsheetSelection.parseRowRange("22:33");
+
+    // parse............................................................................................................
+
+    @Test
+    public void testParseEmpty() {
+        this.parseStringAndCheck(
+                ""
+        );
+    }
+
+    @Override
+    public void testParseStringEmptyFails() {
+        // nop
+    }
+
+    @Test
+    public void testParseInvalidSpreadsheetId() {
+        this.parseStringAndCheck(
+                "/XYZ"
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetId() {
+        this.parseStringAndCheck(
+                "/123",
+                SpreadsheetHistoryHashToken.spreadsheetLoad(
+                        ID
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetName() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameUnknown() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/Unknown",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    // cell.............................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellMissingReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellInvalidReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/!!!",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellInvalidReference2() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/!!!/cell/A1",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1",
+                CELL_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellInvalidAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/bottom-left",
+                CELL_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellLabel() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/Label123",
+                SpreadsheetHistoryHashToken.cell(
+                        ID,
+                        NAME,
+                        LABEL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeMissingAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3",
+                SpreadsheetHistoryHashToken.cell(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeTopLeft() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3/top-left",
+                SpreadsheetHistoryHashToken.cell(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeTopRight() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3/top-right",
+                SpreadsheetHistoryHashToken.cell(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeInvalidAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3/left",
+                SpreadsheetHistoryHashToken.cell(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellInvalidAction() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/!invalid",
+                CELL_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellClear() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/clear",
+                SpreadsheetHistoryHashToken.cellClear(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDelete() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/delete",
+                SpreadsheetHistoryHashToken.cellDelete(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/freeze",
+                SpreadsheetHistoryHashToken.cellFreeze(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellMenu() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/menu",
+                SpreadsheetHistoryHashToken.cellMenu(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/unfreeze",
+                SpreadsheetHistoryHashToken.cellUnfreeze(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeExtra() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/unfreeze/extra",
+                SpreadsheetHistoryHashToken.cellUnfreeze(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    // cell/formula.....................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormula() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/formula",
+                SpreadsheetHistoryHashToken.formula(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormulaSave() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/formula/save/=1+2",
+                SpreadsheetHistoryHashToken.formulaSave(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        SpreadsheetFormula.EMPTY.setText("=1+2")
+                )
+        );
+    }
+
+    // cell/pattern.......................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellPatternMissingPatternKind() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/pattern",
+                CELL_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellPatternInvalidPatternKind() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/pattern/!invalid",
+                CELL_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellPatternPatternKind() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/pattern/date-format",
+                SpreadsheetHistoryHashToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellPatternSaveDateFormat() {
+        final String pattern = "yyyymmdd";
+
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/pattern/date-format/save/" + pattern,
+                SpreadsheetHistoryHashToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        SpreadsheetPattern.parseDateFormatPattern("yyyymmdd")
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellPatternSaveTimeParse() {
+        final String pattern = "hh:mm:ss";
+
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/pattern/time-parse/save/" + pattern,
+                SpreadsheetHistoryHashToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        SpreadsheetPattern.parseTimeParsePattern(pattern)
+                )
+        );
+    }
+
+    // cell/style.......................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellStyleMissingStyleProperty() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/style",
+                CELL_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellStyleInvalidPropertyName() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/style/!invalid",
+                CELL_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellStyleStylePropertyName() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/style/color",
+                SpreadsheetHistoryHashToken.cellStyle(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        TextStylePropertyName.COLOR
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellStyleSave() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/style/color/save/#123456",
+                SpreadsheetHistoryHashToken.cellStyleSave(
+                        ID,
+                        NAME,
+                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        TextStylePropertyName.COLOR,
+                        Color.parse("#123456")
+                )
+        );
+    }
+
+    // column.............................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnMissingReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/!invalid",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidReference2() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/!invalid/column/A",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnColumnReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/bottom-left",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeMissingAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/BB:CC",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeLeft() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/BB:CC/left",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.LEFT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeRight() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/BB:CC/right",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeInvalidAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/BB:CC/top-left",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidAction() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/!invalid",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnClear() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/clear",
+                SpreadsheetHistoryHashToken.columnClear(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnDelete() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/delete",
+                SpreadsheetHistoryHashToken.columnDelete(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/freeze",
+                SpreadsheetHistoryHashToken.columnFreeze(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnMenu() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/menu",
+                SpreadsheetHistoryHashToken.columnMenu(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/unfreeze",
+                SpreadsheetHistoryHashToken.columnUnfreeze(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreezeExtra() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/unfreeze/extra",
+                SpreadsheetHistoryHashToken.columnUnfreeze(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnFormula() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnPattern() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/pattern/date-format/yymmdd",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnStyle() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/style",
+                SpreadsheetHistoryHashToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    // row.............................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowMissingReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/A1",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference2() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/123456789/row/1",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRowReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/bottom-left",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeMissingAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/22:33",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeTop() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/22:33/top",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeBottom() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/22:33/bottom",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeInvalidAnchor() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/22:33/top-left",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAction() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/!invalid",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowClear() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/clear",
+                SpreadsheetHistoryHashToken.rowClear(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowDelete() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/delete",
+                SpreadsheetHistoryHashToken.rowDelete(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/freeze",
+                SpreadsheetHistoryHashToken.rowFreeze(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowMenu() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/menu",
+                SpreadsheetHistoryHashToken.rowMenu(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/unfreeze",
+                SpreadsheetHistoryHashToken.rowUnfreeze(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeExtra() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/unfreeze/extra",
+                SpreadsheetHistoryHashToken.rowUnfreeze(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowFormula() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowPattern() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/pattern/date-format/yymmdd",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowStyle() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/style",
+                SpreadsheetHistoryHashToken.row(
+                        ID,
+                        NAME,
+                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    // label............................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelMissingName() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelInvalid() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/!!/cell/A1",
+                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelLabelReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelInvalidAction() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/!invalid",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelClear() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/clear",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelDelete() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/delete",
+                SpreadsheetHistoryHashToken.labelMappingDelete(
+                        ID,
+                        NAME,
+                        LABEL
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/freeze",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelMenu() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/menu",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelUnfreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/unfreeze",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelDeleteExtra() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/delete/extra",
+                SpreadsheetHistoryHashToken.labelMappingDelete(
+                        ID,
+                        NAME,
+                        LABEL
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelSaveMissingReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/save",
+                SpreadsheetHistoryHashToken.labelMapping(
+                        ID,
+                        NAME,
+                        LABEL
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelSaveInvalidReference() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/save/!invalid",
+                SpreadsheetHistoryHashToken.labelMapping(
+                        ID,
+                        NAME,
+                        LABEL
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelSaveCell() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/save/A1",
+                SpreadsheetHistoryHashToken.labelMappingSave(
+                        ID,
+                        NAME,
+                        LABEL.mapping(CELL)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelSaveCellRange() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/save/B2:C3",
+                SpreadsheetHistoryHashToken.labelMappingSave(
+                        ID,
+                        NAME,
+                        LABEL.mapping(CELL_RANGE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelSaveLabel() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/save/Label456",
+                SpreadsheetHistoryHashToken.labelMappingSave(
+                        ID,
+                        NAME,
+                        LABEL.mapping(
+                                SpreadsheetSelection.labelName("Label456")
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelFormula() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelPattern() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/pattern/date-format/yymmdd",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelStyle() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/label/Label123/style",
+                LABEL_MAPPING_HHT
+        );
+    }
+
+    // parse helpers....................................................................................................
+
+    private void parseStringAndCheck(final String urlFragment) {
+        this.parseStringAndCheck(
+                urlFragment,
+                Optional.empty()
+        );
+    }
+
+    private void parseStringAndCheck(final String urlFragment,
+                                     final HistoryHashToken expected) {
+        this.parseStringAndCheck(
+                urlFragment,
+                Optional.of(expected)
+        );
+    }
+
+    // ClassTesting.....................................................................................................
+
+    @Override
+    public Class<HistoryHashToken> type() {
+        return HistoryHashToken.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
+
+    // ClassTesting.....................................................................................................
+
+    @Override
+    public Optional<HistoryHashToken> parseString(final String urlFragment) {
+        return HistoryHashToken.parse(
+                UrlFragment.with(urlFragment)
+        );
+    }
+
+    @Override
+    public Class<? extends RuntimeException> parseStringFailedExpected(final Class<? extends RuntimeException> thrown) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
+        throw new UnsupportedOperationException();
+    }
+}

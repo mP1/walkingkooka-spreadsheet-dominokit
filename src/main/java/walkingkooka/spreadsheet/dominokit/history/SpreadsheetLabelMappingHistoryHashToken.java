@@ -17,9 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.gwtproject.editor.shaded.afu.org.checkerframework.checker.oigj.qual.O;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -62,6 +64,11 @@ public abstract class SpreadsheetLabelMappingHistoryHashToken extends Spreadshee
 
     @Override
     final SpreadsheetSelectionHistoryHashToken menu() {
+        return this;
+    }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 
