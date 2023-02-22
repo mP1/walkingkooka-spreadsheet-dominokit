@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 
@@ -56,5 +57,14 @@ public final class SpreadsheetLabelMappingSelectHistoryHashToken extends Spreads
     @Override
     UrlFragment labelUrlFragment() {
         return SELECT;
+    }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken delete() {
+        return labelMappingDelete(
+                this.id(),
+                this.name(),
+                this.labelName()
+        );
     }
 }

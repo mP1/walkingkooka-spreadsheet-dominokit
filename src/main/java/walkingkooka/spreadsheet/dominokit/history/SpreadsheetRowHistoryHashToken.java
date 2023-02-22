@@ -43,7 +43,7 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
     abstract UrlFragment rowUrlFragment();
 
     @Override
-    final SpreadsheetViewportSelectionHistoryHashToken clear() {
+    final SpreadsheetSelectionHistoryHashToken clear() {
         return rowClear(
                 this.id(),
                 this.name(),
@@ -52,7 +52,7 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
     }
 
     @Override
-    final SpreadsheetViewportSelectionHistoryHashToken delete() {
+    final SpreadsheetSelectionHistoryHashToken delete() {
         return rowDelete(
                 this.id(),
                 this.name(),
@@ -61,7 +61,7 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
     }
 
     @Override
-    final SpreadsheetViewportSelectionHistoryHashToken freeze() {
+    final SpreadsheetSelectionHistoryHashToken freeze() {
         return rowFreeze(
                 this.id(),
                 this.name(),
@@ -70,7 +70,7 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
     }
 
     @Override
-    final SpreadsheetViewportSelectionHistoryHashToken menu() {
+    final SpreadsheetSelectionHistoryHashToken menu() {
         return rowMenu(
                 this.id(),
                 this.name(),
@@ -79,18 +79,18 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
     }
 
     @Override
-    final SpreadsheetViewportSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+    final SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         return this; // row/1/style not currently supported
     }
 
     @Override
-    final <T> SpreadsheetViewportSelectionHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
-                                                                     final T propertyValue) {
+    final <T> SpreadsheetHistoryHashToken styleSave(final TextStylePropertyName<T> propertyName,
+                                                    final T propertyValue) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    final SpreadsheetViewportSelectionHistoryHashToken unfreeze() {
+    final SpreadsheetSelectionHistoryHashToken unfreeze() {
         return rowUnfreeze(
                 this.id(),
                 this.name(),
