@@ -53,7 +53,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetHistoryH
         return this.name.urlFragment();
     }
 
-    SpreadsheetViewportSelectionHistoryHashToken cell(final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetHistoryHashToken cell(final SpreadsheetViewportSelection viewportSelection) {
         return cell(
                 this.id(),
                 this.name(),
@@ -61,7 +61,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetHistoryH
         );
     }
 
-    SpreadsheetViewportSelectionHistoryHashToken column(final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetHistoryHashToken column(final SpreadsheetViewportSelection viewportSelection) {
         return column(
                 this.id(),
                 this.name(),
@@ -69,7 +69,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetHistoryH
         );
     }
 
-    SpreadsheetLabelMappingSelectHistoryHashToken labelMapping(final SpreadsheetLabelName labelName) {
+    SpreadsheetHistoryHashToken labelMapping(final SpreadsheetLabelName labelName) {
         return labelMapping(
                 this.id(),
                 this.name(),
@@ -77,7 +77,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetHistoryH
         );
     }
 
-    SpreadsheetViewportSelectionHistoryHashToken row(final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetHistoryHashToken row(final SpreadsheetViewportSelection viewportSelection) {
         return row(
                 this.id(),
                 this.name(),
