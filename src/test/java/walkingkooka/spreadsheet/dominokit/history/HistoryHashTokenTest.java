@@ -307,6 +307,30 @@ public final class HistoryHashTokenTest implements ClassTesting<HistoryHashToken
         );
     }
 
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeClear() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3/clear",
+                SpreadsheetHistoryHashToken.cellClear(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeAnchorClear() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3/top-right/clear",
+                SpreadsheetHistoryHashToken.cellClear(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_RIGHT)
+                )
+        );
+    }
+
     // cell/formula.....................................................................................................
 
     @Test
