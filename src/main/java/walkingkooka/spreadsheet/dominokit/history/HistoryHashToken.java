@@ -18,12 +18,114 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.HasUrlFragment;
+import walkingkooka.net.UrlFragment;
+import walkingkooka.predicate.character.CharPredicates;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.TextCursorSavePoint;
+import walkingkooka.text.cursor.TextCursors;
+import walkingkooka.text.cursor.parser.Parser;
+import walkingkooka.text.cursor.parser.ParserContext;
+import walkingkooka.text.cursor.parser.ParserContexts;
+import walkingkooka.text.cursor.parser.Parsers;
+import walkingkooka.text.cursor.parser.StringParserToken;
+
+import java.util.Objects;
+import java.util.Optional;
 
 public abstract class HistoryHashToken implements HasUrlFragment {
+
+    private final static int MAX_LENGTH = 8192;
+
+    public static Optional<HistoryHashToken> parse(final UrlFragment fragment) {
+        Objects.requireNonNull(fragment, "fragment");
+
+        HistoryHashToken token = null;
+
+        final TextCursor cursor = TextCursors.charSequence(fragment.value());
+
+        try {
+            final Optional<SpreadsheetLoadHistoryHashToken> spreadsheetId = parseComponent(cursor)
+                    .map(HistoryHashToken::mapSpreadsheetId);
+
+            if (spreadsheetId.isPresent()) {
+                token = spreadsheetId.get();
+                token = token.parse(cursor);
+            }
+        } catch (final RuntimeException ignore) {
+            token = null;
+        }
+
+        return Optional.ofNullable(token);
+    }
+
+    private static SpreadsheetLoadHistoryHashToken mapSpreadsheetId(final String id) {
+        return SpreadsheetHistoryHashToken.spreadsheetLoad(
+                SpreadsheetId.parse(id)
+        );
+    }
+
+    /**
+     * Consumes a path component within the {@link TextCursor}.
+     */
+    static Optional<String> parseComponent(final TextCursor cursor) {
+        return COMPONENT.parse(cursor, CONTEXT)
+                .map(p -> p.cast(StringParserToken.class)
+                        .value()
+                        .substring(1)
+                );
+    }
+
+    static String parseAll(final TextCursor cursor) {
+        final TextCursorSavePoint save = cursor.save();
+        cursor.end();
+        return save.textBetween()
+                .toString()
+                .substring(1); // drops assumed leading slash
+
+    }
+
+    /**
+     * A {@link Parser} that consumes a path component within an {@link UrlFragment}.
+     */
+    private final static Parser<ParserContext> COMPONENT = Parsers.stringInitialAndPartCharPredicate(
+            CharPredicates.is('/'),
+            CharPredicates.not(
+                    CharPredicates.is('/')
+            ),
+            1,
+            MAX_LENGTH
+    );
+
+    private final static ParserContext CONTEXT = ParserContexts.fake();
 
     HistoryHashToken() {
         super();
     }
+
+    final HistoryHashToken parse(final TextCursor cursor) {
+        HistoryHashToken result = this;
+
+        try {
+            final Optional<String> component = parseComponent(cursor);
+            if (component.isPresent()) {
+                result = result.parse0(
+                        component.get(),
+                        cursor
+                );
+
+                result = result.parse(cursor);
+            }
+        } catch (final RuntimeException ignore) {
+            result = this;
+            cursor.end();
+        }
+
+        return result;
+    }
+
+    abstract HistoryHashToken parse0(final String component,
+                                     final TextCursor cursor);
 
     // Object...........................................................................................................
 

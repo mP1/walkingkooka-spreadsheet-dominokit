@@ -66,6 +66,11 @@ public final class SpreadsheetCellPatternSelectHistoryHashToken extends Spreadsh
     }
 
     @Override
+    SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
+        return this;
+    }
+
+    @Override
     SpreadsheetSelectionHistoryHashToken save(final String pattern) {
         final SpreadsheetPatternKind patternKind = this.patternKind();
 

@@ -34,7 +34,7 @@ public abstract class HistoryHashTokenTokenTestCase<T extends HistoryHashToken> 
     @Test
     public final void testEqualsDifferentType() {
         this.checkNotEquals(
-                new HistoryHashToken() {
+                new FakeHistoryHashToken() {
                     @Override
                     public UrlFragment urlFragment() {
                         return UrlFragment.SLASH;
@@ -49,7 +49,7 @@ public abstract class HistoryHashTokenTokenTestCase<T extends HistoryHashToken> 
 
         this.checkNotEquals(
                 token,
-                new HistoryHashToken() {
+                new FakeHistoryHashToken() {
                     @Override
                     public UrlFragment urlFragment() {
                         return token.urlFragment();

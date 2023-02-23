@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public final class SpreadsheetCellSelectHistoryHashToken extends SpreadsheetCellHistoryHashToken {
@@ -55,6 +56,16 @@ public final class SpreadsheetCellSelectHistoryHashToken extends SpreadsheetCell
                 this.id(),
                 this.name(),
                 this.viewportSelection()
+        );
+    }
+
+    @Override
+    SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
+        return cellPattern(
+                this.id(),
+                this.name(),
+                this.viewportSelection(),
+                patternKind
         );
     }
 

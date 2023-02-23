@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -56,6 +57,11 @@ abstract public class SpreadsheetCellStyleHistoryHashToken extends SpreadsheetCe
 
     @Override
     final SpreadsheetSelectionHistoryHashToken formula() {
+        return this;
+    }
+
+    @Override
+    final SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 }

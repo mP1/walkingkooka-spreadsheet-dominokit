@@ -62,7 +62,11 @@ final public class SpreadsheetCellStyleSaveHistoryHashToken<T> extends Spreadshe
     @Override
     UrlFragment styleUrlFragment() {
         return SAVE.append(
-                UrlFragment.with(String.valueOf(this.propertyValue()))
+                UrlFragment.with(
+                        String.valueOf(
+                                this.propertyValue()
+                        )
+                )
         );
     }
 

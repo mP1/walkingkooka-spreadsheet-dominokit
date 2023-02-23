@@ -17,34 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import javaemul.internal.annotations.GwtIncompatible;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.test.Fake;
 import walkingkooka.text.cursor.TextCursor;
 
-public final class SpreadsheetLoadHistoryHashToken extends SpreadsheetHistoryHashToken {
-
-    static SpreadsheetLoadHistoryHashToken with(final SpreadsheetId id) {
-        return new SpreadsheetLoadHistoryHashToken(
-                id
-        );
-    }
-
-    private SpreadsheetLoadHistoryHashToken(final SpreadsheetId id) {
-        super(id);
-    }
-
-    @Override
-    UrlFragment spreadsheetUrlFragment() {
-        return UrlFragment.EMPTY;
-    }
+@GwtIncompatible
+public class FakeHistoryHashToken extends HistoryHashToken implements Fake {
 
     @Override
     HistoryHashToken parse0(final String component,
                             final TextCursor cursor) {
-        return spreadsheetSelect(
-                this.id(),
-                SpreadsheetName.with(component)
-        ).parse(cursor);
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public UrlFragment urlFragment() {
+        throw new UnsupportedOperationException();
     }
 }
