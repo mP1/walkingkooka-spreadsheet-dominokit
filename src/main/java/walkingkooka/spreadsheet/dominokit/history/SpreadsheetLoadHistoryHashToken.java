@@ -35,7 +35,7 @@ public final class SpreadsheetLoadHistoryHashToken extends SpreadsheetHistoryHas
     }
 
     @Override
-    UrlFragment spreadsheetUrlFragment() {
+    UrlFragment spreadsheetIdUrlFragment() {
         return UrlFragment.EMPTY;
     }
 

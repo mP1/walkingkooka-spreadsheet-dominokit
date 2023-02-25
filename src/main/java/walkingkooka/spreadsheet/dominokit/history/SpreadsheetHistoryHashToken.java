@@ -456,11 +456,12 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
 
     @Override
     public final UrlFragment urlFragment() {
-        return this.id.urlFragment().append(this.spreadsheetUrlFragment());
+        return this.id.urlFragment()
+                .append(this.spreadsheetIdUrlFragment());
     }
 
     /**
      * Sub-classes should append additional components to the final {@link UrlFragment}.
      */
-    abstract UrlFragment spreadsheetUrlFragment();
+    abstract UrlFragment spreadsheetIdUrlFragment();
 }
