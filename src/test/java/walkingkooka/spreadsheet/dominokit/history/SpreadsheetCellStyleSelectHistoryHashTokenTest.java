@@ -49,6 +49,38 @@ public final class SpreadsheetCellStyleSelectHistoryHashTokenTest extends Spread
         );
     }
 
+    @Test
+    public void testUrlFragmentAllTextStylePropertyNames() {
+        for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.values()) {
+            final SpreadsheetCellStyleSelectHistoryHashToken<?> token = SpreadsheetCellStyleSelectHistoryHashToken.with(
+                    ID,
+                    NAME,
+                    CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                    propertyName
+            );
+            this.urlFragmentAndCheck(
+                    token,
+                    token.urlFragment()
+            );
+        }
+    }
+
+    @Test
+    public void testParseAllTextStylePropertyNames() {
+        for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.values()) {
+            final SpreadsheetCellStyleSelectHistoryHashToken<?> token = SpreadsheetCellStyleSelectHistoryHashToken.with(
+                    ID,
+                    NAME,
+                    CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                    propertyName
+            );
+            this.parseAndCheck(
+                    token.urlFragment(),
+                    token
+            );
+        }
+    }
+
     @Override
     SpreadsheetCellStyleSelectHistoryHashToken<Color> createSpreadsheetHistoryHashToken(final SpreadsheetId id,
                                                                                         final SpreadsheetName name,
