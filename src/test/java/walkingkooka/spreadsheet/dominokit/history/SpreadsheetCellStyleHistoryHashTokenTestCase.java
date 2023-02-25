@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public abstract class SpreadsheetCellStyleHistoryHashTokenTestCase<T extends SpreadsheetCellStyleHistoryHashToken> extends SpreadsheetCellHistoryHashTokenTestCase<T> {
+public abstract class SpreadsheetCellStyleHistoryHashTokenTestCase<T extends SpreadsheetCellStyleHistoryHashToken<Color>> extends SpreadsheetCellHistoryHashTokenTestCase<T> {
 
     final static TextStylePropertyName<Color> PROPERTY_NAME = TextStylePropertyName.COLOR;
 
@@ -48,5 +48,5 @@ public abstract class SpreadsheetCellStyleHistoryHashTokenTestCase<T extends Spr
     abstract T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
                                                  final SpreadsheetName name,
                                                  final SpreadsheetViewportSelection viewportSelection,
-                                                 final TextStylePropertyName<?> propertyName);
+                                                 final TextStylePropertyName<Color> propertyName);
 }

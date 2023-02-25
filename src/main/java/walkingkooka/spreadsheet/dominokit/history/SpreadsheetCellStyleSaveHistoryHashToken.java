@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-final public class SpreadsheetCellStyleSaveHistoryHashToken<T> extends SpreadsheetCellStyleHistoryHashToken {
+final public class SpreadsheetCellStyleSaveHistoryHashToken<T> extends SpreadsheetCellStyleHistoryHashToken<T> {
 
     static <T> SpreadsheetCellStyleSaveHistoryHashToken<T> with(final SpreadsheetId id,
                                                                 final SpreadsheetName name,

@@ -185,10 +185,10 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     /**
      * {@see SpreadsheetCellStyleSelectHistoryHashToken}
      */
-    public static SpreadsheetCellStyleSelectHistoryHashToken cellStyle(final SpreadsheetId id,
-                                                                       final SpreadsheetName name,
-                                                                       final SpreadsheetViewportSelection viewportSelection,
-                                                                       final TextStylePropertyName<?> propertyName) {
+    public static <T> SpreadsheetCellStyleSelectHistoryHashToken<T> cellStyle(final SpreadsheetId id,
+                                                                              final SpreadsheetName name,
+                                                                              final SpreadsheetViewportSelection viewportSelection,
+                                                                              final TextStylePropertyName<T> propertyName) {
         return SpreadsheetCellStyleSelectHistoryHashToken.with(
                 id,
                 name,

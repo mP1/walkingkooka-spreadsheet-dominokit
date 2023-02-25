@@ -18,13 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetCellStyleSelectHistoryHashTokenTest extends SpreadsheetCellStyleHistoryHashTokenTestCase<SpreadsheetCellStyleSelectHistoryHashToken> {
+public final class SpreadsheetCellStyleSelectHistoryHashTokenTest extends SpreadsheetCellStyleHistoryHashTokenTestCase<SpreadsheetCellStyleSelectHistoryHashToken<Color>> {
 
     @Test
     public void testUrlFragmentCell() {
@@ -48,10 +50,10 @@ public final class SpreadsheetCellStyleSelectHistoryHashTokenTest extends Spread
     }
 
     @Override
-    SpreadsheetCellStyleSelectHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                                 final SpreadsheetName name,
-                                                                                 final SpreadsheetViewportSelection viewportSelection,
-                                                                                 final TextStylePropertyName<?> propertyName) {
+    SpreadsheetCellStyleSelectHistoryHashToken<Color> createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                                        final SpreadsheetName name,
+                                                                                        final SpreadsheetViewportSelection viewportSelection,
+                                                                                        final TextStylePropertyName<Color> propertyName) {
         return SpreadsheetCellStyleSelectHistoryHashToken.with(
                 id,
                 name,
@@ -61,7 +63,7 @@ public final class SpreadsheetCellStyleSelectHistoryHashTokenTest extends Spread
     }
 
     @Override
-    public Class<SpreadsheetCellStyleSelectHistoryHashToken> type() {
-        return SpreadsheetCellStyleSelectHistoryHashToken.class;
+    public Class<SpreadsheetCellStyleSelectHistoryHashToken<Color>> type() {
+        return Cast.to(SpreadsheetCellStyleSelectHistoryHashToken.class);
     }
 }

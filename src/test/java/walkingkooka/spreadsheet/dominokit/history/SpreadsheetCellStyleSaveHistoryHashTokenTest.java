@@ -18,13 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetCellStyleSaveHistoryHashTokenTest extends SpreadsheetCellStyleHistoryHashTokenTestCase<SpreadsheetCellStyleSaveHistoryHashToken> {
+public final class SpreadsheetCellStyleSaveHistoryHashTokenTest extends SpreadsheetCellStyleHistoryHashTokenTestCase<SpreadsheetCellStyleSaveHistoryHashToken<Color>> {
 
     @Test
     public void testUrlFragmentCell() {
@@ -48,21 +50,21 @@ public final class SpreadsheetCellStyleSaveHistoryHashTokenTest extends Spreadsh
     }
 
     @Override
-    SpreadsheetCellStyleSaveHistoryHashToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                               final SpreadsheetName name,
-                                                                               final SpreadsheetViewportSelection viewportSelection,
-                                                                               final TextStylePropertyName<?> propertyName) {
+    SpreadsheetCellStyleSaveHistoryHashToken<Color> createSpreadsheetHistoryHashToken(final SpreadsheetId id,
+                                                                                      final SpreadsheetName name,
+                                                                                      final SpreadsheetViewportSelection viewportSelection,
+                                                                                      final TextStylePropertyName<Color> propertyName) {
         return SpreadsheetCellStyleSaveHistoryHashToken.with(
                 id,
                 name,
                 viewportSelection,
-                PROPERTY_NAME,
+                propertyName,
                 PROPERTY_VALUE
         );
     }
 
     @Override
-    public Class<SpreadsheetCellStyleSaveHistoryHashToken> type() {
-        return SpreadsheetCellStyleSaveHistoryHashToken.class;
+    public Class<SpreadsheetCellStyleSaveHistoryHashToken<Color>> type() {
+        return Cast.to(SpreadsheetCellStyleSaveHistoryHashToken.class);
     }
 }
