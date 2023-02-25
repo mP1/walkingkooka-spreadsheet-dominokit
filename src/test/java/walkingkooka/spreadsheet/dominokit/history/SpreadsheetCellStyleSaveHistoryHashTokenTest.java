@@ -22,8 +22,11 @@ import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.tree.text.BorderStyle;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 public final class SpreadsheetCellStyleSaveHistoryHashTokenTest extends SpreadsheetCellStyleHistoryHashTokenTestCase<SpreadsheetCellStyleSaveHistoryHashToken<Color>> {
@@ -46,6 +49,72 @@ public final class SpreadsheetCellStyleSaveHistoryHashTokenTest extends Spreadsh
         this.urlFragmentAndCheck(
                 LABEL,
                 "/123/SpreadsheetName456/cell/Label123/style/color/save/#123456"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentTextStylePropertyBottomBorderStyle() {
+        this.urlFragmentAndCheck(
+                TextStylePropertyName.BORDER_BOTTOM_STYLE,
+                BorderStyle.DASHED,
+                "/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
+        );
+    }
+
+    @Test
+    public void testParseTextStylePropertyBottomBorderStyle() {
+        this.parseAndCheck(
+                TextStylePropertyName.BORDER_BOTTOM_STYLE,
+                BorderStyle.DASHED,
+                "/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentTextStylePropertyBottomBorderWidth() {
+        this.urlFragmentAndCheck(
+                TextStylePropertyName.BORDER_BOTTOM_WIDTH,
+                Length.pixel(123.5),
+                "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
+        );
+    }
+
+    @Test
+    public void testParseTextStylePropertyBottomBorderWidth() {
+        this.parseAndCheck(
+                TextStylePropertyName.BORDER_BOTTOM_WIDTH,
+                Length.pixel(123.5),
+                "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
+        );
+    }
+
+    private <TT> void urlFragmentAndCheck(final TextStylePropertyName<TT> propertyName,
+                                          final TT propertyValue,
+                                          final String urlFragment) {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellStyleSaveHistoryHashToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCell("A1").setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        propertyName,
+                        propertyValue
+                ),
+                urlFragment
+        );
+    }
+
+    private <TT> void parseAndCheck(final TextStylePropertyName<TT> propertyName,
+                                    final TT propertyValue,
+                                    final String urlFragment) {
+        this.parseAndCheck(
+                urlFragment,
+                SpreadsheetCellStyleSaveHistoryHashToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCell("A1").setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        propertyName,
+                        propertyValue
+                )
         );
     }
 

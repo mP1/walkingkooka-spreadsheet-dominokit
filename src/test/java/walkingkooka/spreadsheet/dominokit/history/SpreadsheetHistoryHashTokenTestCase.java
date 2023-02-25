@@ -42,6 +42,14 @@ public abstract class SpreadsheetHistoryHashTokenTestCase<T extends SpreadsheetH
         );
     }
 
+    final void parseAndCheck(final String fragment,
+                             final SpreadsheetHistoryHashToken token) {
+        this.parseAndCheck(
+                UrlFragment.parse(fragment),
+                token
+        );
+    }
+
     final void parseAndCheck(final UrlFragment fragment,
                              final SpreadsheetHistoryHashToken token) {
         this.checkEquals(
