@@ -51,7 +51,7 @@ public final class SpreadsheetCellFormulaSelectHistoryHashToken extends Spreadsh
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken save(final String formulaText) {
+    SpreadsheetNameHistoryHashToken save(final String formulaText) {
         return formulaSave(
                 this.id(),
                 this.name(),

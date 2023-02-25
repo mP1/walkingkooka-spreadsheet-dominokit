@@ -100,49 +100,4 @@ abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetNa
 
         return result;
     }
-
-    /**
-     * Creates a clear {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetSelectionHistoryHashToken clear();
-
-    /**
-     * Creates a delete {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetSelectionHistoryHashToken delete();
-
-    /**
-     * Creates a formula {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetSelectionHistoryHashToken formula();
-
-    /**
-     * Creates a freeze {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetSelectionHistoryHashToken freeze();
-
-    /**
-     * Creates a menu {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetSelectionHistoryHashToken menu();
-
-    /**
-     * Factory that creates a {@link SpreadsheetSelectionHistoryHashToken} with the given {@link SpreadsheetPatternKind}.
-     */
-    abstract SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind);
-
-    /**
-     * Creates a save {@link HistoryHashToken} after attempting to parse the value..
-     */
-    abstract SpreadsheetSelectionHistoryHashToken save(final String value);
-
-    /**
-     * Factory that creates a {@link HistoryHashToken} with the given {@link TextStylePropertyName} property name.
-     */
-    abstract SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName);
-
-    /**
-     * Creates a unfreeze {@link HistoryHashToken}.
-     */
-    abstract SpreadsheetSelectionHistoryHashToken unfreeze();
 }

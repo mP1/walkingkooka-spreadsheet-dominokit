@@ -47,37 +47,37 @@ public abstract class SpreadsheetLabelMappingHistoryHashToken extends Spreadshee
     abstract UrlFragment labelUrlFragment();
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken clear() {
+    final SpreadsheetNameHistoryHashToken clear() {
         return this;
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken formula() {
+    final SpreadsheetNameHistoryHashToken formula() {
         return this;
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken freeze() {
+    final SpreadsheetNameHistoryHashToken freeze() {
         return this;
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken menu() {
+    final SpreadsheetNameHistoryHashToken menu() {
         return this;
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
+    SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+    final SpreadsheetNameHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken unfreeze() {
+    final SpreadsheetNameHistoryHashToken unfreeze() {
         return this;
     }
 }

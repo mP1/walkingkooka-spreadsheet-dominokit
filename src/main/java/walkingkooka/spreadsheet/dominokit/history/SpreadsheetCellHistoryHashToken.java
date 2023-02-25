@@ -49,7 +49,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     abstract UrlFragment cellUrlFragment();
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken clear() {
+    final SpreadsheetNameHistoryHashToken clear() {
         return cellClear(
                 this.id(),
                 this.name(),
@@ -58,7 +58,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken delete() {
+    final SpreadsheetNameHistoryHashToken delete() {
         return cellDelete(
                 this.id(),
                 this.name(),
@@ -67,7 +67,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken freeze() {
+    final SpreadsheetNameHistoryHashToken freeze() {
         return cellFreeze(
                 this.id(),
                 this.name(),
@@ -76,7 +76,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken menu() {
+    final SpreadsheetNameHistoryHashToken menu() {
         return cellMenu(
                 this.id(),
                 this.name(),
@@ -85,7 +85,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+    final SpreadsheetNameHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         return cellStyle(
                 this.id(),
                 this.name(),
@@ -95,7 +95,7 @@ abstract public class SpreadsheetCellHistoryHashToken extends SpreadsheetViewpor
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken unfreeze() {
+    final SpreadsheetNameHistoryHashToken unfreeze() {
         return cellUnfreeze(
                 this.id(),
                 this.name(),

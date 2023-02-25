@@ -20,8 +20,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 
@@ -50,7 +52,7 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
 
     abstract UrlFragment spreadsheetUrlFragment();
 
-    final SpreadsheetHistoryHashToken cell(final SpreadsheetViewportSelection viewportSelection) {
+    final SpreadsheetNameHistoryHashToken cell(final SpreadsheetViewportSelection viewportSelection) {
         return cell(
                 this.id(),
                 this.name(),
@@ -58,7 +60,7 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
         );
     }
 
-    final SpreadsheetHistoryHashToken column(final SpreadsheetViewportSelection viewportSelection) {
+    final SpreadsheetNameHistoryHashToken column(final SpreadsheetViewportSelection viewportSelection) {
         return column(
                 this.id(),
                 this.name(),
@@ -66,7 +68,7 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
         );
     }
 
-    final SpreadsheetHistoryHashToken labelMapping(final SpreadsheetLabelName labelName) {
+    final SpreadsheetNameHistoryHashToken labelMapping(final SpreadsheetLabelName labelName) {
         return labelMapping(
                 this.id(),
                 this.name(),
@@ -74,11 +76,56 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
         );
     }
 
-    final SpreadsheetHistoryHashToken row(final SpreadsheetViewportSelection viewportSelection) {
+    final SpreadsheetNameHistoryHashToken row(final SpreadsheetViewportSelection viewportSelection) {
         return row(
                 this.id(),
                 this.name(),
                 viewportSelection
         );
     }
+
+    /**
+     * Creates a clear {@link SpreadsheetNameHistoryHashToken}.
+     */
+    abstract SpreadsheetNameHistoryHashToken clear();
+
+    /**
+     * Creates a delete {@link SpreadsheetNameHistoryHashToken}.
+     */
+    abstract SpreadsheetNameHistoryHashToken delete();
+
+    /**
+     * Creates a formula {@link SpreadsheetNameHistoryHashToken}.
+     */
+    abstract SpreadsheetNameHistoryHashToken formula();
+
+    /**
+     * Creates a freeze {@link SpreadsheetNameHistoryHashToken}.
+     */
+    abstract SpreadsheetNameHistoryHashToken freeze();
+
+    /**
+     * Creates a menu {@link SpreadsheetNameHistoryHashToken}.
+     */
+    abstract SpreadsheetNameHistoryHashToken menu();
+
+    /**
+     * Factory that creates a {@link SpreadsheetNameHistoryHashToken} with the given {@link SpreadsheetPatternKind}.
+     */
+    abstract SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind);
+
+    /**
+     * Creates a save {@link HistoryHashToken} after attempting to parse the value.
+     */
+    abstract SpreadsheetNameHistoryHashToken save(final String value);
+
+    /**
+     * Factory that creates a {@link SpreadsheetNameHistoryHashToken} with the given {@link TextStylePropertyName} property name.
+     */
+    abstract SpreadsheetNameHistoryHashToken style(final TextStylePropertyName<?> propertyName);
+
+    /**
+     * Creates a unfreeze {@link SpreadsheetNameHistoryHashToken}.
+     */
+    abstract SpreadsheetNameHistoryHashToken unfreeze();
 }

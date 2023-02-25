@@ -46,12 +46,12 @@ abstract public class SpreadsheetCellFormulaHistoryHashToken extends Spreadsheet
     abstract UrlFragment formulaUrlFragment();
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken formula() {
+    final SpreadsheetNameHistoryHashToken formula() {
         return this;
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
+    SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
         return this; // ignore extra pattern
     }
 }

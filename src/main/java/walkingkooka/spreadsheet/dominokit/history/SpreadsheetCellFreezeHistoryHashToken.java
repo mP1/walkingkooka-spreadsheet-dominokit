@@ -51,17 +51,17 @@ public final class SpreadsheetCellFreezeHistoryHashToken extends SpreadsheetCell
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken formula() {
+    SpreadsheetNameHistoryHashToken formula() {
         return this;
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
+    SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken save(final String value) {
+    SpreadsheetNameHistoryHashToken save(final String value) {
         return this;
     }
 }

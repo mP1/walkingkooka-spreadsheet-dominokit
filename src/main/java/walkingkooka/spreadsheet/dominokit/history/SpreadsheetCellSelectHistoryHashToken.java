@@ -51,7 +51,7 @@ public final class SpreadsheetCellSelectHistoryHashToken extends SpreadsheetCell
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken formula() {
+    SpreadsheetNameHistoryHashToken formula() {
         return formula(
                 this.id(),
                 this.name(),
@@ -60,7 +60,7 @@ public final class SpreadsheetCellSelectHistoryHashToken extends SpreadsheetCell
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
+    SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
         return cellPattern(
                 this.id(),
                 this.name(),
@@ -70,7 +70,7 @@ public final class SpreadsheetCellSelectHistoryHashToken extends SpreadsheetCell
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken save(final String value) {
+    SpreadsheetNameHistoryHashToken save(final String value) {
         return this;
     }
 }

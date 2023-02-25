@@ -44,7 +44,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     abstract UrlFragment columnUrlFragment();
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken clear() {
+    final SpreadsheetNameHistoryHashToken clear() {
         return columnClear(
                 this.id(),
                 this.name(),
@@ -53,7 +53,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken delete() {
+    final SpreadsheetNameHistoryHashToken delete() {
         return columnDelete(
                 this.id(),
                 this.name(),
@@ -62,12 +62,12 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken formula() {
+    final SpreadsheetNameHistoryHashToken formula() {
         return this;
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken freeze() {
+    final SpreadsheetNameHistoryHashToken freeze() {
         return columnFreeze(
                 this.id(),
                 this.name(),
@@ -76,7 +76,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken menu() {
+    final SpreadsheetNameHistoryHashToken menu() {
         return columnMenu(
                 this.id(),
                 this.name(),
@@ -84,22 +84,22 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
         );
     }
     @Override
-    SpreadsheetSelectionHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
+    SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
         return this; // TODO
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken save(final String value) {
+    SpreadsheetNameHistoryHashToken save(final String value) {
         return this;
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+    final SpreadsheetNameHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
         return this; // column/A/style not currently supported
     }
 
     @Override
-    final SpreadsheetSelectionHistoryHashToken unfreeze() {
+    final SpreadsheetNameHistoryHashToken unfreeze() {
         return columnUnfreeze(
                 this.id(),
                 this.name(),
