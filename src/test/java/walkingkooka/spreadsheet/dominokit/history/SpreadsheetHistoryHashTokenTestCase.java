@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
@@ -28,5 +30,24 @@ public abstract class SpreadsheetHistoryHashTokenTestCase<T extends SpreadsheetH
 
     SpreadsheetHistoryHashTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testParse() {
+        final T token = this.createHistoryHashToken();
+
+        this.parseAndCheck(
+                token.urlFragment(),
+                token
+        );
+    }
+
+    final void parseAndCheck(final UrlFragment fragment,
+                             final SpreadsheetHistoryHashToken token) {
+        this.checkEquals(
+                token,
+                SpreadsheetHistoryHashToken.parse(fragment)
+                        .get()
+        );
     }
 }
