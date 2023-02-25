@@ -20,13 +20,13 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
-public abstract class SpreadsheetHistoryHashTokenTokenTestCase<T extends SpreadsheetHistoryHashToken> extends HistoryHashTokenTokenTestCase<T> {
+public abstract class SpreadsheetHistoryHashTokenTestCase<T extends SpreadsheetHistoryHashToken> extends HistoryHashTokenTestCase<T> {
 
     final static SpreadsheetId ID = SpreadsheetId.with(0x123);
 
     final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
 
-    SpreadsheetHistoryHashTokenTokenTestCase() {
+    SpreadsheetHistoryHashTokenTestCase() {
         super();
     }
 }

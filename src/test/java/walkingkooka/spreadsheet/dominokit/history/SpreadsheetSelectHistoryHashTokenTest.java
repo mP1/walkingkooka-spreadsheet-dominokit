@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 
-public final class SpreadsheetSelectHistoryHashTokenTest extends SpreadsheetHistoryHashTokenTokenTestCase<SpreadsheetSelectHistoryHashToken> {
+public final class SpreadsheetSelectHistoryHashTokenTest extends SpreadsheetHistoryHashTokenTestCase<SpreadsheetSelectHistoryHashToken> {
 
     @Test
     public void testUrlFragment() {

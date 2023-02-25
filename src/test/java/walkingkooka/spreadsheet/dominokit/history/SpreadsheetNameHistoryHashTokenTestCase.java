@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-public abstract class SpreadsheetNameHistoryHashTokenTestCase<T extends SpreadsheetNameHistoryHashToken> extends SpreadsheetHistoryHashTokenTokenTestCase<T> {
+public abstract class SpreadsheetNameHistoryHashTokenTestCase<T extends SpreadsheetNameHistoryHashToken> extends SpreadsheetHistoryHashTokenTestCase<T> {
 
     SpreadsheetNameHistoryHashTokenTestCase() {
         super();
