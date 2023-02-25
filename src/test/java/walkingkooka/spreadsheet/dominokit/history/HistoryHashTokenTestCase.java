@@ -67,9 +67,18 @@ public abstract class HistoryHashTokenTestCase<T extends HistoryHashToken> imple
 
     final void urlFragmentAndCheck(final HasUrlFragment fragment,
                                    final String expected) {
+        this.urlFragmentAndCheck(
+                fragment,
+                UrlFragment.with(expected)
+        );
+    }
+
+    final void urlFragmentAndCheck(final HasUrlFragment fragment,
+                                   final UrlFragment expected) {
         this.checkEquals(
-                UrlFragment.with(expected),
-                fragment.urlFragment()
+                expected,
+                fragment.urlFragment(),
+                () -> "urlFragment of " + fragment
         );
     }
 
