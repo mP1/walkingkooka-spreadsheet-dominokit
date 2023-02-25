@@ -24,29 +24,21 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Objects;
 import java.util.Optional;
 
-abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetHistoryHashToken {
+abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetNameHistoryHashToken {
 
     SpreadsheetSelectionHistoryHashToken(final SpreadsheetId id,
                                          final SpreadsheetName name) {
-        super(id);
-
-        this.name = Objects.requireNonNull(name, "name");
+        super(
+                id,
+                name
+        );
     }
-
-    public final SpreadsheetName name() {
-        return this.name;
-    }
-
-    private final SpreadsheetName name;
 
     @Override
     final UrlFragment spreadsheetUrlFragment() {
-        return this.name.urlFragment().append(
-                this.selectionUrlFragment()
-        );
+        return this.selectionUrlFragment();
     }
 
     abstract UrlFragment selectionUrlFragment();

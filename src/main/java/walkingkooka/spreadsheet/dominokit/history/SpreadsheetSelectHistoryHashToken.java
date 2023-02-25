@@ -20,18 +20,16 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetHistoryHashToken {
+public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHistoryHashToken {
 
     static SpreadsheetSelectHistoryHashToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name) {
@@ -43,20 +41,15 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetHistoryH
 
     private SpreadsheetSelectHistoryHashToken(final SpreadsheetId id,
                                               final SpreadsheetName name) {
-        super(id);
-
-        this.name = Objects.requireNonNull(name, "name");
+        super(
+                id,
+                name
+        );
     }
-
-    public SpreadsheetName name() {
-        return this.name;
-    }
-
-    private final SpreadsheetName name;
 
     @Override
     UrlFragment spreadsheetUrlFragment() {
-        return this.name.urlFragment();
+        return UrlFragment.EMPTY;
     }
 
     @Override
@@ -182,37 +175,5 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetHistoryH
         }
 
         return anchor;
-    }
-
-    SpreadsheetHistoryHashToken cell(final SpreadsheetViewportSelection viewportSelection) {
-        return cell(
-                this.id(),
-                this.name(),
-                viewportSelection
-        );
-    }
-
-    SpreadsheetHistoryHashToken column(final SpreadsheetViewportSelection viewportSelection) {
-        return column(
-                this.id(),
-                this.name(),
-                viewportSelection
-        );
-    }
-
-    SpreadsheetHistoryHashToken labelMapping(final SpreadsheetLabelName labelName) {
-        return labelMapping(
-                this.id(),
-                this.name(),
-                labelName
-        );
-    }
-
-    SpreadsheetHistoryHashToken row(final SpreadsheetViewportSelection viewportSelection) {
-        return row(
-                this.id(),
-                this.name(),
-                viewportSelection
-        );
     }
 }
