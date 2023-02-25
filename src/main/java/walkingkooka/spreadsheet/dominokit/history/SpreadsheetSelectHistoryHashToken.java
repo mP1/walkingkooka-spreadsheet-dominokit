@@ -20,11 +20,13 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -175,5 +177,50 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
         }
 
         return anchor;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken clear() {
+        return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken delete() {
+        return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken formula() {
+        return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken freeze() {
+        return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken menu() {
+        return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
+        return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken save(final String value) {
+        return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
+        return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryHashToken unfreeze() {
+        return this;
     }
 }

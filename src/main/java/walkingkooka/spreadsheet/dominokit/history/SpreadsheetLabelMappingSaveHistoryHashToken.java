@@ -62,12 +62,12 @@ public final class SpreadsheetLabelMappingSaveHistoryHashToken extends Spreadshe
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken delete() {
+    SpreadsheetNameHistoryHashToken delete() {
         return this;
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken save(final String value) {
+    SpreadsheetNameHistoryHashToken save(final String value) {
         return this;
     }
 }

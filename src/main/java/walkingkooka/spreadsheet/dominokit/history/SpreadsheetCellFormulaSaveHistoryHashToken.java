@@ -60,7 +60,7 @@ public final class SpreadsheetCellFormulaSaveHistoryHashToken extends Spreadshee
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken save(final String value) {
+    SpreadsheetNameHistoryHashToken save(final String value) {
         return this;
     }
 }

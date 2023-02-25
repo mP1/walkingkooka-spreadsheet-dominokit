@@ -71,7 +71,7 @@ final public class SpreadsheetCellStyleSaveHistoryHashToken<T> extends Spreadshe
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken save(final String value) {
+    SpreadsheetNameHistoryHashToken save(final String value) {
         return this;
     }
 }

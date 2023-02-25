@@ -56,7 +56,7 @@ final public class SpreadsheetCellStyleSelectHistoryHashToken extends Spreadshee
     }
 
     @Override
-    SpreadsheetSelectionHistoryHashToken save(final String value) {
+    SpreadsheetNameHistoryHashToken save(final String value) {
         final TextStylePropertyName<?> propertyName = this.propertyName();
 
         return cellStyleSave(
