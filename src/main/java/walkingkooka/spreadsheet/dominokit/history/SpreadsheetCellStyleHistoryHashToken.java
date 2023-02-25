@@ -26,12 +26,12 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 
-abstract public class SpreadsheetCellStyleHistoryHashToken extends SpreadsheetCellHistoryHashToken {
+abstract public class SpreadsheetCellStyleHistoryHashToken<T> extends SpreadsheetCellHistoryHashToken {
 
     SpreadsheetCellStyleHistoryHashToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
                                          final SpreadsheetViewportSelection viewportSelection,
-                                         final TextStylePropertyName<?> propertyName) {
+                                         final TextStylePropertyName<T> propertyName) {
         super(
                 id,
                 name,
@@ -41,11 +41,11 @@ abstract public class SpreadsheetCellStyleHistoryHashToken extends SpreadsheetCe
         this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
     }
 
-    public final TextStylePropertyName<?> propertyName() {
+    public final TextStylePropertyName<T> propertyName() {
         return this.propertyName;
     }
 
-    private final TextStylePropertyName<?> propertyName;
+    private final TextStylePropertyName<T> propertyName;
 
     @Override
     UrlFragment cellUrlFragment() {

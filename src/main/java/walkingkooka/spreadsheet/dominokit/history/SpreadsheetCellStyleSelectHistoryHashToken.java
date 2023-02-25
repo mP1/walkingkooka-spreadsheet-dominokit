@@ -24,12 +24,12 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-final public class SpreadsheetCellStyleSelectHistoryHashToken extends SpreadsheetCellStyleHistoryHashToken {
+final public class SpreadsheetCellStyleSelectHistoryHashToken<T> extends SpreadsheetCellStyleHistoryHashToken<T> {
 
-    static SpreadsheetCellStyleSelectHistoryHashToken with(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
-                                                           final SpreadsheetViewportSelection viewportSelection,
-                                                           final TextStylePropertyName<?> propertyName) {
+    static <T> SpreadsheetCellStyleSelectHistoryHashToken<T> with(final SpreadsheetId id,
+                                                                  final SpreadsheetName name,
+                                                                  final SpreadsheetViewportSelection viewportSelection,
+                                                                  final TextStylePropertyName<T> propertyName) {
         return new SpreadsheetCellStyleSelectHistoryHashToken(
                 id,
                 name,
@@ -41,7 +41,7 @@ final public class SpreadsheetCellStyleSelectHistoryHashToken extends Spreadshee
     private SpreadsheetCellStyleSelectHistoryHashToken(final SpreadsheetId id,
                                                        final SpreadsheetName name,
                                                        final SpreadsheetViewportSelection viewportSelection,
-                                                       final TextStylePropertyName<?> propertyName) {
+                                                       final TextStylePropertyName<T> propertyName) {
         super(
                 id,
                 name,
@@ -57,16 +57,14 @@ final public class SpreadsheetCellStyleSelectHistoryHashToken extends Spreadshee
 
     @Override
     SpreadsheetNameHistoryHashToken save(final String value) {
-        final TextStylePropertyName<?> propertyName = this.propertyName();
+        final TextStylePropertyName<T> propertyName = this.propertyName();
 
         return cellStyleSave(
                 this.id(),
                 this.name(),
                 this.viewportSelection(),
                 propertyName,
-                Cast.to(
-                        propertyName.parseValue(value)
-                )
+                propertyName.parseValue(value)
         );
     }
 }
