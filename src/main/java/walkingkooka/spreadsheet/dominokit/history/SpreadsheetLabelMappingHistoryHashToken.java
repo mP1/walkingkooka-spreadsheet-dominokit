@@ -52,7 +52,7 @@ public abstract class SpreadsheetLabelMappingHistoryHashToken extends Spreadshee
     }
 
     @Override
-    final SpreadsheetNameHistoryHashToken formula() {
+    final SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return this;
     }
 

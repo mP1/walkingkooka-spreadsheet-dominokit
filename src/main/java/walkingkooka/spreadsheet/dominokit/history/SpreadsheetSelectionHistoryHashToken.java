@@ -56,7 +56,7 @@ abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetNa
                 result = this.delete();
                 break;
             case "formula":
-                result = this.formula();
+                result = this.formulaHistoryHashToken();
                 break;
             case "freeze":
                 result = this.freeze();

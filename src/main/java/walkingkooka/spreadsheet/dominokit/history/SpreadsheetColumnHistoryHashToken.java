@@ -62,7 +62,7 @@ abstract public class SpreadsheetColumnHistoryHashToken extends SpreadsheetViewp
     }
 
     @Override
-    final SpreadsheetNameHistoryHashToken formula() {
+    final SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return this;
     }
 

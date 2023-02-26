@@ -190,7 +190,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
     }
 
     @Override
-    SpreadsheetNameHistoryHashToken formula() {
+    SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return this;
     }
 

@@ -51,7 +51,7 @@ public final class SpreadsheetCellSelectHistoryHashToken extends SpreadsheetCell
     }
 
     @Override
-    SpreadsheetNameHistoryHashToken formula() {
+    SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return formula(
                 this.id(),
                 this.name(),

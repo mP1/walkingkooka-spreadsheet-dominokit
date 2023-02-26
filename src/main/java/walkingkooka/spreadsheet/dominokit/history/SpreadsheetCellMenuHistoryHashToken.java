@@ -51,7 +51,7 @@ public final class SpreadsheetCellMenuHistoryHashToken extends SpreadsheetCellHi
     }
 
     @Override
-    SpreadsheetNameHistoryHashToken formula() {
+    SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return this;
     }
 
