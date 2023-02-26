@@ -42,7 +42,7 @@ abstract public class SpreadsheetCellPatternHistoryHashToken extends Spreadsheet
     abstract UrlFragment patternUrlFragment();
 
     @Override
-    final SpreadsheetNameHistoryHashToken formula() {
+    final SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return this;
     }
 }

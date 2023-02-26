@@ -51,7 +51,7 @@ public final class SpreadsheetCellClearHistoryHashToken extends SpreadsheetCellH
     }
 
     @Override
-    SpreadsheetNameHistoryHashToken formula() {
+    SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return this;
     }
 

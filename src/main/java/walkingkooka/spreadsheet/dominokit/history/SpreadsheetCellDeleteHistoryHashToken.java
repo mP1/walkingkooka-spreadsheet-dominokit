@@ -51,7 +51,7 @@ public final class SpreadsheetCellDeleteHistoryHashToken extends SpreadsheetCell
     }
 
     @Override
-    SpreadsheetNameHistoryHashToken formula() {
+    SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return this;
     }
 

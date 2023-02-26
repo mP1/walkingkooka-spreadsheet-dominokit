@@ -97,7 +97,7 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
     /**
      * Creates a formula {@link SpreadsheetNameHistoryHashToken}.
      */
-    abstract SpreadsheetNameHistoryHashToken formula();
+    abstract SpreadsheetNameHistoryHashToken formulaHistoryHashToken();
 
     /**
      * Creates a freeze {@link SpreadsheetNameHistoryHashToken}.

@@ -62,7 +62,7 @@ abstract public class SpreadsheetRowHistoryHashToken extends SpreadsheetViewport
     }
 
     @Override
-    final SpreadsheetNameHistoryHashToken formula() {
+    final SpreadsheetNameHistoryHashToken formulaHistoryHashToken() {
         return this;
     }
 
