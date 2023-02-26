@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -464,4 +465,24 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
      * Sub-classes should append additional components to the final {@link UrlFragment}.
      */
     abstract UrlFragment spreadsheetIdUrlFragment();
+
+    /**
+     * Creates a {@link UrlFragment} with a save and value.
+     */
+    final UrlFragment saveUrlFragment(final Object value) {
+        final UrlFragment urlFragment;
+
+        if (value instanceof HasUrlFragment) {
+            final HasUrlFragment has = (HasUrlFragment) value;
+            urlFragment = has.urlFragment();
+        } else {
+            urlFragment = UrlFragment.with(
+                    String.valueOf(
+                            String.valueOf(value)
+                    )
+            );
+        }
+
+        return SAVE.append(urlFragment);
+    }
 }
