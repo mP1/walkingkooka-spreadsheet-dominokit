@@ -56,7 +56,9 @@ public final class SpreadsheetCellFormulaSaveHistoryHashToken extends Spreadshee
 
     @Override
     UrlFragment formulaUrlFragment() {
-        return SAVE.append(this.formula.urlFragment());
+        return this.saveUrlFragment(
+                this.formula
+        );
     }
 
     @Override

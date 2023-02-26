@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -62,21 +61,7 @@ final public class SpreadsheetCellStyleSaveHistoryHashToken<T> extends Spreadshe
 
     @Override
     UrlFragment styleUrlFragment() {
-        final UrlFragment urlFragment;
-
-        final T value = this.propertyValue();
-        if (value instanceof HasUrlFragment) {
-            final HasUrlFragment has = (HasUrlFragment) value;
-            urlFragment = has.urlFragment();
-        } else {
-            urlFragment = UrlFragment.with(
-                    String.valueOf(
-                            String.valueOf(value)
-                    )
-            );
-        }
-
-        return SAVE.append(urlFragment);
+        return this.saveUrlFragment(this.propertyValue());
     }
 
     @Override
