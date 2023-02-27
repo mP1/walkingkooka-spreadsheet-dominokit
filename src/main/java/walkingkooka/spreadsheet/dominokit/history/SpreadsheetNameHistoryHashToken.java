@@ -44,7 +44,9 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
 
     @Override
     final UrlFragment spreadsheetIdUrlFragment() {
-        return this.name.urlFragment()
+        return UrlFragment.SLASH.append(
+                        this.name.urlFragment()
+                )
                 .append(
                         this.spreadsheetUrlFragment()
                 );
