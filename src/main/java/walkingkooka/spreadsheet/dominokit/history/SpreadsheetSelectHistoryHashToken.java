@@ -69,13 +69,8 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
                 );
                 break;
             case "label":
-                final Optional<String> label = parseComponent(cursor);
-                if(label.isPresent()) {
-                    result = labelMapping(
-                            SpreadsheetSelection.labelName(label.get())
-                    );
-                }
-               break;
+                result = this.parseLabel(cursor);
+                break;
             default:
                 cursor.end();
                 break;
@@ -177,6 +172,18 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
         }
 
         return anchor;
+    }
+
+    private HistoryHashToken parseLabel(final TextCursor cursor) {
+        HistoryHashToken result = this;
+
+        final Optional<String> label = parseComponent(cursor);
+        if (label.isPresent()) {
+            result = labelMapping(
+                    SpreadsheetSelection.labelName(label.get())
+            );
+        }
+        return result;
     }
 
     @Override
