@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -65,14 +64,7 @@ abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetNa
                 result = this.menu();
                 break;
             case "pattern":
-                final Optional<String> patternKind = parseComponent(cursor);
-                if(patternKind.isPresent()) {
-                    result = this.pattern(
-                            SpreadsheetPatternKind.fromTypeName("spreadsheet-" + patternKind.get() + "-pattern")
-                    );
-                } else {
-                    cursor.end();
-                }
+                result = this.parsePattern(cursor);
                 break;
             case "save":
                 result = this.save(

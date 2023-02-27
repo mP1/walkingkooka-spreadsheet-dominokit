@@ -23,9 +23,11 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistoryHashToken {
 
@@ -130,4 +132,18 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
      * Creates a unfreeze {@link SpreadsheetNameHistoryHashToken}.
      */
     abstract SpreadsheetNameHistoryHashToken unfreeze();
+
+    final HistoryHashToken parsePattern(final TextCursor cursor) {
+        HistoryHashToken result = this;
+
+        final Optional<String> patternKind = parseComponent(cursor);
+        if(patternKind.isPresent()) {
+            result = this.pattern(
+                    SpreadsheetPatternKind.fromTypeName("spreadsheet-" + patternKind.get() + "-pattern")
+            );
+        } else {
+            cursor.end();
+        }
+        return result;
+    }
 }
