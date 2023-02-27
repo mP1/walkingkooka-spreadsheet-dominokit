@@ -146,4 +146,11 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
         }
         return result;
     }
+
+    final SpreadsheetNameHistoryHashToken parseSave(final TextCursor cursor) {
+        return this.save(
+                parseAll(cursor)
+        );
+    }
+
 }
