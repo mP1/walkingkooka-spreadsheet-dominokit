@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -342,6 +343,62 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
                 id,
                 name,
                 mapping
+        );
+    }
+
+    /**
+     * {@see SpreadsheetMetadataSelectHistoryHashToken}
+     */
+    public static SpreadsheetMetadataSelectHistoryHashToken metadataSelect(final SpreadsheetId id,
+                                                                           final SpreadsheetName name,
+                                                                           final SpreadsheetMetadataPropertyName<?> propertyName) {
+        return SpreadsheetMetadataSelectHistoryHashToken.with(
+                id,
+                name,
+                propertyName
+        );
+    }
+
+    /**
+     * {@see SpreadsheetMetadataSaveHistoryHashToken}
+     */
+    public static <T> SpreadsheetMetadataSaveHistoryHashToken<T> metadataSave(final SpreadsheetId id,
+                                                                              final SpreadsheetName name,
+                                                                              final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                              final T propertyValue) {
+        return SpreadsheetMetadataSaveHistoryHashToken.with(
+                id,
+                name,
+                propertyName,
+                propertyValue
+        );
+    }
+
+    /**
+     * {@see SpreadsheetMetadataStyleSelectHistoryHashToken}
+     */
+    public static <T> SpreadsheetMetadataStyleSelectHistoryHashToken<T> metadataStyle(final SpreadsheetId id,
+                                                                                      final SpreadsheetName name,
+                                                                                      final TextStylePropertyName<T> stylePropertyName) {
+        return SpreadsheetMetadataStyleSelectHistoryHashToken.with(
+                id,
+                name,
+                stylePropertyName
+        );
+    }
+
+    /**
+     * {@see SpreadsheetMetadataStyleSaveHistoryHashToken}
+     */
+    public static <T> SpreadsheetMetadataStyleSaveHistoryHashToken<T> metadataStyleSave(final SpreadsheetId id,
+                                                                                        final SpreadsheetName name,
+                                                                                        final TextStylePropertyName<T> stylePropertyName,
+                                                                                        final T stylePropertyValue) {
+        return SpreadsheetMetadataStyleSaveHistoryHashToken.with(
+                id,
+                name,
+                stylePropertyName,
+                stylePropertyValue
         );
     }
 

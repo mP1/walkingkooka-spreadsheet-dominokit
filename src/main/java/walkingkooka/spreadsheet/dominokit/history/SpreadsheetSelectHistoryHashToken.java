@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
@@ -70,6 +71,9 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
                 break;
             case "label":
                 result = this.parseLabel(cursor);
+                break;
+            case "metadata":
+                result = this.parseMetadata(cursor);
                 break;
             default:
                 cursor.end();
@@ -186,6 +190,32 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
         return result;
     }
 
+    private HistoryHashToken parseMetadata(final TextCursor cursor) {
+        HistoryHashToken result = this;
+
+        final Optional<String> maybeNext = parseComponent(cursor);
+        if (maybeNext.isPresent()) {
+            final String next = maybeNext.get();
+
+            switch(next) {
+                case "pattern":
+                    result = this.parsePattern(cursor);
+                    break;
+                case "style":
+                    result = this.parseStyle(cursor);
+                    break;
+                default:
+                    result = metadataSelect(
+                            this.id(),
+                            this.name(),
+                            SpreadsheetMetadataPropertyName.with(next)
+                    );
+                    break;
+            }
+        }
+        return result;
+    }
+
     @Override
     SpreadsheetNameHistoryHashToken clear() {
         return this;
@@ -211,9 +241,14 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
         return this;
     }
 
+    // factory for /spreadsheet-id/spreadsheet-name/metadata/pattern/*
     @Override
     SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
-        return this;
+        return metadataSelect(
+                this.id(),
+                this.name(),
+                SpreadsheetMetadataPropertyName.with(patternKind.typeName().substring("spreadsheet-".length()))
+        );
     }
 
     @Override
@@ -221,9 +256,14 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
         return this;
     }
 
+    // factory for /spreadsheet-id/spreadsheet-name/metadata/style/*
     @Override
     SpreadsheetNameHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
-        return this;
+        return metadataStyle(
+                this.id(),
+                this.name(),
+                propertyName
+        );
     }
 
     @Override
