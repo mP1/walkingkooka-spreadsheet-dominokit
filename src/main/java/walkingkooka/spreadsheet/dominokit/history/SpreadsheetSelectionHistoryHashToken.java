@@ -67,9 +67,7 @@ abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetNa
                 result = this.parsePattern(cursor);
                 break;
             case "save":
-                result = this.save(
-                        parseAll(cursor)
-                );
+                result = this.parseSave(cursor);
                 break;
             case "style":
                 final Optional<String> style = parseComponent(cursor);
