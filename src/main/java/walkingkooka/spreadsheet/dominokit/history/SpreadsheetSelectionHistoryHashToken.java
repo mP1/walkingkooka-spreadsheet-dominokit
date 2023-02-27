@@ -21,9 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Optional;
 
 abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetNameHistoryHashToken {
 
@@ -70,14 +67,7 @@ abstract public class SpreadsheetSelectionHistoryHashToken extends SpreadsheetNa
                 result = this.parseSave(cursor);
                 break;
             case "style":
-                final Optional<String> style = parseComponent(cursor);
-                if(style.isPresent()) {
-                    result = this.style(
-                            TextStylePropertyName.with(
-                                    style.get()
-                            )
-                    );
-                }
+                result = this.parseStyle(cursor);
                 break;
             case "unfreeze":
                 result = unfreeze();

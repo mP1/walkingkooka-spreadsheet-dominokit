@@ -153,4 +153,17 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
         );
     }
 
+    final HistoryHashToken parseStyle(final TextCursor cursor) {
+        HistoryHashToken result = this;
+
+        final Optional<String> style = parseComponent(cursor);
+        if(style.isPresent()) {
+            result = this.style(
+                    TextStylePropertyName.with(
+                            style.get()
+                    )
+            );
+        }
+        return result;
+    }
 }
