@@ -247,7 +247,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
         return metadataSelect(
                 this.id(),
                 this.name(),
-                SpreadsheetMetadataPropertyName.with(patternKind.typeName().substring("spreadsheet-".length()))
+                patternKind.spreadsheetMetadataPropertyName()
         );
     }
 
