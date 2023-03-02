@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetMetadataPropertySaveHistoryHashToken<T> extends SpreadsheetMetadataHistoryHashToken<T> {
+public final class SpreadsheetMetadataPropertySaveHistoryHashToken<T> extends SpreadsheetMetadataPropertyHistoryHashToken<T> {
 
     static <T> SpreadsheetMetadataPropertySaveHistoryHashToken<T> with(final SpreadsheetId id,
                                                                        final SpreadsheetName name,
@@ -58,7 +58,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryHashToken<T> extends Sp
     private final T propertyValue;
 
     @Override
-    UrlFragment metadataUrlFragment() {
+    UrlFragment metadataPropertyUrlFragment() {
         return this.saveUrlFragment(
                 this.propertyValue()
         );

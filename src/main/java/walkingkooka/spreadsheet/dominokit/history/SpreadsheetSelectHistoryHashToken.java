@@ -191,28 +191,40 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
     }
 
     private HistoryHashToken parseMetadata(final TextCursor cursor) {
-        HistoryHashToken result = this;
+        HistoryHashToken result = null;
 
         final Optional<String> maybeNext = parseComponent(cursor);
         if (maybeNext.isPresent()) {
             final String next = maybeNext.get();
 
-            switch(next) {
-                case "pattern":
-                    result = this.parsePattern(cursor);
-                    break;
-                case "style":
-                    result = this.parseStyle(cursor);
-                    break;
-                default:
-                    result = metadataPropertySelect(
-                            this.id(),
-                            this.name(),
-                            SpreadsheetMetadataPropertyName.with(next)
-                    );
-                    break;
+            try {
+                switch (next) {
+                    case "pattern":
+                        result = this.parsePattern(cursor);
+                        break;
+                    case "style":
+                        result = this.parseStyle(cursor);
+                        break;
+                    default:
+                        result = metadataPropertySelect(
+                                this.id(),
+                                this.name(),
+                                SpreadsheetMetadataPropertyName.with(next)
+                        );
+                        break;
+                }
+            } catch (final RuntimeException cause) {
+
             }
         }
+
+        if(null == result) {
+            result = metadataSelect(
+                    this.id(),
+                    this.name()
+            );
+        }
+
         return result;
     }
 

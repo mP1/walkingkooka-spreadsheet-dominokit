@@ -27,7 +27,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 
-public abstract class SpreadsheetMetadataPropertyStyleHistoryHashToken<T> extends SpreadsheetMetadataHistoryHashToken<TextStyle> {
+public abstract class SpreadsheetMetadataPropertyStyleHistoryHashToken<T> extends SpreadsheetMetadataPropertyHistoryHashToken<TextStyle> {
 
     SpreadsheetMetadataPropertyStyleHistoryHashToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
@@ -48,7 +48,7 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryHashToken<T> extend
     private final TextStylePropertyName<T> stylePropertyName;
 
     @Override
-    final UrlFragment metadataUrlFragment() {
+    final UrlFragment metadataPropertyUrlFragment() {
         return UrlFragment.SLASH.append(
                 this.stylePropertyName()
                                 .urlFragment()

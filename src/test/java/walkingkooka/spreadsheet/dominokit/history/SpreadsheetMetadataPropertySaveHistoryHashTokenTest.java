@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetMetadataPropertySaveHistoryHashTokenTest extends SpreadsheetMetadataHistoryHashTokenTestCase<SpreadsheetMetadataPropertySaveHistoryHashToken<ExpressionNumberKind>, ExpressionNumberKind> {
+public final class SpreadsheetMetadataPropertySaveHistoryHashTokenTest extends SpreadsheetMetadataPropertyHistoryHashTokenTestCase<SpreadsheetMetadataPropertySaveHistoryHashToken<ExpressionNumberKind>, ExpressionNumberKind> {
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {
