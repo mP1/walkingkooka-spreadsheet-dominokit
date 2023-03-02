@@ -22,13 +22,13 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public abstract class SpreadsheetMetadataStyleHistoryHashTokenTestCase<T extends SpreadsheetMetadataStyleHistoryHashToken<V>, V> extends SpreadsheetMetadataHistoryHashTokenTestCase<T, TextStyle> {
+public abstract class SpreadsheetMetadataPropertyStyleHistoryHashTokenTestCase<T extends SpreadsheetMetadataPropertyStyleHistoryHashToken<V>, V> extends SpreadsheetMetadataHistoryHashTokenTestCase<T, TextStyle> {
 
     final static TextStylePropertyName<Color> STYLE_PROPERTY_NAME = TextStylePropertyName.COLOR;
 
     final static Color PROPERTY_VALUE = Color.parse("#123456");
 
-    SpreadsheetMetadataStyleHistoryHashTokenTestCase() {
+    SpreadsheetMetadataPropertyStyleHistoryHashTokenTestCase() {
         super();
     }
 

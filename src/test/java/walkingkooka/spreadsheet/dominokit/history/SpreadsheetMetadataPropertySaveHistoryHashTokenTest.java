@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends SpreadsheetMetadataHistoryHashTokenTestCase<SpreadsheetMetadataSaveHistoryHashToken<ExpressionNumberKind>, ExpressionNumberKind> {
+public final class SpreadsheetMetadataPropertySaveHistoryHashTokenTest extends SpreadsheetMetadataHistoryHashTokenTestCase<SpreadsheetMetadataPropertySaveHistoryHashToken<ExpressionNumberKind>, ExpressionNumberKind> {
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {
@@ -37,7 +37,7 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     @Test
     public void testUrlFragmentDateFormatPattern() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataSaveHistoryHashToken.with(
+                SpreadsheetMetadataPropertySaveHistoryHashToken.with(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
@@ -50,7 +50,7 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     @Test
     public void testUrlFragmentDefaultYear() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataSaveHistoryHashToken.with(
+                SpreadsheetMetadataPropertySaveHistoryHashToken.with(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
@@ -64,7 +64,7 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     public void testParseDateFormatPattern() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/pattern/date-format/save/yymmdd",
-                SpreadsheetMetadataSaveHistoryHashToken.with(
+                SpreadsheetMetadataPropertySaveHistoryHashToken.with(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
@@ -77,7 +77,7 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     public void testParseDefaultYear() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/default-year/save/49",
-                SpreadsheetMetadataSaveHistoryHashToken.with(
+                SpreadsheetMetadataPropertySaveHistoryHashToken.with(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
@@ -91,7 +91,7 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     public void testParseSpreadsheetId() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/spreadsheet-id/save/456",
-                SpreadsheetHistoryHashToken.metadataSelect(
+                SpreadsheetHistoryHashToken.metadataPropertySelect(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID
@@ -103,7 +103,7 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     public void testParseStyle() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style/color/save/#123456",
-                SpreadsheetHistoryHashToken.metadataStyleSave(
+                SpreadsheetHistoryHashToken.metadataPropertyStyleSave(
                         ID,
                         NAME,
                         TextStylePropertyName.COLOR,
@@ -113,7 +113,7 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     }
 
     @Override
-    SpreadsheetMetadataSaveHistoryHashToken<ExpressionNumberKind> createHistoryHashToken() {
+    SpreadsheetMetadataPropertySaveHistoryHashToken<ExpressionNumberKind> createHistoryHashToken() {
         return this.createHistoryHashToken(
                 ID,
                 NAME,
@@ -122,10 +122,10 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     }
 
     @Override
-    SpreadsheetMetadataSaveHistoryHashToken<ExpressionNumberKind> createHistoryHashToken(final SpreadsheetId id,
-                                                                                         final SpreadsheetName name,
-                                                                                         final SpreadsheetMetadataPropertyName<ExpressionNumberKind> propertyName) {
-        return SpreadsheetMetadataSaveHistoryHashToken.with(
+    SpreadsheetMetadataPropertySaveHistoryHashToken<ExpressionNumberKind> createHistoryHashToken(final SpreadsheetId id,
+                                                                                                 final SpreadsheetName name,
+                                                                                                 final SpreadsheetMetadataPropertyName<ExpressionNumberKind> propertyName) {
+        return SpreadsheetMetadataPropertySaveHistoryHashToken.with(
                 id,
                 name,
                 propertyName,
@@ -134,7 +134,7 @@ public final class SpreadsheetMetadataSaveHistoryHashTokenTest extends Spreadshe
     }
 
     @Override
-    public Class<SpreadsheetMetadataSaveHistoryHashToken<ExpressionNumberKind>> type() {
-        return Cast.to(SpreadsheetMetadataSaveHistoryHashToken.class);
+    public Class<SpreadsheetMetadataPropertySaveHistoryHashToken<ExpressionNumberKind>> type() {
+        return Cast.to(SpreadsheetMetadataPropertySaveHistoryHashToken.class);
     }
 }

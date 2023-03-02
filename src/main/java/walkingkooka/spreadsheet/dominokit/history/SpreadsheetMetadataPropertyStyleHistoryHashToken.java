@@ -27,11 +27,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 
-public abstract class SpreadsheetMetadataStyleHistoryHashToken<T> extends SpreadsheetMetadataHistoryHashToken<TextStyle> {
+public abstract class SpreadsheetMetadataPropertyStyleHistoryHashToken<T> extends SpreadsheetMetadataHistoryHashToken<TextStyle> {
 
-    SpreadsheetMetadataStyleHistoryHashToken(final SpreadsheetId id,
-                                             final SpreadsheetName name,
-                                             final TextStylePropertyName<T> stylePropertyName) {
+    SpreadsheetMetadataPropertyStyleHistoryHashToken(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final TextStylePropertyName<T> stylePropertyName) {
         super(
                 id,
                 name,
@@ -68,7 +68,7 @@ public abstract class SpreadsheetMetadataStyleHistoryHashToken<T> extends Spread
     SpreadsheetNameHistoryHashToken save(final String value) {
         final TextStylePropertyName<T> propertyName = this.stylePropertyName();
 
-        return SpreadsheetHistoryHashToken.metadataStyleSave(
+        return SpreadsheetHistoryHashToken.metadataPropertyStyleSave(
                 this.id(),
                 this.name(),
                 propertyName,

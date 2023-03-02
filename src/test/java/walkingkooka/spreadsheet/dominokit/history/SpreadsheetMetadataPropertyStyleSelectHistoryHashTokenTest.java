@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetMetadataStyleSelectHistoryHashTokenTest extends SpreadsheetMetadataStyleHistoryHashTokenTestCase<SpreadsheetMetadataStyleSelectHistoryHashToken<Color>, Color> {
+public final class SpreadsheetMetadataPropertyStyleSelectHistoryHashTokenTest extends SpreadsheetMetadataPropertyStyleHistoryHashTokenTestCase<SpreadsheetMetadataPropertyStyleSelectHistoryHashToken<Color>, Color> {
 
     @Test
     public void testUrlFragmentColor() {
@@ -36,7 +36,7 @@ public final class SpreadsheetMetadataStyleSelectHistoryHashTokenTest extends Sp
     @Test
     public void testUrlFragmentFontFamily() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataStyleSelectHistoryHashToken.with(
+                SpreadsheetMetadataPropertyStyleSelectHistoryHashToken.with(
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_FAMILY
@@ -48,7 +48,7 @@ public final class SpreadsheetMetadataStyleSelectHistoryHashTokenTest extends Sp
     @Test
     public void testUrlFragmentFontStyle() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataStyleSelectHistoryHashToken.with(
+                SpreadsheetMetadataPropertyStyleSelectHistoryHashToken.with(
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_STYLE
@@ -61,7 +61,7 @@ public final class SpreadsheetMetadataStyleSelectHistoryHashTokenTest extends Sp
     public void testParseBackgroundColor() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style/background-color",
-                SpreadsheetMetadataStyleSelectHistoryHashToken.with(
+                SpreadsheetMetadataPropertyStyleSelectHistoryHashToken.with(
                         ID,
                         NAME,
                         TextStylePropertyName.BACKGROUND_COLOR
@@ -73,7 +73,7 @@ public final class SpreadsheetMetadataStyleSelectHistoryHashTokenTest extends Sp
     public void testParseFontFamily() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style/font-family",
-                SpreadsheetMetadataStyleSelectHistoryHashToken.with(
+                SpreadsheetMetadataPropertyStyleSelectHistoryHashToken.with(
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_FAMILY
@@ -93,10 +93,10 @@ public final class SpreadsheetMetadataStyleSelectHistoryHashTokenTest extends Sp
     }
 
     @Override
-    SpreadsheetMetadataStyleSelectHistoryHashToken<Color> createHistoryHashToken(final SpreadsheetId id,
-                                                                                 final SpreadsheetName name,
-                                                                                 final SpreadsheetMetadataPropertyName<TextStyle> propertyName) {
-        return SpreadsheetMetadataStyleSelectHistoryHashToken.with(
+    SpreadsheetMetadataPropertyStyleSelectHistoryHashToken<Color> createHistoryHashToken(final SpreadsheetId id,
+                                                                                         final SpreadsheetName name,
+                                                                                         final SpreadsheetMetadataPropertyName<TextStyle> propertyName) {
+        return SpreadsheetMetadataPropertyStyleSelectHistoryHashToken.with(
                 id,
                 name,
                 STYLE_PROPERTY_NAME
@@ -104,7 +104,7 @@ public final class SpreadsheetMetadataStyleSelectHistoryHashTokenTest extends Sp
     }
 
     @Override
-    public Class<SpreadsheetMetadataStyleSelectHistoryHashToken<Color>> type() {
-        return Cast.to(SpreadsheetMetadataStyleSelectHistoryHashToken.class);
+    public Class<SpreadsheetMetadataPropertyStyleSelectHistoryHashToken<Color>> type() {
+        return Cast.to(SpreadsheetMetadataPropertyStyleSelectHistoryHashToken.class);
     }
 }

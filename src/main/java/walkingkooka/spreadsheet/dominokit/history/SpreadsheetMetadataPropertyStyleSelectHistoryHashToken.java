@@ -23,21 +23,21 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetMetadataStyleSelectHistoryHashToken<T> extends SpreadsheetMetadataStyleHistoryHashToken<T> {
+public final class SpreadsheetMetadataPropertyStyleSelectHistoryHashToken<T> extends SpreadsheetMetadataPropertyStyleHistoryHashToken<T> {
 
-    static <T> SpreadsheetMetadataStyleSelectHistoryHashToken<T> with(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
-                                                                      final TextStylePropertyName<T> stylePropertyName) {
-        return new SpreadsheetMetadataStyleSelectHistoryHashToken<>(
+    static <T> SpreadsheetMetadataPropertyStyleSelectHistoryHashToken<T> with(final SpreadsheetId id,
+                                                                              final SpreadsheetName name,
+                                                                              final TextStylePropertyName<T> stylePropertyName) {
+        return new SpreadsheetMetadataPropertyStyleSelectHistoryHashToken<>(
                 id,
                 name,
                 stylePropertyName
         );
     }
 
-    private SpreadsheetMetadataStyleSelectHistoryHashToken(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
-                                                           final TextStylePropertyName<T> stylePropertyName) {
+    private SpreadsheetMetadataPropertyStyleSelectHistoryHashToken(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final TextStylePropertyName<T> stylePropertyName) {
         super(
                 id,
                 name,
