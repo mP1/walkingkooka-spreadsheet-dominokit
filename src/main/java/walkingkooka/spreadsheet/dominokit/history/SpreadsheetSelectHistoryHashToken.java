@@ -205,7 +205,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
                     result = this.parseStyle(cursor);
                     break;
                 default:
-                    result = metadataSelect(
+                    result = metadataPropertySelect(
                             this.id(),
                             this.name(),
                             SpreadsheetMetadataPropertyName.with(next)
@@ -244,7 +244,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
     // factory for /spreadsheet-id/spreadsheet-name/metadata/pattern/*
     @Override
     SpreadsheetNameHistoryHashToken pattern(final SpreadsheetPatternKind patternKind) {
-        return metadataSelect(
+        return metadataPropertySelect(
                 this.id(),
                 this.name(),
                 patternKind.spreadsheetMetadataPropertyName()
@@ -259,7 +259,7 @@ public final class SpreadsheetSelectHistoryHashToken extends SpreadsheetNameHist
     // factory for /spreadsheet-id/spreadsheet-name/metadata/style/*
     @Override
     SpreadsheetNameHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
-        return metadataStyle(
+        return metadataPropertyStyle(
                 this.id(),
                 this.name(),
                 propertyName

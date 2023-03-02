@@ -28,7 +28,7 @@ import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetMetadataStyleSaveHistoryHashTokenTest extends SpreadsheetMetadataStyleHistoryHashTokenTestCase<SpreadsheetMetadataStyleSaveHistoryHashToken<Color>, Color> {
+public final class SpreadsheetMetadataPropertyStyleSaveHistoryHashTokenTest extends SpreadsheetMetadataPropertyStyleHistoryHashTokenTestCase<SpreadsheetMetadataPropertyStyleSaveHistoryHashToken<Color>, Color> {
 
     @Test
     public void testUrlFragmentColor() {
@@ -38,7 +38,7 @@ public final class SpreadsheetMetadataStyleSaveHistoryHashTokenTest extends Spre
     @Test
     public void testUrlFragmentFontFamily() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataStyleSaveHistoryHashToken.with(
+                SpreadsheetMetadataPropertyStyleSaveHistoryHashToken.with(
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_FAMILY,
@@ -51,7 +51,7 @@ public final class SpreadsheetMetadataStyleSaveHistoryHashTokenTest extends Spre
     @Test
     public void testUrlFragmentFontStyle() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataStyleSaveHistoryHashToken.with(
+                SpreadsheetMetadataPropertyStyleSaveHistoryHashToken.with(
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_STYLE,
@@ -65,7 +65,7 @@ public final class SpreadsheetMetadataStyleSaveHistoryHashTokenTest extends Spre
     public void testParseColor() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style/color/save/#123456",
-                SpreadsheetMetadataStyleSaveHistoryHashToken.with(
+                SpreadsheetMetadataPropertyStyleSaveHistoryHashToken.with(
                         ID,
                         NAME,
                         TextStylePropertyName.COLOR,
@@ -78,7 +78,7 @@ public final class SpreadsheetMetadataStyleSaveHistoryHashTokenTest extends Spre
     public void testParseFontFamily() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style/font-family/save/TimesNewRoman2",
-                SpreadsheetMetadataStyleSaveHistoryHashToken.with(
+                SpreadsheetMetadataPropertyStyleSaveHistoryHashToken.with(
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_FAMILY,
@@ -88,10 +88,10 @@ public final class SpreadsheetMetadataStyleSaveHistoryHashTokenTest extends Spre
     }
 
     @Override
-    SpreadsheetMetadataStyleSaveHistoryHashToken<Color> createHistoryHashToken(final SpreadsheetId id,
-                                                                               final SpreadsheetName name,
-                                                                               final SpreadsheetMetadataPropertyName<TextStyle> propertyName) {
-        return SpreadsheetMetadataStyleSaveHistoryHashToken.with(
+    SpreadsheetMetadataPropertyStyleSaveHistoryHashToken<Color> createHistoryHashToken(final SpreadsheetId id,
+                                                                                       final SpreadsheetName name,
+                                                                                       final SpreadsheetMetadataPropertyName<TextStyle> propertyName) {
+        return SpreadsheetMetadataPropertyStyleSaveHistoryHashToken.with(
                 id,
                 name,
                 STYLE_PROPERTY_NAME,
@@ -100,7 +100,7 @@ public final class SpreadsheetMetadataStyleSaveHistoryHashTokenTest extends Spre
     }
 
     @Override
-    public Class<SpreadsheetMetadataStyleSaveHistoryHashToken<Color>> type() {
-        return Cast.to(SpreadsheetMetadataStyleSaveHistoryHashToken.class);
+    public Class<SpreadsheetMetadataPropertyStyleSaveHistoryHashToken<Color>> type() {
+        return Cast.to(SpreadsheetMetadataPropertyStyleSaveHistoryHashToken.class);
     }
 }

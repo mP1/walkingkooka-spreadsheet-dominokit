@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
-public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends SpreadsheetMetadataHistoryHashTokenTestCase<SpreadsheetMetadataSelectHistoryHashToken<ExpressionNumberKind>, ExpressionNumberKind> {
+public final class SpreadsheetMetadataPropertySelectHistoryHashTokenTest extends SpreadsheetMetadataHistoryHashTokenTestCase<SpreadsheetMetadataPropertySelectHistoryHashToken<ExpressionNumberKind>, ExpressionNumberKind> {
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {
@@ -34,7 +34,7 @@ public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends Spreads
     @Test
     public void testUrlFragmentDateFormatPattern() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataSelectHistoryHashToken.with(
+                SpreadsheetMetadataPropertySelectHistoryHashToken.with(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
@@ -46,7 +46,7 @@ public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends Spreads
     @Test
     public void testUrlFragmentDefaultYear() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataSelectHistoryHashToken.with(
+                SpreadsheetMetadataPropertySelectHistoryHashToken.with(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DEFAULT_YEAR
@@ -59,7 +59,7 @@ public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends Spreads
     public void testParseDateFormatPattern() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/pattern/date-format",
-                SpreadsheetMetadataSelectHistoryHashToken.with(
+                SpreadsheetMetadataPropertySelectHistoryHashToken.with(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
@@ -71,7 +71,7 @@ public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends Spreads
     public void testParseDefaultYear() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/default-year",
-                SpreadsheetMetadataSelectHistoryHashToken.with(
+                SpreadsheetMetadataPropertySelectHistoryHashToken.with(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DEFAULT_YEAR
@@ -83,7 +83,7 @@ public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends Spreads
     public void testParseSpreadsheetId() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/spreadsheet-id",
-                SpreadsheetHistoryHashToken.metadataSelect(
+                SpreadsheetHistoryHashToken.metadataPropertySelect(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID
@@ -103,7 +103,7 @@ public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends Spreads
     }
 
     @Override
-    SpreadsheetMetadataSelectHistoryHashToken<ExpressionNumberKind> createHistoryHashToken() {
+    SpreadsheetMetadataPropertySelectHistoryHashToken<ExpressionNumberKind> createHistoryHashToken() {
         return this.createHistoryHashToken(
                 ID,
                 NAME,
@@ -112,10 +112,10 @@ public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends Spreads
     }
 
     @Override
-    SpreadsheetMetadataSelectHistoryHashToken<ExpressionNumberKind> createHistoryHashToken(final SpreadsheetId id,
-                                                                                           final SpreadsheetName name,
-                                                                                           final SpreadsheetMetadataPropertyName<ExpressionNumberKind> propertyName) {
-        return SpreadsheetMetadataSelectHistoryHashToken.with(
+    SpreadsheetMetadataPropertySelectHistoryHashToken<ExpressionNumberKind> createHistoryHashToken(final SpreadsheetId id,
+                                                                                                   final SpreadsheetName name,
+                                                                                                   final SpreadsheetMetadataPropertyName<ExpressionNumberKind> propertyName) {
+        return SpreadsheetMetadataPropertySelectHistoryHashToken.with(
                 id,
                 name,
                 propertyName
@@ -123,7 +123,7 @@ public final class SpreadsheetMetadataSelectHistoryHashTokenTest extends Spreads
     }
 
     @Override
-    public Class<SpreadsheetMetadataSelectHistoryHashToken<ExpressionNumberKind>> type() {
-        return Cast.to(SpreadsheetMetadataSelectHistoryHashToken.class);
+    public Class<SpreadsheetMetadataPropertySelectHistoryHashToken<ExpressionNumberKind>> type() {
+        return Cast.to(SpreadsheetMetadataPropertySelectHistoryHashToken.class);
     }
 }

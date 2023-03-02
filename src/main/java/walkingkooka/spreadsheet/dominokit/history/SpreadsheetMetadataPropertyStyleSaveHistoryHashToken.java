@@ -23,13 +23,13 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetMetadataStyleSaveHistoryHashToken<T> extends SpreadsheetMetadataStyleHistoryHashToken<T> {
+public final class SpreadsheetMetadataPropertyStyleSaveHistoryHashToken<T> extends SpreadsheetMetadataPropertyStyleHistoryHashToken<T> {
 
-    static <T> SpreadsheetMetadataStyleSaveHistoryHashToken<T> with(final SpreadsheetId id,
-                                                                    final SpreadsheetName name,
-                                                                    final TextStylePropertyName<T> stylePropertyName,
-                                                                    final T stylePropertyValue) {
-        return new SpreadsheetMetadataStyleSaveHistoryHashToken<>(
+    static <T> SpreadsheetMetadataPropertyStyleSaveHistoryHashToken<T> with(final SpreadsheetId id,
+                                                                            final SpreadsheetName name,
+                                                                            final TextStylePropertyName<T> stylePropertyName,
+                                                                            final T stylePropertyValue) {
+        return new SpreadsheetMetadataPropertyStyleSaveHistoryHashToken<>(
                 id,
                 name,
                 stylePropertyName,
@@ -37,10 +37,10 @@ public final class SpreadsheetMetadataStyleSaveHistoryHashToken<T> extends Sprea
         );
     }
 
-    private SpreadsheetMetadataStyleSaveHistoryHashToken(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
-                                                         final TextStylePropertyName<T> stylePropertyName,
-                                                         final T stylePropertyValue) {
+    private SpreadsheetMetadataPropertyStyleSaveHistoryHashToken(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final TextStylePropertyName<T> stylePropertyName,
+                                                                 final T stylePropertyValue) {
         super(
                 id,
                 name,

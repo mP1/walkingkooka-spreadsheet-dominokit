@@ -24,44 +24,31 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetMetadataSaveHistoryHashToken<T> extends SpreadsheetMetadataHistoryHashToken<T> {
+public final class SpreadsheetMetadataPropertySelectHistoryHashToken<T> extends SpreadsheetMetadataHistoryHashToken<T> {
 
-    static <T> SpreadsheetMetadataSaveHistoryHashToken<T> with(final SpreadsheetId id,
-                                                               final SpreadsheetName name,
-                                                               final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                               final T propertyValue) {
-        return new SpreadsheetMetadataSaveHistoryHashToken<>(
+    static <T> SpreadsheetMetadataPropertySelectHistoryHashToken<T> with(final SpreadsheetId id,
+                                                                         final SpreadsheetName name,
+                                                                         final SpreadsheetMetadataPropertyName<T> propertyName) {
+        return new SpreadsheetMetadataPropertySelectHistoryHashToken<>(
                 id,
                 name,
-                propertyName,
-                propertyValue
+                propertyName
         );
     }
 
-    private SpreadsheetMetadataSaveHistoryHashToken(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
-                                                    final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                    final T propertyValue) {
+    private SpreadsheetMetadataPropertySelectHistoryHashToken(final SpreadsheetId id,
+                                                              final SpreadsheetName name,
+                                                              final SpreadsheetMetadataPropertyName<T> propertyName) {
         super(
                 id,
                 name,
                 propertyName
         );
-
-        this.propertyValue = propertyValue;
     }
-
-    public T propertyValue() {
-        return this.propertyValue;
-    }
-
-    private final T propertyValue;
 
     @Override
     UrlFragment metadataUrlFragment() {
-        return this.saveUrlFragment(
-                this.propertyValue()
-        );
+        return SELECT;
     }
 
     @Override
@@ -69,15 +56,13 @@ public final class SpreadsheetMetadataSaveHistoryHashToken<T> extends Spreadshee
                             final TextCursor cursor) {
         HistoryHashToken result = this;
 
-        switch (component) {
+        switch(component) {
             case "save":
                 result = this.parseSave(cursor);
                 break;
-            case "style":
-                result = this.parseStyle(cursor);
-                break;
             default:
                 cursor.end();
+                result = this; // ignore
                 break;
         }
 
@@ -86,11 +71,22 @@ public final class SpreadsheetMetadataSaveHistoryHashToken<T> extends Spreadshee
 
     @Override
     SpreadsheetNameHistoryHashToken save(final String value) {
-        return this;
+        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName();
+
+        return SpreadsheetHistoryHashToken.metadataPropertySave(
+            this.id(),
+                this.name(),
+                propertyName,
+                propertyName.parseValue(value)
+        );
     }
 
     @Override
     SpreadsheetNameHistoryHashToken style(final TextStylePropertyName<?> propertyName) {
-        return this;
+        return SpreadsheetHistoryHashToken.metadataPropertyStyle(
+            this.id(),
+                this.name(),
+                propertyName
+        );
     }
 }
