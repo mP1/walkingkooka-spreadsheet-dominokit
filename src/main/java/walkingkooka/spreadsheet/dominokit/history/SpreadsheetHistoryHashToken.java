@@ -403,6 +403,17 @@ public abstract class SpreadsheetHistoryHashToken extends HistoryHashToken {
     }
 
     /**
+     * {@see SpreadsheetMetadataSelectHistoryHashToken}
+     */
+    public static SpreadsheetMetadataSelectHistoryHashToken metadataSelect(final SpreadsheetId id,
+                                                                           final SpreadsheetName name) {
+        return SpreadsheetMetadataSelectHistoryHashToken.with(
+                id,
+                name
+        );
+    }
+
+    /**
      * {@see SpreadsheetRowSelectHistoryHashToken}
      */
     public static SpreadsheetRowSelectHistoryHashToken row(final SpreadsheetId id,

@@ -21,35 +21,21 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
-
-import java.util.Objects;
 
 public abstract class SpreadsheetMetadataHistoryHashToken<T> extends SpreadsheetNameHistoryHashToken {
 
     SpreadsheetMetadataHistoryHashToken(final SpreadsheetId id,
-                                        final SpreadsheetName name,
-                                        final SpreadsheetMetadataPropertyName<T> propertyName) {
+                                        final SpreadsheetName name) {
         super(
                 id,
                 name
         );
-
-        this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
     }
-
-    public final SpreadsheetMetadataPropertyName<T> propertyName() {
-        return this.propertyName;
-    }
-
-    private final SpreadsheetMetadataPropertyName<T> propertyName;
 
     @Override
     final UrlFragment spreadsheetUrlFragment() {
         return METADATA.append(
-                this.propertyName().urlFragment()
-        ).append(
                 this.metadataUrlFragment()
         );
     }
@@ -61,7 +47,7 @@ public abstract class SpreadsheetMetadataHistoryHashToken<T> extends Spreadsheet
     @Override
     HistoryHashToken parse0(final String component,
                             final TextCursor cursor) {
-        HistoryHashToken result = this;
+        HistoryHashToken result;
 
         switch(component) {
             case "pattern":

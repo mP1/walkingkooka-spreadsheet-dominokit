@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public abstract class SpreadsheetMetadataPropertyStyleHistoryHashTokenTestCase<T extends SpreadsheetMetadataPropertyStyleHistoryHashToken<V>, V> extends SpreadsheetMetadataHistoryHashTokenTestCase<T, TextStyle> {
+public abstract class SpreadsheetMetadataPropertyStyleHistoryHashTokenTestCase<T extends SpreadsheetMetadataPropertyStyleHistoryHashToken<V>, V> extends SpreadsheetMetadataPropertyHistoryHashTokenTestCase<T, TextStyle> {
 
     final static TextStylePropertyName<Color> STYLE_PROPERTY_NAME = TextStylePropertyName.COLOR;
 

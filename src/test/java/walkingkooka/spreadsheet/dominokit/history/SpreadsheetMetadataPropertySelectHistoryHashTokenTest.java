@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
-public final class SpreadsheetMetadataPropertySelectHistoryHashTokenTest extends SpreadsheetMetadataHistoryHashTokenTestCase<SpreadsheetMetadataPropertySelectHistoryHashToken<ExpressionNumberKind>, ExpressionNumberKind> {
+public final class SpreadsheetMetadataPropertySelectHistoryHashTokenTest extends SpreadsheetMetadataPropertyHistoryHashTokenTestCase<SpreadsheetMetadataPropertySelectHistoryHashToken<ExpressionNumberKind>, ExpressionNumberKind> {
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {
