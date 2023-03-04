@@ -19,14 +19,35 @@ package walkingkooka.spreadsheet.dominokit;
 
 import com.google.gwt.core.client.EntryPoint;
 import org.dominokit.domino.ui.layout.Layout;
+import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.j2cl.locale.LocaleAware;
-
-import java.util.Locale;
 
 @LocaleAware
 public class App implements EntryPoint {
 
+    // header = metadata toggle | clickable(editable) spreadsheet name
+    // right = editable metadata properties
+    // content = toolbar
+    //   formula,
+    //   table holding spreadsheet cells
+    private final Layout layout = Layout.create();
+
     public void onModuleLoad() {
-        Layout.create("Untitled" + Locale.getDefault().getCountry()).show();
+        this.layout.show();
+        this.setSpreadsheetName("Untitled 123");
+        this.showMetadataPanel(false);
+    }
+
+    public void setSpreadsheetName(final String name) {
+        this.layout.setTitle(name);
+    }
+
+    private void showMetadataPanel(final boolean show) {
+        final DominoElement<?> right = this.layout.getRightPanel();
+        if(show) {
+            right.show();
+        } else {
+            right.hide();
+        }
     }
 }
