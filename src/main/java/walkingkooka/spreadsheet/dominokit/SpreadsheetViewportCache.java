@@ -21,9 +21,11 @@ import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
@@ -58,12 +60,14 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
     @Override
     public void accept(final SpreadsheetDelta delta) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
+        final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = this.labels;
 
         final Set<SpreadsheetCellRange> windows = delta.window();
         if (false == this.windows.equals(windows)) {
-            // different window clear caches
+            // no window clear caches
             cells.clear();
+            columns.clear();
             labels.clear();
         }
 
@@ -79,6 +83,17 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
                     cell
             );
             labels.remove(cellReference);
+        }
+
+        for(final SpreadsheetColumnReference column : delta.deletedColumns()) {
+            columns.remove(column);
+        }
+
+        for (final SpreadsheetColumn column : delta.columns()) {
+            columns.put(
+                    column.reference(),
+                    column
+            );
         }
 
         final Set<SpreadsheetLabelMapping> labelMappings = delta.labels();
@@ -98,6 +113,10 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
         return Optional.ofNullable(this.cells.get(cell));
     }
 
+    Optional<SpreadsheetColumn> column(final SpreadsheetColumnReference column) {
+        return Optional.ofNullable(this.columns.get(column));
+    }
+
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
         return this.labels.getOrDefault(
                 cell,
@@ -110,6 +129,12 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
      */
     // VisibleForTesting
     final Map<SpreadsheetCellReference, SpreadsheetCell> cells = Maps.sorted();
+
+    /**
+     * A cache of columns, this is used mostly to track hidden columns.
+     */
+    // VisibleForTesting
+    final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = Maps.sorted();
 
     /**
      * A cache of cell references and their one or more labels.
@@ -127,6 +152,7 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
     public String toString() {
         return ToStringBuilder.empty()
                 .value(this.cells)
+                .value(this.columns)
                 .value(this.labels)
                 .value(this.windows)
                 .build();

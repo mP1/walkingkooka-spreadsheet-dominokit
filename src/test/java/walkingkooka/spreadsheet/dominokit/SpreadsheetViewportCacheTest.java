@@ -23,10 +23,12 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -46,6 +48,14 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private final static SpreadsheetCell A1_CELL = A1.setFormula(SpreadsheetFormula.EMPTY.setText("=1"));
     private final static SpreadsheetCell A2_CELL = A2.setFormula(SpreadsheetFormula.EMPTY.setText("=22"));
     private final static SpreadsheetCell A3_CELL = A3.setFormula(SpreadsheetFormula.EMPTY.setText("=333"));
+
+    private final static SpreadsheetColumnReference A = SpreadsheetSelection.parseColumn("A");
+    private final static SpreadsheetColumnReference B = SpreadsheetSelection.parseColumn("B");
+    private final static SpreadsheetColumnReference C = SpreadsheetSelection.parseColumn("C");
+
+    private final static SpreadsheetColumn COLUMN_A = A.column();
+    private final static SpreadsheetColumn COLUMN_B = B.column();
+    private final static SpreadsheetColumn COLUMN_C = C.column().setHidden(true);
 
     private final static SpreadsheetLabelName LABEL1 = SpreadsheetSelection.labelName("Label123");
     private final static SpreadsheetLabelName LABEL2 = SpreadsheetSelection.labelName("Label234");
@@ -70,6 +80,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache
         );
 
+        this.checkColumns(
+                cache
+        );
+
         this.checkLabels(
                 cache,
                 Maps.empty()
@@ -88,6 +102,11 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         A2_CELL,
                                         A3_CELL
                                 )
+                        ).setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
                         ).setLabels(
                                 Sets.of(
                                         LABEL_MAPPINGA1A,
@@ -102,6 +121,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A1_CELL,
                 A2_CELL,
                 A3_CELL
+        );
+
+        this.checkColumns(
+                cache,
+                COLUMN_A,
+                COLUMN_B
         );
 
         this.checkLabels(
@@ -129,6 +154,11 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         A2_CELL,
                                         A3_CELL
                                 )
+                        ).setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
                         ).setLabels(
                                 Sets.of(
                                         LABEL_MAPPINGA1A,
@@ -143,6 +173,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A1_CELL,
                 A2_CELL,
                 A3_CELL
+        );
+
+        this.checkColumns(
+                cache,
+                COLUMN_A,
+                COLUMN_B
         );
 
         this.checkLabels(
@@ -261,6 +297,126 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    @Test
+    public void testAcceptTwiceColumnsReplaced() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setColumns(
+                                Sets.of(
+                                        COLUMN_A.setHidden(true),
+                                        COLUMN_B.setHidden(true)
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setColumns(
+                                Sets.of(
+                                        COLUMN_A.setHidden(false),
+                                        COLUMN_B.setHidden(false)
+                                )
+                        )
+        );
+
+        this.checkColumns(
+                cache,
+                COLUMN_A.setHidden(false),
+                COLUMN_B.setHidden(false)
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testAcceptTwiceColumnsReplaced2() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setColumns(
+                                Sets.of(
+                                        COLUMN_A.setHidden(true),
+                                        COLUMN_B.setHidden(true)
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setColumns(
+                                Sets.of(
+                                        COLUMN_A.setHidden(false)
+                                )
+                        )
+        );
+
+        this.checkColumns(
+                cache,
+                COLUMN_A.setHidden(false),
+                COLUMN_B.setHidden(true)
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testAcceptTwiceColumnsDeleted() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setDeletedColumns(
+                                Sets.of(
+                                        A
+                                )
+                        )
+        );
+
+        this.checkColumns(
+                cache,
+                COLUMN_B
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+    
     @Test
     public void testAcceptTwiceLabelsReplaced() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
@@ -548,6 +704,40 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                             entry.getValue()
                     ),
                     cache.cell(entry.getKey())
+            );
+        }
+    }
+
+    private void checkColumns(final SpreadsheetViewportCache cache,
+                              final SpreadsheetColumn... expected) {
+        final Map<SpreadsheetColumnReference, SpreadsheetColumn> expectedMaps = Maps.ordered();
+        for (final SpreadsheetColumn column : expected) {
+            expectedMaps.put(
+                    column.reference(),
+                    column
+            );
+        }
+
+        this.checkColumns(
+                cache,
+                expectedMaps
+        );
+    }
+
+    private void checkColumns(final SpreadsheetViewportCache cache,
+                              final Map<SpreadsheetColumnReference, SpreadsheetColumn> expected) {
+        this.checkEquals(
+                expected,
+                cache.columns,
+                "columns"
+        );
+
+        for (final Entry<SpreadsheetColumnReference, SpreadsheetColumn> entry : expected.entrySet()) {
+            this.checkEquals(
+                    Optional.of(
+                            entry.getValue()
+                    ),
+                    cache.column(entry.getKey())
             );
         }
     }
