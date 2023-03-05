@@ -61,8 +61,8 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = this.labels;
 
         final Set<SpreadsheetCellRange> windows = delta.window();
-        if (windows.isEmpty() || false == this.windows.equals(windows)) {
-            // no window clear caches
+        if (false == this.windows.equals(windows)) {
+            // different window clear caches
             cells.clear();
             labels.clear();
         }

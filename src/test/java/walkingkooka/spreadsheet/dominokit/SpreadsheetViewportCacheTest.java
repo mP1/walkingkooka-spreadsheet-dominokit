@@ -238,10 +238,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost"))
                                 )
-                        ).setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
                         )
         );
 
@@ -251,21 +247,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         A1_CELL
                                 )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A
-                                )
                         )
         );
 
         this.checkCells(
                 cache,
                 A1_CELL
-        );
-
-        this.checkLabels(
-                cache,
-                LABEL_MAPPINGA1A
         );
 
         this.checkWindow(
@@ -288,7 +275,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGA1A
                                 )
-                        )
+                        ).setWindow(WINDOW)
         );
 
         cache.accept(
