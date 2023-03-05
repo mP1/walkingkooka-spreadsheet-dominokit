@@ -69,6 +69,7 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
 
         for (final SpreadsheetCellReference cell : delta.deletedCells()) {
             cells.remove(cell);
+            labels.remove(cell);
         }
 
         for (final SpreadsheetCell cell : delta.cells()) {
@@ -77,13 +78,16 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
                     cellReference,
                     cell
             );
+            labels.remove(cellReference);
         }
+
+        final Set<SpreadsheetLabelMapping> labelMappings = delta.labels();
 
         final SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor labelUpdater = SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.with(
                 labels,
                 windows
         );
-        for (final SpreadsheetLabelMapping mapping : delta.labels()) {
+        for (final SpreadsheetLabelMapping mapping : labelMappings) {
             labelUpdater.accept(mapping);
         }
 
