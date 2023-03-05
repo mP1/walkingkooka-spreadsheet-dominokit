@@ -262,6 +262,84 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
+    public void testAcceptTwiceLabelsReplaced() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1B
+                                )
+                        )
+        );
+
+        this.checkLabels(
+                cache,
+                LABEL_MAPPINGA1B
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testAcceptTwiceLabelsReplaced2() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B
+                                )
+                        )
+        );
+
+        this.checkLabels(
+                cache,
+                LABEL_MAPPINGA1A,
+                LABEL_MAPPINGA1B
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
     public void testAcceptTwiceMergedDifferentNoWindow() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
