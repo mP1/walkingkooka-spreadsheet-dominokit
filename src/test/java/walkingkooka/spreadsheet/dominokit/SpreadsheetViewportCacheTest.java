@@ -340,6 +340,53 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
+    public void testAcceptTwiceDeletedCell() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost")),
+                                        A2_CELL
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A
+                                )
+                        )
+        );
+
+        this.checkCells(
+                cache,
+                A2_CELL
+        );
+
+        this.checkLabels(
+                cache,
+                LABEL_MAPPINGA1A
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
     public void testAcceptTwiceMergedDifferentNoWindow() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
@@ -382,6 +429,44 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         this.checkWindow(
                 cache,
                 ""
+        );
+    }
+
+    @Test
+    public void testAcceptTwiceSecondEmpty() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1_CELL
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A
+                                )
+                        ).setWindow(WINDOW)
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setWindow(WINDOW)
+        );
+
+        this.checkCells(
+                cache,
+                A1_CELL
+        );
+
+        this.checkLabels(
+                cache,
+                LABEL_MAPPINGA1A
+        );
+
+        this.checkWindow(
+                cache,
+                WINDOW
         );
     }
 
