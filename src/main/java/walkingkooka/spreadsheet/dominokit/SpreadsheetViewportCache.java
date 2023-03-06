@@ -159,6 +159,16 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
     }
 
     /**
+     * Returns true only if the row is present and hidden.
+     */
+    boolean isRowHidden(final SpreadsheetRowReference row) {
+        Objects.requireNonNull(row, "row");
+
+        final SpreadsheetRow spreadsheetRow = this.rows.get(row);
+        return null != spreadsheetRow && spreadsheetRow.hidden();
+    }
+    
+    /**
      * A cache of cells, this allows partial updates such as a single cell and still be able to render a complete viewport.
      */
     // VisibleForTesting

@@ -1040,6 +1040,57 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    // isRowHidden......................................................................................................
+
+    @Test
+    public void testIsRowHiddenAbsent() {
+        this.isRowHiddenAndCheck(
+                SpreadsheetViewportCache.empty(),
+                ROW_REF_1,
+                false
+        );
+    }
+
+    @Test
+    public void testIsRowHiddenPresent() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        cache.accept(
+                SpreadsheetDelta.EMPTY.setRows(
+                        Sets.of(ROW_1)
+                )
+        );
+        this.isRowHiddenAndCheck(
+                cache,
+                ROW_REF_1,
+                false
+        );
+    }
+
+    @Test
+    public void testIsRowHiddenPresentAndHidden() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        cache.accept(
+                SpreadsheetDelta.EMPTY.setRows(
+                        Sets.of(ROW_1.setHidden(true))
+                )
+        );
+        this.isRowHiddenAndCheck(
+                cache,
+                ROW_REF_1,
+                true
+        );
+    }
+
+    private void isRowHiddenAndCheck(final SpreadsheetViewportCache cache,
+                                     final SpreadsheetRowReference row,
+                                     final boolean expected) {
+        this.checkEquals(
+                expected,
+                cache.isRowHidden(row),
+                () -> "isHidden " + row
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override
