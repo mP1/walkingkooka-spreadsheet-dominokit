@@ -22,12 +22,14 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
+import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 
 import java.util.Map;
 import java.util.Optional;
@@ -60,15 +62,21 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
     @Override
     public void accept(final SpreadsheetDelta delta) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
-        final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
+
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = this.labels;
+
+        final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
+        final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
 
         final Set<SpreadsheetCellRange> windows = delta.window();
         if (false == this.windows.equals(windows)) {
             // no window clear caches
             cells.clear();
-            columns.clear();
+
             labels.clear();
+
+            columns.clear();
+            rows.clear();
         }
 
         for (final SpreadsheetCellReference cell : delta.deletedCells()) {
@@ -93,6 +101,17 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
             columns.put(
                     column.reference(),
                     column
+            );
+        }
+
+        for(final SpreadsheetRowReference row : delta.deletedRows()) {
+            rows.remove(row);
+        }
+
+        for (final SpreadsheetRow row : delta.rows()) {
+            rows.put(
+                    row.reference(),
+                    row
             );
         }
 
@@ -124,6 +143,10 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
         );
     }
 
+    Optional<SpreadsheetRow> row(final SpreadsheetRowReference row) {
+        return Optional.ofNullable(this.rows.get(row));
+    }
+    
     /**
      * A cache of cells, this allows partial updates such as a single cell and still be able to render a complete viewport.
      */
@@ -143,6 +166,12 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
     final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = Maps.sorted();
 
     /**
+     * A cache of rows, this is used mostly to track hidden rowss.
+     */
+    // VisibleForTesting
+    final Map<SpreadsheetRowReference, SpreadsheetRow> rows = Maps.sorted();
+    
+    /**
      * The viewport. This is used to filter cells and labels in the cache.
      */
     // VisibleForTesting
@@ -154,6 +183,7 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
                 .value(this.cells)
                 .value(this.columns)
                 .value(this.labels)
+                .value(this.rows)
                 .value(this.windows)
                 .build();
     }
