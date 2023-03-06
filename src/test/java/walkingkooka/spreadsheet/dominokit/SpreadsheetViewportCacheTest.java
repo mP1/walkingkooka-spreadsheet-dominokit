@@ -989,6 +989,57 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         }
     }
 
+    // isColumnHidden...................................................................................................
+
+    @Test
+    public void testIsColumnHiddenAbsent() {
+        this.isColumnHiddenAndCheck(
+                SpreadsheetViewportCache.empty(),
+                A,
+                false
+        );
+    }
+
+    @Test
+    public void testIsColumnHiddenPresent() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        cache.accept(
+                SpreadsheetDelta.EMPTY.setColumns(
+                        Sets.of(COLUMN_A)
+                )
+        );
+        this.isColumnHiddenAndCheck(
+                cache,
+                A,
+                false
+        );
+    }
+
+    @Test
+    public void testIsColumnHiddenPresentAndHidden() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        cache.accept(
+                SpreadsheetDelta.EMPTY.setColumns(
+                        Sets.of(COLUMN_A.setHidden(true))
+                )
+        );
+        this.isColumnHiddenAndCheck(
+                cache,
+                A,
+                true
+        );
+    }
+
+    private void isColumnHiddenAndCheck(final SpreadsheetViewportCache cache,
+                                        final SpreadsheetColumnReference column,
+                                        final boolean expected) {
+        this.checkEquals(
+                expected,
+                cache.isColumnHidden(column),
+                () -> "isHidden " + column
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override
