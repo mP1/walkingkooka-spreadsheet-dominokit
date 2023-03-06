@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -146,7 +147,17 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
     Optional<SpreadsheetRow> row(final SpreadsheetRowReference row) {
         return Optional.ofNullable(this.rows.get(row));
     }
-    
+
+    /**
+     * Returns true only if the column is present and hidden.
+     */
+    boolean isColumnHidden(final SpreadsheetColumnReference column) {
+        Objects.requireNonNull(column, "column");
+
+        final SpreadsheetColumn spreadsheetColumn = this.columns.get(column);
+        return null != spreadsheetColumn && spreadsheetColumn.hidden();
+    }
+
     /**
      * A cache of cells, this allows partial updates such as a single cell and still be able to render a complete viewport.
      */
