@@ -25,12 +25,14 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Map;
@@ -57,6 +59,14 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private final static SpreadsheetColumn COLUMN_B = B.column();
     private final static SpreadsheetColumn COLUMN_C = C.column().setHidden(true);
 
+    private final static SpreadsheetRowReference ROW_REF_1 = SpreadsheetSelection.parseRow("1");
+    private final static SpreadsheetRowReference ROW_REF_2 = SpreadsheetSelection.parseRow("2");
+    private final static SpreadsheetRowReference ROW_REF_3 = SpreadsheetSelection.parseRow("3");
+
+    private final static SpreadsheetRow ROW_1 = ROW_REF_1.row();
+    private final static SpreadsheetRow ROW_2 = ROW_REF_2.row();
+    private final static SpreadsheetRow ROW_3 = ROW_REF_3.row().setHidden(true);
+    
     private final static SpreadsheetLabelName LABEL1 = SpreadsheetSelection.labelName("Label123");
     private final static SpreadsheetLabelName LABEL2 = SpreadsheetSelection.labelName("Label234");
     private final static SpreadsheetLabelName LABEL3 = SpreadsheetSelection.labelName("Label345");
@@ -88,6 +98,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 Maps.empty()
         );
+
+        this.checkRows(
+                cache
+        );
     }
 
     @Test
@@ -113,7 +127,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         LABEL_MAPPINGA1B,
                                         LABEL_MAPPINGB3
                                 )
-                        )
+                        ).setRows(
+                Sets.of(
+                        ROW_1,
+                        ROW_2
+                )
+        )
         );
 
         this.checkCells(
@@ -134,6 +153,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 LABEL_MAPPINGA1A,
                 LABEL_MAPPINGA1B,
                 LABEL_MAPPINGB3
+        );
+
+        this.checkRows(
+                cache,
+                ROW_1,
+                ROW_2
         );
 
         this.checkWindow(
@@ -165,6 +190,11 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         LABEL_MAPPINGA1B,
                                         LABEL_MAPPINGB3
                                 )
+                        ).setRows(
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                        )
                         ).setWindow(WINDOW)
         );
 
@@ -186,6 +216,13 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 LABEL_MAPPINGA1A,
                 LABEL_MAPPINGA1B,
                 LABEL_MAPPINGB3
+        );
+
+
+        this.checkRows(
+                cache,
+                ROW_1,
+                ROW_2
         );
 
         this.checkWindow(
@@ -674,6 +711,127 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+
+    @Test
+    public void testAcceptTwiceRowsReplaced() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setRows(
+                                Sets.of(
+                                        ROW_1.setHidden(true),
+                                        ROW_2.setHidden(true)
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setRows(
+                                Sets.of(
+                                        ROW_1.setHidden(false),
+                                        ROW_2.setHidden(false)
+                                )
+                        )
+        );
+
+        this.checkRows(
+                cache,
+                ROW_1.setHidden(false),
+                ROW_2.setHidden(false)
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testAcceptTwiceRowsReplaced2() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setRows(
+                                Sets.of(
+                                        ROW_1.setHidden(true),
+                                        ROW_2.setHidden(true)
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setRows(
+                                Sets.of(
+                                        ROW_1.setHidden(false)
+                                )
+                        )
+        );
+
+        this.checkRows(
+                cache,
+                ROW_1.setHidden(false),
+                ROW_2.setHidden(true)
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testAcceptTwiceRowsDeleted() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setRows(
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                                )
+                        )
+        );
+
+        cache.accept(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setDeletedRows(
+                                Sets.of(
+                                        ROW_REF_1
+                                )
+                        )
+        );
+
+        this.checkRows(
+                cache,
+                ROW_2
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+    
     private void checkCells(final SpreadsheetViewportCache cache,
                             final SpreadsheetCell... expected) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> expectedMaps = Maps.ordered();
@@ -738,6 +896,40 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                             entry.getValue()
                     ),
                     cache.column(entry.getKey())
+            );
+        }
+    }
+
+    private void checkRows(final SpreadsheetViewportCache cache,
+                              final SpreadsheetRow... expected) {
+        final Map<SpreadsheetRowReference, SpreadsheetRow> expectedMaps = Maps.ordered();
+        for (final SpreadsheetRow row : expected) {
+            expectedMaps.put(
+                    row.reference(),
+                    row
+            );
+        }
+
+        this.checkRows(
+                cache,
+                expectedMaps
+        );
+    }
+
+    private void checkRows(final SpreadsheetViewportCache cache,
+                              final Map<SpreadsheetRowReference, SpreadsheetRow> expected) {
+        this.checkEquals(
+                expected,
+                cache.rows,
+                "rows"
+        );
+
+        for (final Entry<SpreadsheetRowReference, SpreadsheetRow> entry : expected.entrySet()) {
+            this.checkEquals(
+                    Optional.of(
+                            entry.getValue()
+                    ),
+                    cache.row(entry.getKey())
             );
         }
     }
