@@ -35,13 +35,12 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.Consumer;
 
 /**
  * A cache of the cells and labels for a viewport. This is mostly used during the rendering phase to provide content
  * for the cells in the spreadsheet viewport TABLE.
  */
-final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
+final class SpreadsheetViewportCache {
 
     /**
      * Creates a new cache with no cells or labels present.
@@ -60,8 +59,7 @@ final class SpreadsheetViewportCache implements Consumer<SpreadsheetDelta> {
     /**
      * Removes any deleted cells and then adds updated cells to the {@link #cells}.
      */
-    @Override
-    public void accept(final SpreadsheetDelta delta) {
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = this.labels;

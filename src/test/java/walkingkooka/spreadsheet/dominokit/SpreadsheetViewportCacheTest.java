@@ -80,6 +80,11 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
             WINDOW1
     );
 
+    @Override
+    public void testAllMethodsVisibility() {
+        // nop
+    }
+
     // tests............................................................................................................
 
     @Test
@@ -105,10 +110,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptFirstWithoutWindow() {
+    public void testOnSpreadsheetDeltaFirstWithoutWindow() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -168,10 +173,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptFirstWithWindow() {
+    public void testOnSpreadsheetDeltaFirstWithWindow() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -232,10 +237,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptFirstLabelToRange() {
+    public void testOnSpreadsheetDeltaFirstLabelToRange() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -266,12 +271,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptFirstLabelToRangeOutsideWindow() {
+    public void testOnSpreadsheetDeltaFirstLabelToRangeOutsideWindow() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
         final Set<SpreadsheetCellRange> windows = SpreadsheetSelection.parseWindow("A1:A2");
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -302,10 +307,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceCellReplaced() {
+    public void testOnSpreadsheetDeltaTwiceCellReplaced() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -314,7 +319,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -335,10 +340,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceColumnsReplaced() {
+    public void testOnSpreadsheetDeltaTwiceColumnsReplaced() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setColumns(
                                 Sets.of(
@@ -348,7 +353,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -376,10 +381,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceColumnsReplaced2() {
+    public void testOnSpreadsheetDeltaTwiceColumnsReplaced2() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setColumns(
                                 Sets.of(
@@ -389,7 +394,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -416,10 +421,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceColumnsDeleted() {
+    public void testOnSpreadsheetDeltaTwiceColumnsDeleted() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setColumns(
                                 Sets.of(
@@ -429,7 +434,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -455,10 +460,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
     
     @Test
-    public void testAcceptTwiceLabelsReplaced() {
+    public void testOnSpreadsheetDeltaTwiceLabelsReplaced() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -467,7 +472,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -493,10 +498,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceLabelsReplaced2() {
+    public void testOnSpreadsheetDeltaTwiceLabelsReplaced2() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -505,7 +510,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -533,10 +538,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceDeletedCell() {
+    public void testOnSpreadsheetDeltaTwiceDeletedCell() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -550,7 +555,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -580,10 +585,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceMergedDifferentNoWindow() {
+    public void testOnSpreadsheetDeltaTwiceMergedDifferentNoWindow() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -596,7 +601,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         ).setWindow(WINDOW)
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -626,10 +631,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceSecondEmpty() {
+    public void testOnSpreadsheetDeltaTwiceSecondEmpty() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -642,7 +647,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         ).setWindow(WINDOW)
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setWindow(WINDOW)
         );
@@ -664,10 +669,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceMergedDifferentSameWindows() {
+    public void testOnSpreadsheetDeltaTwiceMergedDifferentSameWindows() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -680,7 +685,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         ).setWindow(WINDOW)
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -713,10 +718,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
 
     @Test
-    public void testAcceptTwiceRowsReplaced() {
+    public void testOnSpreadsheetDeltaTwiceRowsReplaced() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setRows(
                                 Sets.of(
@@ -726,7 +731,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -754,10 +759,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceRowsReplaced2() {
+    public void testOnSpreadsheetDeltaTwiceRowsReplaced2() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setRows(
                                 Sets.of(
@@ -767,7 +772,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -794,10 +799,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testAcceptTwiceRowsDeleted() {
+    public void testOnSpreadsheetDeltaTwiceRowsDeleted() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setRows(
                                 Sets.of(
@@ -807,7 +812,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         )
         );
 
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -1003,7 +1008,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     @Test
     public void testIsColumnHiddenPresent() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setColumns(
                         Sets.of(COLUMN_A)
                 )
@@ -1018,7 +1023,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     @Test
     public void testIsColumnHiddenPresentAndHidden() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setColumns(
                         Sets.of(COLUMN_A.setHidden(true))
                 )
@@ -1054,7 +1059,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     @Test
     public void testIsRowHiddenPresent() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setRows(
                         Sets.of(ROW_1)
                 )
@@ -1069,7 +1074,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     @Test
     public void testIsRowHiddenPresentAndHidden() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
-        cache.accept(
+        cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setRows(
                         Sets.of(ROW_1.setHidden(true))
                 )
