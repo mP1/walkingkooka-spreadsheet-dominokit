@@ -873,6 +873,17 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    // columnWidth......................................................................................................
+
+    @Test
+    public void testColumnWidthNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetViewportCache.empty()
+                        .columnWidth(null)
+        );
+    }
+
     @Test
     public void testOnSpreadsheetDeltaColumnWidths() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
@@ -928,15 +939,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         B, 200.0,
                         C, 30.0
                 )
-        );
-    }
-
-    @Test
-    public void testColumnWidthNullFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetViewportCache.empty()
-                        .columnWidth(null)
         );
     }
 
