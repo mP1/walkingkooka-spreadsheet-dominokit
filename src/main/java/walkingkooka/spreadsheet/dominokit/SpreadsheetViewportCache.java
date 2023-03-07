@@ -24,12 +24,14 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Map;
 import java.util.Objects;
@@ -55,6 +57,22 @@ final class SpreadsheetViewportCache {
     private SpreadsheetViewportCache() {
         super();
     }
+
+    /**
+     * Captures the default width and height which will be used when rendering
+     */
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
+        this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH)
+                .pixelValue();
+        this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT)
+                .pixelValue();
+    }
+
+    // @VisibleForTesting
+    double defaultWidth;
+
+    // @VisibleForTesting
+    double defaultHeight;
 
     /**
      * Removes any deleted cells and then adds updated cells to the {@link #cells}.
