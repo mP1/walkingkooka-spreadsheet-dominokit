@@ -85,6 +85,8 @@ final class SpreadsheetViewportCache {
         final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
         final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
 
+        final Map<SpreadsheetColumnReference, Double> columnsWidths = this.columnWidths;
+
         final Set<SpreadsheetCellRange> windows = delta.window();
         if (false == this.windows.equals(windows)) {
             // no window clear caches
@@ -94,6 +96,8 @@ final class SpreadsheetViewportCache {
 
             columns.clear();
             rows.clear();
+
+            columnsWidths.clear();
         }
 
         for (final SpreadsheetCellReference cell : delta.deletedCells()) {
@@ -112,6 +116,7 @@ final class SpreadsheetViewportCache {
 
         for(final SpreadsheetColumnReference column : delta.deletedColumns()) {
             columns.remove(column);
+            columnWidths.remove(column);
         }
 
         for (final SpreadsheetColumn column : delta.columns()) {
@@ -120,6 +125,8 @@ final class SpreadsheetViewportCache {
                     column
             );
         }
+
+        columnsWidths.putAll(delta.columnWidths());
 
         for(final SpreadsheetRowReference row : delta.deletedRows()) {
             rows.remove(row);
@@ -151,6 +158,19 @@ final class SpreadsheetViewportCache {
 
     Optional<SpreadsheetColumn> column(final SpreadsheetColumnReference column) {
         return Optional.ofNullable(this.columns.get(column));
+    }
+
+    /**
+     * Retrieves the width for the given {@link SpreadsheetColumnReference} using the default if none is available.
+     */
+    Double columnWidth(final SpreadsheetColumnReference column) {
+        Objects.requireNonNull(column, "column");
+
+        Double width = this.columnWidths.get(column);
+        if(null == width) {
+            width = this.defaultWidth;
+        }
+        return width;
     }
 
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
@@ -197,6 +217,12 @@ final class SpreadsheetViewportCache {
     final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = Maps.sorted();
 
     /**
+     * A cache holding the max width for interesting columns. If the column is hidden it will have a width of zero.
+     */
+    // VisibleForTesting
+    final Map<SpreadsheetColumnReference, Double> columnWidths = Maps.sorted();
+
+    /**
      * A cache of cell references and their one or more labels.
      */
     // VisibleForTesting
@@ -219,6 +245,7 @@ final class SpreadsheetViewportCache {
         return ToStringBuilder.empty()
                 .value(this.cells)
                 .value(this.columns)
+                .value(this.columnWidths)
                 .value(this.labels)
                 .value(this.rows)
                 .value(this.windows)
