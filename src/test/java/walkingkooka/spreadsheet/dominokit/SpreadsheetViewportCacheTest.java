@@ -27,6 +27,8 @@ import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -34,6 +36,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -106,6 +111,35 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
         this.checkRows(
                 cache
+        );
+    }
+
+    @Test
+    public void testOnSpreadsheetMetadata() {
+        final double width = 123;
+        final double height = 456;
+
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetMetadata(
+                SpreadsheetMetadata.EMPTY
+                        .set(
+                                SpreadsheetMetadataPropertyName.STYLE,
+                                TextStyle.EMPTY
+                                        .set(TextStylePropertyName.WIDTH, Length.pixel(width))
+                                        .set(TextStylePropertyName.HEIGHT, Length.pixel(height))
+                        )
+        );
+
+        this.checkEquals(
+                width,
+                cache.defaultWidth,
+                "defaultWidth"
+        );
+        this.checkEquals(
+                height,
+                cache.defaultHeight,
+                "defaultHeight"
         );
     }
 
