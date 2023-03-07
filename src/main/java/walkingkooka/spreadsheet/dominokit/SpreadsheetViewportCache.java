@@ -86,6 +86,7 @@ final class SpreadsheetViewportCache {
         final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
 
         final Map<SpreadsheetColumnReference, Double> columnsWidths = this.columnWidths;
+        final Map<SpreadsheetRowReference, Double> rowHeights = this.rowHeights;
 
         final Set<SpreadsheetCellRange> windows = delta.window();
         if (false == this.windows.equals(windows)) {
@@ -98,6 +99,7 @@ final class SpreadsheetViewportCache {
             rows.clear();
 
             columnsWidths.clear();
+            rowHeights.clear();
         }
 
         for (final SpreadsheetCellReference cell : delta.deletedCells()) {
@@ -130,6 +132,7 @@ final class SpreadsheetViewportCache {
 
         for(final SpreadsheetRowReference row : delta.deletedRows()) {
             rows.remove(row);
+            rowHeights.remove(row);
         }
 
         for (final SpreadsheetRow row : delta.rows()) {
@@ -138,6 +141,8 @@ final class SpreadsheetViewportCache {
                     row
             );
         }
+
+        rowHeights.putAll(delta.rowHeights());
 
         final Set<SpreadsheetLabelMapping> labelMappings = delta.labels();
 
@@ -185,6 +190,19 @@ final class SpreadsheetViewportCache {
     }
 
     /**
+     * Retrieves the height for the given {@link SpreadsheetRowReference} using the default if none is available.
+     */
+    Double rowHeight(final SpreadsheetRowReference row) {
+        Objects.requireNonNull(row, "row");
+
+        Double height = this.rowHeights.get(row);
+        if(null == height) {
+            height = this.defaultHeight;
+        }
+        return height;
+    }
+
+    /**
      * Returns true only if the column is present and hidden.
      */
     boolean isColumnHidden(final SpreadsheetColumnReference column) {
@@ -203,7 +221,7 @@ final class SpreadsheetViewportCache {
         final SpreadsheetRow spreadsheetRow = this.rows.get(row);
         return null != spreadsheetRow && spreadsheetRow.hidden();
     }
-    
+
     /**
      * A cache of cells, this allows partial updates such as a single cell and still be able to render a complete viewport.
      */
@@ -233,6 +251,12 @@ final class SpreadsheetViewportCache {
      */
     // VisibleForTesting
     final Map<SpreadsheetRowReference, SpreadsheetRow> rows = Maps.sorted();
+
+    /**
+     * A cache holding the max height for interesting rows. If the row is hidden it will have a height of zero.
+     */
+    // VisibleForTesting
+    final Map<SpreadsheetRowReference, Double> rowHeights = Maps.sorted();
     
     /**
      * The viewport. This is used to filter cells and labels in the cache.
@@ -248,6 +272,7 @@ final class SpreadsheetViewportCache {
                 .value(this.columnWidths)
                 .value(this.labels)
                 .value(this.rows)
+                .value(this.rowHeights)
                 .value(this.windows)
                 .build();
     }

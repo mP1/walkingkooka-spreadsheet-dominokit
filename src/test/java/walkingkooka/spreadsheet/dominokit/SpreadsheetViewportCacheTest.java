@@ -876,15 +876,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     // columnWidth......................................................................................................
 
     @Test
-    public void testColumnWidthNullFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetViewportCache.empty()
-                        .columnWidth(null)
-        );
-    }
-
-    @Test
     public void testOnSpreadsheetDeltaColumnWidths() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
@@ -943,6 +934,15 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
+    public void testColumnWidthNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetViewportCache.empty()
+                        .columnWidth(null)
+        );
+    }
+    
+    @Test
     public void testColumnWidthMissingDefaulted() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
@@ -979,6 +979,114 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 SpreadsheetSelection.parseColumn("Z"),
                 width
+        );
+    }
+
+    // rowHeight......................................................................................................
+
+    @Test
+    public void testOnSpreadsheetDeltaRowHeights() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setRowHeights(
+                                Maps.of(
+                                        ROW_REF_1, 10.0,
+                                        ROW_REF_2, 20.0
+                                )
+                        )
+        );
+
+        this.checkRowsHeights(
+                cache,
+                Maps.of(
+                        ROW_REF_1, 10.0,
+                        ROW_REF_2, 20.0
+                )
+        );
+    }
+
+    @Test
+    public void testOnSpreadsheetDeltaRowHeightsUpdates() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setRowHeights(
+                                Maps.of(
+                                        ROW_REF_1, 10.0,
+                                        ROW_REF_2, 20.0,
+                                        ROW_REF_3, 30.0
+                                )
+                        )
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setRowHeights(
+                                Maps.of(
+                                        ROW_REF_1, 100.0,
+                                        ROW_REF_2, 200.0
+                                )
+                        )
+        );
+
+        this.checkRowsHeights(
+                cache,
+                Maps.of(
+                        ROW_REF_1, 100.0,
+                        ROW_REF_2, 200.0,
+                        ROW_REF_3, 30.0
+                )
+        );
+    }
+
+    @Test
+    public void testRowHeightNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetViewportCache.empty()
+                        .rowHeight(null)
+        );
+    }
+
+    @Test
+    public void testRowHeightMissingDefaulted() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setRowHeights(
+                                Maps.of(
+                                        ROW_REF_1, 10.0,
+                                        ROW_REF_2, 20.0
+                                )
+                        )
+        );
+
+        final double width = 10;
+        final double height = 20;
+
+        cache.onSpreadsheetMetadata(
+                SpreadsheetMetadata.EMPTY
+                        .set(
+                                SpreadsheetMetadataPropertyName.STYLE,
+                                TextStyle.EMPTY
+                                        .set(
+                                                TextStylePropertyName.WIDTH,
+                                                Length.pixel(width)
+                                        ).set(
+                                                TextStylePropertyName.HEIGHT,
+                                                Length.pixel(height)
+                                        )
+                        )
+        );
+
+        this.rowsHeightAndCheck(
+                cache,
+                SpreadsheetSelection.parseRow("99"),
+                height
         );
     }
     
@@ -1110,6 +1218,34 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                     cache.row(entry.getKey())
             );
         }
+    }
+
+    private void checkRowsHeights(final SpreadsheetViewportCache cache,
+                                  final Map<SpreadsheetRowReference, Double> expected) {
+        this.checkEquals(
+                expected,
+                cache.rowHeights,
+                "rowHeights"
+        );
+
+        for (final Entry<SpreadsheetRowReference, Double> entry : expected.entrySet()) {
+            this.rowsHeightAndCheck(
+                    cache,
+                    entry.getKey(),
+                    entry.getValue()
+            );
+        }
+    }
+
+    private void rowsHeightAndCheck(final SpreadsheetViewportCache cache,
+                                    final SpreadsheetRowReference row,
+                                    final double expected) {
+
+        this.checkEquals(
+                expected,
+                cache.rowHeight(row),
+                () -> "rowHeight of " + row + " from " + cache
+        );
     }
 
     private void checkWindow(final SpreadsheetViewportCache cache,
