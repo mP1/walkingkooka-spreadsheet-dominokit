@@ -45,6 +45,8 @@ import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetViewportCacheTest implements ClassTesting<SpreadsheetViewportCache> {
 
     private final static SpreadsheetCellReference A1 = SpreadsheetCellReference.A1;
@@ -870,6 +872,113 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 ""
         );
     }
+
+    @Test
+    public void testOnSpreadsheetDeltaColumnWidths() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setColumnWidths(
+                                Maps.of(
+                                        A, 10.0,
+                                        B, 20.0
+                                )
+                        )
+        );
+
+        this.checkColumnsWidths(
+                cache,
+                Maps.of(
+                        A, 10.0,
+                        B, 20.0
+                )
+        );
+    }
+
+    @Test
+    public void testOnSpreadsheetDeltaColumnWidthsUpdates() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setColumnWidths(
+                                Maps.of(
+                                        A, 10.0,
+                                        B, 20.0,
+                                        C, 30.0
+                                )
+                        )
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setColumnWidths(
+                                Maps.of(
+                                        A, 100.0,
+                                        B, 200.0
+                                )
+                        )
+        );
+
+        this.checkColumnsWidths(
+                cache,
+                Maps.of(
+                        A, 100.0,
+                        B, 200.0,
+                        C, 30.0
+                )
+        );
+    }
+
+    @Test
+    public void testColumnWidthNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetViewportCache.empty()
+                        .columnWidth(null)
+        );
+    }
+
+    @Test
+    public void testColumnWidthMissingDefaulted() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setColumnWidths(
+                                Maps.of(
+                                        A, 10.0,
+                                        B, 20.0
+                                )
+                        )
+        );
+
+        final double width = 10;
+        final double height = 20;
+
+        cache.onSpreadsheetMetadata(
+                SpreadsheetMetadata.EMPTY
+                        .set(
+                                SpreadsheetMetadataPropertyName.STYLE,
+                                TextStyle.EMPTY
+                                        .set(
+                                                TextStylePropertyName.WIDTH,
+                                                Length.pixel(width)
+                                        )
+                                        .set(
+                                                TextStylePropertyName.HEIGHT,
+                                                Length.pixel(height)
+                                        )
+                        )
+        );
+
+        this.columnsWidthAndCheck(
+                cache,
+                SpreadsheetSelection.parseColumn("Z"),
+                width
+        );
+    }
     
     private void checkCells(final SpreadsheetViewportCache cache,
                             final SpreadsheetCell... expected) {
@@ -937,6 +1046,34 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                     cache.column(entry.getKey())
             );
         }
+    }
+
+    private void checkColumnsWidths(final SpreadsheetViewportCache cache,
+                                    final Map<SpreadsheetColumnReference, Double> expected) {
+        this.checkEquals(
+                expected,
+                cache.columnWidths,
+                "columnWidths"
+        );
+
+        for (final Entry<SpreadsheetColumnReference, Double> entry : expected.entrySet()) {
+            this.columnsWidthAndCheck(
+                    cache,
+                    entry.getKey(),
+                    entry.getValue()
+            );
+        }
+    }
+
+    private void columnsWidthAndCheck(final SpreadsheetViewportCache cache,
+                                      final SpreadsheetColumnReference column,
+                                      final double expected) {
+
+        this.checkEquals(
+                expected,
+                cache.columnWidth(column),
+                () -> "columnWidth of " + column + " from " + cache
+        );
     }
 
     private void checkRows(final SpreadsheetViewportCache cache,
