@@ -42,7 +42,7 @@ import java.util.Set;
  * A cache of the cells and labels for a viewport. This is mostly used during the rendering phase to provide content
  * for the cells in the spreadsheet viewport TABLE.
  */
-final class SpreadsheetViewportCache {
+final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher {
 
     /**
      * Creates a new cache with no cells or labels present.
@@ -61,6 +61,7 @@ final class SpreadsheetViewportCache {
     /**
      * Captures the default width and height which will be used when rendering
      */
+    @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH)
                 .pixelValue();
@@ -77,6 +78,7 @@ final class SpreadsheetViewportCache {
     /**
      * Removes any deleted cells and then adds updated cells to the {@link #cells}.
      */
+    @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
