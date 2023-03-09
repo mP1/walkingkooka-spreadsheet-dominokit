@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -55,6 +56,17 @@ public abstract class SpreadsheetNameHistoryHashToken extends SpreadsheetHistory
     }
 
     abstract UrlFragment spreadsheetUrlFragment();
+
+    /**
+     * Factory that creates a {@link SpreadsheetNameHistoryHashToken} assuming the default {@link walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor anchor}
+     * if necessary.
+     */
+    public final SpreadsheetNameHistoryHashToken selection(final SpreadsheetSelection selection) {
+        return SpreadsheetNameHistoryHashTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
+                this,
+                selection
+        );
+    }
 
     final SpreadsheetNameHistoryHashToken cell(final SpreadsheetViewportSelection viewportSelection) {
         return cell(
