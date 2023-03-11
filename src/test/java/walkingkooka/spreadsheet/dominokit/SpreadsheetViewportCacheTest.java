@@ -73,7 +73,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private final static SpreadsheetRow ROW_1 = ROW_REF_1.row();
     private final static SpreadsheetRow ROW_2 = ROW_REF_2.row();
     private final static SpreadsheetRow ROW_3 = ROW_REF_3.row().setHidden(true);
-    
+
     private final static SpreadsheetLabelName LABEL1 = SpreadsheetSelection.labelName("Label123");
     private final static SpreadsheetLabelName LABEL2 = SpreadsheetSelection.labelName("Label234");
     private final static SpreadsheetLabelName LABEL3 = SpreadsheetSelection.labelName("Label345");
@@ -134,12 +134,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
 
         this.checkEquals(
-                width,
+                Length.pixel(width),
                 cache.defaultWidth,
                 "defaultWidth"
         );
         this.checkEquals(
-                height,
+                Length.pixel(height),
                 cache.defaultHeight,
                 "defaultHeight"
         );
@@ -169,11 +169,11 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         LABEL_MAPPINGB3
                                 )
                         ).setRows(
-                Sets.of(
-                        ROW_1,
-                        ROW_2
-                )
-        )
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                                )
+                        )
         );
 
         this.checkCells(
@@ -235,7 +235,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         ROW_1,
                                         ROW_2
-                        )
+                                )
                         ).setWindow(WINDOW)
         );
 
@@ -494,7 +494,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 ""
         );
     }
-    
+
     @Test
     public void testOnSpreadsheetDeltaTwiceLabelsReplaced() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
@@ -941,7 +941,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         .columnWidth(null)
         );
     }
-    
+
     @Test
     public void testColumnWidthMissingDefaulted() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
@@ -1089,7 +1089,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 height
         );
     }
-    
+
     private void checkCells(final SpreadsheetViewportCache cache,
                             final SpreadsheetCell... expected) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> expectedMaps = Maps.ordered();
@@ -1160,8 +1160,16 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     private void checkColumnsWidths(final SpreadsheetViewportCache cache,
                                     final Map<SpreadsheetColumnReference, Double> expected) {
+        final Map<SpreadsheetColumnReference, Length<?>> expectedLengths = Maps.ordered();
+        for (final Entry<SpreadsheetColumnReference, Double> widths : expected.entrySet()) {
+            expectedLengths.put(
+                    widths.getKey(),
+                    Length.pixel(widths.getValue())
+            );
+        }
+
         this.checkEquals(
-                expected,
+                expectedLengths,
                 cache.columnWidths,
                 "columnWidths"
         );
@@ -1179,6 +1187,17 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                       final SpreadsheetColumnReference column,
                                       final double expected) {
 
+        this.columnsWidthAndCheck(
+                cache,
+                column,
+                Length.pixel(expected)
+        );
+    }
+
+    private void columnsWidthAndCheck(final SpreadsheetViewportCache cache,
+                                      final SpreadsheetColumnReference column,
+                                      final Length<?> expected) {
+
         this.checkEquals(
                 expected,
                 cache.columnWidth(column),
@@ -1187,7 +1206,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     private void checkRows(final SpreadsheetViewportCache cache,
-                              final SpreadsheetRow... expected) {
+                           final SpreadsheetRow... expected) {
         final Map<SpreadsheetRowReference, SpreadsheetRow> expectedMaps = Maps.ordered();
         for (final SpreadsheetRow row : expected) {
             expectedMaps.put(
@@ -1203,7 +1222,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     private void checkRows(final SpreadsheetViewportCache cache,
-                              final Map<SpreadsheetRowReference, SpreadsheetRow> expected) {
+                           final Map<SpreadsheetRowReference, SpreadsheetRow> expected) {
         this.checkEquals(
                 expected,
                 cache.rows,
@@ -1222,8 +1241,16 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     private void checkRowsHeights(final SpreadsheetViewportCache cache,
                                   final Map<SpreadsheetRowReference, Double> expected) {
+        final Map<SpreadsheetRowReference, Length<?>> expectedLengths = Maps.ordered();
+        for (final Entry<SpreadsheetRowReference, Double> widths : expected.entrySet()) {
+            expectedLengths.put(
+                    widths.getKey(),
+                    Length.pixel(widths.getValue())
+            );
+        }
+
         this.checkEquals(
-                expected,
+                expectedLengths,
                 cache.rowHeights,
                 "rowHeights"
         );
@@ -1240,6 +1267,17 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private void rowsHeightAndCheck(final SpreadsheetViewportCache cache,
                                     final SpreadsheetRowReference row,
                                     final double expected) {
+
+        this.rowsHeightAndCheck(
+                cache,
+                row,
+                Length.pixel(expected)
+        );
+    }
+
+    private void rowsHeightAndCheck(final SpreadsheetViewportCache cache,
+                                    final SpreadsheetRowReference row,
+                                    final Length<?> expected) {
 
         this.checkEquals(
                 expected,

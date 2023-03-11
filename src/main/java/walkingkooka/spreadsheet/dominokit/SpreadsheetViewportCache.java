@@ -31,9 +31,11 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -63,17 +65,15 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
      */
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
-        this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH)
-                .pixelValue();
-        this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT)
-                .pixelValue();
+        this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH);
+        this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT);
     }
 
     // @VisibleForTesting
-    double defaultWidth;
+    Length<?> defaultWidth;
 
     // @VisibleForTesting
-    double defaultHeight;
+    Length<?> defaultHeight;
 
     /**
      * Removes any deleted cells and then adds updated cells to the {@link #cells}.
@@ -87,8 +87,8 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
         final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
 
-        final Map<SpreadsheetColumnReference, Double> columnsWidths = this.columnWidths;
-        final Map<SpreadsheetRowReference, Double> rowHeights = this.rowHeights;
+        final Map<SpreadsheetColumnReference, Length<?>> columnsWidths = this.columnWidths;
+        final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
 
         final Set<SpreadsheetCellRange> windows = delta.window();
         if (false == this.windows.equals(windows)) {
@@ -118,7 +118,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
             labels.remove(cellReference);
         }
 
-        for(final SpreadsheetColumnReference column : delta.deletedColumns()) {
+        for (final SpreadsheetColumnReference column : delta.deletedColumns()) {
             columns.remove(column);
             columnWidths.remove(column);
         }
@@ -130,9 +130,13 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
             );
         }
 
-        columnsWidths.putAll(delta.columnWidths());
-
-        for(final SpreadsheetRowReference row : delta.deletedRows()) {
+        for (final Entry<SpreadsheetColumnReference, Double> width : delta.columnWidths().entrySet()) {
+            columnWidths.put(
+                    width.getKey(),
+                    Length.pixel(width.getValue())
+            );
+        }
+        for (final SpreadsheetRowReference row : delta.deletedRows()) {
             rows.remove(row);
             rowHeights.remove(row);
         }
@@ -144,7 +148,12 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
             );
         }
 
-        rowHeights.putAll(delta.rowHeights());
+        for (final Entry<SpreadsheetRowReference, Double> height : delta.rowHeights().entrySet()) {
+            rowHeights.put(
+                    height.getKey(),
+                    Length.pixel(height.getValue())
+            );
+        }
 
         final Set<SpreadsheetLabelMapping> labelMappings = delta.labels();
 
@@ -170,11 +179,11 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
     /**
      * Retrieves the width for the given {@link SpreadsheetColumnReference} using the default if none is available.
      */
-    Double columnWidth(final SpreadsheetColumnReference column) {
+    Length<?> columnWidth(final SpreadsheetColumnReference column) {
         Objects.requireNonNull(column, "column");
 
-        Double width = this.columnWidths.get(column);
-        if(null == width) {
+        Length<?> width = this.columnWidths.get(column);
+        if (null == width) {
             width = this.defaultWidth;
         }
         return width;
@@ -194,11 +203,11 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
     /**
      * Retrieves the height for the given {@link SpreadsheetRowReference} using the default if none is available.
      */
-    Double rowHeight(final SpreadsheetRowReference row) {
+    Length<?> rowHeight(final SpreadsheetRowReference row) {
         Objects.requireNonNull(row, "row");
 
-        Double height = this.rowHeights.get(row);
-        if(null == height) {
+        Length<?> height = this.rowHeights.get(row);
+        if (null == height) {
             height = this.defaultHeight;
         }
         return height;
@@ -240,7 +249,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
      * A cache holding the max width for interesting columns. If the column is hidden it will have a width of zero.
      */
     // VisibleForTesting
-    final Map<SpreadsheetColumnReference, Double> columnWidths = Maps.sorted();
+    final Map<SpreadsheetColumnReference, Length<?>> columnWidths = Maps.sorted();
 
     /**
      * A cache of cell references and their one or more labels.
@@ -258,8 +267,8 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
      * A cache holding the max height for interesting rows. If the row is hidden it will have a height of zero.
      */
     // VisibleForTesting
-    final Map<SpreadsheetRowReference, Double> rowHeights = Maps.sorted();
-    
+    final Map<SpreadsheetRowReference, Length<?>> rowHeights = Maps.sorted();
+
     /**
      * The viewport. This is used to filter cells and labels in the cache.
      */
