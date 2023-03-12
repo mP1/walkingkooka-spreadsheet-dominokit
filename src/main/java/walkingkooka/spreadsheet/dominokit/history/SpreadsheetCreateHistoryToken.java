@@ -17,24 +17,33 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.jupiter.api.Test;
+import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.text.cursor.TextCursor;
 
-public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetLoadHistoryToken> {
+/**
+ * A token that represents a spreadsheet create action.
+ */
+public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken {
 
-    @Test
-    public void testUrlFragment() {
-        this.urlFragmentAndCheck("/123");
+    static SpreadsheetCreateHistoryToken with() {
+        return new SpreadsheetCreateHistoryToken();
+    }
+
+    private SpreadsheetCreateHistoryToken() {
+        super();
     }
 
     @Override
-    SpreadsheetLoadHistoryToken createHistoryHashToken() {
-        return SpreadsheetLoadHistoryToken.with(
-                ID
-        );
+    public UrlFragment urlFragment() {
+        return UrlFragment.SLASH;
     }
 
     @Override
-    public Class<SpreadsheetLoadHistoryToken> type() {
-        return SpreadsheetLoadHistoryToken.class;
+    HistoryToken parse0(final String component,
+                        final TextCursor cursor) {
+        return spreadsheetLoad(
+                SpreadsheetId.parse(component)
+        ).parse(cursor);
     }
 }

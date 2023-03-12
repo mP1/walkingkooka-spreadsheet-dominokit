@@ -30,8 +30,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Objects;
-
 /**
  * Instances represent a token within a history hash.
  */
@@ -492,6 +490,13 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
     }
 
     /**
+     * {@see SpreadsheetCreateHistoryToken}
+     */
+    public static SpreadsheetCreateHistoryToken spreadsheetCreate() {
+        return SpreadsheetCreateHistoryToken.with();
+    }
+    
+    /**
      * {@see SpreadsheetLoadHistoryToken}
      */
     public static SpreadsheetLoadHistoryToken spreadsheetLoad(final SpreadsheetId id) {
@@ -511,28 +516,9 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
         );
     }
 
-    SpreadsheetHistoryToken(final SpreadsheetId id) {
+    SpreadsheetHistoryToken() {
         super();
-
-        this.id = Objects.requireNonNull(id, "id");
     }
-
-    public final SpreadsheetId id() {
-        return this.id;
-    }
-
-    private final SpreadsheetId id;
-
-    @Override
-    public final UrlFragment urlFragment() {
-        return this.id.urlFragment()
-                .append(this.spreadsheetIdUrlFragment());
-    }
-
-    /**
-     * Sub-classes should append additional components to the final {@link UrlFragment}.
-     */
-    abstract UrlFragment spreadsheetIdUrlFragment();
 
     /**
      * Creates a {@link UrlFragment} with a save and value.

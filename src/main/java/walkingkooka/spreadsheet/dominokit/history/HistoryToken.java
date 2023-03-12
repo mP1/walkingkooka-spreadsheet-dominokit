@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.predicate.character.CharPredicates;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.text.cursor.TextCursors;
@@ -45,24 +44,22 @@ public abstract class HistoryToken implements HasUrlFragment {
         final TextCursor cursor = TextCursors.charSequence(fragment.value());
 
         try {
-            final Optional<SpreadsheetLoadHistoryToken> spreadsheetId = parseComponent(cursor)
-                    .map(HistoryToken::mapSpreadsheetId);
-
-            if (spreadsheetId.isPresent()) {
-                token = spreadsheetId.get();
-                token = token.parse(cursor);
+            if(false == cursor.isEmpty()) {
+                final char c = cursor.at();
+                switch(c) {
+                    case '/':
+                        token = SpreadsheetHistoryToken.spreadsheetCreate()
+                                .parse(cursor);
+                        break;
+                    default:
+                        token = null;
+                }
             }
         } catch (final RuntimeException ignore) {
             token = null;
         }
 
         return Optional.ofNullable(token);
-    }
-
-    private static SpreadsheetLoadHistoryToken mapSpreadsheetId(final String id) {
-        return SpreadsheetHistoryToken.spreadsheetLoad(
-                SpreadsheetId.parse(id)
-        );
     }
 
     /**
@@ -97,7 +94,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             MAX_LENGTH
     );
 
-    private final static ParserContext CONTEXT = ParserContexts.fake();
+    final static ParserContext CONTEXT = ParserContexts.fake();
 
     HistoryToken() {
         super();

@@ -95,7 +95,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseInvalidSpreadsheetId() {
         this.parseStringAndCheck(
-                "/XYZ"
+                "/XYZ",
+                SpreadsheetHistoryToken.spreadsheetCreate()
         );
     }
 
