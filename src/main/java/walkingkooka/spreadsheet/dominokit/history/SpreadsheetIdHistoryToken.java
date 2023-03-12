@@ -19,32 +19,34 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.text.cursor.TextCursor;
 
-public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken {
+import java.util.Objects;
 
-    static SpreadsheetLoadHistoryToken with(final SpreadsheetId id) {
-        return new SpreadsheetLoadHistoryToken(
-                id
-        );
+/**
+ * Instances represent a token within a history hash including the {@link SpreadsheetId}
+ */
+public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken {
+
+    SpreadsheetIdHistoryToken(final SpreadsheetId id) {
+        super();
+
+        this.id = Objects.requireNonNull(id, "id");
     }
 
-    private SpreadsheetLoadHistoryToken(final SpreadsheetId id) {
-        super(id);
+    public final SpreadsheetId id() {
+        return this.id;
     }
+
+    private final SpreadsheetId id;
 
     @Override
-    UrlFragment spreadsheetIdUrlFragment() {
-        return UrlFragment.EMPTY;
+    public final UrlFragment urlFragment() {
+        return this.id.urlFragment()
+                .append(this.spreadsheetIdUrlFragment());
     }
 
-    @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
-        return spreadsheetSelect(
-                this.id(),
-                SpreadsheetName.with(component)
-        ).parse(cursor);
-    }
+    /**
+     * Sub-classes should append additional components to the final {@link UrlFragment}.
+     */
+    abstract UrlFragment spreadsheetIdUrlFragment();
 }

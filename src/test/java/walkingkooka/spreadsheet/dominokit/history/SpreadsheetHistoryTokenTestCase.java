@@ -19,14 +19,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 
 public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHistoryToken> extends HistoryTokenTestCase<T> {
-
-    final static SpreadsheetId ID = SpreadsheetId.with(0x123);
-
-    final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
 
     SpreadsheetHistoryTokenTestCase() {
         super();
