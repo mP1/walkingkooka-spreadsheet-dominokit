@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.predicate.character.CharPredicates;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.text.cursor.TextCursors;
@@ -123,6 +124,11 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     abstract HistoryToken parse0(final String component,
                                  final TextCursor cursor);
+
+    /**
+     * Fired whenever a new history token change happens.
+     */
+    abstract public void onHashChange(final AppContext context);
 
     // Object...........................................................................................................
 
