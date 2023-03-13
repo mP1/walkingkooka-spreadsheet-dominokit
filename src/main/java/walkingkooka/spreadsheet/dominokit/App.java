@@ -24,11 +24,16 @@ import elemental2.dom.History;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.layout.Layout;
 import org.dominokit.domino.ui.utils.DominoElement;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.function.BiConsumer;
 
 @LocaleAware
 public class App implements EntryPoint, AppContext {
@@ -49,6 +54,40 @@ public class App implements EntryPoint, AppContext {
 
         this.fireInitialHashToken();
     }
+
+    void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
+        this.fire(
+                delta,
+                this.deltaWatchers,
+                SpreadsheetDeltaWatcher::onSpreadsheetDelta
+        );
+    }
+
+    void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
+        this.fire(
+                metadata,
+                this.metadataWatchers,
+                SpreadsheetMetadataWatcher::onSpreadsheetMetadata
+        );
+    }
+
+    private <T, W> void fire(final T value,
+                             final Set<W> watchers,
+                             final BiConsumer<W, T> fire) {
+        for (final W watcher : watchers) {
+            fire.accept(watcher, value);
+        }
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetDeltaWatcher}
+     */
+    final Set<SpreadsheetDeltaWatcher> deltaWatchers = Sets.ordered();
+
+    /**
+     * A collection of listeners for {@link SpreadsheetMetadataWatcher}
+     */
+    final Set<SpreadsheetMetadataWatcher> metadataWatchers = Sets.ordered();
 
     // misc..........................................................................................................
 
