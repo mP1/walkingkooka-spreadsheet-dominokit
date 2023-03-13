@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import javaemul.internal.annotations.GwtIncompatible;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.test.Fake;
 import walkingkooka.text.cursor.TextCursor;
 
@@ -33,6 +34,11 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
 
     @Override
     public UrlFragment urlFragment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void onHashChange(final AppContext context) {
         throw new UnsupportedOperationException();
     }
 }
