@@ -50,6 +50,23 @@ public class App implements EntryPoint, AppContext {
         this.fireInitialHashToken();
     }
 
+    // misc..........................................................................................................
+
+    public void setSpreadsheetName(final String name) {
+        this.layout.setTitle(name);
+    }
+
+    private void showMetadataPanel(final boolean show) {
+        final DominoElement<?> right = this.layout.getRightPanel();
+        if (show) {
+            right.show();
+        } else {
+            right.hide();
+        }
+    }
+
+    // history..........................................................................................................
+
     private void setupHistoryListener() {
         DomGlobal.self.addEventListener(
                 "hashchange",
@@ -112,18 +129,7 @@ public class App implements EntryPoint, AppContext {
      */
     private Optional<HistoryToken> previousToken = Optional.empty();
 
-    public void setSpreadsheetName(final String name) {
-        this.layout.setTitle(name);
-    }
-
-    private void showMetadataPanel(final boolean show) {
-        final DominoElement<?> right = this.layout.getRightPanel();
-        if (show) {
-            right.show();
-        } else {
-            right.hide();
-        }
-    }
+    // logging..........................................................................................................
 
     public void debug(final Object message) {
         DomGlobal.console.debug(message);
