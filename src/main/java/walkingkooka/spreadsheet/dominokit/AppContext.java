@@ -21,6 +21,10 @@ import walkingkooka.Context;
 
 public interface AppContext extends Context {
 
+    SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
+
+    SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
+
     void debug(final Object message);
 
     void error(final Object message);

@@ -17,8 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
 /**
@@ -45,5 +47,13 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
         return spreadsheetLoad(
                 SpreadsheetId.parse(component)
         ).parse(cursor);
+    }
+
+    @Override
+    public void onHashChange(final AppContext context) {
+        context.spreadsheetMetadataFetcher().post(
+                Url.parseAbsolute("http://localhost:12345/api/spreadsheet"),
+                ""
+        );
     }
 }

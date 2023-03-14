@@ -55,6 +55,20 @@ public class App implements EntryPoint, AppContext {
         this.fireInitialHashToken();
     }
 
+    @Override
+    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
+        return this.spreadsheetDeltaFetcher;
+    }
+
+    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(this::fireSpreadsheetDelta);
+
+    @Override
+    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
+        return this.spreadsheetMetadataFetcher;
+    }
+
+    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(this::fireSpreadsheetMetadata);
+
     void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
         this.fire(
                 delta,
