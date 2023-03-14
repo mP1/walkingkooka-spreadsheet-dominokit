@@ -148,8 +148,7 @@ public class App implements EntryPoint, AppContext {
 
                 if (maybeToken.isPresent()) {
                     final HistoryToken token = maybeToken.get();
-                    DomGlobal.location.hash = "#" + token.urlFragment().toString();
-
+                    this.pushHistoryToken(token);
                     token.onHashChange(this);
                 } else {
                     DomGlobal.location.hash = "";
@@ -170,6 +169,14 @@ public class App implements EntryPoint, AppContext {
             toString = token.get().getClass().getSimpleName() + " " + token.get();
         }
         return toString;
+    }
+
+    /**
+     * Pushes the given {@link HistoryToken} to the browser location#hash.
+     */
+    @Override
+    public void pushHistoryToken(final HistoryToken token) {
+        DomGlobal.location.hash = "#" + token.urlFragment();
     }
 
     /**
