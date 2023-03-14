@@ -18,12 +18,15 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 public interface AppContext extends Context {
 
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
+
+    void pushHistoryToken(final HistoryToken token);
 
     void debug(final Object message);
 
