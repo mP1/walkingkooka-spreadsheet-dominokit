@@ -46,6 +46,7 @@ public class App implements EntryPoint, AppContext {
     private final Layout layout = Layout.create();
 
     public void onModuleLoad() {
+        SpreadsheetMetadata.EMPTY.toString(); // for registering of JsonContext types etc
         this.setupHistoryListener();
 
         this.layout.show();
