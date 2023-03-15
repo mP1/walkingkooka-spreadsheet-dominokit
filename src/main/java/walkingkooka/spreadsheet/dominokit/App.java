@@ -40,6 +40,8 @@ import java.util.function.BiConsumer;
 @LocaleAware
 public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
+    private final SpreadsheetViewportWidget viewportWidget = SpreadsheetViewportWidget.empty();
+
     // header = metadata toggle | clickable(editable) spreadsheet name
     // right = editable metadata properties
     // content = toolbar
@@ -53,11 +55,22 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         SpreadsheetMetadata.EMPTY.toString(); // for registering of JsonContext types etc
         this.setupHistoryListener();
 
-        this.layout.show();
+        this.prepareLayout();
+
         this.setSpreadsheetName("Untitled 123");
         this.showMetadataPanel(false);
 
         this.fireInitialHashToken();
+    }
+
+    private void prepareLayout() {
+        final DominoElement<?> element = this.layout.getContentPanel();
+
+        this.layout.fitHeight();
+        this.layout.fitWidth();
+        this.layout.setContent(this.viewportWidget.tableElement());
+
+        this.layout.show();
     }
 
     @Override
