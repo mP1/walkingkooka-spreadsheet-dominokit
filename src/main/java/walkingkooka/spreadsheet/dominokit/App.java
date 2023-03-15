@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HashChangeEvent;
 import elemental2.dom.History;
@@ -36,7 +38,7 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 
 @LocaleAware
-public class App implements EntryPoint, AppContext {
+public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
     // header = metadata toggle | clickable(editable) spreadsheet name
     // right = editable metadata properties
@@ -46,6 +48,8 @@ public class App implements EntryPoint, AppContext {
     private final Layout layout = Layout.create();
 
     public void onModuleLoad() {
+        GWT.setUncaughtExceptionHandler(this);
+
         SpreadsheetMetadata.EMPTY.toString(); // for registering of JsonContext types etc
         this.setupHistoryListener();
 
@@ -191,6 +195,11 @@ public class App implements EntryPoint, AppContext {
     private Optional<HistoryToken> previousToken = Optional.empty();
 
     // logging..........................................................................................................
+
+    @Override
+    public void onUncaughtException(final Throwable caught) {
+        this.error(caught);
+    }
 
     public void debug(final Object message) {
         DomGlobal.console.debug(message);
