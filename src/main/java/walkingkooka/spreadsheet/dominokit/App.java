@@ -73,6 +73,8 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         this.layout.show();
     }
 
+    // delta & metadata change watches..................................................................................
+
     @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         return this.spreadsheetDeltaFetcher;
