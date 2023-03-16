@@ -49,6 +49,11 @@ public final class SpreadsheetViewportWidget {
         );
     }
 
+    public void setHeight(final int height) {
+        this.tableElement.element()
+                .style.set("height", height + "px");
+    }
+
     /**
      * The root table element.
      */

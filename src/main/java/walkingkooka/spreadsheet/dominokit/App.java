@@ -26,6 +26,9 @@ import elemental2.dom.History;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.layout.Layout;
 import org.dominokit.domino.ui.utils.DominoElement;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.core.client.Scheduler.ScheduledCommand;
+import org.jboss.elemento.EventType;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
@@ -60,17 +63,60 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         this.setSpreadsheetName("Untitled 123");
         this.showMetadataPanel(false);
 
+        this.registerWindowResizeListener();
         this.fireInitialHashToken();
+        this.fireInitialWindowSize();
     }
 
-    private void prepareLayout() {
-        final DominoElement<?> element = this.layout.getContentPanel();
+    // layout...........................................................................................................
 
+    private void prepareLayout() {
         this.layout.fitHeight();
         this.layout.fitWidth();
         this.layout.setContent(this.viewportWidget.tableElement());
 
         this.layout.show();
+    }
+
+    private void registerWindowResizeListener() {
+        DomGlobal.window.addEventListener(
+                EventType.resize.getName(),
+                (e) -> {
+                    App.this.onResize(
+                            DomGlobal.window.innerWidth,
+                            DomGlobal.window.innerHeight
+                    );
+                }
+        );
+    }
+
+    /**
+     * Fire the window size. This is eventually used to compute the spreadsheet viewport size.
+     */
+    private void fireInitialWindowSize() {
+        Scheduler.get()
+                .scheduleDeferred(
+                        new ScheduledCommand() {
+                            @Override
+                            public void execute() {
+                                App.this.onResize(
+                                        DomGlobal.window.innerWidth,
+                                        DomGlobal.window.innerHeight
+                                );
+                            }
+                        }
+                );
+    }
+
+    private void onResize(final int width,
+                          final int height) {
+        final Layout layout = this.layout;
+        final int navigationBarHeight = layout.getNavigationBar().element().offsetHeight;
+
+        final int newHeight = height - navigationBarHeight;
+        this.debug("onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight + " topBar: " + layout.getNavigationBar().element().outerHTML);
+
+        this.viewportWidget.setHeight(newHeight);
     }
 
     // delta & metadata change watches..................................................................................
