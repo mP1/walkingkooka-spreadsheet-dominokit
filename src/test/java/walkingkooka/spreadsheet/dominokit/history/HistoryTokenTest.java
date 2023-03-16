@@ -83,7 +83,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseEmpty() {
         this.parseStringAndCheck(
-                ""
+                "",
+                SpreadsheetHistoryToken.spreadsheetCreate()
+        );
+    }
+
+    @Test
+    public void testParseSlash() {
+        this.parseStringAndCheck(
+                "/",
+                SpreadsheetHistoryToken.spreadsheetCreate()
         );
     }
 
