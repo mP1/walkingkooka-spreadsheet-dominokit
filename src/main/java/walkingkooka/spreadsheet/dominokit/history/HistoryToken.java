@@ -45,9 +45,9 @@ public abstract class HistoryToken implements HasUrlFragment {
         final TextCursor cursor = TextCursors.charSequence(fragment.value());
 
         try {
-            if(false == cursor.isEmpty()) {
+            if (false == cursor.isEmpty()) {
                 final char c = cursor.at();
-                switch(c) {
+                switch (c) {
                     case '/':
                         token = SpreadsheetHistoryToken.spreadsheetCreate()
                                 .parse(cursor);
@@ -55,6 +55,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                     default:
                         token = null;
                 }
+            } else {
+                token = SpreadsheetHistoryToken.spreadsheetCreate();
             }
         } catch (final RuntimeException ignore) {
             token = null;
