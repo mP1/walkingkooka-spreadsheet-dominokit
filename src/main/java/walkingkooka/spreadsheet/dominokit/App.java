@@ -170,6 +170,12 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
      */
     final Set<SpreadsheetDeltaWatcher> deltaWatchers = Sets.ordered();
 
+    @Override
+    public void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+        this.metadataWatchers.add(watcher);
+    }
+    
     /**
      * A collection of listeners for {@link SpreadsheetMetadataWatcher}
      */

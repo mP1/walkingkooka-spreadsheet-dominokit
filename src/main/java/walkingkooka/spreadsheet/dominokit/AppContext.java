@@ -28,6 +28,8 @@ public interface AppContext extends Context {
 
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
+    void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
+
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 
     /**
