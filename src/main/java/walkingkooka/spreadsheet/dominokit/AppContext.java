@@ -20,11 +20,18 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
+import java.util.Optional;
+
 public interface AppContext extends Context {
 
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
+
+    /**
+     * Parses the current history token.
+     */
+    Optional<HistoryToken> historyToken();
 
     void pushHistoryToken(final HistoryToken token);
 
