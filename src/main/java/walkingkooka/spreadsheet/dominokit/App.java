@@ -21,7 +21,6 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
-import elemental2.dom.HashChangeEvent;
 import elemental2.dom.History;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.layout.Layout;
@@ -199,31 +198,38 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         this.onHashChange(null);
     }
 
-    private void onHashChange(final HashChangeEvent event) {
+    @Override
+    public Optional<HistoryToken> historyToken() {
         // remove the leading hash if necessary.
         String hash = DomGlobal.location.hash;
         if (hash.startsWith("#")) {
             hash = hash.substring(1);
         }
 
+        return HistoryToken.parse(UrlFragment.parse(hash));
+    }
+
+    private void onHashChange(final Optional<HistoryToken> token) {
         try {
             final Optional<HistoryToken> previousToken = this.previousToken;
-            final Optional<HistoryToken> maybeToken = HistoryToken.parse(UrlFragment.parse(hash));
-            if (false == previousToken.equals(maybeToken)) {
-                this.previousToken = maybeToken;
+            if (false == previousToken.equals(token)) {
+                this.previousToken = token;
 
-                if (maybeToken.isPresent()) {
-                    final HistoryToken token = maybeToken.get();
-                    this.pushHistoryToken(token);
-                    token.onHashChange(this);
+                if (token.isPresent()) {
+                    this.pushAndFire(token.get());
                 } else {
                     DomGlobal.location.hash = "";
                 }
             }
-            debug("onHashChange from " + toString(previousToken) + " to " + toString(maybeToken));
+            debug("onHashChange from " + toString(previousToken) + " to " + toString(token));
         } catch (final Exception e) {
             error(e.getMessage());
         }
+    }
+
+    private void pushAndFire(final HistoryToken token) {
+        this.pushHistoryToken(token);
+        token.onHashChange(this);
     }
 
     /**
