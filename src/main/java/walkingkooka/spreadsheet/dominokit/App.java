@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiConsumer;
@@ -156,6 +157,12 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         for (final W watcher : watchers) {
             fire.accept(watcher, value);
         }
+    }
+
+    @Override
+    public void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+        this.deltaWatchers.add(watcher);
     }
 
     /**

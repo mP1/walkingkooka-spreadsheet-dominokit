@@ -32,8 +32,8 @@ public final class AppTest extends GWTTestCase {
         this.fireSpreadsheetDeltaCounter = 0;
 
         final App app = new App();
-        app.deltaWatchers.add((d) -> this.fireSpreadsheetDeltaCounter++);
-        app.deltaWatchers.add((d) -> this.fireSpreadsheetDeltaCounter++);
+        app.addSpreadsheetDeltaWatcher((d) -> this.fireSpreadsheetDeltaCounter++);
+        app.addSpreadsheetDeltaWatcher((d) -> this.fireSpreadsheetDeltaCounter++);
 
         app.fireSpreadsheetDelta(SpreadsheetDelta.EMPTY);
     }

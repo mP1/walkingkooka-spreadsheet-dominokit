@@ -24,6 +24,8 @@ import java.util.Optional;
 
 public interface AppContext extends Context {
 
+    void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
+
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
