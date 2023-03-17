@@ -42,7 +42,10 @@ import java.util.Set;
 @LocaleAware
 public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
-    private final SpreadsheetViewportWidget viewportWidget = SpreadsheetViewportWidget.empty();
+
+    public App() {
+        SpreadsheetDelta.EMPTY.toString(); // force json register.
+    }
 
     // header = metadata toggle | clickable(editable) spreadsheet name
     // right = editable metadata properties
@@ -117,7 +120,10 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         final int newHeight = height - navigationBarHeight;
         this.debug("App.onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
 
-        this.viewportWidget.setHeight(newHeight);
+        this.viewportWidget.setWidthAndHeight(
+                width,
+                newHeight
+        );
     }
 
     // delta & metadata change watches..................................................................................
@@ -281,6 +287,13 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
      * Used to track if the history token actually changed. Changes will fire the HistoryToken#onChange method.
      */
     private Optional<HistoryToken> previousToken = Optional.empty();
+
+    // Viewport.........................................................................................................
+
+    /**
+     * Init here to avoid race conditions with other fields like {@link #metadataWatchers}.
+     */
+    private final SpreadsheetViewportWidget viewportWidget = SpreadsheetViewportWidget.empty(this);
 
     // logging..........................................................................................................
 
