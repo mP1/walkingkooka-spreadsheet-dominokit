@@ -21,5 +21,6 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 public interface SpreadsheetDeltaWatcher {
 
-    void onSpreadsheetDelta(final SpreadsheetDelta delta);
+    void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                            final AppContext context);
 }

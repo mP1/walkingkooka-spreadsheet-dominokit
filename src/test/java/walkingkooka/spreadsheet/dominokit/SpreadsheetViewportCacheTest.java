@@ -86,6 +86,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private final static Set<SpreadsheetCellRange> WINDOW = Sets.of(
             WINDOW1
     );
+    
+    private final static AppContext CONTEXT = new FakeAppContext();
 
     @Override
     public void testAllMethodsVisibility() {
@@ -173,7 +175,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_1,
                                         ROW_2
                                 )
-                        )
+                        ),
+            CONTEXT
         );
 
         this.checkCells(
@@ -236,7 +239,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_1,
                                         ROW_2
                                 )
-                        ).setWindow(WINDOW)
+                        ).setWindow(WINDOW),
+                CONTEXT
         );
 
         this.checkCells(
@@ -286,7 +290,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL1.mapping(SpreadsheetSelection.parseCellRange("A1:A2"))
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkCells(
@@ -322,7 +327,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL1.mapping(SpreadsheetSelection.parseCellRange("A1:A3"))
                                 )
-                        ).setWindow(windows)
+                        ).setWindow(windows),
+                CONTEXT
         );
 
         this.checkCells(
@@ -352,7 +358,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost"))
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -361,7 +368,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         A1_CELL
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkCells(
@@ -386,7 +394,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         COLUMN_A.setHidden(true),
                                         COLUMN_B.setHidden(true)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -401,7 +410,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         COLUMN_A.setHidden(false),
                                         COLUMN_B.setHidden(false)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkColumns(
@@ -427,7 +437,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         COLUMN_A.setHidden(true),
                                         COLUMN_B.setHidden(true)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -441,7 +452,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         COLUMN_A.setHidden(false)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkColumns(
@@ -467,7 +479,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         COLUMN_A,
                                         COLUMN_B
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -481,7 +494,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         A
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkColumns(
@@ -505,7 +519,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGA1A
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -519,7 +534,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGA1B
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkLabels(
@@ -543,7 +559,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         SpreadsheetSelection.labelName("LostLabel").mapping(A1)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -558,7 +575,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         LABEL_MAPPINGA1A,
                                         LABEL_MAPPINGA1B
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkLabels(
@@ -588,7 +606,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         SpreadsheetSelection.labelName("LostLabel").mapping(A1)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -601,7 +620,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGA1A
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkCells(
@@ -634,7 +654,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGA1A
                                 )
-                        ).setWindow(WINDOW)
+                        ).setWindow(WINDOW),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -647,7 +668,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGB3
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkCells(
@@ -680,12 +702,14 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGA1A
                                 )
-                        ).setWindow(WINDOW)
+                        ).setWindow(WINDOW),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
-                        .setWindow(WINDOW)
+                        .setWindow(WINDOW),
+                CONTEXT
         );
 
         this.checkCells(
@@ -718,7 +742,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGA1A
                                 )
-                        ).setWindow(WINDOW)
+                        ).setWindow(WINDOW),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -731,7 +756,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         LABEL_MAPPINGB3
                                 )
-                        ).setWindow(WINDOW)
+                        ).setWindow(WINDOW),
+                CONTEXT
         );
 
         this.checkCells(
@@ -764,7 +790,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_1.setHidden(true),
                                         ROW_2.setHidden(true)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -779,7 +806,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_1.setHidden(false),
                                         ROW_2.setHidden(false)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkRows(
@@ -805,7 +833,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_1.setHidden(true),
                                         ROW_2.setHidden(true)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -819,7 +848,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         ROW_1.setHidden(false)
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkRows(
@@ -845,7 +875,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_1,
                                         ROW_2
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -859,7 +890,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         ROW_REF_1
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkRows(
@@ -886,7 +918,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         A, 10.0,
                                         B, 20.0
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkColumnsWidths(
@@ -910,7 +943,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         B, 20.0,
                                         C, 30.0
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -920,7 +954,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         A, 100.0,
                                         B, 200.0
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkColumnsWidths(
@@ -953,7 +988,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         A, 10.0,
                                         B, 20.0
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         final double width = 10;
@@ -995,7 +1031,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_REF_1, 10.0,
                                         ROW_REF_2, 20.0
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkRowsHeights(
@@ -1019,7 +1056,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_REF_2, 20.0,
                                         ROW_REF_3, 30.0
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         cache.onSpreadsheetDelta(
@@ -1029,7 +1067,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_REF_1, 100.0,
                                         ROW_REF_2, 200.0
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkRowsHeights(
@@ -1062,7 +1101,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_REF_1, 10.0,
                                         ROW_REF_2, 20.0
                                 )
-                        )
+                        ),
+                CONTEXT
         );
 
         final double width = 10;
@@ -1358,7 +1398,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setColumns(
                         Sets.of(COLUMN_A)
-                )
+                ),
+                CONTEXT
         );
         this.isColumnHiddenAndCheck(
                 cache,
@@ -1373,7 +1414,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setColumns(
                         Sets.of(COLUMN_A.setHidden(true))
-                )
+                ),
+                CONTEXT
         );
         this.isColumnHiddenAndCheck(
                 cache,
@@ -1409,7 +1451,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setRows(
                         Sets.of(ROW_1)
-                )
+                ),
+                CONTEXT
         );
         this.isRowHiddenAndCheck(
                 cache,
@@ -1424,7 +1467,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setRows(
                         Sets.of(ROW_1.setHidden(true))
-                )
+                ),
+                CONTEXT
         );
         this.isRowHiddenAndCheck(
                 cache,

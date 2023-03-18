@@ -126,7 +126,10 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         return this.spreadsheetDeltaFetcher;
     }
 
-    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(this::fireSpreadsheetDelta);
+    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
+            (d, c) -> this.fireSpreadsheetDelta(d),
+            this
+    );
 
     @Override
     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
@@ -136,11 +139,12 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(this::fireSpreadsheetMetadata);
 
     public void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
-        this.fire(
-                delta,
-                this.deltaWatchers,
-                SpreadsheetDeltaWatcher::onSpreadsheetDelta
-        );
+        for(final SpreadsheetDeltaWatcher watcher : this.deltaWatchers) {
+            watcher.onSpreadsheetDelta(
+                    delta,
+                    this
+            );
+        }
     }
 
     public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {

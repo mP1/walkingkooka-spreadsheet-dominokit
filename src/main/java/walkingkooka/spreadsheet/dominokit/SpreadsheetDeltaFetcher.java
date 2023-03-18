@@ -23,12 +23,18 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 public class SpreadsheetDeltaFetcher implements Fetcher {
 
-    static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaWatcher watcher) {
-        return new SpreadsheetDeltaFetcher(watcher);
+    static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaWatcher watcher,
+                                        final AppContext context) {
+        return new SpreadsheetDeltaFetcher(
+                watcher,
+                context
+        );
     }
 
-    private SpreadsheetDeltaFetcher(final SpreadsheetDeltaWatcher watcher) {
+    private SpreadsheetDeltaFetcher(final SpreadsheetDeltaWatcher watcher,
+                                    final AppContext context) {
         this.watcher = watcher;
+        this.context = context;
     }
 
     @Override
@@ -37,7 +43,8 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                 this.parse(
                         body,
                         SpreadsheetDelta.class
-                )
+                ),
+                this.context
         );
     }
 
@@ -54,6 +61,8 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     private final SpreadsheetDeltaWatcher watcher;
+
+    private final AppContext context;
 
     @Override
     public String toString() {

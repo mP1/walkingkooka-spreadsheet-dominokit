@@ -79,7 +79,8 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
      * Removes any deleted cells and then adds updated cells to the {@link #cells}.
      */
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta) {
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = this.labels;
