@@ -114,7 +114,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         final int navigationBarHeight = layout.getNavigationBar().element().offsetHeight;
 
         final int newHeight = height - navigationBarHeight;
-        this.debug("onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight + " topBar: " + layout.getNavigationBar().element().outerHTML);
+        this.debug("onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
 
         this.viewportWidget.setHeight(newHeight);
     }
