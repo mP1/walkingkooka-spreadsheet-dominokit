@@ -202,13 +202,13 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         DomGlobal.self.addEventListener(
                 "hashchange",
                 event -> this.onHashChange(
-                        Js.cast(event)
+                        this.historyToken()
                 )
         );
     }
 
     private void fireInitialHashToken() {
-        this.onHashChange(null);
+        this.onHashChange(this.historyToken());
     }
 
     @Override
