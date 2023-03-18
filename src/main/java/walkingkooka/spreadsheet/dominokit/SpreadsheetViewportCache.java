@@ -64,7 +64,8 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
      * Captures the default width and height which will be used when rendering
      */
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
         this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH);
         this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT);
     }

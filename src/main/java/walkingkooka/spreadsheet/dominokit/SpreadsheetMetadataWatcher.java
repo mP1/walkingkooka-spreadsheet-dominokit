@@ -21,5 +21,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 public interface SpreadsheetMetadataWatcher {
 
-    void onSpreadsheetMetadata(final SpreadsheetMetadata metadata);
+    void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                               final AppContext context);
 }

@@ -44,8 +44,8 @@ public final class AppTest extends GWTTestCase {
         this.fireSpreadsheetMetadataCounter = 0;
 
         final App app = new App();
-        app.addSpreadsheetMetadataWatcher((d) -> this.fireSpreadsheetMetadataCounter++);
-        app.addSpreadsheetMetadataWatcher((d) -> this.fireSpreadsheetMetadataCounter++);
+        app.addSpreadsheetMetadataWatcher((d, c) -> this.fireSpreadsheetMetadataCounter++);
+        app.addSpreadsheetMetadataWatcher((d, c) -> this.fireSpreadsheetMetadataCounter++);
 
         app.fireSpreadsheetMetadata(SpreadsheetMetadata.EMPTY);
     }

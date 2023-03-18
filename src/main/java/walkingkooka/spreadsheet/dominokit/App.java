@@ -38,7 +38,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.BiConsumer;
 
 @LocaleAware
 public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
@@ -136,7 +135,10 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         return this.spreadsheetMetadataFetcher;
     }
 
-    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(this::fireSpreadsheetMetadata);
+    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(
+            (d, c) -> this.fireSpreadsheetMetadata(d),
+            this
+    );
 
     public void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
         for(final SpreadsheetDeltaWatcher watcher : this.deltaWatchers) {
@@ -148,18 +150,11 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     }
 
     public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
-        this.fire(
-                metadata,
-                this.metadataWatchers,
-                SpreadsheetMetadataWatcher::onSpreadsheetMetadata
-        );
-    }
-
-    private <T, W> void fire(final T value,
-                             final Set<W> watchers,
-                             final BiConsumer<W, T> fire) {
-        for (final W watcher : watchers) {
-            fire.accept(watcher, value);
+        for(final SpreadsheetMetadataWatcher watcher : this.metadataWatchers) {
+            watcher.onSpreadsheetMetadata(
+                    metadata,
+                    this
+            );
         }
     }
 
