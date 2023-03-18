@@ -132,7 +132,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 TextStyle.EMPTY
                                         .set(TextStylePropertyName.WIDTH, Length.pixel(width))
                                         .set(TextStylePropertyName.HEIGHT, Length.pixel(height))
-                        )
+                        ),
+                CONTEXT
         );
 
         this.checkEquals(
@@ -1008,7 +1009,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                                 TextStylePropertyName.HEIGHT,
                                                 Length.pixel(height)
                                         )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.columnsWidthAndCheck(
@@ -1120,7 +1122,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                                 TextStylePropertyName.HEIGHT,
                                                 Length.pixel(height)
                                         )
-                        )
+                        ),
+                CONTEXT
         );
 
         this.rowsHeightAndCheck(

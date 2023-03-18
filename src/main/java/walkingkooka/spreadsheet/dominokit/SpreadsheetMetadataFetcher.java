@@ -23,12 +23,18 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 public class SpreadsheetMetadataFetcher implements Fetcher {
 
-    static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataWatcher watcher) {
-        return new SpreadsheetMetadataFetcher(watcher);
+    static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataWatcher watcher,
+                                           final AppContext context) {
+        return new SpreadsheetMetadataFetcher(
+                watcher,
+                context
+        );
     }
 
-    private SpreadsheetMetadataFetcher(final SpreadsheetMetadataWatcher watcher) {
+    private SpreadsheetMetadataFetcher(final SpreadsheetMetadataWatcher watcher,
+                                       final AppContext context) {
         this.watcher = watcher;
+        this.context = context;
     }
 
     @Override
@@ -37,7 +43,8 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
                 this.parse(
                         body,
                         SpreadsheetMetadata.class
-                )
+                ),
+                this.context
         );
     }
 
@@ -54,6 +61,8 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     private final SpreadsheetMetadataWatcher watcher;
+
+    private final AppContext context;
 
     @Override
     public String toString() {
