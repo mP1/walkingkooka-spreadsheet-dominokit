@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Optional;
 
@@ -28,9 +30,13 @@ public interface AppContext extends Context {
 
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
+    void fireSpreadsheetDelta(final SpreadsheetDelta delta);
+
     void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
+
+    void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata);
 
     /**
      * Parses the current history token.
