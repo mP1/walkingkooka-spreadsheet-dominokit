@@ -135,7 +135,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
     private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(this::fireSpreadsheetMetadata);
 
-    void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
+    public void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
         this.fire(
                 delta,
                 this.deltaWatchers,
@@ -143,7 +143,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         );
     }
 
-    void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
+    public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         this.fire(
                 metadata,
                 this.metadataWatchers,
