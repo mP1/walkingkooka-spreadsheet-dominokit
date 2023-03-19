@@ -66,6 +66,17 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetCellFormulaSaveHistoryToken(
+                id,
+                name,
+                this.viewportSelection(),
+                this.formula()
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken save(final String value) {
         return this;
     }

@@ -57,6 +57,23 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     abstract UrlFragment spreadsheetUrlFragment();
 
+    @Override
+    final SpreadsheetHistoryToken setIdAndName0(final SpreadsheetId id,
+                                                final SpreadsheetName name) {
+        return this.id().equals(id) && this.name().equals(name) ?
+                this :
+                this.setDifferentIdOrName(
+                        id,
+                        name
+                );
+    }
+
+    /**
+     * Sub classes should recreate themselves with the new {@link SpreadsheetName}.
+     */
+    abstract SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                          final SpreadsheetName name);
+
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} assuming the default {@link walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor anchor}
      * if necessary.

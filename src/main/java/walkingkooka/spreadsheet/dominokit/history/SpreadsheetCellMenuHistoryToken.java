@@ -51,6 +51,16 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetCellMenuHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken formulaHistoryToken() {
         return this;
     }

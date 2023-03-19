@@ -48,4 +48,14 @@ public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
     UrlFragment rowUrlFragment() {
         return MENU;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetRowMenuHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
 }

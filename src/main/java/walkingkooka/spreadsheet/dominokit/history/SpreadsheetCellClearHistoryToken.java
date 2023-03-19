@@ -51,6 +51,16 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetCellClearHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken formulaHistoryToken() {
         return this;
     }

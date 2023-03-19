@@ -72,4 +72,14 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
 
         return result;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetMetadataPropertyStyleSelectHistoryToken<>(
+                id,
+                name,
+                this.stylePropertyName()
+        );
+    }
 }

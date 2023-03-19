@@ -55,6 +55,17 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetCellStyleSelectHistoryToken(
+                id,
+                name,
+                this.viewportSelection(),
+                this.propertyName()
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken save(final String value) {
         final TextStylePropertyName<T> propertyName = this.propertyName();
 

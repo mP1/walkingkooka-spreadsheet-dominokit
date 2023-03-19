@@ -48,4 +48,14 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
     UrlFragment rowUrlFragment() {
         return CLEAR;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetRowClearHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
 }
