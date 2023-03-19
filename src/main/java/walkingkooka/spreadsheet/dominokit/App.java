@@ -93,6 +93,8 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
      * Fire the window size. This is eventually used to compute the spreadsheet viewport size.
      */
     private void fireInitialWindowSize() {
+        this.debug("App.fireInitialWindowSize");
+
         Scheduler.get()
                 .scheduleDeferred(
                         new ScheduledCommand() {
@@ -113,7 +115,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         final int navigationBarHeight = layout.getNavigationBar().element().offsetHeight;
 
         final int newHeight = height - navigationBarHeight;
-        this.debug("onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
+        this.debug("App.onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
 
         this.viewportWidget.setHeight(newHeight);
     }
@@ -219,6 +221,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     }
 
     private void fireInitialHashToken() {
+        this.debug("App.fireInitialHashToken");
         this.onHashChange(this.historyToken());
     }
 
@@ -245,7 +248,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
                     DomGlobal.location.hash = "";
                 }
             }
-            debug("onHashChange from " + toString(previousToken) + " to " + toString(token));
+            debug("App.onHashChange from " + toString(previousToken) + " to " + toString(token));
         } catch (final Exception e) {
             error(e.getMessage());
         }
@@ -272,6 +275,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
      */
     @Override
     public void pushHistoryToken(final HistoryToken token) {
+        this.debug("pushHistoryToken " + token);
         DomGlobal.location.hash = "#" + token.urlFragment();
     }
 
