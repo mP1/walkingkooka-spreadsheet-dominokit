@@ -33,8 +33,8 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<T ext
     }
 
     @Override
-    T createHistoryHashToken() {
-        return this.createHistoryHashToken(
+    T createHistoryToken() {
+        return this.createHistoryToken(
                 ID,
                 NAME,
                 SpreadsheetMetadataPropertyName.STYLE

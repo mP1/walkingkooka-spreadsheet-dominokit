@@ -33,9 +33,9 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     }
 
     @Override
-    SpreadsheetLabelMappingSelectHistoryToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                                final SpreadsheetName name,
-                                                                                final SpreadsheetLabelName label) {
+    SpreadsheetLabelMappingSelectHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingSelectHistoryToken.with(
                 id,
                 name,

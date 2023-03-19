@@ -41,9 +41,9 @@ public final class SpreadsheetColumnClearHistoryTokenTest extends SpreadsheetCol
     }
 
     @Override
-    SpreadsheetColumnClearHistoryToken createHistoryHashToken(final SpreadsheetId id,
-                                                              final SpreadsheetName name,
-                                                              final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetColumnClearHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                          final SpreadsheetName name,
+                                                          final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetColumnClearHistoryToken.with(
                 id,
                 name,

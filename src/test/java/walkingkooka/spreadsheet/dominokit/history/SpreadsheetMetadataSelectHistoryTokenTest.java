@@ -51,16 +51,16 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
     }
 
     @Override
-    SpreadsheetMetadataSelectHistoryToken createHistoryHashToken() {
-        return this.createHistoryHashToken(
+    SpreadsheetMetadataSelectHistoryToken createHistoryToken() {
+        return this.createHistoryToken(
                 ID,
                 NAME
         );
     }
 
     @Override
-    SpreadsheetMetadataSelectHistoryToken createHistoryHashToken(final SpreadsheetId id,
-                                                                 final SpreadsheetName name) {
+    SpreadsheetMetadataSelectHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                             final SpreadsheetName name) {
         return SpreadsheetMetadataSelectHistoryToken.with(
                 id,
                 name

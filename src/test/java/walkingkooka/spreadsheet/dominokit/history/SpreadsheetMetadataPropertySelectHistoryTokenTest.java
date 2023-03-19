@@ -103,8 +103,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     }
 
     @Override
-    SpreadsheetMetadataPropertySelectHistoryToken<ExpressionNumberKind> createHistoryHashToken() {
-        return this.createHistoryHashToken(
+    SpreadsheetMetadataPropertySelectHistoryToken<ExpressionNumberKind> createHistoryToken() {
+        return this.createHistoryToken(
                 ID,
                 NAME,
                 EXPRESSION_NUMBER_KIND
@@ -112,9 +112,9 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     }
 
     @Override
-    SpreadsheetMetadataPropertySelectHistoryToken<ExpressionNumberKind> createHistoryHashToken(final SpreadsheetId id,
-                                                                                               final SpreadsheetName name,
-                                                                                               final SpreadsheetMetadataPropertyName<ExpressionNumberKind> propertyName) {
+    SpreadsheetMetadataPropertySelectHistoryToken<ExpressionNumberKind> createHistoryToken(final SpreadsheetId id,
+                                                                                           final SpreadsheetName name,
+                                                                                           final SpreadsheetMetadataPropertyName<ExpressionNumberKind> propertyName) {
         return SpreadsheetMetadataPropertySelectHistoryToken.with(
                 id,
                 name,

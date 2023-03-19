@@ -42,9 +42,9 @@ public final class SpreadsheetRowClearHistoryTokenTest extends SpreadsheetRowHis
     }
 
     @Override
-    SpreadsheetRowClearHistoryToken createHistoryHashToken(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
-                                                           final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetRowClearHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetRowClearHistoryToken.with(
                 id,
                 name,

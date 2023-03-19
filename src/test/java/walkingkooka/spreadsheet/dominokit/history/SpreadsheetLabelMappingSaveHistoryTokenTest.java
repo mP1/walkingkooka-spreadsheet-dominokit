@@ -46,9 +46,9 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
     }
 
     @Override
-    SpreadsheetLabelMappingSaveHistoryToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                              final SpreadsheetName name,
-                                                                              final SpreadsheetLabelName label) {
+    SpreadsheetLabelMappingSaveHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                               final SpreadsheetName name,
+                                                               final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingSaveHistoryToken.with(
                 id,
                 name,

@@ -93,9 +93,9 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     }
 
     @Override
-    SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> createHistoryHashToken(final SpreadsheetId id,
-                                                                                     final SpreadsheetName name,
-                                                                                     final SpreadsheetMetadataPropertyName<TextStyle> propertyName) {
+    SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final SpreadsheetMetadataPropertyName<TextStyle> propertyName) {
         return SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 id,
                 name,
