@@ -47,9 +47,9 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     }
 
     @Override
-    SpreadsheetCellSelectHistoryToken createHistoryHashToken(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
-                                                             final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetCellSelectHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetCellSelectHistoryToken.with(
                 id,
                 name,

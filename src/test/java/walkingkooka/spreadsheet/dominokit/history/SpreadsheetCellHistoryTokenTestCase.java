@@ -39,15 +39,15 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryHashToken(
+                this.createHistoryToken(
                         reference.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                 ),
                 expected
         );
     }
 
-    final T createHistoryHashToken() {
-        return this.createHistoryHashToken(
+    final T createHistoryToken() {
+        return this.createHistoryToken(
                 CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
         );
     }

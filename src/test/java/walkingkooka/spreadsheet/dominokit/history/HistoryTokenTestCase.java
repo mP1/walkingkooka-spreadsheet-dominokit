@@ -45,7 +45,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
 
     @Test
     public final void testEqualsDifferentTypeSameUrgent() {
-        final T token = this.createHistoryHashToken();
+        final T token = this.createHistoryToken();
 
         this.checkNotEquals(
                 token,
@@ -60,7 +60,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
 
     final void urlFragmentAndCheck(final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryHashToken(),
+                this.createHistoryToken(),
                 expected
         );
     }
@@ -82,11 +82,11 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    abstract T createHistoryHashToken();
+    abstract T createHistoryToken();
 
     @Override
     public final T createObject() {
-        return this.createHistoryHashToken();
+        return this.createHistoryToken();
     }
 
     // ClassTesting.....................................................................................................

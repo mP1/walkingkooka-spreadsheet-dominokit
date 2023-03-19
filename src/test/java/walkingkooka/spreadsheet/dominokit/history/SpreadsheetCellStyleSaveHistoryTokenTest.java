@@ -119,10 +119,10 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     }
 
     @Override
-    SpreadsheetCellStyleSaveHistoryToken<Color> createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                                  final SpreadsheetName name,
-                                                                                  final SpreadsheetViewportSelection viewportSelection,
-                                                                                  final TextStylePropertyName<Color> propertyName) {
+    SpreadsheetCellStyleSaveHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetViewportSelection viewportSelection,
+                                                                   final TextStylePropertyName<Color> propertyName) {
         return SpreadsheetCellStyleSaveHistoryToken.with(
                 id,
                 name,

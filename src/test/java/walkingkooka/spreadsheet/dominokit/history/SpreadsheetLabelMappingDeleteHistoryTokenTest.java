@@ -33,9 +33,9 @@ public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends Spreads
     }
 
     @Override
-    SpreadsheetLabelMappingDeleteHistoryToken createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                                final SpreadsheetName name,
-                                                                                final SpreadsheetLabelName label) {
+    SpreadsheetLabelMappingDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingDeleteHistoryToken.with(
                 id,
                 name,

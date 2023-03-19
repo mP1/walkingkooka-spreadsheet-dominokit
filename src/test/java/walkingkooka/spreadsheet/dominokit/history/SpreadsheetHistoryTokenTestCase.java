@@ -28,7 +28,7 @@ public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHisto
 
     @Test
     public final void testParse() {
-        final T token = this.createHistoryHashToken();
+        final T token = this.createHistoryToken();
 
         this.parseAndCheck(
                 token.urlFragment(),

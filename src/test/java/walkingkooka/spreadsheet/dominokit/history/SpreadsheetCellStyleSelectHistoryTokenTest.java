@@ -82,10 +82,10 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Override
-    SpreadsheetCellStyleSelectHistoryToken<Color> createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                                                    final SpreadsheetName name,
-                                                                                    final SpreadsheetViewportSelection viewportSelection,
-                                                                                    final TextStylePropertyName<Color> propertyName) {
+    SpreadsheetCellStyleSelectHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final SpreadsheetViewportSelection viewportSelection,
+                                                                     final TextStylePropertyName<Color> propertyName) {
         return SpreadsheetCellStyleSelectHistoryToken.with(
                 id,
                 name,

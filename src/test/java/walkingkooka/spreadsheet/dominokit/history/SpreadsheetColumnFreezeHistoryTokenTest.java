@@ -41,9 +41,9 @@ public final class SpreadsheetColumnFreezeHistoryTokenTest extends SpreadsheetCo
     }
 
     @Override
-    SpreadsheetColumnFreezeHistoryToken createHistoryHashToken(final SpreadsheetId id,
-                                                               final SpreadsheetName name,
-                                                               final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetColumnFreezeHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetColumnFreezeHistoryToken.with(
                 id,
                 name,

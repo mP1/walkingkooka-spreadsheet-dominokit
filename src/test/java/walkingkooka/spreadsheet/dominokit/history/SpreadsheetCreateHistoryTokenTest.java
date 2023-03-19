@@ -27,7 +27,7 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
     }
 
     @Override
-    SpreadsheetCreateHistoryToken createHistoryHashToken() {
+    SpreadsheetCreateHistoryToken createHistoryToken() {
         return SpreadsheetCreateHistoryToken.with();
     }
 

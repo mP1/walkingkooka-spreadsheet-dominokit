@@ -27,7 +27,7 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     }
 
     @Override
-    SpreadsheetLoadHistoryToken createHistoryHashToken() {
+    SpreadsheetLoadHistoryToken createHistoryToken() {
         return SpreadsheetLoadHistoryToken.with(
                 ID
         );

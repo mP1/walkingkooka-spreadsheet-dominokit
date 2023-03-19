@@ -36,30 +36,30 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
     final void urlFragmentAndCheck(final SpreadsheetLabelName label,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createSpreadsheetHistoryHashToken(
+                this.createHistoryToken(
                         label
                 ),
                 expected
         );
     }
 
-    final T createHistoryHashToken() {
-        return this.createSpreadsheetHistoryHashToken(
+    final T createHistoryToken() {
+        return this.createHistoryToken(
                 ID,
                 NAME,
                 LABEL
         );
     }
 
-    final T createSpreadsheetHistoryHashToken(final SpreadsheetLabelName label) {
-        return this.createSpreadsheetHistoryHashToken(
+    final T createHistoryToken(final SpreadsheetLabelName label) {
+        return this.createHistoryToken(
                 ID,
                 NAME,
                 label
         );
     }
 
-    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
-                                                 final SpreadsheetLabelName label);
+    abstract T createHistoryToken(final SpreadsheetId id,
+                                  final SpreadsheetName name,
+                                  final SpreadsheetLabelName label);
 }

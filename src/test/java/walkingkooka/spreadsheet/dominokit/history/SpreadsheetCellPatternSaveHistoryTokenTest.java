@@ -50,9 +50,9 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     }
 
     @Override
-    SpreadsheetCellPatternSaveHistoryToken createHistoryHashToken(final SpreadsheetId id,
-                                                                  final SpreadsheetName name,
-                                                                  final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetCellPatternSaveHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                              final SpreadsheetName name,
+                                                              final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetCellPatternSaveHistoryToken.with(
                 id,
                 name,

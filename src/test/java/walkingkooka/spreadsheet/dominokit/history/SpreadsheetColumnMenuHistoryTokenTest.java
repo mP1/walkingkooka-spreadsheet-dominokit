@@ -41,9 +41,9 @@ public final class SpreadsheetColumnMenuHistoryTokenTest extends SpreadsheetColu
     }
 
     @Override
-    SpreadsheetColumnMenuHistoryToken createHistoryHashToken(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
-                                                             final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetColumnMenuHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetColumnMenuHistoryToken.with(
                 id,
                 name,

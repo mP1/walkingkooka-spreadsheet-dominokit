@@ -34,10 +34,10 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
     }
 
     @Override
-    T createHistoryHashToken(final SpreadsheetId id,
-                             final SpreadsheetName name,
-                             final SpreadsheetViewportSelection viewportSelection) {
-        return this.createSpreadsheetHistoryHashToken(
+    T createHistoryToken(final SpreadsheetId id,
+                         final SpreadsheetName name,
+                         final SpreadsheetViewportSelection viewportSelection) {
+        return this.createHistoryToken(
                 id,
                 name,
                 viewportSelection,
@@ -45,8 +45,8 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
         );
     }
 
-    abstract T createSpreadsheetHistoryHashToken(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
-                                                 final SpreadsheetViewportSelection viewportSelection,
-                                                 final TextStylePropertyName<Color> propertyName);
+    abstract T createHistoryToken(final SpreadsheetId id,
+                                  final SpreadsheetName name,
+                                  final SpreadsheetViewportSelection viewportSelection,
+                                  final TextStylePropertyName<Color> propertyName);
 }

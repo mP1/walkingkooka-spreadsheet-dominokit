@@ -26,6 +26,6 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         super();
     }
 
-    abstract T createHistoryHashToken(final SpreadsheetId id,
-                                      final SpreadsheetName name);
+    abstract T createHistoryToken(final SpreadsheetId id,
+                                  final SpreadsheetName name);
 }
