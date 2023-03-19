@@ -68,4 +68,15 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
                         final TextCursor cursor) {
         return this;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetMetadataPropertyStyleSaveHistoryToken<>(
+                id,
+                name,
+                this.stylePropertyName(),
+                this.stylePropertyValue()
+        );
+    }
 }

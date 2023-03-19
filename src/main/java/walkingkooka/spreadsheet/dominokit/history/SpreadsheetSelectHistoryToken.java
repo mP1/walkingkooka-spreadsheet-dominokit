@@ -229,6 +229,15 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetSelectHistoryToken(
+                id,
+                name
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken clear() {
         return this;
     }

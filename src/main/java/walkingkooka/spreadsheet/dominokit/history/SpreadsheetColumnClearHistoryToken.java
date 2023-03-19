@@ -48,4 +48,14 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
     UrlFragment columnUrlFragment() {
         return CLEAR;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetColumnClearHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
 }

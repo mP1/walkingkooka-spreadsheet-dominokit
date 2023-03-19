@@ -48,4 +48,14 @@ public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken
     UrlFragment rowUrlFragment() {
         return SELECT;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetRowSelectHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
 }

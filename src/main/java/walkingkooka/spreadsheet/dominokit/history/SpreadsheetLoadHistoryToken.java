@@ -47,4 +47,10 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
                 SpreadsheetName.with(component)
         ).parse(cursor);
     }
+
+    @Override
+    SpreadsheetHistoryToken setIdAndName0(final SpreadsheetId id,
+                                          final SpreadsheetName name) {
+        return new SpreadsheetLoadHistoryToken(id); // dont care about the name, when loading a new id
+    }
 }

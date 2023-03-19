@@ -17,9 +17,75 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
+
 public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetNameHistoryToken> extends SpreadsheetIdHistoryTokenTestCase<T> {
 
     SpreadsheetNameHistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public void testSetIdAndNameDifferentId() {
+        final T token = this.createHistoryToken();
+
+        final SpreadsheetId differentId = SpreadsheetId.with(999);
+
+        final SpreadsheetNameHistoryToken different = (SpreadsheetNameHistoryToken) token.setIdAndName(
+                differentId,
+                NAME
+        );
+
+        this.checkEquals(
+                differentId,
+                different.id(),
+                "id"
+        );
+
+        this.checkEquals(
+                NAME,
+                different.name(),
+                "name"
+        );
+
+        this.setIdAndNameAndCheck(
+                different,
+                ID,
+                NAME,
+                token
+        );
+    }
+
+    @Test
+    public void testSetIdAndNameDifferentName() {
+        final T token = this.createHistoryToken();
+
+        final SpreadsheetName differentName = SpreadsheetName.with("different");
+
+        final SpreadsheetNameHistoryToken different = (SpreadsheetNameHistoryToken) token.setIdAndName(
+                ID,
+                differentName
+        );
+
+        this.checkEquals(
+                ID,
+                different.id(),
+                "id"
+        );
+
+        this.checkEquals(
+                differentName,
+                different.name(),
+                "name"
+        );
+
+        this.setIdAndNameAndCheck(
+                different,
+                ID,
+                NAME,
+                token
+        );
     }
 }

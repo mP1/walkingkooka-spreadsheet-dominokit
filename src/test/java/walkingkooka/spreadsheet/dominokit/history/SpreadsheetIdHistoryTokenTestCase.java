@@ -17,14 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
-
 public abstract class SpreadsheetIdHistoryTokenTestCase<T extends SpreadsheetHistoryToken> extends SpreadsheetHistoryTokenTestCase<T> {
-
-    final static SpreadsheetId ID = SpreadsheetId.with(0x123);
-
-    final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
 
     SpreadsheetIdHistoryTokenTestCase() {
         super();

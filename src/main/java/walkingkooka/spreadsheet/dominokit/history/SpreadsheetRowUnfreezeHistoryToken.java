@@ -48,4 +48,14 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
     UrlFragment rowUrlFragment() {
         return UNFREEZE;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetRowUnfreezeHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
 }

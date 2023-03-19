@@ -48,4 +48,14 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
     UrlFragment columnUrlFragment() {
         return DELETE;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetColumnDeleteHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
 }

@@ -70,6 +70,17 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetCellPatternSaveHistoryToken(
+                id,
+                name,
+                this.viewportSelection(),
+                this.pattern()
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }

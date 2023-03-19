@@ -65,6 +65,18 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetCellStyleSaveHistoryToken(
+                id,
+                name,
+                this.viewportSelection(),
+                this.propertyName(),
+                this.propertyValue()
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken save(final String value) {
         return this;
     }

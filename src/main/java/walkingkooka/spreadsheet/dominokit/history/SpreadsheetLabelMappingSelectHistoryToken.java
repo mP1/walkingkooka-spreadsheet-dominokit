@@ -60,6 +60,16 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetLabelMappingSelectHistoryToken(
+                id,
+                name,
+                this.labelName()
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken delete() {
         return labelMappingDelete(
                 this.id(),

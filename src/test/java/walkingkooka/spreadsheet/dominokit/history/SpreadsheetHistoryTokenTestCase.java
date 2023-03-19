@@ -19,8 +19,16 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHistoryToken> extends HistoryTokenTestCase<T> {
+
+    final static SpreadsheetId ID = SpreadsheetId.with(0x123);
+
+    final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
 
     SpreadsheetHistoryTokenTestCase() {
         super();
@@ -50,6 +58,55 @@ public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHisto
                 token,
                 SpreadsheetHistoryToken.parse(fragment)
                         .get()
+        );
+    }
+
+    // setIdAndName.....................................................................................................
+
+    @Test
+    public final void testSetIdAndNameNullIdFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createHistoryToken().setIdAndName(
+                        null,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public final void testSetIdAndNameNullNameFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createHistoryToken().setIdAndName(
+                        ID,
+                        null
+                )
+        );
+    }
+
+    final void setIdAndNameAndCheck(final SpreadsheetId id,
+                                    final SpreadsheetName name,
+                                    final SpreadsheetHistoryToken expected) {
+        this.setIdAndNameAndCheck(
+                this.createHistoryToken(),
+                id,
+                name,
+                expected
+        );
+    }
+
+    final void setIdAndNameAndCheck(final SpreadsheetHistoryToken token,
+                                    final SpreadsheetId id,
+                                    final SpreadsheetName name,
+                                    final SpreadsheetHistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setIdAndName(
+                        id,
+                        name
+                ),
+                () -> token + " setIdAndName " + id + ", " + name
         );
     }
 }

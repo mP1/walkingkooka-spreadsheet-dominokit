@@ -66,6 +66,17 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetCellPatternSelectHistoryToken(
+                id,
+                name,
+                this.viewportSelection(),
+                this.patternKind()
+        );
+    }
+
+    @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }

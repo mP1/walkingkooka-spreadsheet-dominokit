@@ -539,4 +539,7 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
         return SAVE.append(urlFragment);
     }
+
+    public abstract SpreadsheetHistoryToken setIdAndName(final SpreadsheetId id,
+                                                         final SpreadsheetName name);
 }

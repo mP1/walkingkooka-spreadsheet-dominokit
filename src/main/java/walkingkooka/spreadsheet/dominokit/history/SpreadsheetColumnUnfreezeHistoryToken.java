@@ -48,4 +48,14 @@ public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHist
     UrlFragment columnUrlFragment() {
         return UNFREEZE;
     }
+
+    @Override
+    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
+        return new SpreadsheetColumnUnfreezeHistoryToken(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
 }
