@@ -18,8 +18,11 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import com.google.gwt.junit.client.GWTTestCase;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class AppTest extends GWTTestCase {
 
@@ -47,7 +50,11 @@ public final class AppTest extends GWTTestCase {
         app.addSpreadsheetMetadataWatcher((d, c) -> this.fireSpreadsheetMetadataCounter++);
         app.addSpreadsheetMetadataWatcher((d, c) -> this.fireSpreadsheetMetadataCounter++);
 
-        app.fireSpreadsheetMetadata(SpreadsheetMetadata.EMPTY);
+        app.fireSpreadsheetMetadata(
+                SpreadsheetMetadata.EMPTY
+                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SpreadsheetId.with(1))
+                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SpreadsheetName.with("Untitled123"))
+        );
     }
 
     private int fireSpreadsheetMetadataCounter = 0;
