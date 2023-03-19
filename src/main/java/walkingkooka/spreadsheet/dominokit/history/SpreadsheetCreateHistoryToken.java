@@ -21,12 +21,15 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 
 /**
  * A token that represents a spreadsheet create action.
  */
-public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken {
+public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken implements SpreadsheetMetadataWatcher {
 
     static SpreadsheetCreateHistoryToken with() {
         return new SpreadsheetCreateHistoryToken();
@@ -54,6 +57,20 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
         context.spreadsheetMetadataFetcher().post(
                 Url.parseAbsolute("http://localhost:12345/api/spreadsheet"),
                 ""
+        );
+    }
+
+    /**
+     * When the spreadsheet is created and a new {@link SpreadsheetMetadata} is returned update the history token.
+     */
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        context.pushHistoryToken(
+                spreadsheetSelect(
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
+                )
         );
     }
 }
