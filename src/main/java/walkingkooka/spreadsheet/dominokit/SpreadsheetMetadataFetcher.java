@@ -18,12 +18,8 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
-import walkingkooka.net.Url;
-import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-
-import java.util.Optional;
 
 public class SpreadsheetMetadataFetcher implements Fetcher {
 
@@ -42,17 +38,11 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     @Override
-    public void fetchLog(final HttpMethod method,
-                         final Url url,
-                         final Optional<String> body) {
+    public void fetchLog(final String message) {
         this.context.debug(
                 this.getClass().getSimpleName() +
                         " " +
-                        method +
-                        " " +
-                        url +
-                        " " +
-                        body.orElse(null)
+                        message
         );
     }
 
