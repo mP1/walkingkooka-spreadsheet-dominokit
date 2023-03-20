@@ -107,7 +107,8 @@ public interface Fetcher {
 
         requestInit.setHeaders(headers);
 
-        this.fetchLog(method, url, body);
+        this.fetchLog(method + " " + url + " " + body);
+
         DomGlobal.fetch(
                         url.value(),
                         requestInit
@@ -116,11 +117,14 @@ public interface Fetcher {
                             .then(
                                     text -> {
                                         if (response.ok) {
+                                            this.fetchLog("success " + text);
                                             this.onSuccess(text);
                                         } else {
+                                            final HttpStatus status = HttpStatusCode.withCode(response.status)
+                                                    .setMessage(response.statusText);
+                                            this.fetchLog("failure " + status + " " + text);
                                             this.onFailure(
-                                                    HttpStatusCode.withCode(response.status)
-                                                            .setMessage(response.statusText),
+                                                    status,
                                                     response.headers,
                                                     text
                                             );
@@ -140,9 +144,7 @@ public interface Fetcher {
     /**
      * Opportunity for sub classes to log any fetches.
      */
-    void fetchLog(final HttpMethod method,
-                  final Url url,
-                  final Optional<String> body);
+    void fetchLog(final String message);
 
     /**
      * Success assumes a json response.
