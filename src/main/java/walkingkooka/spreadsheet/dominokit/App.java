@@ -258,6 +258,8 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
     private void pushAndFire(final HistoryToken token) {
         this.pushHistoryToken(token);
+
+        this.debug(token + " onHashChange");
         token.onHashChange(this);
     }
 
