@@ -248,7 +248,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
                     DomGlobal.location.hash = "";
                 }
             }
-            debug("App.onHashChange from " + toString(previousToken) + " to " + toString(token));
+            debug("App.onHashChange from " + previousToken.orElse(null) + " to " + token.orElse(null));
         } catch (final Exception e) {
             error(e.getMessage());
         }
@@ -257,17 +257,6 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     private void pushAndFire(final HistoryToken token) {
         this.pushHistoryToken(token);
         token.onHashChange(this);
-    }
-
-    /**
-     * Helper which pretty's a {@link HistoryToken} for logging.
-     */
-    private String toString(final Optional<HistoryToken> token) {
-        String toString = "<nothing>";
-        if (token.isPresent()) {
-            toString = token.get().getClass().getSimpleName() + " " + token.get();
-        }
-        return toString;
     }
 
     /**
