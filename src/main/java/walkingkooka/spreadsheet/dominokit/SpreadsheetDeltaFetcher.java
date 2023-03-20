@@ -18,8 +18,12 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+
+import java.util.Optional;
 
 public class SpreadsheetDeltaFetcher implements Fetcher {
 
@@ -35,6 +39,21 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                                     final AppContext context) {
         this.watcher = watcher;
         this.context = context;
+    }
+
+    @Override
+    public void fetchLog(final HttpMethod method,
+                         final Url url,
+                         final Optional<String> body) {
+        this.context.debug(
+                this.getClass().getSimpleName() +
+                        " " +
+                        method +
+                        " " +
+                        url +
+                        " " +
+                        body.orElse(null)
+        );
     }
 
     @Override

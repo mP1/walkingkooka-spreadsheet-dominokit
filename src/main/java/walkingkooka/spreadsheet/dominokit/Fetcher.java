@@ -107,6 +107,7 @@ public interface Fetcher {
 
         requestInit.setHeaders(headers);
 
+        this.fetchLog(method, url, body);
         DomGlobal.fetch(
                         url.value(),
                         requestInit
@@ -135,6 +136,13 @@ public interface Fetcher {
                     return null;
                 });
     }
+
+    /**
+     * Opportunity for sub classes to log any fetches.
+     */
+    void fetchLog(final HttpMethod method,
+                  final Url url,
+                  final Optional<String> body);
 
     /**
      * Success assumes a json response.
