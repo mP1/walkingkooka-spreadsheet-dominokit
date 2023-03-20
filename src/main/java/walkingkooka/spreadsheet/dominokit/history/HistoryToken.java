@@ -21,6 +21,7 @@ import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.predicate.character.CharPredicates;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.text.cursor.TextCursors;
@@ -151,6 +152,11 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     @Override
     public final String toString() {
-        return this.urlFragment().toString();
+        return this.getClass().getSimpleName() +
+                ' ' +
+                CharSequences.quoteAndEscape(
+                    this.urlFragment()
+                            .toString()
+                );
     }
 }
