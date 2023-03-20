@@ -221,8 +221,9 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     }
 
     private void fireInitialHashToken() {
-        this.debug("App.fireInitialHashToken");
-        this.onHashChange(this.historyToken());
+        final Optional<HistoryToken> token = this.historyToken();
+        this.debug("App.fireInitialHashToken " + token.orElse(null));
+        this.onHashChange(token);
     }
 
     @Override
@@ -239,6 +240,8 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     private void onHashChange(final Optional<HistoryToken> token) {
         try {
             final Optional<HistoryToken> previousToken = this.previousToken;
+            debug("App.onHashChange from " + previousToken.orElse(null) + " to " + token.orElse(null));
+
             if (false == previousToken.equals(token)) {
                 this.previousToken = token;
 
@@ -248,7 +251,6 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
                     DomGlobal.location.hash = "";
                 }
             }
-            debug("App.onHashChange from " + previousToken.orElse(null) + " to " + token.orElse(null));
         } catch (final Exception e) {
             error(e.getMessage());
         }
