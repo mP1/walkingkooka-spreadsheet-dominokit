@@ -39,6 +39,11 @@ public interface AppContext extends Context {
     void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata);
 
     /**
+     * Returns the current or last loaded {@link SpreadsheetMetadata}.
+     */
+    SpreadsheetMetadata spreadsheetMetadata();
+
+    /**
      * Parses the current history token.
      */
     Optional<HistoryToken> historyToken();
