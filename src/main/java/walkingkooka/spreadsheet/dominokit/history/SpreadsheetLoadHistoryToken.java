@@ -67,7 +67,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     /**
-     * When the spreadsheet is created and a new {@link SpreadsheetMetadata} is returned update the history token.
+     * When the spreadsheet is loaded and a new {@link SpreadsheetMetadata} is returned update the history token.
      */
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
