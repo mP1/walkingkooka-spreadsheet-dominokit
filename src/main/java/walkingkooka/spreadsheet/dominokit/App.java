@@ -39,6 +39,7 @@ import walkingkooka.text.CharSequences;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
 @LocaleAware
 public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
@@ -149,21 +150,17 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     );
 
     public void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
-        for(final SpreadsheetDeltaWatcher watcher : this.deltaWatchers) {
+        for (final SpreadsheetDeltaWatcher watcher : this.deltaWatchers) {
             fireSpreadsheetDelta(delta, watcher);
         }
     }
 
     private void fireSpreadsheetDelta(final SpreadsheetDelta delta,
                                       final SpreadsheetDeltaWatcher watcher) {
-        try {
-            watcher.onSpreadsheetDelta(
-                    delta,
-                    this
-            );
-        } catch (final RuntimeException ignore) {
-            this.error(ignore);
-        }
+        this.callAndCatch(
+                delta,
+                watcher::onSpreadsheetDelta
+        );
     }
 
     public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
@@ -190,9 +187,17 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
     private void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                          final SpreadsheetMetadataWatcher watcher) {
+        this.callAndCatch(
+                metadata,
+                watcher::onSpreadsheetMetadata
+        );
+    }
+
+    private <T> void callAndCatch(final T value,
+                                  final BiConsumer<T, AppContext> fire) {
         try {
-            watcher.onSpreadsheetMetadata(
-                    metadata,
+            fire.accept(
+                    value,
                     this
             );
         } catch (final RuntimeException ignore) {
@@ -226,7 +231,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         Objects.requireNonNull(watcher, "watcher");
         this.metadataWatchers.add(watcher);
     }
-    
+
     /**
      * A collection of listeners for {@link SpreadsheetMetadataWatcher}
      */
