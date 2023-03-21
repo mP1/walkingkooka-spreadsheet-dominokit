@@ -150,10 +150,19 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
     public void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
         for(final SpreadsheetDeltaWatcher watcher : this.deltaWatchers) {
+            fireSpreadsheetDelta(delta, watcher);
+        }
+    }
+
+    private void fireSpreadsheetDelta(final SpreadsheetDelta delta,
+                                      final SpreadsheetDeltaWatcher watcher) {
+        try {
             watcher.onSpreadsheetDelta(
                     delta,
                     this
             );
+        } catch (final RuntimeException ignore) {
+            this.error(ignore);
         }
     }
 
