@@ -67,7 +67,7 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     @Override
     public void onHashChange(final AppContext context) {
         context.spreadsheetMetadataFetcher().post(
-                Url.parseAbsolute("http://localhost:12345/api/spreadsheet"),
+                Url.parseRelative("/api/spreadsheet"),
                 ""
         );
     }
