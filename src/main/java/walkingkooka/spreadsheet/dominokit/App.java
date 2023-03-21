@@ -161,22 +161,33 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         this.spreadsheetMetadata = metadata;
 
         final Optional<HistoryToken> maybeToken = this.historyToken();
-        if(maybeToken.isPresent()) {
+        if (maybeToken.isPresent()) {
             final HistoryToken token = maybeToken.get();
-            if(token instanceof SpreadsheetMetadataWatcher) {
-                final SpreadsheetMetadataWatcher watcher = (SpreadsheetMetadataWatcher)token;
-                watcher.onSpreadsheetMetadata(
+            if (token instanceof SpreadsheetMetadataWatcher) {
+                this.fireSpreadsheetMetadata(
                         metadata,
-                        this
+                        (SpreadsheetMetadataWatcher) token
                 );
             }
         }
 
-        for(final SpreadsheetMetadataWatcher watcher : this.metadataWatchers) {
+        for (final SpreadsheetMetadataWatcher watcher : this.metadataWatchers) {
+            this.fireSpreadsheetMetadata(
+                    metadata,
+                    watcher
+            );
+        }
+    }
+
+    private void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                         final SpreadsheetMetadataWatcher watcher) {
+        try {
             watcher.onSpreadsheetMetadata(
                     metadata,
                     this
             );
+        } catch (final RuntimeException ignore) {
+            this.error(ignore);
         }
     }
 
