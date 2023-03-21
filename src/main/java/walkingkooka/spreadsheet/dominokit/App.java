@@ -289,7 +289,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
                 this.previousToken = token;
 
                 if (token.isPresent()) {
-                    this.pushAndFire(token.get());
+                    this.pushAndFireOnHashChange(token.get());
                 } else {
                     DomGlobal.location.hash = "";
                 }
@@ -299,11 +299,20 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         }
     }
 
-    private void pushAndFire(final HistoryToken token) {
+    private void pushAndFireOnHashChange(final HistoryToken token) {
         this.pushHistoryToken(token);
+        this.fireOnHashChange(token);
+    }
 
+
+    private void fireOnHashChange(final HistoryToken token) {
         this.debug(token + " onHashChange");
-        token.onHashChange(this);
+
+        try {
+            token.onHashChange(this);
+        } catch (final RuntimeException cause) {
+            this.error(cause);
+        }
     }
 
     /**
