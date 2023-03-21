@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -200,5 +202,19 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     @Override
     public final void onHashChange(final AppContext context) {
         context.debug(this);
+    }
+
+    /**
+     * The new metadata might have a different id or name, update the history token.
+     */
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        context.pushHistoryToken(
+                this.setIdAndName(
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
+                )
+        );
     }
 }
