@@ -189,7 +189,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         return this.spreadsheetMetadata;
     }
 
-    private SpreadsheetMetadata spreadsheetMetadata;
+    private SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
 
     @Override
     public void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
