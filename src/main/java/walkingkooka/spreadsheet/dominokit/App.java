@@ -159,6 +159,8 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     }
 
     public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
+        this.spreadsheetMetadata = metadata;
+
         final Optional<HistoryToken> maybeToken = this.historyToken();
         if(maybeToken.isPresent()) {
             final HistoryToken token = maybeToken.get();
@@ -178,6 +180,16 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
             );
         }
     }
+
+    /**
+     * Returns the current or last loaded {@link SpreadsheetMetadata}
+     */
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.spreadsheetMetadata;
+    }
+
+    private SpreadsheetMetadata spreadsheetMetadata;
 
     @Override
     public void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {

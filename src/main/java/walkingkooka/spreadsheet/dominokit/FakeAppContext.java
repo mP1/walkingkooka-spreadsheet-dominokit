@@ -55,6 +55,11 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<HistoryToken> historyToken() {
         throw new UnsupportedOperationException();
     }
