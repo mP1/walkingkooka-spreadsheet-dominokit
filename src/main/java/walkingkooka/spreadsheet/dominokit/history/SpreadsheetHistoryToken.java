@@ -22,6 +22,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -33,7 +34,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 /**
  * Instances represent a token within a history hash.
  */
-public abstract class SpreadsheetHistoryToken extends HistoryToken {
+public abstract class SpreadsheetHistoryToken extends HistoryToken implements SpreadsheetMetadataWatcher {
 
     final static UrlFragment CLEAR = UrlFragment.SLASH.append(UrlFragment.with("clear"));
 

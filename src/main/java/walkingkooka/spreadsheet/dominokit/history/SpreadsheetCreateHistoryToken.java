@@ -22,7 +22,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
@@ -32,7 +31,7 @@ import java.util.Objects;
 /**
  * A token that represents a spreadsheet create action.
  */
-public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken implements SpreadsheetMetadataWatcher {
+public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken {
 
     static SpreadsheetCreateHistoryToken with() {
         return new SpreadsheetCreateHistoryToken();
