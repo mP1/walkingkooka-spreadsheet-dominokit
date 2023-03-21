@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Objects;
 
@@ -66,9 +65,4 @@ public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken 
 
     abstract SpreadsheetHistoryToken setIdAndName0(final SpreadsheetId id,
                                                    final SpreadsheetName name);
-
-    @Override
-    public void onHashChange(final AppContext context) {
-        context.debug(this.getClass().getSimpleName() + " " + this);
-    }
 }

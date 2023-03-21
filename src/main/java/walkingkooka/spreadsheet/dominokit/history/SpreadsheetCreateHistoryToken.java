@@ -66,10 +66,11 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
 
     @Override
     public void onHashChange(final AppContext context) {
-        context.spreadsheetMetadataFetcher().post(
-                Url.parseRelative("/api/spreadsheet"),
-                ""
-        );
+        context.spreadsheetMetadataFetcher()
+                .post(
+                        Url.parseRelative("/api/spreadsheet"),
+                        ""
+                );
     }
 
     /**

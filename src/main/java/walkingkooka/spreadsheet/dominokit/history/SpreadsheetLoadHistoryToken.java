@@ -17,12 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 
-public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken {
+public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken implements SpreadsheetMetadataWatcher {
 
     static SpreadsheetLoadHistoryToken with(final SpreadsheetId id) {
         return new SpreadsheetLoadHistoryToken(
@@ -52,5 +57,27 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     SpreadsheetHistoryToken setIdAndName0(final SpreadsheetId id,
                                           final SpreadsheetName name) {
         return new SpreadsheetLoadHistoryToken(id); // dont care about the name, when loading a new id
+    }
+
+    @Override
+    public void onHashChange(final AppContext context) {
+        context.spreadsheetMetadataFetcher()
+                .get(
+                        Url.parseRelative("/api/spreadsheet/" + this.id())
+                );
+    }
+
+    /**
+     * When the spreadsheet is created and a new {@link SpreadsheetMetadata} is returned update the history token.
+     */
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        context.pushHistoryToken(
+                spreadsheetSelect(
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
+                )
+        );
     }
 }

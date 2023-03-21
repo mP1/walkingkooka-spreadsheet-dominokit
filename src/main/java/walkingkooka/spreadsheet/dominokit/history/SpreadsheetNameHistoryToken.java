@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -194,5 +195,10 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
             );
         }
         return result;
+    }
+
+    @Override
+    public final void onHashChange(final AppContext context) {
+        context.debug(this);
     }
 }
