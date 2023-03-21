@@ -34,6 +34,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -274,8 +275,13 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
      */
     @Override
     public void pushHistoryToken(final HistoryToken token) {
-        this.debug("pushHistoryToken " + token);
-        DomGlobal.location.hash = "#" + token.urlFragment();
+        final String newHash = "#" + token.urlFragment();
+        final String current = DomGlobal.location.hash;
+        if (current != newHash) {
+            this.debug("pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + token);
+
+            DomGlobal.location.hash = newHash;
+        }
     }
 
     /**
