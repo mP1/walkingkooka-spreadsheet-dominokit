@@ -58,7 +58,6 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     public void onModuleLoad() {
         GWT.setUncaughtExceptionHandler(this);
 
-        SpreadsheetMetadata.EMPTY.toString(); // for registering of JsonContext types etc
         this.setupHistoryListener();
 
         this.prepareLayout();
