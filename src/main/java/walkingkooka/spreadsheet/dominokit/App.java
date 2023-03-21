@@ -200,8 +200,8 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
                     value,
                     this
             );
-        } catch (final RuntimeException ignore) {
-            this.error(ignore);
+        } catch (final RuntimeException cause) {
+            this.error(cause);
         }
     }
 
