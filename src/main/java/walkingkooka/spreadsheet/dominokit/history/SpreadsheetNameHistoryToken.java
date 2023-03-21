@@ -199,9 +199,17 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return result;
     }
 
+    /**
+     * Hash changed, restore the id and metadata if necessary.
+     */
     @Override
     public final void onHashChange(final AppContext context) {
         context.debug(this);
+
+        this.pushHistoryTokenIdAndMetadata(
+                context.spreadsheetMetadata(),
+                context
+        );
     }
 
     /**
@@ -210,6 +218,14 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
+        this.pushHistoryTokenIdAndMetadata(
+                metadata,
+                context
+        );
+    }
+
+    private void pushHistoryTokenIdAndMetadata(final SpreadsheetMetadata metadata,
+                                               final AppContext context) {
         context.pushHistoryToken(
                 this.setIdAndName(
                         metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
