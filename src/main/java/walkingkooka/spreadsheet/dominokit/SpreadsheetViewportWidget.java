@@ -108,7 +108,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         Objects.requireNonNull(metadata, "metadata");
         
         final SpreadsheetMetadata previous = this.metadata;
-        if(metadata.shouViewRefresh(this.metadata)) {
+        if(metadata.shouldViewRefresh(this.metadata)) {
             this.reload = true;
         }
 
