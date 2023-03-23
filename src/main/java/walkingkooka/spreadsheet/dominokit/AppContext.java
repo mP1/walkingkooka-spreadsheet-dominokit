@@ -42,6 +42,17 @@ public interface AppContext extends Context {
     void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata);
 
     /**
+     * Creates a new {@link SpreadsheetMetadata}.
+     */
+    default void createSpreadsheetMetadata() {
+        this.spreadsheetMetadataFetcher()
+                .post(
+                        Url.parseRelative("/api/spreadsheet"),
+                        ""
+                );
+    }
+
+    /**
      * Loads an existing spreadsheet
      */
     default void loadSpreadsheetMetadata(final SpreadsheetId id) {
