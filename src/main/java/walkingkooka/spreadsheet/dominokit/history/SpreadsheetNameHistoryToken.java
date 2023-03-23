@@ -206,8 +206,9 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     public final void onHashChange(final AppContext context) {
         context.debug(this);
 
-        this.pushHistoryTokenIdAndMetadata(
-                context.spreadsheetMetadata(),
+        this.pushHistoryTokenIdAndName(
+                this.id(),
+                this.name(),
                 context
         );
     }
@@ -218,24 +219,33 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        this.pushHistoryTokenIdAndMetadata(
-                metadata,
+        this.pushHistoryTokenIdAndName(
+                metadata.id(),
+                metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
                 context
         );
     }
 
-    private void pushHistoryTokenIdAndMetadata(final SpreadsheetMetadata metadata,
-                                               final AppContext context) {
-        final Optional<SpreadsheetId> id = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
-        final Optional<SpreadsheetName> name = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME);
-
+    private void pushHistoryTokenIdAndName(final Optional<SpreadsheetId> id,
+                                           final Optional<SpreadsheetName> name,
+                                           final AppContext context) {
         if (id.isPresent() && name.isPresent()) {
-            context.pushHistoryToken(
-                    this.setIdAndName(
-                            id.get(),
-                            name.get()
-                    )
+            this.pushHistoryTokenIdAndName(
+                    id.get(),
+                    name.get(),
+                    context
             );
         }
+    }
+
+    private void pushHistoryTokenIdAndName(final SpreadsheetId id,
+                                           final SpreadsheetName name,
+                                           final AppContext context) {
+        context.pushHistoryToken(
+                this.setIdAndName(
+                        id,
+                        name
+                )
+        );
     }
 }
