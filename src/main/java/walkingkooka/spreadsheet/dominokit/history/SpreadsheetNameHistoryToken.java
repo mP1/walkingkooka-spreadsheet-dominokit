@@ -226,11 +226,16 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     private void pushHistoryTokenIdAndMetadata(final SpreadsheetMetadata metadata,
                                                final AppContext context) {
-        context.pushHistoryToken(
-                this.setIdAndName(
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
-                )
-        );
+        final Optional<SpreadsheetId> id = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
+        final Optional<SpreadsheetName> name = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME);
+
+        if (id.isPresent() && name.isPresent()) {
+            context.pushHistoryToken(
+                    this.setIdAndName(
+                            id.get(),
+                            name.get()
+                    )
+            );
+        }
     }
 }
