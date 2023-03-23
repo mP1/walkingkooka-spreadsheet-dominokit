@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A token that represents a spreadsheet create action.
@@ -78,11 +79,16 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        context.pushHistoryToken(
-                spreadsheetSelect(
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
-                )
-        );
+        final Optional<SpreadsheetId> id = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
+        final Optional<SpreadsheetName> name = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME);
+
+        if (id.isPresent() && name.isPresent()) {
+            context.pushHistoryToken(
+                    spreadsheetSelect(
+                            id.get(),
+                            name.get()
+                    )
+            );
+        }
     }
 }
