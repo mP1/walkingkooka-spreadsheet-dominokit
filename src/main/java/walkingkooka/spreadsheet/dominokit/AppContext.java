@@ -18,10 +18,13 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
+import walkingkooka.net.Url;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public interface AppContext extends Context {
@@ -37,6 +40,18 @@ public interface AppContext extends Context {
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 
     void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata);
+
+    /**
+     * Loads an existing spreadsheet
+     */
+    default void loadSpreadsheetMetadata(final SpreadsheetId id) {
+        Objects.requireNonNull(id, "id");
+
+        this.spreadsheetMetadataFetcher()
+                .get(
+                        Url.parseRelative("/api/spreadsheet/" + id)
+                );
+    }
 
     /**
      * Returns the current or last loaded {@link SpreadsheetMetadata}.
