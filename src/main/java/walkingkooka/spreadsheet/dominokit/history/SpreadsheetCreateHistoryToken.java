@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -68,11 +67,7 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
 
     @Override
     public void onHashChange(final AppContext context) {
-        context.spreadsheetMetadataFetcher()
-                .post(
-                        Url.parseRelative("/api/spreadsheet"),
-                        ""
-                );
+        context.createSpreadsheetMetadata();
     }
 
     /**
