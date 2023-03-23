@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -60,10 +59,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
 
     @Override
     public void onHashChange(final AppContext context) {
-        context.spreadsheetMetadataFetcher()
-                .get(
-                        Url.parseRelative("/api/spreadsheet/" + this.id())
-                );
+        context.loadSpreadsheetMetadata(this.id());
     }
 
     /**
