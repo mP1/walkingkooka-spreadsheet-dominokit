@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
@@ -76,8 +75,8 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        final Optional<SpreadsheetId> id = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
-        final Optional<SpreadsheetName> name = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME);
+        final Optional<SpreadsheetId> id = metadata.id();
+        final Optional<SpreadsheetName> name = metadata.name();
 
         if (id.isPresent() && name.isPresent()) {
             context.pushHistoryToken(
