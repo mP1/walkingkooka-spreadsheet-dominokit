@@ -204,10 +204,17 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
      */
     @Override
     public final void onHashChange(final AppContext context) {
-        context.debug(this);
+        final SpreadsheetId id = this.id();
+        if (false == id.equals(
+                context.spreadsheetMetadata()
+                        .id()
+                        .orElse(null))
+        ) {
+            context.loadSpreadsheetMetadata(id);
+        }
 
         this.pushHistoryTokenIdAndName(
-                this.id(),
+                id,
                 this.name(),
                 context
         );
