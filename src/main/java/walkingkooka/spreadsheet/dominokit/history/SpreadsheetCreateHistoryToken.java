@@ -50,9 +50,11 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
-        return spreadsheetLoad(
-                SpreadsheetId.parse(component)
-        ).parse(cursor);
+        return component.length() > 0 ?
+                spreadsheetLoad(
+                        SpreadsheetId.parse(component)
+                ).parse(cursor) :
+                this;
     }
 
     @Override
