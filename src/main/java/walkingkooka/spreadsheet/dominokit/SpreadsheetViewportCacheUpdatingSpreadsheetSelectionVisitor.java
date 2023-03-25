@@ -64,7 +64,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
             this.update(reference);
         } else {
             for (final SpreadsheetCellRange oneWindow : this.window) {
-                if (oneWindow.test(reference)) {
+                if (oneWindow.testCell(reference)) {
                     this.update(reference);
                     break;
                 }
