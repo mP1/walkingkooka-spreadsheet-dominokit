@@ -17,20 +17,41 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
+import elemental2.dom.HTMLTableRowElement;
+import elemental2.dom.HTMLTableSectionElement;
+import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.HtmlContentBuilder;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextNode;
+import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Collection;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
 
 public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher {
 
@@ -100,6 +121,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         Objects.requireNonNull(delta, "delta");
 
         this.cache.onSpreadsheetDelta(delta, context);
+
+        this.delta = delta;
+        this.updateTable();
     }
 
     @Override
@@ -115,6 +139,19 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         this.metadata = metadata;
 
         this.loadViewportCellsIfNecessary();
+
+        this.cache.onSpreadsheetMetadata(
+                metadata,
+                context
+        );
+        this.nameHistoryToken = metadata.id()
+                .isPresent() ?
+                SpreadsheetHistoryToken.spreadsheetSelect(
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
+                ) :
+                null;
+        this.updateTable();
     }
 
     /**
@@ -178,6 +215,381 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     private boolean reload = false;
 
     /**
+     * Renders or updates the TABLE element holding the spreadsheet viewport.
+     */
+    // {
+    //  "viewportSelection": {
+    //    "selection": {
+    //      "type": "spreadsheet-cell-reference",
+    //      "value": "A1"
+    //    }
+    //  },
+    //  "cells": {
+    //    "A1": {
+    //      "formula": {
+    //        "token": {
+    //          "type": "spreadsheet-expression-parser-token",
+    //          "value": {
+    //            "value": [
+    //              {
+    //                "type": "spreadsheet-equals-symbol-parser-token",
+    //                "value": {
+    //                  "value": "=",
+    //                  "text": "="
+    //                }
+    //              },
+    //              {
+    //                "type": "spreadsheet-addition-parser-token",
+    //                "value": {
+    //                  "value": [
+    //                    {
+    //                      "type": "spreadsheet-number-parser-token",
+    //                      "value": {
+    //                        "value": [
+    //                          {
+    //                            "type": "spreadsheet-digits-parser-token",
+    //                            "value": {
+    //                              "value": "1",
+    //                              "text": "1"
+    //                            }
+    //                          }
+    //                        ],
+    //                        "text": "1"
+    //                      }
+    //                    },
+    //                    {
+    //                      "type": "spreadsheet-plus-symbol-parser-token",
+    //                      "value": {
+    //                        "value": "+",
+    //                        "text": "+"
+    //                      }
+    //                    },
+    //                    {
+    //                      "type": "spreadsheet-number-parser-token",
+    //                      "value": {
+    //                        "value": [
+    //                          {
+    //                            "type": "spreadsheet-digits-parser-token",
+    //                            "value": {
+    //                              "value": "2",
+    //                              "text": "2"
+    //                            }
+    //                          }
+    //                        ],
+    //                        "text": "2"
+    //                      }
+    //                    }
+    //                  ],
+    //                  "text": "1+2"
+    //                }
+    //              }
+    //            ],
+    //            "text": "=1+2"
+    //          }
+    //        },
+    //        "expression": {
+    //          "type": "add-expression",
+    //          "value": [
+    //            {
+    //              "type": "value-expression",
+    //              "value": {
+    //                "type": "expression-number",
+    //                "value": "1"
+    //              }
+    //            },
+    //            {
+    //              "type": "value-expression",
+    //              "value": {
+    //                "type": "expression-number",
+    //                "value": "2"
+    //              }
+    //            }
+    //          ]
+    //        },
+    //        "value": {
+    //          "type": "expression-number",
+    //          "value": "3"
+    //        }
+    //      },
+    //      "formatted": {
+    //        "type": "text",
+    //        "value": "3."
+    //      }
+    //    }
+    //  },
+    //  "columnWidths": {
+    //    "A": 100
+    //  },
+    //  "rowHeights": {
+    //    "1": 30
+    //  },
+    //  "window": "A1:B12,WI1:WW12"
+    //}
+    private void updateTable() {
+        final HtmlContentBuilder<HTMLTableElement> tableElement = this.tableElement;
+        Elements.removeChildrenFrom(tableElement.element());
+
+        final SpreadsheetViewportCache cache = this.cache;
+        // "window": "A1:B12,WI1:WW12"
+        //    A1:B12,
+        //    WI1:WW12
+        //
+        // "window": "A1:B2,WI1:WX2,A3:B12,WI3:WX12"
+        //   A1:B2
+        //   WI1:WX2
+        //   A3:B12
+        //   WI3:WX12
+
+        final Set<SpreadsheetColumnReference> columns = Sets.sorted();
+        final Set<SpreadsheetRowReference> rows = Sets.sorted();
+
+        // gather visible columns and rows.
+        for(final SpreadsheetCellRange window : this.delta.window()) {
+            for(final SpreadsheetColumnReference column : window.columnReferenceRange()) {
+                if(false == cache.isColumnHidden(column)) {
+                    columns.add(column);
+                }
+            }
+
+            for(final SpreadsheetRowReference row : window.rowReferenceRange()) {
+                if(false == cache.isRowHidden(row)) {
+                    rows.add(row);
+                }
+            }
+        }
+
+        // top row of column headers
+        tableElement.add(
+                columnHeaders(columns)
+        );
+
+        // render the rows and cells
+        tableElement.add(
+                this.rows(
+                        rows,
+                        columns
+                )
+        );
+    }
+
+    /**
+     * Creates a THEAD holding a TR with the SELECT ALL and COLUMN headers.
+     */
+    private HTMLTableSectionElement columnHeaders(final Collection<SpreadsheetColumnReference> columns) {
+        final HtmlContentBuilder<HTMLTableRowElement> tr = Elements.tr()
+                .add(
+                        this.selectAll()
+                );
+
+        for(final SpreadsheetColumnReference column: columns) {
+            tr.add(
+                    this.columnHeader(column)
+            );
+        }
+
+        return Elements.thead()
+                .add(tr.element())
+                .element();
+    }
+
+    /**
+     * Factory that creates the element that appears in the top left and may be used to select the entire spreadsheet.
+     */
+    // TODO add link
+    private HTMLTableCellElement selectAll() {
+        return Elements.th()
+                .id(VIEWPORT_SELECT_ALL_CELLS)
+                .add("ALL")
+                .style(
+                        this.context.viewportAll(false)
+                                .set(
+                                        TextStylePropertyName.WIDTH,
+                                        ROW_WIDTH
+                                ).set(
+                                        TextStylePropertyName.HEIGHT,
+                                        COLUMN_HEIGHT
+                                ).css() + "box-sizing: border-box;")
+                .element();
+    }
+
+    private final static String VIEWPORT_SELECT_ALL_CELLS = "viewport-select-all-cells";
+
+    /**
+     * Creates a TH with the column in UPPER CASE with column width.
+     */
+    private HTMLTableCellElement columnHeader(final SpreadsheetColumnReference column) {
+        // TODO test if column is matched by selection
+        final HtmlContentBuilder<HTMLTableCellElement> td = Elements.th()
+                .id(id(column))
+                .style(
+                        this.context.viewportColumnHeader(false)
+                                .set(
+                                        TextStylePropertyName.WIDTH,
+                                        this.cache.columnWidth(column)
+                                ).set(
+                                        TextStylePropertyName.HEIGHT,
+                                        COLUMN_HEIGHT
+                                )
+                                .css() + "box-sizing: border-box;"
+                );
+
+        this.addLinkOrText(
+                column,
+                td
+        );
+
+        return td.element();
+    }
+
+    private final static Length<?> COLUMN_HEIGHT = Length.pixel(25.0);
+
+    /**
+     * Factory that creates a TABLE CELL for the column header, including a link to select that column when clicked.
+     */
+    private HTMLTableSectionElement rows(final Set<SpreadsheetRowReference> rows,
+                                         final Set<SpreadsheetColumnReference> columns) {
+        final HtmlContentBuilder<HTMLTableSectionElement> tbody = Elements.tbody();
+
+        for(final SpreadsheetRowReference row: rows) {
+            tbody.add(
+                    this.row(
+                            row,
+                            columns
+                    )
+            );
+        }
+
+        return tbody.element();
+    }
+
+    /**
+     * Creates a TR which will hold the ROW and then cells.
+     */
+    private HTMLTableRowElement row(final SpreadsheetRowReference row,
+                                        final Collection<SpreadsheetColumnReference> columns) {
+        final HtmlContentBuilder<HTMLTableRowElement> tr = Elements.tr()
+                .add(
+                        this.rowHeader(row)
+                );
+
+        for(final SpreadsheetColumnReference column: columns) {
+            tr.add(
+                    this.cell(
+                            column.setRow(row)
+                    )
+            );
+        }
+
+        return tr.element();
+    }
+
+    private HTMLTableCellElement rowHeader(final SpreadsheetRowReference row) {
+        // TODO test if row is matched by selection
+        final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
+                .id(id(row))
+                .style(
+                        this.context.viewportRowHeader(false)
+                                .set(
+                                        TextStylePropertyName.WIDTH,
+                                        ROW_WIDTH
+                                ).set(
+                                        TextStylePropertyName.HEIGHT,
+                                        this.cache.rowHeight(row)
+                                )
+                                .css() + "box-sizing: border-box;"
+                );
+
+        this.addLinkOrText(
+                row,
+                td
+        );
+
+        return td.element();
+    }
+
+    private final static Length<?> ROW_WIDTH = Length.pixel(80.0);
+
+    /**
+     * If possible creates a link to the cell or row or simply the cow/row reference as text.
+     */
+    private void addLinkOrText(final SpreadsheetColumnOrRowReference columnOrRow,
+                               final HtmlContentBuilder<HTMLTableCellElement> td) {
+        if(null == this.nameHistoryToken) {
+            td.textContent(
+                    columnOrRow.toString()
+                            .toUpperCase()
+            );
+        } else {
+            td.add(
+                    this.link(columnOrRow)
+            );
+        }
+    }
+
+    /**
+     * Creates an ANCHOR including an ID and TEXT in upper case of the given {@link SpreadsheetSelection}.
+     */
+    private HTMLAnchorElement link(final SpreadsheetSelection selection) {
+        final SpreadsheetNameHistoryToken token = this.nameHistoryToken.selection(selection);
+
+        return Elements.a()
+                .id(id(selection) + "-link")
+                .attr("href", "#" + token.urlFragment().value())
+                .textContent(selection.toString().toUpperCase())
+                .element();
+    }
+
+    /**
+     * Renders the given cell, reading the cell contents from the {@link #cache}.
+     */
+    private HTMLTableCellElement cell(final SpreadsheetCellReference cellReference) {
+        final AppContext context = this.context;
+        final SpreadsheetViewportCache cache = this.cache;
+        final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
+
+        TextStyle style = TextStyle.EMPTY;
+        String innerHtml = "";
+
+        if(maybeCell.isPresent()) {
+            final SpreadsheetCell cell = maybeCell.get();
+            final Optional<TextNode> maybeFormatted = cell.formatted();
+            if(maybeFormatted.isPresent()) {
+                final TextNode formatted = maybeFormatted.get();
+
+                innerHtml = formatted.toHtml();
+            }
+            style = cell.style();
+        }
+
+        style = style.merge(
+                context.viewportCell(false) // cell selected
+                        .set(TextStylePropertyName.WIDTH, cache.columnWidth(cellReference.column()))
+                        .set(TextStylePropertyName.HEIGHT, cache.rowHeight(cellReference.row()))
+        );
+
+        context.debug(cellReference + " " + maybeCell);
+
+        final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
+                .id(
+                        id(cellReference)
+                ).style(
+                    style.css() + "box-sizing: border-box;"
+                ).innerHtml(SafeHtmlUtils.fromTrustedString(innerHtml));
+
+        return td.element();
+    }
+
+    // viewport-column-A
+    private String id(final SpreadsheetSelection selection) {
+        return "viewport-" +
+                selection.textLabel().toLowerCase() +
+                "-" +
+                selection.toString().toUpperCase();
+    }
+
+    private SpreadsheetNameHistoryToken nameHistoryToken;
+
+    /**
      * The root table element.
      */
     HTMLTableElement tableElement() {
@@ -190,4 +602,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      * Cache that holds all the cells, labels etc displayed by this widget.
      */
     private SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+    /**
+     * Used during rendering.
+     */
+    private SpreadsheetDelta delta = SpreadsheetDelta.EMPTY;
 }

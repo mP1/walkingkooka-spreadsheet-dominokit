@@ -29,12 +29,26 @@ import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import org.jboss.elemento.EventType;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.BorderStyle;
+import walkingkooka.tree.text.FontFamily;
+import walkingkooka.tree.text.FontSize;
+import walkingkooka.tree.text.FontStyle;
+import walkingkooka.tree.text.FontVariant;
+import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.Hyphens;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.VerticalAlign;
+import walkingkooka.tree.text.WordBreak;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -345,6 +359,111 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
      * Init here to avoid race conditions with other fields like {@link #metadataWatchers}.
      */
     private final SpreadsheetViewportWidget viewportWidget = SpreadsheetViewportWidget.empty(this);
+
+    @Override
+    public TextStyle viewportAll(final boolean selected) {
+        return this.viewportColumnRowHeader(selected);
+    }
+
+    @Override
+    public TextStyle viewportCell(final boolean selected) {
+        return CELL_STYLE.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                selected ? CELL_SELECTED : CELL_UNSELECTED
+        );
+    }
+
+    private final static Color BORDER_COLOR = Color.BLACK;
+    private final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
+    private final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
+
+    /**
+     * THe default style for the TD holding the formatted cell.
+     */
+    private final static TextStyle CELL_STYLE = TextStyle.EMPTY
+            .setMargin(
+                    Length.none()
+            ).setBorder(
+                    BORDER_COLOR,
+                    BORDER_STYLE,
+                    BORDER_LENGTH
+
+            ).setPadding(
+                    Length.none()
+            ).set(
+                    TextStylePropertyName.TEXT_ALIGN,
+                    TextAlign.LEFT
+            ).set(
+                    TextStylePropertyName.VERTICAL_ALIGN,
+                    VerticalAlign.TOP
+            ).set(
+                    TextStylePropertyName.FONT_FAMILY,
+                    FontFamily.with("MS Sans Serif")
+            ).set(
+                    TextStylePropertyName.FONT_SIZE,
+                    FontSize.with(11)
+            ).set(
+                    TextStylePropertyName.FONT_STYLE,
+                    FontStyle.NORMAL
+            ).set(
+                    TextStylePropertyName.FONT_WEIGHT,
+                    FontWeight.NORMAL
+            ).set(
+                    TextStylePropertyName.FONT_VARIANT,
+                    FontVariant.NORMAL
+            ).set(
+                    TextStylePropertyName.HYPHENS,
+                    Hyphens.NONE
+            ).set(
+                    TextStylePropertyName.WORD_BREAK,
+                    WordBreak.NORMAL
+            ); // overflow-wrap ?
+
+    // TODO get these from theme
+    private final static Color CELL_SELECTED = Color.parse("#ccc");
+    private final static Color CELL_UNSELECTED = Color.parse("#fff");
+
+    @Override
+    public TextStyle viewportColumnHeader(final boolean selected) {
+        return this.viewportColumnRowHeader(selected);
+    }
+
+    @Override
+    public TextStyle viewportRowHeader(final boolean selected) {
+        return this.viewportColumnRowHeader(selected);
+    }
+
+    private TextStyle viewportColumnRowHeader(final boolean selected) {
+        return COLUMN_ROW_STYLE.set(
+                        TextStylePropertyName.BACKGROUND_COLOR,
+                        selected ? COLUMN_ROW_SELECTED : COLUMN_ROW_UNSELECTED
+                );
+    }
+
+    private final static TextStyle COLUMN_ROW_STYLE = TextStyle.EMPTY
+            .setMargin(
+                    Length.none()
+            ).setBorder(
+                    BORDER_COLOR,
+                    BORDER_STYLE,
+                    BORDER_LENGTH
+
+            ).setPadding(
+                    Length.none()
+            ).set(
+                    TextStylePropertyName.TEXT_ALIGN,
+                    TextAlign.CENTER
+            ).set(
+                    TextStylePropertyName.VERTICAL_ALIGN,
+                    VerticalAlign.MIDDLE
+            ).set(
+                    TextStylePropertyName.FONT_WEIGHT,
+                    FontWeight.NORMAL
+            );
+
+    // TODO get these from theme
+    private final static Color COLUMN_ROW_SELECTED = Color.parse("#555");
+    private final static Color COLUMN_ROW_UNSELECTED = Color.parse("#aaa");
 
     // logging..........................................................................................................
 
