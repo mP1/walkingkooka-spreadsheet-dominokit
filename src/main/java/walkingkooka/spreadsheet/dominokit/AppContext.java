@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.tree.text.TextStyle;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -75,6 +76,14 @@ public interface AppContext extends Context {
     Optional<HistoryToken> historyToken();
 
     void pushHistoryToken(final HistoryToken token);
+
+    TextStyle viewportAll(final boolean selected);
+
+    TextStyle viewportCell(final boolean selected);
+
+    TextStyle viewportColumnHeader(final boolean selected);
+
+    TextStyle viewportRowHeader(final boolean selected);
 
     void debug(final Object message);
 

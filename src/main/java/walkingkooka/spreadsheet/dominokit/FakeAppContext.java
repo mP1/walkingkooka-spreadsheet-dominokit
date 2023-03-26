@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
 
@@ -66,6 +67,26 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public void pushHistoryToken(final HistoryToken token) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle viewportAll(final boolean selected) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle viewportCell(final boolean selected) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle viewportColumnHeader(final boolean selected) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle viewportRowHeader(final boolean selected) {
         throw new UnsupportedOperationException();
     }
 
