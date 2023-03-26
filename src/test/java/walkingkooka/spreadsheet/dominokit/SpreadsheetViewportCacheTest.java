@@ -108,7 +108,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 Maps.empty()
         );
@@ -193,7 +193,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 COLUMN_B
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1A,
                 LABEL_MAPPINGA1B,
@@ -257,7 +257,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 COLUMN_B
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1A,
                 LABEL_MAPPINGA1B,
@@ -300,7 +300,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A1_CELL
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL1.mapping(A1),
                 LABEL1.mapping(A2)
@@ -337,7 +337,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A1_CELL
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL1.mapping(A1),
                 LABEL1.mapping(A2)
@@ -539,7 +539,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 CONTEXT
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1B
         );
@@ -580,7 +580,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 CONTEXT
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1A,
                 LABEL_MAPPINGA1B
@@ -630,7 +630,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A2_CELL
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1A
         );
@@ -678,7 +678,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A2_CELL
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGB3
         );
@@ -718,7 +718,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A1_CELL
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1A
         );
@@ -767,7 +767,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A2_CELL
         );
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1A,
                 LABEL_MAPPINGB3
@@ -1346,8 +1346,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
-    private void checkLabels(final SpreadsheetViewportCache cache,
-                             final SpreadsheetLabelMapping... expected) {
+    private void checkCellToLabels(final SpreadsheetViewportCache cache,
+                                   final SpreadsheetLabelMapping... expected) {
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expectedMaps = Maps.ordered();
         for (final SpreadsheetLabelMapping mapping : expected) {
             final SpreadsheetCellReference cell = (SpreadsheetCellReference) mapping.reference();
@@ -1362,18 +1362,18 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
             labels.add(mapping.label());
         }
 
-        this.checkLabels(
+        this.checkCellToLabels(
                 cache,
                 expectedMaps
         );
     }
 
-    private void checkLabels(final SpreadsheetViewportCache cache,
-                             final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expected) {
+    private void checkCellToLabels(final SpreadsheetViewportCache cache,
+                                   final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expected) {
         this.checkEquals(
                 expected,
                 cache.cellToLabels,
-                "labels"
+                "cellToLabels"
         );
 
         for (final Entry<SpreadsheetCellReference, Set<SpreadsheetLabelName>> entry : expected.entrySet()) {
