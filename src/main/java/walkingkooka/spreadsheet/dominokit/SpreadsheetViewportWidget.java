@@ -421,7 +421,10 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         // TODO test if column is matched by selection
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.th()
                 .id(id(column))
-                .style(
+                .attr(
+                        "tabindex",
+                        "0"
+                ).style(
                         this.context.viewportColumnHeader(false)
                                 .set(
                                         TextStylePropertyName.WIDTH,
@@ -487,7 +490,10 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         // TODO test if row is matched by selection
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
                 .id(id(row))
-                .style(
+                .attr(
+                        "tabindex",
+                        "0"
+                ).style(
                         this.context.viewportRowHeader(false)
                                 .set(
                                         TextStylePropertyName.WIDTH,
@@ -572,6 +578,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
                 .id(
                         id(cellReference)
+                ).attr(
+                        "tabindex",
+                        "0"
                 ).style(
                     style.css() + "box-sizing: border-box;"
                 ).innerHtml(SafeHtmlUtils.fromTrustedString(innerHtml));
