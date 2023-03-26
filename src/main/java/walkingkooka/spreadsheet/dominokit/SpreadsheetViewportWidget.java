@@ -595,6 +595,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 selection.toString().toUpperCase();
     }
 
+    /**
+     * This is updated each time a new {@link SpreadsheetMetadata} arrives.
+     */
     private SpreadsheetNameHistoryToken nameHistoryToken;
 
     /**
