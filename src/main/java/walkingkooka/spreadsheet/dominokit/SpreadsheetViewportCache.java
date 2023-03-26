@@ -84,7 +84,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
                                    final AppContext context) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
-        final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = this.cellToLabels;
+        final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
 
         final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
         final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
@@ -97,7 +97,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
             // no window clear caches
             cells.clear();
 
-            labels.clear();
+            cellToLabels.clear();
 
             columns.clear();
             rows.clear();
@@ -108,7 +108,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
 
         for (final SpreadsheetCellReference cell : delta.deletedCells()) {
             cells.remove(cell);
-            labels.remove(cell);
+            cellToLabels.remove(cell);
         }
 
         for (final SpreadsheetCell cell : delta.cells()) {
@@ -117,7 +117,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
                     cellReference,
                     cell
             );
-            labels.remove(cellReference);
+            cellToLabels.remove(cellReference);
         }
 
         for (final SpreadsheetColumnReference column : delta.deletedColumns()) {
@@ -160,7 +160,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         final Set<SpreadsheetLabelMapping> labelMappings = delta.labels();
 
         final SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor labelUpdater = SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.with(
-                labels,
+                cellToLabels,
                 windows
         );
         for (final SpreadsheetLabelMapping mapping : labelMappings) {
