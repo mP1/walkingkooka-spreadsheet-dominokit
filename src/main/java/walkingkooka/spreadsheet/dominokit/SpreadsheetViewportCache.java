@@ -84,7 +84,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
                                    final AppContext context) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
-        final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = this.labels;
+        final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = this.cellToLabels;
 
         final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
         final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
@@ -192,7 +192,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
     }
 
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
-        return this.labels.getOrDefault(
+        return this.cellToLabels.getOrDefault(
                 cell,
                 Sets.empty()
         );
@@ -257,7 +257,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
      * A cache of cell references and their one or more labels.
      */
     // VisibleForTesting
-    final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> labels = Maps.sorted();
+    final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = Maps.sorted();
 
     /**
      * A cache of rows, this is used mostly to track hidden rowss.
@@ -283,7 +283,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
                 .value(this.cells)
                 .value(this.columns)
                 .value(this.columnWidths)
-                .value(this.labels)
+                .value(this.cellToLabels)
                 .value(this.rows)
                 .value(this.rowHeights)
                 .value(this.windows)
