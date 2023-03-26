@@ -1372,7 +1372,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                              final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expected) {
         this.checkEquals(
                 expected,
-                cache.labels,
+                cache.cellToLabels,
                 "labels"
         );
 
