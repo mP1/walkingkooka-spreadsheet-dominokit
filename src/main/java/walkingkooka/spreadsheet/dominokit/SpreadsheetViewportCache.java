@@ -86,7 +86,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
-        final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToReference = this.labelToReference;
+        final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = this.labelToNonLabel;
 
         final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
         final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
@@ -100,7 +100,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
             cells.clear();
 
             cellToLabels.clear();
-            labelToReference.clear();
+            labelToNonLabel.clear();
 
             columns.clear();
             rows.clear();
@@ -160,22 +160,12 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
             );
         }
 
-        final Set<SpreadsheetLabelMapping> labelMappings = delta.labels();
-
-        for(final SpreadsheetLabelMapping mapping : labelMappings) {
-            labelToReference.put(
-                    mapping.label(),
-                    mapping.reference()
-            );
-        }
-
-        final SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor labelUpdater = SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.with(
+        SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
+                delta.labels(),
                 cellToLabels,
+                labelToNonLabel,
                 windows
         );
-        for (final SpreadsheetLabelMapping mapping : labelMappings) {
-            labelUpdater.accept(mapping);
-        }
 
         this.windows = windows;
     }
@@ -215,20 +205,10 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
     Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
 
-        final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToReference = this.labelToReference;
         SpreadsheetSelection nonLabel = selection;
 
-        for (; ; ) {
-            if (false == nonLabel.isLabelName()) {
-                break;
-            }
-
-            final SpreadsheetSelection referencePossibleLabel = labelToReference.get(nonLabel);
-            if (null == referencePossibleLabel) {
-                nonLabel = null;
-                break; // unknown label give up
-            }
-            nonLabel = referencePossibleLabel;
+        if(selection.isLabelName()) {
+            nonLabel = this.labelToNonLabel.get((SpreadsheetLabelName) selection);
         }
 
         return Optional.ofNullable(nonLabel);
@@ -298,7 +278,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
     /**
      * A cache of {@link SpreadsheetLabelMapping} expanded to {@link SpreadsheetLabelName} to its {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference}.
      */
-    final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToReference = Maps.sorted();
+    final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = Maps.sorted();
 
     /**
      * A cache of rows, this is used mostly to track hidden rowss.

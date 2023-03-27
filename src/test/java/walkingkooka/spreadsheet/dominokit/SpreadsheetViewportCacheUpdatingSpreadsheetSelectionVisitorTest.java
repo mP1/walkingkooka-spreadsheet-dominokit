@@ -22,11 +22,15 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitorTesting;
 
+import java.util.Collections;
+
 public final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitorTest implements SpreadsheetSelectionVisitorTesting<SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor> {
     @Override
     public SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor createVisitor() {
-        return SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.with(
+        return SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
+                Collections.emptyList(),
                 Maps.empty(),
+                Collections.emptyMap(),
                 SpreadsheetSelection.parseWindow("A1:Z99")
         );
     }

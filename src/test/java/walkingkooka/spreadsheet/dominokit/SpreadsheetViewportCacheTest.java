@@ -53,6 +53,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private final static SpreadsheetCellReference A2 = SpreadsheetSelection.parseCell("A2");
     private final static SpreadsheetCellReference A3 = SpreadsheetSelection.parseCell("A3");
     private final static SpreadsheetCellReference B3 = SpreadsheetSelection.parseCell("B3");
+    private final static SpreadsheetCellReference B4 = SpreadsheetSelection.parseCell("B4");
 
     private final static SpreadsheetCell A1_CELL = A1.setFormula(SpreadsheetFormula.EMPTY.setText("=1"));
     private final static SpreadsheetCell A2_CELL = A2.setFormula(SpreadsheetFormula.EMPTY.setText("=22"));
@@ -82,7 +83,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private final static SpreadsheetLabelMapping LABEL_MAPPINGA1A = LABEL1.mapping(A1);
     private final static SpreadsheetLabelMapping LABEL_MAPPINGA1B = LABEL2.mapping(A1);
     private final static SpreadsheetLabelMapping LABEL_MAPPINGB3 = LABEL3.mapping(B3);
-    private final static SpreadsheetLabelMapping LABEL_MAPPING_LABEL_MAPPINGB3 = LABEL999.mapping(LABEL3);
+    private final static SpreadsheetLabelMapping LABEL999_LABEL_MAPPINGB3 = LABEL999.mapping(LABEL3);
 
     private final static SpreadsheetCellRange WINDOW1 = SpreadsheetSelection.parseCellRange("A1:B3");
     private final static Set<SpreadsheetCellRange> WINDOW = Sets.of(
@@ -341,8 +342,14 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
         this.checkCellToLabels(
                 cache,
-                LABEL1.mapping(A1),
-                LABEL1.mapping(A2)
+                Maps.of(
+                        A1,
+                        Sets.of(LABEL1),
+                        A2,
+                        Sets.of(LABEL1),
+                        A3,
+                        Sets.of(LABEL1)
+                )
         );
 
         this.checkWindow(
@@ -1300,7 +1307,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testNonLabelSelectionLabel() {
+    public void testNonLabelSelectionLabelToCell() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
         cache.onSpreadsheetDelta(
@@ -1341,7 +1348,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     @Test
-    public void testNonLabelSelectionLabels2() {
+    public void testNonLabelSelectionLabelToCell2() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
         cache.onSpreadsheetDelta(
@@ -1386,6 +1393,406 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL2,
                 A1
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+
+    @Test
+    public void testNonLabelSelectionLabelToCellRange() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                                )
+                        ),
+                CONTEXT
+        );
+
+        final SpreadsheetCellRange b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL999.mapping(b3b4)
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCellToLabels(
+                cache,
+                Maps.of(
+                        B3,
+                        Sets.of(
+                                LABEL999
+                        ),
+                        B4,
+                        Sets.of(
+                                LABEL999
+                        )
+                )
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL999,
+                b3b4
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                B3,
+                B3
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionLabelToLabelToCell() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY,
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGB3,
+                                        LABEL999_LABEL_MAPPINGB3
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCellToLabels(
+                cache,
+                Maps.of(
+                        B3,
+                        Sets.of(
+                                LABEL3,
+                                LABEL999
+                        )
+                )
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL999,
+                B3
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL3,
+                B3
+        );
+
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionLabelToLabelToCellRange() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY,
+                CONTEXT
+        );
+
+        final SpreadsheetCellRange b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL3.mapping(b3b4),
+                                        LABEL999_LABEL_MAPPINGB3
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCellToLabels(
+                cache,
+                Maps.of(
+                        B3,
+                        Sets.of(
+                                LABEL3,
+                                LABEL999
+                        ),
+                        B4,
+                        Sets.of(
+                                LABEL3,
+                                LABEL999
+                        )
+                )
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL999,
+                b3b4
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL3,
+                b3b4
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionLabelToLabelToCell2() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY,
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL999_LABEL_MAPPINGB3,
+                                        LABEL_MAPPINGB3
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCellToLabels(
+                cache,
+                Maps.of(
+                        B3,
+                        Sets.of(
+                                LABEL3,
+                                LABEL999
+                        )
+                )
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL3,
+                B3
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL999,
+                B3
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionLabelToLabelToCell3() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                                )
+                        ),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3,
+                                        LABEL999_LABEL_MAPPINGB3
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCellToLabels(
+                cache,
+                Maps.of(
+                        A1,
+                        Sets.of(
+                                LABEL1,
+                                LABEL2
+                        ),
+                        B3,
+                        Sets.of(
+                                LABEL3,
+                                LABEL999
+                        )
+                )
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL1,
+                A1
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL2,
+                A1
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL3,
+                B3
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL999,
+                B3
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionLabelToLabelToLabelToCell() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                                )
+                        ),
+                CONTEXT
+        );
+
+        final SpreadsheetLabelName third = SpreadsheetSelection.labelName("LabelToLabel999");
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3,
+                                        LABEL999_LABEL_MAPPINGB3,
+                                        third.mapping(LABEL999)
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCellToLabels(
+                cache,
+                Maps.of(
+                        A1,
+                        Sets.of(
+                                LABEL1,
+                                LABEL2
+                        ),
+                        B3,
+                        Sets.of(
+                                LABEL3,
+                                LABEL999,
+                                third
+                        )
+                )
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL1,
+                A1
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL2,
+                A1
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL3,
+                B3
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL999,
+                B3
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                third,
+                B3
         );
 
         this.checkWindow(
