@@ -1226,6 +1226,40 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionCellRange() {
+        this.testNonLabelSelectionCellRange(
+                SpreadsheetSelection.parseCellRange("A1:B2")
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionColumn() {
+        this.testNonLabelSelectionCellRange(
+                SpreadsheetSelection.parseColumn("A")
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionColumnRange() {
+        this.testNonLabelSelectionCellRange(
+                SpreadsheetSelection.parseColumnRange("A:B")
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionRow() {
+        this.testNonLabelSelectionCellRange(
+                SpreadsheetSelection.parseRow("1")
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionRowRange() {
+        this.testNonLabelSelectionCellRange(
+                SpreadsheetSelection.parseRowRange("2:3")
+        );
+    }
+
+    private void testNonLabelSelectionCellRange(final SpreadsheetSelection nonLabel) {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
         cache.onSpreadsheetDelta(
@@ -1253,12 +1287,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 CONTEXT
         );
 
-        final SpreadsheetCellRange range = SpreadsheetSelection.parseCellRange("A1:B2");
-
         this.checkNonLabelSelection(
                 cache,
-                range,
-                range
+                nonLabel,
+                nonLabel
         );
 
         this.checkWindow(
