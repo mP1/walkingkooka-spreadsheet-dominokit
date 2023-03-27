@@ -77,16 +77,18 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private final static SpreadsheetLabelName LABEL1 = SpreadsheetSelection.labelName("Label123");
     private final static SpreadsheetLabelName LABEL2 = SpreadsheetSelection.labelName("Label234");
     private final static SpreadsheetLabelName LABEL3 = SpreadsheetSelection.labelName("Label345");
+    private final static SpreadsheetLabelName LABEL999 = SpreadsheetSelection.labelName("Label999");
 
     private final static SpreadsheetLabelMapping LABEL_MAPPINGA1A = LABEL1.mapping(A1);
     private final static SpreadsheetLabelMapping LABEL_MAPPINGA1B = LABEL2.mapping(A1);
     private final static SpreadsheetLabelMapping LABEL_MAPPINGB3 = LABEL3.mapping(B3);
+    private final static SpreadsheetLabelMapping LABEL_MAPPING_LABEL_MAPPINGB3 = LABEL999.mapping(LABEL3);
 
     private final static SpreadsheetCellRange WINDOW1 = SpreadsheetSelection.parseCellRange("A1:B3");
     private final static Set<SpreadsheetCellRange> WINDOW = Sets.of(
             WINDOW1
     );
-    
+
     private final static AppContext CONTEXT = new FakeAppContext();
 
     @Override
@@ -177,7 +179,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         ROW_2
                                 )
                         ),
-            CONTEXT
+                CONTEXT
         );
 
         this.checkCells(
@@ -378,6 +380,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A1_CELL
         );
 
+        this.checkNonLabelSelection(
+                cache,
+                A1,
+                A1
+        );
+
         this.checkWindow(
                 cache,
                 ""
@@ -547,6 +555,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         this.checkWindow(
                 cache,
                 ""
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL_MAPPINGA1B.label(),
+                LABEL_MAPPINGA1B.reference()
         );
     }
 
@@ -1133,6 +1147,221 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    @Test
+    public void testNonLabelSelectionLost() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                        )
+                ),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setDeletedCells(
+                        Sets.of(
+                                A1
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL999
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionCell() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                        )
+                ),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setDeletedCells(
+                        Sets.of(
+                                A1
+                        )
+                ).setLabels(
+                        Sets.of(
+                                LABEL_MAPPINGB3
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                A1,
+                A1
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                A2,
+                A2
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionCellRange() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                                )
+                        ),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGB3
+                                )
+                        ),
+                CONTEXT
+        );
+
+        final SpreadsheetCellRange range = SpreadsheetSelection.parseCellRange("A1:B2");
+
+        this.checkNonLabelSelection(
+                cache,
+                range,
+                range
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionLabel() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                                )
+                        ),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGB3
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL3,
+                B3
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
+    @Test
+    public void testNonLabelSelectionLabels2() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                                )
+                        ),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCellToLabels(
+                cache,
+                LABEL_MAPPINGA1A,
+                LABEL_MAPPINGA1B
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL1,
+                A1
+        );
+
+        this.checkNonLabelSelection(
+                cache,
+                LABEL2,
+                A1
+        );
+
+        this.checkWindow(
+                cache,
+                ""
+        );
+    }
+
     private void checkCells(final SpreadsheetViewportCache cache,
                             final SpreadsheetCell... expected) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> expectedMaps = Maps.ordered();
@@ -1377,11 +1606,42 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
 
         for (final Entry<SpreadsheetCellReference, Set<SpreadsheetLabelName>> entry : expected.entrySet()) {
+            final SpreadsheetCellReference cell = entry.getKey();
+
             this.checkEquals(
                     entry.getValue(),
-                    cache.labels(entry.getKey())
+                    cache.labels(cell)
             );
         }
+    }
+
+    private void checkNonLabelSelection(final SpreadsheetViewportCache cache,
+                                        final SpreadsheetSelection selection) {
+        this.checkNonLabelSelection(
+                cache,
+                selection,
+                Optional.empty()
+        );
+    }
+
+    private void checkNonLabelSelection(final SpreadsheetViewportCache cache,
+                                        final SpreadsheetSelection selection,
+                                        final SpreadsheetSelection nonLabel) {
+        this.checkNonLabelSelection(
+                cache,
+                selection,
+                Optional.of(nonLabel)
+        );
+    }
+
+    private void checkNonLabelSelection(final SpreadsheetViewportCache cache,
+                                        final SpreadsheetSelection selection,
+                                        final Optional<SpreadsheetSelection> nonLabel) {
+        this.checkEquals(
+                nonLabel,
+                cache.nonLabelSelection(selection),
+                "nonLabelSelection " + selection
+        );
     }
 
     // isColumnHidden...................................................................................................
