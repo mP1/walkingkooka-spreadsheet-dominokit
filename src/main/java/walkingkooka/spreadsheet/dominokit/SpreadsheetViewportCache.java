@@ -125,7 +125,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
 
         for (final SpreadsheetColumnReference column : delta.deletedColumns()) {
             columns.remove(column);
-            this.columnWidths.remove(column);
+            columnWidths.remove(column);
         }
 
         for (final SpreadsheetColumn column : delta.columns()) {
@@ -136,7 +136,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         }
 
         for (final Entry<SpreadsheetColumnReference, Double> width : delta.columnWidths().entrySet()) {
-            this.columnWidths.put(
+            columnWidths.put(
                     width.getKey(),
                     Length.pixel(width.getValue())
             );
