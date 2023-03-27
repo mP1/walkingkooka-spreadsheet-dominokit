@@ -281,7 +281,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
     final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = Maps.sorted();
 
     /**
-     * A cache of rows, this is used mostly to track hidden rowss.
+     * A cache of rows, this is used mostly to track hidden rows.
      */
     // VisibleForTesting
     final Map<SpreadsheetRowReference, SpreadsheetRow> rows = Maps.sorted();
