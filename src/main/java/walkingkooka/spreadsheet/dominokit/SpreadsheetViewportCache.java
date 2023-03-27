@@ -89,7 +89,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
         final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
 
-        final Map<SpreadsheetColumnReference, Length<?>> columnsWidths = this.columnWidths;
+        final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
         final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
 
         final Set<SpreadsheetCellRange> windows = delta.window();
@@ -102,7 +102,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
             columns.clear();
             rows.clear();
 
-            columnsWidths.clear();
+            columnWidths.clear();
             rowHeights.clear();
         }
 
@@ -122,7 +122,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
 
         for (final SpreadsheetColumnReference column : delta.deletedColumns()) {
             columns.remove(column);
-            columnWidths.remove(column);
+            this.columnWidths.remove(column);
         }
 
         for (final SpreadsheetColumn column : delta.columns()) {
@@ -133,7 +133,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         }
 
         for (final Entry<SpreadsheetColumnReference, Double> width : delta.columnWidths().entrySet()) {
-            columnWidths.put(
+            this.columnWidths.put(
                     width.getKey(),
                     Length.pixel(width.getValue())
             );
