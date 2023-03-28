@@ -217,7 +217,14 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                 this.name(),
                 context
         );
+
+        this.onHashChange0(context);
     }
+
+    /**
+     * Continues executing some action for this history token.
+     */
+    abstract void onHashChange0(final AppContext context);
 
     /**
      * The new metadata might have a different id or name, update the history token.

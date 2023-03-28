@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
@@ -57,5 +58,11 @@ public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
                 name,
                 this.viewportSelection()
         );
+    }
+
+
+    @Override
+    void onHashChange0(final AppContext context) {
+        // open row menu here
     }
 }

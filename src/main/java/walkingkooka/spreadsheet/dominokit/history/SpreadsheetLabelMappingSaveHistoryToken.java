@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
@@ -79,5 +80,10 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     @Override
     SpreadsheetNameHistoryToken save(final String value) {
         return this;
+    }
+
+    @Override
+    void onHashChange0(final AppContext context) {
+        // POST label mapping
     }
 }

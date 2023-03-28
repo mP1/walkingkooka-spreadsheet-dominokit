@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetCellFormulaHistoryToken {
@@ -68,5 +69,11 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
                 this.viewportSelection(),
                 SpreadsheetFormula.EMPTY.setText(formulaText)
         );
+    }
+
+
+    @Override
+    void onHashChange0(final AppContext context) {
+        // enable formula text box and give focus
     }
 }

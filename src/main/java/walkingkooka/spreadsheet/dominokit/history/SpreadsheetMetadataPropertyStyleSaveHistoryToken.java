@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -78,5 +79,10 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
                 this.stylePropertyName(),
                 this.stylePropertyValue()
         );
+    }
+
+    @Override
+    void onHashChange0(final AppContext context) {
+        // PATCH metadata with style property+value
     }
 }
