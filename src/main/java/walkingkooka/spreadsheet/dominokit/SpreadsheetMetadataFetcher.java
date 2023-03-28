@@ -43,6 +43,17 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     /**
+     * Loads an existing spreadsheet
+     */
+    public void loadSpreadsheetMetadata(final SpreadsheetId id) {
+        Objects.requireNonNull(id, "id");
+
+        this.get(
+                        Url.parseRelative("/api/spreadsheet/" + id)
+        );
+    }
+
+    /**
      * Patches the provided {@link SpreadsheetMetadata} property.
      */
     <T> void patchMetadata(final SpreadsheetId id,

@@ -209,7 +209,8 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                         .id()
                         .orElse(null))
         ) {
-            context.loadSpreadsheetMetadata(id);
+            context.spreadsheetMetadataFetcher()
+                    .loadSpreadsheetMetadata(id);
         }
 
         this.pushHistoryTokenIdAndName(
