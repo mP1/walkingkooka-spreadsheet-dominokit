@@ -18,8 +18,13 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpStatus;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+
+import java.util.Objects;
 
 public class SpreadsheetMetadataFetcher implements Fetcher {
 
@@ -35,6 +40,26 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
                                        final AppContext context) {
         this.watcher = watcher;
         this.context = context;
+    }
+
+    /**
+     * Patches the provided {@link SpreadsheetMetadata} property.
+     */
+    <T> void patchMetadata(final SpreadsheetId id,
+                           final SpreadsheetMetadataPropertyName<T> propertyName,
+                           final T propertyValue) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(propertyName, "propertyName");
+
+        this.patch(
+                Url.parseRelative("/api/spreadsheet/" + id),
+                this.toJson(
+                        SpreadsheetMetadata.EMPTY.setOrRemove(
+                                propertyName,
+                                propertyValue
+                        )
+                )
+        );
     }
 
     @Override
