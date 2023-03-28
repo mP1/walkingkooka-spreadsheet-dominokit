@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Objects;
@@ -62,6 +63,17 @@ public interface AppContext extends Context {
         this.spreadsheetMetadataFetcher()
                 .get(
                         Url.parseRelative("/api/spreadsheet/" + id)
+                );
+    }
+
+    default <T> void patchSpreadsheetMetadata(final SpreadsheetId id,
+                                              final SpreadsheetMetadataPropertyName<T> propertyName,
+                                              final T propertyValue) {
+        this.spreadsheetMetadataFetcher()
+                .patchMetadata(
+                        id,
+                        propertyName,
+                        propertyValue
                 );
     }
 
