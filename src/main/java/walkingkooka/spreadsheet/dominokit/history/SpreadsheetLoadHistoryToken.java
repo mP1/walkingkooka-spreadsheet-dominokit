@@ -59,7 +59,8 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
 
     @Override
     public void onHashChange(final AppContext context) {
-        context.loadSpreadsheetMetadata(this.id());
+        context.spreadsheetMetadataFetcher()
+                .loadSpreadsheetMetadata(this.id());
     }
 
     /**

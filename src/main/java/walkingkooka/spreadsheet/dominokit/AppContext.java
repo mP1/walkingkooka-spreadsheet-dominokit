@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStyle;
 
-import java.util.Objects;
 import java.util.Optional;
 
 public interface AppContext extends Context {
@@ -51,18 +50,6 @@ public interface AppContext extends Context {
                 .post(
                         Url.parseRelative("/api/spreadsheet"),
                         ""
-                );
-    }
-
-    /**
-     * Loads an existing spreadsheet
-     */
-    default void loadSpreadsheetMetadata(final SpreadsheetId id) {
-        Objects.requireNonNull(id, "id");
-
-        this.spreadsheetMetadataFetcher()
-                .get(
-                        Url.parseRelative("/api/spreadsheet/" + id)
                 );
     }
 
