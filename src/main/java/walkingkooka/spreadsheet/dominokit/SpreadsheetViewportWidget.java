@@ -31,6 +31,8 @@ import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -605,7 +607,36 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                     style.css() + "box-sizing: border-box;"
                 ).innerHtml(SafeHtmlUtils.fromTrustedString(innerHtml));
 
+        td.element()
+                .addEventListener(
+                        "click",
+                        (e) -> this.onCellClick(
+                                cellReference, context
+                        )
+                );
+
         return td.element();
+    }
+
+    /**
+     * Grab the id and name from {@link SpreadsheetMetadata} and push a new token including the selected cell.
+     */
+    private void onCellClick(final SpreadsheetCellReference cell,
+                             final AppContext context) {
+        final SpreadsheetMetadata metadata = this.metadata;
+        final Optional<SpreadsheetName> name = metadata.name();
+        final Optional<SpreadsheetId> id = metadata.id();
+
+        if (id.isPresent() && name.isPresent()) {
+            context.pushHistoryToken(
+                    SpreadsheetHistoryToken.cell(
+                            id.get(),
+                            name.get(),
+                            cell.setDefaultAnchor()
+
+                    )
+            );
+        }
     }
 
     // viewport-column-A
