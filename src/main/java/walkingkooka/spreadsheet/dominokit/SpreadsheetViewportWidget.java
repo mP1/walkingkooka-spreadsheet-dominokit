@@ -595,8 +595,6 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                         .set(TextStylePropertyName.HEIGHT, cache.rowHeight(cellReference.row()))
         );
 
-        context.debug(cellReference + " " + maybeCell);
-
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
                 .id(
                         id(cellReference)
