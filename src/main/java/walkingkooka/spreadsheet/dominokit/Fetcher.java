@@ -28,6 +28,8 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
@@ -35,6 +37,8 @@ import java.math.MathContext;
 import java.util.Optional;
 
 public interface Fetcher {
+
+    JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
             ExpressionNumberKind.BIG_DECIMAL,
@@ -162,6 +166,15 @@ public interface Fetcher {
                 ),
                 type
         );
+    }
+
+    /**
+     * Parses the JSON String into the requested type.
+     */
+    default String toJson(final Object value) {
+        return MARSHALL_CONTEXT.marshall(
+                value
+        ).toString();
     }
 
     /**
