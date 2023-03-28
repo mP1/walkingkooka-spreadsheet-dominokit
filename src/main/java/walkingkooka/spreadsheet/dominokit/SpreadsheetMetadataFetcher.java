@@ -56,9 +56,9 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
     /**
      * Patches the provided {@link SpreadsheetMetadata} property.
      */
-    <T> void patchMetadata(final SpreadsheetId id,
-                           final SpreadsheetMetadataPropertyName<T> propertyName,
-                           final T propertyValue) {
+    public <T> void patchMetadata(final SpreadsheetId id,
+                                  final SpreadsheetMetadataPropertyName<T> propertyName,
+                                  final T propertyValue) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(propertyName, "propertyName");
 
