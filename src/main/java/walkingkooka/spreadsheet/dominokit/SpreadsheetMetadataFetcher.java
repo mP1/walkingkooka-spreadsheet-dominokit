@@ -46,10 +46,8 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
      * Loads an existing spreadsheet
      */
     public void loadSpreadsheetMetadata(final SpreadsheetId id) {
-        Objects.requireNonNull(id, "id");
-
         this.get(
-                        Url.parseRelative("/api/spreadsheet/" + id)
+                this.url(id)
         );
     }
 
@@ -59,11 +57,8 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
     public <T> void patchMetadata(final SpreadsheetId id,
                                   final SpreadsheetMetadataPropertyName<T> propertyName,
                                   final T propertyValue) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(propertyName, "propertyName");
-
         this.patch(
-                Url.parseRelative("/api/spreadsheet/" + id),
+                this.url(id),
                 this.toJson(
                         SpreadsheetMetadata.EMPTY.setOrRemove(
                                 propertyName,
@@ -71,6 +66,12 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
                         )
                 )
         );
+    }
+
+    private Url url(final SpreadsheetId id) {
+        Objects.requireNonNull(id, "id");
+
+        return Url.parseRelative("/api/spreadsheet/" + id);
     }
 
     @Override
