@@ -29,6 +29,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
@@ -42,6 +43,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
@@ -52,6 +54,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher {
 
@@ -121,6 +124,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         Objects.requireNonNull(delta, "delta");
 
         this.cache.onSpreadsheetDelta(delta, context);
+        this.setViewportSelection(delta.viewportSelection());
 
         this.windows = delta.window();
         this.updateTable();
@@ -136,6 +140,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         }
 
         this.metadata = metadata;
+        this.setViewportSelection(
+                metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
+        );
 
         this.loadViewportCellsIfNecessary();
 
@@ -157,6 +164,24 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      * Initial metadata is EMPTY or nothing.
      */
     private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
+
+    private void setViewportSelection(final Optional<SpreadsheetViewportSelection> selection) {
+        this.context.debug(
+                "SpreadsheetViewportWidget.setViewportSelection " + selection.orElse(null)
+        );
+
+        this.selection = selection.map(v -> (Predicate<SpreadsheetSelection>) v.selection())
+                .orElse(Predicates.never());
+    }
+
+    /**
+     * Tests if the given {@link SpreadsheetSelection} typically a cell, column or row is matched by the {@link SpreadsheetMetadataPropertyName#SELECTION}.
+     */
+    private boolean isSelected(final SpreadsheetSelection selection) {
+        return this.selection.test(selection);
+    }
+
+    private Predicate<SpreadsheetSelection> selection = Predicates.never();
 
     private void loadViewportCellsIfNecessary() {
         if (this.reload) {
@@ -417,14 +442,13 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      * Creates a TH with the column in UPPER CASE with column width.
      */
     private HTMLTableCellElement columnHeader(final SpreadsheetColumnReference column) {
-        // TODO test if column is matched by selection
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.th()
                 .id(id(column))
                 .attr(
                         "tabindex",
                         "0"
                 ).style(
-                        this.context.viewportColumnHeader(false)
+                        this.context.viewportColumnHeader(this.isSelected(column))
                                 .set(
                                         TextStylePropertyName.WIDTH,
                                         this.cache.columnWidth(column)
@@ -486,14 +510,13 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     }
 
     private HTMLTableCellElement rowHeader(final SpreadsheetRowReference row) {
-        // TODO test if row is matched by selection
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
                 .id(id(row))
                 .attr(
                         "tabindex",
                         "0"
                 ).style(
-                        this.context.viewportRowHeader(false)
+                        this.context.viewportRowHeader(this.isSelected(row))
                                 .set(
                                         TextStylePropertyName.WIDTH,
                                         ROW_WIDTH
@@ -567,7 +590,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         }
 
         style = style.merge(
-                context.viewportCell(false) // cell selected
+                context.viewportCell(this.isSelected(cellReference))
                         .set(TextStylePropertyName.WIDTH, cache.columnWidth(cellReference.column()))
                         .set(TextStylePropertyName.HEIGHT, cache.rowHeight(cellReference.row()))
         );
