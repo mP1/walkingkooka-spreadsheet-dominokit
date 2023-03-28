@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistoryToken {
@@ -57,5 +58,10 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
                 name,
                 this.viewportSelection()
         );
+    }
+
+    @Override
+    void onHashChange0(final AppContext context) {
+        // POST metadata with selected selection
     }
 }

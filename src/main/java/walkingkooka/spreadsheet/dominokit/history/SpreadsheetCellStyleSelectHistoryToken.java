@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -76,5 +77,10 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
                 propertyName,
                 propertyName.parseValue(value)
         );
+    }
+
+    @Override
+    void onHashChange0(final AppContext context) {
+        // show style controls like BOLD icon etc
     }
 }
