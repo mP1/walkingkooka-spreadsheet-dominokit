@@ -36,7 +36,7 @@ import java.util.Optional;
 
 public interface Fetcher {
 
-    JsonNodeUnmarshallContext CONTEXT = JsonNodeUnmarshallContexts.basic(
+    JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
             ExpressionNumberKind.BIG_DECIMAL,
             MathContext.DECIMAL32
     );
@@ -156,7 +156,7 @@ public interface Fetcher {
      */
     default <T> T parse(final String json,
                         final Class<T> type) {
-        return CONTEXT.unmarshall(
+        return UNMARSHALL_CONTEXT.unmarshall(
                 JsonNode.parse(
                         json
                 ),
