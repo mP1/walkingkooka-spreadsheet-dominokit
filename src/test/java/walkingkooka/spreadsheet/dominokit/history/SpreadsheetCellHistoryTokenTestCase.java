@@ -17,11 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
@@ -32,8 +34,25 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
     final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
+    private final static SpreadsheetViewportSelection VIEWPORT_SELECTION = CELL.setDefaultAnchor();
+
     SpreadsheetCellHistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testSelection() {
+        final T token = this.createHistoryToken();
+        final SpreadsheetViewportSelectionHistoryToken selection = token.selection();
+
+        this.checkEquals(
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        VIEWPORT_SELECTION
+                ),
+                selection
+        );
     }
 
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,

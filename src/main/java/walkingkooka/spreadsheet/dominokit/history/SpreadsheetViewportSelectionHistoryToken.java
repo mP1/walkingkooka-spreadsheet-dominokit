@@ -49,4 +49,10 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
     }
 
     abstract UrlFragment selectionViewportUrlFragment();
+
+    /**
+     * Factory that returns a {@link SpreadsheetViewportSelectionHistoryToken} without any action and just the
+     * {@link SpreadsheetViewportSelection}
+     */
+    public abstract SpreadsheetViewportSelectionHistoryToken selection();
 }
