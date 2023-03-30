@@ -94,6 +94,15 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override
+    public final SpreadsheetViewportSelectionHistoryToken selection() {
+        return column(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     final SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
         return this; // column/A/style not currently supported
     }

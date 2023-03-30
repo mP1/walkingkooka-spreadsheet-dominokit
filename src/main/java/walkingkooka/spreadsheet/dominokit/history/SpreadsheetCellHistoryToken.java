@@ -85,6 +85,15 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     }
 
     @Override
+    public final SpreadsheetViewportSelectionHistoryToken selection() {
+        return cell(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     final SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
         return cellStyle(
                 this.id(),

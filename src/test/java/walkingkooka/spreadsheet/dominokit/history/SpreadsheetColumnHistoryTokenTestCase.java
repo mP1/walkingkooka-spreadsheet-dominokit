@@ -17,9 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends SpreadsheetColumnHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
@@ -28,8 +30,25 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
 
     final static SpreadsheetColumnReferenceRange COLUMN_RANGE = SpreadsheetSelection.parseColumnRange("B:C");
 
+    final static SpreadsheetViewportSelection VIEWPORT_SELECTION = COLUMN.setDefaultAnchor();
+
     SpreadsheetColumnHistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testSelection() {
+        final T token = this.createHistoryToken();
+        final SpreadsheetViewportSelectionHistoryToken selection = token.selection();
+
+        this.checkEquals(
+                SpreadsheetHistoryToken.column(
+                        ID,
+                        NAME,
+                        VIEWPORT_SELECTION
+                ),
+                selection
+        );
     }
 
     final void urlFragmentAndCheck(final SpreadsheetColumnReference reference,
@@ -54,7 +73,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
 
     final T createHistoryToken() {
         return this.createHistoryToken(
-                COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                VIEWPORT_SELECTION
         );
     }
 }
