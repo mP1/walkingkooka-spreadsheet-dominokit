@@ -18,10 +18,55 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.UrlParameterName;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Objects;
+import java.util.Set;
 
 public class SpreadsheetDeltaFetcher implements Fetcher {
+
+    /**
+     * Creates a {@link UrlQueryString} with parameters taken from the given method parameters.
+     * <pre>
+     * window=A1%3AP9&
+     * selection=B1&
+     * selectionType=cell
+     * </pre>
+     */
+    public static UrlQueryString urlQueryString(final SpreadsheetSelection selection,
+                                                final Set<SpreadsheetCellRange> window) {
+        Objects.requireNonNull("window", "window");
+        Objects.requireNonNull(selection, "selection");
+
+        UrlQueryString queryString = UrlQueryString.EMPTY
+                .addParameter(
+                        SELECTION,
+                        selection.toString()
+                ).addParameter(
+                        SELECTION_TYPE,
+                        selection.selectionTypeName()
+                );
+
+        if (false == window.isEmpty()) {
+            queryString = queryString.addParameter(
+                    WINDOW,
+                    SpreadsheetSelection.toStringWindow(window)
+            );
+        }
+
+        return queryString;
+    }
+
+    private final static UrlParameterName SELECTION = UrlParameterName.with("selection");
+
+    private final static UrlParameterName SELECTION_TYPE = UrlParameterName.with("selectionType");
+
+    private final static UrlParameterName WINDOW = UrlParameterName.with("window");
 
     static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaWatcher watcher,
                                         final AppContext context) {
