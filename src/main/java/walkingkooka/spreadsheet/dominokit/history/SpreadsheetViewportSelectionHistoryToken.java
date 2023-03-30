@@ -54,5 +54,12 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
      * Factory that returns a {@link SpreadsheetViewportSelectionHistoryToken} without any action and just the
      * {@link SpreadsheetViewportSelection}
      */
-    public abstract SpreadsheetViewportSelectionHistoryToken selection();
+    public final SpreadsheetViewportSelectionHistoryToken selection() {
+        final SpreadsheetViewportSelectionHistoryToken token = this.selection0();
+        return token.equals(this) ?
+                this :
+                token;
+    }
+
+    abstract SpreadsheetViewportSelectionHistoryToken selection0();
 }
