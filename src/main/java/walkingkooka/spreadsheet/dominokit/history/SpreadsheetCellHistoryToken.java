@@ -85,7 +85,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     }
 
     @Override
-    public final SpreadsheetViewportSelectionHistoryToken selection() {
+    final SpreadsheetViewportSelectionHistoryToken selection0() {
         return cell(
                 this.id(),
                 this.name(),
