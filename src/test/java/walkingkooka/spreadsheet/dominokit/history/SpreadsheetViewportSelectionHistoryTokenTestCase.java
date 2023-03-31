@@ -21,10 +21,28 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends SpreadsheetViewportSelectionHistoryToken> extends SpreadsheetSelectionHistoryTokenTestCase<T> {
 
     SpreadsheetViewportSelectionHistoryTokenTestCase() {
         super();
+    }
+
+    final void createHistoryTokenFails(final SpreadsheetViewportSelection viewportSelection,
+                                       final String expected) {
+        final IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> this.createHistoryToken(
+                        viewportSelection
+                )
+        );
+
+        this.checkEquals(
+                expected,
+                thrown.getMessage(),
+                () -> "" + viewportSelection
+        );
     }
 
     final void urlFragmentAndCheck(final SpreadsheetViewportSelection viewportSelection,

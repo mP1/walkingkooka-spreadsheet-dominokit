@@ -37,7 +37,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
 
         final SpreadsheetSelection selection = viewportSelection.selection();
         if (false == (selection.isCellReference() || selection.isCellRange() || selection.isLabelName())) {
-            throw new IllegalArgumentException("Expected cell, cell-range or label but got " + selection);
+            throw new IllegalArgumentException("Got " + selection + " expected cell, cell-range or label");
         }
     }
 
