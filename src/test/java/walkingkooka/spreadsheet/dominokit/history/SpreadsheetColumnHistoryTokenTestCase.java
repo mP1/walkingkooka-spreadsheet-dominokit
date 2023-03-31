@@ -37,6 +37,46 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
+    public final void testWithCellFails() {
+        this.createHistoryTokenFails(
+                SpreadsheetSelection.parseCell("A1").setDefaultAnchor(),
+                "Got A1 expected column or column-range"
+        );
+    }
+
+    @Test
+    public final void testWithCellRangeFails() {
+        this.createHistoryTokenFails(
+                SpreadsheetSelection.parseCellRange("A1:A2").setDefaultAnchor(),
+                "Got A1:A2 expected column or column-range"
+        );
+    }
+
+    @Test
+    public final void testWithLabelFails() {
+        this.createHistoryTokenFails(
+                SpreadsheetSelection.labelName("Label123").setDefaultAnchor(),
+                "Got Label123 expected column or column-range"
+        );
+    }
+
+    @Test
+    public final void testWithRowFails() {
+        this.createHistoryTokenFails(
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor(),
+                "Got 1 expected column or column-range"
+        );
+    }
+
+    @Test
+    public final void testWithRowRangeFails() {
+        this.createHistoryTokenFails(
+                SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor(),
+                "Got 1:2 expected column or column-range"
+        );
+    }
+
+    @Test
     public final void testSelection() {
         final T token = this.createHistoryToken();
         final SpreadsheetViewportSelectionHistoryToken selection = token.selection();

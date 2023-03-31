@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -34,6 +35,11 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
                 name,
                 viewportSelection
         );
+
+        final SpreadsheetSelection selection = viewportSelection.selection();
+        if (false == selection.isColumnReference() && false == selection.isColumnReferenceRange()) {
+            throw new IllegalArgumentException("Got " + selection + " expected column or column-range");
+        }
     }
 
     @Override
