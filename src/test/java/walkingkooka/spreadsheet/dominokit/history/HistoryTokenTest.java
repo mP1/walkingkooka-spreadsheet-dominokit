@@ -354,6 +354,71 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidColumn() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3/unfreeze",
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("B2:C3")
+                                .setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidRow() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A2:C3/unfreeze",
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A2:C3")
+                                .setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1:B2/unfreeze",
+                SpreadsheetHistoryToken.cellUnfreeze(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeInvalidColumn() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B2/unfreeze",
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCell("B2")
+                                .setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeInvalidRow() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A2/unfreeze",
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCell("A2")
+                                .setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellUnfreeze() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/unfreeze",

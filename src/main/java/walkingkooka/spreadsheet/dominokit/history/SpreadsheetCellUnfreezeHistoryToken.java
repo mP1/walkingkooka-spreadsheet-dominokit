@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHistoryToken {
@@ -46,6 +47,18 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
                 name,
                 viewportSelection
         );
+
+        final SpreadsheetSelection selection = viewportSelection.selection();
+
+        if(false == selection.isLabelName()) {
+            SpreadsheetMetadata.EMPTY.set(
+                    SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                    selection.toColumnRange()
+            ).set(
+                    SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                    selection.toRowRange()
+            );
+        }
     }
 
     @Override

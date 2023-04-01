@@ -20,21 +20,50 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyValueException;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellUnfreezeHistoryToken> {
 
     @Test
+    public void testUrlFragmentColumnRangeInvalidFails() {
+        assertThrows(
+                SpreadsheetMetadataPropertyValueException.class,
+                () -> this.createHistoryToken(
+                        SpreadsheetSelection.parseCellRange("B1:C3")
+                                .setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testUrlFragmentRowRangeInvalidFails() {
+        assertThrows(
+                SpreadsheetMetadataPropertyValueException.class,
+                () -> this.createHistoryToken(
+                        SpreadsheetSelection.parseCellRange("A2:C3")
+                                .setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/unfreeze");
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.parseCell("A1").setDefaultAnchor(),
+                "/123/SpreadsheetName456/cell/A1/unfreeze"
+        );
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/unfreeze"
+                SpreadsheetSelection.parseCellRange("A1:B2").setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
+                "/123/SpreadsheetName456/cell/A1:B2/top-left/unfreeze"
         );
     }
 
