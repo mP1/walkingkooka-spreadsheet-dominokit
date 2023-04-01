@@ -20,8 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyValueException;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetColumnUnfreezeHistoryTokenTest extends SpreadsheetColumnHistoryTokenTestCase<SpreadsheetColumnUnfreezeHistoryToken> {
 
@@ -35,8 +39,18 @@ public final class SpreadsheetColumnUnfreezeHistoryTokenTest extends Spreadsheet
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
-                COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/B:C/right/unfreeze"
+                SpreadsheetSelection.parseColumnRange("A:B").setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
+                "/123/SpreadsheetName456/column/A:B/right/unfreeze"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentColumnRangeInvalidFails() {
+        assertThrows(
+                SpreadsheetMetadataPropertyValueException.class,
+                () -> this.createHistoryToken(
+                        SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                )
         );
     }
 
