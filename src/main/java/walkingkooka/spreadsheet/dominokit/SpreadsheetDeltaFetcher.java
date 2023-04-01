@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
@@ -84,6 +85,14 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                                     final AppContext context) {
         this.watcher = watcher;
         this.context = context;
+    }
+
+    public void postDelta(final Url url,
+                          final SpreadsheetDelta delta) {
+        this.post(
+                url,
+                this.toJson(delta)
+        );
     }
 
     public RelativeUrl url(final SpreadsheetId id,
