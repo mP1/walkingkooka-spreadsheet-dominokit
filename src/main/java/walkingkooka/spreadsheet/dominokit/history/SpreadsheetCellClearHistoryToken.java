@@ -79,5 +79,6 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
     @Override
     void onHashChange0(final AppContext context) {
         // POST cell clear
+        this.deltaClear(context);
     }
 }
