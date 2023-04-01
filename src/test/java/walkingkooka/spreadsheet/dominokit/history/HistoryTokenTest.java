@@ -672,13 +672,25 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreezeInvalidFails() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/B/unfreeze",
+                SpreadsheetHistoryToken.column(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseColumn("B").setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/unfreeze",
+                "/123/SpreadsheetName456/column/A/unfreeze",
                 SpreadsheetHistoryToken.columnUnfreeze(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        SpreadsheetSelection.parseColumn("A").setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                 )
         );
     }
@@ -686,11 +698,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreezeExtra() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/unfreeze/extra",
+                "/123/SpreadsheetName456/column/A/unfreeze/extra",
                 SpreadsheetHistoryToken.columnUnfreeze(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        SpreadsheetSelection.parseColumn("A")
+                                .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                 )
         );
     }
