@@ -78,7 +78,7 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
         );
     }
 
-    private Url url(final SpreadsheetId id) {
+    public Url url(final SpreadsheetId id) {
         Objects.requireNonNull(id, "id");
 
         return Url.parseRelative("/api/spreadsheet/" + id);
