@@ -70,14 +70,12 @@ public class SpreadsheetRowFreezeHistoryToken extends SpreadsheetRowHistoryToken
 
     @Override
     void onHashChange0(final AppContext context) {
-        // POST metadata with freeze row=row range
-        context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                        this.viewportSelection()
-                                .selection()
-                                .toRowRange()
-                );
+        this.patchMetadataAndClearHistoryToken(
+                SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                this.viewportSelection()
+                        .selection()
+                        .toRowRange(),
+                context
+        );
     }
 }

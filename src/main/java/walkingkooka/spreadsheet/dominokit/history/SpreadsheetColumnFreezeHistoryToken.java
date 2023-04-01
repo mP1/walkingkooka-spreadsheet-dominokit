@@ -70,14 +70,12 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
 
     @Override
     void onHashChange0(final AppContext context) {
-        // POST metadata with freeze column=column range
-        context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                        this.viewportSelection()
-                                .selection()
-                                .toColumnRange()
-                );
+        this.patchMetadataAndClearHistoryToken(
+                SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                this.viewportSelection()
+                        .selection()
+                        .toColumnRange(),
+                context
+        );
     }
 }
