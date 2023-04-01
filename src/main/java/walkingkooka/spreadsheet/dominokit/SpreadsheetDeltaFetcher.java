@@ -107,7 +107,7 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    private Url url(final SpreadsheetId id,
+    public Url url(final SpreadsheetId id,
                     final SpreadsheetSelection selection,
                     final Optional<UrlPath> path,
                     final UrlQueryString queryString) {
