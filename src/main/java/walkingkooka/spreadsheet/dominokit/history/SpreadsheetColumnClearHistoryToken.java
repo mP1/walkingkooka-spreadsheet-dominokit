@@ -62,6 +62,6 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
 
     @Override
     void onHashChange0(final AppContext context) {
-        // clear column
+        this.deltaClear(context);
     }
 }
