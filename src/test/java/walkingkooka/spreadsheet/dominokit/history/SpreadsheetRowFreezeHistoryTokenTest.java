@@ -20,8 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyValueException;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetRowFreezeHistoryTokenTest extends SpreadsheetRowHistoryTokenTestCase<SpreadsheetRowFreezeHistoryToken> {
 
@@ -36,11 +40,21 @@ public final class SpreadsheetRowFreezeHistoryTokenTest extends SpreadsheetRowHi
     @Test
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
-                ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/2:3/bottom/freeze"
+                SpreadsheetSelection.parseRowRange("1:2").setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
+                "/123/SpreadsheetName456/row/1:2/bottom/freeze"
         );
     }
 
+    @Test
+    public void testUrlFragmentRowRangeInvalidFails() {
+        assertThrows(
+                SpreadsheetMetadataPropertyValueException.class,
+                () -> this.createHistoryToken(
+                        SpreadsheetSelection.parseRowRange("2:3").setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                )
+        );
+    }
+    
     @Override
     SpreadsheetRowFreezeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                         final SpreadsheetName name,
