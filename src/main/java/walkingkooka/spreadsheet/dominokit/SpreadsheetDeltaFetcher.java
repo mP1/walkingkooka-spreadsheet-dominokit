@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
-import walkingkooka.net.Url;
+import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
@@ -107,17 +107,16 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public Url url(final SpreadsheetId id,
-                    final SpreadsheetSelection selection,
-                    final Optional<UrlPath> path,
-                    final UrlQueryString queryString) {
-        Objects.requireNonNull(id, "id");
+    public RelativeUrl url(final SpreadsheetId id,
+                           final SpreadsheetSelection selection,
+                           final Optional<UrlPath> path,
+                           final UrlQueryString queryString) {
+        UrlPath urlPath = this.context.spreadsheetMetadataFetcher()
+                .url(id)
+                .path();
         Objects.requireNonNull(selection, "selection");
         Objects.requireNonNull(path, "path");
-        Objects.requireNonNull(queryString, "queryString");
 
-        UrlPath urlPath = UrlPath.parse("/api/spreadsheet/")
-                .append(UrlPath.parse(id.toString()));
         if (path.isPresent()) {
             urlPath = urlPath.append(path.get());
         }
