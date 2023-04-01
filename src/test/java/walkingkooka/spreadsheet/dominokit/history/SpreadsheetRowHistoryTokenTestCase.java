@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRowHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
 
@@ -95,7 +94,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
                                    final String expected) {
         this.urlFragmentAndCheck(
                 this.createHistoryToken(
-                        reference.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        reference.setDefaultAnchor()
                 ),
                 expected
         );
@@ -105,7 +104,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
                                    final String expected) {
         this.urlFragmentAndCheck(
                 this.createHistoryToken(
-                        reference.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        reference.setDefaultAnchor()
                 ),
                 expected
         );

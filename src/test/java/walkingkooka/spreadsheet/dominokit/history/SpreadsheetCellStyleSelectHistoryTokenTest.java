@@ -55,7 +55,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
                     ID,
                     NAME,
-                    CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                    CELL.setDefaultAnchor(),
                     propertyName
             );
             this.urlFragmentAndCheck(
@@ -71,7 +71,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
                     ID,
                     NAME,
-                    CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                    CELL.setDefaultAnchor(),
                     propertyName
             );
             this.parseAndCheck(
