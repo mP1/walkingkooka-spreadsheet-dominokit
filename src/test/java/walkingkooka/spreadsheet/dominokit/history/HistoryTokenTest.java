@@ -57,7 +57,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private static final SpreadsheetCellSelectHistoryToken CELL_HHT = SpreadsheetHistoryToken.cell(
             ID,
             NAME,
-            CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+            CELL.setDefaultAnchor()
     );
 
     private final static SpreadsheetCellRange CELL_RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
@@ -184,7 +184,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cell(
                         ID,
                         NAME,
-                        LABEL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        LABEL.setDefaultAnchor()
                 )
         );
     }
@@ -252,7 +252,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellClear(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -264,7 +264,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellDelete(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -276,7 +276,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellFreeze(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -288,7 +288,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellMenu(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -300,7 +300,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellUnfreeze(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -312,7 +312,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellUnfreeze(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -350,7 +350,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.formula(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -362,7 +362,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.formulaSave(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        CELL.setDefaultAnchor(),
                         SpreadsheetFormula.EMPTY.setText("=1+2")
                 )
         );
@@ -393,7 +393,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellPattern(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        CELL.setDefaultAnchor(),
                         SpreadsheetPatternKind.DATE_FORMAT_PATTERN
                 )
         );
@@ -408,7 +408,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellPatternSave(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        CELL.setDefaultAnchor(),
                         SpreadsheetPattern.parseDateFormatPattern("yyyymmdd")
                 )
         );
@@ -423,7 +423,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellPatternSave(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        CELL.setDefaultAnchor(),
                         SpreadsheetPattern.parseTimeParsePattern(pattern)
                 )
         );
@@ -454,7 +454,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellStyle(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        CELL.setDefaultAnchor(),
                         TextStylePropertyName.COLOR
                 )
         );
@@ -467,7 +467,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.cellStyleSave(
                         ID,
                         NAME,
-                        CELL.setAnchor(SpreadsheetViewportSelectionAnchor.NONE),
+                        CELL.setDefaultAnchor(),
                         TextStylePropertyName.COLOR,
                         Color.parse("#123456")
                 )
@@ -507,7 +507,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -519,7 +519,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -579,7 +579,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -591,7 +591,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.columnClear(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -603,7 +603,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.columnDelete(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -615,7 +615,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -628,7 +628,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         SpreadsheetSelection.parseColumn("A")
-                                .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                                .setDefaultAnchor()
                 )
         );
     }
@@ -666,7 +666,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.columnMenu(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -678,7 +678,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
-                        SpreadsheetSelection.parseColumn("B").setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
                 )
         );
     }
@@ -690,7 +690,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.columnUnfreeze(
                         ID,
                         NAME,
-                        SpreadsheetSelection.parseColumn("A").setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        SpreadsheetSelection.parseColumn("A").setDefaultAnchor()
                 )
         );
     }
@@ -703,7 +703,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         SpreadsheetSelection.parseColumn("A")
-                                .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                                .setDefaultAnchor()
                 )
         );
     }
@@ -715,7 +715,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -727,7 +727,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -739,7 +739,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        COLUMN.setDefaultAnchor()
                 )
         );
     }
@@ -777,7 +777,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.row(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -789,7 +789,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.row(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -849,7 +849,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.row(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -861,7 +861,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.rowClear(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -873,7 +873,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.rowDelete(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -885,7 +885,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.rowFreeze(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -897,7 +897,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.rowMenu(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -909,7 +909,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.rowUnfreeze(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -921,7 +921,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.rowUnfreeze(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -933,7 +933,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.row(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -945,7 +945,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.row(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
@@ -957,7 +957,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 SpreadsheetHistoryToken.row(
                         ID,
                         NAME,
-                        ROW.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        ROW.setDefaultAnchor()
                 )
         );
     }
