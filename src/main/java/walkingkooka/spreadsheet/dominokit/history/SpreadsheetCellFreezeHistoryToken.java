@@ -22,6 +22,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHistoryToken {
@@ -78,6 +81,21 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
 
     @Override
     void onHashChange0(final AppContext context) {
-        // POST metadata with freeze
+        final SpreadsheetSelection selection = this.viewportSelection()
+                        .selection();
+
+        // POST metadata with frozen columns/ros
+        context.spreadsheetMetadataFetcher()
+                .patchMetadata(
+                        this.id(),
+                        SpreadsheetMetadata.EMPTY
+                                .set(
+                                        SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                                        selection.toColumnRange()
+                                ).set(
+                                        SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                                        selection.toRowRange()
+                                )
+                );
     }
 }
