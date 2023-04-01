@@ -270,6 +270,30 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFreezeInvalidColumnFails() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B1/freeze",
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCell("B1").setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFreezeInvalidRowFails() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A2/freeze",
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCell("A2").setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFreeze() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/freeze",
@@ -277,6 +301,42 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeFreezeInvalidColumnFails() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/B1:C3/freeze",
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("B1:C3").setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeFreezeInvalidRowFails() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A2:C3/freeze",
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A2:C3").setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1:B2/freeze",
+                SpreadsheetHistoryToken.cellFreeze(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
                 )
         );
     }

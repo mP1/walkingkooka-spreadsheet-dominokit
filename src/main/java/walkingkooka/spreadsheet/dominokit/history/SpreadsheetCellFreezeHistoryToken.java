@@ -47,6 +47,18 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
                 name,
                 viewportSelection
         );
+
+        final SpreadsheetSelection selection = viewportSelection.selection();
+
+        if(false == selection.isLabelName()) {
+            SpreadsheetMetadata.EMPTY.set(
+                    SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                    selection.toColumnRange()
+            ).set(
+                    SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                    selection.toRowRange()
+            );
+        }
     }
 
     @Override
