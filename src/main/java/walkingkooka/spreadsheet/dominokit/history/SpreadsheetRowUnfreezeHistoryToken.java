@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryToken {
@@ -62,6 +63,12 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
 
     @Override
     void onHashChange0(final AppContext context) {
-        // POST metadata clearing row selection
+        // POST metadata with frozen row=row range = null
+        context.spreadsheetMetadataFetcher()
+                .patchMetadata(
+                        this.id(),
+                        SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                        null
+                );
     }
 }
