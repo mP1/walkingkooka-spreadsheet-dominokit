@@ -94,20 +94,13 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     @Override
     void onHashChange0(final AppContext context) {
         final SpreadsheetSelection selection = this.viewportSelection()
-                        .selection();
-
-        // POST metadata with frozen columns/ros
-        context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        SpreadsheetMetadata.EMPTY
-                                .set(
-                                        SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                                        selection.toColumnRange()
-                                ).set(
-                                        SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                                        selection.toRowRange()
-                                )
-                );
+                .selection();
+        this.patchMetadataAndPushSelectionHistoryToken(
+                SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                selection.toColumnRange(),
+                SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                selection.toRowRange(),
+                context
+        );
     }
 }
