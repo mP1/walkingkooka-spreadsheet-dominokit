@@ -88,8 +88,7 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
 
     public RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
-                           final Optional<UrlPath> path,
-                           final UrlQueryString queryString) {
+                           final Optional<UrlPath> path) {
         UrlPath urlPath = this.context.spreadsheetMetadataFetcher()
                 .url(id)
                 .path();
@@ -101,7 +100,7 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         }
 
         return urlPath.addQueryString(
-                queryString
+                UrlQueryString.EMPTY
         );
     }
 
