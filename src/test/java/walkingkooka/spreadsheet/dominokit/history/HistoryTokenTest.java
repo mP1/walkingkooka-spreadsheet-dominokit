@@ -879,13 +879,49 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowFreeze() {
+    public void testParseSpreadsheetIdSpreadsheetNameRowFreezeInvalidFails() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/row/11/freeze",
-                SpreadsheetHistoryToken.rowFreeze(
+                SpreadsheetHistoryToken.row(
                         ID,
                         NAME,
                         ROW.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/1/freeze",
+                SpreadsheetHistoryToken.rowFreeze(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreezeInvalidFails() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/22:33/freeze",
+                SpreadsheetHistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/1:2/freeze",
+                SpreadsheetHistoryToken.rowFreeze(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
                 )
         );
     }
