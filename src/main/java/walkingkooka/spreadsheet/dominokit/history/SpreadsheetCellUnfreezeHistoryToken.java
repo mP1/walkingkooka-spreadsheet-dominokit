@@ -93,18 +93,12 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
 
     @Override
     void onHashChange0(final AppContext context) {
-        // POST metadata with frozen columns/rows set to null
-        context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        SpreadsheetMetadata.EMPTY
-                                .set(
-                                        SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                                        null
-                                ).set(
-                                        SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                                        null
-                                )
-                );
+        this.patchMetadataAndPushSelectionHistoryToken(
+                SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                null,
+                SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                null,
+                context
+        );
     }
 }
