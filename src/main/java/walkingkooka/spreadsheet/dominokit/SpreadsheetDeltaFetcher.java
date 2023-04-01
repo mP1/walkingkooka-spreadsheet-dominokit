@@ -18,14 +18,18 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
+import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpStatus;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class SpreadsheetDeltaFetcher implements Fetcher {
@@ -80,6 +84,47 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                                     final AppContext context) {
         this.watcher = watcher;
         this.context = context;
+    }
+
+    /**
+     * Performs a POST using the parameters to build the url and the delta if present for the body.
+     */
+    public void post(final SpreadsheetId id,
+                     final SpreadsheetSelection selection,
+                     final Optional<UrlPath> path,
+                     final UrlQueryString queryString,
+                     final Optional<SpreadsheetDelta> delta) {
+        this.post(
+                this.url(
+                        id,
+                        selection,
+                        path,
+                        queryString
+                ),
+                delta.isPresent() ?
+                        this.toJson(delta.get()) :
+                        ""
+        );
+    }
+
+    private Url url(final SpreadsheetId id,
+                    final SpreadsheetSelection selection,
+                    final Optional<UrlPath> path,
+                    final UrlQueryString queryString) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(selection, "selection");
+        Objects.requireNonNull(path, "path");
+        Objects.requireNonNull(queryString, "queryString");
+
+        UrlPath urlPath = UrlPath.parse("/api/spreadsheet/")
+                .append(UrlPath.parse(id.toString()));
+        if (path.isPresent()) {
+            urlPath = urlPath.append(path.get());
+        }
+
+        return urlPath.addQueryString(
+                queryString
+        );
     }
 
     @Override
