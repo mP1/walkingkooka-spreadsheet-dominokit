@@ -69,6 +69,11 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
 
     abstract SpreadsheetViewportSelectionHistoryToken selection0();
 
+    final void deltaClearAndPushSelectionHistoryToken(final AppContext context) {
+        this.deltaClear(context);
+        this.pushSelectionHistoryToken(context);
+    }
+
     /**
      * Invokes the server to clear the current selection.
      */
@@ -90,6 +95,14 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                                 context.viewportWindow()
                         )),
                 SpreadsheetDelta.EMPTY
+        );
+
+        pushSelectionHistoryToken(context);
+    }
+
+    final void pushSelectionHistoryToken(final AppContext context) {
+        context.pushHistoryToken(
+                this.selection()
         );
     }
 }
