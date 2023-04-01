@@ -100,9 +100,9 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         pushSelectionHistoryToken(context);
     }
 
-    final <T> void patchMetadataAndClearHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                     final T propertyValue,
-                                                     final AppContext context) {
+    final <T> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                             final T propertyValue,
+                                                             final AppContext context) {
         this.patchMetadata(
                 propertyName,
                 propertyValue,

@@ -70,7 +70,7 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
 
     @Override
     void onHashChange0(final AppContext context) {
-        this.patchMetadataAndClearHistoryToken(
+        this.patchMetadataAndPushSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,
                 null,
                 context

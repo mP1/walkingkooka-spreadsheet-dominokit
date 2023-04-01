@@ -70,7 +70,7 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
 
     @Override
     void onHashChange0(final AppContext context) {
-        this.patchMetadataAndClearHistoryToken(
+        this.patchMetadataAndPushSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
                 this.viewportSelection()
                         .selection()
