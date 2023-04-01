@@ -22,9 +22,11 @@ import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
+import java.util.Set;
 
 public interface AppContext extends Context {
 
@@ -62,6 +64,11 @@ public interface AppContext extends Context {
     Optional<HistoryToken> historyToken();
 
     void pushHistoryToken(final HistoryToken token);
+
+    /**
+     * Getter that returns the ranges of the viewport window.
+     */
+    Set<SpreadsheetCellRange> viewportWindow();
 
     TextStyle viewportAll(final boolean selected);
 

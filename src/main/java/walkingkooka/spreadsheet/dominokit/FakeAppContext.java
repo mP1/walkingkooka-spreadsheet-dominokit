@@ -20,9 +20,11 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
+import java.util.Set;
 
 public class FakeAppContext implements AppContext {
     @Override
@@ -67,6 +69,11 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public void pushHistoryToken(final HistoryToken token) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<SpreadsheetCellRange> viewportWindow() {
         throw new UnsupportedOperationException();
     }
 

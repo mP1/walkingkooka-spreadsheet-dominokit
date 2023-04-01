@@ -35,6 +35,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.FontFamily;
@@ -359,6 +360,11 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
      * Init here to avoid race conditions with other fields like {@link #metadataWatchers}.
      */
     private final SpreadsheetViewportWidget viewportWidget = SpreadsheetViewportWidget.empty(this);
+
+    @Override
+    public Set<SpreadsheetCellRange> viewportWindow() {
+        return this.viewportWidget.window();
+    }
 
     @Override
     public TextStyle viewportAll(final boolean selected) {
