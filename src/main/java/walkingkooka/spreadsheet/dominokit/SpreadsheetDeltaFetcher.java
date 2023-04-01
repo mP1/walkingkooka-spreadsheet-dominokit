@@ -95,6 +95,9 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         Objects.requireNonNull(selection, "selection");
         Objects.requireNonNull(path, "path");
 
+        urlPath = urlPath.append(UrlPath.parse(selection.cellColumnOrRowText()))
+                .append(UrlPath.parse(selection.toString()));
+
         if (path.isPresent()) {
             urlPath = urlPath.append(path.get());
         }

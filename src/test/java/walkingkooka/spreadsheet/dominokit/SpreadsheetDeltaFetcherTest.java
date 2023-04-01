@@ -18,12 +18,17 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
+import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.Testing;
 
+import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -135,6 +140,120 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         window
                 ),
                 () -> "urlQueryString " + selection + " " + window
+        );
+    }
+
+    // url..............................................................................................................
+
+    @Test
+    public void testUrlWithNullIdFails() {
+        this.urlFails(
+                null,
+                SpreadsheetSelection.ALL_CELLS,
+                Optional.empty()
+        );
+    }
+
+    @Test
+    public void testUrlWithNullSelectionFails() {
+        this.urlFails(
+                SpreadsheetId.with(1),
+                null,
+                Optional.empty()
+        );
+    }
+
+    @Test
+    public void testUrlWithNullPathFails() {
+        this.urlFails(
+                SpreadsheetId.with(1),
+                SpreadsheetSelection.ALL_CELLS,
+                null
+        );
+    }
+
+    private void urlFails(final SpreadsheetId id,
+                          final SpreadsheetSelection selection,
+                          final Optional<UrlPath> path) {
+        final SpreadsheetDeltaFetcher fetcher = SpreadsheetDeltaFetcher.with(
+                new FakeSpreadsheetDeltaWatcher(),
+                new FakeAppContext() {
+                    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
+                        return SpreadsheetMetadataFetcher.with(
+                                new FakeSpreadsheetMetadataWatcher(),
+                                new FakeAppContext()
+                        );
+                    }
+                }
+        );
+
+        assertThrows(
+                NullPointerException.class,
+                () -> fetcher.url(
+                        id,
+                        selection,
+                        path
+                )
+        );
+    }
+
+    @Test
+    public void testUrl() {
+        this.urlAndCheck(
+                1,
+                "A1",
+                Optional.empty(),
+                "/api/spreadsheet/1/cell/A1"
+        );
+    }
+
+    @Test
+    public void testUrlExtraPath() {
+        this.urlAndCheck(
+                2,
+                "B2",
+                Optional.of(UrlPath.parse("clear")),
+                "/api/spreadsheet/2/cell/B2/clear"
+        );
+    }
+
+    private void urlAndCheck(final long id,
+                             final String cell,
+                             final Optional<UrlPath> path,
+                             final String url) {
+        this.urlAndCheck(
+                SpreadsheetId.with(id),
+                SpreadsheetSelection.parseCell(cell),
+                path,
+                Url.parseRelative(url)
+        );
+    }
+
+    private void urlAndCheck(final SpreadsheetId id,
+                             final SpreadsheetSelection selection,
+                             final Optional<UrlPath> path,
+                             final RelativeUrl url) {
+        final SpreadsheetDeltaFetcher fetcher = SpreadsheetDeltaFetcher.with(
+                new FakeSpreadsheetDeltaWatcher(),
+                new FakeAppContext() {
+                    @Override
+                    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
+                        return SpreadsheetMetadataFetcher.with(
+                                new FakeSpreadsheetMetadataWatcher(),
+                                new FakeAppContext()
+                        );
+                    }
+                }
+        );
+
+        this.checkEquals(
+                url,
+                fetcher.url(
+                        id,
+                        selection,
+                        path
+                ),
+                "url " + id + ", " + selection + ", " + path
         );
     }
 }
