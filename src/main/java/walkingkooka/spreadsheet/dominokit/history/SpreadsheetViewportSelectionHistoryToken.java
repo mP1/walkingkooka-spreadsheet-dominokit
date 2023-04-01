@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
@@ -48,8 +49,7 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
 
     private final SpreadsheetViewportSelection viewportSelection;
 
-    @Override
-    final UrlFragment selectionUrlFragment() {
+    @Override final UrlFragment selectionUrlFragment() {
         return this.viewportSelection.urlFragment()
                 .append(this.selectionViewportUrlFragment());
     }
@@ -98,6 +98,30 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         );
 
         pushSelectionHistoryToken(context);
+    }
+
+    final <T> void patchMetadataAndClearHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                     final T propertyValue,
+                                                     final AppContext context) {
+        this.patchMetadata(
+                propertyName,
+                propertyValue,
+                context
+        );
+
+        this.pushSelectionHistoryToken(context);
+    }
+
+    final <T> void patchMetadata(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                 final T propertyValue,
+                                 final AppContext context) {
+        // POST metadata with frozen row=row range = null
+        context.spreadsheetMetadataFetcher()
+                .patchMetadata(
+                        this.id(),
+                        propertyName,
+                        propertyValue
+                );
     }
 
     final void pushSelectionHistoryToken(final AppContext context) {
