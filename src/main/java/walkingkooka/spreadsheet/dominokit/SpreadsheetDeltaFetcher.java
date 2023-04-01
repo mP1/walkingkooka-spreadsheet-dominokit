@@ -86,27 +86,6 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         this.context = context;
     }
 
-    /**
-     * Performs a POST using the parameters to build the url and the delta if present for the body.
-     */
-    public void post(final SpreadsheetId id,
-                     final SpreadsheetSelection selection,
-                     final Optional<UrlPath> path,
-                     final UrlQueryString queryString,
-                     final Optional<SpreadsheetDelta> delta) {
-        this.post(
-                this.url(
-                        id,
-                        selection,
-                        path,
-                        queryString
-                ),
-                delta.isPresent() ?
-                        this.toJson(delta.get()) :
-                        ""
-        );
-    }
-
     public RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
                            final Optional<UrlPath> path,
