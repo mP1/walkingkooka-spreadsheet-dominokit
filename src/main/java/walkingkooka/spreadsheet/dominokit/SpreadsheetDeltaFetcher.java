@@ -87,6 +87,14 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         this.context = context;
     }
 
+    public void patchDelta(final Url url,
+                           final SpreadsheetDelta delta) {
+        this.patch(
+                url,
+                this.toJson(delta)
+        );
+    }
+
     public void postDelta(final Url url,
                           final SpreadsheetDelta delta) {
         this.post(
