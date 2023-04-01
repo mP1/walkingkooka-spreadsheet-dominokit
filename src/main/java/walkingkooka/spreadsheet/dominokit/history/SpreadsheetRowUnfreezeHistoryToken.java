@@ -70,12 +70,10 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
 
     @Override
     void onHashChange0(final AppContext context) {
-        // POST metadata with frozen row=row range = null
-        context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                        null
-                );
+        this.patchMetadataAndClearHistoryToken(
+                SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                null,
+                context
+        );
     }
 }
