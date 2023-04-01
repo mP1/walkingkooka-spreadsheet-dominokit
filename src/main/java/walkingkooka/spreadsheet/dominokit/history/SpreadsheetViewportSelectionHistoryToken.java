@@ -101,12 +101,11 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         pushSelectionHistoryToken(context);
     }
 
-
-    final <T> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName1,
-                                                             final T propertyValue1,
-                                                             final SpreadsheetMetadataPropertyName<T> propertyName2,
-                                                             final T propertyValue2,
-                                                             final AppContext context) {
+    final <T1, T2> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T1> propertyName1,
+                                                                  final T1 propertyValue1,
+                                                                  final SpreadsheetMetadataPropertyName<T2> propertyName2,
+                                                                  final T2 propertyValue2,
+                                                                  final AppContext context) {
         this.patchMetadata(
                 propertyName1,
                 propertyValue1,
@@ -118,11 +117,11 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         this.pushSelectionHistoryToken(context);
     }
 
-    final <T> void patchMetadata(final SpreadsheetMetadataPropertyName<T> propertyName1,
-                                 final T propertyValue1,
-                                 final SpreadsheetMetadataPropertyName<T> propertyName2,
-                                 final T propertyValue2,
-                                 final AppContext context) {
+    final <T1, T2> void patchMetadata(final SpreadsheetMetadataPropertyName<T1> propertyName1,
+                                      final T1 propertyValue1,
+                                      final SpreadsheetMetadataPropertyName<T2> propertyName2,
+                                      final T2 propertyValue2,
+                                      final AppContext context) {
         context.spreadsheetMetadataFetcher()
                 .patchMetadata(
                         this.id(),
