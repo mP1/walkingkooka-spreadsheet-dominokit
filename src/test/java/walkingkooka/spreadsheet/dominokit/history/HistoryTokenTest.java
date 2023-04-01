@@ -939,10 +939,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreeze() {
+    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeInvalid() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/row/11/unfreeze",
-                SpreadsheetHistoryToken.rowUnfreeze(
+                SpreadsheetHistoryToken.row(
                         ID,
                         NAME,
                         ROW.setDefaultAnchor()
@@ -951,13 +951,49 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeExtra() {
+    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/unfreeze/extra",
+                "/123/SpreadsheetName456/row/1/unfreeze",
                 SpreadsheetHistoryToken.rowUnfreeze(
                         ID,
                         NAME,
-                        ROW.setDefaultAnchor()
+                        SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreezeInvalid() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/22:33/unfreeze",
+                SpreadsheetHistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/1/unfreeze",
+                SpreadsheetHistoryToken.rowUnfreeze(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeExtra() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/1/unfreeze/extra",
+                SpreadsheetHistoryToken.rowUnfreeze(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseRow("1").setDefaultAnchor()
                 )
         );
     }
