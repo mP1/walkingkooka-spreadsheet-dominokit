@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -98,6 +99,42 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         );
 
         pushSelectionHistoryToken(context);
+    }
+
+
+    final <T> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName1,
+                                                             final T propertyValue1,
+                                                             final SpreadsheetMetadataPropertyName<T> propertyName2,
+                                                             final T propertyValue2,
+                                                             final AppContext context) {
+        this.patchMetadata(
+                propertyName1,
+                propertyValue1,
+                propertyName2,
+                propertyValue2,
+                context
+        );
+
+        this.pushSelectionHistoryToken(context);
+    }
+
+    final <T> void patchMetadata(final SpreadsheetMetadataPropertyName<T> propertyName1,
+                                 final T propertyValue1,
+                                 final SpreadsheetMetadataPropertyName<T> propertyName2,
+                                 final T propertyValue2,
+                                 final AppContext context) {
+        context.spreadsheetMetadataFetcher()
+                .patchMetadata(
+                        this.id(),
+                        SpreadsheetMetadata.EMPTY
+                                .set(
+                                        propertyName1,
+                                        propertyValue1
+                                ).set(
+                                        propertyName2,
+                                        propertyValue2
+                                )
+                );
     }
 
     final <T> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
