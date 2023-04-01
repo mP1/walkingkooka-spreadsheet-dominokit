@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -78,7 +79,7 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
         );
     }
 
-    public Url url(final SpreadsheetId id) {
+    public RelativeUrl url(final SpreadsheetId id) {
         Objects.requireNonNull(id, "id");
 
         return Url.parseRelative("/api/spreadsheet/" + id);
