@@ -371,13 +371,13 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
         // gather visible columns and rows.
         for(final SpreadsheetCellRange window : this.windows) {
-            for(final SpreadsheetColumnReference column : window.columnReferenceRange()) {
+            for(final SpreadsheetColumnReference column : window.columnRange()) {
                 if(false == cache.isColumnHidden(column)) {
                     columns.add(column);
                 }
             }
 
-            for(final SpreadsheetRowReference row : window.rowReferenceRange()) {
+            for(final SpreadsheetRowReference row : window.rowRange()) {
                 if(false == cache.isRowHidden(row)) {
                     rows.add(row);
                 }
