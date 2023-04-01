@@ -57,13 +57,23 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
     public <T> void patchMetadata(final SpreadsheetId id,
                                   final SpreadsheetMetadataPropertyName<T> propertyName,
                                   final T propertyValue) {
+        this.patchMetadata(
+                id,
+                SpreadsheetMetadata.EMPTY.setOrRemove(
+                        propertyName,
+                        propertyValue
+                )
+        );
+    }
+
+    public <T> void patchMetadata(final SpreadsheetId id,
+                                  final SpreadsheetMetadata metadata) {
+        Objects.requireNonNull(metadata, "metadata");
+
         this.patch(
                 this.url(id),
                 this.toJson(
-                        SpreadsheetMetadata.EMPTY.setOrRemove(
-                                propertyName,
-                                propertyValue
-                        )
+                        metadata
                 )
         );
     }
