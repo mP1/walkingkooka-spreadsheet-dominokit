@@ -609,13 +609,52 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameColumnFreeze() {
+    public void testParseSpreadsheetIdSpreadsheetNameColumnFreezeInvalidRemoved() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/column/AA/freeze",
-                SpreadsheetHistoryToken.columnFreeze(
+                SpreadsheetHistoryToken.column(
                         ID,
                         NAME,
                         COLUMN.setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/A/freeze",
+                SpreadsheetHistoryToken.columnFreeze(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseColumn("A")
+                                .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeFreezeInvalidRemoved() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA:BB/freeze",
+                SpreadsheetHistoryToken.column(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseColumnRange("AA:BB")
+                                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeFreeze() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/A:B/freeze",
+                SpreadsheetHistoryToken.columnFreeze(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseColumnRange("A:B")
+                                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
                 )
         );
     }
