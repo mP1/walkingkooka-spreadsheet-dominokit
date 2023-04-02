@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.UrlPath;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -91,10 +92,12 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                                 UrlPath.parse("/clear")
                         )
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.urlQueryString(
+                        SpreadsheetDeltaFetcher.appendSelectionAndWindow(
                                 selection,
-                                context.viewportWindow()
-                        )),
+                                context.viewportWindow(),
+                                UrlQueryString.EMPTY
+                        )
+                ),
                 SpreadsheetDelta.EMPTY
         );
 
