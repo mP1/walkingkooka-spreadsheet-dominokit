@@ -313,11 +313,12 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
 
     private void fireOnHashChange(final HistoryToken token) {
-        this.debug(token + " onHashChange");
+        final HistoryToken previous = this.previousToken;
+        this.debug(token + " onHashChange previous " + previous);
 
         try {
             token.onHashChange(
-                    this.previousToken,
+                    previous,
                     this
             );
         } catch (final RuntimeException cause) {
