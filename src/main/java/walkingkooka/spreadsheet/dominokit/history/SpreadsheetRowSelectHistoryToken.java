@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken {
@@ -64,11 +63,11 @@ public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken
     @Override
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
-        // POST metadata with new row selection
-        context.spreadsheetMetadataFetcher().patchMetadata(
-                this.id(),
-                SpreadsheetMetadataPropertyName.SELECTION,
-                this.viewportSelection()
-        );
+        context.spreadsheetMetadataFetcher()
+                .patchSelectionIfDifferent(
+                        this.viewportSelection(),
+                        this.id(),
+                        previous
+                );
     }
 }
