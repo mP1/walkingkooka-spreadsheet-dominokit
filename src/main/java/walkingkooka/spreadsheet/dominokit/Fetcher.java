@@ -100,13 +100,16 @@ public interface Fetcher {
                 MediaType.APPLICATION_JSON.value()
         );
 
-        if (body.isPresent()) {
+        // always send content-type: application/json except for GETs
+        if (false == HttpMethod.GET.equals(method)) {
             headers.append(
                     HttpHeaderName.CONTENT_TYPE.value(),
                     MediaType.APPLICATION_JSON.value()
             );
 
-            requestInit.setBody(body.get());
+            if(body.isPresent()) {
+                requestInit.setBody(body.get());
+            }
         }
 
         requestInit.setHeaders(headers);
