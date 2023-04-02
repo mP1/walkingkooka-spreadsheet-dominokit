@@ -35,6 +35,127 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetDeltaFetcherTest implements Testing {
 
+    // appendSelection..................................................................................................
+
+    @Test
+    public void testAppendSelectionWithNullSelectionFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.appendSelection(
+                        null,
+                        UrlQueryString.EMPTY
+                )
+        );
+    }
+
+    @Test
+    public void testAppendSelectionWithNullQueryStringFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.appendSelection(
+                        SpreadsheetSelection.ALL_CELLS,
+                        null
+                )
+        );
+    }
+
+    @Test
+    public void testAppendSelectionCell() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.parseCell("B2"),
+                "selection=B2&selectionType=cell"
+        );
+    }
+
+    @Test
+    public void testAppendSelectionCellRange() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.parseCellRange("B2:B3"),
+                "selection=B2:B3&selectionType=cell-range"
+        );
+    }
+
+    @Test
+    public void testAppendSelectionColumn() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.parseColumn("B"),
+                "selection=B&selectionType=column"
+        );
+    }
+
+    @Test
+    public void testAppendSelectionColumnRange() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.parseColumnRange("B:C"),
+                "selection=B:C&selectionType=column-range"
+        );
+    }
+
+    @Test
+    public void testAppendSelectionRow() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.parseRow("2"),
+                "selection=2&selectionType=row"
+        );
+    }
+
+    @Test
+    public void testAppendSelectionRowRange() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.parseRowRange("2:3"),
+                "selection=2:3&selectionType=row-range"
+        );
+    }
+
+    @Test
+    public void testAppendSelectionLabel() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.labelName("Label123"),
+                "selection=Label123&selectionType=label"
+        );
+    }
+
+    @Test
+    public void testAppendSelectionLabel2() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.labelName("Label123"),
+                UrlQueryString.parse("a=1"),
+                UrlQueryString.parse("a=1&selection=Label123&selectionType=label")
+        );
+    }
+
+    private void appendSelectionAndCheck(final SpreadsheetSelection selection,
+                                         final String expected) {
+        this.appendSelectionAndCheck(
+                selection,
+                UrlQueryString.parse(expected)
+        );
+    }
+
+    private void appendSelectionAndCheck(final SpreadsheetSelection selection,
+                                         final UrlQueryString expected) {
+        this.appendSelectionAndCheck(
+                selection,
+                UrlQueryString.EMPTY,
+                expected
+        );
+    }
+
+    private void appendSelectionAndCheck(final SpreadsheetSelection selection,
+                                         final UrlQueryString initial,
+                                         final UrlQueryString expected) {
+        this.checkEquals(
+                expected,
+                SpreadsheetDeltaFetcher.appendSelection(
+                        selection,
+                        initial
+                ),
+                () -> "appendSelection " + selection + " " + initial
+        );
+    }
+
+    // urlQueryString...................................................................................................
+    
     @Test
     public void testUrlQueryWithNullSelectionFails() {
         assertThrows(

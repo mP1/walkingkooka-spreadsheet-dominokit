@@ -45,17 +45,12 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
      */
     public static UrlQueryString urlQueryString(final SpreadsheetSelection selection,
                                                 final Set<SpreadsheetCellRange> window) {
-        Objects.requireNonNull("window", "window");
-        Objects.requireNonNull(selection, "selection");
+        UrlQueryString queryString = appendSelection(
+                selection,
+                UrlQueryString.EMPTY
+        );
 
-        UrlQueryString queryString = UrlQueryString.EMPTY
-                .addParameter(
-                        SELECTION,
-                        selection.toString()
-                ).addParameter(
-                        SELECTION_TYPE,
-                        selection.selectionTypeName()
-                );
+        Objects.requireNonNull("window", "window");
 
         if (false == window.isEmpty()) {
             queryString = queryString.addParameter(
@@ -65,6 +60,23 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         }
 
         return queryString;
+    }
+
+    /**
+     * Appends the given {@link SpreadsheetSelection} to the given {@link UrlQueryString}
+     */
+    public static UrlQueryString appendSelection(final SpreadsheetSelection selection,
+                                                 final UrlQueryString queryString) {
+        Objects.requireNonNull(selection, "selection");
+        Objects.requireNonNull(queryString, "queryString");
+
+        return queryString.addParameter(
+                SELECTION,
+                selection.toString()
+        ).addParameter(
+                SELECTION_TYPE,
+                selection.selectionTypeName()
+        );
     }
 
     private final static UrlParameterName SELECTION = UrlParameterName.with("selection");
