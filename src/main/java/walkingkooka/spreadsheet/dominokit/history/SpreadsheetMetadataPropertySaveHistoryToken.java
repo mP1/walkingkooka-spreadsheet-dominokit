@@ -107,7 +107,8 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // PATCH metadata with property+value
     }
 }

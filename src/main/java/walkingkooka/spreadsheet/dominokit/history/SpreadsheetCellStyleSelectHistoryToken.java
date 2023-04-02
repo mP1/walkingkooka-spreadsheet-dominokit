@@ -80,7 +80,8 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // show style controls like BOLD icon etc
     }
 }

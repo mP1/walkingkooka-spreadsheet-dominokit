@@ -294,7 +294,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // do nothing.
     }
 }

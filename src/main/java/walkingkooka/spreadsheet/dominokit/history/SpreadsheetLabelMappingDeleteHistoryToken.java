@@ -80,7 +80,8 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // DELETE label mapping
     }
 }

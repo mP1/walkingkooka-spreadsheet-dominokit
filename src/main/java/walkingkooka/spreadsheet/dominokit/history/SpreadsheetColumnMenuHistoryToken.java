@@ -61,7 +61,8 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // show column context menu
     }
 }

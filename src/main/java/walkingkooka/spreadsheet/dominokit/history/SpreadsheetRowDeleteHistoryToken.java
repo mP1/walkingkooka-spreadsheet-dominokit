@@ -61,7 +61,8 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // invoke DELETE row
     }
 }

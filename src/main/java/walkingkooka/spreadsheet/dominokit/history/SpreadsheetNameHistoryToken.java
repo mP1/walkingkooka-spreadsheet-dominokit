@@ -202,7 +202,8 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
      * Hash changed, restore the id and metadata if necessary.
      */
     @Override
-    public final void onHashChange(final AppContext context) {
+    public final void onHashChange(final HistoryToken previous,
+                                   final AppContext context) {
         final SpreadsheetId id = this.id();
         if (false == id.equals(
                 context.spreadsheetMetadata()
@@ -219,13 +220,17 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                 context
         );
 
-        this.onHashChange0(context);
+        this.onHashChange0(
+                previous,
+                context
+        );
     }
 
     /**
      * Continues executing some action for this history token.
      */
-    abstract void onHashChange0(final AppContext context);
+    abstract void onHashChange0(final HistoryToken previous,
+                                final AppContext context);
 
     /**
      * The new metadata might have a different id or name, update the history token.
