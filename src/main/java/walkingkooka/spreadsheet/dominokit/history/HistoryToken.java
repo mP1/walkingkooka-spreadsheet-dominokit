@@ -41,10 +41,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Parses the given {@link UrlFragment} if matching fails a {@link UnknownHistoryToken} is returned.
      */
-    public static Optional<HistoryToken> parse(final UrlFragment fragment) {
+    public static HistoryToken parse(final UrlFragment fragment) {
         Objects.requireNonNull(fragment, "fragment");
 
-        HistoryToken token = null;
+        HistoryToken token;
 
         final TextCursor cursor = TextCursors.charSequence(fragment.value());
 
@@ -66,7 +66,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             token = UnknownHistoryToken.with(fragment);
         }
 
-        return Optional.ofNullable(token);
+        return token;
     }
 
     /**

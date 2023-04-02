@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.tree.text.TextStyle;
 
-import java.util.Optional;
 import java.util.Set;
 
 public class FakeAppContext implements AppContext {
@@ -63,7 +62,7 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public Optional<HistoryToken> historyToken() {
+    public HistoryToken historyToken() {
         throw new UnsupportedOperationException();
     }
 
