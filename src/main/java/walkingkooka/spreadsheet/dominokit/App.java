@@ -21,8 +21,6 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
-import elemental2.dom.History;
-import jsinterop.base.Js;
 import org.dominokit.domino.ui.layout.Layout;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.gwtproject.core.client.Scheduler;
@@ -339,11 +337,6 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
             DomGlobal.location.hash = newHash;
         }
     }
-
-    /**
-     * Maybe later switch to history#pushState
-     */
-    private final History history = Js.cast(DomGlobal.self.history);
 
     /**
      * Used to track if the history token actually changed. Changes will fire the HistoryToken#onChange method.
