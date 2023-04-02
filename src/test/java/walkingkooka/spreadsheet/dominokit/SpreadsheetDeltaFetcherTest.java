@@ -23,7 +23,6 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.Testing;
@@ -229,33 +228,11 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
-    // urlQueryString...................................................................................................
+    // appendSelectionAndWindow.........................................................................................
 
     @Test
-    public void testUrlQueryWithNullSelectionFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.urlQueryString(
-                        null,
-                        SpreadsheetDelta.NO_WINDOW
-                )
-        );
-    }
-
-    @Test
-    public void testUrlQueryWithNullWindowFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.urlQueryString(
-                        SpreadsheetSelection.ALL_CELLS,
-                        null
-                )
-        );
-    }
-
-    @Test
-    public void testUrlQueryStringCell() {
-        this.urlQueryStringAndCheck(
+    public void testAppendSelectionAndWindowCell() {
+        this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseCell("B2"),
                 "A1:C3",
                 "selection=B2&selectionType=cell&window=A1:C3"
@@ -263,8 +240,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testUrlQueryStringCellRange() {
-        this.urlQueryStringAndCheck(
+    public void testAppendSelectionAndWindowCellRange() {
+        this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseCellRange("B2:B3"),
                 "A1:C3",
                 "selection=B2:B3&selectionType=cell-range&window=A1:C3"
@@ -272,8 +249,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testUrlQueryStringColumn() {
-        this.urlQueryStringAndCheck(
+    public void testAppendSelectionAndWindowColumn() {
+        this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseColumn("B"),
                 "A1:C3",
                 "selection=B&selectionType=column&window=A1:C3"
@@ -281,8 +258,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testUrlQueryStringColumnRange() {
-        this.urlQueryStringAndCheck(
+    public void testAppendSelectionAndWindowColumnRange() {
+        this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseColumnRange("B:C"),
                 "A1:C3",
                 "selection=B:C&selectionType=column-range&window=A1:C3"
@@ -290,8 +267,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testUrlQueryStringRow() {
-        this.urlQueryStringAndCheck(
+    public void testAppendSelectionAndWindowRow() {
+        this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseRow("2"),
                 "A1:C3",
                 "selection=2&selectionType=row&window=A1:C3"
@@ -299,8 +276,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testUrlQueryStringRowRange() {
-        this.urlQueryStringAndCheck(
+    public void testAppendSelectionAndWindowRowRange() {
+        this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseRowRange("2:3"),
                 "A1:C3",
                 "selection=2:3&selectionType=row-range&window=A1:C3"
@@ -308,34 +285,59 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testUrlQueryStringLabel() {
-        this.urlQueryStringAndCheck(
+    public void testAppendSelectionAndWindowLabel() {
+        this.appendSelectionAndWindow(
                 SpreadsheetSelection.labelName("Label123"),
                 "A1:C3",
                 "selection=Label123&selectionType=label&window=A1:C3"
         );
     }
 
-    private void urlQueryStringAndCheck(final SpreadsheetSelection selection,
-                                        final String window,
-                                        final String expected) {
-        this.urlQueryStringAndCheck(
+    @Test
+    public void testAppendSelectionAndWindowLabel2() {
+        this.appendSelectionAndWindow(
+                SpreadsheetSelection.labelName("Label123"),
+                "A1:C3",
+                "a1",
+                "a1&selection=Label123&selectionType=label&window=A1:C3"
+        );
+    }
+
+    private void appendSelectionAndWindow(final SpreadsheetSelection selection,
+                                          final String window,
+                                          final String expected) {
+        this.appendSelectionAndWindow(
+                selection,
+                window,
+                "",
+                expected
+        );
+    }
+
+    private void appendSelectionAndWindow(final SpreadsheetSelection selection,
+                                          final String window,
+                                          final String initial,
+                                          final String expected) {
+        this.appendSelectionAndWindow(
                 selection,
                 SpreadsheetSelection.parseWindow(window),
+                UrlQueryString.parse(initial),
                 UrlQueryString.parse(expected)
         );
     }
 
-    private void urlQueryStringAndCheck(final SpreadsheetSelection selection,
-                                        final Set<SpreadsheetCellRange> window,
-                                        final UrlQueryString expected) {
+    private void appendSelectionAndWindow(final SpreadsheetSelection selection,
+                                          final Set<SpreadsheetCellRange> window,
+                                          final UrlQueryString initial,
+                                          final UrlQueryString expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetDeltaFetcher.urlQueryString(
+                SpreadsheetDeltaFetcher.appendSelectionAndWindow(
                         selection,
-                        window
+                        window,
+                        initial
                 ),
-                () -> "urlQueryString " + selection + " " + window
+                () -> initial + " appendSelectionAndWindow " + selection + " " + window
         );
     }
 

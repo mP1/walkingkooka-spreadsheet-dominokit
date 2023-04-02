@@ -43,21 +43,25 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
      * selectionType=cell
      * </pre>
      */
-    public static UrlQueryString urlQueryString(final SpreadsheetSelection selection,
-                                                final Set<SpreadsheetCellRange> window) {
-        UrlQueryString queryString = appendSelection(
-                selection,
-                UrlQueryString.EMPTY
-        );
-
+    public static UrlQueryString appendSelectionAndWindow(final SpreadsheetSelection selection,
+                                                          final Set<SpreadsheetCellRange> window,
+                                                          final UrlQueryString queryString) {
         return appendWindow(
                 window,
-                queryString
+                appendSelection(
+                        selection,
+                        queryString
+                )
         );
     }
 
     /**
      * Appends the given {@link SpreadsheetSelection} to the given {@link UrlQueryString}
+     * <pre>
+     * window=A1%3AP9&
+     * selection=B1&
+     * selectionType=cell
+     * </pre>
      */
     public static UrlQueryString appendSelection(final SpreadsheetSelection selection,
                                                  final UrlQueryString queryString) {
