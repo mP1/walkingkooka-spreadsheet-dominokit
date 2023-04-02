@@ -295,8 +295,6 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
             debug("App.onHashChange from " + previousToken + " to " + token);
 
             if (false == token.equals(previousToken)) {
-                this.previousToken = token;
-
                 this.pushAndFireOnHashChange(token);
             }
         } catch (final Exception e) {
@@ -322,6 +320,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         } catch (final RuntimeException cause) {
             this.error(cause);
         }
+        this.previousToken = token;
     }
 
     /**
@@ -341,7 +340,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     /**
      * Used to track if the history token actually changed. Changes will fire the HistoryToken#onChange method.
      */
-    private HistoryToken previousToken = null;
+    private HistoryToken previousToken = HistoryToken.unknown(UrlFragment.EMPTY);
 
     // Viewport.........................................................................................................
 
