@@ -50,16 +50,10 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                 UrlQueryString.EMPTY
         );
 
-        Objects.requireNonNull("window", "window");
-
-        if (false == window.isEmpty()) {
-            queryString = queryString.addParameter(
-                    WINDOW,
-                    SpreadsheetSelection.toStringWindow(window)
-            );
-        }
-
-        return queryString;
+        return appendWindow(
+                window,
+                queryString
+        );
     }
 
     /**
@@ -82,6 +76,22 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
     private final static UrlParameterName SELECTION = UrlParameterName.with("selection");
 
     private final static UrlParameterName SELECTION_TYPE = UrlParameterName.with("selectionType");
+
+    /**
+     * Appends the given window to the given {@link UrlQueryString}
+     */
+    public static UrlQueryString appendWindow(final Set<SpreadsheetCellRange> window,
+                                              final UrlQueryString queryString) {
+        Objects.requireNonNull(window, "window");
+        Objects.requireNonNull(queryString, "queryString");
+
+        return window.isEmpty() ?
+                queryString :
+                queryString.addParameter(
+                        WINDOW,
+                        SpreadsheetSelection.toStringWindow(window)
+                );
+    }
 
     private final static UrlParameterName WINDOW = UrlParameterName.with("window");
 

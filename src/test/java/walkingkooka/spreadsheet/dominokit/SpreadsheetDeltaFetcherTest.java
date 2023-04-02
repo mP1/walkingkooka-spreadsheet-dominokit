@@ -154,8 +154,83 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
+
+    // appendWindow..................................................................................................
+
+    @Test
+    public void testAppendWindowWithNullWindowFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.appendWindow(
+                        null,
+                        UrlQueryString.EMPTY
+                )
+        );
+    }
+
+    @Test
+    public void testAppendWindowWithNullQueryStringFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.appendWindow(
+                        SpreadsheetSelection.parseWindow(""),
+                        null
+                )
+        );
+    }
+
+    @Test
+    public void testAppendWindowEmpty() {
+        this.appendWindowAndCheck(
+                "",
+                "a=1",
+                "a=1"
+        );
+    }
+
+    @Test
+    public void testAppendWindowNotEmpty() {
+        this.appendWindowAndCheck(
+                "a1:b2",
+                "a=1",
+                "a=1&window=A1:B2"
+        );
+    }
+
+    @Test
+    public void testAppendWindowNotEmpty2() {
+        this.appendWindowAndCheck(
+                "a1:b2,c3:d4",
+                "a=1",
+                "a=1&window=A1:B2,C3:D4"
+        );
+    }
+
+    private void appendWindowAndCheck(final String window,
+                                      final String initial,
+                                      final String expected) {
+        this.appendWindowAndCheck(
+                SpreadsheetSelection.parseWindow(window),
+                UrlQueryString.parse(initial),
+                UrlQueryString.parse(expected)
+        );
+    }
+
+    private void appendWindowAndCheck(final Set<SpreadsheetCellRange> window,
+                                      final UrlQueryString initial,
+                                      final UrlQueryString expected) {
+        this.checkEquals(
+                expected,
+                SpreadsheetDeltaFetcher.appendWindow(
+                        window,
+                        initial
+                ),
+                () -> initial + " appendWindow " + window
+        );
+    }
+
     // urlQueryString...................................................................................................
-    
+
     @Test
     public void testUrlQueryWithNullSelectionFails() {
         assertThrows(
