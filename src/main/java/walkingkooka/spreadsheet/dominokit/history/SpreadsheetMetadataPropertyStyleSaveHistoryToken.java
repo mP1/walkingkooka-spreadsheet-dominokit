@@ -82,7 +82,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // PATCH metadata with style property+value
     }
 }

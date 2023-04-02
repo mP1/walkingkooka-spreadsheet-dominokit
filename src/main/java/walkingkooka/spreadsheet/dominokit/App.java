@@ -316,7 +316,10 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         this.debug(token + " onHashChange");
 
         try {
-            token.onHashChange(this);
+            token.onHashChange(
+                    this.previousToken,
+                    this
+            );
         } catch (final RuntimeException cause) {
             this.error(cause);
         }

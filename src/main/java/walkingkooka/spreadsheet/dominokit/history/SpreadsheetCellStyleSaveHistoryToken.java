@@ -83,7 +83,8 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // PATCH cell with style property
     }
 }

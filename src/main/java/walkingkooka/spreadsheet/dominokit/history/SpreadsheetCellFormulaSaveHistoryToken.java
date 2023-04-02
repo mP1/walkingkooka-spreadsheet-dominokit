@@ -83,7 +83,8 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // PATCH cell with new formula
     }
 }

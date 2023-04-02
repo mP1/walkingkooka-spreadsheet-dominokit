@@ -65,7 +65,8 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     }
 
     @Override
-    public void onHashChange(final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         context.createSpreadsheetMetadata();
     }
 

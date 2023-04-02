@@ -62,7 +62,8 @@ public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // POST metadata with new row selection
         context.spreadsheetMetadataFetcher().patchMetadata(
                 this.id(),

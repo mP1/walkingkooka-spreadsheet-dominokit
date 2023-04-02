@@ -134,7 +134,8 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Fired whenever a new history token change happens.
      */
-    abstract public void onHashChange(final AppContext context);
+    abstract public void onHashChange(final HistoryToken previous,
+                                      final AppContext context);
 
     // Object...........................................................................................................
 

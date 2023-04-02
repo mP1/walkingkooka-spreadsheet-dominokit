@@ -87,7 +87,8 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         context.spreadsheetMetadataFetcher().patchMetadata(
                 this.id(),
                 SpreadsheetMetadataPropertyName.SELECTION,

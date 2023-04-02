@@ -102,7 +102,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // show metadata edit UI
     }
 }

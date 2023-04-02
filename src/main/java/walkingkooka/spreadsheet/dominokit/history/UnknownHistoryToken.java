@@ -42,7 +42,8 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     @Override
-    public void onHashChange(final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // nop
     }
 

@@ -92,7 +92,8 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         final SpreadsheetSelection selection = this.viewportSelection()
                 .selection();
         this.patchMetadataAndPushSelectionHistoryToken(

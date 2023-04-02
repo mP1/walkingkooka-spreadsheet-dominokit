@@ -92,7 +92,8 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    void onHashChange0(final AppContext context) {
+    void onHashChange0(final HistoryToken previous,
+                       final AppContext context) {
         // PATCH metadata with new pattern
     }
 }
