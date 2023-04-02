@@ -57,7 +57,6 @@ public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHisto
         this.checkEquals(
                 token,
                 SpreadsheetHistoryToken.parse(fragment)
-                        .get()
         );
     }
 

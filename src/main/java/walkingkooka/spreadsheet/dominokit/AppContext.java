@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.tree.text.TextStyle;
 
-import java.util.Optional;
 import java.util.Set;
 
 public interface AppContext extends Context {
@@ -59,9 +58,9 @@ public interface AppContext extends Context {
     SpreadsheetMetadata spreadsheetMetadata();
 
     /**
-     * Parses the current history token.
+     * Returns the current history token.
      */
-    Optional<HistoryToken> historyToken();
+    HistoryToken historyToken();
 
     void pushHistoryToken(final HistoryToken token);
 

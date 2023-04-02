@@ -39,9 +39,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Optional;
-
-public final class HistoryTokenTest implements ClassTesting<HistoryToken>, ParseStringTesting<Optional<HistoryToken>> {
+public final class HistoryTokenTest implements ClassTesting<HistoryToken>, ParseStringTesting<HistoryToken> {
 
     private final static SpreadsheetId ID = SpreadsheetId.parse("123");
 
@@ -1351,14 +1349,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    private void parseStringAndCheck(final String urlFragment,
-                                     final HistoryToken expected) {
-        this.parseStringAndCheck(
-                urlFragment,
-                Optional.of(expected)
-        );
-    }
-
     // ClassTesting.....................................................................................................
 
     @Override
@@ -1374,7 +1364,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // ClassTesting.....................................................................................................
 
     @Override
-    public Optional<HistoryToken> parseString(final String urlFragment) {
+    public HistoryToken parseString(final String urlFragment) {
         return HistoryToken.parse(
                 UrlFragment.with(urlFragment)
         );

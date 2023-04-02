@@ -52,7 +52,6 @@ import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
@@ -181,15 +180,12 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         this.spreadsheetMetadata = metadata;
 
-        final Optional<HistoryToken> maybeToken = this.historyToken();
-        if (maybeToken.isPresent()) {
-            final HistoryToken token = maybeToken.get();
-            if (token instanceof SpreadsheetMetadataWatcher) {
-                this.fireSpreadsheetMetadata(
-                        metadata,
-                        (SpreadsheetMetadataWatcher) token
-                );
-            }
+        final HistoryToken token = this.historyToken();
+        if (token instanceof SpreadsheetMetadataWatcher) {
+            this.fireSpreadsheetMetadata(
+                    metadata,
+                    (SpreadsheetMetadataWatcher) token
+            );
         }
 
         for (final SpreadsheetMetadataWatcher watcher : this.metadataWatchers) {
@@ -279,13 +275,13 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     }
 
     private void fireInitialHashToken() {
-        final Optional<HistoryToken> token = this.historyToken();
-        this.debug("App.fireInitialHashToken " + token.orElse(null));
+        final HistoryToken token = this.historyToken();
+        this.debug("App.fireInitialHashToken " + token);
         this.onHashChange(token);
     }
 
     @Override
-    public Optional<HistoryToken> historyToken() {
+    public HistoryToken historyToken() {
         // remove the leading hash if necessary.
         String hash = DomGlobal.location.hash;
         if (hash.startsWith("#")) {
@@ -295,19 +291,15 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         return HistoryToken.parse(UrlFragment.parse(hash));
     }
 
-    private void onHashChange(final Optional<HistoryToken> token) {
+    private void onHashChange(final HistoryToken token) {
         try {
-            final Optional<HistoryToken> previousToken = this.previousToken;
-            debug("App.onHashChange from " + previousToken.orElse(null) + " to " + token.orElse(null));
+            final HistoryToken previousToken = this.previousToken;
+            debug("App.onHashChange from " + previousToken + " to " + token);
 
-            if (false == previousToken.equals(token)) {
+            if (false == token.equals(previousToken)) {
                 this.previousToken = token;
 
-                if (token.isPresent()) {
-                    this.pushAndFireOnHashChange(token.get());
-                } else {
-                    DomGlobal.location.hash = "";
-                }
+                this.pushAndFireOnHashChange(token);
             }
         } catch (final Exception e) {
             error(e.getMessage());
@@ -352,7 +344,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     /**
      * Used to track if the history token actually changed. Changes will fire the HistoryToken#onChange method.
      */
-    private Optional<HistoryToken> previousToken = Optional.empty();
+    private HistoryToken previousToken = null;
 
     // Viewport.........................................................................................................
 
