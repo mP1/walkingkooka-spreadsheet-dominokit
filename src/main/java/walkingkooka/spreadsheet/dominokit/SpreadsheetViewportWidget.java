@@ -220,10 +220,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
 
         final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
-        if(viewportSelection.isPresent()) {
-            queryString = SpreadsheetDeltaFetcher.appendSelection(
-                    viewportSelection.get()
-                            .selection(),
+        if (viewportSelection.isPresent()) {
+            queryString = SpreadsheetDeltaFetcher.appendViewportSelection(
+                    viewportSelection.get(),
                     queryString
             );
         }

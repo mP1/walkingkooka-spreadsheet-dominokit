@@ -28,6 +28,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -43,13 +45,13 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
      * selectionType=cell
      * </pre>
      */
-    public static UrlQueryString appendSelectionAndWindow(final SpreadsheetSelection selection,
-                                                          final Set<SpreadsheetCellRange> window,
-                                                          final UrlQueryString queryString) {
+    public static UrlQueryString appendViewportSelectionAndWindow(final SpreadsheetViewportSelection viewportSelection,
+                                                                  final Set<SpreadsheetCellRange> window,
+                                                                  final UrlQueryString queryString) {
         return appendWindow(
                 window,
-                appendSelection(
-                        selection,
+                appendViewportSelection(
+                        viewportSelection,
                         queryString
                 )
         );
@@ -63,23 +65,36 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
      * selectionType=cell
      * </pre>
      */
-    public static UrlQueryString appendSelection(final SpreadsheetSelection selection,
-                                                 final UrlQueryString queryString) {
-        Objects.requireNonNull(selection, "selection");
+    public static UrlQueryString appendViewportSelection(final SpreadsheetViewportSelection viewportSelection,
+                                                         final UrlQueryString queryString) {
+        Objects.requireNonNull(viewportSelection, "viewportSelection");
         Objects.requireNonNull(queryString, "queryString");
 
-        return queryString.addParameter(
+        final SpreadsheetSelection selection = viewportSelection.selection();
+
+        UrlQueryString result = queryString.addParameter(
                 SELECTION,
                 selection.toString()
         ).addParameter(
                 SELECTION_TYPE,
                 selection.selectionTypeName()
         );
+
+        final SpreadsheetViewportSelectionAnchor anchor = viewportSelection.anchor();
+
+        return SpreadsheetViewportSelectionAnchor.NONE == anchor ?
+                result :
+                result.addParameter(
+                        SELECTION_ANCHOR,
+                        viewportSelection.anchor().kebabText()
+                );
     }
 
     private final static UrlParameterName SELECTION = UrlParameterName.with("selection");
 
     private final static UrlParameterName SELECTION_TYPE = UrlParameterName.with("selectionType");
+
+    private final static UrlParameterName SELECTION_ANCHOR = UrlParameterName.with("selectionAnchor");
 
     /**
      * Appends the given window to the given {@link UrlQueryString}
