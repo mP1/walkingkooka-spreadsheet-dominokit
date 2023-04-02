@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 import java.util.Objects;
@@ -81,19 +80,20 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
      */
     final void deltaClear(AppContext context) {
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-        final SpreadsheetSelection selection = this.selection().viewportSelection().selection();
+        final SpreadsheetViewportSelection viewportSelection = this.selection()
+                .viewportSelection();
 
         // clear row
         fetcher.postDelta(
                 fetcher.url(
                         this.id(),
-                        selection,
+                        viewportSelection.selection(),
                         Optional.of(
                                 UrlPath.parse("/clear")
                         )
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.appendSelectionAndWindow(
-                                selection,
+                        SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
+                                viewportSelection,
                                 context.viewportWindow(),
                                 UrlQueryString.EMPTY
                         )

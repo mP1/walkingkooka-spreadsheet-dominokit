@@ -25,6 +25,7 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.test.Testing;
 
 import java.util.Optional;
@@ -40,7 +41,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionWithNullSelectionFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendSelection(
+                () -> SpreadsheetDeltaFetcher.appendViewportSelection(
                         null,
                         UrlQueryString.EMPTY
                 )
@@ -51,8 +52,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionWithNullQueryStringFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendSelection(
-                        SpreadsheetSelection.ALL_CELLS,
+                () -> SpreadsheetDeltaFetcher.appendViewportSelection(
+                        SpreadsheetSelection.ALL_CELLS.setDefaultAnchor(),
                         null
                 )
         );
@@ -62,6 +63,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionCell() {
         this.appendSelectionAndCheck(
                 SpreadsheetSelection.parseCell("B2"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "selection=B2&selectionType=cell"
         );
     }
@@ -70,7 +72,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionCellRange() {
         this.appendSelectionAndCheck(
                 SpreadsheetSelection.parseCellRange("B2:B3"),
-                "selection=B2:B3&selectionType=cell-range"
+                SpreadsheetViewportSelectionAnchor.TOP_RIGHT,
+                "selection=B2:B3&selectionType=cell-range&selectionAnchor=top-right"
         );
     }
 
@@ -78,6 +81,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionColumn() {
         this.appendSelectionAndCheck(
                 SpreadsheetSelection.parseColumn("B"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "selection=B&selectionType=column"
         );
     }
@@ -86,7 +90,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionColumnRange() {
         this.appendSelectionAndCheck(
                 SpreadsheetSelection.parseColumnRange("B:C"),
-                "selection=B:C&selectionType=column-range"
+                SpreadsheetViewportSelectionAnchor.LEFT,
+                "selection=B:C&selectionType=column-range&selectionAnchor=left"
         );
     }
 
@@ -94,6 +99,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionRow() {
         this.appendSelectionAndCheck(
                 SpreadsheetSelection.parseRow("2"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "selection=2&selectionType=row"
         );
     }
@@ -102,7 +108,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionRowRange() {
         this.appendSelectionAndCheck(
                 SpreadsheetSelection.parseRowRange("2:3"),
-                "selection=2:3&selectionType=row-range"
+                SpreadsheetViewportSelectionAnchor.TOP,
+                "selection=2:3&selectionType=row-range&selectionAnchor=top"
         );
     }
 
@@ -110,6 +117,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionLabel() {
         this.appendSelectionAndCheck(
                 SpreadsheetSelection.labelName("Label123"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "selection=Label123&selectionType=label"
         );
     }
@@ -118,38 +126,44 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionLabel2() {
         this.appendSelectionAndCheck(
                 SpreadsheetSelection.labelName("Label123"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 UrlQueryString.parse("a=1"),
                 UrlQueryString.parse("a=1&selection=Label123&selectionType=label")
         );
     }
 
     private void appendSelectionAndCheck(final SpreadsheetSelection selection,
+                                         final SpreadsheetViewportSelectionAnchor anchor,
                                          final String expected) {
         this.appendSelectionAndCheck(
                 selection,
+                anchor,
                 UrlQueryString.parse(expected)
         );
     }
 
     private void appendSelectionAndCheck(final SpreadsheetSelection selection,
+                                         final SpreadsheetViewportSelectionAnchor anchor,
                                          final UrlQueryString expected) {
         this.appendSelectionAndCheck(
                 selection,
+                anchor,
                 UrlQueryString.EMPTY,
                 expected
         );
     }
 
     private void appendSelectionAndCheck(final SpreadsheetSelection selection,
+                                         final SpreadsheetViewportSelectionAnchor anchor,
                                          final UrlQueryString initial,
                                          final UrlQueryString expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetDeltaFetcher.appendSelection(
-                        selection,
+                SpreadsheetDeltaFetcher.appendViewportSelection(
+                        selection.setAnchor(anchor),
                         initial
                 ),
-                () -> "appendSelection " + selection + " " + initial
+                () -> initial + " appendSelection " + selection + " " + anchor
         );
     }
 
@@ -234,6 +248,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionAndWindowCell() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseCell("B2"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "A1:C3",
                 "selection=B2&selectionType=cell&window=A1:C3"
         );
@@ -243,8 +258,9 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionAndWindowCellRange() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseCellRange("B2:B3"),
+                SpreadsheetViewportSelectionAnchor.TOP_LEFT,
                 "A1:C3",
-                "selection=B2:B3&selectionType=cell-range&window=A1:C3"
+                "selection=B2:B3&selectionType=cell-range&selectionAnchor=top-left&window=A1:C3"
         );
     }
 
@@ -252,6 +268,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionAndWindowColumn() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseColumn("B"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "A1:C3",
                 "selection=B&selectionType=column&window=A1:C3"
         );
@@ -261,8 +278,9 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionAndWindowColumnRange() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseColumnRange("B:C"),
+                SpreadsheetViewportSelectionAnchor.LEFT,
                 "A1:C3",
-                "selection=B:C&selectionType=column-range&window=A1:C3"
+                "selection=B:C&selectionType=column-range&selectionAnchor=left&window=A1:C3"
         );
     }
 
@@ -270,6 +288,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionAndWindowRow() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseRow("2"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "A1:C3",
                 "selection=2&selectionType=row&window=A1:C3"
         );
@@ -279,8 +298,9 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionAndWindowRowRange() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseRowRange("2:3"),
+                SpreadsheetViewportSelectionAnchor.TOP,
                 "A1:C3",
-                "selection=2:3&selectionType=row-range&window=A1:C3"
+                "selection=2:3&selectionType=row-range&selectionAnchor=top&window=A1:C3"
         );
     }
 
@@ -288,6 +308,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionAndWindowLabel() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.labelName("Label123"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "A1:C3",
                 "selection=Label123&selectionType=label&window=A1:C3"
         );
@@ -297,6 +318,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendSelectionAndWindowLabel2() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.labelName("Label123"),
+                SpreadsheetViewportSelectionAnchor.NONE,
                 "A1:C3",
                 "a1",
                 "a1&selection=Label123&selectionType=label&window=A1:C3"
@@ -304,10 +326,12 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendSelectionAndWindow(final SpreadsheetSelection selection,
+                                          final SpreadsheetViewportSelectionAnchor anchor,
                                           final String window,
                                           final String expected) {
         this.appendSelectionAndWindow(
                 selection,
+                anchor,
                 window,
                 "",
                 expected
@@ -315,11 +339,13 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendSelectionAndWindow(final SpreadsheetSelection selection,
+                                          final SpreadsheetViewportSelectionAnchor anchor,
                                           final String window,
                                           final String initial,
                                           final String expected) {
         this.appendSelectionAndWindow(
                 selection,
+                anchor,
                 SpreadsheetSelection.parseWindow(window),
                 UrlQueryString.parse(initial),
                 UrlQueryString.parse(expected)
@@ -327,17 +353,18 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendSelectionAndWindow(final SpreadsheetSelection selection,
+                                          final SpreadsheetViewportSelectionAnchor anchor,
                                           final Set<SpreadsheetCellRange> window,
                                           final UrlQueryString initial,
                                           final UrlQueryString expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetDeltaFetcher.appendSelectionAndWindow(
-                        selection,
+                SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
+                        selection.setAnchor(anchor),
                         window,
                         initial
                 ),
-                () -> initial + " appendSelectionAndWindow " + selection + " " + window
+                () -> initial + " appendSelectionAndWindow " + selection + " " + anchor + " " + window
         );
     }
 
