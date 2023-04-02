@@ -39,6 +39,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     private final static int MAX_LENGTH = 8192;
 
     /**
+     * {@see UnknownHistoryToken}
+     */
+    public static UnknownHistoryToken unknown(final UrlFragment fragment) {
+        return UnknownHistoryToken.with(fragment);
+    }
+
+    /**
      * Parses the given {@link UrlFragment} if matching fails a {@link UnknownHistoryToken} is returned.
      */
     public static HistoryToken parse(final UrlFragment fragment) {
