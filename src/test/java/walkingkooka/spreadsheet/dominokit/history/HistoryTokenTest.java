@@ -81,6 +81,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // parse............................................................................................................
 
     @Test
+    public void testParseUnknown() {
+        this.parseStringAndCheck("hello");
+    }
+
+    @Test
     public void testParseEmpty() {
         this.parseStringAndCheck(
                 "",
@@ -1340,7 +1345,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private void parseStringAndCheck(final String urlFragment) {
         this.parseStringAndCheck(
                 urlFragment,
-                Optional.empty()
+                UnknownHistoryToken.with(
+                        UrlFragment.parse(urlFragment)
+                )
         );
     }
 

@@ -38,6 +38,9 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     private final static int MAX_LENGTH = 8192;
 
+    /**
+     * Parses the given {@link UrlFragment} if matching fails a {@link UnknownHistoryToken} is returned.
+     */
     public static Optional<HistoryToken> parse(final UrlFragment fragment) {
         Objects.requireNonNull(fragment, "fragment");
 
@@ -54,13 +57,13 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 .parse(cursor);
                         break;
                     default:
-                        token = null;
+                        token = UnknownHistoryToken.with(fragment);
                 }
             } else {
                 token = SpreadsheetHistoryToken.spreadsheetCreate();
             }
         } catch (final RuntimeException ignore) {
-            token = null;
+            token = UnknownHistoryToken.with(fragment);
         }
 
         return Optional.ofNullable(token);
