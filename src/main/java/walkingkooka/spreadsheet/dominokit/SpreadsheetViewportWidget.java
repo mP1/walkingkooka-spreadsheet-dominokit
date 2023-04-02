@@ -213,6 +213,21 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         // load cells for the new window...
         //http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
 
+        UrlQueryString queryString = UrlQueryString.EMPTY
+                .addParameter(HOME, home.toString())
+                .addParameter(WIDTH, String.valueOf(width))
+                .addParameter(HEIGHT, String.valueOf(height))
+                .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
+
+        final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
+        if(viewportSelection.isPresent()) {
+            queryString = SpreadsheetDeltaFetcher.appendSelection(
+                    viewportSelection.get()
+                            .selection(),
+                    queryString
+            );
+        }
+
         this.context.spreadsheetDeltaFetcher()
                 .get(
                         Url.parseRelative(
@@ -220,13 +235,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                                         metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID) +
                                         "/cell/*/" +
                                         CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
-                        ).setQuery(
-                                UrlQueryString.EMPTY
-                                        .addParameter(HOME, home.toString())
-                                        .addParameter(WIDTH, String.valueOf(width))
-                                        .addParameter(HEIGHT, String.valueOf(height))
-                                        .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString())
-                        )
+                        ).setQuery(queryString)
                 );
     }
 
