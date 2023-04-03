@@ -18,10 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+
+import java.util.Optional;
 
 public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken {
 
@@ -64,5 +69,22 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
         // invoke DELETE row
+        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+        final SpreadsheetSelection selection = viewportSelection.selection();
+
+        fetcher.delete(
+                fetcher.url(
+                        this.id(),
+                        selection,
+                        Optional.empty()
+                ).setQuery(
+                        SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
+                                viewportSelection,
+                                context.viewportWindow(),
+                                UrlQueryString.EMPTY
+                        )
+                )
+        );
     }
 }
