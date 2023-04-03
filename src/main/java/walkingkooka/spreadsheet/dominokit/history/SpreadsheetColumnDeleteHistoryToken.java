@@ -63,6 +63,10 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
     @Override
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
-        // DELETE column
+        context.spreadsheetDeltaFetcher()
+                .deleteDelta(
+                        this.id(),
+                        this.viewportSelection()
+                );
     }
 }
