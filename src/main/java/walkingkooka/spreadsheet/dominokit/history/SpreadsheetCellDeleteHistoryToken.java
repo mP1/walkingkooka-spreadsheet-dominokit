@@ -79,6 +79,10 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     @Override
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
-        // DELETE cell
+        context.spreadsheetDeltaFetcher()
+                .deleteDelta(
+                        this.id(),
+                        this.viewportSelection()
+                );
     }
 }
