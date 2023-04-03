@@ -128,6 +128,31 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         this.context = context;
     }
 
+    /**
+     * DELETEs the given {@link SpreadsheetViewportSelection} such as a cell/column/row.
+     */
+    public void deleteDelta(final SpreadsheetId id,
+                            final SpreadsheetViewportSelection viewportSelection) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(viewportSelection, "viewportSelection");
+
+        final SpreadsheetSelection selection = viewportSelection.selection();
+
+        this.delete(
+                this.url(
+                        id,
+                        selection,
+                        Optional.empty()
+                ).setQuery(
+                        SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
+                                viewportSelection,
+                                this.context.viewportWindow(),
+                                UrlQueryString.EMPTY
+                        )
+                )
+        );
+    }
+
     public void patchDelta(final Url url,
                            final SpreadsheetDelta delta) {
         this.patch(
