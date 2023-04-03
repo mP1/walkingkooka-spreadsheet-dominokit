@@ -144,8 +144,7 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                         selection,
                         Optional.empty()
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
-                                viewportSelection,
+                        SpreadsheetDeltaFetcher.appendWindow(
                                 this.context.viewportWindow(),
                                 UrlQueryString.EMPTY
                         )
