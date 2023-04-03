@@ -89,6 +89,18 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
                 this.viewportSelection()
         );
     }
+
+    @Override
+    final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+        return selection.isColumnReference() &&
+                this.viewportSelection()
+                        .selection()
+                        .testColumn(selection.toColumn()) ?
+                this :
+                this.selection(selection)
+                        .menu();
+    }
+
     @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this; // TODO

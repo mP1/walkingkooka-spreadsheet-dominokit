@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -31,6 +32,23 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
 
     SpreadsheetLabelMappingHistoryTokenTestCase() {
         super();
+    }
+
+    // menu(Selection)..................................................................................................
+
+    @Test
+    public final void testMenuWithCell() {
+        this.menuWithCellAndCheck();
+    }
+
+    @Test
+    public final void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
+    }
+
+    @Test
+    public final void testMenuWithRow() {
+        this.menuWithRowAndCheck();
     }
 
     final void urlFragmentAndCheck(final SpreadsheetLabelName label,

@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSelectionHistoryToken {
@@ -64,6 +65,12 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     @Override
     final SpreadsheetNameHistoryToken menu() {
         return this;
+    }
+
+    @Override
+    final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+        return this.selection(selection)
+                .menu();
     }
 
     @Override

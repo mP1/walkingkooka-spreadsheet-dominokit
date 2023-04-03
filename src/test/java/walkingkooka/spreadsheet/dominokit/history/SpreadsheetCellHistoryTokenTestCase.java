@@ -70,7 +70,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 "Got 1:2 expected cell, cell-range or label"
         );
     }
-    
+
     @Test
     public final void testSelection() {
         final T token = this.createHistoryToken();
@@ -85,6 +85,19 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 selection
         );
     }
+
+    // menu with selection..............................................................................................
+
+    @Test
+    public final void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
+    }
+
+    @Test
+    public final void testMenuWithRow() {
+        this.menuWithRowAndCheck();
+    }
+
 
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,
                                    final String expected) {

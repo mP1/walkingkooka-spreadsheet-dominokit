@@ -111,4 +111,21 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                         .selection(selection)
         );
     }
+
+    // menu(Selection)..................................................................................................
+
+    @Test
+    public void testMenuWithCell() {
+        this.menuWithCellAndCheck();
+    }
+
+    @Test
+    public void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
+    }
+
+    @Test
+    public void testMenuWithRow() {
+        this.menuWithRowAndCheck();
+    }
 }

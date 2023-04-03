@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
@@ -24,6 +25,23 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
 
     SpreadsheetMetadataHistoryTokenTestCase() {
         super();
+    }
+
+    // menu(Selection)..................................................................................................
+
+    @Test
+    public final void testMenuWithCell() {
+        this.menuWithCellAndCheck();
+    }
+
+    @Test
+    public final void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
+    }
+
+    @Test
+    public final void testMenuWithRow() {
+        this.menuWithRowAndCheck();
     }
 
     abstract T createHistoryToken(final SpreadsheetId id,

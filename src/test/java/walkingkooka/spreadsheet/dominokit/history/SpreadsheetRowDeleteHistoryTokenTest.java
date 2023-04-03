@@ -41,6 +41,13 @@ public final class SpreadsheetRowDeleteHistoryTokenTest extends SpreadsheetRowHi
         );
     }
 
+    // menu(Selection)..................................................................................................
+
+    @Test
+    public void testMenuWithRow() {
+        this.menuWithRowAndCheck();
+    }
+
     @Override
     SpreadsheetRowDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
                                                         final SpreadsheetName name,

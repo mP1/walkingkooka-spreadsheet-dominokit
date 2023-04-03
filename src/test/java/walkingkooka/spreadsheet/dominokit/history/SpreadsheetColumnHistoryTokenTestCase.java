@@ -90,6 +90,18 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // menu(Selection)..................................................................................................
+
+    @Test
+    public final void testMenuWithCell() {
+        this.menuWithCellAndCheck();
+    }
+
+    @Test
+    public final void testMenuWithRow() {
+        this.menuWithRowAndCheck();
+    }
+
     final void urlFragmentAndCheck(final SpreadsheetColumnReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(

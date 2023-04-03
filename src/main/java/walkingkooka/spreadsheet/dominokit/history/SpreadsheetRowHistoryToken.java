@@ -91,6 +91,17 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     }
 
     @Override
+    final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+        return selection.isRowReference() &&
+                this.viewportSelection()
+                        .selection()
+                        .testRow(selection.toRow()) ?
+                this :
+                this.selection(selection)
+                        .menu();
+    }
+
+    @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this; // TODO
     }

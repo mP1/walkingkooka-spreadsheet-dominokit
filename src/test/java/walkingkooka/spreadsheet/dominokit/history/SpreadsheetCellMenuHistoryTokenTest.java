@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
@@ -43,6 +45,69 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
         this.urlFragmentAndCheck(
                 LABEL,
                 "/123/SpreadsheetName456/cell/Label123/menu"
+        );
+    }
+
+    // menu with selection..............................................................................................
+
+    @Test
+    public void testCellMenuWithSameCell() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("A1");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        cell.setDefaultAnchor()
+                ),
+                cell,
+                SpreadsheetHistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testCellMenuWithDifferentCell() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        SpreadsheetSelection.parseCell("A1").setDefaultAnchor()
+                ),
+                cell,
+                SpreadsheetHistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testCellRangeMenuWithCellInside() {
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        SpreadsheetSelection.parseCellRange("A1:C3").setDefaultAnchor()
+                ),
+                SpreadsheetSelection.parseCell("B2")
+        );
+    }
+
+    @Test
+    public void testCellRangeMenuWithCellOutside() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("Z99");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        SpreadsheetSelection.parseCellRange("B2:C4").setDefaultAnchor()
+                ),
+                cell,
+                SpreadsheetHistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell.setDefaultAnchor()
+                )
         );
     }
 

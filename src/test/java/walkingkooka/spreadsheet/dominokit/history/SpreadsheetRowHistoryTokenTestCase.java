@@ -90,6 +90,18 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // menu(Selection)..................................................................................................
+
+    @Test
+    public final void testMenuWithCell() {
+        this.menuWithCellAndCheck();
+    }
+
+    @Test
+    public final void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
+    }
+
     final void urlFragmentAndCheck(final SpreadsheetRowReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
