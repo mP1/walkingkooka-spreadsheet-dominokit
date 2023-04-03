@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 public abstract class SpreadsheetMetadataHistoryToken<T> extends SpreadsheetNameHistoryToken {
@@ -91,6 +92,12 @@ public abstract class SpreadsheetMetadataHistoryToken<T> extends SpreadsheetName
     @Override
     final SpreadsheetNameHistoryToken menu() {
         return this;
+    }
+
+    @Override
+    SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+        return this.selection(selection)
+                .menu();
     }
 
     @Override

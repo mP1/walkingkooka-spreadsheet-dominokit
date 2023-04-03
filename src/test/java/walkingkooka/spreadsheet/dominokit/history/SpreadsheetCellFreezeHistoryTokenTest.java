@@ -75,6 +75,13 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
         );
     }
 
+    // menu(Selection)..................................................................................................
+
+    @Test
+    public void testMenuWithCell() {
+        this.menuWithCellAndCheck();
+    }
+
     @Override
     SpreadsheetCellFreezeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name,

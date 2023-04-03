@@ -263,6 +263,12 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return this;
     }
 
+    @Override
+    SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+        return this.selection(selection)
+                .menu();
+    }
+
     // factory for /spreadsheet-id/spreadsheet-name/metadata/pattern/*
     @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {

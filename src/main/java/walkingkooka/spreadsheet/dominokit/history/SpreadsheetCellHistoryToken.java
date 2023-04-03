@@ -85,6 +85,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     }
 
     @Override
+    final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+        return (false == this instanceof SpreadsheetCellFormulaHistoryToken) &&
+                selection.isCellReference() &&
+                this.viewportSelection()
+                        .selection()
+                        .testCell(selection.toCell()) ?
+                this :
+                this.selection(selection)
+                        .menu();
+    }
+
+    @Override
     final SpreadsheetViewportSelectionHistoryToken selection0() {
         return cell(
                 this.id(),

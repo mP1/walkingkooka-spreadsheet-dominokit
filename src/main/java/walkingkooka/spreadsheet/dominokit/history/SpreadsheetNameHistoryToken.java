@@ -145,6 +145,21 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract SpreadsheetNameHistoryToken menu();
 
     /**
+     * Creates a menu {@link SpreadsheetNameHistoryToken} for the given {@link SpreadsheetSelection}.
+     */
+    final SpreadsheetNameHistoryToken menu(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        if(false == (selection.isCellReference() || selection.isColumnReference() || selection.isRowReference())) {
+            throw new IllegalArgumentException("Expected cell, column or row but got " + selection);
+        }
+
+        return this.menu0(selection);
+    }
+
+    abstract SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection);
+
+    /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.
      */
     abstract SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind);

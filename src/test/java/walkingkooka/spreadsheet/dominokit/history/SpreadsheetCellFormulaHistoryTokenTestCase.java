@@ -17,9 +17,54 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
 public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends SpreadsheetCellFormulaHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     SpreadsheetCellFormulaHistoryTokenTestCase() {
         super();
+    }
+
+    // menu with selection..............................................................................................
+
+    @Test
+    public final void testCellMenuWithSameCell() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("A1");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        cell.setDefaultAnchor()
+                ),
+                cell,
+                SpreadsheetHistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public final void testCellMenuWithDifferentCell() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        SpreadsheetSelection.parseCell("A1").setDefaultAnchor()
+                ),
+                cell,
+                SpreadsheetHistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testMenuWithCell() {
+        this.menuWithCellAndCheck();
     }
 }
