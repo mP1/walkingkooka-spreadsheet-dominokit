@@ -21,8 +21,14 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Optional;
 
 final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
 
@@ -86,5 +92,30 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
         // PATCH cell with style property
+        //
+        // {
+        //   "style": {
+        //     "text-align":"CENTER"
+        //   }
+        // }
+        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+
+        fetcher.patch(
+                fetcher.url(
+                        this.id(),
+                        this.viewportSelection()
+                                .selection(),
+                        Optional.empty() // no extra path
+                ),
+                fetcher.toJson(
+                        SpreadsheetMetadata.EMPTY.set(
+                                SpreadsheetMetadataPropertyName.STYLE,
+                                TextStyle.EMPTY.set(
+                                        this.propertyName(),
+                                        this.propertyValue()
+                                )
+                        )
+                )
+        );
     }
 }
