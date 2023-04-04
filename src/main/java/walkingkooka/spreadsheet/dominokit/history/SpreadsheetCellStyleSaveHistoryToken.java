@@ -91,6 +91,13 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     @Override
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
+        final TextStylePropertyName<T> propertyName = this.propertyName();
+
+        // clear the save from the history token.
+        context.pushHistoryToken(
+                this.style(propertyName)
+        );
+
         // PATCH cell with style property
         //
         // {
@@ -111,7 +118,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                         SpreadsheetMetadata.EMPTY.set(
                                 SpreadsheetMetadataPropertyName.STYLE,
                                 TextStyle.EMPTY.set(
-                                        this.propertyName(),
+                                        propertyName,
                                         this.propertyValue()
                                 )
                         )
