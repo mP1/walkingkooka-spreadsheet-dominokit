@@ -585,7 +585,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         final SpreadsheetViewportCache cache = this.cache;
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
-        TextStyle style = TextStyle.EMPTY;
+        TextStyle style = this.metadata.effectiveStyle();
         String innerHtml = "";
 
         if(maybeCell.isPresent()) {
@@ -596,7 +596,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
                 innerHtml = formatted.toHtml();
             }
-            style = cell.style();
+            style = cell.style()
+                    .merge(style);
         }
 
         style = style.merge(
