@@ -94,19 +94,26 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
         final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
 
-        final Set<SpreadsheetCellRange> windows = delta.window();
-        if (false == this.windows.equals(windows)) {
-            // no window clear caches
-            cells.clear();
+        final Set<SpreadsheetCellRange> previousWindow = this.windows;
+        Set<SpreadsheetCellRange> window = delta.window();
+        if(window.isEmpty()) {
+            window = previousWindow;
+        } else {
+            if (false == previousWindow.equals(window)) {
+                // no window clear caches
+                cells.clear();
 
-            cellToLabels.clear();
-            labelToNonLabel.clear();
+                cellToLabels.clear();
+                labelToNonLabel.clear();
 
-            columns.clear();
-            rows.clear();
+                columns.clear();
+                rows.clear();
 
-            columnWidths.clear();
-            rowHeights.clear();
+                columnWidths.clear();
+                rowHeights.clear();
+
+                this.windows = window;
+            }
         }
 
         for (final SpreadsheetCellReference cell : delta.deletedCells()) {
@@ -164,10 +171,8 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
                 delta.labels(),
                 cellToLabels,
                 labelToNonLabel,
-                windows
+                window
         );
-
-        this.windows = windows;
     }
 
     Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
