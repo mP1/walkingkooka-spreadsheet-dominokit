@@ -128,7 +128,6 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         this.cache.onSpreadsheetDelta(delta, context);
         this.setViewportSelection(delta.viewportSelection());
 
-        this.windows = delta.window();
         this.updateTable();
     }
 
@@ -378,7 +377,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         final Set<SpreadsheetRowReference> rows = Sets.sorted();
 
         // gather visible columns and rows.
-        for(final SpreadsheetCellRange window : this.windows) {
+        for(final SpreadsheetCellRange window : this.window()) {
             for(final SpreadsheetColumnReference column : window.columnRange()) {
                 if(false == cache.isColumnHidden(column)) {
                     columns.add(column);
@@ -681,9 +680,4 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      * Cache that holds all the cells, labels etc displayed by this widget.
      */
     private SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
-
-    /**
-     * The windows for this widget.
-     */
-    private Set<SpreadsheetCellRange> windows = Sets.empty();
 }

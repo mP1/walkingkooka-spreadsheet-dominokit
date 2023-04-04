@@ -694,19 +694,23 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 CONTEXT
         );
 
+        this.checkWindow(
+                cache,
+                WINDOW
+        );
+
+        // A1_CELL and LABEL_MAPPINGA1A not lost
+
         this.checkCells(
                 cache,
+                A1_CELL,
                 A2_CELL
         );
 
         this.checkCellToLabels(
                 cache,
+                LABEL_MAPPINGA1A,
                 LABEL_MAPPINGB3
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
