@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -109,6 +110,13 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     @Override
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
-        // PATCH metadata with property+value
+        context.spreadsheetMetadataFetcher()
+                .patchMetadata(
+                        this.id(),
+                        SpreadsheetMetadata.EMPTY.set(
+                                this.propertyName(),
+                                this.propertyValue()
+                        )
+                );
     }
 }
