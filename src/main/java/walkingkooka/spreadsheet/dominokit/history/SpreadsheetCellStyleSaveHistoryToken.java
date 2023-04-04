@@ -22,9 +22,10 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.tree.json.JsonNode;
+import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -114,15 +115,20 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                 .selection(),
                         Optional.empty() // no extra path
                 ),
-                fetcher.toJson(
-                        SpreadsheetMetadata.EMPTY.set(
-                                SpreadsheetMetadataPropertyName.STYLE,
-                                TextStyle.EMPTY.set(
-                                        propertyName,
-                                        this.propertyValue()
+                JsonNode.object()
+                        .set(
+                                JsonPropertyName.with(
+                                        SpreadsheetMetadataPropertyName.STYLE.value()
+                                ),
+                                JsonNode.parse(
+                                        fetcher.toJson(
+                                                TextStyle.EMPTY.set(
+                                                        propertyName,
+                                                        this.propertyValue()
+                                                )
+                                        )
                                 )
-                        )
-                )
+                        ).toString()
         );
     }
 }
