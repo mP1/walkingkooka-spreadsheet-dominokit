@@ -529,17 +529,31 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
      * Creates a {@link UrlFragment} with a save and value.
      */
     final UrlFragment saveUrlFragment(final Object value) {
+        return value instanceof Optional ?
+                this.saveUrlFragmentOptional((Optional<?>) value) :
+                this.saveUrlFragment0(value);
+    }
+
+    private UrlFragment saveUrlFragmentOptional(final Optional<?> value) {
+        return this.saveUrlFragment0(value.orElse(null));
+    }
+
+    private UrlFragment saveUrlFragment0(final Object value) {
         final UrlFragment urlFragment;
 
-        if (value instanceof HasUrlFragment) {
-            final HasUrlFragment has = (HasUrlFragment) value;
-            urlFragment = has.urlFragment();
+        if (null == value) {
+            urlFragment = UrlFragment.EMPTY;
         } else {
-            urlFragment = UrlFragment.with(
-                    String.valueOf(
-                            String.valueOf(value)
-                    )
-            );
+            if (value instanceof HasUrlFragment) {
+                final HasUrlFragment has = (HasUrlFragment) value;
+                urlFragment = has.urlFragment();
+            } else {
+                urlFragment = UrlFragment.with(
+                        String.valueOf(
+                                String.valueOf(value)
+                        )
+                );
+            }
         }
 
         return SAVE.append(urlFragment);

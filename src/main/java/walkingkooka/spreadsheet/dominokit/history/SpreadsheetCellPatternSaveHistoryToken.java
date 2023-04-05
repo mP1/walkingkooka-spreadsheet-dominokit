@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -75,10 +74,8 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
     @Override
     UrlFragment patternUrlFragment() {
-        return SAVE.append(
+        return this.saveUrlFragment(
                 this.pattern()
-                        .map(HasUrlFragment::urlFragment)
-                        .orElse(UrlFragment.EMPTY)
         );
     }
 
