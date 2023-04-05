@@ -29,6 +29,7 @@ import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
@@ -37,7 +38,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                                             final SpreadsheetName name,
                                                             final SpreadsheetViewportSelection viewportSelection,
                                                             final TextStylePropertyName<T> propertyName,
-                                                            final T propertyValue) {
+                                                            final Optional<T> propertyValue) {
         return new SpreadsheetCellStyleSaveHistoryToken<>(
                 id,
                 name,
@@ -51,21 +52,21 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                                  final SpreadsheetName name,
                                                  final SpreadsheetViewportSelection viewportSelection,
                                                  final TextStylePropertyName<T> propertyName,
-                                                 final T propertyValue) {
+                                                 final Optional<T> propertyValue) {
         super(
                 id,
                 name,
                 viewportSelection,
                 propertyName
         );
-        this.propertyValue = propertyValue;
+        this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
     }
 
-    public T propertyValue() {
+    public Optional<T> propertyValue() {
         return this.propertyValue;
     }
 
-    private final T propertyValue;
+    private final Optional<T> propertyValue;
 
     @Override
     UrlFragment styleUrlFragment() {
@@ -122,9 +123,9 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                 ),
                                 JsonNode.parse(
                                         fetcher.toJson(
-                                                TextStyle.EMPTY.set(
+                                                TextStyle.EMPTY.setOrRemove(
                                                         propertyName,
-                                                        this.propertyValue()
+                                                        this.propertyValue().orElse(null)
                                                 )
                                         )
                                 )

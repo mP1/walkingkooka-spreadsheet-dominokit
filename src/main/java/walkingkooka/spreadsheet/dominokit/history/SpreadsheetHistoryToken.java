@@ -209,7 +209,7 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
                                                                             final SpreadsheetName name,
                                                                             final SpreadsheetViewportSelection viewportSelection,
                                                                             final TextStylePropertyName<T> propertyName,
-                                                                            final T propertyValue) {
+                                                                            final Optional<T> propertyValue) {
         return SpreadsheetCellStyleSaveHistoryToken.with(
                 id,
                 name,
