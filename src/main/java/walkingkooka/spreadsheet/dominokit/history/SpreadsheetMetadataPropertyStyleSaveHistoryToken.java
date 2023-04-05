@@ -27,12 +27,15 @@ import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Objects;
+import java.util.Optional;
+
 public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T> {
 
     static <T> SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> with(final SpreadsheetId id,
                                                                         final SpreadsheetName name,
                                                                         final TextStylePropertyName<T> stylePropertyName,
-                                                                        final T stylePropertyValue) {
+                                                                        final Optional<T> stylePropertyValue) {
         return new SpreadsheetMetadataPropertyStyleSaveHistoryToken<>(
                 id,
                 name,
@@ -44,21 +47,21 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     private SpreadsheetMetadataPropertyStyleSaveHistoryToken(final SpreadsheetId id,
                                                              final SpreadsheetName name,
                                                              final TextStylePropertyName<T> stylePropertyName,
-                                                             final T stylePropertyValue) {
+                                                             final Optional<T> stylePropertyValue) {
         super(
                 id,
                 name,
                 stylePropertyName
         );
 
-        this.stylePropertyValue = stylePropertyValue;
+        this.stylePropertyValue = Objects.requireNonNull(stylePropertyValue, "stylePropertyValue");
     }
 
-    public T stylePropertyValue() {
+    public Optional<T> stylePropertyValue() {
         return this.stylePropertyValue;
     }
 
-    private final T stylePropertyValue;
+    private final Optional<T> stylePropertyValue;
 
     @Override
     UrlFragment styleUrlFragment() {
@@ -93,9 +96,9 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
                         this.id(),
                         SpreadsheetMetadata.EMPTY.set(
                                 SpreadsheetMetadataPropertyName.STYLE,
-                                TextStyle.EMPTY.set(
+                                TextStyle.EMPTY.setOrRemove(
                                         this.stylePropertyName(),
-                                        this.stylePropertyValue()
+                                        this.stylePropertyValue().orElse(null)
                                 )
                         )
                 );

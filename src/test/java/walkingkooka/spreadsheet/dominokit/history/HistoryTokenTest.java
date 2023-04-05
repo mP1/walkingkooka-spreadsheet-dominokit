@@ -1446,6 +1446,19 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameSaveWithoutValue() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/style/color/save/",
+                SpreadsheetHistoryToken.metadataPropertyStyleSave(
+                        ID,
+                        NAME,
+                        TextStylePropertyName.COLOR,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameSave() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/metadata/style/color/save/#123456",
@@ -1453,7 +1466,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         TextStylePropertyName.COLOR,
-                        Color.parse("#123456")
+                        Optional.of(
+                                Color.parse("#123456")
+                        )
                 )
         );
     }

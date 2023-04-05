@@ -26,6 +26,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<TextStyle> {
 
@@ -72,7 +73,11 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
                 this.id(),
                 this.name(),
                 propertyName,
-                propertyName.parseValue(value)
+                Optional.ofNullable(
+                        value.isEmpty() ?
+                                null :
+                                propertyName.parseValue(value)
+                )
         );
     }
 

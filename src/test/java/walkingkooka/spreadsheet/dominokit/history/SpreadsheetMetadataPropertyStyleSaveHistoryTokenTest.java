@@ -28,11 +28,41 @@ import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<SpreadsheetMetadataPropertyStyleSaveHistoryToken<Color>, Color> {
+
+    @Test
+    public void testWithNullValueFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        STYLE_PROPERTY_NAME,
+                        null
+                )
+        );
+    }
 
     @Test
     public void testUrlFragmentColor() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456/metadata/style/color/save/#123456");
+    }
+
+    @Test
+    public void testUrlFragmentFontFamilyWithoutValue() {
+        this.urlFragmentAndCheck(
+                SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        TextStylePropertyName.FONT_FAMILY,
+                        Optional.empty()
+                ),
+                "/123/SpreadsheetName456/metadata/style/font-family/save/"
+        );
     }
 
     @Test
@@ -42,7 +72,9 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_FAMILY,
-                        FontFamily.with("TimesNewRoman")
+                        Optional.of(
+                                FontFamily.with("TimesNewRoman")
+                        )
                 ),
                 "/123/SpreadsheetName456/metadata/style/font-family/save/TimesNewRoman"
         );
@@ -55,7 +87,9 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_STYLE,
-                        FontStyle.ITALIC
+                        Optional.of(
+                                FontStyle.ITALIC
+                        )
                 ),
                 "/123/SpreadsheetName456/metadata/style/font-style/save/ITALIC"
         );
@@ -69,7 +103,9 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                         ID,
                         NAME,
                         TextStylePropertyName.COLOR,
-                        Color.parse("#123456")
+                        Optional.of(
+                                Color.parse("#123456")
+                        )
                 )
         );
     }
@@ -82,7 +118,9 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                         ID,
                         NAME,
                         TextStylePropertyName.FONT_FAMILY,
-                        FontFamily.with("TimesNewRoman2")
+                        Optional.of(
+                                FontFamily.with("TimesNewRoman2")
+                        )
                 )
         );
     }
@@ -95,7 +133,9 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                 id,
                 name,
                 STYLE_PROPERTY_NAME,
-                PROPERTY_VALUE
+                Optional.of(
+                        PROPERTY_VALUE
+                )
         );
     }
 
