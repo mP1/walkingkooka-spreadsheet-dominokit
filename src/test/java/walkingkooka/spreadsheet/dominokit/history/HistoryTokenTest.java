@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -1357,6 +1358,103 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/label/Label123/style",
                 LABEL_MAPPING_HHT
+        );
+    }
+
+    // metadata.........................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadata() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata",
+                SpreadsheetHistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameInvalid() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/!invalid",
+                SpreadsheetHistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyName() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/decimal-separator",
+                SpreadsheetHistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSaveInvalid() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/decimal-separator/save/123",
+                SpreadsheetHistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSave() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/decimal-separator/save/.",
+                SpreadsheetHistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
+                        '.'
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameInvalid() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/style/!invalid",
+                SpreadsheetHistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyName() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/style/color",
+                SpreadsheetHistoryToken.metadataPropertyStyle(
+                        ID,
+                        NAME,
+                        TextStylePropertyName.COLOR
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameSave() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/style/color/save/#123456",
+                SpreadsheetHistoryToken.metadataPropertyStyleSave(
+                        ID,
+                        NAME,
+                        TextStylePropertyName.COLOR,
+                        Color.parse("#123456")
+                )
         );
     }
 
