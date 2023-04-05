@@ -20,25 +20,42 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+
+import java.util.Objects;
 
 abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellPatternHistoryToken(final SpreadsheetId id,
                                        final SpreadsheetName name,
-                                       final SpreadsheetViewportSelection viewportSelection) {
+                                       final SpreadsheetViewportSelection viewportSelection,
+                                        final SpreadsheetPatternKind patternKind) {
         super(
                 id,
                 name,
                 viewportSelection
         );
+
+        this.patternKind = Objects.requireNonNull(patternKind, "patternKind");
     }
+
+    public final SpreadsheetPatternKind patternKind() {
+        return this.patternKind;
+    }
+
+    private final SpreadsheetPatternKind patternKind;
 
     @Override
     UrlFragment cellUrlFragment() {
-        return this.patternUrlFragment();
+        return this.patternKind()
+                .urlFragment()
+                .append(this.patternUrlFragment());
     }
 
+    /**
+     * Sub-classes append the action and its related parameters.
+     */
     abstract UrlFragment patternUrlFragment();
 
     @Override

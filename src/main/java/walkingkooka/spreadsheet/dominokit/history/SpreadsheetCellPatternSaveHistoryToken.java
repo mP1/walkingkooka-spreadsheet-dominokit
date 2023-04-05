@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -25,18 +26,20 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-import java.util.Objects;
+import java.util.Optional;
 
 public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCellPatternHistoryToken {
 
     static SpreadsheetCellPatternSaveHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
                                                        final SpreadsheetViewportSelection viewportSelection,
-                                                       final SpreadsheetPattern pattern) {
+                                                       final SpreadsheetPatternKind patternKind,
+                                                       final Optional<SpreadsheetPattern> pattern) {
         return new SpreadsheetCellPatternSaveHistoryToken(
                 id,
                 name,
                 viewportSelection,
+                patternKind,
                 pattern
         );
     }
@@ -44,30 +47,39 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     private SpreadsheetCellPatternSaveHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
                                                    final SpreadsheetViewportSelection viewportSelection,
-                                                   final SpreadsheetPattern pattern) {
+                                                   final SpreadsheetPatternKind patternKind,
+                                                   final Optional<SpreadsheetPattern> pattern) {
         super(
                 id,
                 name,
-                viewportSelection
+                viewportSelection,
+                patternKind
         );
 
-        this.pattern = Objects.requireNonNull(pattern, "pattern");
+        if (pattern.isPresent()) {
+            final SpreadsheetPattern p = pattern.get();
+            final SpreadsheetPatternKind kind = p.kind();
+            if (patternKind != kind) {
+                throw new IllegalArgumentException("Pattern " + p + " is not a " + kind + ".");
+            }
+        }
+
+        this.pattern = pattern;
     }
 
-    public SpreadsheetPattern pattern() {
+    public Optional<SpreadsheetPattern> pattern() {
         return this.pattern;
     }
 
-    private final SpreadsheetPattern pattern;
+    private final Optional<SpreadsheetPattern> pattern;
 
     @Override
     UrlFragment patternUrlFragment() {
-        final SpreadsheetPattern pattern = this.pattern();
-
-        return pattern.kind()
-                .urlFragment()
-                .append(SAVE)
-                .append(pattern.urlFragment());
+        return SAVE.append(
+                this.pattern()
+                        .map(HasUrlFragment::urlFragment)
+                        .orElse(UrlFragment.EMPTY)
+        );
     }
 
     @Override
@@ -77,6 +89,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
                 id,
                 name,
                 this.viewportSelection(),
+                this.patternKind(),
                 this.pattern()
         );
     }

@@ -31,6 +31,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 /**
  * Instances represent a token within a history hash.
  */
@@ -174,11 +176,13 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
     public static SpreadsheetCellPatternSaveHistoryToken cellPatternSave(final SpreadsheetId id,
                                                                          final SpreadsheetName name,
                                                                          final SpreadsheetViewportSelection viewportSelection,
-                                                                         final SpreadsheetPattern pattern) {
+                                                                         final SpreadsheetPatternKind patternKind,
+                                                                         final Optional<SpreadsheetPattern> pattern) {
         return SpreadsheetCellPatternSaveHistoryToken.with(
                 id,
                 name,
                 viewportSelection,
+                patternKind,
                 pattern
         );
     }
