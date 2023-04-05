@@ -29,11 +29,39 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends SpreadsheetMetadataPropertyHistoryTokenTestCase<SpreadsheetMetadataPropertySaveHistoryToken<ExpressionNumberKind>, ExpressionNumberKind> {
+
+    @Test
+    public void testWithNullValueFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetMetadataPropertySaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.LOCALE,
+                        null
+                )
+        );
+    }
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456/metadata/expression-number-kind/save/BIG_DECIMAL");
+    }
+
+    @Test
+    public void testUrlFragmentDateFormatPatternNullValue() {
+        this.urlFragmentAndCheck(
+                SpreadsheetMetadataPropertySaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
+                        Optional.empty()
+                ),
+                "/123/SpreadsheetName456/metadata/pattern/date-format/save/"
+        );
     }
 
     @Test
@@ -43,7 +71,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
-                        SpreadsheetPattern.parseDateFormatPattern("yymmdd")
+                        Optional.of(
+                                SpreadsheetPattern.parseDateFormatPattern("yymmdd")
+                        )
                 ),
                 "/123/SpreadsheetName456/metadata/pattern/date-format/save/yymmdd"
         );
@@ -56,7 +86,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
-                        99
+                        Optional.of(
+                                99
+                        )
                 ),
                 "/123/SpreadsheetName456/metadata/default-year/save/99"
         );
@@ -70,7 +102,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
-                        SpreadsheetPattern.parseDateFormatPattern("yymmdd")
+                        Optional.of(
+                                SpreadsheetPattern.parseDateFormatPattern("yymmdd")
+                        )
                 )
         );
     }
@@ -83,7 +117,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
-                        49
+                        Optional.of(
+                                49
+                        )
                 )
         );
     }
@@ -146,7 +182,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 id,
                 name,
                 propertyName,
-                ExpressionNumberKind.BIG_DECIMAL
+                Optional.of(
+                        ExpressionNumberKind.BIG_DECIMAL
+                )
         );
     }
 

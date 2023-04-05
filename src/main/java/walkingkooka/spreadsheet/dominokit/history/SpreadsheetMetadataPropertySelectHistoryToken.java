@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T> {
 
     static <T> SpreadsheetMetadataPropertySelectHistoryToken<T> with(final SpreadsheetId id,
@@ -75,10 +77,14 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName();
 
         return SpreadsheetHistoryToken.metadataPropertySave(
-            this.id(),
+                this.id(),
                 this.name(),
                 propertyName,
-                propertyName.parseValue(value)
+                Optional.ofNullable(
+                        value.isEmpty() ?
+                                null :
+                                propertyName.parseValue(value)
+                )
         );
     }
 
