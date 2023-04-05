@@ -1410,6 +1410,19 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSaveWithoutValue() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/metadata/decimal-separator/save/",
+                SpreadsheetHistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSave() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/metadata/decimal-separator/save/.",
@@ -1417,7 +1430,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
-                        '.'
+                        Optional.of(
+                                '.'
+                        )
                 )
         );
     }

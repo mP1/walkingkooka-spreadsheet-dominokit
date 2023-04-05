@@ -368,7 +368,7 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
     public static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> metadataPropertySave(final SpreadsheetId id,
                                                                                           final SpreadsheetName name,
                                                                                           final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                          final T propertyValue) {
+                                                                                          final Optional<T> propertyValue) {
         return SpreadsheetMetadataPropertySaveHistoryToken.with(
                 id,
                 name,

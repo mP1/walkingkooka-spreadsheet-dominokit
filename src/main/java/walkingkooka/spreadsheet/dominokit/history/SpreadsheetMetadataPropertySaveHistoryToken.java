@@ -26,12 +26,15 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Objects;
+import java.util.Optional;
+
 public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T> {
 
     static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> with(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
                                                                    final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                   final T propertyValue) {
+                                                                   final Optional<T> propertyValue) {
         return new SpreadsheetMetadataPropertySaveHistoryToken<>(
                 id,
                 name,
@@ -43,21 +46,21 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     private SpreadsheetMetadataPropertySaveHistoryToken(final SpreadsheetId id,
                                                         final SpreadsheetName name,
                                                         final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                        final T propertyValue) {
+                                                        final Optional<T> propertyValue) {
         super(
                 id,
                 name,
                 propertyName
         );
 
-        this.propertyValue = propertyValue;
+        this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
     }
 
-    public T propertyValue() {
+    public Optional<T> propertyValue() {
         return this.propertyValue;
     }
 
-    private final T propertyValue;
+    private final Optional<T> propertyValue;
 
     @Override
     UrlFragment metadataPropertyUrlFragment() {
@@ -113,9 +116,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
         context.spreadsheetMetadataFetcher()
                 .patchMetadata(
                         this.id(),
-                        SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadata.EMPTY.setOrRemove(
                                 this.propertyName(),
-                                this.propertyValue()
+                                this.propertyValue().orElse(null)
                         )
                 );
     }
