@@ -27,6 +27,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends SpreadsheetMetadataPropertyHistoryTokenTestCase<SpreadsheetMetadataPropertySaveHistoryToken<ExpressionNumberKind>, ExpressionNumberKind> {
 
     @Test
@@ -100,14 +102,29 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     }
 
     @Test
-    public void testParseStyle() {
+    public void testParseStyleSaveWithoutValue() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/metadata/style/color/save/",
+                SpreadsheetHistoryToken.metadataPropertyStyleSave(
+                        ID,
+                        NAME,
+                        TextStylePropertyName.COLOR,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseStyleSaveValue() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style/color/save/#123456",
                 SpreadsheetHistoryToken.metadataPropertyStyleSave(
                         ID,
                         NAME,
                         TextStylePropertyName.COLOR,
-                        Color.parse("#123456")
+                        Optional.of(
+                                Color.parse("#123456")
+                        )
                 )
         );
     }
