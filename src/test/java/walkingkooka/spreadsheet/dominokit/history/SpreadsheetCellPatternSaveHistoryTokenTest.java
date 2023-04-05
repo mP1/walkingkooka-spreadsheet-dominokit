@@ -21,12 +21,52 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellPatternSaveHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternSaveHistoryToken> {
 
     private final static SpreadsheetPattern PATTERN = SpreadsheetPattern.parseDateFormatPattern("yyyy-mm-dd");
+
+    @Test
+    public void testWithNullPatternFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetCellPatternSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        PATTERN.kind(),
+                        null
+                )
+        );
+    }
+
+    @Test
+    public void testWithIncompatiblePatternKindAndPatternFails() {
+        final IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> SpreadsheetCellPatternSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
+                        Optional.of(
+                                PATTERN
+                        )
+                )
+        );
+
+        this.checkEquals(
+                "Pattern \"yyyy-mm-dd\" is not a DATE_FORMAT_PATTERN.",
+                thrown.getMessage()
+        );
+    }
 
     @Test
     public void testUrlFragmentCell() {
@@ -57,7 +97,8 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
                 id,
                 name,
                 viewportSelection,
-                PATTERN
+                PATTERN.kind(),
+                Optional.of(PATTERN)
         );
     }
 

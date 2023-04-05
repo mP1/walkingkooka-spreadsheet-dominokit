@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-import java.util.Objects;
+import java.util.Optional;
 
 public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetCellPatternHistoryToken {
 
@@ -47,23 +47,14 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
         super(
                 id,
                 name,
-                viewportSelection
+                viewportSelection,
+                patternKind
         );
-
-        this.patternKind = Objects.requireNonNull(patternKind, "patternKind");
     }
-
-    public SpreadsheetPatternKind patternKind() {
-        return this.patternKind;
-    }
-
-    private final SpreadsheetPatternKind patternKind;
 
     @Override
     UrlFragment patternUrlFragment() {
-        return this.patternKind()
-                .urlFragment()
-                .append(SELECT);
+        return SELECT;
     }
 
     @Override
@@ -90,7 +81,12 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                 this.id(),
                 this.name(),
                 this.viewportSelection(),
-                patternKind.parse(pattern)
+                patternKind,
+                Optional.ofNullable(
+                        pattern.isEmpty() ?
+                                null :
+                                patternKind.parse(pattern)
+                )
         );
     }
 

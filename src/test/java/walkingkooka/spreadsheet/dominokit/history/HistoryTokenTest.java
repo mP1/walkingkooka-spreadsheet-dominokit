@@ -39,6 +39,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public final class HistoryTokenTest implements ClassTesting<HistoryToken>, ParseStringTesting<HistoryToken> {
 
     private final static SpreadsheetId ID = SpreadsheetId.parse("123");
@@ -528,6 +530,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellPatternSaveEmptyDateFormat() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/pattern/date-format/save/",
+                SpreadsheetHistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellPatternSaveDateFormat() {
         final String pattern = "yyyymmdd";
 
@@ -537,7 +553,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetPattern.parseDateFormatPattern("yyyymmdd")
+                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
+                        Optional.of(
+                                SpreadsheetPattern.parseDateFormatPattern("yyyymmdd")
+                        )
                 )
         );
     }
@@ -552,7 +571,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetPattern.parseTimeParsePattern(pattern)
+                        SpreadsheetPatternKind.TIME_PARSE_PATTERN,
+                        Optional.of(
+                                SpreadsheetPattern.parseTimeParsePattern(pattern)
+                        )
                 )
         );
     }
