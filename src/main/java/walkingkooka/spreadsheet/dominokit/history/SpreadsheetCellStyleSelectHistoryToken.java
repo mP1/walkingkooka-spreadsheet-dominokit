@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 final public class SpreadsheetCellStyleSelectHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
 
     static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId id,
@@ -75,7 +77,11 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
                 this.name(),
                 this.viewportSelection(),
                 propertyName,
-                propertyName.parseValue(value)
+                Optional.ofNullable(
+                        value.isEmpty() ?
+                                null :
+                                propertyName.parseValue(value)
+                )
         );
     }
 

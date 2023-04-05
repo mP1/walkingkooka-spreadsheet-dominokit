@@ -612,6 +612,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellStyleSavWithoutValue() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/style/color/save/",
+                SpreadsheetHistoryToken.cellStyleSave(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        TextStylePropertyName.COLOR,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellStyleSave() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/style/color/save/#123456",
@@ -620,7 +634,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         NAME,
                         CELL.setDefaultAnchor(),
                         TextStylePropertyName.COLOR,
-                        Color.parse("#123456")
+                        Optional.of(
+                                Color.parse("#123456")
+                        )
                 )
         );
     }

@@ -29,7 +29,25 @@ import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetCellStyleHistoryTokenTestCase<SpreadsheetCellStyleSaveHistoryToken<Color>> {
+
+    @Test
+    public void testWithNullPropertyValueFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetCellStyleSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        TextStylePropertyName.COLOR,
+                        null
+                )
+        );
+    }
 
     @Test
     public void testUrlFragmentCell() {
@@ -97,7 +115,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                         NAME,
                         SpreadsheetSelection.parseCell("A1").setDefaultAnchor(),
                         propertyName,
-                        propertyValue
+                        Optional.of(propertyValue)
                 ),
                 urlFragment
         );
@@ -113,7 +131,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                         NAME,
                         SpreadsheetSelection.parseCell("A1").setDefaultAnchor(),
                         propertyName,
-                        propertyValue
+                        Optional.of(propertyValue)
                 )
         );
     }
@@ -128,7 +146,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                 name,
                 viewportSelection,
                 propertyName,
-                PROPERTY_VALUE
+                Optional.of(PROPERTY_VALUE)
         );
     }
 
