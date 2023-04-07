@@ -32,7 +32,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
                                                               final SpreadsheetName name,
                                                               final SpreadsheetViewportSelection viewportSelection,
                                                               final TextStylePropertyName<T> propertyName) {
-        return new SpreadsheetCellStyleSelectHistoryToken(
+        return new SpreadsheetCellStyleSelectHistoryToken<>(
                 id,
                 name,
                 viewportSelection,
@@ -60,7 +60,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     @Override
     SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
                                                  final SpreadsheetName name) {
-        return new SpreadsheetCellStyleSelectHistoryToken(
+        return new SpreadsheetCellStyleSelectHistoryToken<>(
                 id,
                 name,
                 this.viewportSelection(),

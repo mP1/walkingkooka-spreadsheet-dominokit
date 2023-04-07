@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 
-public abstract class SpreadsheetMetadataHistoryToken<T> extends SpreadsheetNameHistoryToken {
+public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetMetadataHistoryToken(final SpreadsheetId id,
                                     final SpreadsheetName name) {

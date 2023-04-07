@@ -22,10 +22,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.JsonPropertyName;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -76,7 +75,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     @Override
     SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
                                                  final SpreadsheetName name) {
-        return new SpreadsheetCellStyleSaveHistoryToken(
+        return new SpreadsheetCellStyleSaveHistoryToken<>(
                 id,
                 name,
                 this.viewportSelection(),
@@ -100,13 +99,6 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                 this.style(propertyName)
         );
 
-        // PATCH cell with style property
-        //
-        // {
-        //   "style": {
-        //     "text-align":"CENTER"
-        //   }
-        // }
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
 
         fetcher.patch(
@@ -116,20 +108,13 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                 .selection(),
                         Optional.empty() // no extra path
                 ),
-                JsonNode.object()
-                        .set(
-                                JsonPropertyName.with(
-                                        SpreadsheetMetadataPropertyName.STYLE.value()
-                                ),
-                                JsonNode.parse(
-                                        fetcher.toJson(
-                                                TextStyle.EMPTY.setOrRemove(
-                                                        propertyName,
-                                                        this.propertyValue().orElse(null)
-                                                )
-                                        )
-                                )
-                        ).toString()
+                SpreadsheetDelta.stylePatch(
+                        TextStyle.EMPTY.setOrRemove(
+                                propertyName,
+                                this.propertyValue().orElse(null)
+                        ),
+                        JsonNodeMarshallContexts.basic()
+                ).toString()
         );
     }
 }
