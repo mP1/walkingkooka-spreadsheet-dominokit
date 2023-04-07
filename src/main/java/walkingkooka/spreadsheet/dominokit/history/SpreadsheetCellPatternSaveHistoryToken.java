@@ -56,11 +56,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         );
 
         if (pattern.isPresent()) {
-            final SpreadsheetPattern p = pattern.get();
-            final SpreadsheetPatternKind kind = p.kind();
-            if (patternKind != kind) {
-                throw new IllegalArgumentException("Pattern " + p + " is not a " + kind + ".");
-            }
+            patternKind.check(pattern.get());
         }
 
         this.pattern = pattern;
