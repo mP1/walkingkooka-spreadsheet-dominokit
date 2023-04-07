@@ -21,9 +21,11 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 import java.util.Optional;
 
@@ -105,6 +107,27 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     @Override
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
-        // PATCH metadata with new pattern
+        final SpreadsheetPatternKind kind = this.patternKind();
+
+        // clear the save from the history token.
+        context.pushHistoryToken(
+                this.pattern(kind)
+        );
+
+        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+        final Optional<SpreadsheetPattern> pattern = this.pattern();
+
+        fetcher.patch(
+                fetcher.url(
+                        this.id(),
+                        this.viewportSelection()
+                                .selection(),
+                        Optional.empty() // no extra path
+                ),
+                kind.patternPatch(
+                        pattern.get(),
+                        JsonNodeMarshallContexts.basic()
+                ).toString()
+        );
     }
 }
