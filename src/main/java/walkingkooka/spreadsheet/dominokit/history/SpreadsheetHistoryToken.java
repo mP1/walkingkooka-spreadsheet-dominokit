@@ -352,9 +352,9 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
     /**
      * {@see SpreadsheetMetadataPropertySelectHistoryToken}
      */
-    public static SpreadsheetMetadataPropertySelectHistoryToken metadataPropertySelect(final SpreadsheetId id,
-                                                                                       final SpreadsheetName name,
-                                                                                       final SpreadsheetMetadataPropertyName<?> propertyName) {
+    public static <T> SpreadsheetMetadataPropertySelectHistoryToken<T> metadataPropertySelect(final SpreadsheetId id,
+                                                                                              final SpreadsheetName name,
+                                                                                              final SpreadsheetMetadataPropertyName<T> propertyName) {
         return SpreadsheetMetadataPropertySelectHistoryToken.with(
                 id,
                 name,
