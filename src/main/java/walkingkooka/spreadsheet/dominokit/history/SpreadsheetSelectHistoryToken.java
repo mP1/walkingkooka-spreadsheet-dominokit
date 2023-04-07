@@ -214,8 +214,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                         );
                         break;
                 }
-            } catch (final RuntimeException cause) {
-
+            } catch (final RuntimeException ignored) {
+                // ignored
             }
         }
 
