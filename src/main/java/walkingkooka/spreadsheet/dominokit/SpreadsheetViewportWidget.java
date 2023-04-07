@@ -667,7 +667,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         return this.tableElement.element();
     }
 
-    private HtmlContentBuilder<HTMLTableElement> tableElement;
+    private final HtmlContentBuilder<HTMLTableElement> tableElement;
 
     /**
      * Returns the window used by this viewport.
@@ -679,5 +679,5 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     /**
      * Cache that holds all the cells, labels etc displayed by this widget.
      */
-    private SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+    private final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 }
