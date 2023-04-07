@@ -57,7 +57,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
-        HistoryToken result = this;
+        final HistoryToken result;
 
         switch(component) {
             case "save":
