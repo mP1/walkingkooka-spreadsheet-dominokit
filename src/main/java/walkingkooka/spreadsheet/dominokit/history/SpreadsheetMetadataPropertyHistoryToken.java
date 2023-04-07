@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
 
-public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends SpreadsheetMetadataHistoryToken<T> {
+public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends SpreadsheetMetadataHistoryToken {
 
     SpreadsheetMetadataPropertyHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,

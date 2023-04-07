@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetMetadataHistoryTokenTest implements ClassTesting<SpreadsheetMetadataHistoryToken<?>> {
+public final class SpreadsheetMetadataHistoryTokenTest implements ClassTesting<SpreadsheetMetadataHistoryToken> {
 
     @Override
-    public Class<SpreadsheetMetadataHistoryToken<?>> type() {
-        return Cast.to(SpreadsheetMetadataHistoryToken.class);
+    public Class<SpreadsheetMetadataHistoryToken> type() {
+        return SpreadsheetMetadataHistoryToken.class;
     }
 
     @Override
