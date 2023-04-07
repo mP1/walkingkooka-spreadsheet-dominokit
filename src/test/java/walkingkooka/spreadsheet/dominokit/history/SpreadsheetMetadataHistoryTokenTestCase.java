@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
-public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends SpreadsheetMetadataHistoryToken<T>> extends SpreadsheetNameHistoryTokenTestCase<T> {
+public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends SpreadsheetMetadataHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
     SpreadsheetMetadataHistoryTokenTestCase() {
         super();
