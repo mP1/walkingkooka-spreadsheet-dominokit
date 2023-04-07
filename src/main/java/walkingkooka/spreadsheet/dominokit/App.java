@@ -330,7 +330,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
     public void pushHistoryToken(final HistoryToken token) {
         final String newHash = "#" + token.urlFragment();
         final String current = DomGlobal.location.hash;
-        if (current != newHash) {
+        if (false == current.equals(newHash)) {
             this.debug("pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + token);
 
             DomGlobal.location.hash = newHash;
