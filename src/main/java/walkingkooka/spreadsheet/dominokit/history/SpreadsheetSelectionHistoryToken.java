@@ -42,7 +42,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
-        HistoryToken result = this;
+        final HistoryToken result;
 
         switch(component) {
             case "clear":
