@@ -83,6 +83,15 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
+    SpreadsheetNameHistoryToken formulaHistoryToken() {
+        return SpreadsheetHistoryToken.formula(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
         // PATCH cell with new formula
