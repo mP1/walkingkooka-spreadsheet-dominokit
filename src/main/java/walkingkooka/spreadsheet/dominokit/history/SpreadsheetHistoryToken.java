@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -559,6 +560,17 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
         return SAVE.append(urlFragment);
     }
 
-    public abstract SpreadsheetHistoryToken setIdAndName(final SpreadsheetId id,
-                                                         final SpreadsheetName name);
+    public final SpreadsheetHistoryToken setIdAndName(final SpreadsheetId id,
+                                                      final SpreadsheetName name) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(name, "name");
+
+        return this.setIdAndName0(
+                id,
+                name
+        );
+    }
+
+    abstract SpreadsheetHistoryToken setIdAndName0(final SpreadsheetId id,
+                                                   final SpreadsheetName name);
 }

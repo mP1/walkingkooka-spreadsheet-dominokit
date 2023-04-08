@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -56,11 +55,8 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     }
 
     @Override
-    public SpreadsheetHistoryToken setIdAndName(final SpreadsheetId id,
-                                                final SpreadsheetName name) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(name, "name");
-
+    public SpreadsheetHistoryToken setIdAndName0(final SpreadsheetId id,
+                                                 final SpreadsheetName name) {
         return spreadsheetLoad(id);
     }
 
