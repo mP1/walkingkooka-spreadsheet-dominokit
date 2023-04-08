@@ -265,7 +265,7 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
     private void setupHistoryListener() {
         DomGlobal.self.addEventListener(
-                "hashchange",
+                EventType.hashchange.getName(),
                 event -> this.onHashChange(
                         this.historyToken()
                 )
