@@ -89,7 +89,12 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
     @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
-        return this;
+        return cellPattern(
+                this.id(),
+                this.name(),
+                this.viewportSelection(),
+                patternKind
+        );
     }
 
     @Override
