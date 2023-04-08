@@ -71,6 +71,10 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
         );
     }
 
+    @Override
+    SpreadsheetNameHistoryToken formulaHistoryToken() {
+        return this;
+    }
 
     @Override
     void onHashChange0(final HistoryToken previous,

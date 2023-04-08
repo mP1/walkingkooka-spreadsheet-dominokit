@@ -46,11 +46,6 @@ abstract public class SpreadsheetCellFormulaHistoryToken extends SpreadsheetCell
     abstract UrlFragment formulaUrlFragment();
 
     @Override
-    final SpreadsheetNameHistoryToken formulaHistoryToken() {
-        return this;
-    }
-
-    @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this; // ignore extra pattern
     }
