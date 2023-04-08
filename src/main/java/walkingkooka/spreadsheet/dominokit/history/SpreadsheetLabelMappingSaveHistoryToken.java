@@ -63,16 +63,6 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetLabelMappingSaveHistoryToken(
-                id,
-                name,
-                this.mapping
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken delete() {
         return this;
     }
@@ -83,8 +73,8 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // POST label mapping
     }
 }

@@ -52,16 +52,6 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetCellDeleteHistoryToken(
-                id,
-                name,
-                this.viewportSelection()
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken formulaHistoryToken() {
         return this;
     }
@@ -77,8 +67,8 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         context.spreadsheetDeltaFetcher()
                 .deleteDelta(
                         this.id(),

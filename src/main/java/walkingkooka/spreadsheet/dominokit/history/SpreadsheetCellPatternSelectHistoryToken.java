@@ -58,17 +58,6 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetCellPatternSelectHistoryToken(
-                id,
-                name,
-                this.viewportSelection(),
-                this.patternKind()
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
@@ -91,8 +80,8 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // show cell pattern edit UI
     }
 }

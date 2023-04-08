@@ -52,16 +52,6 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetCellSelectHistoryToken(
-                id,
-                name,
-                this.viewportSelection()
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken formulaHistoryToken() {
         return formula(
                 this.id(),
@@ -86,8 +76,8 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         context.spreadsheetMetadataFetcher()
                 .patchViewportSelectionIfDifferent(
                         this.viewportSelection(),

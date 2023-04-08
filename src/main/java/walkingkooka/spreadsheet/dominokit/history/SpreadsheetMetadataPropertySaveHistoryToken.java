@@ -90,17 +90,6 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetMetadataPropertySaveHistoryToken<>(
-                id,
-                name,
-                this.propertyName(),
-                this.propertyValue()
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken save(final String value) {
         return this;
     }
@@ -111,8 +100,8 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         context.spreadsheetMetadataFetcher()
                 .patchMetadata(
                         this.id(),

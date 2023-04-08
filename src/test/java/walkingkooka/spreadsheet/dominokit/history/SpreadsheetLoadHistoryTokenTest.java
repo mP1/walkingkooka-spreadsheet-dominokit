@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetLoadHistoryToken> {
 
@@ -31,9 +32,10 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     public void testSetIdDifferent() {
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 
-        this.setIdAndNameAndCheck(
+        this.setIdNameViewportSelectionAndCheck(
                 differentId,
                 NAME,
+                SpreadsheetSelection.ALL_CELLS.setDefaultAnchor(),
                 SpreadsheetHistoryToken.spreadsheetLoad(
                         differentId
                 )

@@ -77,19 +77,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetMetadataPropertyStyleSaveHistoryToken<>(
-                id,
-                name,
-                this.stylePropertyName(),
-                this.stylePropertyValue()
-        );
-    }
-
-    @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // PATCH metadata with style property+value
         context.spreadsheetMetadataFetcher()
                 .patchMetadata(

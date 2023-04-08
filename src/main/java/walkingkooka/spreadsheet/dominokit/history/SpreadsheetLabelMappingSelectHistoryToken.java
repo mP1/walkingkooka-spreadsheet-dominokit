@@ -61,16 +61,6 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetLabelMappingSelectHistoryToken(
-                id,
-                name,
-                this.labelName()
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken delete() {
         return labelMappingDelete(
                 this.id(),
@@ -91,8 +81,8 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // show label mapping UI
     }
 }

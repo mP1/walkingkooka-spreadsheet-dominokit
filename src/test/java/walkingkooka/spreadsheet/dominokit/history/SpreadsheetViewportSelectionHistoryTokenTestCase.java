@@ -17,16 +17,35 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends SpreadsheetViewportSelectionHistoryToken> extends SpreadsheetSelectionHistoryTokenTestCase<T> {
 
     SpreadsheetViewportSelectionHistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testSetIdNameViewportSameViewportSelection() {
+        final T token = this.createHistoryToken();
+        assertSame(
+                token,
+                token.setIdNameViewportSelection(
+                        token.id(),
+                        token.name(),
+                        Optional.of(
+                                token.viewportSelection()
+                        )
+                )
+        );
     }
 
     final void createHistoryTokenFails(final SpreadsheetViewportSelection viewportSelection,

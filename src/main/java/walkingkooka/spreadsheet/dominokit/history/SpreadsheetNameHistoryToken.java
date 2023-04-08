@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -60,27 +61,24 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract UrlFragment spreadsheetUrlFragment();
 
     @Override
-    final SpreadsheetHistoryToken setIdAndName0(final SpreadsheetId id,
-                                                final SpreadsheetName name) {
-        return this.id().equals(id) && this.name().equals(name) ?
-                this :
-                this.setDifferentIdOrName(
-                        id,
-                        name
-                );
-    }
+    abstract SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final SpreadsheetViewportSelection viewportSelection);
 
-    /**
-     * Sub classes should recreate themselves with the new {@link SpreadsheetName}.
-     */
-    abstract SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                          final SpreadsheetName name);
+    final SpreadsheetHistoryToken viewportSelectionHistoryToken(final SpreadsheetId id,
+                                                                final SpreadsheetName name,
+                                                                final SpreadsheetViewportSelection viewportSelection) {
+        return spreadsheetSelect(
+                id,
+                name
+        ).viewportSelectionHistoryToken(viewportSelection);
+    }
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} assuming the default {@link walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor anchor}
      * if necessary.
      */
-    public final SpreadsheetNameHistoryToken viewportSelection(final SpreadsheetViewportSelection viewportSelection) {
+    public final SpreadsheetNameHistoryToken viewportSelectionHistoryToken(final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
                 this,
                 viewportSelection
@@ -214,71 +212,42 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     /**
-     * Hash changed, restore the id and metadata if necessary.
-     */
-    @Override
-    public final void onHashChange(final HistoryToken previous,
-                                   final AppContext context) {
-        final SpreadsheetId id = this.id();
-        if (false == id.equals(
-                context.spreadsheetMetadata()
-                        .id()
-                        .orElse(null))
-        ) {
-            context.spreadsheetMetadataFetcher()
-                    .loadSpreadsheetMetadata(id);
-        }
-
-        this.pushHistoryTokenIdAndName(
-                id,
-                this.name(),
-                context
-        );
-
-        this.onHashChange0(
-                previous,
-                context
-        );
-    }
-
-    /**
-     * Continues executing some action for this history token.
-     */
-    abstract void onHashChange0(final HistoryToken previous,
-                                final AppContext context);
-
-    /**
      * The new metadata might have a different id or name, update the history token.
      */
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        this.pushHistoryTokenIdAndName(
+        this.pushHistoryTokenIdNameViewportSelection(
                 metadata.id(),
                 metadata.name(),
+                metadata.get(SpreadsheetMetadataPropertyName.SELECTION),
                 context
         );
     }
 
-    private void pushHistoryTokenIdAndName(final Optional<SpreadsheetId> id,
-                                           final Optional<SpreadsheetName> name,
-                                           final AppContext context) {
+    private void pushHistoryTokenIdNameViewportSelection(final Optional<SpreadsheetId> id,
+                                                         final Optional<SpreadsheetName> name,
+                                                         final Optional<SpreadsheetViewportSelection> viewportSelection,
+                                                         final AppContext context) {
         if (id.isPresent() && name.isPresent()) {
-            this.pushHistoryTokenIdAndName(
+            this.pushHistoryTokenIdNameViewportSelection(
                     id.get(),
                     name.get(),
+                    viewportSelection,
                     context
             );
         }
     }
 
-    private void pushHistoryTokenIdAndName(final SpreadsheetId id,
-                                           final SpreadsheetName name,
-                                           final AppContext context) {
+    private void pushHistoryTokenIdNameViewportSelection(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final Optional<SpreadsheetViewportSelection> viewportSelection,
+                                                         final AppContext context) {
         context.pushHistoryToken(
-                this.setIdAndName(
+                this.setIdNameViewportSelection(
                         id,
-                        name
+                        name,
+                        viewportSelection
                 )
         );
     }

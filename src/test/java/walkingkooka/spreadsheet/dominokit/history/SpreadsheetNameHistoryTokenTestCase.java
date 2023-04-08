@@ -24,6 +24,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -34,64 +37,82 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
-    public void testSetIdAndNameDifferentId() {
+    public final void testSetIdNameViewportSelectionWithDifferentId() {
         final T token = this.createHistoryToken();
 
         final SpreadsheetId differentId = SpreadsheetId.with(999);
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.A1.setDefaultAnchor();
 
-        final SpreadsheetNameHistoryToken different = (SpreadsheetNameHistoryToken) token.setIdAndName(
+        this.checkNotEquals(
                 differentId,
-                NAME
-        );
-
-        this.checkEquals(
-                differentId,
-                different.id(),
+                token.id(),
                 "id"
         );
 
         this.checkEquals(
                 NAME,
-                different.name(),
+                token.name(),
                 "name"
         );
 
-        this.setIdAndNameAndCheck(
-                different,
-                ID,
+        this.setIdNameViewportSelectionAndCheck(
+                differentId,
                 NAME,
-                token
+                Optional.of(viewportSelection),
+                SpreadsheetHistoryToken.cell(
+                        differentId,
+                        NAME,
+                        viewportSelection
+                )
         );
     }
 
     @Test
-    public void testSetIdAndNameDifferentName() {
+    public final void testSetIdNameViewportSelectionWithDifferentName() {
         final T token = this.createHistoryToken();
 
         final SpreadsheetName differentName = SpreadsheetName.with("different");
-
-        final SpreadsheetNameHistoryToken different = (SpreadsheetNameHistoryToken) token.setIdAndName(
-                ID,
-                differentName
-        );
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.A1.setDefaultAnchor();
 
         this.checkEquals(
                 ID,
-                different.id(),
+                token.id(),
                 "id"
         );
 
-        this.checkEquals(
+        this.checkNotEquals(
                 differentName,
-                different.name(),
+                token.name(),
                 "name"
         );
 
-        this.setIdAndNameAndCheck(
-                different,
+        this.setIdNameViewportSelectionAndCheck(
+                token,
+                ID,
+                differentName,
+                viewportSelection,
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        differentName,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public final void testSetIdNameViewportSelectionWithCell() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseCell("Z99")
+                .setDefaultAnchor();
+
+        this.setIdNameViewportSelectionAndCheck(
                 ID,
                 NAME,
-                token
+                viewportSelection,
+                SpreadsheetHistoryToken.cell(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
         );
     }
 

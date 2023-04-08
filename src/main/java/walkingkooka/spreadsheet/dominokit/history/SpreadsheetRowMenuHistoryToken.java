@@ -51,19 +51,8 @@ public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetRowMenuHistoryToken(
-                id,
-                name,
-                this.viewportSelection()
-        );
-    }
-
-
-    @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // open row menu here
     }
 }
