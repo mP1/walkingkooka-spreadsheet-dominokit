@@ -96,8 +96,9 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
     @Override
     SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
-        return this.selection(selection)
-                .menu();
+        return this.viewportSelection(
+                selection.setDefaultAnchor()
+        ).menu();
     }
 
     @Override

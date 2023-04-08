@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 import java.util.function.Function;
 
@@ -36,15 +37,20 @@ import java.util.function.Function;
 final class SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
 
     static SpreadsheetNameHistoryToken selectionToken(final SpreadsheetNameHistoryToken token,
-                                                      final SpreadsheetSelection selection) {
-        final SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(token);
-        visitor.accept(selection);
+                                                      final SpreadsheetViewportSelection viewportSelection) {
+        final SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(
+                token,
+                viewportSelection.anchor()
+        );
+        visitor.accept(viewportSelection.selection());
         return visitor.selectionToken;
     }
 
-    SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(final SpreadsheetNameHistoryToken token) {
+    SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(final SpreadsheetNameHistoryToken token,
+                                                                    final SpreadsheetViewportSelectionAnchor anchor) {
         super();
         this.token = token;
+        this.anchor = anchor;
     }
 
     @Override
@@ -108,11 +114,13 @@ final class SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor exte
     private void setSelectionToken(final SpreadsheetSelection selection,
                                    final Function<SpreadsheetViewportSelection, SpreadsheetNameHistoryToken> factory) {
         this.selectionToken = factory.apply(
-                selection.setDefaultAnchor()
+                selection.setAnchor(this.anchor)
         );
     }
 
     private SpreadsheetNameHistoryToken selectionToken;
+
+    private final SpreadsheetViewportSelectionAnchor anchor;
 
     @Override
     public String toString() {

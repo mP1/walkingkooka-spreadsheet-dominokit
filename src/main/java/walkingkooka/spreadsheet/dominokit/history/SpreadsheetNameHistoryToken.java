@@ -80,10 +80,10 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
      * Factory that creates a {@link SpreadsheetNameHistoryToken} assuming the default {@link walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor anchor}
      * if necessary.
      */
-    public final SpreadsheetNameHistoryToken selection(final SpreadsheetSelection selection) {
+    public final SpreadsheetNameHistoryToken viewportSelection(final SpreadsheetViewportSelection viewportSelection) {
         return SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
                 this,
-                selection
+                viewportSelection
         );
     }
 

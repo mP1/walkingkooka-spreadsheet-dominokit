@@ -567,7 +567,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      * Creates an ANCHOR including an ID and TEXT in upper case of the given {@link SpreadsheetSelection}.
      */
     private HTMLAnchorElement link(final SpreadsheetSelection selection) {
-        final SpreadsheetNameHistoryToken token = this.nameHistoryToken.selection(selection);
+        final SpreadsheetNameHistoryToken token = this.nameHistoryToken.viewportSelection(
+                selection.setDefaultAnchor()
+        );
 
         return Elements.a()
                 .id(id(selection) + "-link")
