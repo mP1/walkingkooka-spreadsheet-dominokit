@@ -55,9 +55,9 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
         );
     }
 
-    public void patchSelectionIfDifferent(final SpreadsheetViewportSelection viewportSelection,
-                                          final SpreadsheetId id,
-                                          final HistoryToken historyToken) {
+    public void patchViewportSelectionIfDifferent(final SpreadsheetViewportSelection viewportSelection,
+                                                  final SpreadsheetId id,
+                                                  final HistoryToken historyToken) {
         boolean patchRequired = true;
 
         if (historyToken instanceof SpreadsheetViewportSelectionHistoryToken) {

@@ -89,7 +89,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
         context.spreadsheetMetadataFetcher()
-                .patchSelectionIfDifferent(
+                .patchViewportSelectionIfDifferent(
                         this.viewportSelection(),
                         this.id(),
                         previous
