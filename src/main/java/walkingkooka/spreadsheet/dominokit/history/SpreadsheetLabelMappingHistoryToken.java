@@ -67,10 +67,10 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
-        return this.selection(selection)
-                .menu();
+    @Override final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+        return this.viewportSelection(
+                selection.setDefaultAnchor()
+        ).menu();
     }
 
     @Override

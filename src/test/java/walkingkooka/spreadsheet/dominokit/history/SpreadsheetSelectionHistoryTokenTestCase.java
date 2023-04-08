@@ -56,7 +56,9 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                         selection.setDefaultAnchor()
                 ),
                 this.createHistoryToken()
-                        .selection(selection)
+                        .viewportSelection(
+                                selection.setDefaultAnchor()
+                        )
         );
     }
 
@@ -82,7 +84,9 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                         selection.setDefaultAnchor()
                 ),
                 this.createHistoryToken()
-                        .selection(selection)
+                        .viewportSelection(
+                                selection.setDefaultAnchor()
+                        )
         );
     }
 
@@ -108,7 +112,9 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                         selection.setDefaultAnchor()
                 ),
                 this.createHistoryToken()
-                        .selection(selection)
+                        .viewportSelection(
+                                selection.setDefaultAnchor()
+                        )
         );
     }
 

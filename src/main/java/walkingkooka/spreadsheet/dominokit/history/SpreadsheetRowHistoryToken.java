@@ -97,8 +97,9 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
                         .selection()
                         .testRow(selection.toRow()) ?
                 this :
-                this.selection(selection)
-                        .menu();
+                this.viewportSelection(
+                        selection.setDefaultAnchor()
+                ).menu();
     }
 
     @Override

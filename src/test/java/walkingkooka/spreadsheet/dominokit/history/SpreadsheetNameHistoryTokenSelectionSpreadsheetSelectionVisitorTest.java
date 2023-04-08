@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitorTesting;
 public final class SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitorTest implements SpreadsheetSelectionVisitorTesting<SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor> {
     @Override
     public SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor createVisitor() {
-        return new SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(null);
+        return new SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(null, null);
     }
 
     @Override
