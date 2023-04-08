@@ -64,7 +64,7 @@ public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken
     void onHashChange0(final HistoryToken previous,
                        final AppContext context) {
         context.spreadsheetMetadataFetcher()
-                .patchSelectionIfDifferent(
+                .patchViewportSelectionIfDifferent(
                         this.viewportSelection(),
                         this.id(),
                         previous
