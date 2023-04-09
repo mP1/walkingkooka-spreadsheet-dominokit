@@ -85,9 +85,9 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
 
     abstract SpreadsheetViewportSelectionHistoryToken selection0();
 
-    final void deltaClearAndPushSelectionHistoryToken(final AppContext context) {
+    final void deltaClearAndPushViewportSelectionHistoryToken(final AppContext context) {
         this.deltaClear(context);
-        this.pushSelectionHistoryToken(context);
+        this.pushViewportSelectionHistoryToken(context);
     }
 
     /**
@@ -116,14 +116,14 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                 SpreadsheetDelta.EMPTY
         );
 
-        pushSelectionHistoryToken(context);
+        pushViewportSelectionHistoryToken(context);
     }
 
-    final <T1, T2> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T1> propertyName1,
-                                                                  final T1 propertyValue1,
-                                                                  final SpreadsheetMetadataPropertyName<T2> propertyName2,
-                                                                  final T2 propertyValue2,
-                                                                  final AppContext context) {
+    final <T1, T2> void patchMetadataAndPushViewportSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T1> propertyName1,
+                                                                          final T1 propertyValue1,
+                                                                          final SpreadsheetMetadataPropertyName<T2> propertyName2,
+                                                                          final T2 propertyValue2,
+                                                                          final AppContext context) {
         this.patchMetadata(
                 propertyName1,
                 propertyValue1,
@@ -132,7 +132,7 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                 context
         );
 
-        this.pushSelectionHistoryToken(context);
+        this.pushViewportSelectionHistoryToken(context);
     }
 
     final <T1, T2> void patchMetadata(final SpreadsheetMetadataPropertyName<T1> propertyName1,
@@ -154,16 +154,16 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                 );
     }
 
-    final <T> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                             final T propertyValue,
-                                                             final AppContext context) {
+    final <T> void patchMetadataAndPushViewportSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                     final T propertyValue,
+                                                                     final AppContext context) {
         this.patchMetadata(
                 propertyName,
                 propertyValue,
                 context
         );
 
-        this.pushSelectionHistoryToken(context);
+        this.pushViewportSelectionHistoryToken(context);
     }
 
     final <T> void patchMetadata(final SpreadsheetMetadataPropertyName<T> propertyName,
@@ -178,7 +178,7 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                 );
     }
 
-    final void pushSelectionHistoryToken(final AppContext context) {
+    final void pushViewportSelectionHistoryToken(final AppContext context) {
         context.pushHistoryToken(
                 this.selection()
         );

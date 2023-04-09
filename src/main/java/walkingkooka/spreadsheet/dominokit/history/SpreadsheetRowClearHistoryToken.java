@@ -53,6 +53,6 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
     @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
-        this.deltaClearAndPushSelectionHistoryToken(context);
+        this.deltaClearAndPushViewportSelectionHistoryToken(context);
     }
 }
