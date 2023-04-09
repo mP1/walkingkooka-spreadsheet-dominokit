@@ -67,16 +67,6 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetCellFreezeHistoryToken(
-                id,
-                name,
-                this.viewportSelection()
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken formulaHistoryToken() {
         return this;
     }
@@ -92,8 +82,8 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         final SpreadsheetSelection selection = this.viewportSelection()
                 .selection();
         this.patchMetadataAndPushSelectionHistoryToken(

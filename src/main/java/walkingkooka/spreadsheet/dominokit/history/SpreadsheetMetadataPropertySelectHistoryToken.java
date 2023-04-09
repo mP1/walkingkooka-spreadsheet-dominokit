@@ -98,18 +98,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetMetadataPropertySelectHistoryToken<>(
-                id,
-                name,
-                this.propertyName()
-        );
-    }
-
-    @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // show metadata edit UI
     }
 }

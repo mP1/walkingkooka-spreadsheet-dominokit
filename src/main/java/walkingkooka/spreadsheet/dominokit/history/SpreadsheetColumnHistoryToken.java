@@ -97,7 +97,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
                         .selection()
                         .testColumn(selection.toColumn()) ?
                 this :
-                this.viewportSelection(
+                this.viewportSelectionHistoryToken(
                             selection.setDefaultAnchor()
                         ).menu();
     }

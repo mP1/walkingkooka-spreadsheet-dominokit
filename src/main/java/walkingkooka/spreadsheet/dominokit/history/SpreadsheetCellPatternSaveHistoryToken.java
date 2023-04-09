@@ -78,18 +78,6 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetCellPatternSaveHistoryToken(
-                id,
-                name,
-                this.viewportSelection(),
-                this.patternKind(),
-                this.pattern()
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return cellPattern(
                 this.id(),
@@ -105,8 +93,8 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         final SpreadsheetPatternKind kind = this.patternKind();
 
         // clear the save from the history token.

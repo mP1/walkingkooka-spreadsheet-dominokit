@@ -51,18 +51,8 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetColumnDeleteHistoryToken(
-                id,
-                name,
-                this.viewportSelection()
-        );
-    }
-
-    @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         context.spreadsheetDeltaFetcher()
                 .deleteDelta(
                         this.id(),

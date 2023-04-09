@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Optional;
@@ -55,8 +56,10 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     }
 
     @Override
-    public SpreadsheetHistoryToken setIdAndName0(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
+    SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
+                                                        final SpreadsheetName name,
+                                                        final SpreadsheetViewportSelection viewportSelection) {
+        // shouldnt happen...
         return spreadsheetLoad(id);
     }
 

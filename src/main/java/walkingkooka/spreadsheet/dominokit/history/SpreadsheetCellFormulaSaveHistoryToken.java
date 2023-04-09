@@ -71,17 +71,6 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetCellFormulaSaveHistoryToken(
-                id,
-                name,
-                this.viewportSelection(),
-                this.formula()
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken save(final String value) {
         return this;
     }
@@ -96,8 +85,8 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // remove the save
         context.pushHistoryToken(
                 this.formulaHistoryToken()

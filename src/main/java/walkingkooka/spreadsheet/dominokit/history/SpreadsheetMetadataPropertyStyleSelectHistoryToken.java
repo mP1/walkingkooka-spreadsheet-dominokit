@@ -75,18 +75,8 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetMetadataPropertyStyleSelectHistoryToken<>(
-                id,
-                name,
-                this.stylePropertyName()
-        );
-    }
-
-    @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // show metadata style UI
     }
 }

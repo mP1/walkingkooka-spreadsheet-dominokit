@@ -47,15 +47,6 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetMetadataSelectHistoryToken(
-                id,
-                name
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken save(final String value) {
         return this;
     }
@@ -66,8 +57,8 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
         // show metadata UI
     }
 }

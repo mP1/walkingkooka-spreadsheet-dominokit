@@ -230,11 +230,13 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    SpreadsheetHistoryToken setDifferentIdOrName(final SpreadsheetId id,
-                                                 final SpreadsheetName name) {
-        return new SpreadsheetSelectHistoryToken(
+    SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
+                                                        final SpreadsheetName name,
+                                                        final SpreadsheetViewportSelection viewportSelection) {
+        return this.viewportSelectionHistoryToken(
                 id,
-                name
+                name,
+                viewportSelection
         );
     }
 
@@ -265,7 +267,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     @Override
     SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
-        return this.viewportSelection(
+        return this.viewportSelectionHistoryToken(
                 selection.setDefaultAnchor()
         ).menu();
     }
@@ -301,8 +303,11 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    void onHashChange0(final HistoryToken previous,
-                       final AppContext context) {
-        // do nothing.
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
+        context.spreadsheetMetadataFetcher()
+                .loadSpreadsheetMetadata(
+                        this.id()
+                );
     }
 }
