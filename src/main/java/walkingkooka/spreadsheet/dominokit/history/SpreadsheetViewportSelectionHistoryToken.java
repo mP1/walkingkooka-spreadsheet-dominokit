@@ -85,15 +85,15 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
 
     abstract SpreadsheetViewportSelectionHistoryToken selection0();
 
-    final void deltaClearAndPushViewportSelectionHistoryToken(final AppContext context) {
-        this.deltaClear(context);
+    final void deltaClearSelectionAndPushViewportSelectionHistoryToken(final AppContext context) {
+        this.deltaClearSelection(context);
         this.pushViewportSelectionHistoryToken(context);
     }
 
     /**
      * Invokes the server to clear the current selection.
      */
-    final void deltaClear(final AppContext context) {
+    final void deltaClearSelection(final AppContext context) {
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
         final SpreadsheetViewportSelection viewportSelection = this.selection()
                 .viewportSelection();

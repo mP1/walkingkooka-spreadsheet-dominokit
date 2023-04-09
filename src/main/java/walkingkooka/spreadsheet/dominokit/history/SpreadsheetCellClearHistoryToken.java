@@ -70,6 +70,6 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
         // POST cell clear
-        this.deltaClearAndPushViewportSelectionHistoryToken(context);
+        this.deltaClearSelectionAndPushViewportSelectionHistoryToken(context);
     }
 }
