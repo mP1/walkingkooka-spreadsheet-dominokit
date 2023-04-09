@@ -78,7 +78,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testSelection() {
         final T token = this.createHistoryToken();
-        final SpreadsheetViewportSelectionHistoryToken selection = token.selection();
+        final SpreadsheetViewportSelectionHistoryToken selection = token.viewportSelectionHistoryToken();
 
         this.checkEquals(
                 SpreadsheetHistoryToken.column(

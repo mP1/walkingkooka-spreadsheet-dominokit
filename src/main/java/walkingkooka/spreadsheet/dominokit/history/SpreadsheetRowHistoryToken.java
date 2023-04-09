@@ -108,7 +108,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     }
 
     @Override
-    final SpreadsheetViewportSelectionHistoryToken selection0() {
+    public final SpreadsheetViewportSelectionHistoryToken viewportSelectionHistoryToken() {
         return row(
                 this.id(),
                 this.name(),
