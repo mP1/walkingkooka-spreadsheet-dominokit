@@ -86,7 +86,7 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
                              final AppContext context) {
         final SpreadsheetSelection selection = this.viewportSelection()
                 .selection();
-        this.patchMetadataAndPushSelectionHistoryToken(
+        this.patchMetadataAndPushViewportSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
                 selection.toColumnRange(),
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,

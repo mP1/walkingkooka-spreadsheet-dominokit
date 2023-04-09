@@ -84,7 +84,7 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
     @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
-        this.patchMetadataAndPushSelectionHistoryToken(
+        this.patchMetadataAndPushViewportSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
                 null,
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,
