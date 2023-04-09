@@ -113,7 +113,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override
-    final SpreadsheetViewportSelectionHistoryToken selection0() {
+    public final SpreadsheetViewportSelectionHistoryToken viewportSelectionHistoryToken() {
         return column(
                 this.id(),
                 this.name(),
