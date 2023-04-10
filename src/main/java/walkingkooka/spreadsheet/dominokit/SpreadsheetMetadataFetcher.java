@@ -47,6 +47,16 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     /**
+     * Creates a new {@link SpreadsheetMetadata}.
+     */
+    public void createSpreadsheetMetadata() {
+        this.post(
+                Url.parseRelative("/api/spreadsheet"),
+                ""
+        );
+    }
+
+    /**
      * Loads an existing spreadsheet
      */
     public void loadSpreadsheetMetadata(final SpreadsheetId id) {

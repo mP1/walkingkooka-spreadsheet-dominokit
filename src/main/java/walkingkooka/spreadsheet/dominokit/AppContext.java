@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
-import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -40,17 +39,6 @@ public interface AppContext extends Context {
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 
     void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata);
-
-    /**
-     * Creates a new {@link SpreadsheetMetadata}.
-     */
-    default void createSpreadsheetMetadata() {
-        this.spreadsheetMetadataFetcher()
-                .post(
-                        Url.parseRelative("/api/spreadsheet"),
-                        ""
-                );
-    }
 
     /**
      * Returns the current or last loaded {@link SpreadsheetMetadata}.
