@@ -338,12 +338,24 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExce
     public HistoryToken historyToken() {
         // remove the leading hash if necessary.
         String hash = DomGlobal.location.hash;
-        if (hash.startsWith("#")) {
-            hash = hash.substring(1);
+        if (false == hash.equals(this.locationHash)) {
+            if (hash.startsWith("#")) {
+                hash = hash.substring(1);
+            }
+
+            this.locationHash = hash;
+            this.historyToken = HistoryToken.parse(UrlFragment.parse(hash));
         }
 
-        return HistoryToken.parse(UrlFragment.parse(hash));
+        return this.historyToken;
     }
+
+    /**
+     * The original window.location.hash used to produce the {@link #historyToken}.
+     */
+    private String locationHash;
+
+    private HistoryToken historyToken;
 
     // HistoryWatcher...................................................................................................
 
