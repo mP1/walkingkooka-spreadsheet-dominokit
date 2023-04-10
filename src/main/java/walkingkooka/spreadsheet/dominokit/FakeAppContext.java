@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
@@ -58,6 +59,11 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void addHistoryWatcher(final HistoryWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

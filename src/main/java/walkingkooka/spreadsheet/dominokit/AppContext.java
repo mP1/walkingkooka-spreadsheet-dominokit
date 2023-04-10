@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
@@ -27,6 +28,8 @@ import walkingkooka.tree.text.TextStyle;
 import java.util.Set;
 
 public interface AppContext extends Context {
+
+    void addHistoryWatcher(final HistoryWatcher watcher);
 
     void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
 
