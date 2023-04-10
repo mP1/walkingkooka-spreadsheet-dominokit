@@ -31,6 +31,7 @@ import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
@@ -54,7 +55,7 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 
 @LocaleAware
-public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
+public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExceptionHandler {
 
 
     public App() {
@@ -261,9 +262,17 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         }
     }
 
-    // history..........................................................................................................
+    // history eventListener............................................................................................
+
+    private void fireInitialHashToken() {
+        final HistoryToken token = this.historyToken();
+        this.debug("App.fireInitialHashToken " + token);
+        this.onHashChange(token);
+    }
 
     private void setupHistoryListener() {
+        this.addHistoryWatcher(this);
+
         DomGlobal.self.addEventListener(
                 EventType.hashchange.getName(),
                 event -> this.onHashChange(
@@ -272,56 +281,44 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
         );
     }
 
-    private void fireInitialHashToken() {
-        final HistoryToken token = this.historyToken();
-        this.debug("App.fireInitialHashToken " + token);
-        this.onHashChange(token);
-    }
-
-    @Override
-    public HistoryToken historyToken() {
-        // remove the leading hash if necessary.
-        String hash = DomGlobal.location.hash;
-        if (hash.startsWith("#")) {
-            hash = hash.substring(1);
-        }
-
-        return HistoryToken.parse(UrlFragment.parse(hash));
-    }
-
     private void onHashChange(final HistoryToken token) {
         try {
             final HistoryToken previousToken = this.previousToken;
             debug("App.onHashChange from " + previousToken + " to " + token);
 
             if (false == token.equals(previousToken)) {
-                this.pushAndFireOnHashChange(token);
+                this.fireOnHashChange(previousToken);
+                this.pushHistoryToken(token);
             }
+
         } catch (final Exception e) {
             error(e.getMessage());
         }
     }
 
-    private void pushAndFireOnHashChange(final HistoryToken token) {
-        this.pushHistoryToken(token);
-        this.fireOnHashChange(token);
-    }
-
-
     private void fireOnHashChange(final HistoryToken token) {
         final HistoryToken previous = this.previousToken;
-        this.debug(token + " onHashChange previous " + previous);
+        this.debug("App.fireOnHashChange from " + previous + " to " + token);
 
-        try {
-            token.onHashChange(
-                    previous,
-                    this
+        for (final HistoryWatcher watcher : this.historyWatchers) {
+            this.fireHistoryWatcher(
+                    token,
+                    watcher
             );
-        } catch (final RuntimeException cause) {
-            this.error(cause);
         }
+
         this.previousToken = token;
     }
+
+    private void fireHistoryWatcher(final HistoryToken token,
+                                    final HistoryWatcher watcher) {
+        this.callAndCatch(
+                token,
+                watcher::onHashChange
+        );
+    }
+
+    // AppContext history...............................................................................................
 
     /**
      * Pushes the given {@link HistoryToken} to the browser location#hash.
@@ -335,6 +332,38 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
             DomGlobal.location.hash = newHash;
         }
+    }
+
+    @Override
+    public HistoryToken historyToken() {
+        // remove the leading hash if necessary.
+        String hash = DomGlobal.location.hash;
+        if (hash.startsWith("#")) {
+            hash = hash.substring(1);
+        }
+
+        return HistoryToken.parse(UrlFragment.parse(hash));
+    }
+
+    // HistoryWatcher...................................................................................................
+
+    @Override
+    public void addHistoryWatcher(final HistoryWatcher watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        this.historyWatchers.add(watcher);
+    }
+
+    private final Set<HistoryWatcher> historyWatchers = Sets.ordered();
+
+    @Override
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
+        context.historyToken()
+                .onHashChange(
+                        previous,
+                        context
+                );
     }
 
     /**
@@ -429,9 +458,9 @@ public class App implements EntryPoint, AppContext, UncaughtExceptionHandler {
 
     private TextStyle viewportColumnRowHeader(final boolean selected) {
         return COLUMN_ROW_STYLE.set(
-                        TextStylePropertyName.BACKGROUND_COLOR,
-                        selected ? COLUMN_ROW_SELECTED : COLUMN_ROW_UNSELECTED
-                );
+                TextStylePropertyName.BACKGROUND_COLOR,
+                selected ? COLUMN_ROW_SELECTED : COLUMN_ROW_UNSELECTED
+        );
     }
 
     private final static TextStyle COLUMN_ROW_STYLE = TextStyle.EMPTY
