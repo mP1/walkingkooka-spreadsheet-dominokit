@@ -62,6 +62,24 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
     }
 
     /**
+     * Clearing all caches.
+     */
+    public void clear() {
+        this.cells.clear();
+
+        this.cellToLabels.clear();
+        this.labelToNonLabel.clear();
+
+        this.columns.clear();
+        this.rows.clear();
+
+        this.columnWidths.clear();
+        this.rowHeights.clear();
+
+        this.windows = Sets.empty();
+    }
+
+    /**
      * Captures the default width and height which will be used when rendering
      */
     @Override

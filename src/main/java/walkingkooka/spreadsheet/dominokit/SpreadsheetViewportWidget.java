@@ -198,6 +198,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      * Loads all the cells to fill the viewport. Assumes that a metadata with id is present.
      */
     private void loadViewportCells() {
+        this.cache.clear(); // equivalent to clearing all cached data.
+
         this.reload = false;
 
         final SpreadsheetMetadata metadata = this.metadata;
