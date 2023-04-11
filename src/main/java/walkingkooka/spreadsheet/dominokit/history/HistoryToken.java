@@ -613,6 +613,29 @@ public abstract class HistoryToken implements HasUrlFragment {
     abstract public void onHashChange(final HistoryToken previous,
                                       final AppContext context);
 
+    public final SpreadsheetHistoryToken idNameViewportSelection(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final Optional<SpreadsheetViewportSelection> viewportSelection) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(name, "name");
+        Objects.requireNonNull(viewportSelection, "viewportSelection");
+
+        return viewportSelection.isPresent() ?
+                this.idNameViewportSelection0(
+                        id,
+                        name,
+                        viewportSelection.get()
+                ) :
+                spreadsheetSelect(
+                        id,
+                        name
+                );
+    }
+
+    abstract SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
+                                                              final SpreadsheetName name,
+                                                              final SpreadsheetViewportSelection viewportSelection);
+
     // Object...........................................................................................................
 
     @Override
