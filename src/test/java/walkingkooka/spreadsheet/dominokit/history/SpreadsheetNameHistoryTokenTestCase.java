@@ -37,7 +37,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
-    public final void testSetIdNameViewportSelectionWithDifferentId() {
+    public final void testIdNameViewportSelectionWithDifferentId() {
         final T token = this.createHistoryToken();
 
         final SpreadsheetId differentId = SpreadsheetId.with(999);
@@ -55,7 +55,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 "name"
         );
 
-        this.setIdNameViewportSelectionAndCheck(
+        this.idNameViewportSelectionAndCheck(
                 differentId,
                 NAME,
                 Optional.of(viewportSelection),
@@ -68,7 +68,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
-    public final void testSetIdNameViewportSelectionWithDifferentName() {
+    public final void testIdNameViewportSelectionWithDifferentName() {
         final T token = this.createHistoryToken();
 
         final SpreadsheetName differentName = SpreadsheetName.with("different");
@@ -86,7 +86,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 "name"
         );
 
-        this.setIdNameViewportSelectionAndCheck(
+        this.idNameViewportSelectionAndCheck(
                 token,
                 ID,
                 differentName,
@@ -100,11 +100,11 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
-    public final void testSetIdNameViewportSelectionWithCell() {
+    public final void testIdNameViewportSelectionWithCell() {
         final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseCell("Z99")
                 .setDefaultAnchor();
 
-        this.setIdNameViewportSelectionAndCheck(
+        this.idNameViewportSelectionAndCheck(
                 ID,
                 NAME,
                 viewportSelection,

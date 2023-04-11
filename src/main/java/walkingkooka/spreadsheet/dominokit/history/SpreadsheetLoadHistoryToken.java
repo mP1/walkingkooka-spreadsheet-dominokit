@@ -53,9 +53,9 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override
-    SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final SpreadsheetViewportSelection viewportSelection) {
         return new SpreadsheetLoadHistoryToken(id); // dont care about the name, when loading a new id
     }
 

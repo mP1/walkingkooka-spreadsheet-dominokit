@@ -56,9 +56,9 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     }
 
     @Override
-    SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final SpreadsheetViewportSelection viewportSelection) {
         // shouldnt happen...
         return spreadsheetLoad(id);
     }

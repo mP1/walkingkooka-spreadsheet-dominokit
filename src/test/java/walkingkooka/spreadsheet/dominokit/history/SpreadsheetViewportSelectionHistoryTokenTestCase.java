@@ -34,11 +34,11 @@ public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends
     }
 
     @Test
-    public final void testSetIdNameViewportSameViewportSelection() {
+    public final void testIdNameViewportSelectionWithSame() {
         final T token = this.createHistoryToken();
         assertSame(
                 token,
-                token.setIdNameViewportSelection(
+                token.idNameViewportSelection(
                         token.id(),
                         token.name(),
                         Optional.of(

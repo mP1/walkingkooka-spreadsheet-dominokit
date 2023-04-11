@@ -230,9 +230,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final SpreadsheetViewportSelection viewportSelection) {
+    SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final SpreadsheetViewportSelection viewportSelection) {
         return this.viewportSelectionHistoryToken(
                 id,
                 name,
