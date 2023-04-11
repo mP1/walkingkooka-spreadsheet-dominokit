@@ -19,20 +19,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHistoryToken> extends HistoryTokenTestCase<T> {
-
-    final static SpreadsheetId ID = SpreadsheetId.with(0x123);
-
-    final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
 
     SpreadsheetHistoryTokenTestCase() {
         super();
@@ -61,105 +49,6 @@ public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHisto
         this.checkEquals(
                 token,
                 HistoryToken.parse(fragment)
-        );
-    }
-
-    // idNameViewportSelection.......................................................................................
-
-    @Test
-    public final void testIdNameViewportSelectionNullIdFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken().idNameViewportSelection(
-                        null,
-                        NAME,
-                        Optional.of(
-                                SpreadsheetSelection.A1.setDefaultAnchor()
-                        )
-                )
-        );
-    }
-
-    @Test
-    public final void testIdNameViewportSelectionNullNameFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken().idNameViewportSelection(
-                        ID,
-                        null,
-                        Optional.of(
-                                SpreadsheetSelection.A1.setDefaultAnchor()
-                        )
-                )
-        );
-    }
-
-    @Test
-    public final void testIdNameViewportSelectionNullViewportSelectionFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken().idNameViewportSelection(
-                        ID,
-                        NAME,
-                        null
-                )
-        );
-    }
-
-    final void idNameViewportSelectionAndCheck(final SpreadsheetId id,
-                                               final SpreadsheetName name,
-                                               final SpreadsheetViewportSelection viewportSelection,
-                                               final SpreadsheetHistoryToken expected) {
-        this.idNameViewportSelectionAndCheck(
-                id,
-                name,
-                Optional.of(viewportSelection),
-                expected
-        );
-    }
-
-    final void idNameViewportSelectionAndCheck(final SpreadsheetId id,
-                                               final SpreadsheetName name,
-                                               final Optional<SpreadsheetViewportSelection> viewportSelection,
-                                               final SpreadsheetHistoryToken expected) {
-        this.idNameViewportSelectionAndCheck(
-                this.createHistoryToken(),
-                id,
-                name,
-                viewportSelection,
-                expected
-        );
-    }
-
-    final void idNameViewportSelectionAndCheck(final SpreadsheetHistoryToken token,
-                                               final SpreadsheetId id,
-                                               final SpreadsheetName name,
-                                               final SpreadsheetViewportSelection viewportSelection,
-                                               final SpreadsheetHistoryToken expected) {
-        this.idNameViewportSelectionAndCheck(
-                token,
-                id,
-                name,
-                Optional.of(
-                        viewportSelection
-                ),
-                expected
-        );
-    }
-
-    final void idNameViewportSelectionAndCheck(final SpreadsheetHistoryToken token,
-                                               final SpreadsheetId id,
-                                               final SpreadsheetName name,
-                                               final Optional<SpreadsheetViewportSelection> viewportSelection,
-                                               final SpreadsheetHistoryToken expected) {
-        this.checkEquals(
-                expected,
-                token.idNameViewportSelection(
-                        id,
-                        name,
-                        viewportSelection
-                ),
-                () -> token + " idAndNameViewportSelection " + id + ", " + name + ", " + viewportSelection
         );
     }
 }
