@@ -77,7 +77,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         final SpreadsheetViewportSelectionHistoryToken selection = token.viewportSelectionHistoryToken();
 
         this.checkEquals(
-                SpreadsheetHistoryToken.cell(
+                HistoryToken.cell(
                         ID,
                         NAME,
                         VIEWPORT_SELECTION

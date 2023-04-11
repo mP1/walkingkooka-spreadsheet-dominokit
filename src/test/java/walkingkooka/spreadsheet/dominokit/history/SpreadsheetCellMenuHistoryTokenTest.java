@@ -59,7 +59,7 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
                         cell.setDefaultAnchor()
                 ),
                 cell,
-                SpreadsheetHistoryToken.cellMenu(
+                HistoryToken.cellMenu(
                         ID,
                         NAME,
                         cell.setDefaultAnchor()
@@ -76,7 +76,7 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
                         SpreadsheetSelection.parseCell("A1").setDefaultAnchor()
                 ),
                 cell,
-                SpreadsheetHistoryToken.cellMenu(
+                HistoryToken.cellMenu(
                         ID,
                         NAME,
                         cell.setDefaultAnchor()
@@ -103,7 +103,7 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
                         SpreadsheetSelection.parseCellRange("B2:C4").setDefaultAnchor()
                 ),
                 cell,
-                SpreadsheetHistoryToken.cellMenu(
+                HistoryToken.cellMenu(
                         ID,
                         NAME,
                         cell.setDefaultAnchor()

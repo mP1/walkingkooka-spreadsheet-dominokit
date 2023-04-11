@@ -83,7 +83,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     public void testParseSpreadsheetId() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/spreadsheet-id",
-                SpreadsheetHistoryToken.metadataPropertySelect(
+                HistoryToken.metadataPropertySelect(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID
@@ -95,7 +95,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     public void testParseStyle() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style",
-                SpreadsheetHistoryToken.spreadsheetSelect(
+                HistoryToken.spreadsheetSelect(
                         ID,
                         NAME
                 )

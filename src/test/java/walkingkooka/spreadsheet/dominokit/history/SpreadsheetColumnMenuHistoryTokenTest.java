@@ -53,7 +53,7 @@ public final class SpreadsheetColumnMenuHistoryTokenTest extends SpreadsheetColu
                         column.setDefaultAnchor()
                 ),
                 column,
-                SpreadsheetHistoryToken.columnMenu(
+                HistoryToken.columnMenu(
                         ID,
                         NAME,
                         column.setDefaultAnchor()
@@ -70,7 +70,7 @@ public final class SpreadsheetColumnMenuHistoryTokenTest extends SpreadsheetColu
                         SpreadsheetSelection.parseColumn("A").setDefaultAnchor()
                 ),
                 column,
-                SpreadsheetHistoryToken.columnMenu(
+                HistoryToken.columnMenu(
                         ID,
                         NAME,
                         column.setDefaultAnchor()
@@ -97,7 +97,7 @@ public final class SpreadsheetColumnMenuHistoryTokenTest extends SpreadsheetColu
                         SpreadsheetSelection.parseColumnRange("A:C").setDefaultAnchor()
                 ),
                 column,
-                SpreadsheetHistoryToken.columnMenu(
+                HistoryToken.columnMenu(
                         ID,
                         NAME,
                         column.setDefaultAnchor()

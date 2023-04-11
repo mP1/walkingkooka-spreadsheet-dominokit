@@ -54,7 +54,7 @@ public final class SpreadsheetRowMenuHistoryTokenTest extends SpreadsheetRowHist
                         row.setDefaultAnchor()
                 ),
                 row,
-                SpreadsheetHistoryToken.rowMenu(
+                HistoryToken.rowMenu(
                         ID,
                         NAME,
                         row.setDefaultAnchor()
@@ -71,7 +71,7 @@ public final class SpreadsheetRowMenuHistoryTokenTest extends SpreadsheetRowHist
                         SpreadsheetSelection.parseRow("1").setDefaultAnchor()
                 ),
                 row,
-                SpreadsheetHistoryToken.rowMenu(
+                HistoryToken.rowMenu(
                         ID,
                         NAME,
                         row.setDefaultAnchor()
@@ -98,7 +98,7 @@ public final class SpreadsheetRowMenuHistoryTokenTest extends SpreadsheetRowHist
                         SpreadsheetSelection.parseRowRange("1:3").setDefaultAnchor()
                 ),
                 row,
-                SpreadsheetHistoryToken.rowMenu(
+                HistoryToken.rowMenu(
                         ID,
                         NAME,
                         row.setDefaultAnchor()

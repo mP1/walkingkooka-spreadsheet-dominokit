@@ -129,7 +129,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     public void testParseSpreadsheetId() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/spreadsheet-id/save/456",
-                SpreadsheetHistoryToken.metadataPropertySelect(
+                HistoryToken.metadataPropertySelect(
                         ID,
                         NAME,
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID
@@ -141,7 +141,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     public void testParseStyleSaveWithoutValue() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style/color/save/",
-                SpreadsheetHistoryToken.metadataPropertyStyleSave(
+                HistoryToken.metadataPropertyStyleSave(
                         ID,
                         NAME,
                         TextStylePropertyName.COLOR,
@@ -154,7 +154,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     public void testParseStyleSaveValue() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style/color/save/#123456",
-                SpreadsheetHistoryToken.metadataPropertyStyleSave(
+                HistoryToken.metadataPropertyStyleSave(
                         ID,
                         NAME,
                         TextStylePropertyName.COLOR,

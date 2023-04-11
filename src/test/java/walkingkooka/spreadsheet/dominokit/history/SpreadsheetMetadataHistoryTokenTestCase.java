@@ -38,7 +38,7 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
                 ID,
                 NAME,
                 viewportSelection,
-                SpreadsheetHistoryToken.cell(
+                HistoryToken.cell(
                         ID,
                         NAME,
                         viewportSelection
