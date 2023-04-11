@@ -30,11 +30,11 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
     }
 
     @Test
-    public final void testSetIdNameViewportSelectionWithViewportSelection() {
+    public final void testIdNameViewportSelectionWithViewportSelection() {
         final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseCell("Z99")
                 .setDefaultAnchor();
 
-        this.setIdNameViewportSelectionAndCheck(
+        this.idNameViewportSelectionAndCheck(
                 ID,
                 NAME,
                 viewportSelection,

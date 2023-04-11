@@ -560,15 +560,15 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
         return SAVE.append(urlFragment);
     }
 
-    public final SpreadsheetHistoryToken setIdNameViewportSelection(final SpreadsheetId id,
-                                                                    final SpreadsheetName name,
-                                                                    final Optional<SpreadsheetViewportSelection> viewportSelection) {
+    public final SpreadsheetHistoryToken idNameViewportSelection(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final Optional<SpreadsheetViewportSelection> viewportSelection) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(name, "name");
         Objects.requireNonNull(viewportSelection, "viewportSelection");
 
         return viewportSelection.isPresent() ?
-                this.setIdNameViewportSelection0(
+                this.idNameViewportSelection0(
                         id,
                         name,
                         viewportSelection.get()
@@ -579,7 +579,7 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
                 );
     }
 
-    abstract SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
-                                                                 final SpreadsheetName name,
-                                                                 final SpreadsheetViewportSelection viewportSelection);
+    abstract SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
+                                                              final SpreadsheetName name,
+                                                              final SpreadsheetViewportSelection viewportSelection);
 }

@@ -29,10 +29,10 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     }
 
     @Test
-    public void testSetIdDifferent() {
+    public void testIdNameViewportSelectionWithIdDifferent() {
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 
-        this.setIdNameViewportSelectionAndCheck(
+        this.idNameViewportSelectionAndCheck(
                 differentId,
                 NAME,
                 SpreadsheetSelection.ALL_CELLS.setDefaultAnchor(),

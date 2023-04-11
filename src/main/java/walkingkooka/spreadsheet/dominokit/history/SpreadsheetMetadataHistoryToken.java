@@ -70,10 +70,9 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         return result;
     }
 
-    @Override
-    final SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
-                                                              final SpreadsheetName name,
-                                                              final SpreadsheetViewportSelection viewportSelection) {
+    @Override final SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final SpreadsheetViewportSelection viewportSelection) {
         return this.viewportSelectionHistoryToken(
                 id,
                 name,
@@ -81,8 +80,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken clear() {
+    @Override final SpreadsheetNameHistoryToken clear() {
         return this;
     }
 

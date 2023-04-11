@@ -57,10 +57,9 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
 
     abstract UrlFragment selectionViewportUrlFragment();
 
-    @Override
-    final SpreadsheetHistoryToken setIdNameViewportSelection0(final SpreadsheetId id,
-                                                              final SpreadsheetName name,
-                                                              final SpreadsheetViewportSelection viewportSelection) {
+    @Override final SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final SpreadsheetViewportSelection viewportSelection) {
         return this.id().equals(id) &&
                 this.name().equals(name) &&
                 this.viewportSelection().equals(viewportSelection) ?

@@ -30,11 +30,11 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
     }
 
     @Test
-    public void testSetIdNameViewportSelectionDifferentId() {
+    public void testIdNameViewportSelectionDifferentId() {
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
         final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.ALL_CELLS.setDefaultAnchor();
 
-        this.setIdNameViewportSelectionAndCheck(
+        this.idNameViewportSelectionAndCheck(
                 differentId,
                 NAME,
                 viewportSelection,
