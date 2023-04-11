@@ -52,9 +52,9 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     @Override
-    SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
-                                                     final SpreadsheetViewportSelection viewportSelection) {
+    HistoryToken idNameViewportSelection0(final SpreadsheetId id,
+                                          final SpreadsheetName name,
+                                          final SpreadsheetViewportSelection viewportSelection) {
         return HistoryToken.spreadsheetSelect(
                 id,
                 name
