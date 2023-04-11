@@ -639,17 +639,24 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Factory that creates a {@link HistoryToken} only changing the {@link SpreadsheetViewportSelection} component.
      */
-    public final SpreadsheetNameHistoryToken viewportSelectionHistoryToken(final SpreadsheetViewportSelection viewportSelection) {
+    public final SpreadsheetNameHistoryToken viewportSelectionHistoryToken(final Optional<SpreadsheetViewportSelection> viewportSelection) {
         Objects.requireNonNull(viewportSelection, "viewportSelection");
 
         if (false == this instanceof SpreadsheetNameHistoryToken) {
             throw new IllegalArgumentException("Unexpected token " + this);
         }
 
-        return HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
-                (SpreadsheetNameHistoryToken) this,
-                viewportSelection
-        );
+        final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+
+        return viewportSelection.isPresent() ?
+                HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
+                        spreadsheetNameHistoryToken,
+                        viewportSelection.get()
+                ) :
+                spreadsheetSelect(
+                        spreadsheetNameHistoryToken.id(),
+                        spreadsheetNameHistoryToken.name()
+                );
     }
 
     // Object...........................................................................................................

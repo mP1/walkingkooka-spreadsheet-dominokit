@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportSelectionHistoryToken {
 
     SpreadsheetColumnHistoryToken(final SpreadsheetId id,
@@ -98,8 +100,10 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
                         .testColumn(selection.toColumn()) ?
                 this :
                 this.viewportSelectionHistoryToken(
-                            selection.setDefaultAnchor()
-                        ).menu();
+                        Optional.of(
+                                selection.setDefaultAnchor()
+                        )
+                ).menu();
     }
 
     @Override
