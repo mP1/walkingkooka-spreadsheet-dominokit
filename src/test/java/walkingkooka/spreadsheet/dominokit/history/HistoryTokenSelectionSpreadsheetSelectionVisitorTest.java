@@ -20,15 +20,15 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitorTesting;
 
-public final class SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitorTest implements SpreadsheetSelectionVisitorTesting<SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor> {
+public final class HistoryTokenSelectionSpreadsheetSelectionVisitorTest implements SpreadsheetSelectionVisitorTesting<HistoryTokenSelectionSpreadsheetSelectionVisitor> {
     @Override
-    public SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor createVisitor() {
-        return new SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(null, null);
+    public HistoryTokenSelectionSpreadsheetSelectionVisitor createVisitor() {
+        return new HistoryTokenSelectionSpreadsheetSelectionVisitor(null, null);
     }
 
     @Override
-    public Class<SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor> type() {
-        return SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor.class;
+    public Class<HistoryTokenSelectionSpreadsheetSelectionVisitor> type() {
+        return HistoryTokenSelectionSpreadsheetSelectionVisitor.class;
     }
 
     @Override
@@ -38,6 +38,6 @@ public final class SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisit
 
     @Override
     public String typeNamePrefix() {
-        return SpreadsheetNameHistoryToken.class.getSimpleName();
+        return HistoryToken.class.getSimpleName();
     }
 }

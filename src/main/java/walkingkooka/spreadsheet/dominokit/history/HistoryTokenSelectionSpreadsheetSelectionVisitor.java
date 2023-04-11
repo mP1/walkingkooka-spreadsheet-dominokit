@@ -34,11 +34,11 @@ import java.util.function.Function;
 /**
  * This visitor is used to create a {@link SpreadsheetNameHistoryToken} that selects the given {@link SpreadsheetSelection}.
  */
-final class SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
+final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
 
     static SpreadsheetNameHistoryToken selectionToken(final SpreadsheetNameHistoryToken token,
                                                       final SpreadsheetViewportSelection viewportSelection) {
-        final SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(
+        final HistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new HistoryTokenSelectionSpreadsheetSelectionVisitor(
                 token,
                 viewportSelection.anchor()
         );
@@ -46,8 +46,8 @@ final class SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor exte
         return visitor.selectionToken;
     }
 
-    SpreadsheetNameHistoryTokenSelectionSpreadsheetSelectionVisitor(final SpreadsheetNameHistoryToken token,
-                                                                    final SpreadsheetViewportSelectionAnchor anchor) {
+    HistoryTokenSelectionSpreadsheetSelectionVisitor(final SpreadsheetNameHistoryToken token,
+                                                     final SpreadsheetViewportSelectionAnchor anchor) {
         super();
         this.token = token;
         this.anchor = anchor;
