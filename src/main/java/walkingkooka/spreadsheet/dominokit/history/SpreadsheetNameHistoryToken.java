@@ -71,7 +71,11 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return spreadsheetSelect(
                 id,
                 name
-        ).viewportSelectionHistoryToken(viewportSelection);
+        ).viewportSelectionHistoryToken(
+                Optional.of(
+                        viewportSelection
+                )
+        );
     }
 
     final SpreadsheetNameHistoryToken cell(final SpreadsheetViewportSelection viewportSelection) {

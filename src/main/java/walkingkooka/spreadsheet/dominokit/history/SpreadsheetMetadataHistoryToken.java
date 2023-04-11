@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Optional;
+
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetMetadataHistoryToken(final SpreadsheetId id,
@@ -107,7 +109,9 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     @Override
     SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
         return this.viewportSelectionHistoryToken(
-                selection.setDefaultAnchor()
+                Optional.of(
+                        selection.setDefaultAnchor()
+                )
         ).menu();
     }
 

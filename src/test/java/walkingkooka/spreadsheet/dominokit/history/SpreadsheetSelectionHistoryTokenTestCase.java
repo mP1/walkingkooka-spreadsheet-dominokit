@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
+
 public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends SpreadsheetSelectionHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
     SpreadsheetSelectionHistoryTokenTestCase() {
@@ -57,7 +59,9 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                 ),
                 this.createHistoryToken()
                         .viewportSelectionHistoryToken(
-                                selection.setDefaultAnchor()
+                                Optional.of(
+                                        selection.setDefaultAnchor()
+                                )
                         )
         );
     }
@@ -85,7 +89,9 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                 ),
                 this.createHistoryToken()
                         .viewportSelectionHistoryToken(
-                                selection.setDefaultAnchor()
+                                Optional.of(
+                                        selection.setDefaultAnchor()
+                                )
                         )
         );
     }
@@ -113,7 +119,9 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                 ),
                 this.createHistoryToken()
                         .viewportSelectionHistoryToken(
-                                selection.setDefaultAnchor()
+                                Optional.of(
+                                        selection.setDefaultAnchor()
+                                )
                         )
         );
     }

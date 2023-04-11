@@ -570,7 +570,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      */
     private HTMLAnchorElement link(final SpreadsheetSelection selection) {
         final SpreadsheetNameHistoryToken token = this.historyToken.viewportSelectionHistoryToken(
-                selection.setDefaultAnchor()
+                Optional.of(
+                        selection.setDefaultAnchor()
+                )
         );
 
         return Elements.a()
