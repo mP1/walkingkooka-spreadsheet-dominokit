@@ -151,7 +151,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 metadata,
                 context
         );
-        this.nameHistoryToken = metadata.id()
+        this.historyToken = metadata.id()
                 .isPresent() ?
                 HistoryToken.spreadsheetSelect(
                         metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
@@ -553,7 +553,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      */
     private void addLinkOrText(final SpreadsheetColumnOrRowReference columnOrRow,
                                final HtmlContentBuilder<HTMLTableCellElement> td) {
-        if(null == this.nameHistoryToken) {
+        if (null == this.historyToken) {
             td.textContent(
                     columnOrRow.toString()
                             .toUpperCase()
@@ -569,7 +569,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      * Creates an ANCHOR including an ID and TEXT in upper case of the given {@link SpreadsheetSelection}.
      */
     private HTMLAnchorElement link(final SpreadsheetSelection selection) {
-        final SpreadsheetNameHistoryToken token = this.nameHistoryToken.viewportSelectionHistoryToken(
+        final SpreadsheetNameHistoryToken token = this.historyToken.viewportSelectionHistoryToken(
                 selection.setDefaultAnchor()
         );
 
@@ -662,7 +662,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     /**
      * This is updated each time a new {@link SpreadsheetMetadata} arrives.
      */
-    private SpreadsheetNameHistoryToken nameHistoryToken;
+    private HistoryToken historyToken;
 
     /**
      * The root table element.
