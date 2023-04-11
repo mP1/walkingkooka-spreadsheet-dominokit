@@ -19,12 +19,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetMetadataWatcher;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -94,27 +90,4 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken implements Sp
 
         return SAVE.append(urlFragment);
     }
-
-    public final SpreadsheetHistoryToken idNameViewportSelection(final SpreadsheetId id,
-                                                                 final SpreadsheetName name,
-                                                                 final Optional<SpreadsheetViewportSelection> viewportSelection) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(name, "name");
-        Objects.requireNonNull(viewportSelection, "viewportSelection");
-
-        return viewportSelection.isPresent() ?
-                this.idNameViewportSelection0(
-                        id,
-                        name,
-                        viewportSelection.get()
-                ) :
-                spreadsheetSelect(
-                        id,
-                        name
-                );
-    }
-
-    abstract SpreadsheetHistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                                              final SpreadsheetName name,
-                                                              final SpreadsheetViewportSelection viewportSelection);
 }
