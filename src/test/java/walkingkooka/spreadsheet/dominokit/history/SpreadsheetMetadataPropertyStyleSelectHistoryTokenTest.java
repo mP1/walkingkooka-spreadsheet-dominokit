@@ -84,7 +84,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     @Test
     public void testParseUnknown() {
         this.urlFragmentAndCheck(
-                SpreadsheetHistoryToken.spreadsheetSelect(
+                HistoryToken.spreadsheetSelect(
                         ID,
                         NAME
                 ),

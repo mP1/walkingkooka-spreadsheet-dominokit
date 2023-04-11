@@ -38,7 +38,7 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
                         cell.setDefaultAnchor()
                 ),
                 cell,
-                SpreadsheetHistoryToken.cellMenu(
+                HistoryToken.cellMenu(
                         ID,
                         NAME,
                         cell.setDefaultAnchor()
@@ -55,7 +55,7 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
                         SpreadsheetSelection.parseCell("A1").setDefaultAnchor()
                 ),
                 cell,
-                SpreadsheetHistoryToken.cellMenu(
+                HistoryToken.cellMenu(
                         ID,
                         NAME,
                         cell.setDefaultAnchor()

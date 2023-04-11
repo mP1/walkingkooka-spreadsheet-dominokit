@@ -43,7 +43,7 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
     public void testParseStyle() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/metadata/style",
-                SpreadsheetHistoryToken.spreadsheetSelect(
+                HistoryToken.spreadsheetSelect(
                         ID,
                         NAME
                 )

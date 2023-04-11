@@ -36,7 +36,7 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
                 differentId,
                 NAME,
                 SpreadsheetSelection.ALL_CELLS.setDefaultAnchor(),
-                SpreadsheetHistoryToken.spreadsheetLoad(
+                HistoryToken.spreadsheetLoad(
                         differentId
                 )
         );

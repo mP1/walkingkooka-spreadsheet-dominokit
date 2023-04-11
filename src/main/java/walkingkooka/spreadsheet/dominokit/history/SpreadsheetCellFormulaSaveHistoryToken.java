@@ -77,7 +77,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
     @Override
     SpreadsheetNameHistoryToken formulaHistoryToken() {
-        return SpreadsheetHistoryToken.formula(
+        return HistoryToken.formula(
                 this.id(),
                 this.name(),
                 this.viewportSelection()

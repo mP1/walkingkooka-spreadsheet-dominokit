@@ -50,7 +50,7 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
 
     private void selectionCellAndCheck(final SpreadsheetExpressionReference selection) {
         this.checkEquals(
-                SpreadsheetHistoryToken.cell(
+                HistoryToken.cell(
                         ID,
                         NAME,
                         selection.setDefaultAnchor()
@@ -78,7 +78,7 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
 
     private void selectionColumnAndCheck(final SpreadsheetSelection selection) {
         this.checkEquals(
-                SpreadsheetHistoryToken.column(
+                HistoryToken.column(
                         ID,
                         NAME,
                         selection.setDefaultAnchor()
@@ -106,7 +106,7 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
 
     private void selectionRowAndCheck(final SpreadsheetSelection selection) {
         this.checkEquals(
-                SpreadsheetHistoryToken.row(
+                HistoryToken.row(
                         ID,
                         NAME,
                         selection.setDefaultAnchor()

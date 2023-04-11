@@ -38,7 +38,7 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
                 differentId,
                 NAME,
                 viewportSelection,
-                SpreadsheetHistoryToken.cell(
+                HistoryToken.cell(
                         differentId,
                         NAME,
                         viewportSelection

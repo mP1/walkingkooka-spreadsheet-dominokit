@@ -33,7 +33,7 @@ import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
@@ -153,7 +153,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         );
         this.nameHistoryToken = metadata.id()
                 .isPresent() ?
-                SpreadsheetHistoryToken.spreadsheetSelect(
+                HistoryToken.spreadsheetSelect(
                         metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
                         metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
                 ) :
@@ -641,7 +641,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
         if (id.isPresent() && name.isPresent()) {
             context.pushHistoryToken(
-                    SpreadsheetHistoryToken.cell(
+                    HistoryToken.cell(
                             id.get(),
                             name.get(),
                             cell.setDefaultAnchor()

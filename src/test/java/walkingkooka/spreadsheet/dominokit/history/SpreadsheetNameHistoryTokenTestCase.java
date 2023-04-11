@@ -59,7 +59,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 differentId,
                 NAME,
                 Optional.of(viewportSelection),
-                SpreadsheetHistoryToken.cell(
+                HistoryToken.cell(
                         differentId,
                         NAME,
                         viewportSelection
@@ -91,7 +91,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 ID,
                 differentName,
                 viewportSelection,
-                SpreadsheetHistoryToken.cell(
+                HistoryToken.cell(
                         ID,
                         differentName,
                         viewportSelection
@@ -108,7 +108,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 ID,
                 NAME,
                 viewportSelection,
-                SpreadsheetHistoryToken.cell(
+                HistoryToken.cell(
                         ID,
                         NAME,
                         viewportSelection
@@ -169,7 +169,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
 
     final void menuWithCellAndCheck(final SpreadsheetCellReference cell) {
         this.menuAndCheck(
-                SpreadsheetHistoryToken.cellMenu(
+                HistoryToken.cellMenu(
                         ID,
                         NAME,
                         cell.setDefaultAnchor()
@@ -186,7 +186,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
 
     final void menuWithColumnAndCheck(final SpreadsheetColumnReference column) {
         this.menuAndCheck(
-                SpreadsheetHistoryToken.columnMenu(
+                HistoryToken.columnMenu(
                         ID,
                         NAME,
                         column.setDefaultAnchor()
@@ -203,7 +203,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
 
     final void menuWithRowAndCheck(final SpreadsheetRowReference row) {
         this.menuAndCheck(
-                SpreadsheetHistoryToken.rowMenu(
+                HistoryToken.rowMenu(
                         ID,
                         NAME,
                         row.setDefaultAnchor()
