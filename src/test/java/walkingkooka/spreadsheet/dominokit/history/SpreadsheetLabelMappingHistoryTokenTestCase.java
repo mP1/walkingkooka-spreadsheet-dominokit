@@ -61,10 +61,11 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         );
     }
 
-    final T createHistoryToken() {
+    final T createHistoryToken(final SpreadsheetId id,
+                               final SpreadsheetName name) {
         return this.createHistoryToken(
-                ID,
-                NAME,
+                id,
+                name,
                 LABEL
         );
     }

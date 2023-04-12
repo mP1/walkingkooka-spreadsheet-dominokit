@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
@@ -64,10 +65,11 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
     }
 
     @Override
-    SpreadsheetSelectHistoryToken createHistoryToken() {
+    SpreadsheetSelectHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                     final SpreadsheetName name) {
         return SpreadsheetSelectHistoryToken.with(
-                ID,
-                NAME
+                id,
+                name
         );
     }
 

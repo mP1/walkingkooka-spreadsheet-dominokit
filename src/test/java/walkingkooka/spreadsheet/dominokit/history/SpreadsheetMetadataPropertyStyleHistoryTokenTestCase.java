@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.color.Color;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -32,11 +34,11 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<T ext
         super();
     }
 
-    @Override
-    T createHistoryToken() {
+    @Override final T createHistoryToken(final SpreadsheetId id,
+                                         final SpreadsheetName name) {
         return this.createHistoryToken(
-                ID,
-                NAME,
+                id,
+                name,
                 SpreadsheetMetadataPropertyName.STYLE
         );
     }
