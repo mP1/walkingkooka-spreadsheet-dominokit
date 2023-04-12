@@ -20,31 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetSelectHistoryToken> {
 
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456");
-    }
-
-    @Test
-    public void testIdNameViewportSelectionDifferentId() {
-        final SpreadsheetId differentId = SpreadsheetId.with(9999);
-        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.ALL_CELLS.setDefaultAnchor();
-
-        this.idNameViewportSelectionAndCheck(
-                differentId,
-                NAME,
-                viewportSelection,
-                HistoryToken.cell(
-                        differentId,
-                        NAME,
-                        viewportSelection
-                )
-        );
     }
 
     // menu(Selection)..................................................................................................

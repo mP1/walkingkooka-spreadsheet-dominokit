@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -44,16 +43,6 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     @Override final UrlFragment selectionUrlFragment() {
         return LABEL.append(UrlFragment.with(this.labelName().value()))
                 .append(this.labelUrlFragment());
-    }
-
-    @Override final HistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                                          final SpreadsheetName name,
-                                                          final SpreadsheetViewportSelection viewportSelection) {
-        return this.viewportSelectionHistoryToken(
-                id,
-                name,
-                viewportSelection
-        );
     }
 
     abstract SpreadsheetLabelName labelName();

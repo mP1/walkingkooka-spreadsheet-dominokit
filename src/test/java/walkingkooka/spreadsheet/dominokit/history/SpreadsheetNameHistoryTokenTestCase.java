@@ -24,9 +24,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -64,86 +61,6 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 ID,
                 differentName,
                 this.createHistoryToken(ID, differentName)
-        );
-    }
-
-    @Test
-    public final void testIdNameViewportSelectionWithDifferentId() {
-        final T token = this.createHistoryToken();
-
-        final SpreadsheetId differentId = SpreadsheetId.with(999);
-        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.A1.setDefaultAnchor();
-
-        this.checkNotEquals(
-                differentId,
-                token.id(),
-                "id"
-        );
-
-        this.checkEquals(
-                NAME,
-                token.name(),
-                "name"
-        );
-
-        this.idNameViewportSelectionAndCheck(
-                differentId,
-                NAME,
-                Optional.of(viewportSelection),
-                HistoryToken.cell(
-                        differentId,
-                        NAME,
-                        viewportSelection
-                )
-        );
-    }
-
-    @Test
-    public final void testIdNameViewportSelectionWithDifferentName() {
-        final T token = this.createHistoryToken();
-
-        final SpreadsheetName differentName = SpreadsheetName.with("different");
-        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.A1.setDefaultAnchor();
-
-        this.checkEquals(
-                ID,
-                token.id(),
-                "id"
-        );
-
-        this.checkNotEquals(
-                differentName,
-                token.name(),
-                "name"
-        );
-
-        this.idNameViewportSelectionAndCheck(
-                token,
-                ID,
-                differentName,
-                viewportSelection,
-                HistoryToken.cell(
-                        ID,
-                        differentName,
-                        viewportSelection
-                )
-        );
-    }
-
-    @Test
-    public final void testIdNameViewportSelectionWithCell() {
-        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseCell("Z99")
-                .setDefaultAnchor();
-
-        this.idNameViewportSelectionAndCheck(
-                ID,
-                NAME,
-                viewportSelection,
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        viewportSelection
-                )
         );
     }
 

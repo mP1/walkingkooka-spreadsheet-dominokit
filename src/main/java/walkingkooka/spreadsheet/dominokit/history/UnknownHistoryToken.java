@@ -21,11 +21,9 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
-import java.util.Optional;
 
 public final class UnknownHistoryToken extends HistoryToken {
 
@@ -57,22 +55,6 @@ public final class UnknownHistoryToken extends HistoryToken {
         return spreadsheetSelect(
                 id,
                 name
-        );
-    }
-
-    @Override
-    HistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                          final SpreadsheetName name,
-                                          final SpreadsheetViewportSelection viewportSelection) {
-        return this.idName(
-                id,
-                name
-        ).idNameViewportSelection(
-                id,
-                name,
-                Optional.of(
-                        viewportSelection
-                )
         );
     }
 

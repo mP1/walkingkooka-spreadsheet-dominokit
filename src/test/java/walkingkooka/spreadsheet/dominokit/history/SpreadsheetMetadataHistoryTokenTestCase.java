@@ -18,30 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends SpreadsheetMetadataHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
     SpreadsheetMetadataHistoryTokenTestCase() {
         super();
-    }
-
-    @Test
-    public final void testIdNameViewportSelectionWithViewportSelection() {
-        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseCell("Z99")
-                .setDefaultAnchor();
-
-        this.idNameViewportSelectionAndCheck(
-                ID,
-                NAME,
-                viewportSelection,
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        viewportSelection
-                )
-        );
     }
 
     // menu(Selection)..................................................................................................
