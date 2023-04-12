@@ -239,17 +239,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    HistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                          final SpreadsheetName name,
-                                          final SpreadsheetViewportSelection viewportSelection) {
-        return this.viewportSelectionHistoryToken(
-                id,
-                name,
-                viewportSelection
-        );
-    }
-
-    @Override
     SpreadsheetNameHistoryToken clear() {
         return this;
     }

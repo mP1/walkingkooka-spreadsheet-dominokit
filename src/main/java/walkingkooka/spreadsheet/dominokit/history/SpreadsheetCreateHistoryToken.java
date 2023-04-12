@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 /**
@@ -59,14 +58,6 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
                 id,
                 name
         );
-    }
-
-    @Override
-    HistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                          final SpreadsheetName name,
-                                          final SpreadsheetViewportSelection viewportSelection) {
-        // shouldnt happen...
-        return spreadsheetLoad(id);
     }
 
     @Override

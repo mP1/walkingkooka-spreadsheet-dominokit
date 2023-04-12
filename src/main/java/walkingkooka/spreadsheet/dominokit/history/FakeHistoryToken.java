@@ -22,7 +22,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.test.Fake;
 import walkingkooka.text.cursor.TextCursor;
 
@@ -52,10 +51,4 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    HistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                          final SpreadsheetName name,
-                                          final SpreadsheetViewportSelection viewportSelection) {
-        throw new UnsupportedOperationException();
-    }
 }

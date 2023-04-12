@@ -620,29 +620,6 @@ public abstract class HistoryToken implements HasUrlFragment {
     public abstract HistoryToken idName(final SpreadsheetId id,
                                         final SpreadsheetName name);
 
-    public final HistoryToken idNameViewportSelection(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
-                                                      final Optional<SpreadsheetViewportSelection> viewportSelection) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(name, "name");
-        Objects.requireNonNull(viewportSelection, "viewportSelection");
-
-        return viewportSelection.isPresent() ?
-                this.idNameViewportSelection0(
-                        id,
-                        name,
-                        viewportSelection.get()
-                ) :
-                spreadsheetSelect(
-                        id,
-                        name
-                );
-    }
-
-    abstract HistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
-                                                   final SpreadsheetViewportSelection viewportSelection);
-
     /**
      * Factory that creates a {@link HistoryToken} only changing the {@link SpreadsheetViewportSelection} component.
      */

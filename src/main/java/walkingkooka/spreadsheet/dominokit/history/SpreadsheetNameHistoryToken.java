@@ -57,11 +57,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     abstract UrlFragment spreadsheetUrlFragment();
 
-    @Override
-    abstract HistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
-                                                   final SpreadsheetViewportSelection viewportSelection);
-
     final SpreadsheetHistoryToken viewportSelectionHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,
                                                                 final SpreadsheetViewportSelection viewportSelection) {

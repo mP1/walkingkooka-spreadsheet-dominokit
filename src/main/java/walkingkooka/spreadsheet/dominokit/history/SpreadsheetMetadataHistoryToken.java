@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Optional;
@@ -70,16 +69,6 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         }
 
         return result;
-    }
-
-    @Override final HistoryToken idNameViewportSelection0(final SpreadsheetId id,
-                                                          final SpreadsheetName name,
-                                                          final SpreadsheetViewportSelection viewportSelection) {
-        return this.viewportSelectionHistoryToken(
-                id,
-                name,
-                viewportSelection
-        );
     }
 
     @Override final SpreadsheetNameHistoryToken clear() {
