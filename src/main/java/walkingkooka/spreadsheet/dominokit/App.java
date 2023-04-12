@@ -300,7 +300,15 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExce
         final HistoryToken previous = this.previousToken;
         this.debug("App.fireOnHashChange from " + previous + " to " + token);
 
+        final String hash = DomGlobal.location.hash;
+
         for (final HistoryWatcher watcher : this.historyWatchers) {
+            final String hash2 = DomGlobal.location.hash;
+            if (false == hash.equals(hash2)) {
+                this.debug("App.fireOnHashChange aborted " + hash + " to " + hash2);
+                break;
+            }
+
             this.fireHistoryWatcher(
                     token,
                     watcher
