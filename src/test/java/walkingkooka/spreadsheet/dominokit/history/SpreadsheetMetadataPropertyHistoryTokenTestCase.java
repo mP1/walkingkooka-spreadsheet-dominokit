@@ -30,11 +30,6 @@ public abstract class SpreadsheetMetadataPropertyHistoryTokenTestCase<T extends 
         super();
     }
 
-    final T createHistoryToken(final SpreadsheetId id,
-                               final SpreadsheetName name) {
-        throw new UnsupportedOperationException();
-    }
-
     abstract T createHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name,
                                   final SpreadsheetMetadataPropertyName<V> propertyName);

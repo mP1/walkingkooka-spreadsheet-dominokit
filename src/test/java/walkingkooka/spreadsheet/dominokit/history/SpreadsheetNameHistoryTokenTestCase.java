@@ -237,4 +237,14 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 () -> before + " menu " + selection
         );
     }
+
+    @Override final T createHistoryToken() {
+        return this.createHistoryToken(
+                ID,
+                NAME
+        );
+    }
+
+    abstract T createHistoryToken(final SpreadsheetId id,
+                                  final SpreadsheetName name);
 }

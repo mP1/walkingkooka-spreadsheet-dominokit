@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -109,7 +111,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
-    final T createHistoryToken() {
+    final T createHistoryToken(final SpreadsheetId id,
+                               final SpreadsheetName name) {
         return this.createHistoryToken(
                 CELL.setDefaultAnchor()
         );
