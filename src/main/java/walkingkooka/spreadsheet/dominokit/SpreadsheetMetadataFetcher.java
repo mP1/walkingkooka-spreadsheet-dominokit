@@ -22,11 +22,8 @@ import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 import java.util.Objects;
 
@@ -63,26 +60,6 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
         this.get(
                 this.url(id)
         );
-    }
-
-    public void patchViewportSelectionIfDifferent(final SpreadsheetViewportSelection viewportSelection,
-                                                  final SpreadsheetId id,
-                                                  final HistoryToken historyToken) {
-        boolean patchRequired = true;
-
-        if (historyToken instanceof SpreadsheetViewportSelectionHistoryToken) {
-            final SpreadsheetViewportSelectionHistoryToken viewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) historyToken;
-            patchRequired = false ==
-                    viewportSelection.equals(viewportSelectionHistoryToken.viewportSelection());
-        }
-
-        if (patchRequired) {
-            this.patchMetadata(
-                    id,
-                    SpreadsheetMetadataPropertyName.SELECTION,
-                    viewportSelection
-            );
-        }
     }
 
     /**
