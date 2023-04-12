@@ -37,6 +37,37 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
+    public final void testIdName() {
+        this.idNameAndCheck(
+                ID,
+                NAME,
+                this.createHistoryToken(ID, NAME)
+        );
+    }
+
+    @Test
+    public final void testIdNameDifferentId() {
+        final SpreadsheetId differentId = SpreadsheetId.with(9999);
+
+        this.idNameAndCheck(
+                differentId,
+                NAME,
+                this.createHistoryToken(differentId, NAME)
+        );
+    }
+
+    @Test
+    public final void testIdNameDifferentName() {
+        final SpreadsheetName differentName = SpreadsheetName.with("Different");
+
+        this.idNameAndCheck(
+                ID,
+                differentName,
+                this.createHistoryToken(ID, differentName)
+        );
+    }
+
+    @Test
     public final void testIdNameViewportSelectionWithDifferentId() {
         final T token = this.createHistoryToken();
 

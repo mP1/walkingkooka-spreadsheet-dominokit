@@ -76,6 +76,18 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         return this;
     }
 
+    // new id/name but still metadata+style+property+value
+    @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return with(
+                id,
+                name,
+                this.stylePropertyName(),
+                this.stylePropertyValue()
+        );
+    }
+
     @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {

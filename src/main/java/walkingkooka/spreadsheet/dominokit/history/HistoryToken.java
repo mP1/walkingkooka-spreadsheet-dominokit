@@ -613,6 +613,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     abstract public void onHashChange(final HistoryToken previous,
                                       final AppContext context);
 
+    /**
+     * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
+     * entire history token.
+     */
+    public abstract HistoryToken idName(final SpreadsheetId id,
+                                        final SpreadsheetName name);
+
     public final HistoryToken idNameViewportSelection(final SpreadsheetId id,
                                                       final SpreadsheetName name,
                                                       final Optional<SpreadsheetViewportSelection> viewportSelection) {

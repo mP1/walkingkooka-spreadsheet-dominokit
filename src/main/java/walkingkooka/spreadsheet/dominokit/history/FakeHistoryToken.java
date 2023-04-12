@@ -47,6 +47,12 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
     }
 
     @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     HistoryToken idNameViewportSelection0(final SpreadsheetId id,
                                           final SpreadsheetName name,
                                           final SpreadsheetViewportSelection viewportSelection) {

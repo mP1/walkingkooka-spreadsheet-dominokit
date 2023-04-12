@@ -114,6 +114,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     final T createHistoryToken(final SpreadsheetId id,
                                final SpreadsheetName name) {
         return this.createHistoryToken(
+                id,
+                name,
                 CELL.setDefaultAnchor()
         );
     }

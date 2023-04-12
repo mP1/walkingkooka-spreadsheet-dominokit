@@ -56,6 +56,15 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     }
 
     @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return spreadsheetSelect(
+                id,
+                name
+        );
+    }
+
+    @Override
     HistoryToken idNameViewportSelection0(final SpreadsheetId id,
                                           final SpreadsheetName name,
                                           final SpreadsheetViewportSelection viewportSelection) {

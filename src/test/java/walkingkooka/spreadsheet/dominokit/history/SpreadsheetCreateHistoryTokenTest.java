@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryTokenTestCase<SpreadsheetCreateHistoryToken> {
@@ -26,6 +27,37 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck("/");
+    }
+
+    @Test
+    public void testIdName() {
+        this.idNameAndCheck(
+                ID,
+                NAME,
+                HistoryToken.spreadsheetSelect(ID, NAME)
+        );
+    }
+
+    @Test
+    public void testIdNameDifferentId() {
+        final SpreadsheetId differentId = SpreadsheetId.with(9999);
+
+        this.idNameAndCheck(
+                differentId,
+                NAME,
+                HistoryToken.spreadsheetSelect(differentId, NAME)
+        );
+    }
+
+    @Test
+    public void testIdNameDifferentName() {
+        final SpreadsheetName differentName = SpreadsheetName.with("Different");
+
+        this.idNameAndCheck(
+                ID,
+                differentName,
+                HistoryToken.spreadsheetSelect(ID, differentName)
+        );
     }
 
     @Test

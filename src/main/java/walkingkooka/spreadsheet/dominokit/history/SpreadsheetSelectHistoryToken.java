@@ -219,7 +219,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             }
         }
 
-        if(null == result) {
+        if (null == result) {
             result = metadataSelect(
                     this.id(),
                     this.name()
@@ -227,6 +227,15 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         }
 
         return result;
+    }
+
+    @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return spreadsheetSelect(
+                id,
+                name
+        );
     }
 
     @Override

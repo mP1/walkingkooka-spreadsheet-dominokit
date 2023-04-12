@@ -17,9 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
 
-public final  class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownHistoryToken> {
+public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownHistoryToken> {
+
+    @Test
+    public void testIdName() {
+        this.idNameAndCheck(
+                ID,
+                NAME,
+                HistoryToken.spreadsheetSelect(ID, NAME)
+        );
+    }
+
     @Override
     UnknownHistoryToken createHistoryToken() {
         return UnknownHistoryToken.with(UrlFragment.with("hello"));

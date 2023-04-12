@@ -64,6 +64,18 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         this.pattern = pattern;
     }
 
+    @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return with(
+                id,
+                name,
+                this.viewportSelection(),
+                this.patternKind(),
+                this.pattern()
+        );
+    }
+
     public Optional<SpreadsheetPattern> pattern() {
         return this.pattern;
     }
