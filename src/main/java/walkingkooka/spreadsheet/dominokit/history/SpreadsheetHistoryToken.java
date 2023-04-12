@@ -19,14 +19,13 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetMetadataWatcher;
 
 import java.util.Optional;
 
 /**
  * Instances represent a token within a history hash.
  */
-public abstract class SpreadsheetHistoryToken extends HistoryToken implements SpreadsheetMetadataWatcher {
+public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment CLEAR = UrlFragment.SLASH.append(UrlFragment.with("clear"));
 

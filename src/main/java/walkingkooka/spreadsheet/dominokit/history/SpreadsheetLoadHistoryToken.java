@@ -21,8 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
 
@@ -73,19 +71,5 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
                              final AppContext context) {
         context.spreadsheetMetadataFetcher()
                 .loadSpreadsheetMetadata(this.id());
-    }
-
-    /**
-     * When the spreadsheet is loaded and a new {@link SpreadsheetMetadata} is returned update the history token.
-     */
-    @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
-        context.pushHistoryToken(
-                spreadsheetSelect(
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
-                )
-        );
     }
 }

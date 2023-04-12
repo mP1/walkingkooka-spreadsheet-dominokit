@@ -34,7 +34,9 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -58,7 +60,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 
-public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher {
+public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher, HistoryWatcher {
 
     static SpreadsheetViewportWidget empty(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -121,12 +123,30 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     private final AppContext context;
 
     @Override
+    public void onHashChange(final HistoryToken previous,
+                             final AppContext context) {
+        // read the viewportSelection from the current/new historyToken
+        SpreadsheetViewportSelection viewportSelection = null;
+
+        final HistoryToken historyToken = context.historyToken();
+        if (historyToken instanceof SpreadsheetViewportSelectionHistoryToken) {
+            final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) historyToken;
+            viewportSelection = spreadsheetViewportSelectionHistoryToken.viewportSelection();
+        }
+
+        this.setViewportSelection(
+                Optional.ofNullable(viewportSelection)
+        );
+
+        this.updateTable();
+    }
+
+    @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
         Objects.requireNonNull(delta, "delta");
 
         this.cache.onSpreadsheetDelta(delta, context);
-        this.setViewportSelection(delta.viewportSelection());
 
         this.updateTable();
     }
@@ -141,9 +161,6 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         }
 
         this.metadata = metadata;
-        this.setViewportSelection(
-                metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
-        );
 
         this.loadViewportCellsIfNecessary();
 

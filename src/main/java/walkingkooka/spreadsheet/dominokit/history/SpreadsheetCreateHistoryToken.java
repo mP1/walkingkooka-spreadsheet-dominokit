@@ -21,11 +21,8 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
-
-import java.util.Optional;
 
 /**
  * A token that represents a spreadsheet create action.
@@ -77,24 +74,5 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
                              final AppContext context) {
         context.spreadsheetMetadataFetcher()
                 .createSpreadsheetMetadata();
-    }
-
-    /**
-     * When the spreadsheet is created and a new {@link SpreadsheetMetadata} is returned update the history token.
-     */
-    @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
-        final Optional<SpreadsheetId> id = metadata.id();
-        final Optional<SpreadsheetName> name = metadata.name();
-
-        if (id.isPresent() && name.isPresent()) {
-            context.pushHistoryToken(
-                    spreadsheetSelect(
-                            id.get(),
-                            name.get()
-                    )
-            );
-        }
     }
 }

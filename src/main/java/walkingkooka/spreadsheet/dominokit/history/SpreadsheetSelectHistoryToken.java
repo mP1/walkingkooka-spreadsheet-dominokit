@@ -313,12 +313,24 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return this;
     }
 
+    /**
+     * If the {@link SpreadsheetId} has changed, load the new id.
+     */
     @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
-        context.spreadsheetMetadataFetcher()
-                .loadSpreadsheetMetadata(
-                        this.id()
-                );
+        boolean load = true;
+        final SpreadsheetId id = this.id();
+        if (previous instanceof SpreadsheetIdHistoryToken) {
+            final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) previous;
+            load = false == id.equals(spreadsheetIdHistoryToken.id());
+        }
+
+        if (load) {
+            context.spreadsheetMetadataFetcher()
+                    .loadSpreadsheetMetadata(
+                            id
+                    );
+        }
     }
 }
