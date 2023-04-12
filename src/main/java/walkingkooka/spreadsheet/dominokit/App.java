@@ -296,9 +296,8 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExce
         }
     }
 
-    private void fireOnHashChange(final HistoryToken token) {
-        final HistoryToken previous = this.previousToken;
-        this.debug("App.fireOnHashChange from " + previous + " to " + token);
+    private void fireOnHashChange(final HistoryToken previous) {
+        this.debug("App.fireOnHashChange from " + previous + " to " + this.historyToken());
 
         final String hash = DomGlobal.location.hash;
 
@@ -310,12 +309,12 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExce
             }
 
             this.fireHistoryWatcher(
-                    token,
+                    previous,
                     watcher
             );
         }
 
-        this.previousToken = token;
+        this.previousToken = this.historyToken();
     }
 
     private void fireHistoryWatcher(final HistoryToken token,
