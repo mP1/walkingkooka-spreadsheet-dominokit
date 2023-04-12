@@ -30,11 +30,18 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.FontFamily;
@@ -51,11 +58,12 @@ import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
 @LocaleAware
-public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExceptionHandler {
+public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetMetadataWatcher, SpreadsheetDeltaWatcher, UncaughtExceptionHandler {
 
 
     public App() {
@@ -70,6 +78,8 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExce
     private final Layout layout = Layout.create();
 
     public void onModuleLoad() {
+        this.addSpreadsheetDeltaWatcher(this);
+        this.addSpreadsheetMetadataWatcher(this);
         GWT.setUncaughtExceptionHandler(this);
 
         this.setupHistoryListener();
@@ -87,6 +97,8 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExce
     // layout...........................................................................................................
 
     private void prepareLayout() {
+        this.addHistoryWatcher(this.viewportWidget);
+
         this.layout.fitHeight();
         this.layout.fitWidth();
         this.layout.setContent(this.viewportWidget.tableElement());
@@ -141,6 +153,60 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExce
     }
 
     // delta & metadata change watches..................................................................................
+
+    /**
+     * If a viewport selection is present then copy the received selection even if its now gone.
+     */
+    @Override
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        final HistoryToken historyToken = context.historyToken();
+
+        // if a selection is already present copy from the metadata
+        if (historyToken instanceof SpreadsheetSelectionHistoryToken) {
+            final HistoryToken withViewportSelection = historyToken.viewportSelectionHistoryToken(
+                    delta.viewportSelection()
+            );
+
+            if (false == historyToken.equals(withViewportSelection)) {
+                context.debug("App.onSpreadsheetDelta selection active, updating " + withViewportSelection);
+                context.pushHistoryToken(
+                        withViewportSelection
+                );
+            }
+        }
+    }
+
+    /**
+     * Update the spreadsheet-id, spreadsheet-name and viewport selection from the given {@link SpreadsheetMetadata}.
+     */
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        final Optional<SpreadsheetId> id = metadata.id();
+        final Optional<SpreadsheetName> name = metadata.name();
+
+        if (id.isPresent() && name.isPresent()) {
+            final HistoryToken historyToken = context.historyToken();
+            HistoryToken tokenWithIdAndName = historyToken
+                    .idName(
+                            id.get(),
+                            name.get()
+                    );
+
+            // if a selection is already present copy from the metadata
+            if (tokenWithIdAndName instanceof SpreadsheetSelectionHistoryToken) {
+                tokenWithIdAndName = tokenWithIdAndName.viewportSelectionHistoryToken(
+                        metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
+                );
+            }
+
+            if (false == historyToken.equals(tokenWithIdAndName)) {
+                context.debug("App.onSpreadsheetMetadata different id/name/viewportSelection " + tokenWithIdAndName);
+                context.pushHistoryToken(tokenWithIdAndName);
+            }
+        }
+    }
 
     @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
@@ -378,11 +444,44 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, UncaughtExce
     @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
-        context.historyToken()
-                .onHashChange(
-                        previous,
-                        context
-                );
+
+        // if the viewport selection changed update metadata
+        final HistoryToken historyToken = context.historyToken();
+        if (historyToken instanceof SpreadsheetIdHistoryToken) {
+            final Optional<SpreadsheetViewportSelection> viewportSelection = viewportSelection(historyToken);
+            final Optional<SpreadsheetViewportSelection> previousViewportSelection = viewportSelection(previous);
+            if (false == viewportSelection.equals(previousViewportSelection)) {
+
+                context.debug("App.onHashChange viewportSelection changed from " + previousViewportSelection.orElse(null) + " TO " + viewportSelection.orElse(null) + " will update Metadata");
+
+                final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
+                context.spreadsheetMetadataFetcher()
+                        .patchMetadata(
+                                spreadsheetIdHistoryToken.id(),
+                                SpreadsheetMetadata.EMPTY.setOrRemove(
+                                        SpreadsheetMetadataPropertyName.SELECTION,
+                                        viewportSelection.orElse(null)
+                                )
+                        );
+            }
+        }
+
+        historyToken.onHashChange(
+                previous,
+                context
+        );
+    }
+
+    /**
+     * Determines the {@link SpreadsheetViewportSelection} if one is present in the given {@link HistoryToken}.
+     */
+    private static Optional<SpreadsheetViewportSelection> viewportSelection(final HistoryToken historyToken) {
+        SpreadsheetViewportSelection viewportSelection = null;
+        if (historyToken instanceof SpreadsheetViewportSelectionHistoryToken) {
+            final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) historyToken;
+            viewportSelection = spreadsheetViewportSelectionHistoryToken.viewportSelection();
+        }
+        return Optional.ofNullable(viewportSelection);
     }
 
     /**
