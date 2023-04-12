@@ -67,6 +67,16 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return with(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
         // enable formula text box and give focus

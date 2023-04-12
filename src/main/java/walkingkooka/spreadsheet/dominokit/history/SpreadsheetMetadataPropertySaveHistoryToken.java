@@ -89,6 +89,18 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
         return result;
     }
 
+    // new id/name but still metadata+property+value select
+    @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return with(
+                id,
+                name,
+                this.propertyName(),
+                this.propertyValue()
+        );
+    }
+
     @Override
     SpreadsheetNameHistoryToken save(final String value) {
         return this;

@@ -85,6 +85,17 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return with(
+                id,
+                name,
+                this.viewportSelection(),
+                this.formula()
+        );
+    }
+
+    @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
         // remove the save

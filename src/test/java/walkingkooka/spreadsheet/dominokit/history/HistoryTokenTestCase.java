@@ -43,6 +43,56 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         super();
     }
 
+
+    // idName............................................................................................................
+
+    @Test
+    public final void testIdNameNullIdFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createHistoryToken().idName(
+                        null,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public final void testIdNameNullNameFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createHistoryToken().idName(
+                        ID,
+                        null
+                )
+        );
+    }
+
+    final void idNameAndCheck(final SpreadsheetId id,
+                              final SpreadsheetName name,
+                              final HistoryToken expected) {
+        this.idNameAndCheck(
+                this.createHistoryToken(),
+                id,
+                name,
+                expected
+        );
+    }
+
+    final void idNameAndCheck(final HistoryToken token,
+                              final SpreadsheetId id,
+                              final SpreadsheetName name,
+                              final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.idName(
+                        id,
+                        name
+                ),
+                () -> token + " id=" + id + " name=" + name
+        );
+    }
+
     // idNameViewportSelection.......................................................................................
 
     @Test

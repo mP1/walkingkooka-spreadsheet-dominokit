@@ -52,10 +52,19 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return spreadsheetSelect(
+                id,
+                name
+        );
+    }
+
+    @Override
     HistoryToken idNameViewportSelection0(final SpreadsheetId id,
                                           final SpreadsheetName name,
                                           final SpreadsheetViewportSelection viewportSelection) {
-        return HistoryToken.spreadsheetSelect(
+        return this.idName(
                 id,
                 name
         ).idNameViewportSelection(
@@ -66,7 +75,6 @@ public final class UnknownHistoryToken extends HistoryToken {
                 )
         );
     }
-
 
     @Override
     public UrlFragment urlFragment() {

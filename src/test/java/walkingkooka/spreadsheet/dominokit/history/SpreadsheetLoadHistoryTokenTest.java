@@ -29,6 +29,17 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     }
 
     @Test
+    public void testIdNameDifferentId() {
+        final SpreadsheetId differentId = SpreadsheetId.with(9999);
+
+        this.idNameAndCheck(
+                differentId,
+                NAME,
+                HistoryToken.spreadsheetSelect(differentId, NAME)
+        );
+    }
+
+    @Test
     public void testIdNameViewportSelectionWithIdDifferent() {
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 

@@ -51,6 +51,16 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
     }
 
     @Override
+    public HistoryToken idName(final SpreadsheetId id,
+                               final SpreadsheetName name) {
+        return with(
+                id,
+                name,
+                this.viewportSelection()
+        );
+    }
+
+    @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
         // show column context menu
