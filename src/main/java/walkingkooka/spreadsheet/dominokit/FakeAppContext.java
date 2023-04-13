@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Set;
@@ -99,6 +100,11 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public TextStyle viewportRowHeader(final boolean selected) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void giveViewportFocus(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
 

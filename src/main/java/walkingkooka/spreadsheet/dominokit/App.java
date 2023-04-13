@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 import elemental2.dom.DomGlobal;
 import org.dominokit.domino.ui.layout.Layout;
 import org.dominokit.domino.ui.utils.DominoElement;
@@ -41,6 +43,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.BorderStyle;
@@ -605,6 +608,19 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
     // TODO get these from theme
     private final static Color COLUMN_ROW_SELECTED = Color.parse("#555");
     private final static Color COLUMN_ROW_UNSELECTED = Color.parse("#aaa");
+
+    @Override
+    public void giveViewportFocus(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        final Element element = Document.get()
+                .getElementById(
+                        SpreadsheetViewportWidget.id(selection)
+                );
+        if (null != element) {
+            element.focus();
+        }
+    }
 
     // logging..........................................................................................................
 

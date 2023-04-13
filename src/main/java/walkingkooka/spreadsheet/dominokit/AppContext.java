@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Set;
@@ -67,6 +68,11 @@ public interface AppContext extends Context {
     TextStyle viewportColumnHeader(final boolean selected);
 
     TextStyle viewportRowHeader(final boolean selected);
+
+    /**
+     * If the {@link SpreadsheetSelection} is present, the element will be given focus.
+     */
+    void giveViewportFocus(final SpreadsheetSelection selection);
 
     void debug(final Object message);
 
