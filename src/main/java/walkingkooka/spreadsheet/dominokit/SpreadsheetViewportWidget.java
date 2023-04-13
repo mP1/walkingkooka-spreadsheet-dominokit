@@ -58,6 +58,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher, HistoryWatcher {
@@ -673,11 +674,57 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     // viewport-column-A
     // @VisibleForTesting
     static String id(final SpreadsheetSelection selection) {
-        return "viewport-" +
+        return VIEWPORT_ID_PREFIX +
                 selection.textLabel().toLowerCase() +
                 "-" +
                 selection.toString().toUpperCase();
     }
+
+    /**
+     * Takes an id hopefully sourced from a {@link SpreadsheetViewportWidget} descendant element and tries to extract a {@link SpreadsheetSelection}.
+     * <br>
+     * This is the inverse of {@link #id(SpreadsheetSelection)}.
+     */
+    static Optional<SpreadsheetSelection> parseId(final String id) {
+        SpreadsheetSelection selection = null;
+
+        if (id.startsWith(VIEWPORT_ID_PREFIX)) {
+            // viewport-cell-A1 -> cell-A1
+            final String selectionTypeAndSelection = id.substring(VIEWPORT_ID_PREFIX.length());
+            final int dash = selectionTypeAndSelection.indexOf('-');
+            if (-1 != dash) {
+                final Function<String, SpreadsheetSelection> parser;
+
+                switch (selectionTypeAndSelection.substring(0, dash)) {
+                    case "cell":
+                        parser = SpreadsheetSelection::parseCell;
+                        break;
+                    case "column":
+                        parser = SpreadsheetSelection::parseColumn;
+                        break;
+                    case "row":
+                        parser = SpreadsheetSelection::parseRow;
+                        break;
+                    default:
+                        parser = null;
+                        break;
+                }
+                if (null != parser) {
+                    try {
+                        selection = parser.apply(
+                                selectionTypeAndSelection.substring(dash + 1)
+                        );
+                    } catch (final RuntimeException ignore) {
+                        // nop
+                    }
+                }
+            }
+        }
+
+        return Optional.ofNullable(selection);
+    }
+
+    private final static String VIEWPORT_ID_PREFIX = "viewport-";
 
     /**
      * This is updated each time a new {@link SpreadsheetMetadata} arrives.
