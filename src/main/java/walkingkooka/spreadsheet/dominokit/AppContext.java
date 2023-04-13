@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import elemental2.dom.Element;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
@@ -26,6 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface AppContext extends Context {
@@ -73,6 +75,11 @@ public interface AppContext extends Context {
      * If the {@link SpreadsheetSelection} is present, the element will be given focus.
      */
     void giveViewportFocus(final SpreadsheetSelection selection);
+
+    /**
+     * Finds an existing {@link Element} for the given {@link SpreadsheetSelection}.
+     */
+    Optional<Element> findViewportElement(final SpreadsheetSelection selection);
 
     void debug(final Object message);
 

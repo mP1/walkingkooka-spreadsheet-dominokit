@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import elemental2.dom.Element;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -25,6 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 
+import java.util.Optional;
 import java.util.Set;
 
 public class FakeAppContext implements AppContext {
@@ -105,6 +107,11 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public void giveViewportFocus(final SpreadsheetSelection selection) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Element> findViewportElement(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
 
