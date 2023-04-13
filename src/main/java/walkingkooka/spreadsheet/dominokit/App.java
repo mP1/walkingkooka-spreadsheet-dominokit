@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
-import com.google.gwt.user.client.DOM;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.layout.Layout;
@@ -28,7 +27,6 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import org.jboss.elemento.EventType;
-import walkingkooka.Cast;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
@@ -621,11 +619,10 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
         Objects.requireNonNull(selection, "selection");
 
         return Optional.ofNullable(
-                Cast.to(
-                        DOM.getElementById(
+                DomGlobal.document
+                        .getElementById(
                                 SpreadsheetViewportWidget.id(selection)
                         )
-                )
         );
     }
 
