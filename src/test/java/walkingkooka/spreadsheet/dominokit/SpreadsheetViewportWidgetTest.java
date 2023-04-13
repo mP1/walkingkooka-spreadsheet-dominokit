@@ -21,8 +21,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.test.ParseStringTesting;
 
-public final class SpreadsheetViewportWidgetTest implements ClassTesting<SpreadsheetViewportWidget> {
+import java.util.Optional;
+
+public final class SpreadsheetViewportWidgetTest implements ClassTesting<SpreadsheetViewportWidget>, ParseStringTesting<Optional<SpreadsheetSelection>> {
 
     // id...............................................................................................................
 
@@ -57,6 +60,130 @@ public final class SpreadsheetViewportWidgetTest implements ClassTesting<Spreads
                 SpreadsheetViewportWidget.id(selection),
                 () -> selection + " id"
         );
+    }
+
+    // parseId.........................................................................................................
+
+    @Override
+    public void testParseStringEmptyFails() {
+        throw new UnsupportedOperationException(); // shouldnt be invoked
+    }
+
+    @Test
+    public void testParseIdWithEmpty() {
+        this.parseStringAndCheck(
+                ""
+        );
+    }
+
+    @Test
+    public void testParseIdWithMissingViewportIdPrefix() {
+        this.parseStringAndCheck(
+                "xyz"
+        );
+    }
+
+    @Test
+    public void testParseIdWithInvalidSelectionType() {
+        this.parseStringAndCheck(
+                "viewport-invalid"
+        );
+    }
+
+    @Test
+    public void testParseIdWithInvalidSelectionType2() {
+        this.parseStringAndCheck(
+                "viewport-invalid-A1"
+        );
+    }
+
+    @Test
+    public void testParseIdWithCellRangeFails() {
+        this.parseStringAndCheck(
+                "viewport-cell-A1:A2"
+        );
+    }
+
+    @Test
+    public void testParseIdWithColumnRangeFails() {
+        this.parseStringAndCheck(
+                "viewport-column-B:C"
+        );
+    }
+
+    @Test
+    public void testParseIdWithLabelFails() {
+        this.parseStringAndCheck(
+                "viewport-cell-Label123"
+        );
+    }
+
+    @Test
+    public void testParseIdWithRowRangeFails() {
+        this.parseStringAndCheck(
+                "viewport-row-4:5"
+        );
+    }
+
+    private void parseStringAndCheck(final String id) {
+        this.parseStringAndCheck(
+                id,
+                Optional.empty()
+        );
+    }
+
+    @Test
+    public void testParseIdWithCell() {
+        this.parseStringAndCheck(
+                "viewport-cell-A1",
+                SpreadsheetSelection.parseCell("A1")
+        );
+    }
+
+    @Test
+    public void testParseIdWithColumn() {
+        this.parseStringAndCheck(
+                "viewport-column-B",
+                SpreadsheetSelection.parseColumn("B")
+        );
+    }
+
+    @Test
+    public void testParseIdWithRow() {
+        this.parseStringAndCheck(
+                "viewport-row-3",
+                SpreadsheetSelection.parseRow("3")
+        );
+    }
+
+    private void parseStringAndCheck(final String id,
+                                     final SpreadsheetSelection selection) {
+        this.parseStringAndCheck(
+                id,
+                Optional.of(selection)
+        );
+
+        this.idAndCheck(
+                selection,
+                id
+        );
+    }
+
+    // ParseStringTesting...............................................................................................
+
+    @Override
+    public Optional<SpreadsheetSelection> parseString(final String id) {
+        return SpreadsheetViewportWidget.parseId(id);
+    }
+
+    @Override
+    public Class<? extends RuntimeException> parseStringFailedExpected(final Class<? extends RuntimeException> thrown) {
+        return thrown;
+    }
+
+    @Override
+    public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
+        return thrown;
     }
 
     // ClassTesting....................................................................................................
