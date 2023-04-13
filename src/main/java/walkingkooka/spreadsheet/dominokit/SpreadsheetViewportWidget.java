@@ -671,7 +671,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     }
 
     // viewport-column-A
-    private String id(final SpreadsheetSelection selection) {
+    // @VisibleForTesting
+    static String id(final SpreadsheetSelection selection) {
         return "viewport-" +
                 selection.textLabel().toLowerCase() +
                 "-" +
