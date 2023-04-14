@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
 
+import java.util.Optional;
+
 public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownHistoryToken> {
 
     @Test
@@ -28,6 +30,14 @@ public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownH
                 ID,
                 NAME,
                 HistoryToken.spreadsheetSelect(ID, NAME)
+        );
+    }
+
+    @Test
+    public void testViewportSelectionOrEmpty() {
+        this.checkEquals(
+                Optional.empty(),
+                this.createHistoryToken().viewportSelectionOrEmpty()
         );
     }
 

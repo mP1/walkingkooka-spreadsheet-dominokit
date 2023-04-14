@@ -654,7 +654,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             viewportSelection = spreadsheetViewportSelectionHistoryToken.viewportSelection();
         }
 
-        return Optional.of(viewportSelection);
+        return Optional.ofNullable(viewportSelection);
     }
 
     // Object...........................................................................................................
