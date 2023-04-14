@@ -52,7 +52,7 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
 
     @Test
     public void testCellMenuWithSameCell() {
-        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("A1");
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
 
         this.menuAndCheck(
                 this.createHistoryToken(
@@ -73,7 +73,7 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
 
         this.menuAndCheck(
                 this.createHistoryToken(
-                        SpreadsheetSelection.parseCell("A1").setDefaultAnchor()
+                        SpreadsheetSelection.A1.setDefaultAnchor()
                 ),
                 cell,
                 HistoryToken.cellMenu(

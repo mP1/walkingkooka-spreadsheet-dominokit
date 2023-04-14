@@ -40,7 +40,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testWithCellFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseCell("A1").setDefaultAnchor(),
+                SpreadsheetSelection.A1.setDefaultAnchor(),
                 "Got A1 expected column or column-range"
         );
     }

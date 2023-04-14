@@ -32,7 +32,7 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     @Test
     public final void testSelectionWithCell() {
         this.selectionCellAndCheck(
-                SpreadsheetSelection.parseCell("A1")
+                SpreadsheetSelection.A1
         );
     }
 

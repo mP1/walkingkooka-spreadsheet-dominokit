@@ -53,7 +53,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             NAME
     );
 
-    private final static SpreadsheetCellReference CELL = SpreadsheetSelection.parseCell("A1");
+    private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
     private static final SpreadsheetCellSelectHistoryToken CELL_HHT = HistoryToken.cell(
             ID,

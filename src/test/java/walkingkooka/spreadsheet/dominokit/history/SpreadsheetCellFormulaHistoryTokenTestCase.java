@@ -31,7 +31,7 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
 
     @Test
     public final void testCellMenuWithSameCell() {
-        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("A1");
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
 
         this.menuAndCheck(
                 this.createHistoryToken(
@@ -52,7 +52,7 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
 
         this.menuAndCheck(
                 this.createHistoryToken(
-                        SpreadsheetSelection.parseCell("A1").setDefaultAnchor()
+                        SpreadsheetSelection.A1.setDefaultAnchor()
                 ),
                 cell,
                 HistoryToken.cellMenu(

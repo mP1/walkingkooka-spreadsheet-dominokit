@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
 
-    final static SpreadsheetCellReference CELL = SpreadsheetSelection.parseCell("A1");
+    final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
     final static SpreadsheetCellRange RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
 
