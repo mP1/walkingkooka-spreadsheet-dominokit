@@ -136,7 +136,7 @@ public final class SpreadsheetViewportWidgetTest implements ClassTesting<Spreads
     public void testParseIdWithCell() {
         this.parseStringAndCheck(
                 "viewport-cell-A1",
-                SpreadsheetSelection.parseCell("A1")
+                SpreadsheetSelection.A1
         );
     }
 

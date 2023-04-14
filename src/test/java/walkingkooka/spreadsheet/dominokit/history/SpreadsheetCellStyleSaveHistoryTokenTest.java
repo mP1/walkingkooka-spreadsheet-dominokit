@@ -113,7 +113,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                 SpreadsheetCellStyleSaveHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetSelection.parseCell("A1").setDefaultAnchor(),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
                         propertyName,
                         Optional.of(propertyValue)
                 ),
@@ -129,7 +129,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                 SpreadsheetCellStyleSaveHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetSelection.parseCell("A1").setDefaultAnchor(),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
                         propertyName,
                         Optional.of(propertyValue)
                 )

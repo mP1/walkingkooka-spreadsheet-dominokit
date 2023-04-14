@@ -54,7 +54,7 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.parseCell("A1").setDefaultAnchor(),
+                SpreadsheetSelection.A1.setDefaultAnchor(),
                 "/123/SpreadsheetName456/cell/A1/freeze"
         );
     }
