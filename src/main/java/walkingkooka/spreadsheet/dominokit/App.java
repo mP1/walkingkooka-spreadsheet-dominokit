@@ -38,7 +38,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -451,8 +450,8 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
         // if the viewport selection changed update metadata
         final HistoryToken historyToken = context.historyToken();
         if (historyToken instanceof SpreadsheetIdHistoryToken) {
-            final Optional<SpreadsheetViewportSelection> viewportSelection = viewportSelection(historyToken);
-            final Optional<SpreadsheetViewportSelection> previousViewportSelection = viewportSelection(previous);
+            final Optional<SpreadsheetViewportSelection> viewportSelection = historyToken.viewportSelectionOrEmpty();
+            final Optional<SpreadsheetViewportSelection> previousViewportSelection = previous.viewportSelectionOrEmpty();
             if (false == viewportSelection.equals(previousViewportSelection)) {
 
                 context.debug("App.onHashChange viewportSelection changed from " + previousViewportSelection.orElse(null) + " TO " + viewportSelection.orElse(null) + " will update Metadata");
@@ -473,18 +472,6 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
                 previous,
                 context
         );
-    }
-
-    /**
-     * Determines the {@link SpreadsheetViewportSelection} if one is present in the given {@link HistoryToken}.
-     */
-    private static Optional<SpreadsheetViewportSelection> viewportSelection(final HistoryToken historyToken) {
-        SpreadsheetViewportSelection viewportSelection = null;
-        if (historyToken instanceof SpreadsheetViewportSelectionHistoryToken) {
-            final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) historyToken;
-            viewportSelection = spreadsheetViewportSelectionHistoryToken.viewportSelection();
-        }
-        return Optional.ofNullable(viewportSelection);
     }
 
     /**
