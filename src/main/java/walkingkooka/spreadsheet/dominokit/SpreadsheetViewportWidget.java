@@ -36,7 +36,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -126,17 +125,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     @Override
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
-        // read the viewportSelection from the current/new historyToken
-        SpreadsheetViewportSelection viewportSelection = null;
-
-        final HistoryToken historyToken = context.historyToken();
-        if (historyToken instanceof SpreadsheetViewportSelectionHistoryToken) {
-            final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) historyToken;
-            viewportSelection = spreadsheetViewportSelectionHistoryToken.viewportSelection();
-        }
-
         this.setViewportSelection(
-                Optional.ofNullable(viewportSelection)
+                context.historyToken()
+                        .viewportSelectionOrEmpty()
         );
 
         this.updateTable();
