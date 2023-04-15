@@ -86,6 +86,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      */
     private HtmlContentBuilder<HTMLTableElement> createTable() {
         final HtmlContentBuilder<HTMLTableElement> tableElement = Elements.table();
+        tableElement.id(VIEWPORT_ID);
         tableElement.style("width: 100%; height: 100%;");
         tableElement.add(
                 Elements.tbody()
@@ -102,6 +103,11 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
         return tableElement;
     }
+
+    /**
+     * The ID assigned to the container TABLE element.
+     */
+    private final static String VIEWPORT_ID = "viewport";
 
     public void setWidthAndHeight(final int width,
                                   final int height) {
@@ -753,7 +759,10 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         return Optional.ofNullable(selection);
     }
 
-    private final static String VIEWPORT_ID_PREFIX = "viewport-";
+    /**
+     * Prefix for any component within a viewport
+     */
+    private final static String VIEWPORT_ID_PREFIX = VIEWPORT_ID + "-";
 
     /**
      * This is updated each time a new {@link SpreadsheetMetadata} arrives.
