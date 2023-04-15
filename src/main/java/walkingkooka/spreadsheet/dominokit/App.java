@@ -27,7 +27,6 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import org.jboss.elemento.EventType;
-import walkingkooka.Cast;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
@@ -607,9 +606,10 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
             final Element active = DomGlobal.document.activeElement;
             if (null != active) {
                 // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
-                com.google.gwt.dom.client.Element elementElement = Cast.to(element);
-                com.google.gwt.dom.client.Element activeElement = Cast.to(active);
-                give = false == elementElement.isOrHasChild(activeElement);
+                give = false == Doms.isOrHasChild(
+                        element,
+                        active
+                );
             }
 
             if (give) {
