@@ -27,6 +27,7 @@ import elemental2.dom.HTMLTableSectionElement;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
+import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
@@ -669,8 +670,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
         td.element()
                 .addEventListener(
-                        "click",
-                        (e) -> this.onCellClick(
+                        EventType.focus.getName(),
+                        (e) -> this.onCellFocus(
                                 cellReference, context
                         )
                 );
@@ -681,7 +682,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     /**
      * Grab the id and name from {@link SpreadsheetMetadata} and push a new token including the selected cell.
      */
-    private void onCellClick(final SpreadsheetCellReference cell,
+    private void onCellFocus(final SpreadsheetCellReference cell,
                              final AppContext context) {
         final SpreadsheetMetadata metadata = this.metadata;
         final Optional<SpreadsheetName> name = metadata.name();
