@@ -17,11 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
+import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.HtmlContentBuilder;
@@ -376,6 +379,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     //}
     private void updateTable() {
         final HtmlContentBuilder<HTMLTableElement> tableElement = this.tableElement;
+
+        final Optional<String> focusedBefore = this.focusedElementId();
+
         Elements.removeChildrenFrom(tableElement.element());
 
         final SpreadsheetViewportCache cache = this.cache;
@@ -419,6 +425,38 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                         columns
                 )
         );
+
+        if (focusedBefore.isPresent()) {
+            giveFocus(focusedBefore.get());
+        }
+    }
+
+    /**
+     * Used to capture the ID of the selected item. This can be used to give focus back after updating a table.
+     */
+    private Optional<String> focusedElementId() {
+        String id = null;
+
+        final Element focused = DomGlobal.document.activeElement;
+        if (null != focused) {
+            if (Doms.isOrHasChild(
+                    this.tableElement(),
+                    focused
+            )) {
+                id = focused.id;
+            }
+        }
+
+        return Optional.ofNullable(id);
+    }
+
+    private void giveFocus(final String id) {
+        Scheduler.get().scheduleDeferred(() -> {
+            Element element = DomGlobal.document.getElementById(id);
+            if (null != element) {
+                element.focus();
+            }
+        });
     }
 
     /**
