@@ -70,15 +70,18 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
     private SpreadsheetViewportWidget(final AppContext context) {
         this.context = context;
-        this.tableElement = Elements.table();
-        this.initTable();
+
+        this.tableElement = createTable();
 
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
     }
 
-    private void initTable() {
-        final HtmlContentBuilder<HTMLTableElement> tableElement = this.tableElement;
+    /**
+     * Creates an empty table with minimal styling including some placeholder text.
+     */
+    private HtmlContentBuilder<HTMLTableElement> createTable() {
+        final HtmlContentBuilder<HTMLTableElement> tableElement = Elements.table();
         tableElement.style("width: 100%; height: 100%;");
         tableElement.add(
                 Elements.tbody()
@@ -92,6 +95,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                                         ).element()
                         ).element()
         );
+
+        return tableElement;
     }
 
     public void setWidthAndHeight(final int width,
