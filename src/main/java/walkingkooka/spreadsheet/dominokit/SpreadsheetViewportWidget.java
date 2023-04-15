@@ -507,10 +507,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     private HTMLTableCellElement columnHeader(final SpreadsheetColumnReference column) {
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.th()
                 .id(id(column))
-                .attr(
-                        "tabindex",
-                        "0"
-                ).style(
+                .style(
                         this.context.viewportColumnHeader(this.isSelected(column))
                                 .set(
                                         TextStylePropertyName.WIDTH,
@@ -575,10 +572,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     private HTMLTableCellElement rowHeader(final SpreadsheetRowReference row) {
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
                 .id(id(row))
-                .attr(
-                        "tabindex",
-                        "0"
-                ).style(
+                .style(
                         this.context.viewportRowHeader(this.isSelected(row))
                                 .set(
                                         TextStylePropertyName.WIDTH,
