@@ -597,6 +597,11 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
 
     @Override
     public void giveViewportFocus(final SpreadsheetSelection selection) {
+        Scheduler.get()
+                .scheduleDeferred(() -> this.giveViewportFocus0(selection));
+    }
+
+    private void giveViewportFocus0(final SpreadsheetSelection selection) {
         final Optional<Element> maybeElement = this.findViewportElement(selection);
         if (maybeElement.isPresent()) {
             final Element element = maybeElement.get();
@@ -613,8 +618,11 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
             }
 
             if (give) {
+                this.debug("giveViewportFocus " + selection + " focus element " + element);
                 element.focus();
             }
+        } else {
+            this.debug("giveViewportFocus " + selection + " element not found!");
         }
     }
 
