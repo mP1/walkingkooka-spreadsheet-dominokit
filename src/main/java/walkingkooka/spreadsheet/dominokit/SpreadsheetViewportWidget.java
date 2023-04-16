@@ -51,6 +51,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
@@ -210,12 +211,11 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
     private void loadViewportCellsIfNecessary() {
         if (this.reload) {
-            final SpreadsheetMetadata metadata = this.metadata;
-            if (metadata.isEmpty()) {
+            if (this.metadata.isEmpty()) {
                 this.context.debug("SpreadsheetViewportWidget.loadViewportCellsIfNecessary waiting for metadata");
             } else {
                 this.loadViewportCells(
-                        metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
+                        Optional.empty()
                 );
             }
         }
@@ -224,8 +224,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     /**
      * Loads all the cells to fill the viewport. Assumes that a metadata with id is present.
      */
-    private void loadViewportCells(final Optional<SpreadsheetViewportSelection> viewportSelection) {
-        Objects.requireNonNull(viewportSelection, "viewportSelection");
+    private void loadViewportCells(final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
+        Objects.requireNonNull(navigation, "navigation");
 
         this.cache.clear(); // equivalent to clearing all cached data.
 
@@ -249,9 +249,11 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 .addParameter(HEIGHT, String.valueOf(height))
                 .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
 
+        final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
         if (viewportSelection.isPresent()) {
             queryString = SpreadsheetDeltaFetcher.appendViewportSelection(
-                    viewportSelection.get(),
+                    viewportSelection.get()
+                            .setNavigation(navigation),
                     queryString
             );
         }
