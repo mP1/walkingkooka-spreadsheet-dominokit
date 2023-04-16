@@ -17,11 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
+import elemental2.dom.KeyboardEvent;
+import jsinterop.base.Js;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
@@ -144,6 +147,65 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         );
 
         this.updateTable();
+    }
+
+    /**
+     * Generic key event handler that handles any key events for cell/column OR row.
+     */
+    private void onKeyDownEvent(final Event event) {
+        this.onKeyDownEvent0(
+                Js.cast(event)
+        );
+    }
+
+    private void onKeyDownEvent0(final KeyboardEvent event) {
+        event.preventDefault();
+
+        final String keyCode = event.key;
+        final boolean shifted = event.shiftKey;
+        final AppContext context = this.context;
+
+        SpreadsheetViewportSelectionNavigation navigation = null;
+
+        switch (keyCode) {
+            case "ArrowLeft":
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
+                        SpreadsheetViewportSelectionNavigation.LEFT;
+                break;
+            case "ArrowUp":
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_UP :
+                        SpreadsheetViewportSelectionNavigation.UP;
+                break;
+            case "ArrowRight":
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
+                        SpreadsheetViewportSelectionNavigation.RIGHT;
+                break;
+            case "ArrowDown":
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
+                        SpreadsheetViewportSelectionNavigation.DOWN;
+                break;
+            case "Enter":
+                // if cell then edit formula
+                break;
+            case "Escape":
+                // clear any selection
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .viewportSelectionHistoryToken(
+                                        Optional.empty()
+                                )
+                );
+        }
+
+        if (null != navigation) {
+            this.loadViewportCells(
+                    Optional.of(navigation)
+            );
+        }
     }
 
     @Override
@@ -526,7 +588,12 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 td
         );
 
-        return td.element();
+        final HTMLTableCellElement element = td.element();
+        element.addEventListener(
+                EventType.keydown.getName(),
+                this::onKeyDownEvent
+        );
+        return element;
     }
 
     private final static Length<?> COLUMN_HEIGHT = Length.pixel(25.0);
@@ -591,7 +658,12 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 td
         );
 
-        return td.element();
+        final HTMLTableCellElement element = td.element();
+        element.addEventListener(
+                EventType.keydown.getName(),
+                this::onKeyDownEvent
+        );
+        return element;
     }
 
     private final static Length<?> ROW_WIDTH = Length.pixel(80.0);
@@ -666,18 +738,21 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                         "tabindex",
                         "0"
                 ).style(
-                    style.css() + "box-sizing: border-box;"
+                        style.css() + "box-sizing: border-box;"
                 ).innerHtml(SafeHtmlUtils.fromTrustedString(innerHtml));
 
-        td.element()
-                .addEventListener(
-                        EventType.click.getName(),
-                        (e) -> this.selectCell(
-                                cellReference, context
-                        )
-                );
-
-        return td.element();
+        final HTMLTableCellElement element = td.element();
+        element.addEventListener(
+                EventType.click.getName(),
+                (e) -> this.selectCell(
+                        cellReference, context
+                )
+        );
+        element.addEventListener(
+                EventType.keydown.getName(),
+                this::onKeyDownEvent
+        );
+        return element;
     }
 
     /**
