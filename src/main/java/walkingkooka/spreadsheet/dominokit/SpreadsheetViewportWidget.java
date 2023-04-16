@@ -210,10 +210,13 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
     private void loadViewportCellsIfNecessary() {
         if (this.reload) {
-            if(this.metadata.isEmpty()) {
+            final SpreadsheetMetadata metadata = this.metadata;
+            if (metadata.isEmpty()) {
                 this.context.debug("SpreadsheetViewportWidget.loadViewportCellsIfNecessary waiting for metadata");
             } else {
-                this.loadViewportCells();
+                this.loadViewportCells(
+                        metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
+                );
             }
         }
     }
@@ -221,7 +224,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     /**
      * Loads all the cells to fill the viewport. Assumes that a metadata with id is present.
      */
-    private void loadViewportCells() {
+    private void loadViewportCells(final Optional<SpreadsheetViewportSelection> viewportSelection) {
+        Objects.requireNonNull(viewportSelection, "viewportSelection");
+
         this.cache.clear(); // equivalent to clearing all cached data.
 
         this.reload = false;
@@ -244,7 +249,6 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 .addParameter(HEIGHT, String.valueOf(height))
                 .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
 
-        final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
         if (viewportSelection.isPresent()) {
             queryString = SpreadsheetDeltaFetcher.appendViewportSelection(
                     viewportSelection.get(),
