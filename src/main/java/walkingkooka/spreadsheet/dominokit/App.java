@@ -604,7 +604,7 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
     private void giveViewportFocus0(final SpreadsheetSelection selection) {
         final Optional<Element> maybeElement = this.findViewportElement(selection);
         if (maybeElement.isPresent()) {
-            final Element element = maybeElement.get();
+            Element element = maybeElement.get();
 
             boolean give = true;
 
@@ -618,6 +618,11 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
             }
 
             if (give) {
+                // for column/row the anchor and not the TH/TD should receive focus.
+                if (selection.isColumnReference() || selection.isRowReference()) {
+                    element = element.firstElementChild;
+                }
+
                 this.debug("giveViewportFocus " + selection + " focus element " + element);
                 element.focus();
             }
