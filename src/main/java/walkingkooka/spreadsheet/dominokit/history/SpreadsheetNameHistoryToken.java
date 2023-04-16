@@ -57,19 +57,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     abstract UrlFragment spreadsheetUrlFragment();
 
-    final SpreadsheetHistoryToken viewportSelectionHistoryToken(final SpreadsheetId id,
-                                                                final SpreadsheetName name,
-                                                                final SpreadsheetViewportSelection viewportSelection) {
-        return spreadsheetSelect(
-                id,
-                name
-        ).viewportSelectionHistoryToken(
-                Optional.of(
-                        viewportSelection
-                )
-        );
-    }
-
     final SpreadsheetNameHistoryToken cell(final SpreadsheetViewportSelection viewportSelection) {
         return cell(
                 this.id(),
