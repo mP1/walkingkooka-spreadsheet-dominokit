@@ -440,7 +440,20 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         );
 
         if (focusedBefore.isPresent()) {
-            giveFocus(focusedBefore.get());
+            this.giveFocus(focusedBefore.get());
+        } else {
+            final AppContext context = this.context;
+            final Optional<SpreadsheetViewportSelection> maybeViewportSelection = context.historyToken()
+                    .viewportSelectionOrEmpty();
+            if (maybeViewportSelection.isPresent()) {
+                final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
+                context.giveViewportFocus(
+                        viewportSelection.selection()
+                                .focused(
+                                        viewportSelection.anchor()
+                                )
+                );
+            }
         }
     }
 
