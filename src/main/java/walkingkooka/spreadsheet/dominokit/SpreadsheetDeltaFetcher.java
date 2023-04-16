@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -81,13 +82,22 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
         );
 
         final SpreadsheetViewportSelectionAnchor anchor = viewportSelection.anchor();
+        if (SpreadsheetViewportSelectionAnchor.NONE != anchor) {
+            result = result.addParameter(
+                    SELECTION_ANCHOR,
+                    viewportSelection.anchor().kebabText()
+            );
+        }
 
-        return SpreadsheetViewportSelectionAnchor.NONE == anchor ?
-                result :
-                result.addParameter(
-                        SELECTION_ANCHOR,
-                        viewportSelection.anchor().kebabText()
-                );
+        final Optional<SpreadsheetViewportSelectionNavigation> navigation = viewportSelection.navigation();
+        if (navigation.isPresent()) {
+            result = result.addParameter(
+                    SELECTION_NAVIGATION,
+                    navigation.get().kebabText()
+            );
+        }
+
+        return result;
     }
 
     private final static UrlParameterName SELECTION = UrlParameterName.with("selection");
@@ -95,6 +105,11 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
     private final static UrlParameterName SELECTION_TYPE = UrlParameterName.with("selectionType");
 
     private final static UrlParameterName SELECTION_ANCHOR = UrlParameterName.with("selectionAnchor");
+
+    /**
+     * Holds a direction resulting from entering an arrow key etc.
+     */
+    private final static UrlParameterName SELECTION_NAVIGATION = UrlParameterName.with("selectionNavigation");
 
     /**
      * Appends the given window to the given {@link UrlQueryString}

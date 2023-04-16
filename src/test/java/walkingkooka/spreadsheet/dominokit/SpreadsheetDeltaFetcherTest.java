@@ -25,7 +25,9 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 import walkingkooka.test.Testing;
 
 import java.util.Optional;
@@ -132,6 +134,36 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
+    @Test
+    public void testAppendSelectionColumnAndNavigationLeft() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.parseColumn("ABC")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        .setNavigation(
+                                Optional.of(
+                                        SpreadsheetViewportSelectionNavigation.LEFT
+                                )
+                        ),
+                UrlQueryString.parse("a=1"),
+                UrlQueryString.parse("a=1&selection=ABC&selectionType=column&selectionNavigation=left")
+        );
+    }
+
+    @Test
+    public void testAppendSelectionColumnAndNavigationExtendRight() {
+        this.appendSelectionAndCheck(
+                SpreadsheetSelection.parseColumn("Z")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        .setNavigation(
+                                Optional.of(
+                                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT
+                                )
+                        ),
+                UrlQueryString.parse("a=1"),
+                UrlQueryString.parse("a=1&selection=Z&selectionType=column&selectionNavigation=extend-right")
+        );
+    }
+
     private void appendSelectionAndCheck(final SpreadsheetSelection selection,
                                          final SpreadsheetViewportSelectionAnchor anchor,
                                          final String expected) {
@@ -157,16 +189,25 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                          final SpreadsheetViewportSelectionAnchor anchor,
                                          final UrlQueryString initial,
                                          final UrlQueryString expected) {
-        this.checkEquals(
-                expected,
-                SpreadsheetDeltaFetcher.appendViewportSelection(
-                        selection.setAnchor(anchor),
-                        initial
-                ),
-                () -> initial + " appendSelection " + selection + " " + anchor
+        this.appendSelectionAndCheck(
+                selection.setAnchor(anchor),
+                initial,
+                expected
         );
     }
 
+    private void appendSelectionAndCheck(final SpreadsheetViewportSelection viewportSelection,
+                                         final UrlQueryString initial,
+                                         final UrlQueryString expected) {
+        this.checkEquals(
+                expected,
+                SpreadsheetDeltaFetcher.appendViewportSelection(
+                        viewportSelection,
+                        initial
+                ),
+                () -> initial + " appendSelection " + viewportSelection
+        );
+    }
 
     // appendWindow..................................................................................................
 
