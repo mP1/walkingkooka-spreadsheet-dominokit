@@ -17,14 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import elemental2.dom.DomGlobal;
-import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
-import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
@@ -191,13 +188,24 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      */
     private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
 
-    private void setViewportSelection(final Optional<SpreadsheetViewportSelection> selection) {
-        this.context.debug(
-                "SpreadsheetViewportWidget.setViewportSelection " + selection.orElse(null)
+    private void setViewportSelection(final Optional<SpreadsheetViewportSelection> maybeViewportSelection) {
+        final AppContext context = this.context;
+        context.debug(
+                "SpreadsheetViewportWidget.setViewportSelection " + maybeViewportSelection.orElse(null)
         );
 
-        this.selection = selection.map(v -> (Predicate<SpreadsheetSelection>) v.selection())
+        this.selection = maybeViewportSelection.map(v -> (Predicate<SpreadsheetSelection>) v.selection())
                 .orElse(Predicates.never());
+
+        if (maybeViewportSelection.isPresent()) {
+            final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
+            context.giveViewportFocus(
+                    viewportSelection.selection()
+                            .focused(
+                                    viewportSelection.anchor()
+                            )
+            );
+        }
     }
 
     /**
@@ -393,7 +401,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     private void updateTable() {
         final HtmlContentBuilder<HTMLTableElement> tableElement = this.tableElement;
 
-        final Optional<String> focusedBefore = this.focusedElementId();
+        final AppContext context = this.context;
+        context.debug("SpreadsheetViewportWidget.updateTable");
 
         Elements.removeChildrenFrom(tableElement.element());
 
@@ -439,50 +448,17 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 )
         );
 
-        if (focusedBefore.isPresent()) {
-            this.giveFocus(focusedBefore.get());
-        } else {
-            final AppContext context = this.context;
-            final Optional<SpreadsheetViewportSelection> maybeViewportSelection = context.historyToken()
-                    .viewportSelectionOrEmpty();
-            if (maybeViewportSelection.isPresent()) {
-                final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
-                context.giveViewportFocus(
-                        viewportSelection.selection()
-                                .focused(
-                                        viewportSelection.anchor()
-                                )
-                );
-            }
+        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = context.historyToken()
+                .viewportSelectionOrEmpty();
+        if (maybeViewportSelection.isPresent()) {
+            final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
+            context.giveViewportFocus(
+                    viewportSelection.selection()
+                            .focused(
+                                    viewportSelection.anchor()
+                            )
+            );
         }
-    }
-
-    /**
-     * Used to capture the ID of the selected item. This can be used to give focus back after updating a table.
-     */
-    private Optional<String> focusedElementId() {
-        String id = null;
-
-        final Element focused = DomGlobal.document.activeElement;
-        if (null != focused) {
-            if (Doms.isOrHasChild(
-                    this.tableElement(),
-                    focused
-            )) {
-                id = focused.id;
-            }
-        }
-
-        return Optional.ofNullable(id);
-    }
-
-    private void giveFocus(final String id) {
-        Scheduler.get().scheduleDeferred(() -> {
-            Element element = DomGlobal.document.getElementById(id);
-            if (null != element) {
-                element.focus();
-            }
-        });
     }
 
     /**
