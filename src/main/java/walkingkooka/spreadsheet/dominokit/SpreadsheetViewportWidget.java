@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import elemental2.dom.Event;
+import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
@@ -150,15 +150,21 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     }
 
     /**
-     * Generic key event handler that handles any key events for cell/column OR row.
+     * Registers a keydown event handler on the given {@link Element}.
      */
-    private void onKeyDownEvent(final Event event) {
-        this.onKeyDownEvent0(
-                Js.cast(event)
+    private void addKeyDownEventListener(final Element element) {
+        element.addEventListener(
+                EventType.keydown.getName(),
+                (event) -> onKeyDownEvent(
+                        Js.cast(event)
+                )
         );
     }
 
-    private void onKeyDownEvent0(final KeyboardEvent event) {
+    /**
+     * Generic key event handler that handles any key events for cell/column OR row.
+     */
+    private void onKeyDownEvent(final KeyboardEvent event) {
         event.preventDefault();
 
         final String keyCode = event.key;
@@ -589,10 +595,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         );
 
         final HTMLTableCellElement element = td.element();
-        element.addEventListener(
-                EventType.keydown.getName(),
-                this::onKeyDownEvent
-        );
+        this.addKeyDownEventListener(element);
         return element;
     }
 
@@ -659,10 +662,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         );
 
         final HTMLTableCellElement element = td.element();
-        element.addEventListener(
-                EventType.keydown.getName(),
-                this::onKeyDownEvent
-        );
+        this.addKeyDownEventListener(element);
         return element;
     }
 
@@ -748,10 +748,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                         cellReference, context
                 )
         );
-        element.addEventListener(
-                EventType.keydown.getName(),
-                this::onKeyDownEvent
-        );
+        this.addKeyDownEventListener(element);
         return element;
     }
 
