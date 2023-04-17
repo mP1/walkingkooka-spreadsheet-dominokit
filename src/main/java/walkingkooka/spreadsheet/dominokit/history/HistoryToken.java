@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursor;
@@ -655,6 +656,41 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return Optional.ofNullable(viewportSelection);
+    }
+
+    /**
+     * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
+     */
+    public final HistoryToken menuHistoryToken(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        HistoryToken menu = null;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+
+            final Optional<SpreadsheetViewportSelection> maybeViewportSelection = this.viewportSelectionOrEmpty();
+            if (maybeViewportSelection.isPresent()) {
+                final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
+
+                // right mouse happened over already selected selection...
+                if (viewportSelection.selection().test(selection)) {
+                    final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
+                    menu = spreadsheetViewportSelectionHistoryToken.menu();
+                }
+            }
+
+            // right mouse click happened over a non selected cell/column/row
+            if (null == menu) {
+                menu = spreadsheetNameHistoryToken.viewportSelectionHistoryToken(
+                        Optional.of(selection.setDefaultAnchor())
+                ).menu();
+            }
+        } else {
+            menu = this; // id missing just return this and ignore context menu.
+        }
+
+        return menu;
     }
 
     // Object...........................................................................................................
