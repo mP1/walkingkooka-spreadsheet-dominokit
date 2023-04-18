@@ -26,7 +26,7 @@ public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownH
 
     @Test
     public void testIdName() {
-        this.idNameAndCheck(
+        this.setIdAndNameAndCheck(
                 ID,
                 NAME,
                 HistoryToken.spreadsheetSelect(ID, NAME)

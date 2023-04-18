@@ -50,8 +50,8 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     @Override
-    public HistoryToken idName(final SpreadsheetId id,
-                               final SpreadsheetName name) {
+    public HistoryToken setIdAndName(final SpreadsheetId id,
+                                     final SpreadsheetName name) {
         return spreadsheetSelect(
                 id,
                 name

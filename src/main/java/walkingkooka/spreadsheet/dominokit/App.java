@@ -190,7 +190,7 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
         if (id.isPresent() && name.isPresent()) {
             final HistoryToken historyToken = context.historyToken();
             HistoryToken tokenWithIdAndName = historyToken
-                    .idName(
+                    .setIdAndName(
                             id.get(),
                             name.get()
                     );

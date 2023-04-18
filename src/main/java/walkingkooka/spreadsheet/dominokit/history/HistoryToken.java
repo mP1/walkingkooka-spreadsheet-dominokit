@@ -661,8 +661,8 @@ public abstract class HistoryToken implements HasUrlFragment {
      * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
      * entire history token.
      */
-    public abstract HistoryToken idName(final SpreadsheetId id,
-                                        final SpreadsheetName name);
+    public abstract HistoryToken setIdAndName(final SpreadsheetId id,
+                                              final SpreadsheetName name);
 
     /**
      * Factory that creates a {@link HistoryToken} only changing the {@link SpreadsheetViewportSelection} component.

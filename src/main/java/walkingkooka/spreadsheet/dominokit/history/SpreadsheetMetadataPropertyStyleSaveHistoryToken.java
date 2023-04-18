@@ -78,8 +78,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
 
     // new id/name but still metadata+style+property+value
     @Override
-    public HistoryToken idName(final SpreadsheetId id,
-                               final SpreadsheetName name) {
+    public HistoryToken setIdAndName(final SpreadsheetId id,
+                                     final SpreadsheetName name) {
         return with(
                 id,
                 name,

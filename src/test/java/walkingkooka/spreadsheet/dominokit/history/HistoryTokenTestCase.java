@@ -40,13 +40,13 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
 
-    // idName............................................................................................................
+    // setIdAndName.....................................................................................................
 
     @Test
-    public final void testIdNameNullIdFails() {
+    public final void testSetIdAndNameNullIdFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> this.createHistoryToken().idName(
+                () -> this.createHistoryToken().setIdAndName(
                         null,
                         NAME
                 )
@@ -54,20 +54,20 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     @Test
-    public final void testIdNameNullNameFails() {
+    public final void testSetIdAndNameNullNameFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> this.createHistoryToken().idName(
+                () -> this.createHistoryToken().setIdAndName(
                         ID,
                         null
                 )
         );
     }
 
-    final void idNameAndCheck(final SpreadsheetId id,
-                              final SpreadsheetName name,
-                              final HistoryToken expected) {
-        this.idNameAndCheck(
+    final void setIdAndNameAndCheck(final SpreadsheetId id,
+                                    final SpreadsheetName name,
+                                    final HistoryToken expected) {
+        this.setIdAndNameAndCheck(
                 this.createHistoryToken(),
                 id,
                 name,
@@ -75,13 +75,13 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    final void idNameAndCheck(final HistoryToken token,
-                              final SpreadsheetId id,
-                              final SpreadsheetName name,
-                              final HistoryToken expected) {
+    final void setIdAndNameAndCheck(final HistoryToken token,
+                                    final SpreadsheetId id,
+                                    final SpreadsheetName name,
+                                    final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                token.idName(
+                token.setIdAndName(
                         id,
                         name
                 ),
