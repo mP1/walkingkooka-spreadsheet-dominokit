@@ -515,6 +515,49 @@ public abstract class HistoryToken implements HasUrlFragment {
         return UnknownHistoryToken.with(fragment);
     }
 
+    public static HistoryToken viewportSelection(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final SpreadsheetViewportSelection viewportSelection) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(name, "name");
+        Objects.requireNonNull(viewportSelection, "viewportSelection");
+
+        HistoryToken historyToken;
+
+        final SpreadsheetSelection selection = viewportSelection.selection();
+
+        for (; ; ) {
+            if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
+                historyToken = cell(
+                        id,
+                        name,
+                        viewportSelection
+                );
+                break;
+            }
+            if (selection.isColumnReference() || selection.isColumnReferenceRange()) {
+                historyToken = column(
+                        id,
+                        name,
+                        viewportSelection
+                );
+                break;
+            }
+            if (selection.isRowReference() || selection.isRowReferenceRange()) {
+                historyToken = row(
+                        id,
+                        name,
+                        viewportSelection
+                );
+                break;
+            }
+
+            throw new UnsupportedOperationException("Unexpected selection type " + selection);
+        }
+
+        return historyToken;
+    }
+
     /**
      * Parses the given {@link UrlFragment} if matching fails a {@link UnknownHistoryToken} is returned.
      */
@@ -624,7 +667,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Factory that creates a {@link HistoryToken} only changing the {@link SpreadsheetViewportSelection} component.
      */
-    public final SpreadsheetNameHistoryToken viewportSelectionHistoryToken(final Optional<SpreadsheetViewportSelection> viewportSelection) {
+    public final HistoryToken setViewportSelection(final Optional<SpreadsheetViewportSelection> viewportSelection) {
         Objects.requireNonNull(viewportSelection, "viewportSelection");
 
         if (false == this instanceof SpreadsheetNameHistoryToken) {
@@ -682,9 +725,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             // right mouse click happened over a non selected cell/column/row
             if (null == menu) {
-                menu = spreadsheetNameHistoryToken.viewportSelectionHistoryToken(
-                        Optional.of(selection.setDefaultAnchor())
-                ).menu();
+                menu = spreadsheetNameHistoryToken.menu(selection);
             }
         } else {
             menu = this; // id missing just return this and ignore context menu.

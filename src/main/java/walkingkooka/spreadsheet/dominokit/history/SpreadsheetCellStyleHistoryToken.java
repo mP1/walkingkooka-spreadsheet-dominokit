@@ -60,8 +60,7 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    @Override final HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 }

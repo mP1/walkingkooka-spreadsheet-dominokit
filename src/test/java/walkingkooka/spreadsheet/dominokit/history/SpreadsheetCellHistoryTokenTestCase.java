@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
 
@@ -74,9 +75,9 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     }
 
     @Test
-    public final void testSelection() {
+    public final void testViewportSelectionHistoryToken() {
         final T token = this.createHistoryToken();
-        final SpreadsheetViewportSelectionHistoryToken selection = token.viewportSelectionHistoryToken();
+        final HistoryToken selection = token.viewportSelectionHistoryToken();
 
         this.checkEquals(
                 HistoryToken.cell(
@@ -91,6 +92,73 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     // menu with selection..............................................................................................
 
     @Test
+    public final void testCellMenuWithSameCell() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        cell.setDefaultAnchor()
+                ),
+                cell,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public final void testCellMenuWithDifferentCell() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                ),
+                cell,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public final void testCellRangeMenuWithCellInside() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseCellRange("A1:C3")
+                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+
+        this.menuAndCheck(
+                this.createHistoryToken(viewportSelection),
+                SpreadsheetSelection.parseCell("B2"),
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public final void testCellRangeMenuWithCellOutside() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("Z99");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
+                ),
+                cell,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
     public final void testMenuWithColumn() {
         this.menuWithColumnAndCheck();
     }
@@ -99,7 +167,6 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     public final void testMenuWithRow() {
         this.menuWithRowAndCheck();
     }
-
 
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,
                                    final String expected) {

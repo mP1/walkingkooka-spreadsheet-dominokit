@@ -84,7 +84,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    HistoryToken save(final String value) {
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName();
 
         return HistoryToken.metadataPropertySave(
@@ -100,7 +100,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     }
 
     @Override
-    SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken style(final TextStylePropertyName<?> propertyName) {
         return HistoryToken.metadataPropertyStyle(
                 this.id(),
                 this.name(),

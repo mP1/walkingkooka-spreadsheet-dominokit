@@ -78,9 +78,9 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testSelection() {
+    public final void testViewportSelectionHistoryTokenn() {
         final T token = this.createHistoryToken();
-        final SpreadsheetViewportSelectionHistoryToken selection = token.viewportSelectionHistoryToken();
+        final HistoryToken selection = token.viewportSelectionHistoryToken();
 
         this.checkEquals(
                 HistoryToken.row(
@@ -102,6 +102,74 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     @Test
     public final void testMenuWithColumn() {
         this.menuWithColumnAndCheck();
+    }
+
+    @Test
+    public final void testRowMenuWithSameRow() {
+        final SpreadsheetRowReference row = ROW;
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        row.setDefaultAnchor()
+                ),
+                row,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        row.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public final void testRowMenuWithDifferentRow() {
+        final SpreadsheetRowReference row = ROW.add(1);
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        ROW.setDefaultAnchor()
+                ),
+                row,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        row.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public final void testRowRangeMenuWithRowInside() {
+        final SpreadsheetRowReferenceRange range = SpreadsheetSelection.parseRowRange("1:3");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        range.setDefaultAnchor()
+                ),
+                SpreadsheetSelection.parseRow("2"),
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        range.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public final void testRowRangeMenuWithRowOutside() {
+        final SpreadsheetRowReference row = SpreadsheetSelection.parseRow("99");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        SpreadsheetSelection.parseRowRange("1:3").setDefaultAnchor()
+                ),
+                row,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        row.setDefaultAnchor()
+                )
+        );
     }
 
     final void urlFragmentAndCheck(final SpreadsheetRowReference reference,

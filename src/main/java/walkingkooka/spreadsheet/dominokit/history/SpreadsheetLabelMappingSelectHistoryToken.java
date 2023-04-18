@@ -72,7 +72,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
-    SpreadsheetNameHistoryToken delete() {
+    HistoryToken delete() {
         return labelMappingDelete(
                 this.id(),
                 this.name(),
@@ -81,7 +81,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    HistoryToken save(final String value) {
         return labelMappingSave(
                 this.id(),
                 this.name(),

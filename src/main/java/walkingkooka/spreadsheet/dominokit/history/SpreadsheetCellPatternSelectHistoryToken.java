@@ -69,12 +69,12 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String pattern) {
+    HistoryToken save(final String pattern) {
         final SpreadsheetPatternKind patternKind = this.patternKind();
 
         return cellPatternSave(

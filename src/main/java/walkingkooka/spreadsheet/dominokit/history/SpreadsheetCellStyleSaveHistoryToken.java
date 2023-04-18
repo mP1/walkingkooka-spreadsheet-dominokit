@@ -85,7 +85,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    HistoryToken save(final String value) {
         return this;
     }
 

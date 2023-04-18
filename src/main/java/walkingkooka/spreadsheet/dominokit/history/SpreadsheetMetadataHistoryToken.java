@@ -22,9 +22,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
-
-import java.util.Optional;
 
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
@@ -71,46 +70,43 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         return result;
     }
 
-    @Override final SpreadsheetNameHistoryToken clear() {
+    @Override //
+    final HistoryToken clear() {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken delete() {
+    @Override //
+    final HistoryToken delete() {
         return this;
     }
 
-    @Override
+    @Override //
     final SpreadsheetNameHistoryToken formulaHistoryToken() {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken freeze() {
+    @Override //
+    final HistoryToken freeze() {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu() {
+    @Override //
+    final HistoryToken menu() {
         return this;
     }
 
-    @Override
-    SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
-        return this.viewportSelectionHistoryToken(
-                Optional.of(
-                        selection.setDefaultAnchor()
-                )
-        ).menu();
+    @Override //
+    final SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+        return selection.setDefaultAnchor();
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    @Override //
+    final HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken unfreeze() {
+    @Override //
+    final HistoryToken unfreeze() {
         return this;
     }
 }

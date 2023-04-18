@@ -25,8 +25,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Optional;
-
 abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSelectionHistoryToken {
 
     SpreadsheetRowHistoryToken(final SpreadsheetId id,
@@ -44,15 +42,14 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
         }
     }
 
-    @Override
-    final UrlFragment selectionViewportUrlFragment() {
+    @Override final UrlFragment selectionViewportUrlFragment() {
         return this.rowUrlFragment();
     }
 
     abstract UrlFragment rowUrlFragment();
 
-    @Override
-    final SpreadsheetNameHistoryToken clear() {
+    @Override //
+    final HistoryToken clear() {
         return rowClear(
                 this.id(),
                 this.name(),
@@ -60,8 +57,8 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken delete() {
+    @Override //
+    final HistoryToken delete() {
         return rowDelete(
                 this.id(),
                 this.name(),
@@ -69,13 +66,13 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
         );
     }
 
-    @Override
+    @Override //
     final SpreadsheetNameHistoryToken formulaHistoryToken() {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken freeze() {
+    @Override //
+    final HistoryToken freeze() {
         return rowFreeze(
                 this.id(),
                 this.name(),
@@ -83,8 +80,8 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu() {
+    @Override //
+    final HistoryToken menu() {
         return rowMenu(
                 this.id(),
                 this.name(),
@@ -92,28 +89,36 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+    @Override //
+    final SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+
         return selection.isRowReference() &&
-                this.viewportSelection()
+                viewportSelection
                         .selection()
                         .testRow(selection.toRow()) ?
-                this :
-                this.viewportSelectionHistoryToken(
-                        Optional.of(
-                                selection.setDefaultAnchor()
-                        )
-                ).menu();
+                viewportSelection :
+                selection.setDefaultAnchor();
     }
 
-    @Override
-    SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    @Override //
+    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this; // TODO
     }
 
-    @Override
-    public final SpreadsheetViewportSelectionHistoryToken viewportSelectionHistoryToken() {
-        return row(
+    @Override //
+    HistoryToken save(final String value) {
+        return this;
+    }
+
+    @Override //
+    final HistoryToken style(final TextStylePropertyName<?> propertyName) {
+        return this; // row/1/style not currently supported
+    }
+
+    @Override //
+    final HistoryToken unfreeze() {
+        return rowUnfreeze(
                 this.id(),
                 this.name(),
                 this.viewportSelection()
@@ -121,18 +126,8 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
-        return this;
-    }
-
-    @Override
-    final SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
-        return this; // row/1/style not currently supported
-    }
-
-    @Override
-    final SpreadsheetNameHistoryToken unfreeze() {
-        return rowUnfreeze(
+    public final HistoryToken viewportSelectionHistoryToken() {
+        return row(
                 this.id(),
                 this.name(),
                 this.viewportSelection()

@@ -24,8 +24,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Optional;
-
 abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSelectionHistoryToken {
 
     SpreadsheetCellHistoryToken(final SpreadsheetId id,
@@ -43,15 +41,14 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
         }
     }
 
-    @Override
-    final UrlFragment selectionViewportUrlFragment() {
+    @Override final UrlFragment selectionViewportUrlFragment() {
         return this.cellUrlFragment();
     }
 
     abstract UrlFragment cellUrlFragment();
 
-    @Override
-    final SpreadsheetNameHistoryToken clear() {
+    @Override //
+    final HistoryToken clear() {
         return cellClear(
                 this.id(),
                 this.name(),
@@ -59,8 +56,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken delete() {
+    @Override //
+    final HistoryToken delete() {
         return cellDelete(
                 this.id(),
                 this.name(),
@@ -68,8 +65,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken freeze() {
+    @Override //
+    final HistoryToken freeze() {
         return cellFreeze(
                 this.id(),
                 this.name(),
@@ -77,8 +74,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu() {
+    @Override //
+    final HistoryToken menu() {
         return cellMenu(
                 this.id(),
                 this.name(),
@@ -86,32 +83,20 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
-        return (false == this instanceof SpreadsheetCellFormulaHistoryToken) &&
-                selection.isCellReference() &&
-                this.viewportSelection()
+    @Override //
+    final SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+
+        return selection.isCellReference() &&
+                viewportSelection
                         .selection()
                         .testCell(selection.toCell()) ?
-                this :
-                this.viewportSelectionHistoryToken(
-                        Optional.of(
-                                selection.setDefaultAnchor()
-                        )
-                ).menu();
+                viewportSelection :
+                selection.setDefaultAnchor();
     }
 
-    @Override
-    public final SpreadsheetViewportSelectionHistoryToken viewportSelectionHistoryToken() {
-        return cell(
-                this.id(),
-                this.name(),
-                this.viewportSelection()
-        );
-    }
-
-    @Override
-    final SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
+    @Override //
+    final HistoryToken style(final TextStylePropertyName<?> propertyName) {
         return cellStyle(
                 this.id(),
                 this.name(),
@@ -120,9 +105,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken unfreeze() {
+    @Override //
+    final HistoryToken unfreeze() {
         return cellUnfreeze(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
+
+    @Override
+    public final HistoryToken viewportSelectionHistoryToken() {
+        return cell(
                 this.id(),
                 this.name(),
                 this.viewportSelection()

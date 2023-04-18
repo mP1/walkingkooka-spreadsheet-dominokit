@@ -66,7 +66,7 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    HistoryToken save(final String value) {
         final TextStylePropertyName<T> propertyName = this.stylePropertyName();
 
         return HistoryToken.metadataPropertyStyleSave(
@@ -82,7 +82,7 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     }
 
     @Override
-    SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken style(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 }

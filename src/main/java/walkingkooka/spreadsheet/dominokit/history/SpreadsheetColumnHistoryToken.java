@@ -25,8 +25,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Optional;
-
 abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportSelectionHistoryToken {
 
     SpreadsheetColumnHistoryToken(final SpreadsheetId id,
@@ -44,15 +42,15 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
         }
     }
 
-    @Override
+    @Override //
     final UrlFragment selectionViewportUrlFragment() {
         return this.columnUrlFragment();
     }
 
     abstract UrlFragment columnUrlFragment();
 
-    @Override
-    final SpreadsheetNameHistoryToken clear() {
+    @Override //
+    final HistoryToken clear() {
         return columnClear(
                 this.id(),
                 this.name(),
@@ -60,8 +58,8 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken delete() {
+    @Override //
+    final HistoryToken delete() {
         return columnDelete(
                 this.id(),
                 this.name(),
@@ -69,13 +67,13 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
         );
     }
 
-    @Override
+    @Override //
     final SpreadsheetNameHistoryToken formulaHistoryToken() {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken freeze() {
+    @Override //
+    final HistoryToken freeze() {
         return columnFreeze(
                 this.id(),
                 this.name(),
@@ -83,8 +81,8 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu() {
+    @Override //
+    final HistoryToken menu() {
         return columnMenu(
                 this.id(),
                 this.name(),
@@ -92,33 +90,36 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
         );
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
+    @Override //
+    final SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+
         return selection.isColumnReference() &&
-                this.viewportSelection()
+                viewportSelection
                         .selection()
                         .testColumn(selection.toColumn()) ?
-                this :
-                this.viewportSelectionHistoryToken(
-                        Optional.of(
-                                selection.setDefaultAnchor()
-                        )
-                ).menu();
+                viewportSelection :
+                selection.setDefaultAnchor();
     }
 
-    @Override
-    SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    @Override //
+    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this; // TODO
     }
 
-    @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    @Override //
+    HistoryToken save(final String value) {
         return this;
     }
 
-    @Override
-    public final SpreadsheetViewportSelectionHistoryToken viewportSelectionHistoryToken() {
-        return column(
+    @Override //
+    final HistoryToken style(final TextStylePropertyName<?> propertyName) {
+        return this; // column/A/style not currently supported
+    }
+
+    @Override //
+    final HistoryToken unfreeze() {
+        return columnUnfreeze(
                 this.id(),
                 this.name(),
                 this.viewportSelection()
@@ -126,13 +127,8 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override
-    final SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
-        return this; // column/A/style not currently supported
-    }
-
-    @Override
-    final SpreadsheetNameHistoryToken unfreeze() {
-        return columnUnfreeze(
+    public final HistoryToken viewportSelectionHistoryToken() {
+        return column(
                 this.id(),
                 this.name(),
                 this.viewportSelection()

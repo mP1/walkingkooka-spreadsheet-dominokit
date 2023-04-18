@@ -69,7 +69,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    HistoryToken save(final String value) {
         final TextStylePropertyName<T> propertyName = this.propertyName();
 
         return cellStyleSave(

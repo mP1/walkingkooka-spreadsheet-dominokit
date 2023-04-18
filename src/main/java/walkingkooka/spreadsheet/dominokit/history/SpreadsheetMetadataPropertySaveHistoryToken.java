@@ -102,12 +102,12 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    HistoryToken save(final String value) {
         return this;
     }
 
     @Override
-    SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken style(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 

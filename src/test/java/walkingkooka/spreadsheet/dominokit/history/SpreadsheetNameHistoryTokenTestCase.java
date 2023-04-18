@@ -172,13 +172,6 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     final void menuAndCheck(final SpreadsheetNameHistoryToken before,
                             final SpreadsheetSelection selection,
                             final SpreadsheetViewportSelectionHistoryToken expected) {
-        final String className = expected.getClass().getSimpleName();
-        this.checkEquals(
-                true,
-                className.contains("Menu"),
-                () -> className + " is not a Menu"
-        );
-
         this.checkEquals(
                 expected,
                 before.menu(selection),

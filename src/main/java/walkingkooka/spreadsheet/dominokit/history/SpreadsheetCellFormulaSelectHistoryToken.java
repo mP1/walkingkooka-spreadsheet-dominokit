@@ -52,7 +52,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String formulaText) {
+    HistoryToken save(final String formulaText) {
         return formulaSave(
                 this.id(),
                 this.name(),
