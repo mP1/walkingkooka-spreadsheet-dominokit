@@ -36,8 +36,8 @@ import java.util.function.Function;
  */
 final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
 
-    static SpreadsheetNameHistoryToken selectionToken(final SpreadsheetNameHistoryToken token,
-                                                      final SpreadsheetViewportSelection viewportSelection) {
+    static HistoryToken selectionToken(final SpreadsheetNameHistoryToken token,
+                                       final SpreadsheetViewportSelection viewportSelection) {
         final HistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new HistoryTokenSelectionSpreadsheetSelectionVisitor(
                 token,
                 viewportSelection.anchor()
@@ -112,13 +112,13 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     private final SpreadsheetNameHistoryToken token;
 
     private void setSelectionToken(final SpreadsheetSelection selection,
-                                   final Function<SpreadsheetViewportSelection, SpreadsheetNameHistoryToken> factory) {
+                                   final Function<SpreadsheetViewportSelection, HistoryToken> factory) {
         this.selectionToken = factory.apply(
                 selection.setAnchor(this.anchor)
         );
     }
 
-    private SpreadsheetNameHistoryToken selectionToken;
+    private HistoryToken selectionToken;
 
     private final SpreadsheetViewportSelectionAnchor anchor;
 

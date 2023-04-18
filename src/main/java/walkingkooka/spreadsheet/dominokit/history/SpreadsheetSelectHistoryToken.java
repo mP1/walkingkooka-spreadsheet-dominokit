@@ -239,12 +239,12 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    SpreadsheetNameHistoryToken clear() {
+    HistoryToken clear() {
         return this;
     }
 
     @Override
-    SpreadsheetNameHistoryToken delete() {
+    HistoryToken delete() {
         return this;
     }
 
@@ -254,27 +254,23 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    SpreadsheetNameHistoryToken freeze() {
+    HistoryToken freeze() {
         return this;
     }
 
     @Override
-    SpreadsheetNameHistoryToken menu() {
+    HistoryToken menu() {
         return this;
     }
 
-    @Override
-    SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
-        return this.viewportSelectionHistoryToken(
-                Optional.of(
-                        selection.setDefaultAnchor()
-                )
-        ).menu();
+    @Override //
+    SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+        return selection.setDefaultAnchor();
     }
 
     // factory for /spreadsheet-id/spreadsheet-name/metadata/pattern/*
     @Override
-    SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return metadataPropertySelect(
                 this.id(),
                 this.name(),
@@ -283,13 +279,13 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    HistoryToken save(final String value) {
         return this;
     }
 
     // factory for /spreadsheet-id/spreadsheet-name/metadata/style/*
     @Override
-    SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken style(final TextStylePropertyName<?> propertyName) {
         return metadataPropertyStyle(
                 this.id(),
                 this.name(),
@@ -298,7 +294,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    SpreadsheetNameHistoryToken unfreeze() {
+    HistoryToken unfreeze() {
         return this;
     }
 

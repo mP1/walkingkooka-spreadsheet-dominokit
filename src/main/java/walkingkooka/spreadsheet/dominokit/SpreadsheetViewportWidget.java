@@ -39,7 +39,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -201,7 +200,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 // clear any selection
                 context.pushHistoryToken(
                         context.historyToken()
-                                .viewportSelectionHistoryToken(
+                                .setViewportSelection(
                                         Optional.empty()
                                 )
                 );
@@ -689,7 +688,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
      * Creates an ANCHOR including an ID and TEXT in upper case of the given {@link SpreadsheetSelection}.
      */
     private HTMLAnchorElement link(final SpreadsheetSelection selection) {
-        final SpreadsheetNameHistoryToken token = this.historyToken.viewportSelectionHistoryToken(
+        final HistoryToken token = this.historyToken.setViewportSelection(
                 Optional.of(
                         selection.setDefaultAnchor()
                 )

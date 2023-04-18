@@ -165,7 +165,7 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
 
         // if a selection is already present copy from the metadata
         if (historyToken instanceof SpreadsheetSelectionHistoryToken) {
-            final HistoryToken withViewportSelection = historyToken.viewportSelectionHistoryToken(
+            final HistoryToken withViewportSelection = historyToken.setViewportSelection(
                     delta.viewportSelection()
             );
 
@@ -197,7 +197,7 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
 
             // if a selection is already present copy from the metadata
             if (tokenWithIdAndName instanceof SpreadsheetSelectionHistoryToken) {
-                tokenWithIdAndName = tokenWithIdAndName.viewportSelectionHistoryToken(
+                tokenWithIdAndName = tokenWithIdAndName.setViewportSelection(
                         metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
                 );
             }

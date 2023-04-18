@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends SpreadsheetColumnHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
 
@@ -78,9 +79,9 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testSelection() {
+    public final void testViewportSelectionHistoryTokenn() {
         final T token = this.createHistoryToken();
-        final SpreadsheetViewportSelectionHistoryToken selection = token.viewportSelectionHistoryToken();
+        final HistoryToken selection = token.viewportSelectionHistoryToken();
 
         this.checkEquals(
                 HistoryToken.column(
@@ -97,6 +98,74 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testMenuWithCell() {
         this.menuWithCellAndCheck();
+    }
+
+    @Test
+    public final void testColumnMenuWithSameColumn() {
+        final SpreadsheetColumnReference column = COLUMN;
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        column.setDefaultAnchor()
+                ),
+                column,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        column.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public final void testColumnMenuWithDifferentColumn() {
+        final SpreadsheetColumnReference column = COLUMN.add(1);
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        COLUMN.setDefaultAnchor()
+                ),
+                column,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        column.setDefaultAnchor()
+                )
+        );
+    }
+
+
+    @Test
+    public final void testColumnRangeMenuWithColumnInside() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseColumnRange("A:C")
+                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+
+        this.menuAndCheck(
+                this.createHistoryToken(viewportSelection),
+                SpreadsheetSelection.parseColumn("B"),
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public final void testColumnRangeMenuWithColumnOutside() {
+        final SpreadsheetColumnReference column = SpreadsheetSelection.parseColumn("Z");
+
+        this.menuAndCheck(
+                this.createHistoryToken(
+                        SpreadsheetSelection.parseColumnRange("A:C").setDefaultAnchor()
+                ),
+                column,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        column.setDefaultAnchor()
+                )
+        );
     }
 
     @Test

@@ -57,7 +57,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     abstract UrlFragment spreadsheetUrlFragment();
 
-    final SpreadsheetNameHistoryToken cell(final SpreadsheetViewportSelection viewportSelection) {
+    final HistoryToken cell(final SpreadsheetViewportSelection viewportSelection) {
         return cell(
                 this.id(),
                 this.name(),
@@ -65,7 +65,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         );
     }
 
-    final SpreadsheetNameHistoryToken column(final SpreadsheetViewportSelection viewportSelection) {
+    final HistoryToken column(final SpreadsheetViewportSelection viewportSelection) {
         return column(
                 this.id(),
                 this.name(),
@@ -73,7 +73,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         );
     }
 
-    final SpreadsheetNameHistoryToken labelMapping(final SpreadsheetLabelName labelName) {
+    final HistoryToken labelMapping(final SpreadsheetLabelName labelName) {
         return labelMapping(
                 this.id(),
                 this.name(),
@@ -81,7 +81,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         );
     }
 
-    final SpreadsheetNameHistoryToken row(final SpreadsheetViewportSelection viewportSelection) {
+    final HistoryToken row(final SpreadsheetViewportSelection viewportSelection) {
         return row(
                 this.id(),
                 this.name(),
@@ -92,12 +92,12 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Creates a clear {@link SpreadsheetNameHistoryToken}.
      */
-    abstract SpreadsheetNameHistoryToken clear();
+    abstract HistoryToken clear();
 
     /**
      * Creates a delete {@link SpreadsheetNameHistoryToken}.
      */
-    abstract SpreadsheetNameHistoryToken delete();
+    abstract HistoryToken delete();
 
     /**
      * Creates a formula {@link SpreadsheetNameHistoryToken}.
@@ -107,47 +107,80 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Creates a freeze {@link SpreadsheetNameHistoryToken}.
      */
-    abstract SpreadsheetNameHistoryToken freeze();
+    abstract HistoryToken freeze();
 
     /**
      * Creates a menu {@link SpreadsheetNameHistoryToken}.
      */
-    abstract SpreadsheetNameHistoryToken menu();
+    abstract HistoryToken menu();
 
     /**
      * Creates a menu {@link SpreadsheetNameHistoryToken} for the given {@link SpreadsheetSelection}.
      */
-    final SpreadsheetNameHistoryToken menu(final SpreadsheetSelection selection) {
+    final HistoryToken menu(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
 
-        if(false == (selection.isCellReference() || selection.isColumnReference() || selection.isRowReference())) {
+        if (selection.isCellRange() || selection.isColumnReferenceRange() || selection.isRowReferenceRange()) {
             throw new IllegalArgumentException("Expected cell, column or row but got " + selection);
         }
 
-        return this.menu0(selection);
+        HistoryToken token;
+
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+        final SpreadsheetViewportSelection menuViewportSelection = this.menuHistoryTokenSpreadsheetViewportSelection(selection);
+        final SpreadsheetSelection menuSelection = menuViewportSelection.selection();
+
+        if (menuSelection.isCellReference() || menuSelection.isCellRange() || menuSelection.isLabelName()) {
+            token = cellMenu(
+                    id,
+                    name,
+                    this.menuHistoryTokenSpreadsheetViewportSelection(selection)
+            );
+        } else {
+            if (menuSelection.isColumnReference() || menuSelection.isColumnReferenceRange()) {
+                token = columnMenu(
+                        id,
+                        name,
+                        menuViewportSelection
+                );
+            } else {
+                if (menuSelection.isRowReference() || menuSelection.isRowReferenceRange()) {
+                    token = rowMenu(
+                            id,
+                            name,
+                            menuViewportSelection
+                    );
+                } else {
+                    throw new IllegalArgumentException("Expected cell, column or row but got " + menuSelection);
+                }
+            }
+        }
+
+        return token;
     }
 
-    abstract SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection);
+    abstract SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection);
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.
      */
-    abstract SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind);
+    abstract HistoryToken pattern(final SpreadsheetPatternKind patternKind);
 
     /**
      * Creates a save {@link HistoryToken} after attempting to parse the value.
      */
-    abstract SpreadsheetNameHistoryToken save(final String value);
+    abstract HistoryToken save(final String value);
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
-    abstract SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName);
+    abstract HistoryToken style(final TextStylePropertyName<?> propertyName);
 
     /**
      * Creates a unfreeze {@link SpreadsheetNameHistoryToken}.
      */
-    abstract SpreadsheetNameHistoryToken unfreeze();
+    abstract HistoryToken unfreeze();
 
     final HistoryToken parsePattern(final TextCursor cursor) {
         HistoryToken result = this;
@@ -163,7 +196,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return result;
     }
 
-    final SpreadsheetNameHistoryToken parseSave(final TextCursor cursor) {
+    final HistoryToken parseSave(final TextCursor cursor) {
         return this.save(
                 parseAll(cursor)
         );

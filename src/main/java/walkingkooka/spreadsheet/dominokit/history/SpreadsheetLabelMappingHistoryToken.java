@@ -23,9 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Optional;
 
 public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSelectionHistoryToken {
 
@@ -49,46 +48,43 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
 
     abstract UrlFragment labelUrlFragment();
 
-    @Override
-    final SpreadsheetNameHistoryToken clear() {
+    @Override //
+    final HistoryToken clear() {
         return this;
     }
 
-    @Override
+    @Override //
     final SpreadsheetNameHistoryToken formulaHistoryToken() {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken freeze() {
+    @Override //
+    final HistoryToken freeze() {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken menu() {
+    @Override //
+    final HistoryToken menu() {
         return this;
     }
 
-    @Override final SpreadsheetNameHistoryToken menu0(final SpreadsheetSelection selection) {
-        return this.viewportSelectionHistoryToken(
-                Optional.of(
-                        selection.setDefaultAnchor()
-                )
-        ).menu();
+    @Override //
+    final SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+        return selection.setDefaultAnchor();
     }
 
-    @Override
-    SpreadsheetNameHistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    @Override //
+    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
+    @Override //
+    final HistoryToken style(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 
-    @Override
-    final SpreadsheetNameHistoryToken unfreeze() {
+    @Override//
+    final HistoryToken unfreeze() {
         return this;
     }
 }

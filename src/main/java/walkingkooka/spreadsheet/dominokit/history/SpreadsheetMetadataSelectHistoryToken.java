@@ -57,12 +57,12 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     }
 
     @Override
-    SpreadsheetNameHistoryToken save(final String value) {
+    HistoryToken save(final String value) {
         return this;
     }
 
     @Override
-    SpreadsheetNameHistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken style(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 
