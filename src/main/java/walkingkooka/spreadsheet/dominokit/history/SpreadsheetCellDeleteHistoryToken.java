@@ -57,8 +57,8 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public HistoryToken idName(final SpreadsheetId id,
-                               final SpreadsheetName name) {
+    public HistoryToken setIdAndName(final SpreadsheetId id,
+                                     final SpreadsheetName name) {
         return with(
                 id,
                 name,

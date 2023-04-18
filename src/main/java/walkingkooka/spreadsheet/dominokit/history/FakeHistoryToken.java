@@ -46,8 +46,8 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
     }
 
     @Override
-    public HistoryToken idName(final SpreadsheetId id,
-                               final SpreadsheetName name) {
+    public HistoryToken setIdAndName(final SpreadsheetId id,
+                                     final SpreadsheetName name) {
         throw new UnsupportedOperationException();
     }
 
