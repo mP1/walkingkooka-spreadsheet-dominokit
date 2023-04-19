@@ -665,26 +665,34 @@ public abstract class HistoryToken implements HasUrlFragment {
                                               final SpreadsheetName name);
 
     /**
-     * Factory that creates a {@link HistoryToken} only changing the {@link SpreadsheetViewportSelection} component.
+     * Factory that creates a {@link HistoryToken} changing the {@link SpreadsheetViewportSelection} component and clearing any action.
      */
     public final HistoryToken setViewportSelection(final Optional<SpreadsheetViewportSelection> viewportSelection) {
         Objects.requireNonNull(viewportSelection, "viewportSelection");
 
-        if (false == this instanceof SpreadsheetNameHistoryToken) {
-            throw new IllegalArgumentException("Unexpected token " + this);
+        return this.viewportSelectionOrEmpty().equals(viewportSelection) ?
+                this :
+                this.setDifferentViewportSelection(viewportSelection);
+    }
+
+    private HistoryToken setDifferentViewportSelection(final Optional<SpreadsheetViewportSelection> viewportSelection) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+
+            token = viewportSelection.isPresent() ?
+                    HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
+                            spreadsheetNameHistoryToken,
+                            viewportSelection.get()
+                    ) :
+                    spreadsheetSelect(
+                            spreadsheetNameHistoryToken.id(),
+                            spreadsheetNameHistoryToken.name()
+                    );
         }
 
-        final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-
-        return viewportSelection.isPresent() ?
-                HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
-                        spreadsheetNameHistoryToken,
-                        viewportSelection.get()
-                ) :
-                spreadsheetSelect(
-                        spreadsheetNameHistoryToken.id(),
-                        spreadsheetNameHistoryToken.name()
-                );
+        return token;
     }
 
     /**

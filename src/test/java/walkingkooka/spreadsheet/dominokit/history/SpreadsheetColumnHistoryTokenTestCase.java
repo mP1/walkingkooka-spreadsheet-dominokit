@@ -78,6 +78,33 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // setViewportSelection.............................................................................................
+
+    @Test
+    public final void testSetViewportSelectionWithSameColumn() {
+        this.setViewportSelectionAndCheck(
+                COLUMN.setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public final void testSetViewportSelectionWithSameColumnRange() {
+        this.setViewportSelectionAndCheck(
+                SpreadsheetSelection.parseColumnRange("A:B")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+        );
+    }
+
+    @Test
+    public final void testSetViewportSelectionWithSameColumnRange2() {
+        this.setViewportSelectionAndCheck(
+                SpreadsheetSelection.parseColumnRange("A:C")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.LEFT)
+        );
+    }
+
+    // viewportSelection................................................................................................
+
     @Test
     public final void testViewportSelectionHistoryTokenn() {
         final T token = this.createHistoryToken();

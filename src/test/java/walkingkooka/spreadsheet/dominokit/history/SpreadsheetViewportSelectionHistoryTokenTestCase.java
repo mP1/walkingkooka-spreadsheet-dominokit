@@ -32,6 +32,20 @@ public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends
         super();
     }
 
+    final void setViewportSelectionAndCheck(final SpreadsheetViewportSelection viewportSelection) {
+        final T token = this.createHistoryToken(viewportSelection);
+
+        this.setViewportSelectionAndCheck(
+                token,
+                viewportSelection,
+                token.setViewportSelection(
+                        Optional.of(
+                                viewportSelection
+                        )
+                )
+        );
+    }
+
     @Test
     public void testViewportSelectionOrEmpty() {
         final T token = this.createHistoryToken();

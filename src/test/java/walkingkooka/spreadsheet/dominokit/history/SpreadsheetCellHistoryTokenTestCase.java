@@ -74,6 +74,40 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // setViewportSelection.............................................................................................
+
+    @Test
+    public final void testSetViewportSelectionWithSameCell() {
+        this.setViewportSelectionAndCheck(
+                CELL.setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public final void testSetViewportSelectionWithSameCellRange() {
+        this.setViewportSelectionAndCheck(
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+        );
+    }
+
+    @Test
+    public final void testSetViewportSelectionWithSameCellRange2() {
+        this.setViewportSelectionAndCheck(
+                SpreadsheetSelection.parseCellRange("A1:C3")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT)
+        );
+    }
+
+    @Test
+    public final void testSetViewportSelectionWithSameLabel() {
+        this.setViewportSelectionAndCheck(
+                LABEL.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+        );
+    }
+
+    // viewportSelection................................................................................................
+
     @Test
     public final void testViewportSelectionHistoryToken() {
         final T token = this.createHistoryToken();
