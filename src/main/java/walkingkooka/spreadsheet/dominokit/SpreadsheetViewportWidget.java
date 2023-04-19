@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
+import elemental2.dom.Event;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
@@ -595,6 +596,10 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
         final HTMLTableCellElement element = td.element();
         this.addKeyDownEventListener(element);
+        this.addContextMenuEventListener(
+                element,
+                column
+        );
         return element;
     }
 
@@ -662,6 +667,10 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
         final HTMLTableCellElement element = td.element();
         this.addKeyDownEventListener(element);
+        this.addContextMenuEventListener(
+                element,
+                row
+        );
         return element;
     }
 
@@ -748,6 +757,10 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 )
         );
         this.addKeyDownEventListener(element);
+        this.addContextMenuEventListener(
+                element,
+                cellReference
+        );
         return element;
     }
 
@@ -770,6 +783,30 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                     )
             );
         }
+    }
+
+    private void addContextMenuEventListener(final Element element,
+                                             final SpreadsheetSelection selection) {
+        element.addEventListener(
+                EventType.contextmenu.getName(),
+                (event) -> this.onContextMenu(event, selection)
+        );
+    }
+
+    /**
+     * Pushes the selection and menu history token. When the {@link HistoryToken#onHashChange(HistoryToken, AppContext)}
+     * is executed a context menu will be shown with items.
+     */
+    private void onContextMenu(final Event event,
+                               final SpreadsheetSelection selection) {
+        event.preventDefault();
+
+        final AppContext context = this.context;
+
+        context.pushHistoryToken(
+                context.historyToken()
+                        .menuHistoryToken(selection)
+        );
     }
 
     // viewport-column-A

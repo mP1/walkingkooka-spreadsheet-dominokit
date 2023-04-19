@@ -189,22 +189,17 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
 
         if (id.isPresent() && name.isPresent()) {
             final HistoryToken historyToken = context.historyToken();
-            HistoryToken tokenWithIdAndName = historyToken
+            final HistoryToken idNameViewportSelectionHistoryToken = historyToken
                     .setIdAndName(
                             id.get(),
                             name.get()
+                    ).setViewportSelection(
+                            metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
                     );
 
-            // if a selection is already present copy from the metadata
-            if (tokenWithIdAndName instanceof SpreadsheetSelectionHistoryToken) {
-                tokenWithIdAndName = tokenWithIdAndName.setViewportSelection(
-                        metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
-                );
-            }
-
-            if (false == historyToken.equals(tokenWithIdAndName)) {
-                context.debug("App.onSpreadsheetMetadata different id/name/viewportSelection " + tokenWithIdAndName);
-                context.pushHistoryToken(tokenWithIdAndName);
+            if (false == historyToken.equals(idNameViewportSelectionHistoryToken)) {
+                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/viewportSelection " + idNameViewportSelectionHistoryToken);
+                context.pushHistoryToken(idNameViewportSelectionHistoryToken);
             }
         }
     }
