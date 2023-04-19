@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRowHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
 
@@ -76,6 +77,33 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
                 "Got A:B expected row or row-range"
         );
     }
+
+    // setViewportSelection.............................................................................................
+
+    @Test
+    public final void testSetViewportSelectionWithSameColumn() {
+        this.setViewportSelectionAndCheck(
+                ROW.setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public final void testSetViewportSelectionWithSameColumnRange() {
+        this.setViewportSelectionAndCheck(
+                SpreadsheetSelection.parseRowRange("1:2")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.TOP)
+        );
+    }
+
+    @Test
+    public final void testSetViewportSelectionWithSameColumnRange2() {
+        this.setViewportSelectionAndCheck(
+                SpreadsheetSelection.parseRowRange("1:3")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+        );
+    }
+
+    // viewportSelection................................................................................................
 
     @Test
     public final void testViewportSelectionHistoryTokenn() {
