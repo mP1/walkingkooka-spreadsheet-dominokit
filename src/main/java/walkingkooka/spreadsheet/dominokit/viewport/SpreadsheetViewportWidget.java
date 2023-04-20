@@ -413,8 +413,9 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                 )
         );
 
-        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = context.historyToken()
-                .viewportSelectionOrEmpty();
+        final HistoryToken historyToken = context.historyToken();
+
+        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
         if (maybeViewportSelection.isPresent()) {
             final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
             context.giveViewportFocus(
@@ -423,6 +424,11 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                                     viewportSelection.anchor()
                             )
             );
+        }
+
+        if (historyToken instanceof SpreadsheetViewportWidgetRenderWatcher) {
+            final SpreadsheetViewportWidgetRenderWatcher watcher = (SpreadsheetViewportWidgetRenderWatcher) historyToken;
+            watcher.onAfterSpreadsheetViewportWidgetRender(this.context);
         }
     }
 
