@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public interface SpreadsheetViewportWidgetRenderWatcher {
+public interface SpreadsheetViewportWidgetWatcher {
 
     /**
      * This is fired after the {@link SpreadsheetViewportWidget#renderTable()} has finished rendering all elements of

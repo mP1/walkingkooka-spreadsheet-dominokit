@@ -414,8 +414,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         );
 
         final HistoryToken historyToken = context.historyToken();
-        if (historyToken instanceof SpreadsheetViewportWidgetRenderWatcher) {
-            final SpreadsheetViewportWidgetRenderWatcher watcher = (SpreadsheetViewportWidgetRenderWatcher) historyToken;
+        if (historyToken instanceof SpreadsheetViewportWidgetWatcher) {
+            final SpreadsheetViewportWidgetWatcher watcher = (SpreadsheetViewportWidgetWatcher) historyToken;
             watcher.onAfterSpreadsheetViewportWidgetRender(this.context);
         }
     }
