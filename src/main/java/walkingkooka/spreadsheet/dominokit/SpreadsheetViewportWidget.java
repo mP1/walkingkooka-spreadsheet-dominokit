@@ -146,7 +146,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                         .viewportSelectionOrEmpty()
         );
 
-        this.updateTable();
+        this.renderTable();
     }
 
     /**
@@ -221,7 +221,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
 
         this.cache.onSpreadsheetDelta(delta, context);
 
-        this.updateTable();
+        this.renderTable();
     }
 
     @Override
@@ -248,7 +248,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                         metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
                 ) :
                 null;
-        this.updateTable();
+        this.renderTable();
     }
 
     /**
@@ -356,7 +356,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     private boolean reload = false;
 
     /**
-     * Renders or updates the TABLE element holding the spreadsheet viewport.
+     * Renders the TABLE element again using its current state. Note no elements are cached or re-used, everything
+     * is rendered again!
      */
     // {
     //  "viewportSelection": {
@@ -466,11 +467,11 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     //  },
     //  "window": "A1:B12,WI1:WW12"
     //}
-    private void updateTable() {
+    private void renderTable() {
         final HtmlContentBuilder<HTMLTableElement> tableElement = this.tableElement;
 
         final AppContext context = this.context;
-        context.debug("SpreadsheetViewportWidget.updateTable");
+        context.debug("SpreadsheetViewportWidget.renderTable");
 
         Elements.removeChildrenFrom(tableElement.element());
 
