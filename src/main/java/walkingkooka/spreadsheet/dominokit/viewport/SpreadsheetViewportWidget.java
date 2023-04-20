@@ -414,18 +414,6 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
         );
 
         final HistoryToken historyToken = context.historyToken();
-
-        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
-        if (maybeViewportSelection.isPresent()) {
-            final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
-            context.giveViewportFocus(
-                    viewportSelection.selection()
-                            .focused(
-                                    viewportSelection.anchor()
-                            )
-            );
-        }
-
         if (historyToken instanceof SpreadsheetViewportWidgetRenderWatcher) {
             final SpreadsheetViewportWidgetRenderWatcher watcher = (SpreadsheetViewportWidgetRenderWatcher) historyToken;
             watcher.onAfterSpreadsheetViewportWidgetRender(this.context);
