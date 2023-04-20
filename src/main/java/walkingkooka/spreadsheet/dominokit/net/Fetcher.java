@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
