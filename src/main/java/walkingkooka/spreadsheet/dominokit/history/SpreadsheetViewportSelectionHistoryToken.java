@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidgetWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -33,7 +32,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import java.util.Objects;
 import java.util.Optional;
 
-public abstract class SpreadsheetViewportSelectionHistoryToken extends SpreadsheetSelectionHistoryToken implements SpreadsheetViewportWidgetWatcher {
+public abstract class SpreadsheetViewportSelectionHistoryToken extends SpreadsheetSelectionHistoryToken {
 
     SpreadsheetViewportSelectionHistoryToken(final SpreadsheetId id,
                                              final SpreadsheetName name,
@@ -164,13 +163,10 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         );
     }
 
-    // SpreadsheetViewportWidgetRenderWatcher...........................................................................
-
     /**
-     * Give focus to the selection.
+     * Helper for the select sub classes.
      */
-    @Override
-    public final void onAfterSpreadsheetViewportWidgetRender(AppContext context) {
+    final void giveViewportFocus(final AppContext context) {
         final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
         context.giveViewportFocus(
                 viewportSelection.selection()
