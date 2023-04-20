@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidgetRenderWatcher;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidgetWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import java.util.Objects;
 import java.util.Optional;
 
-public abstract class SpreadsheetViewportSelectionHistoryToken extends SpreadsheetSelectionHistoryToken implements SpreadsheetViewportWidgetRenderWatcher {
+public abstract class SpreadsheetViewportSelectionHistoryToken extends SpreadsheetSelectionHistoryToken implements SpreadsheetViewportWidgetWatcher {
 
     SpreadsheetViewportSelectionHistoryToken(final SpreadsheetId id,
                                              final SpreadsheetName name,
