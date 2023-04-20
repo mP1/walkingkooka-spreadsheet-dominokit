@@ -15,13 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -29,8 +30,8 @@ import java.util.Objects;
 
 public class SpreadsheetMetadataFetcher implements Fetcher {
 
-    static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataWatcher watcher,
-                                           final AppContext context) {
+    public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataWatcher watcher,
+                                                  final AppContext context) {
         return new SpreadsheetMetadataFetcher(
                 watcher,
                 context

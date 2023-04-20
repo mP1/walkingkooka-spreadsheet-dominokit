@@ -15,14 +15,15 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.net;
 
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
-public class FakeSpreadsheetMetadataWatcher implements SpreadsheetMetadataWatcher {
+public class FakeSpreadsheetDeltaWatcher implements SpreadsheetDeltaWatcher {
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
         throw new UnsupportedOperationException();
     }
 }

@@ -15,13 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.net;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

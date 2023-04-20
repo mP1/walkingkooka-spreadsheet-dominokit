@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.RelativeUrl;
@@ -25,6 +25,7 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -129,8 +130,8 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
 
     private final static UrlParameterName WINDOW = UrlParameterName.with("window");
 
-    static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaWatcher watcher,
-                                        final AppContext context) {
+    public static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaWatcher watcher,
+                                               final AppContext context) {
         return new SpreadsheetDeltaFetcher(
                 watcher,
                 context
