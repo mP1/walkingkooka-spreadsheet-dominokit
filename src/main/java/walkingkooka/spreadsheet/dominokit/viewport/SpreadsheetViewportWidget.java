@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.Element;
 import elemental2.dom.Event;
@@ -38,6 +38,10 @@ import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -67,7 +71,7 @@ import java.util.function.Predicate;
 
 public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher, HistoryWatcher {
 
-    static SpreadsheetViewportWidget empty(final AppContext context) {
+    public static SpreadsheetViewportWidget empty(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetViewportWidget(context);
@@ -703,8 +707,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     }
 
     // viewport-column-A
-    // @VisibleForTesting
-    static String id(final SpreadsheetSelection selection) {
+    public static String id(final SpreadsheetSelection selection) {
         return VIEWPORT_ID_PREFIX +
                 selection.textLabel().toLowerCase() +
                 "-" +
@@ -768,7 +771,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     /**
      * The root table element.
      */
-    HTMLTableElement tableElement() {
+    public HTMLTableElement tableElement() {
         return this.tableElement.element();
     }
 

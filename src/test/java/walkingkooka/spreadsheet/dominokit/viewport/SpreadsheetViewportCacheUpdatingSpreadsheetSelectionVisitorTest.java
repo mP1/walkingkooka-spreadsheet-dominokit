@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.JavaVisibility;
