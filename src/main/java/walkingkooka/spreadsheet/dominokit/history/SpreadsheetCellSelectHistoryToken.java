@@ -21,10 +21,12 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidgetWatcher;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHistoryToken {
+public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHistoryToken
+        implements SpreadsheetViewportWidgetWatcher {
 
     static SpreadsheetCellSelectHistoryToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name,
@@ -89,5 +91,15 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     public void onHashChange(final HistoryToken previous,
                              final AppContext context) {
         // nop
+    }
+
+    // SpreadsheetViewportWidgetRenderWatcher...........................................................................
+
+    /**
+     * Give focus to the selection.
+     */
+    @Override
+    public void onAfterSpreadsheetViewportWidgetRender(final AppContext context) {
+        this.giveViewportFocus(context);
     }
 }
