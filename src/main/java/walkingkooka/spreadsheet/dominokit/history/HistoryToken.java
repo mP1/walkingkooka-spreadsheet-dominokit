@@ -652,12 +652,6 @@ public abstract class HistoryToken implements HasUrlFragment {
                                  final TextCursor cursor);
 
     /**
-     * Fired whenever a new history token change happens.
-     */
-    abstract public void onHashChange(final HistoryToken previous,
-                                      final AppContext context);
-
-    /**
      * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
      * entire history token.
      */
@@ -741,6 +735,12 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return menu;
     }
+
+    /**
+     * Fired whenever a new history token change happens.
+     */
+    abstract public void onHashChange(final HistoryToken previous,
+                                      final AppContext context);
 
     // Object...........................................................................................................
 
