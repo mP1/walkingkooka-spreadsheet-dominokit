@@ -34,7 +34,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -69,7 +69,7 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 
 @LocaleAware
-public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetMetadataWatcher, SpreadsheetDeltaWatcher, UncaughtExceptionHandler {
+public class App implements EntryPoint, AppContext, HistoryTokenWatcher, SpreadsheetMetadataWatcher, SpreadsheetDeltaWatcher, UncaughtExceptionHandler {
 
 
     public App() {
@@ -96,7 +96,7 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
         this.showMetadataPanel(false);
 
         this.registerWindowResizeListener();
-        this.fireInitialHashToken();
+        this.fireInitialHistoryToken();
         this.fireInitialWindowSize();
     }
 
@@ -331,10 +331,10 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
 
     // history eventListener............................................................................................
 
-    private void fireInitialHashToken() {
+    private void fireInitialHistoryToken() {
         final HistoryToken token = this.historyToken();
-        this.debug("App.fireInitialHashToken " + token);
-        this.onHashChange(token);
+        this.debug("App.fireInitialHistoryToken " + token);
+        this.onHistoryTokenChange(token);
     }
 
     private void setupHistoryListener() {
@@ -342,19 +342,19 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
 
         DomGlobal.self.addEventListener(
                 EventType.hashchange.getName(),
-                event -> this.onHashChange(
+                event -> this.onHistoryTokenChange(
                         this.historyToken()
                 )
         );
     }
 
-    private void onHashChange(final HistoryToken token) {
+    private void onHistoryTokenChange(final HistoryToken token) {
         try {
             final HistoryToken previousToken = this.previousToken;
-            debug("App.onHashChange from " + previousToken + " to " + token);
+            debug("App.onHistoryTokenChange from " + previousToken + " to " + token);
 
             if (false == token.equals(previousToken)) {
-                this.fireOnHashChange(previousToken);
+                this.fireOnHistoryTokenChange(previousToken);
                 this.pushHistoryToken(token);
             }
 
@@ -363,15 +363,15 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
         }
     }
 
-    private void fireOnHashChange(final HistoryToken previous) {
-        this.debug("App.fireOnHashChange from " + previous + " to " + this.historyToken());
+    private void fireOnHistoryTokenChange(final HistoryToken previous) {
+        this.debug("App.fireOnHistoryTokenChange from " + previous + " to " + this.historyToken());
 
         final String hash = DomGlobal.location.hash;
 
-        for (final HistoryWatcher watcher : this.historyWatchers) {
+        for (final HistoryTokenWatcher watcher : this.historyWatchers) {
             final String hash2 = DomGlobal.location.hash;
             if (false == hash.equals(hash2)) {
-                this.debug("App.fireOnHashChange aborted " + hash + " to " + hash2);
+                this.debug("App.fireOnHistoryTokenChange aborted " + hash + " to " + hash2);
                 break;
             }
 
@@ -385,10 +385,10 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
     }
 
     private void fireHistoryWatcher(final HistoryToken token,
-                                    final HistoryWatcher watcher) {
+                                    final HistoryTokenWatcher watcher) {
         this.callAndCatch(
                 token,
-                watcher::onHashChange
+                watcher::onHistoryTokenChange
         );
     }
 
@@ -434,17 +434,17 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
     // HistoryWatcher...................................................................................................
 
     @Override
-    public void addHistoryWatcher(final HistoryWatcher watcher) {
+    public void addHistoryWatcher(final HistoryTokenWatcher watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
         this.historyWatchers.add(watcher);
     }
 
-    private final Set<HistoryWatcher> historyWatchers = Sets.ordered();
+    private final Set<HistoryTokenWatcher> historyWatchers = Sets.ordered();
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
 
         // if the viewport selection changed update metadata
         final HistoryToken historyToken = context.historyToken();
@@ -453,7 +453,7 @@ public class App implements EntryPoint, AppContext, HistoryWatcher, SpreadsheetM
             final Optional<SpreadsheetViewportSelection> previousViewportSelection = previous.viewportSelectionOrEmpty();
             if (false == viewportSelection.equals(previousViewportSelection)) {
 
-                context.debug("App.onHashChange viewportSelection changed from " + previousViewportSelection.orElse(null) + " TO " + viewportSelection.orElse(null) + " will update Metadata");
+                context.debug("App.onHistoryTokenChange viewportSelection changed from " + previousViewportSelection.orElse(null) + " TO " + viewportSelection.orElse(null) + " will update Metadata");
 
                 final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
                 context.spreadsheetMetadataFetcher()

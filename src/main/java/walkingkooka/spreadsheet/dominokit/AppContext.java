@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.Element;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
@@ -36,7 +36,7 @@ import java.util.Set;
 
 public interface AppContext extends Context {
 
-    void addHistoryWatcher(final HistoryWatcher watcher);
+    void addHistoryWatcher(final HistoryTokenWatcher watcher);
 
     void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
 

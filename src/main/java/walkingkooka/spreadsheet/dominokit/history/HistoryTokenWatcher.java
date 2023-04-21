@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public interface HistoryWatcher {
+public interface HistoryTokenWatcher {
 
-    void onHashChange(final HistoryToken previous,
-                      final AppContext context);
+    void onHistoryTokenChange(final HistoryToken previous,
+                              final AppContext context);
 }
