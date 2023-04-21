@@ -61,8 +61,8 @@ public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
     }
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         // open row menu here
     }
 }

@@ -40,8 +40,8 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
     }
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         throw new UnsupportedOperationException();
     }
 

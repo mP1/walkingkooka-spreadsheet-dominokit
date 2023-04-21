@@ -96,8 +96,8 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         // remove the save
         context.pushHistoryToken(
                 this.formulaHistoryToken()

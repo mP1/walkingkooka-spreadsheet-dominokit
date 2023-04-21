@@ -685,7 +685,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     }
 
     /**
-     * Pushes the selection and menu history token. When the {@link HistoryToken#onHashChange(HistoryToken, AppContext)}
+     * Pushes the selection and menu history token. When the {@link HistoryToken#onHistoryTokenChange(HistoryToken, AppContext)}
      * is executed a context menu will be shown with items.
      */
     private void onContextMenu(final Event event,

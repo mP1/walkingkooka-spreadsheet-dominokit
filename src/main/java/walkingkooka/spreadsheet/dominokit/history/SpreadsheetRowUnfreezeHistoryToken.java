@@ -69,8 +69,8 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
     }
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         this.patchMetadataAndPushViewportSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,
                 null,

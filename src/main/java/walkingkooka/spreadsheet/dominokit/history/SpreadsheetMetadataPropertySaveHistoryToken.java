@@ -112,8 +112,8 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     }
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         context.spreadsheetMetadataFetcher()
                 .patchMetadata(
                         this.id(),
