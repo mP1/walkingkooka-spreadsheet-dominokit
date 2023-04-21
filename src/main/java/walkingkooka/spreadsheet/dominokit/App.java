@@ -467,7 +467,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
             }
         }
 
-        historyToken.onHashChange(
+        historyToken.onHistoryTokenChange(
                 previous,
                 context
         );

@@ -77,8 +77,8 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
     }
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         // POST cell clear
         this.deltaClearSelectionAndPushViewportSelectionHistoryToken(context);
     }

@@ -63,8 +63,8 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
     }
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         // nop
     }
 
