@@ -402,7 +402,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         final String newHash = "#" + token.urlFragment();
         final String current = DomGlobal.location.hash;
         if (false == current.equals(newHash)) {
-            this.debug("pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + token);
+            this.debug("App.pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + newHash + " " + token);
 
             DomGlobal.location.hash = newHash;
         }
