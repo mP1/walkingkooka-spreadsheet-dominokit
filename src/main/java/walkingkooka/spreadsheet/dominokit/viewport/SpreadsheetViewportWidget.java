@@ -40,7 +40,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
@@ -69,7 +69,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher, HistoryWatcher {
+public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher, HistoryTokenWatcher {
 
     public static SpreadsheetViewportWidget empty(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -143,8 +143,8 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     private final AppContext context;
 
     @Override
-    public void onHashChange(final HistoryToken previous,
-                             final AppContext context) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         this.setViewportSelection(
                 context.historyToken()
                         .viewportSelectionOrEmpty()

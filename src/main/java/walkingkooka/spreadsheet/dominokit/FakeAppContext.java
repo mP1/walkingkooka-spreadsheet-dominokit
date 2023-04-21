@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
@@ -70,7 +70,7 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public void addHistoryWatcher(final HistoryWatcher watcher) {
+    public void addHistoryWatcher(final HistoryTokenWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
