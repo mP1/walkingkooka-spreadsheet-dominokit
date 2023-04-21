@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.tree.json.JsonNode;
 
 import java.util.Objects;
 
@@ -71,9 +72,19 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
                                   final T propertyValue) {
         this.patchMetadata(
                 id,
-                SpreadsheetMetadata.EMPTY.setOrRemove(
-                        propertyName,
-                        propertyValue
+                propertyName.patch(propertyValue)
+        );
+    }
+
+    /**
+     * Patches the {@link SpreadsheetMetadata}, with the patch created using {@link SpreadsheetMetadataPropertyName#patch(Object)}.
+     */
+    public void patchMetadata(final SpreadsheetId id,
+                              final JsonNode node) {
+        this.patch(
+                this.url(id),
+                this.toJson(
+                        node
                 )
         );
     }

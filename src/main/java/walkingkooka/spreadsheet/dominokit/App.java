@@ -459,8 +459,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                 context.spreadsheetMetadataFetcher()
                         .patchMetadata(
                                 spreadsheetIdHistoryToken.id(),
-                                SpreadsheetMetadata.EMPTY.setOrRemove(
-                                        SpreadsheetMetadataPropertyName.SELECTION,
+                                SpreadsheetMetadataPropertyName.SELECTION.patch(
                                         viewportSelection.orElse(null)
                                 )
                         );
