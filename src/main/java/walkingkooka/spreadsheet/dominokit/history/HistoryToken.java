@@ -515,14 +515,14 @@ public abstract class HistoryToken implements HasUrlFragment {
         return UnknownHistoryToken.with(fragment);
     }
 
-    public static HistoryToken viewportSelection(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
-                                                 final SpreadsheetViewportSelection viewportSelection) {
+    public static SpreadsheetViewportSelectionHistoryToken viewportSelection(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final SpreadsheetViewportSelection viewportSelection) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(name, "name");
         Objects.requireNonNull(viewportSelection, "viewportSelection");
 
-        HistoryToken historyToken;
+        SpreadsheetViewportSelectionHistoryToken historyToken;
 
         final SpreadsheetSelection selection = viewportSelection.selection();
 

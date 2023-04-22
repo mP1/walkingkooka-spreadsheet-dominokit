@@ -449,6 +449,148 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // viewportSelection................................................................................................
+
+    @Test
+    public void testViewportSelectionCell() {
+        final SpreadsheetViewportSelection cell = CELL.setDefaultAnchor();
+
+        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+                ID,
+                NAME,
+                cell
+        );
+
+        this.checkEquals(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        cell
+                ),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testViewportSelectionCellRange() {
+        final SpreadsheetViewportSelection cell = CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+
+        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+                ID,
+                NAME,
+                cell
+        );
+
+        this.checkEquals(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        cell
+                ),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testViewportSelectionLabel() {
+        final SpreadsheetViewportSelection cell = LABEL.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+
+        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+                ID,
+                NAME,
+                cell
+        );
+
+        this.checkEquals(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        cell
+                ),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testViewportSelectionColumn() {
+        final SpreadsheetViewportSelection column = COLUMN.setDefaultAnchor();
+
+        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+                ID,
+                NAME,
+                column
+        );
+
+        this.checkEquals(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        column
+                ),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testViewportSelectionColumnRange() {
+        final SpreadsheetViewportSelection column = COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+
+        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+                ID,
+                NAME,
+                column
+        );
+
+        this.checkEquals(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        column
+                ),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testViewportSelectionRow() {
+        final SpreadsheetViewportSelection row = ROW.setDefaultAnchor();
+
+        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+                ID,
+                NAME,
+                row
+        );
+
+        this.checkEquals(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        row
+                ),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testViewportSelectionRowRange() {
+        final SpreadsheetViewportSelection row = ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
+
+        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+                ID,
+                NAME,
+                row
+        );
+
+        this.checkEquals(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        row
+                ),
+                historyToken
+        );
+    }
+
     // parse............................................................................................................
 
     @Test
