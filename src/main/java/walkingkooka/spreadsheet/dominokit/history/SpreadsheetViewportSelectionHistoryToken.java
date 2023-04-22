@@ -17,6 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
+import org.dominokit.domino.ui.dropdown.DropDownMenu;
+import org.dominokit.domino.ui.dropdown.DropDownPosition;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
@@ -205,5 +209,59 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                                 viewportSelection.anchor()
                         )
         );
+    }
+
+    /**
+     * Renders a drop down menu. This helper is intended only for the menu sub classes.
+     */
+    final void renderDropDownMenu(final AppContext context) {
+        // show context menu
+        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+        final Optional<Element> maybeElement = context.findViewportElement(
+                viewportSelection.selection().focused(viewportSelection.anchor())
+        );
+
+        context.debug(this.getClass().getSimpleName() + ".renderDropDownMenu " + viewportSelection);
+
+        if (maybeElement.isPresent()) {
+            final Element element = maybeElement.get();
+
+
+            // CLEAR
+            // DELETE
+            // -------
+            // FREEZE
+            // UNFREEZE
+            final DropDownMenu dropDownMenu = DropDownMenu.create((HTMLElement) element)
+                    .setPosition(DropDownPosition.BOTTOM)
+                    .appendChild(
+                            context.dropdownAction(
+                                    "Clear",
+                                    Optional.of(
+                                            this.clear()
+                                    )
+                            )
+                    ).appendChild(
+                            context.dropdownAction(
+                                    "Delete",
+                                    Optional.of(
+                                            this.delete()
+                                    )
+                            )
+                    ).separator()
+                    .appendChild(
+                            context.dropdownAction(
+                                    "Freeze",
+                                    this.freezeOrEmpty()
+                            )
+                    ).appendChild(
+                            context.dropdownAction(
+                                    "Unfreeze",
+                                    this.unfreezeOrEmpty()
+                            )
+                    );
+
+            dropDownMenu.open(false); // focus
+        }
     }
 }
