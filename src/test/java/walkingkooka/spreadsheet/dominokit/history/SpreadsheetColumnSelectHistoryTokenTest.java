@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
@@ -37,6 +38,24 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
         this.urlFragmentAndCheck(
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
                 "/123/SpreadsheetName456/column/B:C/right"
+        );
+    }
+
+    // freezeOrEmpty....................................................................................................
+
+    @Test
+    public void testFreezeOrEmptyColumnInvalid() {
+        this.freezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseColumn("B")
+                        .setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public void testFreezeOrEmptyColumnRangeInvalid() {
+        this.freezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseColumnRange("C:D")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
         );
     }
 

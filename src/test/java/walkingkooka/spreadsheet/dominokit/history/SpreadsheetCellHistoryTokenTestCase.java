@@ -74,6 +74,37 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // freezeOrEmpty....................................................................................................
+
+    @Test
+    public final void testFreezeOrEmptyCell() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+
+        this.freezeOrEmptyAndCheck(
+                viewportSelection,
+                HistoryToken.cellFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public final void testFreezeOrEmptyCellRange() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseCellRange("A1:B2")
+                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+
+        this.freezeOrEmptyAndCheck(
+                viewportSelection,
+                HistoryToken.cellFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
     // setViewportSelection.............................................................................................
 
     @Test

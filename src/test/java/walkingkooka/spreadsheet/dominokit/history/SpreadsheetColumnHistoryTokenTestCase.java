@@ -78,6 +78,37 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // freezeOrEmpty....................................................................................................
+
+    @Test
+    public final void testFreezeOrEmptyColumn() {
+        final SpreadsheetViewportSelection viewportSelection = COLUMN.setDefaultAnchor();
+
+        this.freezeOrEmptyAndCheck(
+                viewportSelection,
+                HistoryToken.columnFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public final void testFreezeOrEmptyColumnRange() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseColumnRange("A:B")
+                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+
+        this.freezeOrEmptyAndCheck(
+                viewportSelection,
+                HistoryToken.columnFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
     // setViewportSelection.............................................................................................
 
     @Test

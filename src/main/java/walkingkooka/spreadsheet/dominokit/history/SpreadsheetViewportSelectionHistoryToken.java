@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 import java.util.Objects;
@@ -56,6 +57,21 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
     }
 
     abstract UrlFragment selectionViewportUrlFragment();
+
+    /**
+     * Tries to create a freeze token or {@link Optional#empty()} because the {@link SpreadsheetSelection} is invalid.
+     */
+    final Optional<HistoryToken> freezeOrEmpty() {
+        HistoryToken token;
+
+        try {
+            token = this.freeze();
+        } catch (final RuntimeException ignored) {
+            token = null;
+        }
+
+        return Optional.ofNullable(token);
+    }
 
     /**
      * Factory that returns a {@link SpreadsheetViewportSelectionHistoryToken} without any action and just the
