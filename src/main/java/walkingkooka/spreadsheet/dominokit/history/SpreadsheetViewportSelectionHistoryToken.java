@@ -74,6 +74,21 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
     }
 
     /**
+     * Tries to create an unfreeze token or {@link Optional#empty()} because the {@link SpreadsheetSelection} is invalid.
+     */
+    final Optional<HistoryToken> unfreezeOrEmpty() {
+        HistoryToken token;
+
+        try {
+            token = this.unfreeze();
+        } catch (final RuntimeException ignored) {
+            token = null;
+        }
+
+        return Optional.ofNullable(token);
+    }
+
+    /**
      * Factory that returns a {@link SpreadsheetViewportSelectionHistoryToken} without any action and just the
      * {@link SpreadsheetViewportSelection}
      *

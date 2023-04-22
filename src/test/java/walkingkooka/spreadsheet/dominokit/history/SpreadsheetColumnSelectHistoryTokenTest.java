@@ -66,6 +66,24 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
         this.menuWithColumnAndCheck();
     }
 
+    // unfreezeOrEmpty....................................................................................................
+
+    @Test
+    public void testUnfreezeOrEmptyColumnInvalid() {
+        this.unfreezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseColumn("B")
+                        .setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public void testUnfreezeOrEmptyColumnRangeInvalid() {
+        this.unfreezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseColumnRange("C:D")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+        );
+    }
+
     @Override
     SpreadsheetColumnSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
