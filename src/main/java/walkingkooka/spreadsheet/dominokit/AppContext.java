@@ -18,6 +18,9 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
+import elemental2.dom.HTMLAnchorElement;
+import org.dominokit.domino.ui.dropdown.DropdownAction;
+import org.jboss.elemento.Elements;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -29,8 +32,10 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStyle;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -84,6 +89,41 @@ public interface AppContext extends Context {
      * Finds an existing {@link Element} for the given {@link SpreadsheetSelection}.
      */
     Optional<Element> findViewportElement(final SpreadsheetSelection selection);
+
+    /**
+     * Creates a {@link DropdownAction} which may be added to a drop-down menu.
+     * <br>
+     * If a {@link HistoryToken} is present a clickable link with its HREF with the {@link HistoryToken#urlFragment()}
+     * will be created.
+     * When clicked it will push the given {@link HistoryToken} to the history.
+     */
+    default DropdownAction<HistoryToken> dropdownAction(final String text,
+                                                        final Optional<HistoryToken> historyToken) {
+        CharSequences.failIfNullOrEmpty(text, "text");
+        Objects.requireNonNull(historyToken, "historyToken");
+
+        final DropdownAction<HistoryToken> dropdownAction;
+        if (historyToken.isPresent()) {
+            final HistoryToken value = historyToken.get();
+
+            final HTMLAnchorElement link = Elements.a()
+                    .attr("href", "#" + value.urlFragment())
+                    .textContent(text)
+                    .element();
+
+            dropdownAction = DropdownAction.create(
+                    value,
+                    link
+            ).addSelectionHandler(v -> this.pushHistoryToken(v));
+        } else {
+            dropdownAction = DropdownAction.create(
+                    null,
+                    text
+            );
+        }
+
+        return dropdownAction;
+    }
 
     void debug(final Object message);
 
