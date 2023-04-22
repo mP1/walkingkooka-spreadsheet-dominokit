@@ -72,6 +72,24 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.menuWithCellAndCheck();
     }
 
+    // unfreezeOrEmpty..................................................................................................
+
+    @Test
+    public void testUnfreezeOrEmptyCellInvalid() {
+        this.unfreezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseCell("B2")
+                        .setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public void testUnfreezeOrEmptyCellRangeInvalid() {
+        this.unfreezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseCellRange("C3:D4")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+        );
+    }
+
     @Override
     SpreadsheetCellSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name,

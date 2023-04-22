@@ -67,6 +67,24 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
         this.menuWithRowAndCheck();
     }
 
+    // unfreezeOrEmpty..................................................................................................
+
+    @Test
+    public void testUnfreezeOrEmptyRowInvalid() {
+        this.unfreezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseRow("2")
+                        .setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public void testUnfreezeOrEmptyRowRangeInvalid() {
+        this.unfreezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseRowRange("3:4")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+        );
+    }
+
     @Override
     SpreadsheetRowSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                         final SpreadsheetName name,
