@@ -32,6 +32,42 @@ public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends
         super();
     }
 
+    // freezeOrEmpty....................................................................................................
+
+    final void freezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection) {
+        this.freezeOrEmptyAndCheck(
+                viewportSelection,
+                Optional.empty()
+        );
+    }
+
+    final void freezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection,
+                                     final HistoryToken expected) {
+        this.freezeOrEmptyAndCheck(
+                viewportSelection,
+                Optional.of(
+                        expected
+                )
+        );
+    }
+
+    final void freezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection,
+                                     final Optional<HistoryToken> expected) {
+        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+                ID,
+                NAME,
+                viewportSelection
+        );
+
+        this.checkEquals(
+                expected,
+                historyToken.freezeOrEmpty(),
+                () -> historyToken + " freezeOrEmpty"
+        );
+    }
+
+    // setViewportSelection.............................................................................................
+
     final void setViewportSelectionAndCheck(final SpreadsheetViewportSelection viewportSelection) {
         final T token = this.createHistoryToken(viewportSelection);
 

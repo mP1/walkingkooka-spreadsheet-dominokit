@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
@@ -38,6 +39,24 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
         this.urlFragmentAndCheck(
                 ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
                 "/123/SpreadsheetName456/row/2:3/bottom"
+        );
+    }
+
+    // freezeOrEmpty....................................................................................................
+
+    @Test
+    public void testFreezeOrEmptyRowInvalid() {
+        this.freezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseRow("2")
+                        .setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public void testFreezeOrEmptyRowRangeInvalid() {
+        this.freezeOrEmptyAndCheck(
+                SpreadsheetSelection.parseRowRange("3:4")
+                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
         );
     }
 

@@ -78,6 +78,37 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // freezeOrEmpty....................................................................................................
+
+    @Test
+    public final void testFreezeOrEmptyRow() {
+        final SpreadsheetViewportSelection viewportSelection = ROW.setDefaultAnchor();
+
+        this.freezeOrEmptyAndCheck(
+                viewportSelection,
+                HistoryToken.rowFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public final void testFreezeOrEmptyRowRange() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseRowRange("1:2")
+                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
+
+        this.freezeOrEmptyAndCheck(
+                viewportSelection,
+                HistoryToken.rowFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
     // setViewportSelection.............................................................................................
 
     @Test
