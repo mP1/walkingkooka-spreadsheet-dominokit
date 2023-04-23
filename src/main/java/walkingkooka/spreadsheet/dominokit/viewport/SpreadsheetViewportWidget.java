@@ -771,6 +771,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
     /**
      * The root table element.
      */
+    @Override
     public HTMLTableElement element() {
         return this.tableElement.element();
     }
