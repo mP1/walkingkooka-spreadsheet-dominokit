@@ -48,7 +48,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
@@ -139,7 +139,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * A returned value of <code>true</code> indicates the formula should be enabled for editing.
      */
     private boolean isFormulaEnabled() {
-        return this.context.historyToken() instanceof SpreadsheetCellFormulaHistoryToken;
+        return this.context.historyToken() instanceof SpreadsheetCellHistoryToken;
     }
 
     @Override
