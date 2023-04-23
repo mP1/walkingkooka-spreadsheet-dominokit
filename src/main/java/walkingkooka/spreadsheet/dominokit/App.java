@@ -107,7 +107,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
         this.layout.fitHeight();
         this.layout.fitWidth();
-        this.layout.setContent(this.viewportWidget.tableElement());
+        this.layout.setContent(this.viewportWidget.element());
 
         this.layout.show();
     }

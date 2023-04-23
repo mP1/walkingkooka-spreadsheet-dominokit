@@ -30,6 +30,7 @@ import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
+import org.jboss.elemento.IsElement;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
@@ -69,7 +70,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher, HistoryTokenWatcher {
+public final class SpreadsheetViewportWidget implements IsElement<HTMLTableElement>, SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher, HistoryTokenWatcher {
 
     public static SpreadsheetViewportWidget empty(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -765,7 +766,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
     /**
      * The root table element.
      */
-    public HTMLTableElement tableElement() {
+    public HTMLTableElement element() {
         return this.tableElement.element();
     }
 
