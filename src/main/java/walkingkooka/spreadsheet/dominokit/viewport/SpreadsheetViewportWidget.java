@@ -71,7 +71,10 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public final class SpreadsheetViewportWidget implements IsElement<HTMLTableElement>, SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher, HistoryTokenWatcher {
+public final class SpreadsheetViewportWidget implements IsElement<HTMLTableElement>,
+        SpreadsheetDeltaWatcher,
+        SpreadsheetMetadataWatcher,
+        HistoryTokenWatcher {
 
     public static SpreadsheetViewportWidget empty(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -82,39 +85,11 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
     private SpreadsheetViewportWidget(final AppContext context) {
         this.context = context;
 
-        this.tableElement = createTable();
+        this.tableElement = this.createTable();
 
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
     }
-
-    /**
-     * Creates an empty table with minimal styling including some placeholder text.
-     */
-    private HtmlContentBuilder<HTMLTableElement> createTable() {
-        final HtmlContentBuilder<HTMLTableElement> tableElement = Elements.table();
-        tableElement.id(VIEWPORT_ID);
-        tableElement.style("width: 100%; height: 100%;");
-        tableElement.add(
-                Elements.tbody()
-                        .add(
-                                Elements.tr()
-                                        .add(
-                                                Elements.td()
-                                                        .add(
-                                                                "spreadsheet here"
-                                                        ).element()
-                                        ).element()
-                        ).element()
-        );
-
-        return tableElement;
-    }
-
-    /**
-     * The ID assigned to the container TABLE element.
-     */
-    private final static String VIEWPORT_ID = "viewport";
 
     public void setWidthAndHeight(final int width,
                                   final int height) {
@@ -156,73 +131,9 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
     }
 
     /**
-     * Registers a keydown event handler on the given {@link Element}.
+     * This is updated each time a new {@link SpreadsheetMetadata} arrives.
      */
-    private void addKeyDownEventListener(final Element element) {
-        element.addEventListener(
-                EventType.keydown.getName(),
-                (event) -> onKeyDownEvent(
-                        Js.cast(event)
-                )
-        );
-    }
-
-    /**
-     * Generic key event handler that handles any key events for cell/column OR row.
-     */
-    private void onKeyDownEvent(final KeyboardEvent event) {
-        event.preventDefault();
-
-        final Key key = Key.fromEvent(event);
-        final boolean shifted = event.shiftKey;
-        final AppContext context = this.context;
-
-        SpreadsheetViewportSelectionNavigation navigation = null;
-
-        switch (key) {
-            case ArrowLeft:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
-                        SpreadsheetViewportSelectionNavigation.LEFT;
-                break;
-            case ArrowUp:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_UP :
-                        SpreadsheetViewportSelectionNavigation.UP;
-                break;
-            case ArrowRight:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
-                        SpreadsheetViewportSelectionNavigation.RIGHT;
-                break;
-            case ArrowDown:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
-                        SpreadsheetViewportSelectionNavigation.DOWN;
-                break;
-            case Enter:
-                // if cell then edit formula
-                break;
-            case Escape:
-                // clear any selection
-                context.pushHistoryToken(
-                        context.historyToken()
-                                .setViewportSelection(
-                                        Optional.empty()
-                                )
-                );
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
-
-        if (null != navigation) {
-            this.loadViewportCells(
-                    Optional.of(navigation)
-            );
-        }
-    }
+    private HistoryToken historyToken;
 
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
@@ -239,7 +150,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
                                       final AppContext context) {
         Objects.requireNonNull(metadata, "metadata");
 
-        if(metadata.shouldViewRefresh(this.metadata)) {
+        if (metadata.shouldViewRefresh(this.metadata)) {
             this.reload = true;
         }
 
@@ -364,6 +275,132 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
      */
     private boolean reload = false;
+
+    /**
+     * Returns the window used by this viewport.
+     */
+    public Set<SpreadsheetCellRange> window() {
+        return this.cache.windows;
+    }
+
+    /**
+     * Cache that holds all the cells, labels etc displayed by this widget.
+     */
+    private final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+    // root.............................................................................................................
+
+    /**
+     * The root table element.
+     */
+    @Override
+    public HTMLTableElement element() {
+        return this.tableElement.element();
+    }
+
+    // table............................................................................................................
+
+    /**
+     * Creates an empty table with minimal styling including some placeholder text.
+     */
+    private HtmlContentBuilder<HTMLTableElement> createTable() {
+        final HtmlContentBuilder<HTMLTableElement> tableElement = Elements.table();
+        tableElement.id(VIEWPORT_ID);
+        tableElement.style("width: 100%; height: 100%;");
+        tableElement.add(
+                Elements.tbody()
+                        .add(
+                                Elements.tr()
+                                        .add(
+                                                Elements.td()
+                                                        .add(
+                                                                "spreadsheet here"
+                                                        ).element()
+                                        ).element()
+                        ).element()
+        );
+
+        return tableElement;
+    }
+
+    /**
+     * A TABLE that holds the grid of cells including the column and row headers.
+     */
+    private final HtmlContentBuilder<HTMLTableElement> tableElement;
+
+    /**
+     * The ID assigned to the container TABLE element.
+     */
+    private final static String VIEWPORT_ID = "viewport";
+
+    /**
+     * Registers a keydown event handler on the given {@link Element}.
+     */
+    private void addKeyDownEventListener(final Element element) {
+        element.addEventListener(
+                EventType.keydown.getName(),
+                (event) -> onKeyDownEvent(
+                        Js.cast(event)
+                )
+        );
+    }
+
+    /**
+     * Generic key event handler that handles any key events for cell/column OR row.
+     */
+    private void onKeyDownEvent(final KeyboardEvent event) {
+        event.preventDefault();
+
+        final Key key = Key.fromEvent(event);
+        final boolean shifted = event.shiftKey;
+        final AppContext context = this.context;
+
+        SpreadsheetViewportSelectionNavigation navigation = null;
+
+        switch (key) {
+            case ArrowLeft:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
+                        SpreadsheetViewportSelectionNavigation.LEFT;
+                break;
+            case ArrowUp:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_UP :
+                        SpreadsheetViewportSelectionNavigation.UP;
+                break;
+            case ArrowRight:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
+                        SpreadsheetViewportSelectionNavigation.RIGHT;
+                break;
+            case ArrowDown:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
+                        SpreadsheetViewportSelectionNavigation.DOWN;
+                break;
+            case Enter:
+                // if cell then edit formula
+                break;
+            case Escape:
+                // clear any selection
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .setViewportSelection(
+                                        Optional.empty()
+                                )
+                );
+                break;
+            default:
+                // ignore other keys
+                break;
+        }
+
+        if (null != navigation) {
+            this.loadViewportCells(
+                    Optional.of(navigation)
+            );
+        }
+    }
 
     /**
      * Renders the TABLE element again using its current state. Note no elements are cached or re-used, everything
@@ -525,13 +562,13 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
      * Creates a TR which will hold the ROW and then cells.
      */
     private HTMLTableRowElement row(final SpreadsheetRowReference row,
-                                        final Collection<SpreadsheetColumnReference> columns) {
+                                    final Collection<SpreadsheetColumnReference> columns) {
         final HtmlContentBuilder<HTMLTableRowElement> tr = Elements.tr()
                 .add(
                         this.rowHeader(row)
                 );
 
-        for(final SpreadsheetColumnReference column: columns) {
+        for (final SpreadsheetColumnReference column : columns) {
             tr.add(
                     this.cell(
                             column.setRow(row)
@@ -762,31 +799,4 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
      * Prefix for any component within a viewport
      */
     private final static String VIEWPORT_ID_PREFIX = VIEWPORT_ID + "-";
-
-    /**
-     * This is updated each time a new {@link SpreadsheetMetadata} arrives.
-     */
-    private HistoryToken historyToken;
-
-    /**
-     * The root table element.
-     */
-    @Override
-    public HTMLTableElement element() {
-        return this.tableElement.element();
-    }
-
-    private final HtmlContentBuilder<HTMLTableElement> tableElement;
-
-    /**
-     * Returns the window used by this viewport.
-     */
-    public Set<SpreadsheetCellRange> window() {
-        return this.cache.windows;
-    }
-
-    /**
-     * Cache that holds all the cells, labels etc displayed by this widget.
-     */
-    private final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 }
