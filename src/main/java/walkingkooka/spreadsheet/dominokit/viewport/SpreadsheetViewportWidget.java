@@ -118,7 +118,7 @@ public final class SpreadsheetViewportWidget implements SpreadsheetDeltaWatcher,
                                   final int height) {
         final boolean reload = width > this.width || height > this.height;
 
-        this.context.debug("SpreadsheetViewport.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
+        this.context.debug("SpreadsheetViewportWidget.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
 
         this.width = width;
         this.height = height;
