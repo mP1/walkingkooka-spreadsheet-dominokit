@@ -130,11 +130,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
         this.render();
     }
 
-    /**
-     * This is updated each time a new {@link SpreadsheetMetadata} arrives.
-     */
-    private HistoryToken historyToken;
-
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
@@ -162,13 +157,18 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
                 metadata,
                 context
         );
-        this.historyToken = metadata.id()
-                .isPresent() ?
-                HistoryToken.spreadsheetSelect(
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
-                ) :
-                null;
+
+        final Optional<SpreadsheetId> spreadsheetId = metadata.id();
+        if (spreadsheetId.isPresent()) {
+            context.pushHistoryToken(
+                    context.historyToken()
+                            .setIdAndName(
+                                    spreadsheetId.get(),
+                                    metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
+                            )
+            );
+        }
+
         this.render();
     }
 
@@ -615,7 +615,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
      */
     private void addLinkOrText(final SpreadsheetColumnOrRowReference columnOrRow,
                                final HtmlContentBuilder<HTMLTableCellElement> td) {
-        if (null == this.historyToken) {
+        if (null == this.context.historyToken()) {
             td.textContent(
                     columnOrRow.toString()
                             .toUpperCase()
@@ -631,11 +631,12 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
      * Creates an ANCHOR including an ID and TEXT in upper case of the given {@link SpreadsheetSelection}.
      */
     private HTMLAnchorElement link(final SpreadsheetSelection selection) {
-        final HistoryToken token = this.historyToken.setViewportSelection(
-                Optional.of(
-                        selection.setDefaultAnchor()
-                )
-        );
+        final HistoryToken token = this.context.historyToken()
+                .setViewportSelection(
+                        Optional.of(
+                                selection.setDefaultAnchor()
+                        )
+                );
 
         return Elements.a()
                 .id(id(selection) + "-link")
