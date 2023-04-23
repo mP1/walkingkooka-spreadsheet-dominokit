@@ -20,16 +20,21 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
+import org.dominokit.domino.ui.forms.TextBox;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
+import org.jboss.elemento.InputBuilder;
+import org.jboss.elemento.InputType;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
 import walkingkooka.collect.set.Sets;
@@ -43,6 +48,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
@@ -71,7 +77,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public final class SpreadsheetViewportWidget implements IsElement<HTMLTableElement>,
+public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher,
         SpreadsheetMetadataWatcher,
         HistoryTokenWatcher {
@@ -85,7 +91,9 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
     private SpreadsheetViewportWidget(final AppContext context) {
         this.context = context;
 
+        this.formulaTextBox = this.createFormulaTextBox();
         this.tableElement = this.createTable();
+        this.root = this.createRoot();
 
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
@@ -99,9 +107,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
 
         this.width = width;
         this.height = height;
-
-        this.tableElement.element()
-                .style.set("height", height + "px");
 
         this.reload = reload;
         this.loadViewportCellsIfNecessary();
@@ -128,6 +133,13 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
         );
 
         this.render();
+    }
+
+    /**
+     * A returned value of <code>true</code> indicates the formula should be enabled for editing.
+     */
+    private boolean isFormulaEnabled() {
+        return this.context.historyToken() instanceof SpreadsheetCellFormulaHistoryToken;
     }
 
     @Override
@@ -294,9 +306,48 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
      * The root table element.
      */
     @Override
-    public HTMLTableElement element() {
-        return this.tableElement.element();
+    public HTMLDivElement element() {
+        return this.root;
     }
+
+    // root.............................................................................................................
+
+    private HTMLDivElement createRoot() {
+        final HtmlContentBuilder<HTMLDivElement> root = Elements.div();
+        root.style("border: none; margin: 0px; padding: none; width:100%");
+
+        root.add(this.formulaTextBox);
+        root.add(this.tableElement.element());
+
+        return root.element();
+    }
+
+    /**
+     * The root or container that holds the {@link #formulaTextBox} and {@link #tableElement}.
+     */
+    private final HTMLDivElement root;
+
+    // formula..........................................................................................................
+
+    /**
+     * Creates a {@link TextBox} that holds the formula for editing.
+     */
+    private HTMLInputElement createFormulaTextBox() {
+        final InputBuilder<HTMLInputElement> input = Elements.input(InputType.text);
+        input.css("formulaTextBox");
+        return input.element();
+    }
+
+
+    /**
+     * A {@link HTMLInputElement} that holds the selected cell formula for editing.
+     */
+    private final HTMLInputElement formulaTextBox;
+
+    /**
+     * The height of the formula textbox.
+     */
+    private final static int FORMULA_TEXTBOX_HEIGHT = 26;
 
     // table............................................................................................................
 
@@ -407,12 +458,25 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
      * is rendered again!
      */
     private void render() {
+        final boolean shouldFormulaEnabled = this.isFormulaEnabled();
         final HtmlContentBuilder<HTMLTableElement> tableElement = this.tableElement;
 
         final AppContext context = this.context;
-        context.debug("SpreadsheetViewportWidget.render");
+        context.debug("SpreadsheetViewportWidget.render isFormulaEnabled: " + shouldFormulaEnabled);
 
         Elements.removeChildrenFrom(tableElement.element());
+
+        tableElement.element()
+                .style.set(
+                        "height",
+                        (height -
+                                (shouldFormulaEnabled ? FORMULA_TEXTBOX_HEIGHT : 0)
+                        ) + "px"
+                );
+        this.formulaTextBox.style.set(
+                "display",
+                shouldFormulaEnabled ? "block" : "none"
+        );
 
         final SpreadsheetViewportCache cache = this.cache;
         // "window": "A1:B12,WI1:WW12"
