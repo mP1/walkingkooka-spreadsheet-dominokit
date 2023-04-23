@@ -31,6 +31,7 @@ import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
 import org.jboss.elemento.IsElement;
+import org.jboss.elemento.Key;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
@@ -172,37 +173,37 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
     private void onKeyDownEvent(final KeyboardEvent event) {
         event.preventDefault();
 
-        final String keyCode = event.key;
+        final Key key = Key.fromEvent(event);
         final boolean shifted = event.shiftKey;
         final AppContext context = this.context;
 
         SpreadsheetViewportSelectionNavigation navigation = null;
 
-        switch (keyCode) {
-            case "ArrowLeft":
+        switch (key) {
+            case ArrowLeft:
                 navigation = shifted ?
                         SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
                         SpreadsheetViewportSelectionNavigation.LEFT;
                 break;
-            case "ArrowUp":
+            case ArrowUp:
                 navigation = shifted ?
                         SpreadsheetViewportSelectionNavigation.EXTEND_UP :
                         SpreadsheetViewportSelectionNavigation.UP;
                 break;
-            case "ArrowRight":
+            case ArrowRight:
                 navigation = shifted ?
                         SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
                         SpreadsheetViewportSelectionNavigation.RIGHT;
                 break;
-            case "ArrowDown":
+            case ArrowDown:
                 navigation = shifted ?
                         SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
                         SpreadsheetViewportSelectionNavigation.DOWN;
                 break;
-            case "Enter":
+            case Enter:
                 // if cell then edit formula
                 break;
-            case "Escape":
+            case Escape:
                 // clear any selection
                 context.pushHistoryToken(
                         context.historyToken()
@@ -210,6 +211,10 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLTableEleme
                                         Optional.empty()
                                 )
                 );
+                break;
+            default:
+                // ignore other keys
+                break;
         }
 
         if (null != navigation) {
