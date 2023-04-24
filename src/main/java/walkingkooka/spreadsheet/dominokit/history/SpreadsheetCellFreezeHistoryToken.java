@@ -72,16 +72,6 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
-        return with(
-                id,
-                name,
-                this.viewportSelection()
-        );
-    }
-
-    @Override
     HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
@@ -89,6 +79,16 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     @Override
     HistoryToken save(final String value) {
         return this;
+    }
+
+    @Override
+    public HistoryToken setIdAndName(final SpreadsheetId id,
+                                     final SpreadsheetName name) {
+        return with(
+                id,
+                name,
+                this.viewportSelection()
+        );
     }
 
     @Override
