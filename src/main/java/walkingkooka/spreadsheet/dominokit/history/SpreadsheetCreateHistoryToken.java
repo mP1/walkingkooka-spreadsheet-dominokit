@@ -66,4 +66,9 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
         context.spreadsheetMetadataFetcher()
                 .createSpreadsheetMetadata();
     }
+
+    @Override
+    public HistoryToken formulaHistoryToken() {
+        return this; // should not happen
+    }
 }

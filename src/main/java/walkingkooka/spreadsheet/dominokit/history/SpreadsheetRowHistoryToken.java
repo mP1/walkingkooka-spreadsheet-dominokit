@@ -66,8 +66,8 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
         );
     }
 
-    @Override //
-    final HistoryToken formulaHistoryToken() {
+    @Override
+    public final HistoryToken formulaHistoryToken() {
         return this;
     }
 

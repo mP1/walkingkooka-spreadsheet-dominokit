@@ -52,7 +52,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    HistoryToken formulaHistoryToken() {
+    public HistoryToken formulaHistoryToken() {
         return this;
     }
 

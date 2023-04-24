@@ -51,4 +51,8 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public HistoryToken formulaHistoryToken() {
+        throw new UnsupportedOperationException();
+    }
 }

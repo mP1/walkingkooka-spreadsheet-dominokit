@@ -704,6 +704,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Creates a formula where possible otherwise returns this.
+     */
+    public abstract HistoryToken formulaHistoryToken();
+
+    /**
      * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
      */
     public final HistoryToken menuHistoryToken(final SpreadsheetSelection selection) {

@@ -80,8 +80,8 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         return this;
     }
 
-    @Override //
-    final HistoryToken formulaHistoryToken() {
+    @Override
+    public final HistoryToken formulaHistoryToken() {
         return this;
     }
 

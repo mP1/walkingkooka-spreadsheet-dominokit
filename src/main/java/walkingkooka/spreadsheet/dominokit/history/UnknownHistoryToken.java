@@ -64,4 +64,9 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     private final UrlFragment fragment;
+
+    @Override
+    public HistoryToken formulaHistoryToken() {
+        return this; // should not happen
+    }
 }
