@@ -652,6 +652,44 @@ public abstract class HistoryToken implements HasUrlFragment {
                                  final TextCursor cursor);
 
     /**
+     * Creates a formula where possible otherwise returns this.
+     */
+    public abstract HistoryToken formulaHistoryToken();
+
+    /**
+     * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
+     */
+    public final HistoryToken menuHistoryToken(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        HistoryToken menu = null;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+
+            final Optional<SpreadsheetViewportSelection> maybeViewportSelection = this.viewportSelectionOrEmpty();
+            if (maybeViewportSelection.isPresent()) {
+                final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
+
+                // right mouse happened over already selected selection...
+                if (viewportSelection.selection().test(selection)) {
+                    final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
+                    menu = spreadsheetViewportSelectionHistoryToken.menu();
+                }
+            }
+
+            // right mouse click happened over a non selected cell/column/row
+            if (null == menu) {
+                menu = spreadsheetNameHistoryToken.menu(selection);
+            }
+        } else {
+            menu = this; // id missing just return this and ignore context menu.
+        }
+
+        return menu;
+    }
+
+    /**
      * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
      * entire history token.
      */
@@ -701,44 +739,6 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return Optional.ofNullable(viewportSelection);
-    }
-
-    /**
-     * Creates a formula where possible otherwise returns this.
-     */
-    public abstract HistoryToken formulaHistoryToken();
-
-    /**
-     * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
-     */
-    public final HistoryToken menuHistoryToken(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
-
-        HistoryToken menu = null;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-
-            final Optional<SpreadsheetViewportSelection> maybeViewportSelection = this.viewportSelectionOrEmpty();
-            if (maybeViewportSelection.isPresent()) {
-                final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
-
-                // right mouse happened over already selected selection...
-                if (viewportSelection.selection().test(selection)) {
-                    final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
-                    menu = spreadsheetViewportSelectionHistoryToken.menu();
-                }
-            }
-
-            // right mouse click happened over a non selected cell/column/row
-            if (null == menu) {
-                menu = spreadsheetNameHistoryToken.menu(selection);
-            }
-        } else {
-            menu = this; // id missing just return this and ignore context menu.
-        }
-
-        return menu;
     }
 
     /**
