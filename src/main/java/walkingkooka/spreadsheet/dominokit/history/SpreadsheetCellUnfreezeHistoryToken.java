@@ -67,7 +67,7 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
     }
 
     @Override
-    SpreadsheetNameHistoryToken formulaHistoryToken() {
+    HistoryToken formulaHistoryToken() {
         return this;
     }
 

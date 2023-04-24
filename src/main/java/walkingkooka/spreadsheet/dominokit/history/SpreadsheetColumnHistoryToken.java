@@ -68,7 +68,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override //
-    final SpreadsheetNameHistoryToken formulaHistoryToken() {
+    final HistoryToken formulaHistoryToken() {
         return this;
     }
 

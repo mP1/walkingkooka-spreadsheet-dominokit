@@ -249,7 +249,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    SpreadsheetNameHistoryToken formulaHistoryToken() {
+    HistoryToken formulaHistoryToken() {
         return this;
     }
 
