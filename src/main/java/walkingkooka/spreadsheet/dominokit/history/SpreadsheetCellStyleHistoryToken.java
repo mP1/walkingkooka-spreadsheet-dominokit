@@ -55,8 +55,7 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     abstract UrlFragment styleUrlFragment();
 
-    @Override
-    final SpreadsheetNameHistoryToken formulaHistoryToken() {
+    @Override final HistoryToken formulaHistoryToken() {
         return this;
     }
 
