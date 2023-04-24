@@ -100,11 +100,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract HistoryToken delete();
 
     /**
-     * Creates a formula {@link SpreadsheetNameHistoryToken}.
-     */
-    abstract HistoryToken formulaHistoryToken();
-
-    /**
      * Creates a freeze {@link SpreadsheetNameHistoryToken}.
      */
     abstract HistoryToken freeze();

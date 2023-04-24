@@ -59,6 +59,11 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override
+    public HistoryToken formulaHistoryToken() {
+        return this; // should not happen
+    }
+
+    @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.spreadsheetMetadataFetcher()
