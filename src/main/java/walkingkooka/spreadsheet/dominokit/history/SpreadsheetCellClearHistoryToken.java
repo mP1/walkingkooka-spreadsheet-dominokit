@@ -57,16 +57,6 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
     }
 
     @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
-        return with(
-                id,
-                name,
-                this.viewportSelection()
-        );
-    }
-
-    @Override
     HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
@@ -74,6 +64,16 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
     @Override
     HistoryToken save(final String value) {
         return this;
+    }
+
+    @Override
+    public HistoryToken setIdAndName(final SpreadsheetId id,
+                                     final SpreadsheetName name) {
+        return with(
+                id,
+                name,
+                this.viewportSelection()
+        );
     }
 
     @Override
