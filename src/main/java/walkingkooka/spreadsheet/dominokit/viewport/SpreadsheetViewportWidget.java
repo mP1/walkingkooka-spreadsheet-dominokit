@@ -526,7 +526,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final HistoryToken historyToken = context.historyToken();
         if (historyToken instanceof SpreadsheetViewportWidgetWatcher) {
             final SpreadsheetViewportWidgetWatcher watcher = (SpreadsheetViewportWidgetWatcher) historyToken;
-            watcher.onAfterSpreadsheetViewportWidgetRender(this.context);
+            watcher.onAfterSpreadsheetViewportWidgetRender(context);
         }
     }
 
