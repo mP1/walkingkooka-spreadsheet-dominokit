@@ -491,7 +491,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     @Override
     public void giveFcrmulaTextBoxFocus() {
-        this.viewportWidget.giveFcrmulaTextBoxFocus();
+        this.debug("App.giveFcrmulaTextBoxFocus");
+
+        this.giveFocus(
+                this.viewportWidget::giveFcrmulaTextBoxFocus
+        );
     }
 
     @Override
@@ -606,8 +610,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     @Override
     public void giveViewportFocus(final SpreadsheetSelection selection) {
-        Scheduler.get()
-                .scheduleDeferred(() -> this.giveViewportFocus0(selection));
+        this.debug("App.giveViewportFocus " + selection);
+
+        this.giveFocus(() -> this.giveViewportFocus0(selection));
     }
 
     private void giveViewportFocus0(final SpreadsheetSelection selection) {
@@ -632,11 +637,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                     element = element.firstElementChild;
                 }
 
-                this.debug("giveViewportFocus " + selection + " focus element " + element);
+                this.debug("App.giveViewportFocus0 " + selection + " focus element " + element);
                 element.focus();
             }
         } else {
-            this.debug("giveViewportFocus " + selection + " element not found!");
+            this.debug("App.giveViewportFocus0 " + selection + " element not found!");
         }
     }
 
@@ -651,6 +656,43 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                         )
         );
     }
+
+    // focus............................................................................................................
+
+    /**
+     * Schedules giving focus to the {@link Element} if it exists. If multiple attempts are made to give focus in a short
+     * period of time an {@link IllegalStateException} will be thrown.
+     */
+    private void giveFocus(final Runnable giveFocus) {
+        this.debug("App.giveFocus " + giveFocus);
+
+        final Runnable existingGiveFocus = this.giveFocus;
+        if (null != existingGiveFocus) {
+            this.giveFocus = null;
+            throw new IllegalStateException("Second attempt to give focus " + existingGiveFocus + " AND " + giveFocus);
+        }
+        this.giveFocus = giveFocus;
+
+        Scheduler.get()
+                .scheduleDeferred(this::giveFocus0);
+    }
+
+    /**
+     * If {@link Runnable #giveFocus} is available run it.
+     */
+    private void giveFocus0() {
+        final Runnable giveFocus = this.giveFocus;
+        this.giveFocus = null;
+
+        if (null != giveFocus) {
+            giveFocus.run();
+        }
+    }
+
+    /**
+     * A {@link Runnable} which will give focus to some element. This is used to track and prevent multiple give focus attempts
+     */
+    private Runnable giveFocus;
 
     // logging..........................................................................................................
 
