@@ -48,6 +48,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
@@ -127,10 +128,25 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        this.setViewportSelection(
-                context.historyToken()
-                        .viewportSelectionOrEmpty()
-        );
+        final HistoryToken historyToken = context.historyToken();
+
+        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
+        this.setViewportSelection(maybeViewportSelection);
+
+        if (maybeViewportSelection.isPresent()) {
+            final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
+
+            if (historyToken instanceof SpreadsheetCellFormulaHistoryToken) {
+                context.giveFcrmulaTextBoxFocus();
+            } else {
+                context.giveViewportFocus(
+                        viewportSelection.selection()
+                                .focused(
+                                        viewportSelection.anchor()
+                                )
+                );
+            }
+        }
 
         this.render();
     }
@@ -197,16 +213,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
         this.selection = maybeViewportSelection.map(v -> (Predicate<SpreadsheetSelection>) v.selection())
                 .orElse(Predicates.never());
-
-        if (maybeViewportSelection.isPresent()) {
-            final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
-            context.giveViewportFocus(
-                    viewportSelection.selection()
-                            .focused(
-                                    viewportSelection.anchor()
-                            )
-            );
-        }
     }
 
     /**
@@ -338,6 +344,13 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         return input.element();
     }
 
+    /**
+     * Only gives focus to the formula text box assumes that it is already shown and has been updated
+     * with the formula ever time a new {@link SpreadsheetDelta} is returned.
+     */
+    public void giveFcrmulaTextBoxFocus() {
+        this.formulaTextBox.focus();
+    }
 
     /**
      * A {@link HTMLInputElement} that holds the selected cell formula for editing.
@@ -431,6 +444,10 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 break;
             case Enter:
                 // if cell then edit formula
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .formulaHistoryToken()
+                );
                 break;
             case Escape:
                 // clear any selection

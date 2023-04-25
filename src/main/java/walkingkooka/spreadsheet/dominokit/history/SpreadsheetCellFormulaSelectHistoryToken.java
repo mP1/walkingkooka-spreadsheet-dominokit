@@ -79,5 +79,6 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         // enable formula text box and give focus
+        context.giveFcrmulaTextBoxFocus();
     }
 }

@@ -85,6 +85,11 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
+    public void giveFcrmulaTextBoxFocus() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<SpreadsheetCellRange> viewportWindow() {
         throw new UnsupportedOperationException();
     }

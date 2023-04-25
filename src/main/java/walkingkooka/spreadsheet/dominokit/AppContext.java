@@ -68,6 +68,11 @@ public interface AppContext extends Context {
     void pushHistoryToken(final HistoryToken token);
 
     /**
+     * Gives focus to the formula textbox.
+     */
+    void giveFcrmulaTextBoxFocus();
+
+    /**
      * Getter that returns the ranges of the viewport window.
      */
     Set<SpreadsheetCellRange> viewportWindow();
