@@ -133,21 +133,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
         this.setViewportSelection(maybeViewportSelection);
 
-        if (maybeViewportSelection.isPresent()) {
-            final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
-
-            if (historyToken instanceof SpreadsheetCellFormulaHistoryToken) {
-                context.giveFcrmulaTextBoxFocus();
-            } else {
-                context.giveViewportFocus(
-                        viewportSelection.selection()
-                                .focused(
-                                        viewportSelection.anchor()
-                                )
-                );
-            }
-        }
-
         this.render();
     }
 
