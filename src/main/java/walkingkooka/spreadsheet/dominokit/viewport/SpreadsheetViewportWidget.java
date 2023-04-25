@@ -48,7 +48,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
@@ -331,9 +330,11 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
     /**
      * Only gives focus to the formula text box assumes that it is already shown and has been updated
-     * with the formula ever time a new {@link SpreadsheetDelta} is returned.
+     * with the formula every time a new {@link SpreadsheetDelta} is returned.
      */
     public void giveFcrmulaTextBoxFocus() {
+        this.context.debug("SpreadsheetViewportWidget.giveFcrmulaTextBoxFocus");
+
         this.formulaTextBox.focus();
     }
 
