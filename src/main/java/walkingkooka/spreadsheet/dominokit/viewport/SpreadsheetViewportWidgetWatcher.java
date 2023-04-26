@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public interface SpreadsheetViewportWidgetWatcher {
 
     /**
-     * This is fired after the {@link SpreadsheetViewportWidget#renderTable()} has finished rendering all elements of
+     * This is fired after the {@link SpreadsheetViewportWidget#render()} has finished rendering all elements of
      * the viewport
      */
     void onAfterSpreadsheetViewportWidgetRender(final AppContext context);
