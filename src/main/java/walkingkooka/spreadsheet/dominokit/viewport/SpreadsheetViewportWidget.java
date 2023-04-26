@@ -512,12 +512,12 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
         // top row of column headers
         tableElement.add(
-                columnHeaders(columns)
+                renderColumnHeaders(columns)
         );
 
         // render the rows and cells
         tableElement.add(
-                this.rows(
+                this.renderRows(
                         rows,
                         columns
                 )
@@ -533,15 +533,15 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Creates a THEAD holding a TR with the SELECT ALL and COLUMN headers.
      */
-    private HTMLTableSectionElement columnHeaders(final Collection<SpreadsheetColumnReference> columns) {
+    private HTMLTableSectionElement renderColumnHeaders(final Collection<SpreadsheetColumnReference> columns) {
         final HtmlContentBuilder<HTMLTableRowElement> tr = Elements.tr()
                 .add(
                         this.selectAll()
                 );
 
-        for(final SpreadsheetColumnReference column: columns) {
+        for (final SpreadsheetColumnReference column : columns) {
             tr.add(
-                    this.columnHeader(column)
+                    this.renderColumnHeader(column)
             );
         }
 
@@ -575,7 +575,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Creates a TH with the column in UPPER CASE with column width.
      */
-    private HTMLTableCellElement columnHeader(final SpreadsheetColumnReference column) {
+    private HTMLTableCellElement renderColumnHeader(final SpreadsheetColumnReference column) {
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.th()
                 .id(id(column))
                 .style(
@@ -609,13 +609,13 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Factory that creates a TABLE CELL for the column header, including a link to select that column when clicked.
      */
-    private HTMLTableSectionElement rows(final Set<SpreadsheetRowReference> rows,
-                                         final Set<SpreadsheetColumnReference> columns) {
+    private HTMLTableSectionElement renderRows(final Set<SpreadsheetRowReference> rows,
+                                               final Set<SpreadsheetColumnReference> columns) {
         final HtmlContentBuilder<HTMLTableSectionElement> tbody = Elements.tbody();
 
-        for(final SpreadsheetRowReference row: rows) {
+        for (final SpreadsheetRowReference row : rows) {
             tbody.add(
-                    this.row(
+                    this.renderRow(
                             row,
                             columns
                     )
@@ -628,16 +628,16 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Creates a TR which will hold the ROW and then cells.
      */
-    private HTMLTableRowElement row(final SpreadsheetRowReference row,
-                                    final Collection<SpreadsheetColumnReference> columns) {
+    private HTMLTableRowElement renderRow(final SpreadsheetRowReference row,
+                                          final Collection<SpreadsheetColumnReference> columns) {
         final HtmlContentBuilder<HTMLTableRowElement> tr = Elements.tr()
                 .add(
-                        this.rowHeader(row)
+                        this.renderRowHeader(row)
                 );
 
         for (final SpreadsheetColumnReference column : columns) {
             tr.add(
-                    this.cell(
+                    this.renderCell(
                             column.setRow(row)
                     )
             );
@@ -646,7 +646,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         return tr.element();
     }
 
-    private HTMLTableCellElement rowHeader(final SpreadsheetRowReference row) {
+    private HTMLTableCellElement renderRowHeader(final SpreadsheetRowReference row) {
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
                 .id(id(row))
                 .style(
@@ -715,7 +715,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Renders the given cell, reading the cell contents from the {@link #cache}.
      */
-    private HTMLTableCellElement cell(final SpreadsheetCellReference cellReference) {
+    private HTMLTableCellElement renderCell(final SpreadsheetCellReference cellReference) {
         final AppContext context = this.context;
         final SpreadsheetViewportCache cache = this.cache;
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
@@ -723,7 +723,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         TextStyle style = this.metadata.effectiveStyle();
         String innerHtml = "";
 
-        if(maybeCell.isPresent()) {
+        if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
             final Optional<TextNode> maybeFormatted = cell.formatted();
             if(maybeFormatted.isPresent()) {
