@@ -499,6 +499,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     @Override
+    public void setFormula(final SpreadsheetSelection selection) {
+        this.viewportWidget.setFormula(selection);
+    }
+
+    @Override
     public Set<SpreadsheetCellRange> viewportWindow() {
         return this.viewportWidget.window();
     }

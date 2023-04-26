@@ -76,6 +76,12 @@ public interface AppContext extends Context {
     void giveFcrmulaTextBoxFocus();
 
     /**
+     * Updates the formula text and more to the {@link SpreadsheetSelection}.
+     * The {@link SpreadsheetSelection} should be either a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} or {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}.
+     */
+    void setFormula(final SpreadsheetSelection selection);
+
+    /**
      * Getter that returns the ranges of the viewport window.
      */
     Set<SpreadsheetCellRange> viewportWindow();

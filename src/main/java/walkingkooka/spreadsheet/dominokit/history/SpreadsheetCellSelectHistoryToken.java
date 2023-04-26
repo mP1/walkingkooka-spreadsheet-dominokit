@@ -100,6 +100,10 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
      */
     @Override
     public void onAfterSpreadsheetViewportWidgetRender(final AppContext context) {
+        context.setFormula(
+                this.viewportSelection()
+                        .selection()
+        );
         this.giveViewportFocus(context);
     }
 }
