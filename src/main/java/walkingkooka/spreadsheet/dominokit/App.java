@@ -504,12 +504,12 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     @Override
-    public TextStyle viewportAll(final boolean selected) {
-        return this.viewportColumnRowHeader(selected);
+    public TextStyle viewportAllStyle(final boolean selected) {
+        return this.viewportColumnRowHeaderStyle(selected);
     }
 
     @Override
-    public TextStyle viewportCell(final boolean selected) {
+    public TextStyle viewportCellStyle(final boolean selected) {
         return CELL_STYLE.set(
                 TextStylePropertyName.BACKGROUND_COLOR,
                 selected ? CELL_SELECTED : CELL_UNSELECTED
@@ -567,16 +567,16 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private final static Color CELL_UNSELECTED = Color.parse("#fff");
 
     @Override
-    public TextStyle viewportColumnHeader(final boolean selected) {
-        return this.viewportColumnRowHeader(selected);
+    public TextStyle viewportColumnHeaderStyle(final boolean selected) {
+        return this.viewportColumnRowHeaderStyle(selected);
     }
 
     @Override
-    public TextStyle viewportRowHeader(final boolean selected) {
-        return this.viewportColumnRowHeader(selected);
+    public TextStyle viewportRowHeaderStyle(final boolean selected) {
+        return this.viewportColumnRowHeaderStyle(selected);
     }
 
-    private TextStyle viewportColumnRowHeader(final boolean selected) {
+    private TextStyle viewportColumnRowHeaderStyle(final boolean selected) {
         return COLUMN_ROW_STYLE.set(
                 TextStylePropertyName.BACKGROUND_COLOR,
                 selected ? COLUMN_ROW_SELECTED : COLUMN_ROW_UNSELECTED
