@@ -197,16 +197,24 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
     }
 
     /**
-     * Helper for the select sub classes.
+     * Helper for the select sub-classes which includes handling of labels, resolving them to a cell.
      */
     final void giveViewportFocus(final AppContext context) {
         final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
-        context.giveViewportFocus(
-                viewportSelection.selection()
-                        .focused(
-                                viewportSelection.anchor()
-                        )
-        );
+        final SpreadsheetSelection selection = viewportSelection.selection();
+        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.nonLabelSelection(selection);
+
+        if (maybeNonLabelSelection.isPresent()) {
+            final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
+
+            context.giveViewportFocus(
+                    nonLabelSelection.focused(
+                            selection.isLabelName() ?
+                                    nonLabelSelection.defaultAnchor() :
+                                    viewportSelection.anchor()
+                    )
+            );
+        }
     }
 
     /**

@@ -614,6 +614,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private final static Color COLUMN_ROW_UNSELECTED = Color.parse("#aaa");
 
     @Override
+    public Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
+        return this.viewportWidget.nonLabelSelection(selection);
+    }
+
+    @Override
     public void giveViewportFocus(final SpreadsheetSelection selection) {
         this.debug("App.giveViewportFocus " + selection);
 
@@ -652,14 +657,18 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     @Override
     public Optional<Element> findViewportElement(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
+        Element element = null;
+        final Optional<SpreadsheetSelection> maybeNotLabel = this.nonLabelSelection(selection);
+        if (maybeNotLabel.isPresent()) {
+            element = DomGlobal.document
+                    .getElementById(
+                            SpreadsheetViewportWidget.id(
+                                    selection
+                            )
+                    );
+        }
 
-        return Optional.ofNullable(
-                DomGlobal.document
-                        .getElementById(
-                                SpreadsheetViewportWidget.id(selection)
-                        )
-        );
+        return Optional.ofNullable(element);
     }
 
     // focus............................................................................................................
