@@ -65,6 +65,9 @@ public interface AppContext extends Context {
      */
     HistoryToken historyToken();
 
+    /**
+     * Pushes the given {@link HistoryToken} to the browser location.hash
+     */
     void pushHistoryToken(final HistoryToken token);
 
     /**
