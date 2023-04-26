@@ -65,6 +65,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -336,6 +337,32 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         this.context.debug("SpreadsheetViewportWidget.giveFcrmulaTextBoxFocus");
 
         this.formulaTextBox.focus();
+    }
+
+    /**
+     * Uses the {@link SpreadsheetSelection} which may be a label to fetch the {@link SpreadsheetCell} and updates
+     * the formula text.
+     */
+    public void setFormula(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        String text = "";
+
+        final SpreadsheetViewportCache cache = this.cache;
+        final Optional<SpreadsheetSelection> maybeNonLabel = cache.nonLabelSelection(selection);
+        if (maybeNonLabel.isPresent()) {
+            final SpreadsheetSelection nonLabel = maybeNonLabel.get();
+            final Optional<SpreadsheetCell> maybeCell = cache.cell(nonLabel.toCell());
+
+            if (maybeCell.isPresent()) {
+                text = maybeCell.get().formula().text();
+            }
+
+            // TODO show error somewhere in formula ?
+        }
+
+        this.context.debug("SpreadsheetViewportWidget.setFormula text=" + CharSequences.quoteAndEscape(text));
+        this.formulaTextBox.value = text;
     }
 
     /**
