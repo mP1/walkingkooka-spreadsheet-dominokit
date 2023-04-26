@@ -95,22 +95,22 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public TextStyle viewportAll(final boolean selected) {
+    public TextStyle viewportAllStyle(final boolean selected) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public TextStyle viewportCell(final boolean selected) {
+    public TextStyle viewportCellStyle(final boolean selected) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public TextStyle viewportColumnHeader(final boolean selected) {
+    public TextStyle viewportColumnHeaderStyle(final boolean selected) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public TextStyle viewportRowHeader(final boolean selected) {
+    public TextStyle viewportRowHeaderStyle(final boolean selected) {
         throw new UnsupportedOperationException();
     }
 

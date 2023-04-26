@@ -77,13 +77,13 @@ public interface AppContext extends Context {
      */
     Set<SpreadsheetCellRange> viewportWindow();
 
-    TextStyle viewportAll(final boolean selected);
+    TextStyle viewportAllStyle(final boolean selected);
 
-    TextStyle viewportCell(final boolean selected);
+    TextStyle viewportCellStyle(final boolean selected);
 
-    TextStyle viewportColumnHeader(final boolean selected);
+    TextStyle viewportColumnHeaderStyle(final boolean selected);
 
-    TextStyle viewportRowHeader(final boolean selected);
+    TextStyle viewportRowHeaderStyle(final boolean selected);
 
     /**
      * If the {@link SpreadsheetSelection} is present, the element will be given focus.

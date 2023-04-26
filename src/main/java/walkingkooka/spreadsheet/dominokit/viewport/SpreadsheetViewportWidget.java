@@ -559,7 +559,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 .id(VIEWPORT_SELECT_ALL_CELLS)
                 .add("ALL")
                 .style(
-                        this.context.viewportAll(false)
+                        this.context.viewportAllStyle(false)
                                 .set(
                                         TextStylePropertyName.WIDTH,
                                         ROW_WIDTH
@@ -579,7 +579,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.th()
                 .id(id(column))
                 .style(
-                        this.context.viewportColumnHeader(this.isSelected(column))
+                        this.context.viewportColumnHeaderStyle(this.isSelected(column))
                                 .set(
                                         TextStylePropertyName.WIDTH,
                                         this.cache.columnWidth(column)
@@ -650,7 +650,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
                 .id(id(row))
                 .style(
-                        this.context.viewportRowHeader(this.isSelected(row))
+                        this.context.viewportRowHeaderStyle(this.isSelected(row))
                                 .set(
                                         TextStylePropertyName.WIDTH,
                                         ROW_WIDTH
@@ -736,7 +736,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         }
 
         style = style.merge(
-                context.viewportCell(this.isSelected(cellReference))
+                context.viewportCellStyle(this.isSelected(cellReference))
                         .set(TextStylePropertyName.WIDTH, cache.columnWidth(cellReference.column()))
                         .set(TextStylePropertyName.HEIGHT, cache.rowHeight(cellReference.row()))
         );
