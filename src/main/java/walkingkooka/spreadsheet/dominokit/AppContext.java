@@ -95,6 +95,12 @@ public interface AppContext extends Context {
     TextStyle viewportRowHeaderStyle(final boolean selected);
 
     /**
+     * If the {@link SpreadsheetSelection} is a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}
+     * return a {link SpreadsheetCellReference} otherwise return the original {@link SpreadsheetSelection}.
+     */
+    Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection);
+
+    /**
      * If the {@link SpreadsheetSelection} is present, the element will be given focus.
      */
     void giveViewportFocus(final SpreadsheetSelection selection);

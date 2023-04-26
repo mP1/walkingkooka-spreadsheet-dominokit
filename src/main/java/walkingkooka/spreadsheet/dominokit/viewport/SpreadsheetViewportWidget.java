@@ -196,8 +196,19 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 "SpreadsheetViewportWidget.setViewportSelection " + maybeViewportSelection.orElse(null)
         );
 
-        this.selection = maybeViewportSelection.map(v -> (Predicate<SpreadsheetSelection>) v.selection())
-                .orElse(Predicates.never());
+        Predicate<SpreadsheetSelection> predicate = null;
+
+        if (maybeViewportSelection.isPresent()) {
+            // special case for label
+            final Optional<SpreadsheetSelection> maybeNotLabel = this.cache.nonLabelSelection(maybeViewportSelection.get().selection());
+            if (maybeNotLabel.isPresent()) {
+                predicate = maybeNotLabel.get();
+            }
+        }
+
+        this.selection = null != predicate ?
+                predicate :
+                Predicates.never();
     }
 
     /**
@@ -278,6 +289,14 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
      */
     private boolean reload = false;
+
+    /**
+     * Handles resolving a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName} into a {@link SpreadsheetSelection}
+     * or just returns the selection.
+     */
+    public Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
+        return this.cache.nonLabelSelection(selection);
+    }
 
     /**
      * Returns the window used by this viewport.

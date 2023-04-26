@@ -120,6 +120,11 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
+    public Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void giveViewportFocus(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
