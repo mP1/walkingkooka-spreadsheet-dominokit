@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -57,13 +56,6 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     }
 
     abstract UrlFragment styleUrlFragment();
-
-
-    @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
-        throw new UnsupportedOperationException();
-    }
 
     @Override
     HistoryToken save(final String value) {

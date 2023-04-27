@@ -46,12 +46,11 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
     abstract UrlFragment metadataUrlFragment();
 
-    @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    @Override final HistoryToken parse0(final String component,
+                                        final TextCursor cursor) {
         HistoryToken result;
 
-        switch(component) {
+        switch (component) {
             case "pattern":
                 result = this.parsePattern(cursor);
                 break;
@@ -86,7 +85,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     }
 
     @Override
-    public HistoryToken formulaSaveHistoryToken(final String text) {
+    public final HistoryToken formulaSaveHistoryToken(final String text) {
         throw new UnsupportedOperationException();
     }
 

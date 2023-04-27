@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T> {
@@ -49,29 +48,6 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
     @Override
     UrlFragment styleUrlFragment() {
         return SELECT;
-    }
-
-    @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
-        HistoryToken result = this;
-
-        switch (component) {
-            case "pattern":
-                result = this.parsePattern(cursor);
-                break;
-            case "save":
-                result = this.parseSave(cursor);
-                break;
-            case "style":
-                result = this.parseStyle(cursor);
-                break;
-            default:
-                cursor.end();
-                break;
-        }
-
-        return result;
     }
 
     // new id/name but still metadata+style+property select

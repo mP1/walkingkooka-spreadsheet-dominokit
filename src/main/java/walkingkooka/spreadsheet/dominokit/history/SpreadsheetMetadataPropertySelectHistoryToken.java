@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -52,24 +51,6 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     @Override
     UrlFragment metadataPropertyUrlFragment() {
         return SELECT;
-    }
-
-    @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
-        final HistoryToken result;
-
-        switch(component) {
-            case "save":
-                result = this.parseSave(cursor);
-                break;
-            default:
-                cursor.end();
-                result = this; // ignore
-                break;
-        }
-
-        return result;
     }
 
     // new id/name but still metadata+property select
