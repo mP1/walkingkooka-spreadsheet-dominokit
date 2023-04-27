@@ -40,8 +40,12 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
     }
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
+    public HistoryToken formulaHistoryToken() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public HistoryToken formulaSaveHistoryToken(final String text) {
         throw new UnsupportedOperationException();
     }
 
@@ -52,12 +56,8 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
     }
 
     @Override
-    public HistoryToken formulaHistoryToken() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public HistoryToken formulaSaveHistoryToken(final String text) {
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
         throw new UnsupportedOperationException();
     }
 }
