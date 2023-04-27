@@ -345,7 +345,24 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private HTMLInputElement createFormulaTextBox() {
         final InputBuilder<HTMLInputElement> input = Elements.input(InputType.text);
         input.css("formulaTextBox");
-        return input.element();
+
+        final HTMLInputElement element = input.element();
+        element.addEventListener(
+                EventType.focus.getName(),
+                this::onFormulaTextBoxFocus
+        );
+        return element;
+    }
+
+    private void onFormulaTextBoxFocus(final Event event) {
+        final AppContext context = this.context;
+        final HistoryToken historyToken = context.historyToken();
+
+        context.debug("SpreadsheetViewportWidget.onFormulaTextBoxFocus " + historyToken.viewportSelectionOrEmpty());
+
+        context.pushHistoryToken(
+                historyToken.formulaHistoryToken()
+        );
     }
 
     /**
