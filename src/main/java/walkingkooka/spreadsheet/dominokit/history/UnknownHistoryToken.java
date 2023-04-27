@@ -38,15 +38,26 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     @Override
+    public UrlFragment urlFragment() {
+        return this.fragment;
+    }
+
+    private final UrlFragment fragment;
+
+    @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        // nop
+    public HistoryToken formulaHistoryToken() {
+        return this; // should not happen
+    }
+
+    @Override
+    public HistoryToken formulaSaveHistoryToken(final String text) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -59,19 +70,8 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     @Override
-    public UrlFragment urlFragment() {
-        return this.fragment;
-    }
-
-    private final UrlFragment fragment;
-
-    @Override
-    public HistoryToken formulaHistoryToken() {
-        return this; // should not happen
-    }
-
-    @Override
-    public HistoryToken formulaSaveHistoryToken(final String text) {
-        throw new UnsupportedOperationException();
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
+        // nop
     }
 }
