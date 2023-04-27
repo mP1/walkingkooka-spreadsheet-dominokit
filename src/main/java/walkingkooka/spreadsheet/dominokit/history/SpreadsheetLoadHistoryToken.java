@@ -64,6 +64,11 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override
+    public HistoryToken formulaSaveHistoryToken(final String text) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.spreadsheetMetadataFetcher()

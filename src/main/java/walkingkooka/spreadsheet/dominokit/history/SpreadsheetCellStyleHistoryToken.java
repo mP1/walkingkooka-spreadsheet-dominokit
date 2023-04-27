@@ -60,6 +60,11 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
         return this;
     }
 
+    @Override
+    public final HistoryToken formulaSaveHistoryToken(final String text) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override final HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
