@@ -62,4 +62,9 @@ abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCell
     public final HistoryToken formulaHistoryToken() {
         return this;
     }
+
+    @Override
+    public final HistoryToken formulaSaveHistoryToken(final String text) {
+        throw new UnsupportedOperationException();
+    }
 }

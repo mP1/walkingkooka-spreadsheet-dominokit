@@ -85,6 +85,11 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         return this;
     }
 
+    @Override
+    public HistoryToken formulaSaveHistoryToken(final String text) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override //
     final HistoryToken freeze() {
         return this;

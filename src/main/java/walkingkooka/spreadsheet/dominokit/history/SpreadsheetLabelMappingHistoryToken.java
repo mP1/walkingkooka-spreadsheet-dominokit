@@ -58,6 +58,11 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
         return this;
     }
 
+    @Override
+    public HistoryToken formulaSaveHistoryToken(final String text) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override //
     final HistoryToken freeze() {
         return this;
