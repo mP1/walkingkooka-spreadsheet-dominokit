@@ -52,6 +52,16 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     }
 
     @Override
+    public HistoryToken formulaHistoryToken() {
+        return this; // should not happen
+    }
+
+    @Override
+    public HistoryToken formulaSaveHistoryToken(final String text) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {
         return spreadsheetSelect(
@@ -65,15 +75,5 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
                                      final AppContext context) {
         context.spreadsheetMetadataFetcher()
                 .createSpreadsheetMetadata();
-    }
-
-    @Override
-    public HistoryToken formulaHistoryToken() {
-        return this; // should not happen
-    }
-
-    @Override
-    public HistoryToken formulaSaveHistoryToken(final String text) {
-        throw new UnsupportedOperationException();
     }
 }
