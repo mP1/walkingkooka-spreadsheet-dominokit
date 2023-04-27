@@ -313,7 +313,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     // root.............................................................................................................
 
     /**
-     * The root table element.
+     * The root DIV element holding the formula and TABLE holding all headers and cells.
      */
     @Override
     public HTMLDivElement element() {
