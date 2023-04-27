@@ -449,10 +449,10 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Registers a keydown event handler on the given {@link Element}.
      */
-    private void addKeyDownEventListener(final Element element) {
+    private void addViewportKeyDownEventListener(final Element element) {
         element.addEventListener(
                 EventType.keydown.getName(),
-                (event) -> onKeyDownEvent(
+                (event) -> onViewportKeyDownEvent(
                         Js.cast(event)
                 )
         );
@@ -461,7 +461,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Generic key event handler that handles any key events for cell/column OR row.
      */
-    private void onKeyDownEvent(final KeyboardEvent event) {
+    private void onViewportKeyDownEvent(final KeyboardEvent event) {
         event.preventDefault();
 
         final Key key = Key.fromEvent(event);
@@ -659,7 +659,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         );
 
         final HTMLTableCellElement element = td.element();
-        this.addKeyDownEventListener(element);
+        this.addViewportKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
                 column
@@ -730,7 +730,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         );
 
         final HTMLTableCellElement element = td.element();
-        this.addKeyDownEventListener(element);
+        this.addViewportKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
                 row
@@ -821,7 +821,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         cellReference, context
                 )
         );
-        this.addKeyDownEventListener(element);
+        this.addViewportKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
                 cellReference
