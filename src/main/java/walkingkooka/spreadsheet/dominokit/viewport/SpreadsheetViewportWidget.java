@@ -351,7 +351,36 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 EventType.focus.getName(),
                 this::onFormulaTextBoxFocus
         );
+        element.addEventListener(
+                EventType.keydown.getName(),
+                (event) -> onFormulaTextBoxKeyDownEvent(
+                        Js.cast(event)
+                )
+        );
         return element;
+    }
+
+    private void onFormulaTextBoxKeyDownEvent(final KeyboardEvent event) {
+        final Key key = Key.fromEvent(event);
+        final AppContext context = this.context;
+
+        switch (key) {
+            case Enter:
+                context.debug("SpreadsheetViewportWidget.onFormulaTextBoxKeyDownEvent ENTER");
+
+                // if cell then edit formula
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .formulaSaveHistoryToken(this.formulaTextBox.value)
+                );
+                break;
+            case Escape:
+                // reload formula
+                break;
+            default:
+                // ignore other keys
+                break;
+        }
     }
 
     private void onFormulaTextBoxFocus(final Event event) {
