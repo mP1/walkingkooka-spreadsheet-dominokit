@@ -135,12 +135,12 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public void debug(final Object message) {
+    public void debug(final Object... values) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void error(final Object message) {
+    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }
