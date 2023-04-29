@@ -42,7 +42,8 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
         }
     }
 
-    @Override final UrlFragment selectionViewportUrlFragment() {
+    @Override //
+    final UrlFragment selectionViewportUrlFragment() {
         return this.rowUrlFragment();
     }
 
