@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import elemental2.core.Global;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
@@ -100,6 +101,8 @@ public interface Fetcher {
                 MediaType.APPLICATION_JSON.value()
         );
 
+        Object bodyJson = null;
+
         // always send content-type: application/json except for GETs
         if (false == HttpMethod.GET.equals(method)) {
             headers.append(
@@ -108,6 +111,11 @@ public interface Fetcher {
             );
 
             if (body.isPresent()) {
+                try {
+                    bodyJson = Global.JSON.parse(body.get());
+                } catch (final Exception fail) {
+                    bodyJson = null;
+                }
                 requestInit.setBody(body.get());
             }
         }
@@ -116,7 +124,7 @@ public interface Fetcher {
 
         this.fetchLog(
                 this.getClass().getSimpleName() + " " + method + " " + url,
-                body.orElse(null)
+                bodyJson
         );
 
         DomGlobal.fetch(
@@ -127,9 +135,16 @@ public interface Fetcher {
                             .then(
                                     text -> {
                                         if (response.ok) {
+                                            Object responseJson = text;
+
+                                            try {
+                                                responseJson = Global.JSON.parse(text);
+                                            } catch (final Exception fail) {
+
+                                            }
                                             this.fetchLog(
                                                     this.getClass().getSimpleName() + ".success",
-                                                    text
+                                                    responseJson
                                             );
                                             this.onSuccess(text);
                                         } else {
