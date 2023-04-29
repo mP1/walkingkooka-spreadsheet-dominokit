@@ -145,7 +145,7 @@ public interface AppContext extends Context {
         return dropdownAction;
     }
 
-    void debug(final Object message);
+    void debug(final Object... values);
 
-    void error(final Object message);
+    void error(final Object... values);
 }
