@@ -107,14 +107,17 @@ public interface Fetcher {
                     MediaType.APPLICATION_JSON.value()
             );
 
-            if(body.isPresent()) {
+            if (body.isPresent()) {
                 requestInit.setBody(body.get());
             }
         }
 
         requestInit.setHeaders(headers);
 
-        this.fetchLog(method + " " + url + " " + body);
+        this.fetchLog(
+                this.getClass().getSimpleName() + " " + method + " " + url,
+                body.orElse(null)
+        );
 
         DomGlobal.fetch(
                         url.value(),
@@ -124,12 +127,18 @@ public interface Fetcher {
                             .then(
                                     text -> {
                                         if (response.ok) {
-                                            this.fetchLog("success " + text);
+                                            this.fetchLog(
+                                                    this.getClass().getSimpleName() + ".success",
+                                                    text
+                                            );
                                             this.onSuccess(text);
                                         } else {
                                             final HttpStatus status = HttpStatusCode.withCode(response.status)
                                                     .setMessage(response.statusText);
-                                            this.fetchLog("failure " + status + " " + text);
+                                            this.fetchLog(
+                                                    this.getClass().getSimpleName() + ".failure " + status,
+                                                    text
+                                            );
                                             this.onFailure(
                                                     status,
                                                     response.headers,
@@ -151,7 +160,7 @@ public interface Fetcher {
     /**
      * Opportunity for sub classes to log any fetches.
      */
-    void fetchLog(final String message);
+    void fetchLog(final Object... values);
 
     /**
      * Success assumes a json response.
