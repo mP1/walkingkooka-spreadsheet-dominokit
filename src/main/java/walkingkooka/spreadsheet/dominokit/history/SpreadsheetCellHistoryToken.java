@@ -41,7 +41,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
         }
     }
 
-    @Override final UrlFragment selectionViewportUrlFragment() {
+    @Override //
+    final UrlFragment selectionViewportUrlFragment() {
         return this.cellUrlFragment();
     }
 
