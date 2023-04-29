@@ -715,10 +715,12 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         this.error(caught);
     }
 
+    @Override
     public void debug(final Object message) {
         DomGlobal.console.debug(message);
     }
 
+    @Override
     public void error(final Object message) {
         DomGlobal.console.error(message);
     }
