@@ -108,12 +108,8 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     @Override
-    public void fetchLog(final String message) {
-        this.context.debug(
-                this.getClass().getSimpleName() +
-                        " " +
-                        message
-        );
+    public void fetchLog(final Object... values) {
+        this.context.debug(values);
     }
 
     @Override

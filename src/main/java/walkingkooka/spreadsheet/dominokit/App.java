@@ -175,7 +175,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
             );
 
             if (false == historyToken.equals(withViewportSelection)) {
-                context.debug("App.onSpreadsheetDelta selection active, updating " + withViewportSelection);
+                context.debug("App.onSpreadsheetDelta selection active, updating " + withViewportSelection, delta);
                 context.pushHistoryToken(
                         withViewportSelection
                 );
@@ -203,7 +203,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                     );
 
             if (false == historyToken.equals(idNameViewportSelectionHistoryToken)) {
-                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/viewportSelection " + idNameViewportSelectionHistoryToken);
+                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/viewportSelection " + idNameViewportSelectionHistoryToken, metadata);
                 context.pushHistoryToken(idNameViewportSelectionHistoryToken);
             }
         }
@@ -717,11 +717,25 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     @Override
     public void debug(final Object... values) {
-        DomGlobal.console.debug(values);
+        // invoking DomGlobal.console.debug caused GWT compile failures
+        //
+        //[INFO]                [ERROR] at App.java(719): <source info not available>
+        //[INFO]                   com.google.gwt.dev.js.ast.JsExprStmt
+        //[INFO]                [ERROR] at com.google.gwt.dev.js.ast.JsProgram(0): var _;
+        //[INFO] $wnd.goog = $wnd.goog || {};
+        //[INFO] $wnd.goog.global = $wnd.goog.global || $wnd;
+        //[INFO] bootstrap();
+        //[INFO] [...]
+        //[INFO]
+        //[INFO]                   com.google.gwt.dev.js.ast.JsGlobalBlock
+        final elemental2.dom.Console console = DomGlobal.console;
+        console.debug(values);
     }
 
     @Override
     public void error(final Object... values) {
-        DomGlobal.console.error(values);
+        // see App.debug
+        final elemental2.dom.Console console = DomGlobal.console;
+        console.error(values);
     }
 }
