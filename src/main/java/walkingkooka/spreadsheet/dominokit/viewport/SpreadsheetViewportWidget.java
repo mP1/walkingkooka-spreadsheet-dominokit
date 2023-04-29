@@ -375,11 +375,28 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 );
                 break;
             case Escape:
-                // reload formula
+                context.debug("SpreadsheetViewportWidget.onFormulaTextBoxKeyDownEvent ESCAPE restoring text");
+                this.onFormulaTextBoxUndo();
                 break;
             default:
                 // ignore other keys
                 break;
+        }
+    }
+
+    /**
+     * Reloads the formula textbox with the last saved (loaded) value.
+     */
+    private void onFormulaTextBoxUndo() {
+        final AppContext context = this.context;
+        final Optional<SpreadsheetViewportSelection> viewportSelection = context.historyToken()
+                .viewportSelectionOrEmpty();
+
+        if (viewportSelection.isPresent()) {
+            this.setFormula(
+                    viewportSelection.get()
+                            .selection()
+            );
         }
     }
 
