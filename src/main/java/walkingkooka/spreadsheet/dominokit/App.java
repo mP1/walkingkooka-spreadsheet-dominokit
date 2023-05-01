@@ -23,7 +23,6 @@ import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.layout.Layout;
-import org.dominokit.domino.ui.utils.DominoElement;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import org.jboss.elemento.EventType;
@@ -321,12 +320,8 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     private void showMetadataPanel(final boolean show) {
-        final DominoElement<?> right = this.layout.getRightPanel();
-        if (show) {
-            right.show();
-        } else {
-            right.hide();
-        }
+        this.layout.getRightPanel()
+                .toggleDisplay(show);
     }
 
     // history eventListener............................................................................................
