@@ -104,6 +104,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private void prepareLayout() {
         this.addHistoryWatcher(this.viewportWidget);
 
+        this.layout.style()
+                .setOverFlowX("hidden")
+                .setOverFlowY("hidden");
         this.layout.fitHeight();
         this.layout.fitWidth();
         this.layout.setContent(this.viewportWidget.element());
