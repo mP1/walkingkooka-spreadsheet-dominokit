@@ -355,7 +355,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
             if (false == token.equals(previousToken)) {
                 this.fireOnHistoryTokenChange(previousToken);
-                this.pushHistoryToken(token);
             }
 
         } catch (final Exception e) {
