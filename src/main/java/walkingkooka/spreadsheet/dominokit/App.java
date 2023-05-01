@@ -346,7 +346,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private void onHistoryTokenChange(final HistoryToken token) {
         try {
             final HistoryToken previousToken = this.previousToken;
-            debug("App.onHistoryTokenChange from " + previousToken + " to " + token);
+            this.debug("App.onHistoryTokenChange from " + previousToken + " to " + token);
 
             if (false == token.equals(previousToken)) {
                 this.fireOnHistoryTokenChange(previousToken);

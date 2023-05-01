@@ -582,7 +582,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         tableElement.element()
                 .style.set(
                         "height",
-                        (height -
+                        (this.height -
                                 (shouldFormulaEnabled ? FORMULA_TEXTBOX_HEIGHT : 0)
                         ) + "px"
                 );
