@@ -84,11 +84,14 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        // enable formula text box and give focus
-        context.setFormula(
-                this.viewportSelection()
-                        .selection()
-        );
-        context.giveFcrmulaTextBoxFocus();
+        // if after a SAVE FORMULA do nothing.
+        if (false == previous instanceof SpreadsheetCellFormulaSaveHistoryToken) {
+            // enable formula text box and give focus
+            context.setFormula(
+                    this.viewportSelection()
+                            .selection()
+            );
+            context.giveFcrmulaTextBoxFocus();
+        }
     }
 }
