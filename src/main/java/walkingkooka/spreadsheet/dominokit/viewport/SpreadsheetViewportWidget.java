@@ -33,8 +33,6 @@ import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
-import org.jboss.elemento.InputBuilder;
-import org.jboss.elemento.InputType;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
 import walkingkooka.collect.set.Sets;
@@ -342,22 +340,19 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Creates a {@link TextBox} that holds the formula for editing.
      */
-    private HTMLInputElement createFormulaTextBox() {
-        final InputBuilder<HTMLInputElement> input = Elements.input(InputType.text);
-        input.css("formulaTextBox");
-
-        final HTMLInputElement element = input.element();
-        element.addEventListener(
-                EventType.focus.getName(),
-                this::onFormulaTextBoxFocus
-        );
-        element.addEventListener(
-                EventType.keydown.getName(),
-                (event) -> onFormulaTextBoxKeyDownEvent(
-                        Js.cast(event)
-                )
-        );
-        return element;
+    private TextBox createFormulaTextBox() {
+        return TextBox.create()
+                .asTableField()
+                .setFieldStyle(() -> "")
+                .addEventListener(
+                        EventType.focus.getName(),
+                        this::onFormulaTextBoxFocus
+                ).addEventListener(
+                        EventType.keydown.getName(),
+                        (event) -> onFormulaTextBoxKeyDownEvent(
+                                Js.cast(event)
+                        )
+                );
     }
 
     private void onFormulaTextBoxKeyDownEvent(final KeyboardEvent event) {
@@ -371,7 +366,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 // if cell then edit formula
                 context.pushHistoryToken(
                         context.historyToken()
-                                .formulaSaveHistoryToken(this.formulaTextBox.value)
+                                .formulaSaveHistoryToken(this.formulaTextBox.getValue())
                 );
                 break;
             case Escape:
@@ -444,13 +439,13 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         }
 
         this.context.debug("SpreadsheetViewportWidget.setFormula text=" + CharSequences.quoteAndEscape(text));
-        this.formulaTextBox.value = text;
+        this.formulaTextBox.setValue(text);
     }
 
     /**
      * A {@link HTMLInputElement} that holds the selected cell formula for editing.
      */
-    private final HTMLInputElement formulaTextBox;
+    private final TextBox formulaTextBox;
 
     /**
      * The height of the formula textbox.
@@ -585,10 +580,8 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                 (shouldFormulaEnabled ? FORMULA_TEXTBOX_HEIGHT : 0)
                         ) + "px"
                 );
-        this.formulaTextBox.style.set(
-                "display",
-                shouldFormulaEnabled ? "block" : "none"
-        );
+
+        this.formulaTextBox.toggleDisplay(shouldFormulaEnabled);
 
         final SpreadsheetViewportCache cache = this.cache;
         // "window": "A1:B12,WI1:WW12"
