@@ -344,6 +344,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         return TextBox.create()
                 .asTableField()
                 .setFieldStyle(() -> "")
+                .setSpellCheck(false)
                 .addEventListener(
                         EventType.focus.getName(),
                         this::onFormulaTextBoxFocus
