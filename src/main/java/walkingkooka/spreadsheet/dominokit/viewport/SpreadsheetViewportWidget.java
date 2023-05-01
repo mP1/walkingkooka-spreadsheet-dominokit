@@ -341,19 +341,24 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * Creates a {@link TextBox} that holds the formula for editing.
      */
     private TextBox createFormulaTextBox() {
-        return TextBox.create()
+        final TextBox textBox = TextBox.create()
                 .asTableField()
                 .setFieldStyle(() -> "")
                 .setSpellCheck(false)
                 .addEventListener(
-                        EventType.focus.getName(),
-                        this::onFormulaTextBoxFocus
-                ).addEventListener(
                         EventType.keydown.getName(),
                         (event) -> onFormulaTextBoxKeyDownEvent(
                                 Js.cast(event)
                         )
                 );
+
+        textBox.getInputElement()
+                .addEventListener(
+                        EventType.focus.getName(),
+                        this::onFormulaTextBoxFocus
+                );
+
+        return textBox;
     }
 
     private void onFormulaTextBoxKeyDownEvent(final KeyboardEvent event) {
