@@ -29,6 +29,7 @@ import elemental2.dom.HTMLTableSectionElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.forms.TextBox;
+import org.dominokit.domino.ui.icons.Icons;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
@@ -358,6 +359,11 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         this::onFormulaTextBoxFocus
                 );
 
+        textBox.addRightAddOn(
+                Icons.ALL.clear()
+                        .addClickListener(this::onFormulaTextBoxClearClickEvent)
+        );
+
         return textBox;
     }
 
@@ -410,6 +416,14 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         context.pushHistoryToken(
                 historyToken.formulaHistoryToken()
         );
+    }
+
+    /**
+     * Clears the formula textbox when the big CROSS to the right of the formula is clicked.
+     */
+    private void onFormulaTextBoxClearClickEvent(final Event event) {
+        this.context.debug("SpreadsheetViewportWidget.onFormulaTextBoxClearClickEvent");
+        this.formulaTextBox.clear();
     }
 
     /**
