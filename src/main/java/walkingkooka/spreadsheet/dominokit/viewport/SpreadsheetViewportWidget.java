@@ -353,6 +353,10 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         )
                 );
 
+        // if not hidden results in an extra pixel or two below the INPUT element.
+        textBox.getNotesContainer()
+                .hide();
+
         textBox.getInputElement()
                 .addEventListener(
                         EventType.focus.getName(),
