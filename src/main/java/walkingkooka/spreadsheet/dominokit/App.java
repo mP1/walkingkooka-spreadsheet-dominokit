@@ -30,6 +30,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -499,6 +500,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     @Override
     public void setFormula(final SpreadsheetSelection selection) {
         this.viewportWidget.setFormula(selection);
+    }
+
+    @Override
+    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
+        return this.viewportWidget.viewportCell(selection);
     }
 
     @Override

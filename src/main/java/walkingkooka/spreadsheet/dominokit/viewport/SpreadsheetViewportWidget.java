@@ -993,4 +993,15 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * Prefix for any component within a viewport
      */
     private final static String VIEWPORT_ID_PREFIX = VIEWPORT_ID + "-";
+
+    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
+        Optional<SpreadsheetCell> cell = Optional.empty();
+
+        final Optional<SpreadsheetSelection> nonLabelSelection = this.nonLabelSelection(selection);
+        if (nonLabelSelection.isPresent()) {
+            cell = this.cache.cell(nonLabelSelection.get().toCell());
+        }
+
+        return cell;
+    }
 }
