@@ -104,14 +104,15 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private void prepareLayout() {
         this.addHistoryWatcher(this.viewportWidget);
 
-        this.layout.style()
+        final Layout layout = this.layout;
+        layout.style()
                 .setOverFlowX("hidden")
                 .setOverFlowY("hidden");
-        this.layout.fitHeight();
-        this.layout.fitWidth();
-        this.layout.setContent(this.viewportWidget.element());
+        layout.fitHeight();
+        layout.fitWidth();
+        layout.setContent(this.viewportWidget.element());
 
-        this.layout.show();
+        layout.show();
     }
 
     private void registerWindowResizeListener() {
