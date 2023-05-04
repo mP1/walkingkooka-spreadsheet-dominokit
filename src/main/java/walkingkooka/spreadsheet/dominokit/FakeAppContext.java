@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -91,6 +92,11 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public void setFormula(final SpreadsheetSelection selection) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
 

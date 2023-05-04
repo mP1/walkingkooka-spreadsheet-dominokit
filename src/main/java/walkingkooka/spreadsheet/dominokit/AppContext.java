@@ -22,6 +22,7 @@ import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.dropdown.DropdownAction;
 import org.jboss.elemento.Elements;
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -80,6 +81,12 @@ public interface AppContext extends Context {
      * The {@link SpreadsheetSelection} should be either a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} or {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}.
      */
     void setFormula(final SpreadsheetSelection selection);
+
+    /**
+     * Getter that returns a {@link SpreadsheetCell} if one exists for the {@link SpreadsheetSelection},
+     * which may be a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}.
+     */
+    Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection);
 
     /**
      * Getter that returns the ranges of the viewport window.
