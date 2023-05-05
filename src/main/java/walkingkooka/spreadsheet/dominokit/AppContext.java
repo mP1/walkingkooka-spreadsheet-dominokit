@@ -99,6 +99,15 @@ public interface AppContext extends Context {
     }
 
     /**
+     * Returns a {@link SpreadsheetSelection} resolving labels for the current viewport selection.
+     * This basically exists to resolve labels to cells or cell-ranges.
+     */
+    default Optional<SpreadsheetSelection> viewportNonLabelSelection() {
+        return this.viewportSelection()
+                .flatMap(this::nonLabelSelection);
+    }
+
+    /**
      * Getter that returns the ranges of the viewport window.
      */
     Set<SpreadsheetCellRange> viewportWindow();
