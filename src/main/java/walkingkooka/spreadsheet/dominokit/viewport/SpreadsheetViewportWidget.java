@@ -400,13 +400,11 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      */
     private void onFormulaTextBoxUndo() {
         final AppContext context = this.context;
-        final Optional<SpreadsheetViewportSelection> viewportSelection = context.historyToken()
-                .viewportSelectionOrEmpty();
+        final Optional<SpreadsheetSelection> viewportSelection = context.viewportSelection();
 
         if (viewportSelection.isPresent()) {
             this.setFormula(
                     viewportSelection.get()
-                            .selection()
             );
         }
     }
