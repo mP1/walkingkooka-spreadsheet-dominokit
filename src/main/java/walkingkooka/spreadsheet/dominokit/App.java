@@ -22,6 +22,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
+import jsinterop.base.Js;
 import org.dominokit.domino.ui.layout.Layout;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
@@ -41,6 +43,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbar;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidget;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -103,6 +106,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     // layout...........................................................................................................
 
     private void prepareLayout() {
+        final SpreadsheetViewportToolbar toolbar = SpreadsheetViewportToolbar.create();
+        this.addHistoryWatcher(toolbar);
+
         this.addHistoryWatcher(this.viewportWidget);
 
         final Layout layout = this.layout;
@@ -111,6 +117,18 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                 .setOverFlowY("hidden");
         layout.fitHeight();
         layout.fitWidth();
+
+        layout.getTopBar()
+                .element()
+                .append(toolbar.element());
+
+        // remove flex-grow results in the toolbar now being left aligned rather than right.
+        Js.<HTMLElement>cast(
+                layout.getAppTitle()
+                        .parentElement
+                        .parentElement
+        ).style.set("flex-grow", "");
+
         layout.setContent(this.viewportWidget.element());
 
         layout.show();
