@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStyle;
 
@@ -87,6 +88,15 @@ public interface AppContext extends Context {
      * which may be a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}.
      */
     Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection);
+
+    /**
+     * Getter that returns the current {@link SpreadsheetSelection} by checking the {@link #historyToken()}.
+     */
+    default Optional<SpreadsheetSelection> viewportSelection() {
+        return this.historyToken()
+                .viewportSelectionOrEmpty()
+                .map(SpreadsheetViewportSelection::selection);
+    }
 
     /**
      * Getter that returns the ranges of the viewport window.
