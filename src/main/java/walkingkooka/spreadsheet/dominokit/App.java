@@ -433,6 +433,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
      */
     private String locationHash;
 
+    /**
+     * A cached {@link HistoryToken} for the current {@link DomGlobal#location#locationHash}.
+     */
     private HistoryToken historyToken;
 
     // HistoryWatcher...................................................................................................
