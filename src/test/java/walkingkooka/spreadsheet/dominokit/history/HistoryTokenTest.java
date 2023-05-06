@@ -478,6 +478,40 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setCell..........................................................................................................
+
+    @Test
+    public void testSetCellNotSpreadsheetNameistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setCell(CELL),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetCellNotCellFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> HistoryToken.spreadsheetSelect(ID, NAME).setCell(COLUMN)
+        );
+    }
+
+    @Test
+    public void testSeCell() {
+        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
+
+        this.checkEquals(
+                historyToken.setCell(CELL),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
     // viewportSelection................................................................................................
 
     @Test
