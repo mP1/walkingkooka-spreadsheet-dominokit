@@ -770,6 +770,26 @@ public abstract class HistoryToken implements HasUrlFragment {
     public abstract HistoryToken setIdAndName(final SpreadsheetId id,
                                               final SpreadsheetName name);
 
+
+    /**
+     * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
+     */
+    public HistoryToken setRow(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+            token = row(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name(),
+                    selection.setDefaultAnchor()
+            );
+        }
+
+        return token;
+    }
+
     /**
      * Factory that creates a {@link HistoryToken} changing the {@link SpreadsheetViewportSelection} component and clearing any action.
      */
