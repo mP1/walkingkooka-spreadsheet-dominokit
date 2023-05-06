@@ -35,8 +35,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         );
     }
 
-    @Override
-    final UrlFragment spreadsheetUrlFragment() {
+    @Override final UrlFragment spreadsheetUrlFragment() {
         return METADATA.append(
                 this.metadataUrlFragment()
         );
@@ -46,8 +45,9 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
     abstract UrlFragment metadataUrlFragment();
 
-    @Override final HistoryToken parse0(final String component,
-                                        final TextCursor cursor) {
+    @Override //
+    final HistoryToken parse0(final String component,
+                              final TextCursor cursor) {
         HistoryToken result;
 
         switch (component) {

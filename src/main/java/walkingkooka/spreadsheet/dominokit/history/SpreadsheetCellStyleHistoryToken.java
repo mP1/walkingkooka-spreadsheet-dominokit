@@ -65,7 +65,8 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
         throw new UnsupportedOperationException();
     }
 
-    @Override final HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    @Override //
+    final HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 }
