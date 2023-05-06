@@ -177,11 +177,13 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
      */
     abstract HistoryToken unfreeze();
 
+    // parse............................................................................................................
+
     final HistoryToken parsePattern(final TextCursor cursor) {
         HistoryToken result = this;
 
         final Optional<String> patternKind = parseComponent(cursor);
-        if(patternKind.isPresent()) {
+        if (patternKind.isPresent()) {
             result = this.pattern(
                     SpreadsheetPatternKind.fromTypeName("spreadsheet-" + patternKind.get() + "-pattern")
             );
