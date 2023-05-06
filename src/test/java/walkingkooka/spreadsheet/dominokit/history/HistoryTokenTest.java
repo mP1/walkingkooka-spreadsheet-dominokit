@@ -512,6 +512,40 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setColumn........................................................................................................
+
+    @Test
+    public void testSetColumnNotSpreadsheetNameHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setColumn(COLUMN),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetColumnWithCellFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> HistoryToken.spreadsheetSelect(ID, NAME).setColumn(CELL)
+        );
+    }
+
+    @Test
+    public void testSeColumn() {
+        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
+
+        this.checkEquals(
+                historyToken.setColumn(COLUMN),
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                )
+        );
+    }
+
     // viewportSelection................................................................................................
 
     @Test
