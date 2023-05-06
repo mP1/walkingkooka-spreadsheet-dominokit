@@ -627,6 +627,8 @@ public abstract class HistoryToken implements HasUrlFragment {
         super();
     }
 
+    // parse............................................................................................................
+
     final HistoryToken parse(final TextCursor cursor) {
         HistoryToken result = this;
 
@@ -650,6 +652,8 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     abstract HistoryToken parse0(final String component,
                                  final TextCursor cursor);
+
+    // token factory methods............................................................................................
 
     /**
      * Creates a formula where possible otherwise returns this.
@@ -745,6 +749,8 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return Optional.ofNullable(viewportSelection);
     }
+
+    // onHistoryTokenChange.............................................................................................
 
     /**
      * Fired whenever a new history token change happens.
