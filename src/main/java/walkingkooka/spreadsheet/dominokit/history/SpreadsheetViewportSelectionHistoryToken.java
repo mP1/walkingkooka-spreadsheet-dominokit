@@ -55,7 +55,8 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
 
     private final SpreadsheetViewportSelection viewportSelection;
 
-    @Override final UrlFragment selectionUrlFragment() {
+    @Override //
+    final UrlFragment selectionUrlFragment() {
         return this.viewportSelection.urlFragment()
                 .append(this.selectionViewportUrlFragment());
     }
