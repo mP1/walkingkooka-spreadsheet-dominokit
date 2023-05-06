@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
@@ -696,6 +697,32 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return menu;
+    }
+
+    /**
+     * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
+     */
+    public HistoryToken setAnchor(final SpreadsheetViewportSelectionAnchor anchor) {
+        Objects.requireNonNull(anchor, "anchor");
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetViewportSelectionHistoryToken) {
+            final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
+
+            try {
+                token = spreadsheetViewportSelectionHistoryToken.setViewportSelection(
+                        Optional.of(
+                                spreadsheetViewportSelectionHistoryToken.viewportSelection()
+                                        .selection()
+                                        .setAnchor(anchor)
+                        )
+                );
+            } catch (final IllegalArgumentException ignore) {
+                // nop
+            }
+        }
+
+        return token;
     }
 
     /**

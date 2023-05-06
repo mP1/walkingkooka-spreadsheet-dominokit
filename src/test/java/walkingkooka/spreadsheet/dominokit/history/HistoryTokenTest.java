@@ -43,6 +43,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryTokenTest implements ClassTesting<HistoryToken>, ParseStringTesting<HistoryToken> {
@@ -446,6 +447,34 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 expected,
                 token.menuHistoryToken(selection),
                 () -> token + " menuHistoryToken " + selection
+        );
+    }
+
+    // setAnchor........................................................................................................
+
+    @Test
+    public void testSetAnchorNotSpreadsheetViewportSelectionHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetAnchor() {
+        this.checkEquals(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.LEFT)
+                ).setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                )
         );
     }
 
