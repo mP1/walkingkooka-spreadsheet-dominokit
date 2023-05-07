@@ -54,7 +54,7 @@ public final class SpreadsheetColumnFreezeHistoryTokenTest extends SpreadsheetCo
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithColumn() {

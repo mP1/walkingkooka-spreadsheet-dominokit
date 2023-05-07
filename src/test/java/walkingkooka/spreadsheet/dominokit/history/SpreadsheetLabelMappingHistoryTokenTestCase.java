@@ -34,7 +34,7 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         super();
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public final void testMenuWithCell() {

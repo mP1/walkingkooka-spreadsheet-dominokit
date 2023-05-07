@@ -41,7 +41,7 @@ public final class SpreadsheetRowClearHistoryTokenTest extends SpreadsheetRowHis
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithRow() {

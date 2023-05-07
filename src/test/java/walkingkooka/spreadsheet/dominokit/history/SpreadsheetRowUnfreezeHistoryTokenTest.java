@@ -55,7 +55,7 @@ public final class SpreadsheetRowUnfreezeHistoryTokenTest extends SpreadsheetRow
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithRow() {

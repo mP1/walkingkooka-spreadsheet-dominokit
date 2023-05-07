@@ -219,10 +219,10 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
     }
 
     /**
-     * Renders a drop down menu. This helper is intended only for the menu sub classes.
+     * Renders a drop down setMenu1. This helper is intended only for the setMenu1 sub classes.
      */
     final void renderDropDownMenu(final AppContext context) {
-        // show context menu
+        // show context setMenu1
         final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
         final Optional<Element> maybeElement = context.findViewportElement(
                 viewportSelection.selection().focused(viewportSelection.anchor())

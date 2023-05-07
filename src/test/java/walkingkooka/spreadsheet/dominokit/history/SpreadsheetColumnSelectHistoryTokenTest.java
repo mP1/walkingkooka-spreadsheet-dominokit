@@ -59,7 +59,7 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithColumn() {

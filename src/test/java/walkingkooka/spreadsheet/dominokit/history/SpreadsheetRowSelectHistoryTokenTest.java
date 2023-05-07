@@ -60,7 +60,7 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithRow() {

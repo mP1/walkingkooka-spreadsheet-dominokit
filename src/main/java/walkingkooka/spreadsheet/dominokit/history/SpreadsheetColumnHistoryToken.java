@@ -87,7 +87,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override //
-    final HistoryToken menu() {
+    final HistoryToken setMenu1() {
         return columnMenu(
                 this.id(),
                 this.name(),
@@ -96,7 +96,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override //
-    final SpreadsheetViewportSelection setMenuViewportSelection(final SpreadsheetSelection selection) {
+    final SpreadsheetViewportSelection setMenu2ViewportSelection(final SpreadsheetSelection selection) {
         final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
 
         return selection.isColumnReference() &&

@@ -769,7 +769,7 @@ public abstract class HistoryToken implements HasUrlFragment {
         } else {
             if (this instanceof SpreadsheetViewportSelectionHistoryToken) {
                 final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
-                result = spreadsheetViewportSelectionHistoryToken.menu();
+                result = spreadsheetViewportSelectionHistoryToken.setMenu1();
             }
         }
 
@@ -791,16 +791,16 @@ public abstract class HistoryToken implements HasUrlFragment {
                 // right mouse happened over already selected selection...
                 if (viewportSelection.selection().test(selection)) {
                     final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
-                    menu = spreadsheetViewportSelectionHistoryToken.menu();
+                    menu = spreadsheetViewportSelectionHistoryToken.setMenu1();
                 }
             }
 
             // right mouse click happened over a non selected cell/column/row
             if (null == menu) {
-                menu = spreadsheetNameHistoryToken.setMenu1(selection);
+                menu = spreadsheetNameHistoryToken.setMenu2(selection);
             }
         } else {
-            menu = this; // id missing just return this and ignore context menu.
+            menu = this; // id missing just return this and ignore context setMenu1.
         }
 
         return menu;

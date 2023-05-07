@@ -46,7 +46,7 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithCell() {

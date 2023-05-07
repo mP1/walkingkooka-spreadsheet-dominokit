@@ -41,7 +41,7 @@ public final class SpreadsheetRowDeleteHistoryTokenTest extends SpreadsheetRowHi
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithRow() {
