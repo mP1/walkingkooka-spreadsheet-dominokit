@@ -137,7 +137,7 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithCell() {

@@ -58,7 +58,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 result = this.freeze();
                 break;
             case "menu":
-                result = this.menu();
+                result = this.setMenu1();
                 break;
             case "pattern":
                 result = this.parsePattern(cursor);

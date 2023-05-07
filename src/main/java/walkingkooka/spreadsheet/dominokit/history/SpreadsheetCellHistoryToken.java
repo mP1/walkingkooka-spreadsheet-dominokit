@@ -76,7 +76,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     }
 
     @Override //
-    final HistoryToken menu() {
+    final HistoryToken setMenu1() {
         return cellMenu(
                 this.id(),
                 this.name(),
@@ -85,7 +85,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     }
 
     @Override //
-    final SpreadsheetViewportSelection setMenuViewportSelection(final SpreadsheetSelection selection) {
+    final SpreadsheetViewportSelection setMenu2ViewportSelection(final SpreadsheetSelection selection) {
         final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
 
         return selection.isCellReference() &&

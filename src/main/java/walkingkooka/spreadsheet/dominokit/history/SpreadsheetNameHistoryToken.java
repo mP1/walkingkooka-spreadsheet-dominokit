@@ -72,14 +72,14 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract HistoryToken freeze();
 
     /**
-     * Creates a menu {@link SpreadsheetNameHistoryToken}.
+     * Creates a setMenu1 {@link SpreadsheetNameHistoryToken}.
      */
-    abstract HistoryToken menu();
+    abstract HistoryToken setMenu1();
 
     /**
-     * Creates a menu {@link SpreadsheetNameHistoryToken} for the given {@link SpreadsheetSelection}.
+     * Creates a setMenu1 {@link SpreadsheetNameHistoryToken} for the given {@link SpreadsheetSelection}.
      */
-    final HistoryToken setMenu1(final SpreadsheetSelection selection) {
+    final HistoryToken setMenu2(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
 
         if (selection.isCellRange() || selection.isColumnReferenceRange() || selection.isRowReferenceRange()) {
@@ -90,14 +90,14 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
-        final SpreadsheetViewportSelection menuViewportSelection = this.setMenuViewportSelection(selection);
+        final SpreadsheetViewportSelection menuViewportSelection = this.setMenu2ViewportSelection(selection);
         final SpreadsheetSelection menuSelection = menuViewportSelection.selection();
 
         if (menuSelection.isCellReference() || menuSelection.isCellRange() || menuSelection.isLabelName()) {
             token = cellMenu(
                     id,
                     name,
-                    this.setMenuViewportSelection(selection)
+                    this.setMenu2ViewportSelection(selection)
             );
         } else {
             if (menuSelection.isColumnReference() || menuSelection.isColumnReferenceRange()) {
@@ -122,7 +122,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return token;
     }
 
-    abstract SpreadsheetViewportSelection setMenuViewportSelection(final SpreadsheetSelection selection);
+    abstract SpreadsheetViewportSelection setMenu2ViewportSelection(final SpreadsheetSelection selection);
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.

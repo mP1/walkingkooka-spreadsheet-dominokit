@@ -46,7 +46,7 @@ public final class SpreadsheetCellClearHistoryTokenTest extends SpreadsheetCellH
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithCell() {

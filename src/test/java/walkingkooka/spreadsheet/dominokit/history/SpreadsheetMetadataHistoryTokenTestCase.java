@@ -25,7 +25,7 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         super();
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public final void testMenuWithCell() {

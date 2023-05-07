@@ -28,7 +28,7 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         this.urlFragmentAndCheck("/123/SpreadsheetName456");
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithCell() {

@@ -154,7 +154,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
-    // menu with selection..............................................................................................
+    // setMenu1 with selection..............................................................................................
 
     @Test
     public final void testCellMenuWithSameCell() {

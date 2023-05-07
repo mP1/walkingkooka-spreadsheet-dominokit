@@ -151,7 +151,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public final void testMenuWithCell() {

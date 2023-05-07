@@ -40,7 +40,7 @@ public final class SpreadsheetColumnClearHistoryTokenTest extends SpreadsheetCol
         );
     }
 
-    // menu(Selection)..................................................................................................
+    // setMenu1(Selection)..................................................................................................
 
     @Test
     public void testMenuWithColumn() {
