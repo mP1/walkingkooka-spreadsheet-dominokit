@@ -145,6 +145,63 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setClear..........................................................................................................
+
+    @Test
+    public void testSetClearWithNotSpreadsheetNameistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setClear(),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetClearCell() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setClear(),
+                HistoryToken.cellClear(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testSetClearColumn() {
+        final SpreadsheetViewportSelection viewportSelection = COLUMN.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setClear(),
+                HistoryToken.columnClear(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testSetClearRow() {
+        final SpreadsheetViewportSelection viewportSelection = ROW.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setClear(),
+                HistoryToken.rowClear(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
     // setColumn........................................................................................................
 
     @Test

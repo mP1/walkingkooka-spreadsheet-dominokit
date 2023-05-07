@@ -50,7 +50,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     abstract UrlFragment labelUrlFragment();
 
     @Override //
-    final HistoryToken clear() {
+    final HistoryToken setClear0() {
         return this;
     }
 

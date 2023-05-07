@@ -245,7 +245,7 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                             context.dropdownAction(
                                     "Clear",
                                     Optional.of(
-                                            this.clear()
+                                            this.setClear0()
                                     )
                             )
                     ).appendChild(

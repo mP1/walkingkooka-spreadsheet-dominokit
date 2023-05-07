@@ -46,7 +46,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
 
         switch(component) {
             case "clear":
-                result = this.clear();
+                result = this.setClear();
                 break;
             case "delete":
                 result = this.delete();
