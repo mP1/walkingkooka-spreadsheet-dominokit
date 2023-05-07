@@ -85,7 +85,7 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         HistoryToken token;
 
         try {
-            token = this.setUnfreeze0();
+            token = this.setUnfreeze();
         } catch (final RuntimeException ignored) {
             token = null;
         }
@@ -245,14 +245,14 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                             context.dropdownAction(
                                     "Clear",
                                     Optional.of(
-                                            this.setClear0()
+                                            this.setClear()
                                     )
                             )
                     ).appendChild(
                             context.dropdownAction(
                                     "Delete",
                                     Optional.of(
-                                            this.setDelete0()
+                                            this.setDelete()
                                     )
                             )
                     ).separator()
