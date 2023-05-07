@@ -166,7 +166,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
         final Optional<String> label = parseComponent(cursor);
         if (label.isPresent()) {
-            result = labelMapping(
+            result = this.setLabelMapping(
                     SpreadsheetSelection.labelName(label.get())
             );
         }

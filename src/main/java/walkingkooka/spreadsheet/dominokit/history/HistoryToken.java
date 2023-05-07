@@ -770,6 +770,24 @@ public abstract class HistoryToken implements HasUrlFragment {
     public abstract HistoryToken setIdAndName(final SpreadsheetId id,
                                               final SpreadsheetName name);
 
+    /**
+     * Sets or replaces the current {@link SpreadsheetLabelName} otherwise returns this.
+     */
+    public HistoryToken setLabelMapping(final SpreadsheetLabelName label) {
+        Objects.requireNonNull(label, "label");
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+            token = labelMapping(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name(),
+                    label
+            );
+        }
+
+        return token;
+    }
 
     /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
