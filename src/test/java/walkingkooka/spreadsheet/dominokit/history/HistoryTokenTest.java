@@ -957,6 +957,76 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setStyle..........................................................................................................
+
+    @Test
+    public void testSetStyleWithNotSpreadsheetNameHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setStyle(TextStylePropertyName.COLOR),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetStyleCell() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setStyle(property),
+                HistoryToken.cellStyle(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        property
+                )
+        );
+    }
+
+    @Test
+    public void testSetStyleCell2() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final TextStylePropertyName<Color> property = TextStylePropertyName.OUTLINE_COLOR;
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setStyle(property),
+                HistoryToken.cellStyle(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        property
+                )
+        );
+    }
+
+    @Test
+    public void testSetStyleColumn() {
+        final SpreadsheetViewportSelection viewportSelection = COLUMN.setDefaultAnchor();
+        final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
+        final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewportSelection);
+
+        assertSame(
+                historyToken.setStyle(property),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetStyleRow() {
+        final SpreadsheetViewportSelection viewportSelection = ROW.setDefaultAnchor();
+        final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
+        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewportSelection);
+
+        assertSame(
+                historyToken.setStyle(property),
+                historyToken
+        );
+    }
+
     // setUnfreeze........................................................................................................
 
     @Test

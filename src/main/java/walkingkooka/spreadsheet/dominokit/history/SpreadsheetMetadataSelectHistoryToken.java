@@ -62,7 +62,7 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     }
 
     @Override
-    HistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 

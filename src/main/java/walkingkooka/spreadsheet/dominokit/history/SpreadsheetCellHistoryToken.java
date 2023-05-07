@@ -97,7 +97,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     }
 
     @Override //
-    final HistoryToken style(final TextStylePropertyName<?> propertyName) {
+    final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return cellStyle(
                 this.id(),
                 this.name(),

@@ -85,7 +85,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override //
-    final HistoryToken style(final TextStylePropertyName<?> propertyName) {
+    final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 
