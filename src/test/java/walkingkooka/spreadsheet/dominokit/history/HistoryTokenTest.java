@@ -114,7 +114,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setCell..........................................................................................................
 
     @Test
-    public void testSetCellWithNotSpreadsheetNameistoryTokenSubclass() {
+    public void testSetCellWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
@@ -148,7 +148,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setClear..........................................................................................................
 
     @Test
-    public void testSetClearWithNotSpreadsheetNameistoryTokenSubclass() {
+    public void testSetClearWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
