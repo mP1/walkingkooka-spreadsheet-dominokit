@@ -45,6 +45,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 public abstract class HistoryToken implements HasUrlFragment {
 
@@ -705,14 +706,9 @@ public abstract class HistoryToken implements HasUrlFragment {
      * if possible creates a clear.
      */
     public HistoryToken setClear() {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-            token = spreadsheetNameHistoryToken.setClear0();
-        }
-
-        return token;
+        return this.setIfSpreadsheetNameHistoryToken(
+                SpreadsheetNameHistoryToken::setClear0
+        );
     }
 
     /**
@@ -738,14 +734,9 @@ public abstract class HistoryToken implements HasUrlFragment {
      * if possible creates a delete.
      */
     public HistoryToken setDelete() {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-            token = spreadsheetNameHistoryToken.setDelete0();
-        }
-
-        return token;
+        return this.setIfSpreadsheetNameHistoryToken(
+                SpreadsheetNameHistoryToken::setDelete0
+        );
     }
 
     /**
@@ -757,14 +748,9 @@ public abstract class HistoryToken implements HasUrlFragment {
      * if possible creates a freeze.
      */
     public HistoryToken setFreeze() {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-            token = spreadsheetNameHistoryToken.setFreeze0();
-        }
-
-        return token;
+        return this.setIfSpreadsheetNameHistoryToken(
+                SpreadsheetNameHistoryToken::setFreeze0
+        );
     }
 
     /**
@@ -908,11 +894,16 @@ public abstract class HistoryToken implements HasUrlFragment {
      * if possible creates a unfreeze.
      */
     public HistoryToken setUnfreeze() {
+        return this.setIfSpreadsheetNameHistoryToken(
+                SpreadsheetNameHistoryToken::setUnfreeze0
+        );
+    }
+
+    private HistoryToken setIfSpreadsheetNameHistoryToken(final Function<SpreadsheetNameHistoryToken, HistoryToken> setter) {
         HistoryToken token = this;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-            token = spreadsheetNameHistoryToken.setUnfreeze0();
+            token = setter.apply((SpreadsheetNameHistoryToken) this);
         }
 
         return token;
