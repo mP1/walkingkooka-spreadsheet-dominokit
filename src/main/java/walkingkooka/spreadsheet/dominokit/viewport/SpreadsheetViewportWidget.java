@@ -416,7 +416,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         context.debug("SpreadsheetViewportWidget.onFormulaTextBoxFocus " + historyToken.viewportSelectionOrEmpty());
 
         context.pushHistoryToken(
-                historyToken.formulaHistoryToken()
+                historyToken.setFormula()
         );
     }
 
@@ -558,7 +558,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 // if cell then edit formula
                 context.pushHistoryToken(
                         context.historyToken()
-                                .formulaHistoryToken()
+                                .setFormula()
                 );
                 break;
             case Escape:

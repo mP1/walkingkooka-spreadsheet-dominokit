@@ -40,7 +40,7 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
     }
 
     @Override
-    public HistoryToken formulaHistoryToken() {
+    public HistoryToken setFormula() {
         throw new UnsupportedOperationException();
     }
 

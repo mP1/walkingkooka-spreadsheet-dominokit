@@ -657,11 +657,6 @@ public abstract class HistoryToken implements HasUrlFragment {
     // token factory methods............................................................................................
 
     /**
-     * Creates a formula where possible otherwise returns this.
-     */
-    public abstract HistoryToken formulaHistoryToken();
-
-    /**
      * Creates a formula save history with the new formula text.
      */
     public abstract HistoryToken formulaSaveHistoryToken(final String text);
@@ -757,6 +752,11 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return token;
     }
+
+    /**
+     * Creates a formula where possible otherwise returns this.
+     */
+    public abstract HistoryToken setFormula();
 
     /**
      * if possible creates a freeze.
