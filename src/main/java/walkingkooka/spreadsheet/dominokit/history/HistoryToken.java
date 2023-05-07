@@ -759,7 +759,24 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
      */
-    public final HistoryToken setMenu(final SpreadsheetSelection selection) {
+    public final HistoryToken setMenu(final Optional<SpreadsheetSelection> selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        HistoryToken result = this;
+
+        if (selection.isPresent()) {
+            result = this.setMenu0(selection.get());
+        } else {
+            if (this instanceof SpreadsheetViewportSelectionHistoryToken) {
+                final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
+                result = spreadsheetViewportSelectionHistoryToken.menu();
+            }
+        }
+
+        return result;
+    }
+
+    private HistoryToken setMenu0(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
 
         HistoryToken menu = null;
@@ -780,7 +797,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             // right mouse click happened over a non selected cell/column/row
             if (null == menu) {
-                menu = spreadsheetNameHistoryToken.menu(selection);
+                menu = spreadsheetNameHistoryToken.setMenu1(selection);
             }
         } else {
             menu = this; // id missing just return this and ignore context menu.

@@ -931,7 +931,9 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
         context.pushHistoryToken(
                 context.historyToken()
-                        .setMenu(selection)
+                        .setMenu(
+                                Optional.of(selection)
+                        )
         );
     }
 

@@ -251,7 +251,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+    SpreadsheetViewportSelection setMenuViewportSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
     }
 
