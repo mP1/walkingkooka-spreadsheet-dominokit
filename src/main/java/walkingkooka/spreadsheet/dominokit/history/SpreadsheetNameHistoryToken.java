@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
@@ -56,14 +55,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     abstract UrlFragment spreadsheetUrlFragment();
-
-    final HistoryToken labelMapping(final SpreadsheetLabelName labelName) {
-        return labelMapping(
-                this.id(),
-                this.name(),
-                labelName
-        );
-    }
 
     /**
      * Creates a clear {@link SpreadsheetNameHistoryToken}.
