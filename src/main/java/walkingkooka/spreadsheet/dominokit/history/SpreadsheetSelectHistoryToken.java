@@ -88,26 +88,26 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                                               final TextCursor cursor) {
         HistoryToken result = this;
 
-        switch(cellColumnOrLabel) {
+        switch (cellColumnOrLabel) {
             case "cell":
                 result = parseCellColumnOrRow0(
                         cursor,
                         SpreadsheetSelection::parseExpressionReference,
-                        this::cell
+                        result::setCell
                 );
                 break;
             case "column":
                 result = parseCellColumnOrRow0(
                         cursor,
                         SpreadsheetSelection::parseColumnOrColumnRange,
-                        this::column
+                        result::setColumn
                 );
                 break;
             case "row":
                 result = parseCellColumnOrRow0(
                         cursor,
                         SpreadsheetSelection::parseRowOrRowRange,
-                        this::row
+                        result::setRow
                 );
                 break;
             default:
@@ -121,62 +121,44 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     private HistoryToken parseCellColumnOrRow0(final TextCursor cursor,
                                                final Function<String, SpreadsheetSelection> parser,
-                                               final Function<SpreadsheetViewportSelection, HistoryToken> HistoryTokenFactory) {
+                                               final Function<SpreadsheetSelection, HistoryToken> historyTokenFactory) {
         HistoryToken result = this;
 
         final Optional<String> maybeSelection = parseComponent(cursor);
-        if(maybeSelection.isPresent()) {
-                final SpreadsheetSelection selection = parser.apply(maybeSelection.get());
+        if (maybeSelection.isPresent()) {
+            result = historyTokenFactory.apply(
+                    parser.apply(maybeSelection.get())
+            );
 
-                final SpreadsheetViewportSelectionAnchor defaultAnchor = selection.defaultAnchor();
-                final SpreadsheetViewportSelectionAnchor anchor = tryParseAnchor(
-                        cursor,
-                        defaultAnchor
-                );
+            final TextCursorSavePoint beforeAnchor = cursor.save();
+            boolean restoreCursor = true;
 
-                SpreadsheetViewportSelection viewportSelection = null;
-                try {
-                    viewportSelection = selection.setAnchor(anchor);
-                } catch (final RuntimeException badAnchor) {
-                    viewportSelection = selection.setAnchor(defaultAnchor); // ignore invalid anchor use default instead.
+            final Optional<String> maybePossibleAnchor = parseComponent(cursor);
+            if (maybePossibleAnchor.isPresent()) {
+                final String possibleAnchor = maybePossibleAnchor.get();
+
+                for (final SpreadsheetViewportSelectionAnchor possible : SpreadsheetViewportSelectionAnchor.values()) {
+                    if (SpreadsheetViewportSelectionAnchor.NONE == possible) {
+                        continue;
+                    }
+                    if (possible.kebabText().equals(possibleAnchor)) {
+                        try {
+                            result = result.setAnchor(possible);
+                            restoreCursor = false;
+                        } catch (final IllegalArgumentException ignore) {
+                            // nop
+                        }
+                        break;
+                    }
                 }
+            }
 
-                result = HistoryTokenFactory.apply(viewportSelection);
-        }
-
-        return result;
-    }
-
-    /**
-     * Tries to parse the next component into a {@link SpreadsheetViewportSelectionAnchor}.
-     */
-    private static SpreadsheetViewportSelectionAnchor tryParseAnchor(final TextCursor cursor,
-                                                                     final SpreadsheetViewportSelectionAnchor defaultAnchor) {
-        SpreadsheetViewportSelectionAnchor anchor = null;
-
-        final TextCursorSavePoint save = cursor.save();
-
-        final Optional<String> maybePossibleAnchor = parseComponent(cursor);
-        if (maybePossibleAnchor.isPresent()) {
-            final String possibleAnchor = maybePossibleAnchor.get();
-
-            for (final SpreadsheetViewportSelectionAnchor possible : SpreadsheetViewportSelectionAnchor.values()) {
-                if (SpreadsheetViewportSelectionAnchor.NONE == possible) {
-                    continue;
-                }
-                if (possible.kebabText().equals(possibleAnchor)) {
-                    anchor = possible;
-                    break;
-                }
+            if (restoreCursor) {
+                beforeAnchor.restore();
             }
         }
 
-        if (null == anchor) {
-            save.restore();
-            anchor = defaultAnchor;
-        }
-
-        return anchor;
+        return result;
     }
 
     private HistoryToken parseLabel(final TextCursor cursor) {

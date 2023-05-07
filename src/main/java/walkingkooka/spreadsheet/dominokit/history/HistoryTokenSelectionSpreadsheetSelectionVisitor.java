@@ -32,11 +32,11 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import java.util.function.Function;
 
 /**
- * This visitor is used to create a {@link SpreadsheetNameHistoryToken} that selects the given {@link SpreadsheetSelection}.
+ * This visitor is used to create a {@link SpreadsheetHistoryToken} that selects the given {@link SpreadsheetSelection}.
  */
 final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
 
-    static HistoryToken selectionToken(final SpreadsheetNameHistoryToken token,
+    static HistoryToken selectionToken(final SpreadsheetHistoryToken token,
                                        final SpreadsheetViewportSelection viewportSelection) {
         final HistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new HistoryTokenSelectionSpreadsheetSelectionVisitor(
                 token,
@@ -46,7 +46,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
         return visitor.selectionToken;
     }
 
-    HistoryTokenSelectionSpreadsheetSelectionVisitor(final SpreadsheetNameHistoryToken token,
+    HistoryTokenSelectionSpreadsheetSelectionVisitor(final SpreadsheetHistoryToken token,
                                                      final SpreadsheetViewportSelectionAnchor anchor) {
         super();
         this.token = token;
@@ -57,7 +57,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     protected void visit(final SpreadsheetCellRange cell) {
         this.setSelectionToken(
                 cell,
-                this.token::cell
+                this.token::setCell
         );
     }
 
@@ -65,7 +65,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     protected void visit(final SpreadsheetCellReference cell) {
         this.setSelectionToken(
                 cell,
-                this.token::cell
+                this.token::setCell
         );
     }
 
@@ -73,7 +73,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     protected void visit(final SpreadsheetColumnReference column) {
         this.setSelectionToken(
                 column,
-                this.token::column
+                this.token::setColumn
         );
     }
 
@@ -81,7 +81,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     protected void visit(final SpreadsheetColumnReferenceRange column) {
         this.setSelectionToken(
                 column,
-                this.token::column
+                this.token::setColumn
         );
     }
 
@@ -89,7 +89,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     protected void visit(final SpreadsheetLabelName label) {
         this.setSelectionToken(
                 label,
-                this.token::cell
+                this.token::setCell
         );
     }
 
@@ -97,7 +97,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     protected void visit(final SpreadsheetRowReference row) {
         this.setSelectionToken(
                 row,
-                this.token::row
+                this.token::setRow
         );
     }
 
@@ -105,17 +105,16 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     protected void visit(final SpreadsheetRowReferenceRange range) {
         this.setSelectionToken(
                 range,
-                this.token::row
+                this.token::setRow
         );
     }
 
-    private final SpreadsheetNameHistoryToken token;
+    private final HistoryToken token;
 
     private void setSelectionToken(final SpreadsheetSelection selection,
-                                   final Function<SpreadsheetViewportSelection, HistoryToken> factory) {
-        this.selectionToken = factory.apply(
-                selection.setAnchor(this.anchor)
-        );
+                                   final Function<SpreadsheetSelection, HistoryToken> factory) {
+        this.selectionToken = factory.apply(selection)
+                .setAnchor(this.anchor);
     }
 
     private HistoryToken selectionToken;
