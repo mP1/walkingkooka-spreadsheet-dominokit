@@ -56,10 +56,6 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
         return this;
     }
 
-    private HistoryToken formulaSaveHistoryToken(final String text) {
-        throw new UnsupportedOperationException();
-    }
-
     @Override
     HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
         return this;
