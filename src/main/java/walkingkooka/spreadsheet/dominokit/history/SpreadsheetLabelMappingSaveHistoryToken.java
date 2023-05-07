@@ -62,6 +62,11 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
         );
     }
 
+    @Override
+    HistoryToken setDelete0() {
+        return this;
+    }
+
     // new id/name same labelName
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
@@ -71,11 +76,6 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
                 name,
                 this.mapping
         );
-    }
-
-    @Override
-    HistoryToken setDelete0() {
-        return this;
     }
 
     @Override

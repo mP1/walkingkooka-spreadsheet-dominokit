@@ -212,15 +212,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
-        return spreadsheetSelect(
-                id,
-                name
-        );
-    }
-
-    @Override
     HistoryToken setClear0() {
         return this;
     }
@@ -238,6 +229,15 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     @Override
     HistoryToken setFreeze0() {
         return this;
+    }
+
+    @Override
+    public HistoryToken setIdAndName(final SpreadsheetId id,
+                                     final SpreadsheetName name) {
+        return spreadsheetSelect(
+                id,
+                name
+        );
     }
 
     @Override

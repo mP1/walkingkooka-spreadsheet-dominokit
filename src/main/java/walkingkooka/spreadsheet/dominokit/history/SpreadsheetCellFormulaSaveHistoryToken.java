@@ -81,11 +81,6 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
-        return this;
-    }
-
-    @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {
         return with(
@@ -94,6 +89,11 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                 this.viewportSelection(),
                 this.formula()
         );
+    }
+
+    @Override
+    HistoryToken setSave0(final String value) {
+        return this;
     }
 
     @Override
