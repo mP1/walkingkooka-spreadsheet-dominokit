@@ -96,7 +96,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override //
-    final SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+    final SpreadsheetViewportSelection setMenuViewportSelection(final SpreadsheetSelection selection) {
         final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
 
         return selection.isColumnReference() &&

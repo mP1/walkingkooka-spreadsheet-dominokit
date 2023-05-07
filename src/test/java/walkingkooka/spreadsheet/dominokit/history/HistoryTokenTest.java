@@ -216,6 +216,199 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setMenu with empty...............................................................................................
+
+    @Test
+    public void testSetMenuCellWithoutSelection() {
+        final SpreadsheetViewportSelection cell = CELL.setDefaultAnchor();
+
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        cell
+                ),
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuCellRangeWithoutSelection() {
+        final SpreadsheetViewportSelection range = CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT);
+
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        range
+                ),
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuCellRangeWithoutSelection2() {
+        final SpreadsheetViewportSelection range = CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        range
+                ),
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuLabelWithoutSelection() {
+        final SpreadsheetViewportSelection cell = LABEL.setDefaultAnchor();
+
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        cell
+                ),
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        cell
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuColumnWithoutSelection() {
+        final SpreadsheetViewportSelection column = COLUMN.setDefaultAnchor();
+
+        this.setMenuAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        column
+                ),
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        column
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuColumnRangeWithoutSelection() {
+        final SpreadsheetViewportSelection range = COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.LEFT);
+
+        this.setMenuAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        range
+                ),
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuColumnRangeWithoutSelection2() {
+        final SpreadsheetViewportSelection range = COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+
+        this.setMenuAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        range
+                ),
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuRowWithoutSelection() {
+        final SpreadsheetViewportSelection row = ROW.setDefaultAnchor();
+
+        this.setMenuAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        row
+                ),
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        row
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuRowRangeWithoutSelection() {
+        final SpreadsheetViewportSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP);
+
+        this.setMenuAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        range
+                ),
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuRowRangeWithoutSelection2() {
+        final SpreadsheetViewportSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
+
+        this.setMenuAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        range
+                ),
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    private void setMenuAndCheck(final HistoryToken token,
+                                 final HistoryToken expected) {
+        this.setMenuAndCheck(
+                token,
+                Optional.empty(),
+                expected
+        );
+    }
+
+    // setMenu cell.....................................................................................................
+
     @Test
     public void testSetMenuWithMissingSelection() {
         this.setMenuAndCheck(
@@ -231,8 +424,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 )
         );
     }
-
-    // setMenu cell.....................................................................................................
 
     @Test
     public void testSetMenuWithoutCellSelectAndCellSelection() {
@@ -564,6 +755,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     private void setMenuAndCheck(final HistoryToken token,
                                  final SpreadsheetSelection selection,
+                                 final HistoryToken expected) {
+        this.setMenuAndCheck(
+                token,
+                Optional.of(selection),
+                expected
+        );
+    }
+
+    private void setMenuAndCheck(final HistoryToken token,
+                                 final Optional<SpreadsheetSelection> selection,
                                  final HistoryToken expected) {
         this.checkEquals(
                 expected,

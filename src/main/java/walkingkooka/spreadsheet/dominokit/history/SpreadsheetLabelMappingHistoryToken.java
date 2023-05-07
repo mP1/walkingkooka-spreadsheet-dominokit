@@ -75,7 +75,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override //
-    final SpreadsheetViewportSelection menuHistoryTokenSpreadsheetViewportSelection(final SpreadsheetSelection selection) {
+    final SpreadsheetViewportSelection setMenuViewportSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
     }
 

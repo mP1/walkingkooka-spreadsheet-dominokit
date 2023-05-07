@@ -70,7 +70,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     public void testMenuWithNullSelectionFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> this.createHistoryToken().menu(null)
+                () -> this.createHistoryToken().setMenu1(null)
         );
     }
 
@@ -99,7 +99,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         final IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
                 () -> this.createHistoryToken()
-                        .menu(selection)
+                        .setMenu1(selection)
         );
 
         this.checkEquals(
@@ -174,7 +174,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                             final SpreadsheetViewportSelectionHistoryToken expected) {
         this.checkEquals(
                 expected,
-                before.menu(selection),
+                before.setMenu1(selection),
                 () -> before + " menu " + selection
         );
     }
