@@ -142,7 +142,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Creates a unfreeze {@link SpreadsheetNameHistoryToken}.
      */
-    abstract HistoryToken unfreeze();
+    abstract HistoryToken setUnfreeze0();
 
     // parse............................................................................................................
 

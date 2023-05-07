@@ -110,7 +110,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     }
 
     @Override //
-    final HistoryToken unfreeze() {
+    final HistoryToken setUnfreeze0() {
         return this;
     }
 }

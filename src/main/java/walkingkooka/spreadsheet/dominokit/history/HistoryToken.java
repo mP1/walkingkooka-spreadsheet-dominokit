@@ -882,6 +882,20 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * if possible creates a unfreeze.
+     */
+    public HistoryToken setUnfreeze() {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+            token = spreadsheetNameHistoryToken.setUnfreeze0();
+        }
+
+        return token;
+    }
+
+    /**
      * Factory that creates a {@link HistoryToken} changing the {@link SpreadsheetViewportSelection} component and clearing any action.
      */
     public final HistoryToken setViewportSelection(final Optional<SpreadsheetViewportSelection> viewportSelection) {
