@@ -49,7 +49,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     abstract UrlFragment cellUrlFragment();
 
     @Override //
-    final HistoryToken clear() {
+    final HistoryToken setClear0() {
         return cellClear(
                 this.id(),
                 this.name(),

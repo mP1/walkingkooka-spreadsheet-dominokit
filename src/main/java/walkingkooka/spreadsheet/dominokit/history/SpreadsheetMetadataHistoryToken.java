@@ -70,7 +70,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     }
 
     @Override //
-    final HistoryToken clear() {
+    final HistoryToken setClear0() {
         return this;
     }
 

@@ -50,7 +50,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     abstract UrlFragment columnUrlFragment();
 
     @Override //
-    final HistoryToken clear() {
+    final HistoryToken setClear0() {
         return columnClear(
                 this.id(),
                 this.name(),

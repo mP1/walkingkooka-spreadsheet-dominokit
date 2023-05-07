@@ -50,7 +50,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     abstract UrlFragment rowUrlFragment();
 
     @Override //
-    final HistoryToken clear() {
+    final HistoryToken setClear0() {
         return rowClear(
                 this.id(),
                 this.name(),
