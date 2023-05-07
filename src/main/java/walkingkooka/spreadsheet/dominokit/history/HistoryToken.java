@@ -45,6 +45,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public abstract class HistoryToken implements HasUrlFragment {
@@ -833,14 +834,10 @@ public abstract class HistoryToken implements HasUrlFragment {
      * if possible creates a pattern.
      */
     public final HistoryToken setPattern(final SpreadsheetPatternKind kind) {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-            token = spreadsheetNameHistoryToken.setPattern0(kind);
-        }
-
-        return token;
+        return this.setIfSpreadsheetNameHistoryToken0(
+                SpreadsheetNameHistoryToken::setPattern0,
+                kind
+        );
     }
 
     /**
@@ -866,28 +863,20 @@ public abstract class HistoryToken implements HasUrlFragment {
      * if possible creates a save.
      */
     public final HistoryToken setSave(final String text) {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-            token = spreadsheetNameHistoryToken.setSave0(text);
-        }
-
-        return token;
+        return this.setIfSpreadsheetNameHistoryToken0(
+                SpreadsheetNameHistoryToken::setSave0,
+                text
+        );
     }
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
     public final HistoryToken setStyle(final TextStylePropertyName<?> propertyName) {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-            token = spreadsheetNameHistoryToken.setStyle0(propertyName);
-        }
-
-        return token;
+        return this.setIfSpreadsheetNameHistoryToken0(
+                SpreadsheetNameHistoryToken::setStyle0,
+                propertyName
+        );
     }
 
     /**
@@ -904,6 +893,17 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             token = setter.apply((SpreadsheetNameHistoryToken) this);
+        }
+
+        return token;
+    }
+
+    private <T> HistoryToken setIfSpreadsheetNameHistoryToken0(final BiFunction<SpreadsheetNameHistoryToken, T, HistoryToken> setter,
+                                                               final T value) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            token = setter.apply((SpreadsheetNameHistoryToken) this, value);
         }
 
         return token;
