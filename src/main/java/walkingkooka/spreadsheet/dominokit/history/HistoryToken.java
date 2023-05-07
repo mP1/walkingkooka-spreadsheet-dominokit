@@ -710,12 +710,12 @@ public abstract class HistoryToken implements HasUrlFragment {
             final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
 
             try {
-                token = spreadsheetViewportSelectionHistoryToken.setViewportSelection(
-                        Optional.of(
-                                spreadsheetViewportSelectionHistoryToken.viewportSelection()
-                                        .selection()
-                                        .setAnchor(anchor)
-                        )
+                token = HistoryToken.viewportSelection(
+                        spreadsheetViewportSelectionHistoryToken.id(),
+                        spreadsheetViewportSelectionHistoryToken.name(),
+                        spreadsheetViewportSelectionHistoryToken.viewportSelection()
+                                .selection()
+                                .setAnchor(anchor)
                 );
             } catch (final IllegalArgumentException ignore) {
                 // nop
