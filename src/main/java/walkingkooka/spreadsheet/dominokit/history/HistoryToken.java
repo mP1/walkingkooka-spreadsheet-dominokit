@@ -849,6 +849,20 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * if possible creates a pattern.
+     */
+    public HistoryToken setPattern(final SpreadsheetPatternKind kind) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+            token = spreadsheetNameHistoryToken.setPattern0(kind);
+        }
+
+        return token;
+    }
+
+    /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
      */
     public HistoryToken setRow(final SpreadsheetSelection selection) {

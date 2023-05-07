@@ -887,6 +887,76 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setPattern..........................................................................................................
+
+    @Test
+    public void testSetPatternWithNotSpreadsheetNameHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setPattern(SpreadsheetPatternKind.TIME_PARSE_PATTERN),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetPatternCell() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setPattern(kind),
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        kind
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternCell2() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN;
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setPattern(kind),
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        kind
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternColumn() {
+        final SpreadsheetViewportSelection viewportSelection = COLUMN.setDefaultAnchor();
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+        final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewportSelection);
+
+        assertSame(
+                historyToken.setPattern(kind),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetPatternRow() {
+        final SpreadsheetViewportSelection viewportSelection = ROW.setDefaultAnchor();
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewportSelection);
+
+        assertSame(
+                historyToken.setPattern(kind),
+                historyToken
+        );
+    }
+
     // setRow........................................................................................................
 
     @Test
