@@ -58,7 +58,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     }
 
     @Override //
-    final HistoryToken delete() {
+    final HistoryToken setDelete0() {
         return cellDelete(
                 this.id(),
                 this.name(),

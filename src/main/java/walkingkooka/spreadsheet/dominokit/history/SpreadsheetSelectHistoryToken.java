@@ -226,7 +226,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    HistoryToken delete() {
+    HistoryToken setDelete0() {
         return this;
     }
 

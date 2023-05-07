@@ -74,7 +74,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     }
 
     @Override
-    HistoryToken delete() {
+    HistoryToken setDelete0() {
         return this;
     }
 
