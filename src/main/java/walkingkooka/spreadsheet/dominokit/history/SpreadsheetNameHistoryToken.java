@@ -137,7 +137,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
-    abstract HistoryToken style(final TextStylePropertyName<?> propertyName);
+    abstract HistoryToken setStyle0(final TextStylePropertyName<?> propertyName);
 
     /**
      * Creates a unfreeze {@link SpreadsheetNameHistoryToken}.
@@ -171,7 +171,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final Optional<String> style = parseComponent(cursor);
         if(style.isPresent()) {
-            result = this.style(
+            result = this.setStyle0(
                     TextStylePropertyName.with(
                             style.get()
                     )

@@ -272,7 +272,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     // factory for /spreadsheet-id/spreadsheet-name/metadata/style/*
     @Override
-    HistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return metadataPropertyStyle(
                 this.id(),
                 this.name(),

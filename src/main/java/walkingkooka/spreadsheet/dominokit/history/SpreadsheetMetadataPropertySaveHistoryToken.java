@@ -86,7 +86,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     }
 
     @Override
-    HistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 

@@ -118,7 +118,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     }
 
     @Override //
-    final HistoryToken style(final TextStylePropertyName<?> propertyName) {
+    final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this; // row/1/style not currently supported
     }
 

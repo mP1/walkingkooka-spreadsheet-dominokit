@@ -97,7 +97,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
         // clear the save from the history token.
         context.pushHistoryToken(
-                this.style(propertyName)
+                this.setStyle(propertyName)
         );
 
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();

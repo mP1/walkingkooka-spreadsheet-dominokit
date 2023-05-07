@@ -882,6 +882,20 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
+     */
+    public final HistoryToken setStyle(final TextStylePropertyName<?> propertyName) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+            token = spreadsheetNameHistoryToken.setStyle0(propertyName);
+        }
+
+        return token;
+    }
+
+    /**
      * if possible creates a unfreeze.
      */
     public HistoryToken setUnfreeze() {

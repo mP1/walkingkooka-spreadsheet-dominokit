@@ -74,7 +74,7 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     }
 
     @Override
-    HistoryToken style(final TextStylePropertyName<?> propertyName) {
+    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 }

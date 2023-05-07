@@ -118,7 +118,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override //
-    final HistoryToken style(final TextStylePropertyName<?> propertyName) {
+    final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this; // column/A/style not currently supported
     }
 
