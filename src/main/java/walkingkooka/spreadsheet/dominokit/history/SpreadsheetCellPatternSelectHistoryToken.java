@@ -69,7 +69,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 

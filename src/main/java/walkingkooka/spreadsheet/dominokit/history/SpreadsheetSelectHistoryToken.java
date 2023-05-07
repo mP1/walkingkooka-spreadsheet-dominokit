@@ -257,7 +257,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     // factory for /spreadsheet-id/spreadsheet-name/metadata/pattern/*
     @Override
-    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
         return metadataPropertySelect(
                 this.id(),
                 this.name(),

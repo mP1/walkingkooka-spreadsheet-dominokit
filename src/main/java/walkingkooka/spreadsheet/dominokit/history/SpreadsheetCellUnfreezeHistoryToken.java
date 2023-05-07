@@ -77,7 +77,7 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
     }
 
     @Override
-    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 

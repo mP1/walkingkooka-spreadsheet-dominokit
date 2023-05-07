@@ -64,7 +64,7 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override
-    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 

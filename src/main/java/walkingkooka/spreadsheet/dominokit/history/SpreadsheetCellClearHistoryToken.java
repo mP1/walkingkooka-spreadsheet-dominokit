@@ -62,7 +62,7 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
     }
 
     @Override
-    HistoryToken pattern(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 
