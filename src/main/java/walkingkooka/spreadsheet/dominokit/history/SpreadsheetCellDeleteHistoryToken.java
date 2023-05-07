@@ -56,8 +56,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
         return this;
     }
 
-    @Override
-    public HistoryToken formulaSaveHistoryToken(final String text) {
+    private HistoryToken formulaSaveHistoryToken(final String text) {
         throw new UnsupportedOperationException();
     }
 
