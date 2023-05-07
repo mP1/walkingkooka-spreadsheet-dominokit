@@ -667,39 +667,6 @@ public abstract class HistoryToken implements HasUrlFragment {
     public abstract HistoryToken formulaSaveHistoryToken(final String text);
 
     /**
-     * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
-     */
-    public final HistoryToken menuHistoryToken(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
-
-        HistoryToken menu = null;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
-
-            final Optional<SpreadsheetViewportSelection> maybeViewportSelection = this.viewportSelectionOrEmpty();
-            if (maybeViewportSelection.isPresent()) {
-                final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
-
-                // right mouse happened over already selected selection...
-                if (viewportSelection.selection().test(selection)) {
-                    final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
-                    menu = spreadsheetViewportSelectionHistoryToken.menu();
-                }
-            }
-
-            // right mouse click happened over a non selected cell/column/row
-            if (null == menu) {
-                menu = spreadsheetNameHistoryToken.menu(selection);
-            }
-        } else {
-            menu = this; // id missing just return this and ignore context menu.
-        }
-
-        return menu;
-    }
-
-    /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
      */
     public HistoryToken setAnchor(final SpreadsheetViewportSelectionAnchor anchor) {
@@ -787,6 +754,39 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return token;
+    }
+
+    /**
+     * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
+     */
+    public final HistoryToken setMenu(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        HistoryToken menu = null;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = (SpreadsheetNameHistoryToken) this;
+
+            final Optional<SpreadsheetViewportSelection> maybeViewportSelection = this.viewportSelectionOrEmpty();
+            if (maybeViewportSelection.isPresent()) {
+                final SpreadsheetViewportSelection viewportSelection = maybeViewportSelection.get();
+
+                // right mouse happened over already selected selection...
+                if (viewportSelection.selection().test(selection)) {
+                    final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
+                    menu = spreadsheetViewportSelectionHistoryToken.menu();
+                }
+            }
+
+            // right mouse click happened over a non selected cell/column/row
+            if (null == menu) {
+                menu = spreadsheetNameHistoryToken.menu(selection);
+            }
+        } else {
+            menu = this; // id missing just return this and ignore context menu.
+        }
+
+        return menu;
     }
 
     /**

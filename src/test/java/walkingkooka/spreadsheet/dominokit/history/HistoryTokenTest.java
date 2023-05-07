@@ -83,373 +83,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     private final static SpreadsheetRowReferenceRange ROW_RANGE = SpreadsheetSelection.parseRowRange("22:33");
 
-    // menuHistoryToken.................................................................................................
-
-    @Test
-    public void testMenuHistoryTokenWithNullFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> HistoryToken.unknown(UrlFragment.EMPTY)
-                        .menuHistoryToken(null)
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithMissingSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                CELL,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    // menuHistoryToken cell............................................................................................
-
-    @Test
-    public void testMenuHistoryTokenWithoutCellSelectAndCellSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                CELL,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithColumnRangeSelectAndCellSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
-                ),
-                CELL,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithCellSelectAndSameCellSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                CELL,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithCellSelectAndDifferentCellSelection() {
-        final SpreadsheetCellReference differentCell = SpreadsheetSelection.parseCell("B2");
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                differentCell,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        differentCell.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithCellRangeSelectAndInsideCellSelection() {
-        final SpreadsheetViewportSelection range = SpreadsheetSelection.parseCellRange("A1:C3")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        range
-                ),
-                SpreadsheetSelection.A1,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        range
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithCellRangeSelectAndOutsideCellSelection() {
-        final SpreadsheetCellReference differentCell = SpreadsheetSelection.parseCell("C3");
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
-                ),
-                differentCell,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        differentCell.setDefaultAnchor()
-                )
-        );
-    }
-
-    // menuHistoryToken column..........................................................................................
-
-    @Test
-    public void testMenuHistoryTokenWithoutColumnSelectAndColumnSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                COLUMN,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithRowRangeSelectAndColumnSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
-                ),
-                COLUMN,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithColumnSelectAndSameColumnSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                ),
-                COLUMN,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithColumnSelectAndDifferentColumnSelection() {
-        final SpreadsheetColumnReference differentColumn = SpreadsheetSelection.parseColumn("B");
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                ),
-                differentColumn,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        differentColumn.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithColumnRangeSelectAndInsideColumnSelection() {
-        final SpreadsheetViewportSelection range = SpreadsheetSelection.parseColumnRange("A:C")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        range
-                ),
-                SpreadsheetSelection.A1,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        range
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithColumnRangeSelectAndOutsideColumnSelection() {
-        final SpreadsheetColumnReference differentColumn = SpreadsheetSelection.parseColumn("C");
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumnRange("A:B").setDefaultAnchor()
-                ),
-                differentColumn,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        differentColumn.setDefaultAnchor()
-                )
-        );
-    }
-
-    // menuHistoryToken row.............................................................................................
-
-    @Test
-    public void testMenuHistoryTokenWithoutRowSelectAndRowSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                ROW,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithCellSelectAndRowSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                ROW,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithRowSelectAndSameRowSelection() {
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                ),
-                ROW,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithRowSelectAndDifferentRowSelection() {
-        final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("2");
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                ),
-                differentRow,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        differentRow.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithRowRangeSelectAndInsideRowSelection() {
-        final SpreadsheetViewportSelection range = SpreadsheetSelection.parseRowRange("1:3")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        range
-                ),
-                SpreadsheetSelection.A1,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        range
-                )
-        );
-    }
-
-    @Test
-    public void testMenuHistoryTokenWithRowRangeSelectAndOutsideRowSelection() {
-        final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("3");
-
-        this.menuHistoryTokenAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
-                ),
-                differentRow,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        differentRow.setDefaultAnchor()
-                )
-        );
-    }
-
-    private void menuHistoryTokenAndCheck(final HistoryToken token,
-                                          final SpreadsheetSelection selection,
-                                          final HistoryToken expected) {
-        this.checkEquals(
-                expected,
-                token.menuHistoryToken(selection),
-                () -> token + " menuHistoryToken " + selection
-        );
-    }
-
     // setAnchor........................................................................................................
 
     @Test
@@ -569,6 +202,373 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         NAME,
                         LABEL
                 )
+        );
+    }
+
+    // setMenu..........................................................................................................
+
+    @Test
+    public void testSetMenuWithNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> HistoryToken.unknown(UrlFragment.EMPTY)
+                        .setMenu(null)
+        );
+    }
+
+    @Test
+    public void testSetMenuWithMissingSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.spreadsheetSelect(
+                        ID,
+                        NAME
+                ),
+                CELL,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    // setMenu cell.....................................................................................................
+
+    @Test
+    public void testSetMenuWithoutCellSelectAndCellSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.spreadsheetSelect(
+                        ID,
+                        NAME
+                ),
+                CELL,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithColumnRangeSelectAndCellSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                ),
+                CELL,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithCellSelectAndSameCellSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                ),
+                CELL,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithCellSelectAndDifferentCellSelection() {
+        final SpreadsheetCellReference differentCell = SpreadsheetSelection.parseCell("B2");
+
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                ),
+                differentCell,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        differentCell.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithCellRangeSelectAndInsideCellSelection() {
+        final SpreadsheetViewportSelection range = SpreadsheetSelection.parseCellRange("A1:C3")
+                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        range
+                ),
+                SpreadsheetSelection.A1,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithCellRangeSelectAndOutsideCellSelection() {
+        final SpreadsheetCellReference differentCell = SpreadsheetSelection.parseCell("C3");
+
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
+                ),
+                differentCell,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        differentCell.setDefaultAnchor()
+                )
+        );
+    }
+
+    // setMenu column...................................................................................................
+
+    @Test
+    public void testSetMenuWithoutColumnSelectAndColumnSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.spreadsheetSelect(
+                        ID,
+                        NAME
+                ),
+                COLUMN,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithRowRangeSelectAndColumnSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                ),
+                COLUMN,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithColumnSelectAndSameColumnSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                ),
+                COLUMN,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithColumnSelectAndDifferentColumnSelection() {
+        final SpreadsheetColumnReference differentColumn = SpreadsheetSelection.parseColumn("B");
+
+        this.setMenuAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                ),
+                differentColumn,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        differentColumn.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithColumnRangeSelectAndInsideColumnSelection() {
+        final SpreadsheetViewportSelection range = SpreadsheetSelection.parseColumnRange("A:C")
+                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+
+        this.setMenuAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        range
+                ),
+                SpreadsheetSelection.A1,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithColumnRangeSelectAndOutsideColumnSelection() {
+        final SpreadsheetColumnReference differentColumn = SpreadsheetSelection.parseColumn("C");
+
+        this.setMenuAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseColumnRange("A:B").setDefaultAnchor()
+                ),
+                differentColumn,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        differentColumn.setDefaultAnchor()
+                )
+        );
+    }
+
+    // setMenu row......................................................................................................
+
+    @Test
+    public void testSetMenuWithoutRowSelectAndRowSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.spreadsheetSelect(
+                        ID,
+                        NAME
+                ),
+                ROW,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithCellSelectAndRowSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                ),
+                ROW,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithRowSelectAndSameRowSelection() {
+        this.setMenuAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                ),
+                ROW,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithRowSelectAndDifferentRowSelection() {
+        final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("2");
+
+        this.setMenuAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                ),
+                differentRow,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        differentRow.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithRowRangeSelectAndInsideRowSelection() {
+        final SpreadsheetViewportSelection range = SpreadsheetSelection.parseRowRange("1:3")
+                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
+
+        this.setMenuAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        range
+                ),
+                SpreadsheetSelection.A1,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        range
+                )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithRowRangeSelectAndOutsideRowSelection() {
+        final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("3");
+
+        this.setMenuAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
+                ),
+                differentRow,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        differentRow.setDefaultAnchor()
+                )
+        );
+    }
+
+    private void setMenuAndCheck(final HistoryToken token,
+                                 final SpreadsheetSelection selection,
+                                 final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setMenu(selection),
+                () -> token + " setMenu " + selection
         );
     }
 
