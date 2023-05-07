@@ -293,6 +293,65 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setFreeze........................................................................................................
+
+    @Test
+    public void testSetFreezeNotSpreadsheetNameHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setFreeze(),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetFreezeCell() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.A1.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setFreeze(),
+                HistoryToken.cellFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testSetFreezeColumn() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseColumn("A")
+                .setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setFreeze(),
+                HistoryToken.columnFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testSetFreezeRow() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseRow("1")
+                .setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setFreeze(),
+                HistoryToken.rowFreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
     // setLabelMapping..................................................................................................
 
     @Test
