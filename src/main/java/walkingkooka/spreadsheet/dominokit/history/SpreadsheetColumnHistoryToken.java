@@ -78,7 +78,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override //
-    final HistoryToken freeze() {
+    final HistoryToken setFreeze0() {
         return columnFreeze(
                 this.id(),
                 this.name(),

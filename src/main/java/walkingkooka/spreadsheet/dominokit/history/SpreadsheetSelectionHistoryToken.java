@@ -55,7 +55,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 result = this.formulaHistoryToken();
                 break;
             case "freeze":
-                result = this.freeze();
+                result = this.setFreeze0();
                 break;
             case "menu":
                 result = this.setMenu1();
