@@ -252,7 +252,7 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                             context.dropdownAction(
                                     "Delete",
                                     Optional.of(
-                                            this.delete()
+                                            this.setDelete0()
                                     )
                             )
                     ).separator()

@@ -49,7 +49,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 result = this.setClear();
                 break;
             case "delete":
-                result = this.delete();
+                result = this.setDelete();
                 break;
             case "formula":
                 result = this.formulaHistoryToken();

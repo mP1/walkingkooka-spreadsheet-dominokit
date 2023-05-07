@@ -59,7 +59,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override //
-    final HistoryToken delete() {
+    final HistoryToken setDelete0() {
         return columnDelete(
                 this.id(),
                 this.name(),

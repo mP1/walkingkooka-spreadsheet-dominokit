@@ -64,7 +64,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Creates a delete {@link SpreadsheetNameHistoryToken}.
      */
-    abstract HistoryToken delete();
+    abstract HistoryToken setDelete0();
 
     /**
      * Creates a freeze {@link SpreadsheetNameHistoryToken}.

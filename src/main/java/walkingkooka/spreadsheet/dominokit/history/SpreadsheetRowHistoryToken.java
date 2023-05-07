@@ -59,7 +59,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     }
 
     @Override //
-    final HistoryToken delete() {
+    final HistoryToken setDelete0() {
         return rowDelete(
                 this.id(),
                 this.name(),
