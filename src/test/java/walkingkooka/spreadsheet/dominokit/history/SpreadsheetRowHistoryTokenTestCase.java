@@ -154,20 +154,20 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public final void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public final void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 
     @Test
-    public final void testMenuWithColumn() {
-        this.menuWithColumnAndCheck();
+    public final void testSetMenuWithColumn() {
+        this.setMenuWithColumnAndCheck();
     }
 
     @Test
     public final void testRowMenuWithSameRow() {
         final SpreadsheetRowReference row = ROW;
 
-        this.menuAndCheck(
+        this.setMenuAndCheck(
                 this.createHistoryToken(
                         row.setDefaultAnchor()
                 ),
@@ -184,7 +184,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     public final void testRowMenuWithDifferentRow() {
         final SpreadsheetRowReference row = ROW.add(1);
 
-        this.menuAndCheck(
+        this.setMenuAndCheck(
                 this.createHistoryToken(
                         ROW.setDefaultAnchor()
                 ),
@@ -201,7 +201,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     public final void testRowRangeMenuWithRowInside() {
         final SpreadsheetRowReferenceRange range = SpreadsheetSelection.parseRowRange("1:3");
 
-        this.menuAndCheck(
+        this.setMenuAndCheck(
                 this.createHistoryToken(
                         range.setDefaultAnchor()
                 ),
@@ -218,7 +218,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     public final void testRowRangeMenuWithRowOutside() {
         final SpreadsheetRowReference row = SpreadsheetSelection.parseRow("99");
 
-        this.menuAndCheck(
+        this.setMenuAndCheck(
                 this.createHistoryToken(
                         SpreadsheetSelection.parseRowRange("1:3").setDefaultAnchor()
                 ),

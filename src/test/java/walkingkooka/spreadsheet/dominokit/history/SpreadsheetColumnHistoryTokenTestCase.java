@@ -154,15 +154,15 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public final void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public final void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 
     @Test
     public final void testColumnMenuWithSameColumn() {
         final SpreadsheetColumnReference column = COLUMN;
 
-        this.menuAndCheck(
+        this.setMenuAndCheck(
                 this.createHistoryToken(
                         column.setDefaultAnchor()
                 ),
@@ -179,7 +179,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     public final void testColumnMenuWithDifferentColumn() {
         final SpreadsheetColumnReference column = COLUMN.add(1);
 
-        this.menuAndCheck(
+        this.setMenuAndCheck(
                 this.createHistoryToken(
                         COLUMN.setDefaultAnchor()
                 ),
@@ -198,7 +198,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseColumnRange("A:C")
                 .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
 
-        this.menuAndCheck(
+        this.setMenuAndCheck(
                 this.createHistoryToken(viewportSelection),
                 SpreadsheetSelection.parseColumn("B"),
                 HistoryToken.columnMenu(
@@ -213,7 +213,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     public final void testColumnRangeMenuWithColumnOutside() {
         final SpreadsheetColumnReference column = SpreadsheetSelection.parseColumn("Z");
 
-        this.menuAndCheck(
+        this.setMenuAndCheck(
                 this.createHistoryToken(
                         SpreadsheetSelection.parseColumnRange("A:C").setDefaultAnchor()
                 ),
@@ -227,8 +227,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testMenuWithRow() {
-        this.menuWithRowAndCheck();
+    public final void testSetMenuWithRow() {
+        this.setMenuWithRowAndCheck();
     }
 
     final void urlFragmentAndCheck(final SpreadsheetColumnReference reference,

@@ -57,8 +57,8 @@ public final class SpreadsheetColumnFreezeHistoryTokenTest extends SpreadsheetCo
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public void testMenuWithColumn() {
-        this.menuWithColumnAndCheck();
+    public void testSetMenuWithColumn() {
+        this.setMenuWithColumnAndCheck();
     }
 
     @Override

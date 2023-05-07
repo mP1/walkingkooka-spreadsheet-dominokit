@@ -28,7 +28,7 @@ public abstract class SpreadsheetCellPatternHistoryTokenTestCase<T extends Sprea
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public final void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public final void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 }

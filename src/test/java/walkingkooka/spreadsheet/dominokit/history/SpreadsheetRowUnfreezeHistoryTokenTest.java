@@ -58,8 +58,8 @@ public final class SpreadsheetRowUnfreezeHistoryTokenTest extends SpreadsheetRow
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public void testMenuWithRow() {
-        this.menuWithRowAndCheck();
+    public void testSetMenuWithRow() {
+        this.setMenuWithRowAndCheck();
     }
 
     @Override

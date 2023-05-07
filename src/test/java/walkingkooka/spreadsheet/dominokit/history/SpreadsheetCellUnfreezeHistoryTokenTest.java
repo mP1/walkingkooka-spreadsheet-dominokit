@@ -78,8 +78,8 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 
     @Override

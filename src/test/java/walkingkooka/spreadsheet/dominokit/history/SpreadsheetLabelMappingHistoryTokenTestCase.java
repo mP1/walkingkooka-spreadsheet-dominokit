@@ -37,18 +37,18 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public final void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public final void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 
     @Test
-    public final void testMenuWithColumn() {
-        this.menuWithColumnAndCheck();
+    public final void testSetMenuWithColumn() {
+        this.setMenuWithColumnAndCheck();
     }
 
     @Test
-    public final void testMenuWithRow() {
-        this.menuWithRowAndCheck();
+    public final void testSetMenuWithRow() {
+        this.setMenuWithRowAndCheck();
     }
 
     final void urlFragmentAndCheck(final SpreadsheetLabelName label,
