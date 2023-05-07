@@ -78,7 +78,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     }
 
     @Override //
-    final HistoryToken freeze() {
+    final HistoryToken setFreeze0() {
         return rowFreeze(
                 this.id(),
                 this.name(),

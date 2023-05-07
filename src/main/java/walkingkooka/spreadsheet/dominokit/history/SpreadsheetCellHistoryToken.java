@@ -67,7 +67,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
     }
 
     @Override //
-    final HistoryToken freeze() {
+    final HistoryToken setFreeze0() {
         return cellFreeze(
                 this.id(),
                 this.name(),
