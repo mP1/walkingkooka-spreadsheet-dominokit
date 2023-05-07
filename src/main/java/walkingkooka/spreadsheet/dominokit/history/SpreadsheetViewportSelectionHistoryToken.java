@@ -85,7 +85,7 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         HistoryToken token;
 
         try {
-            token = this.unfreeze();
+            token = this.setUnfreeze0();
         } catch (final RuntimeException ignored) {
             token = null;
         }

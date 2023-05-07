@@ -957,36 +957,61 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setRow........................................................................................................
+    // setUnfreeze........................................................................................................
 
     @Test
-    public void testSetRowNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testSetUnfreezeNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setRow(ROW),
+                historyToken.setUnfreeze(),
                 historyToken
         );
     }
 
     @Test
-    public void testSetRowWithCellFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> HistoryToken.spreadsheetSelect(ID, NAME).setRow(CELL)
+    public void testSetUnfreezeCell() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.A1.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setUnfreeze(),
+                HistoryToken.cellUnfreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
         );
     }
 
     @Test
-    public void testSetRow() {
-        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
+    public void testSetUnfreezeColumn() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseColumn("A")
+                .setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewportSelection);
 
         this.checkEquals(
-                historyToken.setRow(ROW),
-                HistoryToken.row(
+                historyToken.setUnfreeze(),
+                HistoryToken.columnUnfreeze(
                         ID,
                         NAME,
-                        ROW.setDefaultAnchor()
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testSetUnfreezeRow() {
+        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseRow("1")
+                .setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setUnfreeze(),
+                HistoryToken.rowUnfreeze(
+                        ID,
+                        NAME,
+                        viewportSelection
                 )
         );
     }

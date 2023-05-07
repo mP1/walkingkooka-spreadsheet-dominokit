@@ -70,7 +70,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 result = this.parseStyle(cursor);
                 break;
             case "unfreeze":
-                result = unfreeze();
+                result = this.setUnfreeze();
                 break;
             default:
                 cursor.end();

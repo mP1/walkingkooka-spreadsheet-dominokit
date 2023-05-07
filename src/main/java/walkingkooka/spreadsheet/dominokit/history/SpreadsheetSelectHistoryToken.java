@@ -281,7 +281,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    HistoryToken unfreeze() {
+    HistoryToken setUnfreeze0() {
         return this;
     }
 
