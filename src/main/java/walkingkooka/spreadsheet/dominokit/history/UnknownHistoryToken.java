@@ -51,7 +51,7 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     @Override
-    public HistoryToken formulaHistoryToken() {
+    public HistoryToken setFormula() {
         return this; // should not happen
     }
 

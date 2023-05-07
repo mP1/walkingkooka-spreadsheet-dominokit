@@ -55,7 +55,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override
-    public final HistoryToken formulaHistoryToken() {
+    public final HistoryToken setFormula() {
         return this;
     }
 

@@ -72,16 +72,17 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
-        return this;
-    }
-
-    @Override public HistoryToken formulaHistoryToken() {
+    public HistoryToken setFormula() {
         return HistoryToken.formula(
                 this.id(),
                 this.name(),
                 this.viewportSelection()
         );
+    }
+
+    @Override
+    HistoryToken setSave0(final String value) {
+        return this;
     }
 
     @Override
@@ -105,7 +106,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                                      final AppContext context) {
         // remove the save
         context.pushHistoryToken(
-                this.formulaHistoryToken()
+                this.setFormula()
         );
 
         // PATCH cell with new formula
