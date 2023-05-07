@@ -52,16 +52,6 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    HistoryToken setSave0(final String formulaText) {
-        return formulaSave(
-                this.id(),
-                this.name(),
-                this.viewportSelection(),
-                SpreadsheetFormula.EMPTY.setText(formulaText)
-        );
-    }
-
-    @Override
     public HistoryToken setFormula() {
         return this;
     }
@@ -73,6 +63,16 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
                 id,
                 name,
                 this.viewportSelection()
+        );
+    }
+
+    @Override
+    HistoryToken setSave0(final String formulaText) {
+        return formulaSave(
+                this.id(),
+                this.name(),
+                this.viewportSelection(),
+                SpreadsheetFormula.EMPTY.setText(formulaText)
         );
     }
 
