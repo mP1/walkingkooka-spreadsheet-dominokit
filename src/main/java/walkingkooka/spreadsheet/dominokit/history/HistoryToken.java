@@ -660,7 +660,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
      */
-    public HistoryToken setAnchor(final SpreadsheetViewportSelectionAnchor anchor) {
+    public final HistoryToken setAnchor(final SpreadsheetViewportSelectionAnchor anchor) {
         Objects.requireNonNull(anchor, "anchor");
         HistoryToken token = this;
 
@@ -686,7 +686,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
      */
-    public HistoryToken setCell(final SpreadsheetSelection selection) {
+    public final HistoryToken setCell(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
         HistoryToken token = this;
 
@@ -705,7 +705,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a clear.
      */
-    public HistoryToken setClear() {
+    public final HistoryToken setClear() {
         return this.setIfSpreadsheetNameHistoryToken(
                 SpreadsheetNameHistoryToken::setClear0
         );
@@ -714,7 +714,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
      */
-    public HistoryToken setColumn(final SpreadsheetSelection selection) {
+    public final HistoryToken setColumn(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
         HistoryToken token = this;
 
@@ -733,7 +733,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a delete.
      */
-    public HistoryToken setDelete() {
+    public final HistoryToken setDelete() {
         return this.setIfSpreadsheetNameHistoryToken(
                 SpreadsheetNameHistoryToken::setDelete0
         );
@@ -747,7 +747,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a freeze.
      */
-    public HistoryToken setFreeze() {
+    public final HistoryToken setFreeze() {
         return this.setIfSpreadsheetNameHistoryToken(
                 SpreadsheetNameHistoryToken::setFreeze0
         );
@@ -763,7 +763,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Sets or replaces the current {@link SpreadsheetLabelName} otherwise returns this.
      */
-    public HistoryToken setLabelMapping(final SpreadsheetLabelName label) {
+    public final HistoryToken setLabelMapping(final SpreadsheetLabelName label) {
         Objects.requireNonNull(label, "label");
         HistoryToken token = this;
 
@@ -832,7 +832,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a pattern.
      */
-    public HistoryToken setPattern(final SpreadsheetPatternKind kind) {
+    public final HistoryToken setPattern(final SpreadsheetPatternKind kind) {
         HistoryToken token = this;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
@@ -846,7 +846,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
      */
-    public HistoryToken setRow(final SpreadsheetSelection selection) {
+    public final HistoryToken setRow(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
         HistoryToken token = this;
 
@@ -865,7 +865,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a save.
      */
-    public HistoryToken setSave(final String text) {
+    public final HistoryToken setSave(final String text) {
         HistoryToken token = this;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
@@ -893,7 +893,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a unfreeze.
      */
-    public HistoryToken setUnfreeze() {
+    public final HistoryToken setUnfreeze() {
         return this.setIfSpreadsheetNameHistoryToken(
                 SpreadsheetNameHistoryToken::setUnfreeze0
         );
