@@ -57,7 +57,7 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     }
 
     @Override
-    HistoryToken save(final String value) {
+    HistoryToken setSave0(final String value) {
         return this;
     }
 

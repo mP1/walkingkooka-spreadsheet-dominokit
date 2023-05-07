@@ -74,7 +74,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    HistoryToken save(final String pattern) {
+    HistoryToken setSave0(final String pattern) {
         final SpreadsheetPatternKind patternKind = this.patternKind();
 
         return cellPatternSave(

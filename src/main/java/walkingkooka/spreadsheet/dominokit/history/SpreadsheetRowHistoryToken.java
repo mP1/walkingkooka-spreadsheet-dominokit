@@ -113,7 +113,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     }
 
     @Override //
-    HistoryToken save(final String value) {
+    HistoryToken setSave0(final String value) {
         return this;
     }
 

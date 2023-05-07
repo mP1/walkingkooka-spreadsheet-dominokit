@@ -957,6 +957,109 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setSave..........................................................................................................
+
+    @Test
+    public void testSetSaveWithNotSpreadsheetNameHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setSave("save-value"),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetSaveFormula() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final String formulaText = "=1";
+        final HistoryToken historyToken = HistoryToken.formula(ID, NAME, viewportSelection);
+
+        this.checkEquals(
+                historyToken.setSave(formulaText),
+                HistoryToken.formulaSave(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        SpreadsheetFormula.EMPTY.setText(formulaText)
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveStyle() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
+        final String value = "#123456";
+        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, viewportSelection, propertyName);
+
+        this.checkEquals(
+                historyToken.setSave(value),
+                HistoryToken.cellStyleSave(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        propertyName,
+                        Optional.of(Color.parse(value))
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveStyleWithEmptyText() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
+        final String value = "";
+        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, viewportSelection, propertyName);
+
+        this.checkEquals(
+                historyToken.setSave(value),
+                HistoryToken.cellStyleSave(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        propertyName,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveCell() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final String formulaText = "=1";
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
+
+        assertSame(
+                historyToken.setSave(formulaText),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetSaveColumn() {
+        final SpreadsheetViewportSelection viewportSelection = COLUMN.setDefaultAnchor();
+        final String formulaText = "=1";
+        final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewportSelection);
+
+        assertSame(
+                historyToken.setSave(formulaText),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetSaveRow() {
+        final SpreadsheetViewportSelection viewportSelection = ROW.setDefaultAnchor();
+        final String formulaText = "=1";
+        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewportSelection);
+
+        assertSame(
+                historyToken.setSave(formulaText),
+                historyToken
+        );
+    }
+
     // setStyle..........................................................................................................
 
     @Test

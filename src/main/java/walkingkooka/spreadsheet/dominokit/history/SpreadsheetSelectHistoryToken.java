@@ -266,7 +266,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    HistoryToken save(final String value) {
+    HistoryToken setSave0(final String value) {
         return this;
     }
 

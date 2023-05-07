@@ -81,7 +81,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
-    HistoryToken save(final String value) {
+    HistoryToken setSave0(final String value) {
         return labelMappingSave(
                 this.id(),
                 this.name(),

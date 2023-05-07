@@ -132,7 +132,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Creates a save {@link HistoryToken} after attempting to parse the value.
      */
-    abstract HistoryToken save(final String value);
+    abstract HistoryToken setSave0(final String value);
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
@@ -161,7 +161,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     final HistoryToken parseSave(final TextCursor cursor) {
-        return this.save(
+        return this.setSave(
                 parseAll(cursor)
         );
     }
