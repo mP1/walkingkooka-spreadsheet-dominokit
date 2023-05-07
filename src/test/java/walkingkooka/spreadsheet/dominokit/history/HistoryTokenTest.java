@@ -481,7 +481,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setCell..........................................................................................................
 
     @Test
-    public void testSetCellNotSpreadsheetNameistoryTokenSubclass() {
+    public void testSetCellWithNotSpreadsheetNameistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
@@ -491,7 +491,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetCellNotCellFails() {
+    public void testSetCellWithColumnFails() {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> HistoryToken.spreadsheetSelect(ID, NAME).setCell(COLUMN)
@@ -499,7 +499,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSeCell() {
+    public void testSetCell() {
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
 
         this.checkEquals(
@@ -515,7 +515,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setColumn........................................................................................................
 
     @Test
-    public void testSetColumnNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testSetColumnWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
@@ -533,7 +533,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSeColumn() {
+    public void testSetColumn() {
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
 
         this.checkEquals(
@@ -549,7 +549,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setLabelMapping..................................................................................................
 
     @Test
-    public void testSetLabelMappingNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testSetLabelMappingWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
@@ -559,7 +559,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSeLabelMapping() {
+    public void testSetLabelMapping() {
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
 
         this.checkEquals(
@@ -593,7 +593,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSeRow() {
+    public void testSetRow() {
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
 
         this.checkEquals(
