@@ -26,7 +26,7 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
     }
 
     @Test
-    public void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 }

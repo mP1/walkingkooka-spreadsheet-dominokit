@@ -31,18 +31,18 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 
     @Test
-    public void testMenuWithColumn() {
-        this.menuWithColumnAndCheck();
+    public void testSetMenuWithColumn() {
+        this.setMenuWithColumnAndCheck();
     }
 
     @Test
-    public void testMenuWithRow() {
-        this.menuWithRowAndCheck();
+    public void testSetMenuWithRow() {
+        this.setMenuWithRowAndCheck();
     }
 
     @Override

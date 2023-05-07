@@ -34,7 +34,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
-    public final void testIdName() {
+    public final void testSetIdName() {
         this.setIdAndNameAndCheck(
                 ID,
                 NAME,
@@ -43,7 +43,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
-    public final void testIdNameDifferentId() {
+    public final void testSetIdNameDifferentId() {
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 
         this.setIdAndNameAndCheck(
@@ -54,7 +54,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
-    public final void testIdNameDifferentName() {
+    public final void testSetIdNameDifferentName() {
         final SpreadsheetName differentName = SpreadsheetName.with("Different");
 
         this.setIdAndNameAndCheck(
@@ -67,7 +67,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public void testMenuWithNullSelectionFails() {
+    public void testSetMenuWithNullSelectionFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> this.createHistoryToken().setMenu2(null)
@@ -75,27 +75,27 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     }
 
     @Test
-    public void testMenuWithCellRangeFails() {
-        this.menuWithSelectionFails(
+    public void testSetMenuWithCellRangeFails() {
+        this.setMenuWithSelectionFails(
                 SpreadsheetSelection.parseCellRange("A1:B2")
         );
     }
 
     @Test
-    public void testMenuWithColumnRangeFails() {
-        this.menuWithSelectionFails(
+    public void testSetMenuWithColumnRangeFails() {
+        this.setMenuWithSelectionFails(
                 SpreadsheetSelection.parseColumnRange("C:D")
         );
     }
 
     @Test
-    public void testMenuWithRowRangeFails() {
-        this.menuWithSelectionFails(
+    public void testSetMenuWithRowRangeFails() {
+        this.setMenuWithSelectionFails(
                 SpreadsheetSelection.parseRowRange("5:6")
         );
     }
 
-    private void menuWithSelectionFails(final SpreadsheetSelection selection) {
+    private void setMenuWithSelectionFails(final SpreadsheetSelection selection) {
         final IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
                 () -> this.createHistoryToken()
@@ -109,14 +109,14 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         );
     }
 
-    final void menuWithCellAndCheck() {
-        this.menuWithCellAndCheck(
+    final void setMenuWithCellAndCheck() {
+        this.setMenuWithCellAndCheck(
                 SpreadsheetSelection.parseCell("Z99")
         );
     }
 
-    final void menuWithCellAndCheck(final SpreadsheetCellReference cell) {
-        this.menuAndCheck(
+    final void setMenuWithCellAndCheck(final SpreadsheetCellReference cell) {
+        this.setMenuAndCheck(
                 HistoryToken.cellMenu(
                         ID,
                         NAME,
@@ -125,15 +125,15 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 cell
         );
     }
-    
-    final void menuWithColumnAndCheck() {
-        this.menuWithColumnAndCheck(
+
+    final void setMenuWithColumnAndCheck() {
+        this.setMenuWithColumnAndCheck(
                 SpreadsheetSelection.parseColumn("C")
         );
     }
 
-    final void menuWithColumnAndCheck(final SpreadsheetColumnReference column) {
-        this.menuAndCheck(
+    final void setMenuWithColumnAndCheck(final SpreadsheetColumnReference column) {
+        this.setMenuAndCheck(
                 HistoryToken.columnMenu(
                         ID,
                         NAME,
@@ -143,14 +143,14 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         );
     }
 
-    final void menuWithRowAndCheck() {
-        this.menuWithRowAndCheck(
+    final void setMenuWithRowAndCheck() {
+        this.setMenuWithRowAndCheck(
                 SpreadsheetSelection.parseRow("4")
         );
     }
 
-    final void menuWithRowAndCheck(final SpreadsheetRowReference row) {
-        this.menuAndCheck(
+    final void setMenuWithRowAndCheck(final SpreadsheetRowReference row) {
+        this.setMenuAndCheck(
                 HistoryToken.rowMenu(
                         ID,
                         NAME,
@@ -160,18 +160,18 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         );
     }
 
-    final void menuAndCheck(final SpreadsheetViewportSelectionHistoryToken token,
-                            final SpreadsheetSelection selection) {
-        this.menuAndCheck(
+    final void setMenuAndCheck(final SpreadsheetViewportSelectionHistoryToken token,
+                               final SpreadsheetSelection selection) {
+        this.setMenuAndCheck(
                 token,
                 selection,
                 token
         );
     }
 
-    final void menuAndCheck(final SpreadsheetNameHistoryToken before,
-                            final SpreadsheetSelection selection,
-                            final SpreadsheetViewportSelectionHistoryToken expected) {
+    final void setMenuAndCheck(final SpreadsheetNameHistoryToken before,
+                               final SpreadsheetSelection selection,
+                               final SpreadsheetViewportSelectionHistoryToken expected) {
         this.checkEquals(
                 expected,
                 before.setMenu2(selection),

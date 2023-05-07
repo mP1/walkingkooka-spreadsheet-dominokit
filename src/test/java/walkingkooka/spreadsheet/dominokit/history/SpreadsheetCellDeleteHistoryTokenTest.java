@@ -49,8 +49,8 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 
     @Override
