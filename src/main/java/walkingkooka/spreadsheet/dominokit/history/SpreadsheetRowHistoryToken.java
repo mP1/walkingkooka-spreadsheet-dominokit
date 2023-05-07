@@ -72,10 +72,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
         return this;
     }
 
-    private HistoryToken formulaSaveHistoryToken(final String text) {
-        throw new UnsupportedOperationException();
-    }
-
     @Override //
     final HistoryToken setFreeze0() {
         return rowFreeze(

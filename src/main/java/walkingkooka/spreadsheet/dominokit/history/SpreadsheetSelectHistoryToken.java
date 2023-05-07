@@ -235,10 +235,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return this;
     }
 
-    private HistoryToken formulaSaveHistoryToken(final String text) {
-        throw new UnsupportedOperationException();
-    }
-
     @Override
     HistoryToken setFreeze0() {
         return this;

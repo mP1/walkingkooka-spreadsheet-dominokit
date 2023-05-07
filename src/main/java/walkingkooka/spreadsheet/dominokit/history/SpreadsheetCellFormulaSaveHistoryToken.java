@@ -85,10 +85,6 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         return this;
     }
 
-    private HistoryToken formulaSaveHistoryToken(final String text) {
-        throw new UnsupportedOperationException();
-    }
-
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -44,27 +43,6 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
         this.urlFragmentAndCheck(
                 LABEL,
                 "/123/SpreadsheetName456/cell/Label123/formula"
-        );
-    }
-
-    // formulaSaveHistoryToken..........................................................................................
-
-    @Test
-    public void testFormulaSaveHistoryToken() {
-        final String formulaText = "=1+2";
-
-        this.checkEquals(
-                HistoryToken.formulaSave(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetFormula.EMPTY.setText(formulaText)
-                ),
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ).formulaSaveHistoryToken(formulaText)
         );
     }
 
