@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Optional;
+
 abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetSelectionHistoryToken(final SpreadsheetId id,
@@ -55,10 +57,10 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 result = this.formulaHistoryToken();
                 break;
             case "freeze":
-                result = this.setFreeze0();
+                result = this.setFreeze();
                 break;
             case "menu":
-                result = this.setMenu1();
+                result = this.setMenu(Optional.empty());
                 break;
             case "pattern":
                 result = this.parsePattern(cursor);
