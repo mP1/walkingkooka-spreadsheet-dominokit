@@ -65,7 +65,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     }
 
     @Override
-    HistoryToken save(final String value) {
+    HistoryToken setSave0(final String value) {
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName();
 
         return HistoryToken.metadataPropertySave(
