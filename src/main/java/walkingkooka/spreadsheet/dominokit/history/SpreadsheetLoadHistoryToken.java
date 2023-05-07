@@ -54,8 +54,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
         return this; // should not happen
     }
 
-    @Override
-    public HistoryToken formulaSaveHistoryToken(final String text) {
+    private HistoryToken formulaSaveHistoryToken(final String text) {
         throw new UnsupportedOperationException();
     }
 

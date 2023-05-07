@@ -657,11 +657,6 @@ public abstract class HistoryToken implements HasUrlFragment {
     // token factory methods............................................................................................
 
     /**
-     * Creates a formula save history with the new formula text.
-     */
-    public abstract HistoryToken formulaSaveHistoryToken(final String text);
-
-    /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
      */
     public HistoryToken setAnchor(final SpreadsheetViewportSelectionAnchor anchor) {

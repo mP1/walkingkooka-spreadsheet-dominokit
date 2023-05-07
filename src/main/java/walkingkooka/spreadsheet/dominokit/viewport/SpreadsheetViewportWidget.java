@@ -382,7 +382,8 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 // if cell then edit formula
                 context.pushHistoryToken(
                         context.historyToken()
-                                .formulaSaveHistoryToken(this.formulaTextBox.getValue())
+                                .setFormula()
+                                .setSave(this.formulaTextBox.getValue())
                 );
                 break;
             case Escape:

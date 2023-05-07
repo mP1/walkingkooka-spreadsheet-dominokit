@@ -66,7 +66,6 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
         return this;
     }
 
-    @Override
     public HistoryToken formulaSaveHistoryToken(final String text) {
         return this.setSave(text);
     }
