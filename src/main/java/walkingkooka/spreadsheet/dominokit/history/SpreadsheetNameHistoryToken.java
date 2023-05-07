@@ -151,7 +151,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final Optional<String> patternKind = parseComponent(cursor);
         if (patternKind.isPresent()) {
-            result = this.setPattern0(
+            result = this.setPattern(
                     SpreadsheetPatternKind.fromTypeName("spreadsheet-" + patternKind.get() + "-pattern")
             );
         } else {
@@ -171,7 +171,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final Optional<String> style = parseComponent(cursor);
         if(style.isPresent()) {
-            result = this.setStyle0(
+            result = this.setStyle(
                     TextStylePropertyName.with(
                             style.get()
                     )
