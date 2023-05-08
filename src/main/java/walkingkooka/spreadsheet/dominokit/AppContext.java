@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Objects;
@@ -63,6 +65,18 @@ public interface AppContext extends Context {
      * Returns the current or last loaded {@link SpreadsheetMetadata}.
      */
     SpreadsheetMetadata spreadsheetMetadata();
+
+    // json............................................................................................................
+
+    /**
+     * {@see JsonNodeMarshallContext}
+     */
+    JsonNodeMarshallContext marshallContext();
+
+    /**
+     * {@see JsonNodeUnmarshallContext}
+     */
+    JsonNodeUnmarshallContext unmarshallContext();
 
     // history..........................................................................................................
 

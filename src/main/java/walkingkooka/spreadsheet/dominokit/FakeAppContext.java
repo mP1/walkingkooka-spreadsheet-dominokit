@@ -29,6 +29,8 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
@@ -69,6 +71,20 @@ public class FakeAppContext implements AppContext {
     public SpreadsheetMetadata spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
+
+    // json.............................................................................................................
+
+    @Override
+    public JsonNodeMarshallContext marshallContext() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public JsonNodeUnmarshallContext unmarshallContext() {
+        throw new UnsupportedOperationException();
+    }
+
+    // HistoryToken.....................................................................................................
 
     @Override
     public void addHistoryWatcher(final HistoryTokenWatcher watcher) {
