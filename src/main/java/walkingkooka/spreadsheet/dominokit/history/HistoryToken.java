@@ -941,6 +941,29 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Returns a {@link SpreadsheetViewportSelectionHistoryToken} using the id, name and {@link SpreadsheetViewportSelection}.
+     */
+    public final HistoryToken viewportSelectionHistoryToken() {
+        HistoryToken result = this;
+
+        if (this instanceof SpreadsheetViewportSelectionHistoryToken) {
+            final SpreadsheetViewportSelectionHistoryToken spreadsheetViewportSelectionHistoryToken = (SpreadsheetViewportSelectionHistoryToken) this;
+
+            result = HistoryToken.viewportSelection(
+                    spreadsheetViewportSelectionHistoryToken.id(),
+                    spreadsheetViewportSelectionHistoryToken.name(),
+                    spreadsheetViewportSelectionHistoryToken.viewportSelection()
+            );
+
+            if (this.equals(result)) {
+                result = this;
+            }
+        }
+
+        return result;
+    }
+
+    /**
      * Maybe used to get the {@link SpreadsheetViewportSelection} from any {@link HistoryToken}
      */
     public final Optional<SpreadsheetViewportSelection> viewportSelectionOrEmpty() {
