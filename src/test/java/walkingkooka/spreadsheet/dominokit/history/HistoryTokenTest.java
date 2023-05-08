@@ -1390,12 +1390,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // viewportSelectionHistoryToken....................................................................................
+    // viewportSelectionHistoryTokenOrEmpty....................................................................................
 
     @Test
     public void testViewportSelectionHistoryTokenNot() {
         this.viewportSelectionHistoryTokenAndCheck(
-                HistoryToken.unknown(UrlFragment.parse("/something-else"))
+                HistoryToken.unknown(UrlFragment.parse("/something-else")),
+                Optional.empty()
         );
     }
 
@@ -1552,17 +1553,26 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private void viewportSelectionHistoryTokenAndCheck(final HistoryToken token) {
         assertSame(
                 token,
-                token.viewportSelectionHistoryToken(),
-                () -> token + " viewportSelectionHistoryToken"
+                token.viewportSelectionHistoryTokenOrEmpty()
+                        .orElse(null),
+                () -> token + " viewportSelectionHistoryTokenOrEmpty"
         );
     }
 
     private void viewportSelectionHistoryTokenAndCheck(final HistoryToken token,
                                                        final HistoryToken expected) {
+        this.viewportSelectionHistoryTokenAndCheck(
+                token,
+                Optional.of(expected)
+        );
+    }
+
+    private void viewportSelectionHistoryTokenAndCheck(final HistoryToken token,
+                                                       final Optional<HistoryToken> expected) {
         this.checkEquals(
                 expected,
-                token.viewportSelectionHistoryToken(),
-                () -> token + " viewportSelectionHistoryToken"
+                token.viewportSelectionHistoryTokenOrEmpty(),
+                () -> token + " viewportSelectionHistoryTokenOrEmpty"
         );
     }
 
