@@ -43,13 +43,15 @@ import java.util.Set;
 
 public interface AppContext extends Context {
 
-    void addHistoryWatcher(final HistoryTokenWatcher watcher);
+    // delta............................................................................................................
 
     void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
 
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
     void fireSpreadsheetDelta(final SpreadsheetDelta delta);
+
+    // metadata..........................................................................................................
 
     void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
 
@@ -62,6 +64,13 @@ public interface AppContext extends Context {
      */
     SpreadsheetMetadata spreadsheetMetadata();
 
+    // history..........................................................................................................
+
+    /**
+     * Adds a new {@link HistoryTokenWatcher}
+     */
+    void addHistoryWatcher(final HistoryTokenWatcher watcher);
+
     /**
      * Returns the current history token.
      */
@@ -71,6 +80,8 @@ public interface AppContext extends Context {
      * Pushes the given {@link HistoryToken} to the browser location.hash
      */
     void pushHistoryToken(final HistoryToken token);
+
+    // viewport.........................................................................................................
 
     /**
      * Gives focus to the formula textbox.
