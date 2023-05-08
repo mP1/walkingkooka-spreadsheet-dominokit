@@ -52,6 +52,11 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.FontSize;
@@ -66,6 +71,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
+import java.math.MathContext;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -211,6 +217,12 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
+        // update the global JsonNodeUnmarshallContext.
+        this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
+                metadata.expressionNumberKind(),
+                metadata.mathContext()
+        );
+
         final Optional<SpreadsheetId> id = metadata.id();
         final Optional<SpreadsheetName> name = metadata.name();
 
@@ -346,6 +358,31 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         this.layout.getRightPanel()
                 .toggleDisplay(show);
     }
+
+    // json.............................................................................................................
+
+    @Override
+    public JsonNodeMarshallContext marshallContext() {
+        return MARSHALL_CONTEXT;
+    }
+
+    /**
+     * A constant
+     */
+    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
+
+    /**
+     * The {@link JsonNodeUnmarshallContext} will be updated each time a new {@link SpreadsheetMetadata} is received.
+     */
+    @Override
+    public JsonNodeUnmarshallContext unmarshallContext() {
+        return this.unmarshallContext;
+    }
+
+    private JsonNodeUnmarshallContext unmarshallContext = JsonNodeUnmarshallContexts.basic(
+            ExpressionNumberKind.DEFAULT,
+            MathContext.DECIMAL32
+    );
 
     // history eventListener............................................................................................
 
