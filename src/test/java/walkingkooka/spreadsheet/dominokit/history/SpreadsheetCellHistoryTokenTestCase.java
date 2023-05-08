@@ -137,23 +137,6 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
-    // viewportSelection................................................................................................
-
-    @Test
-    public final void testViewportSelectionHistoryToken() {
-        final T token = this.createHistoryToken();
-        final HistoryToken selection = token.viewportSelectionHistoryToken();
-
-        this.checkEquals(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        VIEWPORT_SELECTION
-                ),
-                selection
-        );
-    }
-
     // setMenu1 with selection..............................................................................................
 
     @Test

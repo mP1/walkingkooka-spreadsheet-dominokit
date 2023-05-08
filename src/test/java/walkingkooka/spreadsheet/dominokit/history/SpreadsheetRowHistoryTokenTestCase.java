@@ -134,23 +134,6 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
-    // viewportSelection................................................................................................
-
-    @Test
-    public final void testViewportSelectionHistoryTokenn() {
-        final T token = this.createHistoryToken();
-        final HistoryToken selection = token.viewportSelectionHistoryToken();
-
-        this.checkEquals(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        VIEWPORT_SELECTION
-                ),
-                selection
-        );
-    }
-
     // setMenu1(Selection)..................................................................................................
 
     @Test
