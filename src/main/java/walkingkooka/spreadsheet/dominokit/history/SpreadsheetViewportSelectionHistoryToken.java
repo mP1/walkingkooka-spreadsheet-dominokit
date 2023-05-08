@@ -186,9 +186,8 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
     }
 
     final void pushViewportSelectionHistoryToken(final AppContext context) {
-        context.pushHistoryToken(
-                this.viewportSelectionHistoryToken()
-        );
+        this.viewportSelectionHistoryTokenOrEmpty()
+                .ifPresent(context::pushHistoryToken);
     }
 
     /**
