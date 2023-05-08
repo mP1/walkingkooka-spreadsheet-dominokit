@@ -106,6 +106,15 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    @Test
+    public void testParseTextStylePropertyBottomBorderWidthNull() {
+        this.parseAndCheck(
+                TextStylePropertyName.BORDER_BOTTOM_WIDTH,
+                null,
+                "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/"
+        );
+    }
+
     private <TT> void urlFragmentAndCheck(final TextStylePropertyName<TT> propertyName,
                                           final TT propertyValue,
                                           final String urlFragment) {
@@ -115,7 +124,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                         NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         propertyName,
-                        Optional.of(propertyValue)
+                        Optional.ofNullable(propertyValue)
                 ),
                 urlFragment
         );
@@ -131,7 +140,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                         NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         propertyName,
-                        Optional.of(propertyValue)
+                        Optional.ofNullable(propertyValue)
                 )
         );
     }
