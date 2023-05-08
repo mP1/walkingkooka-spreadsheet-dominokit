@@ -137,6 +137,11 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
 
     private final SpreadsheetMetadataWatcher watcher;
 
+    @Override
+    public AppContext context() {
+        return this.context;
+    }
+
     private final AppContext context;
 
     @Override

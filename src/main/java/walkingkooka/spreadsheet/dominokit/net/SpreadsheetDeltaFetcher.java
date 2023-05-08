@@ -235,6 +235,11 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
 
     private final SpreadsheetDeltaWatcher watcher;
 
+    @Override
+    public AppContext context() {
+        return this.context;
+    }
+
     private final AppContext context;
 
     @Override

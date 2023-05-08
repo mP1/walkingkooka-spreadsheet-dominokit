@@ -27,24 +27,12 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
-import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
-import java.math.MathContext;
 import java.util.Optional;
 
 public interface Fetcher {
-
-    JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
-
-    JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
-            ExpressionNumberKind.BIG_DECIMAL,
-            MathContext.DECIMAL32
-    );
 
     default void delete(final Url url) {
         this.fetch(
@@ -187,22 +175,28 @@ public interface Fetcher {
      */
     default <T> T parse(final String json,
                         final Class<T> type) {
-        return UNMARSHALL_CONTEXT.unmarshall(
-                JsonNode.parse(
-                        json
-                ),
-                type
-        );
+        return this.context()
+                .unmarshallContext()
+                .unmarshall(
+                        JsonNode.parse(
+                                json
+                        ),
+                        type
+                );
     }
 
     /**
      * Parses the JSON String into the requested type.
      */
     default String toJson(final Object value) {
-        return MARSHALL_CONTEXT.marshall(
-                value
-        ).toString();
+        return this.context()
+                .marshallContext()
+                .marshall(
+                        value
+                ).toString();
     }
+
+    AppContext context();
 
     /**
      * This method is invoked for non OK responses.
