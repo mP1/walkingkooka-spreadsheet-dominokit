@@ -93,12 +93,6 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
         return Optional.ofNullable(token);
     }
 
-    /**
-     * Factory that returns a {@link SpreadsheetViewportSelectionHistoryToken} without any action and just the
-     * {@link SpreadsheetViewportSelection}
-     */
-    public abstract HistoryToken viewportSelectionHistoryToken();
-
     final void deltaClearSelectionAndPushViewportSelectionHistoryToken(final AppContext context) {
         this.deltaClearSelection(context);
         this.pushViewportSelectionHistoryToken(context);

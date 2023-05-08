@@ -114,13 +114,4 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
                 this.viewportSelection()
         );
     }
-
-    @Override
-    public final HistoryToken viewportSelectionHistoryToken() {
-        return cell(
-                this.id(),
-                this.name(),
-                this.viewportSelection()
-        );
-    }
 }

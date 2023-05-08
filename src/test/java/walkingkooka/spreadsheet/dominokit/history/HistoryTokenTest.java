@@ -1390,6 +1390,182 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // viewportSelectionHistoryToken....................................................................................
+
+    @Test
+    public void testViewportSelectionHistoryTokenNot() {
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.unknown(UrlFragment.parse("/something-else"))
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenCell() {
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenCellRange() {
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenLabel() {
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        LABEL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenWhenCellClear() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.cellClear(
+                        ID,
+                        NAME,
+                        viewportSelection
+                ),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenWhenCellFormulaSave() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.formulaSave(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        SpreadsheetFormula.EMPTY.setText("=1")
+                ),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenColumn() {
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenWhenColumnClear() {
+        final SpreadsheetViewportSelection viewportSelection = COLUMN.setDefaultAnchor();
+
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.columnClear(
+                        ID,
+                        NAME,
+                        viewportSelection
+                ),
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenColumnRange() {
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenRow() {
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenWhenRowClear() {
+        final SpreadsheetViewportSelection viewportSelection = ROW.setDefaultAnchor();
+
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.rowClear(
+                        ID,
+                        NAME,
+                        viewportSelection
+                ),
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        viewportSelection
+                )
+        );
+    }
+
+    @Test
+    public void testViewportSelectionHistoryTokenRowRange() {
+        this.viewportSelectionHistoryTokenAndCheck(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setDefaultAnchor()
+                )
+        );
+    }
+
+    private void viewportSelectionHistoryTokenAndCheck(final HistoryToken token) {
+        assertSame(
+                token,
+                token.viewportSelectionHistoryToken(),
+                () -> token + " viewportSelectionHistoryToken"
+        );
+    }
+
+    private void viewportSelectionHistoryTokenAndCheck(final HistoryToken token,
+                                                       final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.viewportSelectionHistoryToken(),
+                () -> token + " viewportSelectionHistoryToken"
+        );
+    }
+
     // parse............................................................................................................
 
     @Test

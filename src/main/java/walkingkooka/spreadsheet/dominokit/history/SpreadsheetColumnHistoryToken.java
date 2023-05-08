@@ -125,13 +125,4 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
                 this.viewportSelection()
         );
     }
-
-    @Override
-    public final HistoryToken viewportSelectionHistoryToken() {
-        return column(
-                this.id(),
-                this.name(),
-                this.viewportSelection()
-        );
-    }
 }
