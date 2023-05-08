@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 import java.util.Optional;
 
@@ -133,7 +132,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
                 ),
                 kind.patternPatch(
                         pattern.get(),
-                        JsonNodeMarshallContexts.basic()
+                        context.marshallContext()
                 ).toString()
         );
     }
