@@ -23,9 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -115,12 +113,8 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                 UrlQueryString.EMPTY
                         )
                 ),
-                SpreadsheetDelta.stylePatch(
-                        TextStyle.EMPTY.setOrRemove(
-                                propertyName,
-                                this.propertyValue().orElse(null)
-                        ),
-                        context.marshallContext()
+                propertyName.patch(
+                        this.propertyValue().orElse(null)
                 ).toString()
         );
     }
