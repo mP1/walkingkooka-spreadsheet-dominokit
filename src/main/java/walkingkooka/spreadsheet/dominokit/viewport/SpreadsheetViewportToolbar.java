@@ -37,6 +37,7 @@ import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.List;
 
@@ -94,7 +95,10 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 textAlignLeft().element(),
                 textAlignCenter().element(),
                 textAlignRight().element(),
-                textAlignJustify().element()
+                textAlignJustify().element(),
+                verticalAlignTop().element(),
+                verticalAlignMiddle().element(),
+                verticalAlignBottom().element()
         );
     }
 
@@ -159,6 +163,30 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 Icons.ALL.format_underlined(),
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE
+        );
+    }
+
+    private Button verticalAlignTop() {
+        return this.buttonPatchStyleProperty(
+                Icons.ALL.format_align_left(),
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.TOP
+        );
+    }
+
+    private Button verticalAlignMiddle() {
+        return this.buttonPatchStyleProperty(
+                Icons.ALL.format_align_center(),
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.MIDDLE
+        );
+    }
+
+    private Button verticalAlignBottom() {
+        return this.buttonPatchStyleProperty(
+                Icons.ALL.format_align_right(),
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.BOTTOM
         );
     }
 
