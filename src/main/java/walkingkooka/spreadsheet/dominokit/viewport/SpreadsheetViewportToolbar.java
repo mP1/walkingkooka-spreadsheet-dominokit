@@ -48,6 +48,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
 
     private SpreadsheetViewportToolbar(final AppContext context) {
         this.context = context;
+
+        context.addHistoryWatcher(this);
     }
 
     // isElement........................................................................................................
