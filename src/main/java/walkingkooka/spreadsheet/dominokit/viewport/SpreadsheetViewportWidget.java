@@ -95,6 +95,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         this.tableElement = this.createTable();
         this.root = this.createRoot();
 
+        context.addHistoryWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
     }

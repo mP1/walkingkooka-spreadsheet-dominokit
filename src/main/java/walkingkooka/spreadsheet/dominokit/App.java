@@ -115,8 +115,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         final SpreadsheetViewportToolbar toolbar = SpreadsheetViewportToolbar.create(this);
         this.addHistoryWatcher(toolbar);
 
-        this.addHistoryWatcher(this.viewportWidget);
-
         final Layout layout = this.layout;
         layout.style()
                 .setOverFlowX("hidden")
