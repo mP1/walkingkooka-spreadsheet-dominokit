@@ -32,6 +32,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -84,10 +85,19 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 .setMargin("5px");
 
         return Lists.of(
+                bold().element(),
                 textAlignLeft().element(),
                 textAlignCenter().element(),
                 textAlignRight().element(),
                 textAlignJustify().element()
+        );
+    }
+
+    private Button bold() {
+        return this.buttonPatchStyleProperty(
+                Icons.ALL.format_bold(),
+                TextStylePropertyName.FONT_WEIGHT,
+                FontWeight.BOLD
         );
     }
 
