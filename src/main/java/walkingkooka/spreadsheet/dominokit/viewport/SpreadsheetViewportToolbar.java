@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -88,6 +89,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         return Lists.of(
                 bold().element(),
                 italics().element(),
+                underline().element(),
                 textAlignLeft().element(),
                 textAlignCenter().element(),
                 textAlignRight().element(),
@@ -140,6 +142,14 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 Icons.ALL.format_align_justify(),
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY
+        );
+    }
+
+    private Button underline() {
+        return this.buttonPatchStyleProperty(
+                Icons.ALL.format_underlined(),
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                TextDecorationLine.UNDERLINE
         );
     }
 
