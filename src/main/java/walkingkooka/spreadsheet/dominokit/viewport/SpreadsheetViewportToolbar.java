@@ -53,6 +53,20 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
     private SpreadsheetViewportToolbar(final AppContext context) {
         this.context = context;
 
+        this.bold = bold();
+        this.italics = italics();
+        this.strikethru = strikethru();
+        this.underline = underline();
+        this.textAlignLeft = textAlignLeft();
+        this.textAlignCenter = textAlignCenter();
+        this.textAlignRight = textAlignRight();
+        this.textAlignJustify = textAlignJustify();
+        this.verticalAlignTop = verticalAlignTop();
+        this.verticalAlignMiddle = verticalAlignMiddle();
+        this.verticalAlignBottom = verticalAlignBottom();
+
+        this.flexLayout = this.createFlexLayout();
+
         context.addHistoryWatcher(this);
     }
 
@@ -63,7 +77,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         return this.flexLayout.element();
     }
 
-    private final FlexLayout flexLayout = createFlexLayout();
+    private final FlexLayout flexLayout;
 
     /**
      * Creates a {@link FlexLayout} and populates it with the toolbar icons etc.
@@ -88,17 +102,17 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 .setMargin("5px");
 
         return Lists.of(
-                bold().element(),
-                italics().element(),
-                strikethru().element(),
-                underline().element(),
-                textAlignLeft().element(),
-                textAlignCenter().element(),
-                textAlignRight().element(),
-                textAlignJustify().element(),
-                verticalAlignTop().element(),
-                verticalAlignMiddle().element(),
-                verticalAlignBottom().element()
+                this.bold.element(),
+                this.italics.element(),
+                this.strikethru.element(),
+                this.underline.element(),
+                this.textAlignLeft.element(),
+                this.textAlignCenter.element(),
+                this.textAlignRight.element(),
+                this.textAlignJustify.element(),
+                this.verticalAlignTop.element(),
+                this.verticalAlignMiddle.element(),
+                this.verticalAlignBottom.element()
         );
     }
 
@@ -110,6 +124,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         );
     }
 
+    private final Button bold;
+
     private Button italics() {
         return this.buttonPatchStyleProperty(
                 Icons.ALL.format_italic(),
@@ -117,6 +133,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 FontStyle.ITALIC
         );
     }
+
+    private final Button italics;
 
     private Button strikethru() {
         return this.buttonPatchStyleProperty(
@@ -126,6 +144,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         );
     }
 
+    private final Button strikethru;
+
     private Button textAlignLeft() {
         return this.buttonPatchStyleProperty(
                 Icons.ALL.format_align_left(),
@@ -133,6 +153,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 TextAlign.LEFT
         );
     }
+
+    private final Button textAlignLeft;
 
     private Button textAlignCenter() {
         return this.buttonPatchStyleProperty(
@@ -142,6 +164,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         );
     }
 
+    private final Button textAlignCenter;
+
     private Button textAlignRight() {
         return this.buttonPatchStyleProperty(
                 Icons.ALL.format_align_right(),
@@ -149,6 +173,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 TextAlign.RIGHT
         );
     }
+
+    private final Button textAlignRight;
 
     private Button textAlignJustify() {
         return this.buttonPatchStyleProperty(
@@ -158,6 +184,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         );
     }
 
+    private final Button textAlignJustify;
+
     private Button underline() {
         return this.buttonPatchStyleProperty(
                 Icons.ALL.format_underlined(),
@@ -165,6 +193,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 TextDecorationLine.UNDERLINE
         );
     }
+
+    private final Button underline;
 
     private Button verticalAlignTop() {
         return this.buttonPatchStyleProperty(
@@ -174,6 +204,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         );
     }
 
+    private final Button verticalAlignTop;
+
     private Button verticalAlignMiddle() {
         return this.buttonPatchStyleProperty(
                 Icons.ALL.format_align_center(),
@@ -182,6 +214,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         );
     }
 
+    private final Button verticalAlignMiddle;
+
     private Button verticalAlignBottom() {
         return this.buttonPatchStyleProperty(
                 Icons.ALL.format_align_right(),
@@ -189,6 +223,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 VerticalAlign.BOTTOM
         );
     }
+
+    private final Button verticalAlignBottom;
 
     /**
      * Creates a button with the icon and when clicked pushes a save history token with the provided value.
