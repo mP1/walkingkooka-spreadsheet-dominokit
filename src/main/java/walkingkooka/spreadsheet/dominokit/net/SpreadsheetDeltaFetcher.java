@@ -27,11 +27,14 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
+import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -167,6 +170,52 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                 )
         );
     }
+
+    /**
+     * Loads the cells to fill the given rectangular area typically a viewport.
+     */
+    public void loadCells(
+            final SpreadsheetId id,
+            final SpreadsheetCellReference home,
+            final int width,
+            final int height,
+            final Optional<SpreadsheetViewportSelection> viewportSelection,
+            final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
+        Objects.requireNonNull(navigation, "navigation");
+
+        this.context.debug("SpreadsheetDeltaFetcher.loadCells " + home + " " + width + "x" + height);
+
+        // load cells for the new window...
+        //http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+
+        UrlQueryString queryString = UrlQueryString.EMPTY
+                .addParameter(HOME, home.toString())
+                .addParameter(WIDTH, String.valueOf(width))
+                .addParameter(HEIGHT, String.valueOf(height))
+                .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
+
+        if (viewportSelection.isPresent()) {
+            queryString = appendViewportSelection(
+                    viewportSelection.get()
+                            .setNavigation(navigation),
+                    queryString
+            );
+        }
+
+        this.get(
+                Url.parseRelative(
+                        "/api/spreadsheet/" +
+                                id +
+                                "/cell/*/" +
+                                CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
+                ).setQuery(queryString)
+        );
+    }
+
+    private final static UrlParameterName HOME = UrlParameterName.with("home");
+    private final static UrlParameterName WIDTH = UrlParameterName.with("width");
+    private final static UrlParameterName HEIGHT = UrlParameterName.with("height");
+    private final static UrlParameterName INCLUDE_FROZEN_COLUMNS_ROWS = UrlParameterName.with("includeFrozenColumnsRows");
 
     public void patchDelta(final Url url,
                            final SpreadsheetDelta delta) {

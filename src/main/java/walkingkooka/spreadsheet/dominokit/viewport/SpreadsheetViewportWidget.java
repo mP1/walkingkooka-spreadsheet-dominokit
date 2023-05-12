@@ -37,9 +37,6 @@ import org.jboss.elemento.HtmlContentBuilder;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.net.Url;
-import walkingkooka.net.UrlParameterName;
-import walkingkooka.net.UrlQueryString;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -48,11 +45,9 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
@@ -63,7 +58,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
-import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
@@ -238,52 +232,20 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private void loadViewportCells(final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
         Objects.requireNonNull(navigation, "navigation");
 
-        this.cache.clear(); // equivalent to clearing all cached data.
-
+        this.cache.clear(); // clear all cached data.
         this.reload = false;
-
         final SpreadsheetMetadata metadata = this.metadata;
-        final int width = this.width;
-        final int height = this.height;
-        final SpreadsheetCellReference home = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL)
-                .orElse(SpreadsheetCellReference.A1);
-
-        this.context.debug("SpreadsheetViewportWidget.loadViewportCells " + home + " " + width + "x" + height);
-
-
-        // load cells for the new window...
-        //http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
-
-        UrlQueryString queryString = UrlQueryString.EMPTY
-                .addParameter(HOME, home.toString())
-                .addParameter(WIDTH, String.valueOf(width))
-                .addParameter(HEIGHT, String.valueOf(height))
-                .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
-
-        final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
-        if (viewportSelection.isPresent()) {
-            queryString = SpreadsheetDeltaFetcher.appendViewportSelection(
-                    viewportSelection.get()
-                            .setNavigation(navigation),
-                    queryString
-            );
-        }
 
         this.context.spreadsheetDeltaFetcher()
-                .get(
-                        Url.parseRelative(
-                                "/api/spreadsheet/" +
-                                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID) +
-                                        "/cell/*/" +
-                                        CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
-                        ).setQuery(queryString)
+                .loadCells(
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID), // id
+                        metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1), // home
+                        this.width,
+                        this.height,
+                        metadata.get(SpreadsheetMetadataPropertyName.SELECTION), // viewportSelection
+                        navigation
                 );
     }
-
-    private final static UrlParameterName HOME = UrlParameterName.with("home");
-    private final static UrlParameterName WIDTH = UrlParameterName.with("width");
-    private final static UrlParameterName HEIGHT = UrlParameterName.with("height");
-    private final static UrlParameterName INCLUDE_FROZEN_COLUMNS_ROWS = UrlParameterName.with("includeFrozenColumnsRows");
 
     /**
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
