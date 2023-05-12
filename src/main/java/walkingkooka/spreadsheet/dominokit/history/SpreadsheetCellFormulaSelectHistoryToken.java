@@ -86,7 +86,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
                     this.viewportSelection()
                             .selection()
             );
-            context.giveFcrmulaTextBoxFocus();
+            context.giveFormulaTextBoxFocus();
         }
     }
 }

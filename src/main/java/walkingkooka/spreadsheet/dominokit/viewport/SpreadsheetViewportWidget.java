@@ -397,7 +397,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * with the formula every time a new {@link SpreadsheetDelta} is returned.
      */
     public void giveFcrmulaTextBoxFocus() {
-        this.context.debug("SpreadsheetViewportWidget.giveFcrmulaTextBoxFocus");
+        this.context.debug("SpreadsheetViewportWidget.giveFormulaTextBoxFocus");
 
         this.formulaTextBox.focus();
     }
