@@ -534,6 +534,19 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
      */
     private HistoryToken previousToken = HistoryToken.unknown(UrlFragment.EMPTY);
 
+
+    // UI...............................................................................................................
+
+    @Override
+    public TextStyle selectedIconStyle() {
+        return SELECTED_ICON;
+    }
+
+    private final static TextStyle SELECTED_ICON = TextStyle.EMPTY.set(
+            TextStylePropertyName.BACKGROUND_COLOR,
+            Color.parse("ffff00")
+    );
+
     // Viewport.........................................................................................................
 
     /**

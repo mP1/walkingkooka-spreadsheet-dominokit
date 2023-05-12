@@ -101,6 +101,15 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    // UI...............................................................................................................
+
+    @Override
+    public TextStyle selectedIconStyle() {
+        throw new UnsupportedOperationException();
+    }
+
+    // viewport.........................................................................................................
+
     @Override
     public void giveFcrmulaTextBoxFocus() {
         throw new UnsupportedOperationException();
