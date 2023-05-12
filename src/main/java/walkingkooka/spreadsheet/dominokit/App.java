@@ -140,12 +140,10 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private void registerWindowResizeListener() {
         DomGlobal.window.addEventListener(
                 EventType.resize.getName(),
-                (e) -> {
-                    App.this.onResize(
-                            DomGlobal.window.innerWidth,
-                            DomGlobal.window.innerHeight
-                    );
-                }
+                (e) -> App.this.onResize(
+                        DomGlobal.window.innerWidth,
+                        DomGlobal.window.innerHeight
+                )
         );
     }
 
