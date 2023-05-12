@@ -111,7 +111,7 @@ public class FakeAppContext implements AppContext {
     // viewport.........................................................................................................
 
     @Override
-    public void giveFcrmulaTextBoxFocus() {
+    public void giveFormulaTextBoxFocus() {
         throw new UnsupportedOperationException();
     }
 

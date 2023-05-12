@@ -108,7 +108,7 @@ public interface AppContext extends Context {
     /**
      * Gives focus to the formula textbox.
      */
-    void giveFcrmulaTextBoxFocus();
+    void giveFormulaTextBoxFocus();
 
     /**
      * Updates the formula text and more to the {@link SpreadsheetSelection}.

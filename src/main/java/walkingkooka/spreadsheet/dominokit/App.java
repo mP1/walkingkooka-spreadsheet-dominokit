@@ -555,8 +555,8 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private final SpreadsheetViewportWidget viewportWidget = SpreadsheetViewportWidget.empty(this);
 
     @Override
-    public void giveFcrmulaTextBoxFocus() {
-        this.debug("App.giveFcrmulaTextBoxFocus");
+    public void giveFormulaTextBoxFocus() {
+        this.debug("App.giveFormulaTextBoxFocus");
 
         this.giveFocus(
                 this.viewportWidget::giveFcrmulaTextBoxFocus
