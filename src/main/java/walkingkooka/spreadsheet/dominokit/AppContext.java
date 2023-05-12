@@ -95,6 +95,14 @@ public interface AppContext extends Context {
      */
     void pushHistoryToken(final HistoryToken token);
 
+    // UI...............................................................................................................
+
+    /**
+     * A {@link TextStyle} that should be added to any selected Icon.
+     * For now this means a background-color to yellow.
+     */
+    TextStyle selectedIconStyle();
+
     // viewport.........................................................................................................
 
     /**
