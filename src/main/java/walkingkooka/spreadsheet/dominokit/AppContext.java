@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.dropdown.DropdownAction;
 import org.jboss.elemento.Elements;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -31,7 +32,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CharSequences;
@@ -41,7 +41,6 @@ import walkingkooka.tree.text.TextStyle;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 public interface AppContext extends Context {
 
@@ -143,7 +142,7 @@ public interface AppContext extends Context {
     /**
      * Getter that returns the ranges of the viewport window.
      */
-    Set<SpreadsheetCellRange> viewportWindow();
+    SpreadsheetViewportWindows viewportWindow();
 
     TextStyle viewportAllStyle(final boolean selected);
 

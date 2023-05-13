@@ -41,6 +41,7 @@ import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -263,7 +264,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Returns the window used by this viewport.
      */
-    public Set<SpreadsheetCellRange> window() {
+    public SpreadsheetViewportWindows window() {
         return this.cache.windows;
     }
 
@@ -584,15 +585,15 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final Set<SpreadsheetRowReference> rows = Sets.sorted();
 
         // gather visible columns and rows.
-        for(final SpreadsheetCellRange window : this.window()) {
-            for(final SpreadsheetColumnReference column : window.columnRange()) {
-                if(false == cache.isColumnHidden(column)) {
+        for (final SpreadsheetCellRange window : this.window().cellRanges()) {
+            for (final SpreadsheetColumnReference column : window.columnRange()) {
+                if (false == cache.isColumnHidden(column)) {
                     columns.add(column);
                 }
             }
 
-            for(final SpreadsheetRowReference row : window.rowRange()) {
-                if(false == cache.isRowHidden(row)) {
+            for (final SpreadsheetRowReference row : window.rowRange()) {
+                if (false == cache.isRowHidden(row)) {
                     rows.add(row);
                 }
             }

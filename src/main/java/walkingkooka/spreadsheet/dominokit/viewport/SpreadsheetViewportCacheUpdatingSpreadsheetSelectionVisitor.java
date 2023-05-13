@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.set.Sets;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -37,7 +38,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
     static SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor accept(final Collection<SpreadsheetLabelMapping> mappings,
                                                                               final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels,
                                                                               final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel,
-                                                                              final Set<SpreadsheetCellRange> window) {
+                                                                              final SpreadsheetViewportWindows window) {
         return new SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor(
                 mappings,
                 cellToLabels,
@@ -49,7 +50,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
     private SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor(final Collection<SpreadsheetLabelMapping> mappings,
                                                                         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels,
                                                                         final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel,
-                                                                        final Set<SpreadsheetCellRange> window) {
+                                                                        final SpreadsheetViewportWindows window) {
         this.cellToLabels = cellToLabels;
         this.labelToNonLabel = labelToNonLabel;
         this.window = window;
@@ -104,11 +105,11 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
 
     @Override
     protected void visit(final SpreadsheetCellRange range) {
-        final Set<SpreadsheetCellRange> window = this.window;
+        final SpreadsheetViewportWindows window = this.window;
         if (window.isEmpty()) {
             this.updateCellRange(range);
         } else {
-            for (final SpreadsheetCellRange oneWindow : this.window) {
+            for (final SpreadsheetCellRange oneWindow : this.window.cellRanges()) {
                 if (oneWindow.testCellRange(range)) {
                     this.updateCellRange(range);
                     break;
@@ -138,11 +139,11 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
 
     @Override
     protected void visit(final SpreadsheetCellReference reference) {
-        final Set<SpreadsheetCellRange> window = this.window;
+        final SpreadsheetViewportWindows window = this.window;
         if (window.isEmpty()) {
             this.updateCell(reference);
         } else {
-            for (final SpreadsheetCellRange oneWindow : window) {
+            for (final SpreadsheetCellRange oneWindow : window.cellRanges()) {
                 if (oneWindow.testCell(reference)) {
                     this.updateCell(reference);
                     break;
@@ -191,7 +192,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
     /**
      * The window used to filter any cells and labels.
      */
-    private final Set<SpreadsheetCellRange> window;
+    private final SpreadsheetViewportWindows window;
 
     @Override
     public String toString() {

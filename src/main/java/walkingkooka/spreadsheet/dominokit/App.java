@@ -35,6 +35,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
@@ -48,7 +49,6 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidget;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.CharSequences;
@@ -574,7 +574,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     @Override
-    public Set<SpreadsheetCellRange> viewportWindow() {
+    public SpreadsheetViewportWindows viewportWindow() {
         return this.viewportWidget.window();
     }
 

@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -27,14 +28,12 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
-import java.util.Set;
 
 public class FakeAppContext implements AppContext {
     @Override
@@ -126,7 +125,7 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public Set<SpreadsheetCellRange> viewportWindow() {
+    public SpreadsheetViewportWindows viewportWindow() {
         throw new UnsupportedOperationException();
     }
 

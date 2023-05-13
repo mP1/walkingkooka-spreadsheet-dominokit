@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetRow;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -88,8 +89,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     private final static SpreadsheetLabelMapping LABEL999_LABEL_MAPPINGB3 = LABEL999.mapping(LABEL3);
 
     private final static SpreadsheetCellRange WINDOW1 = SpreadsheetSelection.parseCellRange("A1:B3");
-    private final static Set<SpreadsheetCellRange> WINDOW = Sets.of(
-            WINDOW1
+    private final static SpreadsheetViewportWindows WINDOW = SpreadsheetViewportWindows.with(
+            Sets.of(
+                    WINDOW1
+            )
     );
 
     private final static AppContext CONTEXT = new FakeAppContext();
@@ -321,7 +324,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     public void testOnSpreadsheetDeltaFirstLabelToRangeOutsideWindow() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
-        final Set<SpreadsheetCellRange> windows = SpreadsheetSelection.parseWindow("A1:A2");
+        final SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.parse("A1:A2");
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -2007,12 +2010,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                              final String expected) {
         this.checkWindow(
                 cache,
-                SpreadsheetSelection.parseWindow(expected)
+                SpreadsheetViewportWindows.parse(expected)
         );
     }
 
     private void checkWindow(final SpreadsheetViewportCache cache,
-                             final Set<SpreadsheetCellRange> expected) {
+                             final SpreadsheetViewportWindows expected) {
         this.checkEquals(
                 expected,
                 cache.windows,
