@@ -23,12 +23,12 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetRow;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -79,7 +79,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         this.columnWidths.clear();
         this.rowHeights.clear();
 
-        this.windows = Sets.empty();
+        this.windows = SpreadsheetViewportWindows.EMPTY;
     }
 
     /**
@@ -115,9 +115,9 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
         final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
         final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
 
-        final Set<SpreadsheetCellRange> previousWindow = this.windows;
-        Set<SpreadsheetCellRange> window = delta.window();
-        if(window.isEmpty()) {
+        final SpreadsheetViewportWindows previousWindow = this.windows;
+        SpreadsheetViewportWindows window = delta.window();
+        if (window.isEmpty()) {
             window = previousWindow;
         } else {
             if (false == previousWindow.equals(window)) {
@@ -322,7 +322,7 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
      * The viewport. This is used to filter cells and labels in the cache.
      */
     // VisibleForTesting
-    Set<SpreadsheetCellRange> windows = Sets.empty();
+    SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.EMPTY;
 
     @Override
     public String toString() {

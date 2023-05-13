@@ -25,10 +25,10 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -38,7 +38,6 @@ import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 public class SpreadsheetDeltaFetcher implements Fetcher {
 
@@ -51,7 +50,7 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
      * </pre>
      */
     public static UrlQueryString appendViewportSelectionAndWindow(final SpreadsheetViewportSelection viewportSelection,
-                                                                  final Set<SpreadsheetCellRange> window,
+                                                                  final SpreadsheetViewportWindows window,
                                                                   final UrlQueryString queryString) {
         return appendWindow(
                 window,
@@ -118,7 +117,7 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
     /**
      * Appends the given window to the given {@link UrlQueryString}
      */
-    public static UrlQueryString appendWindow(final Set<SpreadsheetCellRange> window,
+    public static UrlQueryString appendWindow(final SpreadsheetViewportWindows window,
                                               final UrlQueryString queryString) {
         Objects.requireNonNull(window, "window");
         Objects.requireNonNull(queryString, "queryString");
@@ -127,7 +126,7 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                 queryString :
                 queryString.addParameter(
                         WINDOW,
-                        SpreadsheetSelection.toStringWindow(window)
+                        window.toString()
                 );
     }
 

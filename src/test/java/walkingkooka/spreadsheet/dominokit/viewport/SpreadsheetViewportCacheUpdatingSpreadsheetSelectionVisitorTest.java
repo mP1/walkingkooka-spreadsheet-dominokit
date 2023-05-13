@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitorTesting;
 
 import java.util.Collections;
@@ -31,7 +31,7 @@ public final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitorTe
                 Collections.emptyList(),
                 Maps.empty(),
                 Collections.emptyMap(),
-                SpreadsheetSelection.parseWindow("A1:Z99")
+                SpreadsheetViewportWindows.parse("A1:Z99")
         );
     }
 

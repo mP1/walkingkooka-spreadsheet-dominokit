@@ -23,8 +23,8 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
@@ -32,7 +32,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation
 import walkingkooka.test.Testing;
 
 import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -228,7 +227,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetDeltaFetcher.appendWindow(
-                        SpreadsheetSelection.parseWindow(""),
+                        SpreadsheetViewportWindows.EMPTY,
                         null
                 )
         );
@@ -265,13 +264,13 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                       final String initial,
                                       final String expected) {
         this.appendWindowAndCheck(
-                SpreadsheetSelection.parseWindow(window),
+                SpreadsheetViewportWindows.parse(window),
                 UrlQueryString.parse(initial),
                 UrlQueryString.parse(expected)
         );
     }
 
-    private void appendWindowAndCheck(final Set<SpreadsheetCellRange> window,
+    private void appendWindowAndCheck(final SpreadsheetViewportWindows window,
                                       final UrlQueryString initial,
                                       final UrlQueryString expected) {
         this.checkEquals(
@@ -388,7 +387,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.appendSelectionAndWindow(
                 selection,
                 anchor,
-                SpreadsheetSelection.parseWindow(window),
+                SpreadsheetViewportWindows.parse(window),
                 UrlQueryString.parse(initial),
                 UrlQueryString.parse(expected)
         );
@@ -396,7 +395,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
     private void appendSelectionAndWindow(final SpreadsheetSelection selection,
                                           final SpreadsheetViewportSelectionAnchor anchor,
-                                          final Set<SpreadsheetCellRange> window,
+                                          final SpreadsheetViewportWindows window,
                                           final UrlQueryString initial,
                                           final UrlQueryString expected) {
         this.checkEquals(
