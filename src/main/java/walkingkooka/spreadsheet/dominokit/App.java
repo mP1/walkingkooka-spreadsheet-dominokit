@@ -544,7 +544,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     private final static TextStyle SELECTED_ICON = TextStyle.EMPTY.set(
             TextStylePropertyName.BACKGROUND_COLOR,
-            Color.parse("ffff00")
+            Color.parse("#ffff00")
     );
 
     // Viewport.........................................................................................................
