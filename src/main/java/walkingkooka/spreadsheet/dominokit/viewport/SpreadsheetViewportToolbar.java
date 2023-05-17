@@ -18,15 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.button.ButtonSize;
 import org.dominokit.domino.ui.grid.flex.FlexItem;
 import org.dominokit.domino.ui.grid.flex.FlexLayout;
-import org.dominokit.domino.ui.icons.Icon;
-import org.dominokit.domino.ui.icons.Icons;
-import org.dominokit.domino.ui.style.StyleType;
-import org.jboss.elemento.EventType;
 import org.jboss.elemento.IsElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -51,21 +44,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
     }
 
     private SpreadsheetViewportToolbar(final AppContext context) {
-        this.context = context;
-
-        this.bold = bold();
-        this.italics = italics();
-        this.strikeThru = strikeThru();
-        this.underline = underline();
-        this.textAlignLeft = textAlignLeft();
-        this.textAlignCenter = textAlignCenter();
-        this.textAlignRight = textAlignRight();
-        this.textAlignJustify = textAlignJustify();
-        this.verticalAlignTop = verticalAlignTop();
-        this.verticalAlignMiddle = verticalAlignMiddle();
-        this.verticalAlignBottom = verticalAlignBottom();
-
-        this.flexLayout = this.createFlexLayout();
+        this.flexLayout = this.createFlexLayout(context);
 
         context.addHistoryWatcher(this);
     }
@@ -82,214 +61,100 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
     /**
      * Creates a {@link FlexLayout} and populates it with the toolbar icons etc.
      */
-    private FlexLayout createFlexLayout() {
+    private FlexLayout createFlexLayout(final AppContext context) {
         final FlexItem<HTMLDivElement> flexItem = FlexItem.create();
 
-        for (final HTMLElement item : items()) {
-            flexItem.appendChild(item);
+        for (final SpreadsheetViewportToolbarComponent item : items(context)) {
+            flexItem.appendChild(
+                    item.element()
+            );
         }
 
         return FlexLayout.create()
                 .appendChild(flexItem);
     }
 
-    private List<HTMLElement> items() {
-        final Button home = Button.create(Icons.ALL.home_mdi())
-                .circle()
-                .setButtonType(StyleType.DEFAULT);
-
-        home.style()
-                .setMargin("5px");
-
+    private List<SpreadsheetViewportToolbarComponent> items(final AppContext context) {
         return Lists.of(
-                this.bold.element(),
-                this.italics.element(),
-                this.strikeThru.element(),
-                this.underline.element(),
-                this.textAlignLeft.element(),
-                this.textAlignCenter.element(),
-                this.textAlignRight.element(),
-                this.textAlignJustify.element(),
-                this.verticalAlignTop.element(),
-                this.verticalAlignMiddle.element(),
-                this.verticalAlignBottom.element()
+                SpreadsheetViewportToolbarComponent.bold(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.FONT_WEIGHT,
+                                FontWeight.BOLD,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.italics(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.FONT_STYLE,
+                                FontStyle.ITALIC,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.strikeThru(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.TEXT_DECORATION_LINE,
+                                TextDecorationLine.LINE_THROUGH,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.underline(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.TEXT_DECORATION_LINE,
+                                TextDecorationLine.UNDERLINE,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.textAlignLeft(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.TEXT_ALIGN,
+                                TextAlign.LEFT,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.textAlignCenter(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.TEXT_ALIGN,
+                                TextAlign.CENTER,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.textAlignRight(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.TEXT_ALIGN,
+                                TextAlign.RIGHT,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.textAlignJustify(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.TEXT_ALIGN,
+                                TextAlign.JUSTIFY,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.verticalAlignTop(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.VERTICAL_ALIGN,
+                                VerticalAlign.TOP,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.verticalAlignMiddle(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.VERTICAL_ALIGN,
+                                VerticalAlign.MIDDLE,
+                                context
+                        )
+                ),
+                SpreadsheetViewportToolbarComponent.verticalAlignBottom(
+                        SpreadsheetViewportToolbarComponentButton.watcher(
+                                TextStylePropertyName.VERTICAL_ALIGN,
+                                VerticalAlign.BOTTOM,
+                                context
+                        )
+                )
         );
     }
-
-    private Button bold() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_bold(),
-                TextStylePropertyName.FONT_WEIGHT,
-                FontWeight.BOLD
-        );
-    }
-
-    private final Button bold;
-
-    private Button italics() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_italic(),
-                TextStylePropertyName.FONT_STYLE,
-                FontStyle.ITALIC
-        );
-    }
-
-    private final Button italics;
-
-    private Button strikeThru() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_strikethrough(),
-                TextStylePropertyName.TEXT_DECORATION_LINE,
-                TextDecorationLine.LINE_THROUGH
-        );
-    }
-
-    private final Button strikeThru;
-
-    private Button textAlignLeft() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_align_left(),
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.LEFT
-        );
-    }
-
-    private final Button textAlignLeft;
-
-    private Button textAlignCenter() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_align_center(),
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.CENTER
-        );
-    }
-
-    private final Button textAlignCenter;
-
-    private Button textAlignRight() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_align_right(),
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.RIGHT
-        );
-    }
-
-    private final Button textAlignRight;
-
-    private Button textAlignJustify() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_align_justify(),
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.JUSTIFY
-        );
-    }
-
-    private final Button textAlignJustify;
-
-    private Button underline() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_underlined(),
-                TextStylePropertyName.TEXT_DECORATION_LINE,
-                TextDecorationLine.UNDERLINE
-        );
-    }
-
-    private final Button underline;
-
-    private Button verticalAlignTop() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_align_left(),
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.TOP
-        );
-    }
-
-    private final Button verticalAlignTop;
-
-    private Button verticalAlignMiddle() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_align_center(),
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.MIDDLE
-        );
-    }
-
-    private final Button verticalAlignMiddle;
-
-    private Button verticalAlignBottom() {
-        return this.buttonPatchStyleProperty(
-                Icons.ALL.format_align_right(),
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.BOTTOM
-        );
-    }
-
-    private final Button verticalAlignBottom;
-
-    /**
-     * Creates a button with the icon and when clicked pushes a save history token with the provided value.
-     */
-    private <T> Button buttonPatchStyleProperty(final Icon icon,
-                                                final TextStylePropertyName<T> propertyName,
-                                                final T propertyValue) {
-        return this.button(
-                icon,
-                id(propertyName, propertyValue),
-                () -> {
-                    final AppContext context = this.context;
-                    context.historyToken()
-                            .viewportSelectionHistoryTokenOrEmpty()
-                            .map(
-                                    t -> t.setStyle(propertyName)
-                                            .setSave(this.save(propertyValue))
-                            ).ifPresent(context::pushHistoryToken);
-                },
-                () -> {
-                    final AppContext context = this.context;
-                    context.historyToken()
-                            .viewportSelectionHistoryTokenOrEmpty()
-                            .map(
-                                    t -> t.setStyle(propertyName)
-                            ).ifPresent(context::pushHistoryToken);
-                }
-        );
-    }
-
-    private String save(final Object value) {
-        return null == value ?
-                "" :
-                value.toString();
-    }
-
-    /**
-     * Creates a button with the given icon and executes the onClick {@link Runnable}.
-     */
-    private Button button(final Icon icon,
-                          final String id,
-                          final Runnable onClick,
-                          final Runnable onFocus) {
-        final Button button = Button.create(icon)
-                .circle()
-                .setSize(ButtonSize.MEDIUM)
-                .setButtonType(StyleType.DEFAULT)
-                .addEventListener(
-                        EventType.click,
-                        (event) -> onClick.run()
-                ).addEventListener(
-                        EventType.focus,
-                        (event) -> onFocus.run()
-                );
-
-        button.style()
-                .setMargin("5px");
-        final HTMLElement element = button.element();
-        element.id = id;
-        element.tabIndex = 0;
-
-        return button;
-    }
-
-    private final AppContext context;
 
     // HistoryTokenWatcher..............................................................................................
 
