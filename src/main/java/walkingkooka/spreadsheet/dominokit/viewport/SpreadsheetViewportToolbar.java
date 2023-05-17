@@ -55,7 +55,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
 
         this.bold = bold();
         this.italics = italics();
-        this.strikethru = strikethru();
+        this.strikeThru = strikeThru();
         this.underline = underline();
         this.textAlignLeft = textAlignLeft();
         this.textAlignCenter = textAlignCenter();
@@ -104,7 +104,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         return Lists.of(
                 this.bold.element(),
                 this.italics.element(),
-                this.strikethru.element(),
+                this.strikeThru.element(),
                 this.underline.element(),
                 this.textAlignLeft.element(),
                 this.textAlignCenter.element(),
@@ -136,7 +136,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
 
     private final Button italics;
 
-    private Button strikethru() {
+    private Button strikeThru() {
         return this.buttonPatchStyleProperty(
                 Icons.ALL.format_strikethrough(),
                 TextStylePropertyName.TEXT_DECORATION_LINE,
@@ -144,7 +144,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         );
     }
 
-    private final Button strikethru;
+    private final Button strikeThru;
 
     private Button textAlignLeft() {
         return this.buttonPatchStyleProperty(
