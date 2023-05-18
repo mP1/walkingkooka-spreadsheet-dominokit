@@ -26,57 +26,34 @@ import org.jboss.elemento.EventType;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-final class SpreadsheetViewportToolbarComponentButton extends SpreadsheetViewportToolbarComponent {
+import java.util.Objects;
 
-    static <T> SpreadsheetViewportToolbarComponentWatcher watcher(final TextStylePropertyName<T> propertyName,
-                                                                  final T propertyValue,
-                                                                  final AppContext context) {
-        return new SpreadsheetViewportToolbarComponentWatcher() {
-            @Override
-            public void onClick() {
-                context.historyToken()
-                        .viewportSelectionHistoryTokenOrEmpty()
-                        .map(
-                                t -> t.setStyle(propertyName)
-                                        .setSave(save(propertyValue))
-                        ).ifPresent(context::pushHistoryToken);
-            }
+final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetViewportToolbarComponent {
 
-            @Override
-            public void onFocus() {
-                context.historyToken()
-                        .viewportSelectionHistoryTokenOrEmpty()
-                        .map(
-                                t -> t.setStyle(propertyName)
-                        ).ifPresent(context::pushHistoryToken);
-            }
+    static <T> SpreadsheetViewportToolbarComponentButton<T> with(final TextStylePropertyName<T> propertyName,
+                                                                 final T propertyValue,
+                                                                 final MdiIcon icon,
+                                                                 final AppContext context) {
+        Objects.requireNonNull(propertyName, "propertyName");
+        Objects.requireNonNull(propertyValue, "propertyValue");
+        Objects.requireNonNull(icon, "icon");
+        Objects.requireNonNull(context, "context");
 
-            @Override
-            public void onBlur() {
-                // nop
-            }
-        };
-    }
-
-    private static String save(final Object value) {
-        return null == value ?
-                "" :
-                value.toString();
-    }
-
-    static SpreadsheetViewportToolbarComponentButton with(final MdiIcon icon,
-                                                          final String id,
-                                                          final SpreadsheetViewportToolbarComponentWatcher watcher) {
         return new SpreadsheetViewportToolbarComponentButton(
+                propertyName,
+                propertyValue,
                 icon,
-                id,
-                watcher
+                context
         );
     }
 
-    private SpreadsheetViewportToolbarComponentButton(final MdiIcon icon,
-                                                      final String id,
-                                                      final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    private SpreadsheetViewportToolbarComponentButton(final TextStylePropertyName<T> propertyName,
+                                                      final T propertyValue,
+                                                      final MdiIcon icon,
+                                                      final AppContext context) {
+        this.propertyName = propertyName;
+        this.propertyValue = propertyValue;
+
         final Button button = Button.create(icon)
                 .circle()
                 .setSize(ButtonSize.MEDIUM)
@@ -92,28 +69,50 @@ final class SpreadsheetViewportToolbarComponentButton extends SpreadsheetViewpor
         button.style()
                 .setMargin("5px");
         final HTMLElement element = button.element();
-        element.id = id;
+        element.id = SpreadsheetViewportToolbar.id(
+                propertyName,
+                propertyValue
+        );
         element.tabIndex = 0;
 
         this.button = button;
 
-        this.watcher = watcher;
+        this.context = context;
     }
 
     private void onClick() {
-        this.watcher.onClick();
+        this.context.historyToken()
+                .viewportSelectionHistoryTokenOrEmpty()
+                .map(
+                        t -> t.setStyle(this.propertyName)
+                                .setSave(save(this.propertyValue))
+                ).ifPresent(this.context::pushHistoryToken);
+    }
+
+    private static String save(final Object value) {
+        return null == value ?
+                "" :
+                value.toString();
     }
 
     private void onFocus() {
-        this.watcher.onFocus();
+        this.context.historyToken()
+                .viewportSelectionHistoryTokenOrEmpty()
+                .map(
+                        t -> t.setStyle(this.propertyName)
+                ).ifPresent(this.context::pushHistoryToken);
     }
-
-    private final SpreadsheetViewportToolbarComponentWatcher watcher;
 
     @Override
     public HTMLElement element() {
         return this.button.element();
     }
+
+    private final TextStylePropertyName<T> propertyName;
+
+    private final T propertyValue;
+
+    private final AppContext context;
 
     private final Button button;
 

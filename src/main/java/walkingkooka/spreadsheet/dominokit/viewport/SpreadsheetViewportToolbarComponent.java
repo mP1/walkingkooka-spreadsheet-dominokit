@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icons;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
@@ -31,124 +32,102 @@ import walkingkooka.tree.text.VerticalAlign;
  */
 abstract class SpreadsheetViewportToolbarComponent {
 
-    static SpreadsheetViewportToolbarComponent bold(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent bold(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.FONT_WEIGHT,
+                FontWeight.BOLD,
                 Icons.ALL.format_bold_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.FONT_WEIGHT,
-                        FontWeight.BOLD
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent italics(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent italics(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.FONT_STYLE,
+                FontStyle.ITALIC,
                 Icons.ALL.format_italic_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.FONT_STYLE,
-                        FontStyle.ITALIC
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent strikeThru(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent strikeThru(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                TextDecorationLine.LINE_THROUGH,
                 Icons.ALL.format_strikethrough_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.TEXT_DECORATION_LINE,
-                        TextDecorationLine.LINE_THROUGH
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignLeft(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent textAlignLeft(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.LEFT,
                 Icons.ALL.format_align_left_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.TEXT_ALIGN,
-                        TextAlign.LEFT
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignCenter(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent textAlignCenter(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.CENTER,
                 Icons.ALL.format_align_center_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.TEXT_ALIGN,
-                        TextAlign.CENTER
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignRight(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent textAlignRight(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.RIGHT,
                 Icons.ALL.format_align_right_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.TEXT_ALIGN,
-                        TextAlign.RIGHT
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignJustify(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent textAlignJustify(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.JUSTIFY,
                 Icons.ALL.format_align_justify_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.TEXT_ALIGN,
-                        TextAlign.JUSTIFY
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent underline(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent underline(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                TextDecorationLine.UNDERLINE,
                 Icons.ALL.format_underline_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.TEXT_DECORATION_LINE,
-                        TextDecorationLine.UNDERLINE
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent verticalAlignTop(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent verticalAlignTop(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.TOP,
                 Icons.ALL.format_align_top_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.VERTICAL_ALIGN,
-                        VerticalAlign.TOP
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent verticalAlignMiddle(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent verticalAlignMiddle(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.MIDDLE,
                 Icons.ALL.format_align_middle_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.VERTICAL_ALIGN,
-                        VerticalAlign.MIDDLE
-                ),
-                watcher
+                context
         );
     }
 
-    static SpreadsheetViewportToolbarComponent verticalAlignBottom(final SpreadsheetViewportToolbarComponentWatcher watcher) {
+    static SpreadsheetViewportToolbarComponent verticalAlignBottom(final AppContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.BOTTOM,
                 Icons.ALL.format_align_bottom_mdi(),
-                SpreadsheetViewportToolbar.id(
-                        TextStylePropertyName.VERTICAL_ALIGN,
-                        VerticalAlign.BOTTOM
-                ),
-                watcher
+                context
         );
     }
 
