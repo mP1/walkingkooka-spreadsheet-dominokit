@@ -39,7 +39,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
     }
 
     private SpreadsheetViewportToolbar(final AppContext context) {
-        this.flexLayout = this.createFlexLayout(context);
+        this.components = this.components(context);
+        this.flexLayout = this.createFlexLayout();
 
         context.addHistoryWatcher(this);
     }
@@ -56,12 +57,12 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
     /**
      * Creates a {@link FlexLayout} and populates it with the toolbar icons etc.
      */
-    private FlexLayout createFlexLayout(final AppContext context) {
+    private FlexLayout createFlexLayout() {
         final FlexItem<HTMLDivElement> flexItem = FlexItem.create();
 
-        for (final SpreadsheetViewportToolbarComponent item : items(context)) {
+        for (final SpreadsheetViewportToolbarComponent component : this.components) {
             flexItem.appendChild(
-                    item.element()
+                    component.element()
             );
         }
 
@@ -69,7 +70,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 .appendChild(flexItem);
     }
 
-    private List<SpreadsheetViewportToolbarComponent> items(final AppContext context) {
+    private List<SpreadsheetViewportToolbarComponent> components(final AppContext context) {
         return Lists.of(
                 SpreadsheetViewportToolbarComponent.bold(context),
                 SpreadsheetViewportToolbarComponent.italics(context),
@@ -84,6 +85,11 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
                 SpreadsheetViewportToolbarComponent.verticalAlignBottom(context)
         );
     }
+
+    /**
+     * The UI components within the toolbar thqt react to selection changes and also support updates.
+     */
+    private final List<SpreadsheetViewportToolbarComponent> components;
 
     // HistoryTokenWatcher..............................................................................................
 
