@@ -21,10 +21,13 @@ import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.button.ButtonSize;
 import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.popover.PopupPosition;
+import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.style.StyleType;
 import org.jboss.elemento.EventType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -38,16 +41,19 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
     static <T> SpreadsheetViewportToolbarComponentButton<T> with(final TextStylePropertyName<T> propertyName,
                                                                  final T propertyValue,
                                                                  final MdiIcon icon,
+                                                                 final String tooltipText,
                                                                  final AppContext context) {
         Objects.requireNonNull(propertyName, "propertyName");
         Objects.requireNonNull(propertyValue, "propertyValue");
         Objects.requireNonNull(icon, "icon");
+        CharSequences.failIfNullOrEmpty(tooltipText, "tooltipText");
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetViewportToolbarComponentButton(
                 propertyName,
                 propertyValue,
                 icon,
+                tooltipText,
                 context
         );
     }
@@ -55,6 +61,7 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
     private SpreadsheetViewportToolbarComponentButton(final TextStylePropertyName<T> propertyName,
                                                       final T propertyValue,
                                                       final MdiIcon icon,
+                                                      final String tooltipText,
                                                       final AppContext context) {
         this.propertyName = propertyName;
         this.propertyValue = propertyValue;
@@ -78,6 +85,11 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
                 propertyValue
         );
         element.tabIndex = 0;
+
+        Tooltip.create(
+                button,
+                tooltipText
+        ).position(PopupPosition.BOTTOM);
 
         this.button = button;
 
