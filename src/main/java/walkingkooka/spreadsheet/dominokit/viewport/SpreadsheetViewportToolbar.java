@@ -21,18 +21,28 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.grid.flex.FlexItem;
 import org.dominokit.domino.ui.grid.flex.FlexLayout;
 import org.jboss.elemento.IsElement;
+import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * A toolbar that contains icons that trigger an action for the viewport selection.
  */
-public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, IsElement<HTMLDivElement> {
+public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
+        IsElement<HTMLDivElement>,
+        SpreadsheetDeltaWatcher {
 
     public static SpreadsheetViewportToolbar create(final AppContext context) {
         return new SpreadsheetViewportToolbar(context);
@@ -43,6 +53,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
         this.flexLayout = this.createFlexLayout();
 
         context.addHistoryWatcher(this);
+        context.addSpreadsheetDeltaWatcher(this);
     }
 
     // isElement........................................................................................................
@@ -96,16 +107,84 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher, Is
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        final boolean show = context.viewportNonLabelSelection()
-                .map(s -> s.isCellReference() || s.isCellRange())
-                .orElse(false);
+        this.refresh(context);
+    }
+
+    // SpreadsheetDeltaWatcher..........................................................................................
+
+    @Override
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        this.refresh(context);
+    }
+
+    // refresh..........................................................................................................
+
+    private void refresh(final AppContext context) {
+        context.debug("SpreadsheetViewportToolbar.refresh");
+
+        String visibility = "hidden";
+
+        final Optional<SpreadsheetSelection> maybeSelection = context.viewportNonLabelSelection();
+        if (maybeSelection.isPresent()) {
+            final SpreadsheetSelection selection = maybeSelection.get();
+            if (selection.isCellReference() || selection.isCellRange()) {
+                visibility = "visible";
+
+                // if window is missing might be browser refresh, and refreshComponents is happening before loadViewportCells etc
+                if (false == context.viewportWindow().isEmpty()) {
+                    refreshComponents(selection, context);
+                }
+            }
+        }
+
         this.element()
                 .style.set(
                         "visibility",
-                        show ?
-                                "visible" :
-                                "hidden"
+                        visibility
                 );
+    }
+
+    /**
+     * Refreshes the individual components aka icons in the toolbar.
+     */
+    private void refreshComponents(final SpreadsheetSelection selection,
+                                   final AppContext context) {
+        final SpreadsheetViewportWindows window = context.viewportWindow();
+        context.debug("SpreadsheetViewportToolbar.refreshComponents begin " + selection + " window: " + window);
+
+        final List<SpreadsheetViewportToolbarComponent> components = this.components;
+        for (final SpreadsheetViewportToolbarComponent component : components) {
+            component.onToolbarRefreshBegin();
+        }
+
+        int cellCount = 0;
+
+        for (final SpreadsheetCellReference cellReference : Iterables.iterator(window.cells(selection))) {
+            final Optional<SpreadsheetCell> maybeCell = context.viewportCell(cellReference);
+            context.debug("SpreadsheetViewportToolbar.refreshComponents " + cellReference, maybeCell.orElse(null));
+            if (maybeCell.isPresent()) {
+                final SpreadsheetCell cell = maybeCell.get();
+
+                for (final SpreadsheetViewportToolbarComponent component : components) {
+                    component.onToolbarRefreshSelectedCell(
+                            cell,
+                            context
+                    );
+                }
+            }
+
+            cellCount++;
+        }
+
+        for (final SpreadsheetViewportToolbarComponent component : components) {
+            component.onToolbarRefreshEnd(
+                    cellCount,
+                    context
+            );
+        }
+
+        context.debug("SpreadsheetViewportToolbar.refreshComponents end " + selection);
     }
 
     // element..........................................................................................................
