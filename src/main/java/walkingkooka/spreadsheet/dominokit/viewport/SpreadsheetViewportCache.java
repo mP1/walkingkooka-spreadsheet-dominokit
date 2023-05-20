@@ -134,6 +134,8 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
                 rowHeights.clear();
 
                 this.windows = window;
+
+                context.debug("SpreadsheetViewportCache.onSpreadsheetDelta window: " + window + " was " + previousWindow);
             }
         }
 
