@@ -95,7 +95,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
             )
     );
 
-    private final static AppContext CONTEXT = new FakeAppContext();
+    private final static AppContext CONTEXT = new FakeAppContext() {
+        @Override
+        public void debug(final Object... values) {
+            // nop
+        }
+    };
 
     @Override
     public void testAllMethodsVisibility() {
