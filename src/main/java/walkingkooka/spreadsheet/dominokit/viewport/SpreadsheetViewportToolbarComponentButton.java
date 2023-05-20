@@ -25,7 +25,9 @@ import org.dominokit.domino.ui.style.StyleType;
 import org.jboss.elemento.EventType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -69,8 +71,7 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
                         (event) -> this.onFocus()
                 );
 
-        button.style()
-                .setMargin("5px");
+        button.style(BUTTON_STYLE.css());
         final HTMLElement element = button.element();
         element.id = SpreadsheetViewportToolbar.id(
                 propertyName,
@@ -82,6 +83,10 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
 
         this.context = context;
     }
+
+    private final static TextStyle BUTTON_STYLE = TextStyle.EMPTY.setMargin(
+            Length.pixel(5.0)
+    );
 
     private void onClick() {
         this.context.historyToken()
@@ -190,12 +195,16 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
 
     private void setButtonSelected(final boolean selected,
                                    final AppContext context) {
-        final Button button = this.button;
+        TextStyle style = BUTTON_STYLE;
         if (selected) {
-            button.style(context.selectedIconStyle().css());
-        } else {
-            button.style("");
+            style = style.merge(
+                    context.selectedIconStyle()
+            );
         }
+
+        this.button.style(
+                style.css()
+        );
     }
 
     private void setSaveValue(final T saveValue) {
