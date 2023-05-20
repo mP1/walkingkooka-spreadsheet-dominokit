@@ -38,6 +38,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.FONT_WEIGHT,
                 FontWeight.BOLD,
                 Icons.ALL.format_bold_mdi(),
+                "Bold",
                 context
         );
     }
@@ -47,6 +48,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.FONT_STYLE,
                 FontStyle.ITALIC,
                 Icons.ALL.format_italic_mdi(),
+                "Italics",
                 context
         );
     }
@@ -56,6 +58,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.LINE_THROUGH,
                 Icons.ALL.format_strikethrough_mdi(),
+                "Strike-thru",
                 context
         );
     }
@@ -65,6 +68,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.LEFT,
                 Icons.ALL.format_align_left_mdi(),
+                "Left align",
                 context
         );
     }
@@ -74,6 +78,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.CENTER,
                 Icons.ALL.format_align_center_mdi(),
+                "Center align",
                 context
         );
     }
@@ -83,6 +88,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.RIGHT,
                 Icons.ALL.format_align_right_mdi(),
+                "Right align",
                 context
         );
     }
@@ -92,6 +98,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY,
                 Icons.ALL.format_align_justify_mdi(),
+                "Justify",
                 context
         );
     }
@@ -101,6 +108,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE,
                 Icons.ALL.format_underline_mdi(),
+                "Underline",
                 context
         );
     }
@@ -110,6 +118,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.TOP,
                 Icons.ALL.format_align_top_mdi(),
+                "Align top",
                 context
         );
     }
@@ -119,6 +128,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.MIDDLE,
                 Icons.ALL.format_align_middle_mdi(),
+                "Align middle",
                 context
         );
     }
@@ -128,6 +138,7 @@ abstract class SpreadsheetViewportToolbarComponent {
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.BOTTOM,
                 Icons.ALL.format_align_bottom_mdi(),
+                "Align bottom",
                 context
         );
     }
