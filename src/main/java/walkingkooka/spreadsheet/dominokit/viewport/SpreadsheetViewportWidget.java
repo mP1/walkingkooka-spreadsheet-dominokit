@@ -30,6 +30,8 @@ import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.icons.Icons;
+import org.dominokit.domino.ui.popover.PopupPosition;
+import org.dominokit.domino.ui.popover.Tooltip;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
@@ -39,6 +41,7 @@ import org.jboss.elemento.Key;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
@@ -812,16 +815,22 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         TextStyle style = this.metadata.effectiveStyle();
         String innerHtml = "";
 
+        // if an error is present add a tooltip below the cell with the error message.
+        Optional<SpreadsheetError> maybeError = Optional.empty();
+
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
             final Optional<TextNode> maybeFormatted = cell.formatted();
-            if(maybeFormatted.isPresent()) {
+            if (maybeFormatted.isPresent()) {
                 final TextNode formatted = maybeFormatted.get();
 
                 innerHtml = formatted.toHtml();
             }
             style = cell.style()
                     .merge(style);
+
+            maybeError = cell.formula()
+                    .error();
         }
 
         style = style.merge(
@@ -852,6 +861,14 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 element,
                 cellReference
         );
+
+        if (maybeError.isPresent()) {
+            Tooltip.create(
+                    element,
+                    maybeError.get().message()
+            ).position(PopupPosition.BOTTOM);
+        }
+
         return element;
     }
 
