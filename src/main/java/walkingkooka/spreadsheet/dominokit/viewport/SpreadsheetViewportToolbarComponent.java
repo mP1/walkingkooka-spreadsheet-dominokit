@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icons;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
@@ -135,4 +136,25 @@ abstract class SpreadsheetViewportToolbarComponent {
      * The root {@link HTMLElement}
      */
     abstract HTMLElement element();
+
+    // onToolbarRefresh.................................................................................................
+
+    /**
+     * Fired at the beginning of a selection or cell change.
+     * This should be used to reset counters etc.
+     */
+    abstract void onToolbarRefreshBegin();
+
+    /**
+     * Fired for each cell within the current selection.
+     */
+    abstract void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
+                                               final AppContext context);
+
+    /**
+     * Fired after receiving all cell {@link walkingkooka.tree.text.TextStyle}.
+     */
+    abstract void onToolbarRefreshEnd(final int cellPresentCount,
+                                      final AppContext context);
+
 }
