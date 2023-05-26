@@ -58,7 +58,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         );
 
         if (pattern.isPresent()) {
-            patternKind.check(pattern.get());
+            patternKind.checkSameOrFail(pattern.get());
         }
 
         this.pattern = pattern;
