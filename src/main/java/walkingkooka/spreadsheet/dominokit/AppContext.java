@@ -192,7 +192,7 @@ public interface AppContext extends Context {
             dropdownAction = DropdownAction.create(
                     value,
                     link
-            ).addSelectionHandler(v -> this.pushHistoryToken(v));
+            ).addSelectionHandler(this::pushHistoryToken);
         } else {
             dropdownAction = DropdownAction.create(
                     null,
