@@ -128,7 +128,7 @@ public interface Fetcher {
                                             try {
                                                 responseJson = Global.JSON.parse(text);
                                             } catch (final Exception fail) {
-
+                                                // ignore
                                             }
                                             this.fetchLog(
                                                     this.getClass().getSimpleName() + ".success",
