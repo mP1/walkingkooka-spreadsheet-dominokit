@@ -35,7 +35,7 @@ public final class Doms implements PublicStaticHelper {
     }
 
     private static com.google.gwt.dom.client.Element toOldElement(final Element element) {
-        return Js.<com.google.gwt.dom.client.Element>cast(element);
+        return Js.cast(element);
     }
 
     /**
