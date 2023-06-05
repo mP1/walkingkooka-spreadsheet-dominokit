@@ -58,8 +58,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
         final Set<SpreadsheetLabelName> done = Sets.sorted();
 
         for (final SpreadsheetLabelMapping mapping : mappings) {
-            final SpreadsheetLabelName label = mapping.label();
-            this.label = label;
+            this.label = mapping.label();
 
             final SpreadsheetSelection reference = mapping.reference();
             if (false == reference.isLabelName()) {
