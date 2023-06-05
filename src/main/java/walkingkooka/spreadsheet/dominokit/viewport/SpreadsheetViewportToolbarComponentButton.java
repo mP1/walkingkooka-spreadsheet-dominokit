@@ -49,7 +49,7 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
         CharSequences.failIfNullOrEmpty(tooltipText, "tooltipText");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentButton(
+        return new SpreadsheetViewportToolbarComponentButton<>(
                 propertyName,
                 propertyValue,
                 icon,
