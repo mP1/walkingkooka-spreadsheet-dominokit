@@ -131,7 +131,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
                         )
                 ),
                 kind.patternPatch(
-                        pattern.get(),
+                        pattern.orElse(null),
                         context.marshallContext()
                 ).toString()
         );
