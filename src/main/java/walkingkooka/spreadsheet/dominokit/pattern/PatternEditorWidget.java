@@ -74,7 +74,6 @@ public final class PatternEditorWidget {
         this.save = save;
         this.close = close;
 
-        this.saveButton = this.saveButton();
         this.patternTextBox = this.patternTextBox();
         this.modalDialog = this.createModalDialog(title);
 
@@ -122,7 +121,7 @@ public final class PatternEditorWidget {
                 .setAutoClose(true);
         modal.appendChild(this.patternTextBox);
 
-        modal.appendFooterChild(this.saveButton);
+        modal.appendFooterChild(this.saveButton());
         modal.appendFooterChild(this.undoButton());
         modal.appendFooterChild(this.closeButton());
 
@@ -174,8 +173,6 @@ public final class PatternEditorWidget {
                 this::onSaveButtonClick
         );
     }
-
-    private final Button saveButton;
 
     private void onSaveButtonClick(final Event event) {
         final String patternText = this.patternTextBox.getValue();
