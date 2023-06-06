@@ -464,10 +464,10 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     // HistoryWatcher...................................................................................................
 
     @Override
-    public void addHistoryWatcher(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcher(final HistoryTokenWatcher watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
-        this.historyWatchers.add(watcher);
+        return this.historyWatchers.add(watcher);
     }
 
     private final HistoryTokenWatchers historyWatchers = HistoryTokenWatchers.empty();
