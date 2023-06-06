@@ -103,7 +103,8 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                     this.title(), // title
                     () -> this.loaded(context),
                     (pattern) -> this.save(pattern, context),
-                    () -> this.close(context)
+                    () -> this.close(context),
+                    context
             );
 
             this.onPatternEditorWidgetHistoryTokenWatcherRemover = context.addHistoryWatcher(
