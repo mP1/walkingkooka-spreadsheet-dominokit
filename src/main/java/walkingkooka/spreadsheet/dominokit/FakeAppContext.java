@@ -86,7 +86,7 @@ public class FakeAppContext implements AppContext {
     // HistoryToken.....................................................................................................
 
     @Override
-    public void addHistoryWatcher(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcher(final HistoryTokenWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

@@ -80,9 +80,9 @@ public interface AppContext extends Context {
     // history..........................................................................................................
 
     /**
-     * Adds a new {@link HistoryTokenWatcher}
+     * Adds a new {@link HistoryTokenWatcher}, the returned {@link Runnable} may be invoked to remove the watcher.
      */
-    void addHistoryWatcher(final HistoryTokenWatcher watcher);
+    Runnable addHistoryWatcher(final HistoryTokenWatcher watcher);
 
     /**
      * Returns the current history token.
