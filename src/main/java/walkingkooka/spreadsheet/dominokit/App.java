@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -416,30 +417,12 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private void fireOnHistoryTokenChange(final HistoryToken previous) {
         this.debug("App.fireOnHistoryTokenChange from " + previous + " to " + this.historyToken());
 
-        final String hash = DomGlobal.location.hash;
-
-        for (final HistoryTokenWatcher watcher : this.historyWatchers) {
-            final String hash2 = DomGlobal.location.hash;
-            if (false == hash.equals(hash2)) {
-                this.debug("App.fireOnHistoryTokenChange aborted " + hash + " to " + hash2);
-                break;
-            }
-
-            this.fireHistoryWatcher(
-                    previous,
-                    watcher
-            );
-        }
+        this.historyWatchers.onHistoryTokenChange(
+                previous,
+                this
+        );
 
         this.previousToken = this.historyToken();
-    }
-
-    private void fireHistoryWatcher(final HistoryToken token,
-                                    final HistoryTokenWatcher watcher) {
-        this.callAndCatch(
-                token,
-                watcher::onHistoryTokenChange
-        );
     }
 
     // AppContext history...............................................................................................
@@ -498,7 +481,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         this.historyWatchers.add(watcher);
     }
 
-    private final Set<HistoryTokenWatcher> historyWatchers = Sets.ordered();
+    private final HistoryTokenWatchers historyWatchers = HistoryTokenWatchers.empty();
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
