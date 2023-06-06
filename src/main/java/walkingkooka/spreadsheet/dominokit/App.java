@@ -401,28 +401,17 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     private void onHistoryTokenChange(final HistoryToken token) {
-        try {
             final HistoryToken previousToken = this.previousToken;
             this.debug("App.onHistoryTokenChange from " + previousToken + " to " + token);
 
             if (false == token.equals(previousToken)) {
-                this.fireOnHistoryTokenChange(previousToken);
+                this.historyWatchers.onHistoryTokenChange(
+                        previousToken,
+                        this
+                );
+
+                this.previousToken = this.historyToken();
             }
-
-        } catch (final Exception e) {
-            error(e.getMessage());
-        }
-    }
-
-    private void fireOnHistoryTokenChange(final HistoryToken previous) {
-        this.debug("App.fireOnHistoryTokenChange from " + previous + " to " + this.historyToken());
-
-        this.historyWatchers.onHistoryTokenChange(
-                previous,
-                this
-        );
-
-        this.previousToken = this.historyToken();
     }
 
     // AppContext history...............................................................................................
