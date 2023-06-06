@@ -104,6 +104,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                     () -> this.loaded(context),
                     (pattern) -> this.save(pattern, context),
                     () -> this.close(context),
+                    () -> this.remove(context),
                     context
             );
 
@@ -160,6 +161,15 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                       final AppContext context) {
         context.pushHistoryToken(
                 this.setSave(pattern)
+        );
+    }
+
+    /**
+     * Pushes a new {@link HistoryToken} which will result in the removal of the pattern from the selection.
+     */
+    private void remove(final AppContext context) {
+        context.pushHistoryToken(
+                this.setSave("")
         );
     }
 

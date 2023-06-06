@@ -50,6 +50,7 @@ public final class PatternEditorWidget {
             final Supplier<String> loaded,
             final Consumer<String> save,
             final Runnable close,
+            final Runnable remove,
             final AppContext context) {
         return new PatternEditorWidget(
                 kind,
@@ -57,6 +58,7 @@ public final class PatternEditorWidget {
                 loaded,
                 save,
                 close,
+                remove,
                 context
         );
     }
@@ -66,6 +68,7 @@ public final class PatternEditorWidget {
                                 final Supplier<String> loaded,
                                 final Consumer<String> save,
                                 final Runnable close,
+                                final Runnable remove,
                                 final AppContext context) {
         this.context = context;
         this.kind = kind;
@@ -73,6 +76,7 @@ public final class PatternEditorWidget {
         this.loaded = loaded;
         this.save = save;
         this.close = close;
+        this.remove = remove;
 
         this.patternTextBox = this.patternTextBox();
         this.modalDialog = this.createModalDialog(title);
@@ -123,6 +127,7 @@ public final class PatternEditorWidget {
 
         modal.appendFooterChild(this.saveButton());
         modal.appendFooterChild(this.undoButton());
+        modal.appendFooterChild(this.removeButton());
         modal.appendFooterChild(this.closeButton());
 
         modal.open();
@@ -217,6 +222,27 @@ public final class PatternEditorWidget {
      * This {@link Supplier} provides the original loaded {@link String pattern}, and is used by UNDO.
      */
     private final Supplier<String> loaded;
+
+    /**
+     * When clicked the REMOVE button invokes {@link #remove}.
+     */
+    private Button removeButton() {
+        return this.button(
+                "Remove",
+                StyleType.DANGER,
+                this::onRemoveButtonClick
+        );
+    }
+
+    private void onRemoveButtonClick(final Event event) {
+        this.context.debug("PatternEditorWidget.onRemoveButtonClick");
+        this.remove.run();
+    }
+
+    /**
+     * This {@link Runnable} most likely pushes a SaveHistoryToken with no value.
+     */
+    private final Runnable remove;
 
     /**
      * Creates one of the modal action buttons that appear at the bottom of the modal dialog.
