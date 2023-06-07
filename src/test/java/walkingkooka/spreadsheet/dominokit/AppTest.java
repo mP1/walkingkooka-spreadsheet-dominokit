@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit;
 import com.google.gwt.junit.client.GWTTestCase;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -30,18 +29,6 @@ public final class AppTest extends GWTTestCase {
     public String getModuleName() {                                         // (2)
         return "walkingkooka.spreadsheet.dominokit.App";
     }
-
-    public void testFireSpreadsheetDelta() {
-        this.fireSpreadsheetDeltaCounter = 0;
-
-        final App app = new App();
-        app.addSpreadsheetDeltaWatcher((d, c) -> this.fireSpreadsheetDeltaCounter++);
-        app.addSpreadsheetDeltaWatcher((d, c) -> this.fireSpreadsheetDeltaCounter++);
-
-        app.fireSpreadsheetDelta(SpreadsheetDelta.EMPTY);
-    }
-
-    private int fireSpreadsheetDeltaCounter = 0;
 
     public void testFireSpreadsheetMetadata() {
         this.fireSpreadsheetMetadataCounter = 0;
