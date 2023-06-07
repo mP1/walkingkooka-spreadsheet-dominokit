@@ -134,6 +134,9 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
 
     public static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaWatcher watcher,
                                                final AppContext context) {
+        Objects.requireNonNull(watcher, "watcher");
+        Objects.requireNonNull(context, "context");
+
         return new SpreadsheetDeltaFetcher(
                 watcher,
                 context
