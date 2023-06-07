@@ -56,11 +56,6 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }

@@ -55,8 +55,6 @@ public interface AppContext extends LoggingContext, Context {
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 
-    void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata);
-
     /**
      * Returns the current or last loaded {@link SpreadsheetMetadata}.
      */

@@ -28,7 +28,6 @@ import org.dominokit.domino.ui.layout.Layout;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import org.jboss.elemento.EventType;
-import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
@@ -47,6 +46,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatchers;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbar;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidget;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -77,8 +77,6 @@ import walkingkooka.tree.text.WordBreak;
 import java.math.MathContext;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
-import java.util.function.BiConsumer;
 
 @LocaleAware
 public class App implements EntryPoint, AppContext, HistoryTokenWatcher, SpreadsheetMetadataWatcher, SpreadsheetDeltaWatcher, UncaughtExceptionHandler {
@@ -270,7 +268,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     /**
      * A collection of listeners for {@link SpreadsheetMetadataWatcher}
      */
-    final Set<SpreadsheetMetadataWatcher> metadataWatchers = Sets.ordered();
+    final SpreadsheetMetadataWatchers metadataWatchers = SpreadsheetMetadataWatchers.empty();
 
 
     @Override
@@ -289,48 +287,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(
-            (d, c) -> this.fireSpreadsheetMetadata(d),
+            this.metadataWatchers,
             this
     );
-
-    public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
-        this.spreadsheetMetadata = metadata;
-
-        final HistoryToken token = this.historyToken();
-        if (token instanceof SpreadsheetMetadataWatcher) {
-            this.fireSpreadsheetMetadata(
-                    metadata,
-                    (SpreadsheetMetadataWatcher) token
-            );
-        }
-
-        for (final SpreadsheetMetadataWatcher watcher : this.metadataWatchers) {
-            this.fireSpreadsheetMetadata(
-                    metadata,
-                    watcher
-            );
-        }
-    }
-
-    private void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                         final SpreadsheetMetadataWatcher watcher) {
-        this.callAndCatch(
-                metadata,
-                watcher::onSpreadsheetMetadata
-        );
-    }
-
-    private <T> void callAndCatch(final T value,
-                                  final BiConsumer<T, AppContext> fire) {
-        try {
-            fire.accept(
-                    value,
-                    this
-            );
-        } catch (final RuntimeException cause) {
-            this.error(cause);
-        }
-    }
 
     // misc..........................................................................................................
 
