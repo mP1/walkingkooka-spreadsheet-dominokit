@@ -18,15 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.pattern.PatternEditorWidget;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-import walkingkooka.text.CaseKind;
 
 import java.util.Optional;
 
@@ -99,13 +96,10 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                                      final AppContext context) {
         if (null == patternEditorWidget) {
             patternEditorWidget = PatternEditorWidget.with(
-                    this.patternKind(),
-                    this.title(), // title
-                    () -> this.loaded(context),
-                    (pattern) -> this.save(pattern, context),
-                    () -> this.close(context),
-                    () -> this.remove(context),
-                    context
+                    SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext.with(
+                            this,
+                            context
+                    )
             );
 
             this.onPatternEditorWidgetHistoryTokenWatcherRemover = context.addHistoryWatcher(
@@ -115,70 +109,6 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     private static PatternEditorWidget patternEditorWidget;
-
-    // Edit date/time format
-    // Edit text format
-    private String title() {
-        return "Edit " +
-                CaseKind.SNAKE.change(
-                        this.patternKind().name(),
-                        CaseKind.NORMAL
-                ).toLowerCase();
-    }
-
-    /**
-     * Takes the pattern for the matching {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern}.
-     */
-    private String loaded(final AppContext context) {
-        String loaded = ""; // if cell is absent or missing this property use a default of empty pattern.
-
-        final Optional<SpreadsheetCell> maybeCell = context.viewportCell(
-                this.viewportSelection()
-                        .selection()
-        );
-        if (maybeCell.isPresent()) {
-            final SpreadsheetCell cell = maybeCell.get();
-            final SpreadsheetPatternKind patternKind = this.patternKind();
-
-            final Optional<? extends SpreadsheetPattern> maybePattern = patternKind.isFormatPattern() ?
-                    cell.formatPattern() :
-                    cell.parsePattern();
-            if (maybePattern.isPresent()) {
-                final SpreadsheetPattern pattern = maybePattern.get();
-                if (patternKind == pattern.kind()) {
-                    loaded = pattern.text();
-                }
-            }
-        }
-
-        return loaded;
-    }
-
-    /**
-     * Save the pattern and push the new {@link HistoryToken}
-     */
-    private void save(final String pattern,
-                      final AppContext context) {
-        context.pushHistoryToken(
-                this.setSave(pattern)
-        );
-    }
-
-    /**
-     * Pushes a new {@link HistoryToken} which will result in the removal of the pattern from the selection.
-     */
-    private void remove(final AppContext context) {
-        context.pushHistoryToken(
-                this.setSave("")
-        );
-    }
-
-    // clear the pattern part leaving just the selection history token.
-    private void close(final AppContext context) {
-        this.pushViewportSelectionHistoryToken(
-                context
-        );
-    }
 
     private void onPatternEditorWidgetHistoryTokenChange(final HistoryToken previous,
                                                          final AppContext context) {
