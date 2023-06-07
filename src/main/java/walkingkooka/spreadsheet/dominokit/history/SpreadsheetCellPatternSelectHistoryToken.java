@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.pattern.PatternEditorWidget;
+import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorWidget;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
@@ -94,9 +94,9 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        if (null == patternEditorWidget) {
-            patternEditorWidget = PatternEditorWidget.with(
-                    SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext.with(
+        if (null == spreadsheetPatternEditorWidget) {
+            spreadsheetPatternEditorWidget = SpreadsheetPatternEditorWidget.with(
+                    SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext.with(
                             this,
                             context
                     )
@@ -108,15 +108,15 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
         }
     }
 
-    private static PatternEditorWidget patternEditorWidget;
+    private static SpreadsheetPatternEditorWidget spreadsheetPatternEditorWidget;
 
     private void onPatternEditorWidgetHistoryTokenChange(final HistoryToken previous,
                                                          final AppContext context) {
         if (false == context.historyToken() instanceof SpreadsheetCellPatternHistoryToken) {
 
-            if (null != patternEditorWidget) {
-                patternEditorWidget.close();
-                patternEditorWidget = null;
+            if (null != spreadsheetPatternEditorWidget) {
+                spreadsheetPatternEditorWidget.close();
+                spreadsheetPatternEditorWidget = null;
             }
 
             final Runnable remover = this.onPatternEditorWidgetHistoryTokenWatcherRemover;

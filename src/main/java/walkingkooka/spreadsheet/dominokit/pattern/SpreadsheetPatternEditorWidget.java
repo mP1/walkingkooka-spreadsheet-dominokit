@@ -34,16 +34,16 @@ import walkingkooka.text.CharSequences;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public final class PatternEditorWidget {
+public final class SpreadsheetPatternEditorWidget {
 
     /**
-     * Creates a new {@link PatternEditorWidget}.
+     * Creates a new {@link SpreadsheetPatternEditorWidget}.
      */
-    public static PatternEditorWidget with(final PatternEditorWidgetContext context) {
-        return new PatternEditorWidget(context);
+    public static SpreadsheetPatternEditorWidget with(final SpreadsheetPatternEditorWidgetContext context) {
+        return new SpreadsheetPatternEditorWidget(context);
     }
 
-    private PatternEditorWidget(final PatternEditorWidgetContext context) {
+    private SpreadsheetPatternEditorWidget(final SpreadsheetPatternEditorWidgetContext context) {
         this.context = context;
 
         this.patternTextBox = this.patternTextBox();
@@ -78,7 +78,7 @@ public final class PatternEditorWidget {
      */
     private void onPatternTextBox(final Event event) {
         // update UI here...
-        this.context.debug("PatternEditorWidget.onPatternTextBox " + this.patternTextBox.getValue());
+        this.context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + this.patternTextBox.getValue());
     }
 
     private void setPattern(final String pattern) {
@@ -125,14 +125,14 @@ public final class PatternEditorWidget {
     }
 
     private void onCloseButtonClick(final Event event) {
-        final PatternEditorWidgetContext context = this.context;
-        context.debug("PatternEditorWidget.onCloseButtonClick");
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+        context.debug("SpreadsheetPatternEditorWidget.onCloseButtonClick");
         context.close();
         this.modalDialog.close();
     }
 
     /**
-     * When clicked the SAVE button invokes {@link PatternEditorWidgetContext#save(String)}.
+     * When clicked the SAVE button invokes {@link SpreadsheetPatternEditorWidgetContext#save(String)}.
      */
     private Button saveButton() {
         return this.button(
@@ -144,11 +144,11 @@ public final class PatternEditorWidget {
 
     private void onSaveButtonClick(final Event event) {
         final String patternText = this.patternTextBox.getValue();
-        final PatternEditorWidgetContext context = this.context;
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
 
         try {
             context.patternKind().parse(patternText);
-            context.debug("PatternEditorWidget.onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
+            context.debug("SpreadsheetPatternEditorWidget.onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
             context.save(patternText);
         } catch (final Exception cause) {
             this.error(cause.getMessage());
@@ -170,16 +170,16 @@ public final class PatternEditorWidget {
      * Reloads the last saved pattern text.
      */
     private void onUndoButtonClick(final Event event) {
-        final PatternEditorWidgetContext context = this.context;
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
 
         final String patternText = context.loaded();
-        context.debug("PatternEditorWidget.onUndoButtonClick " + CharSequences.quoteAndEscape(patternText));
+        context.debug("SpreadsheetPatternEditorWidget.onUndoButtonClick " + CharSequences.quoteAndEscape(patternText));
 
         this.setPattern(patternText);
     }
 
     /**
-     * When clicked the REMOVE button invokes {@link PatternEditorWidgetContext#remove()}.
+     * When clicked the REMOVE button invokes {@link SpreadsheetPatternEditorWidgetContext#remove()}.
      */
     private Button removeButton() {
         return this.button(
@@ -190,9 +190,9 @@ public final class PatternEditorWidget {
     }
 
     private void onRemoveButtonClick(final Event event) {
-        final PatternEditorWidgetContext context = this.context;
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
 
-        context.debug("PatternEditorWidget.onRemoveButtonClick");
+        context.debug("SpreadsheetPatternEditorWidget.onRemoveButtonClick");
         context.remove();
     }
 
@@ -223,5 +223,5 @@ public final class PatternEditorWidget {
                 .show();
     }
 
-    private final PatternEditorWidgetContext context;
+    private final SpreadsheetPatternEditorWidgetContext context;
 }

@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContextTest implements ClassTesting<SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext> {
+public final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContextTest implements ClassTesting<SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext> {
 
     @Override
-    public Class<SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext> type() {
-        return SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext.class;
+    public Class<SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext> type() {
+        return SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext.class;
     }
 
     @Override

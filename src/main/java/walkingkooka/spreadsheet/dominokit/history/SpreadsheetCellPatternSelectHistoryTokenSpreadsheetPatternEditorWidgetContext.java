@@ -19,26 +19,26 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.pattern.PatternEditorWidgetContext;
+import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorWidgetContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 
 import java.util.Optional;
 
-final class SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext implements PatternEditorWidgetContext {
+final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext implements SpreadsheetPatternEditorWidgetContext {
 
-    static SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext with(final SpreadsheetCellPatternHistoryToken historyToken,
-                                                                                   final AppContext context) {
+    static SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext with(final SpreadsheetCellPatternHistoryToken historyToken,
+                                                                                              final AppContext context) {
 
-        return new SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext(
+        return new SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext(
                 historyToken,
                 context
         );
     }
 
-    private SpreadsheetCellPatternSelectHistoryTokenPatternEditorWidgetContext(final SpreadsheetCellPatternHistoryToken historyToken,
-                                                                               final AppContext context) {
+    private SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext(final SpreadsheetCellPatternHistoryToken historyToken,
+                                                                                          final AppContext context) {
 
         this.historyToken = historyToken;
         this.context = context;
