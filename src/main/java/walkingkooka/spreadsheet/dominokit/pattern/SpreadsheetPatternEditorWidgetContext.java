@@ -21,9 +21,9 @@ import walkingkooka.spreadsheet.dominokit.LoggingContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 /**
- * A {@link walkingkooka.Context} tht accompanies a {@link PatternEditorWidget} provided various inputs.
+ * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternEditorWidget} provided various inputs.
  */
-public interface PatternEditorWidgetContext extends LoggingContext {
+public interface SpreadsheetPatternEditorWidgetContext extends LoggingContext {
 
     /**
      * The {@link SpreadsheetPatternKind} being edited.
