@@ -27,13 +27,8 @@ import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.jboss.elemento.EventType;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CharSequences;
-
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 /**
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
@@ -44,44 +39,17 @@ public final class PatternEditorWidget {
     /**
      * Creates a new {@link PatternEditorWidget}.
      */
-    public static PatternEditorWidget with(
-            final SpreadsheetPatternKind kind,
-            final String title,
-            final Supplier<String> loaded,
-            final Consumer<String> save,
-            final Runnable close,
-            final Runnable remove,
-            final AppContext context) {
-        return new PatternEditorWidget(
-                kind,
-                title,
-                loaded,
-                save,
-                close,
-                remove,
-                context
-        );
+    public static PatternEditorWidget with(final PatternEditorWidgetContext context) {
+        return new PatternEditorWidget(context);
     }
 
-    private PatternEditorWidget(final SpreadsheetPatternKind kind,
-                                final String title,
-                                final Supplier<String> loaded,
-                                final Consumer<String> save,
-                                final Runnable close,
-                                final Runnable remove,
-                                final AppContext context) {
+    private PatternEditorWidget(final PatternEditorWidgetContext context) {
         this.context = context;
-        this.kind = kind;
-
-        this.loaded = loaded;
-        this.save = save;
-        this.close = close;
-        this.remove = remove;
 
         this.patternTextBox = this.patternTextBox();
-        this.modalDialog = this.createModalDialog(title);
+        this.modalDialog = this.createModalDialog(context.title());
 
-        this.setPattern(loaded.get());
+        this.setPattern(context.loaded());
     }
 
     /**
@@ -157,19 +125,14 @@ public final class PatternEditorWidget {
     }
 
     private void onCloseButtonClick(final Event event) {
-        this.context.debug("PatternEditorWidget.onCloseButtonClick");
-
-        this.close.run();
+        final PatternEditorWidgetContext context = this.context;
+        context.debug("PatternEditorWidget.onCloseButtonClick");
+        context.close();
         this.modalDialog.close();
     }
 
     /**
-     * Probably a {@link Runnable} that removes the pattern from the selection and then pushes the new history token.
-     */
-    private final Runnable close;
-
-    /**
-     * When clicked the SAVE button invokes {@link #save}.
+     * When clicked the SAVE button invokes {@link PatternEditorWidgetContext#save(String)}.
      */
     private Button saveButton() {
         return this.button(
@@ -181,21 +144,16 @@ public final class PatternEditorWidget {
 
     private void onSaveButtonClick(final Event event) {
         final String patternText = this.patternTextBox.getValue();
+        final PatternEditorWidgetContext context = this.context;
 
         try {
-            this.kind.parse(patternText);
-            this.context.debug("PatternEditorWidget.onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
-
-            this.save.accept(patternText);
+            context.patternKind().parse(patternText);
+            context.debug("PatternEditorWidget.onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
+            context.save(patternText);
         } catch (final Exception cause) {
             this.error(cause.getMessage());
         }
     }
-
-    /**
-     * This {@link Consumer} most likely pushes a SaveHistoryToken.
-     */
-    private final Consumer<String> save;
 
     /**
      * When clicked the undo button invokes {@link #onUndoButtonClick}.
@@ -212,19 +170,16 @@ public final class PatternEditorWidget {
      * Reloads the last saved pattern text.
      */
     private void onUndoButtonClick(final Event event) {
-        final String patternText = this.loaded.get();
-        this.context.debug("PatternEditorWidget.onUndoButtonClick " + CharSequences.quoteAndEscape(patternText));
+        final PatternEditorWidgetContext context = this.context;
+
+        final String patternText = context.loaded();
+        context.debug("PatternEditorWidget.onUndoButtonClick " + CharSequences.quoteAndEscape(patternText));
 
         this.setPattern(patternText);
     }
 
     /**
-     * This {@link Supplier} provides the original loaded {@link String pattern}, and is used by UNDO.
-     */
-    private final Supplier<String> loaded;
-
-    /**
-     * When clicked the REMOVE button invokes {@link #remove}.
+     * When clicked the REMOVE button invokes {@link PatternEditorWidgetContext#remove()}.
      */
     private Button removeButton() {
         return this.button(
@@ -235,14 +190,11 @@ public final class PatternEditorWidget {
     }
 
     private void onRemoveButtonClick(final Event event) {
-        this.context.debug("PatternEditorWidget.onRemoveButtonClick");
-        this.remove.run();
-    }
+        final PatternEditorWidgetContext context = this.context;
 
-    /**
-     * This {@link Runnable} most likely pushes a SaveHistoryToken with no value.
-     */
-    private final Runnable remove;
+        context.debug("PatternEditorWidget.onRemoveButtonClick");
+        context.remove();
+    }
 
     /**
      * Creates one of the modal action buttons that appear at the bottom of the modal dialog.
@@ -263,12 +215,6 @@ public final class PatternEditorWidget {
     }
 
     /**
-     * The {@link SpreadsheetPatternKind} will be used to customize this modal so the correct buttons are shown
-     * for the user to append to the pattern or format values into text etc.
-     */
-    private final SpreadsheetPatternKind kind;
-
-    /**
      * Display an error message.
      */
     private void error(final String errorMessage) {
@@ -277,5 +223,5 @@ public final class PatternEditorWidget {
                 .show();
     }
 
-    private final AppContext context;
+    private final PatternEditorWidgetContext context;
 }
