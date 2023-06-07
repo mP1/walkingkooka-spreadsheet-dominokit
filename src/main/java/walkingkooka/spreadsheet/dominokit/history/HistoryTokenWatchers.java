@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.store.Watchers;
 
-public final class HistoryTokenWatchers {
+public final class HistoryTokenWatchers implements HistoryTokenWatcher {
 
     public static HistoryTokenWatchers empty() {
         return new HistoryTokenWatchers();
@@ -32,6 +32,7 @@ public final class HistoryTokenWatchers {
         );
     }
 
+    @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         this.watchers.accept(
