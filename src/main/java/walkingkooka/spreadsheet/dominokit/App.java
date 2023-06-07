@@ -44,6 +44,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbar;
@@ -240,13 +241,45 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         }
     }
 
+    /**
+     * Returns the current or last loaded {@link SpreadsheetMetadata}
+     */
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.spreadsheetMetadata;
+    }
+
+    private SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
+
+    @Override
+    public void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
+        this.spreadsheetDeltaWatchers.add(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetDeltaWatcher}
+     */
+    final SpreadsheetDeltaWatchers spreadsheetDeltaWatchers = SpreadsheetDeltaWatchers.empty();
+
+    @Override
+    public void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+        this.metadataWatchers.add(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetMetadataWatcher}
+     */
+    final Set<SpreadsheetMetadataWatcher> metadataWatchers = Sets.ordered();
+
+
     @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         return this.spreadsheetDeltaFetcher;
     }
 
     private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
-            (d, c) -> this.fireSpreadsheetDelta(d),
+            this.spreadsheetDeltaWatchers,
             this
     );
 
@@ -259,20 +292,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
             (d, c) -> this.fireSpreadsheetMetadata(d),
             this
     );
-
-    public void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
-        for (final SpreadsheetDeltaWatcher watcher : this.deltaWatchers) {
-            fireSpreadsheetDelta(delta, watcher);
-        }
-    }
-
-    private void fireSpreadsheetDelta(final SpreadsheetDelta delta,
-                                      final SpreadsheetDeltaWatcher watcher) {
-        this.callAndCatch(
-                delta,
-                watcher::onSpreadsheetDelta
-        );
-    }
 
     public void fireSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         this.spreadsheetMetadata = metadata;
@@ -312,38 +331,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
             this.error(cause);
         }
     }
-
-    /**
-     * Returns the current or last loaded {@link SpreadsheetMetadata}
-     */
-    @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
-        return this.spreadsheetMetadata;
-    }
-
-    private SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
-
-    @Override
-    public void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-        this.deltaWatchers.add(watcher);
-    }
-
-    /**
-     * A collection of listeners for {@link SpreadsheetDeltaWatcher}
-     */
-    final Set<SpreadsheetDeltaWatcher> deltaWatchers = Sets.ordered();
-
-    @Override
-    public void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-        this.metadataWatchers.add(watcher);
-    }
-
-    /**
-     * A collection of listeners for {@link SpreadsheetMetadataWatcher}
-     */
-    final Set<SpreadsheetMetadataWatcher> metadataWatchers = Sets.ordered();
 
     // misc..........................................................................................................
 

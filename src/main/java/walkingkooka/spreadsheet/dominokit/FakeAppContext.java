@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -43,11 +42,6 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void fireSpreadsheetDelta(final SpreadsheetDelta delta) {
         throw new UnsupportedOperationException();
     }
 

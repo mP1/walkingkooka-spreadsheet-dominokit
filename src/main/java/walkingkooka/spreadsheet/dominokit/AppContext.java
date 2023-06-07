@@ -30,7 +30,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -49,8 +48,6 @@ public interface AppContext extends LoggingContext, Context {
     void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
 
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
-
-    void fireSpreadsheetDelta(final SpreadsheetDelta delta);
 
     // metadata..........................................................................................................
 
