@@ -33,6 +33,9 @@ public class SpreadsheetMetadataFetcher implements Fetcher {
 
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataWatcher watcher,
                                                   final AppContext context) {
+        Objects.requireNonNull(watcher, "watcher");
+        Objects.requireNonNull(context, "context");
+
         return new SpreadsheetMetadataFetcher(
                 watcher,
                 context
