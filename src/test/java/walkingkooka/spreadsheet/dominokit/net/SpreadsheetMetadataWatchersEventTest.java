@@ -15,14 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.net;
 
-import com.google.gwt.junit.client.GWTTestCase;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-public final class AppTest extends GWTTestCase {
+public final class SpreadsheetMetadataWatchersEventTest implements ClassTesting<SpreadsheetMetadataWatchersEvent> {
 
     @Override
-    public String getModuleName() {                                         // (2)
-        return "walkingkooka.spreadsheet.dominokit.App";
+    public Class<SpreadsheetMetadataWatchersEvent> type() {
+        return SpreadsheetMetadataWatchersEvent.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
