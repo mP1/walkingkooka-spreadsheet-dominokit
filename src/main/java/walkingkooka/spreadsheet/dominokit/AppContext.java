@@ -42,7 +42,7 @@ import walkingkooka.tree.text.TextStyle;
 import java.util.Objects;
 import java.util.Optional;
 
-public interface AppContext extends Context {
+public interface AppContext extends LoggingContext, Context {
 
     // delta............................................................................................................
 
@@ -202,8 +202,4 @@ public interface AppContext extends Context {
 
         return dropdownAction;
     }
-
-    void debug(final Object... values);
-
-    void error(final Object... values);
 }
