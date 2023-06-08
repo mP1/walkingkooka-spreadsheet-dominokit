@@ -109,7 +109,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
             spreadsheetPatternEditorWidget = SpreadsheetPatternEditorWidget.with(
                     SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext.with(context)
             );
-            this.onPatternEditorWidgetHistoryTokenWatcherRemover = context.addHistoryWatcher(
+            onPatternEditorWidgetHistoryTokenWatcherRemover = context.addHistoryWatcher(
                     this::onPatternEditorWidgetHistoryTokenChange
             );
         } else {
@@ -131,13 +131,13 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                 }
             }
 
-            final Runnable remover = this.onPatternEditorWidgetHistoryTokenWatcherRemover;
+            final Runnable remover = onPatternEditorWidgetHistoryTokenWatcherRemover;
             if (null == remover) {
-                this.onPatternEditorWidgetHistoryTokenWatcherRemover = null;
+                onPatternEditorWidgetHistoryTokenWatcherRemover = null;
                 remover.run();
             }
         }
     }
 
-    private Runnable onPatternEditorWidgetHistoryTokenWatcherRemover;
+    private static Runnable onPatternEditorWidgetHistoryTokenWatcherRemover;
 }
