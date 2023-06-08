@@ -45,7 +45,7 @@ public interface AppContext extends LoggingContext, Context {
 
     // delta............................................................................................................
 
-    void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
+    Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
 
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
