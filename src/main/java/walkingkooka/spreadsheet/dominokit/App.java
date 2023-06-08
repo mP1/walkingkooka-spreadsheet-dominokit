@@ -260,9 +260,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     final SpreadsheetDeltaWatchers spreadsheetDeltaWatchers = SpreadsheetDeltaWatchers.empty();
 
     @Override
-    public void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
         Objects.requireNonNull(watcher, "watcher");
-        this.metadataWatchers.add(watcher);
+        return this.metadataWatchers.add(watcher);
     }
 
     /**

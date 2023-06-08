@@ -51,7 +51,7 @@ public interface AppContext extends LoggingContext, Context {
 
     // metadata..........................................................................................................
 
-    void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
+    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 
