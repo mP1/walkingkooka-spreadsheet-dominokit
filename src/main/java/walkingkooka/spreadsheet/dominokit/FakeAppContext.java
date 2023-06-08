@@ -46,7 +46,7 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public void addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
