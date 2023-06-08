@@ -56,8 +56,8 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
         return "Edit " +
                 CaseKind.SNAKE.change(
                         this.patternKind().name(),
-                        CaseKind.NORMAL
-                ).toLowerCase();
+                        CaseKind.TITLE
+                ).replace("Pattern", "pattern");
     }
 
     /**
