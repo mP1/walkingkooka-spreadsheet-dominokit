@@ -19,6 +19,9 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
+/**
+ * A watcher that receives all {@link HistoryToken} change events.
+ */
 public interface HistoryTokenWatcher {
 
     void onHistoryTokenChange(final HistoryToken previous,
