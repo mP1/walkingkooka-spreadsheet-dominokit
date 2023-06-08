@@ -36,7 +36,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
     final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
-    private final static SpreadsheetViewportSelection VIEWPORT_SELECTION = CELL.setDefaultAnchor();
+    final static SpreadsheetViewportSelection VIEWPORT_SELECTION = CELL.setDefaultAnchor();
 
     SpreadsheetCellHistoryTokenTestCase() {
         super();

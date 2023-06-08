@@ -71,7 +71,18 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
 
     @Override
     HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
-        return this;
+        return this.patternKind().equals(patternKind) ?
+                this :
+                this.replacePatternKind(patternKind);
+    }
+
+    private HistoryToken replacePatternKind(final SpreadsheetPatternKind patternKind) {
+        return new SpreadsheetCellPatternSelectHistoryToken(
+                this.id(),
+                this.name(),
+                this.viewportSelection(),
+                patternKind
+        );
     }
 
     @Override
