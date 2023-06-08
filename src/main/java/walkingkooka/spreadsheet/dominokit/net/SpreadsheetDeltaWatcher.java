@@ -20,6 +20,9 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
+/**
+ * A watcher that receives all {@link SpreadsheetDelta} response events.
+ */
 public interface SpreadsheetDeltaWatcher {
 
     void onSpreadsheetDelta(final SpreadsheetDelta delta,
