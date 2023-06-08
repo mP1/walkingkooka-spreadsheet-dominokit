@@ -946,14 +946,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setPattern..........................................................................................................
+    // setPatternKind..........................................................................................................
 
     @Test
     public void testSetPatternWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setPattern(SpreadsheetPatternKind.TIME_PARSE_PATTERN),
+                historyToken.setPatternKind(SpreadsheetPatternKind.TIME_PARSE_PATTERN),
                 historyToken
         );
     }
@@ -965,7 +965,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
 
         this.checkEquals(
-                historyToken.setPattern(kind),
+                historyToken.setPatternKind(kind),
                 HistoryToken.cellPattern(
                         ID,
                         NAME,
@@ -982,7 +982,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewportSelection);
 
         this.checkEquals(
-                historyToken.setPattern(kind),
+                historyToken.setPatternKind(kind),
                 HistoryToken.cellPattern(
                         ID,
                         NAME,
@@ -999,7 +999,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewportSelection);
 
         assertSame(
-                historyToken.setPattern(kind),
+                historyToken.setPatternKind(kind),
                 historyToken
         );
     }
@@ -1011,7 +1011,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewportSelection);
 
         assertSame(
-                historyToken.setPattern(kind),
+                historyToken.setPatternKind(kind),
                 historyToken
         );
     }

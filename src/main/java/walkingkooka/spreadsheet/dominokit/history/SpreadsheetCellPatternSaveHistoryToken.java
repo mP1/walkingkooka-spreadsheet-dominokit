@@ -90,7 +90,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
         return cellPattern(
                 this.id(),
                 this.name(),
@@ -111,7 +111,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
         // clear the save from the history token.
         context.pushHistoryToken(
-                this.setPattern(kind)
+                this.setPatternKind(kind)
         );
 
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();

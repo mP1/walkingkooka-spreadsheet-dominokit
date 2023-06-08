@@ -75,7 +75,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override //
-    final HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
+    final HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 

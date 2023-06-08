@@ -67,7 +67,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 

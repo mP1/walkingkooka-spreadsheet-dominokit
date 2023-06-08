@@ -127,7 +127,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.
      */
-    abstract HistoryToken setPattern0(final SpreadsheetPatternKind patternKind);
+    abstract HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind);
 
     /**
      * Creates a save {@link HistoryToken} after attempting to parse the value.
@@ -151,7 +151,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final Optional<String> patternKind = parseComponent(cursor);
         if (patternKind.isPresent()) {
-            result = this.setPattern(
+            result = this.setPatternKind(
                     SpreadsheetPatternKind.fromTypeName("spreadsheet-" + patternKind.get() + "-pattern")
             );
         } else {
