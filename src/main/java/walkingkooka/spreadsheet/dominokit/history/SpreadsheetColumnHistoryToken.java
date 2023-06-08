@@ -103,7 +103,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportS
     }
 
     @Override //
-    HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
         return this; // TODO
     }
 

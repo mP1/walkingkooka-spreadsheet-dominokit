@@ -100,7 +100,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     }
 
     @Override //
-    final HistoryToken setPattern0(final SpreadsheetPatternKind patternKind) {
+    final HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
         return this;
     }
 

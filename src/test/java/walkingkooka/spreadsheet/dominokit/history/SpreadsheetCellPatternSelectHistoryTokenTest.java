@@ -30,14 +30,14 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
 
     private final static SpreadsheetPatternKind KIND = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
 
-    // setPattern......................................................................................................
+    // setPatternKind......................................................................................................
 
     @Test
     public void testSetPatternKindSame() {
         final SpreadsheetCellPatternSelectHistoryToken historyToken = this.createHistoryToken();
         assertSame(
                 historyToken,
-                historyToken.setPattern(KIND)
+                historyToken.setPatternKind(KIND)
         );
     }
 
@@ -79,7 +79,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
             final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                historyToken.setPattern(kind),
+                historyToken.setPatternKind(kind),
                 () -> historyToken + " setPatternKind " + kind
         );
     }
