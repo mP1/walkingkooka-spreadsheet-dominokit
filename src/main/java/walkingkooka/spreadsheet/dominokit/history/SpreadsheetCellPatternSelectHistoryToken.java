@@ -107,10 +107,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                                      final AppContext context) {
         if (null == spreadsheetPatternEditorWidget) {
             spreadsheetPatternEditorWidget = SpreadsheetPatternEditorWidget.with(
-                    SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext.with(
-                            this,
-                            context
-                    )
+                    SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext.with(context)
             );
 
             this.onPatternEditorWidgetHistoryTokenWatcherRemover = context.addHistoryWatcher(
