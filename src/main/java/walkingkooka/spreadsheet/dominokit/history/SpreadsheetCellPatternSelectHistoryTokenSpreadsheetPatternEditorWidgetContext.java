@@ -28,25 +28,18 @@ import java.util.Optional;
 
 final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext implements SpreadsheetPatternEditorWidgetContext {
 
-    static SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext with(final SpreadsheetCellPatternHistoryToken historyToken,
-                                                                                              final AppContext context) {
+    static SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext with(final AppContext context) {
 
-        return new SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext(
-                historyToken,
-                context
-        );
+        return new SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext(context);
     }
 
-    private SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext(final SpreadsheetCellPatternHistoryToken historyToken,
-                                                                                          final AppContext context) {
-
-        this.historyToken = historyToken;
+    private SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext(final AppContext context) {
         this.context = context;
     }
 
     @Override
     public SpreadsheetPatternKind patternKind() {
-        return this.historyToken.patternKind();
+        return this.historyToken().patternKind();
     }
 
     // Edit date/time format
@@ -68,7 +61,8 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
         String loaded = ""; // if cell is absent or missing this property use a default of empty pattern.
 
         final Optional<SpreadsheetCell> maybeCell = this.context.viewportCell(
-                this.historyToken.viewportSelection()
+                this.historyToken()
+                        .viewportSelection()
                         .selection()
         );
         if (maybeCell.isPresent()) {
@@ -95,7 +89,7 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
     @Override
     public void save(final String pattern) {
         this.context.pushHistoryToken(
-                this.historyToken.setSave(pattern)
+                this.historyToken().setSave(pattern)
         );
     }
 
@@ -105,19 +99,22 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
     @Override
     public void remove() {
         this.context.pushHistoryToken(
-                this.historyToken.setSave("")
+                this.historyToken().setSave("")
         );
     }
 
     // clear the pattern part leaving just the selection history token.
     @Override
     public void close() {
-        this.historyToken.pushViewportSelectionHistoryToken(
-                context
+        this.historyToken().pushViewportSelectionHistoryToken(
+                this.context
         );
     }
 
-    private final SpreadsheetCellPatternHistoryToken historyToken;
+    private SpreadsheetCellPatternHistoryToken historyToken() {
+        return this.context.historyToken()
+                .cast(SpreadsheetCellPatternHistoryToken.class);
+    }
 
     @Override
     public void debug(final Object... values) {
