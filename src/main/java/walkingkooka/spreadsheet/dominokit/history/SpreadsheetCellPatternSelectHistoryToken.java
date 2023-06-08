@@ -109,11 +109,13 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
             spreadsheetPatternEditorWidget = SpreadsheetPatternEditorWidget.with(
                     SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext.with(context)
             );
-
-            this.onPatternEditorWidgetHistoryTokenWatcherRemover = context.addHistoryWatcher(
-                    this::onPatternEditorWidgetHistoryTokenChange
-            );
+        } else {
+            spreadsheetPatternEditorWidget.refresh();
         }
+
+        this.onPatternEditorWidgetHistoryTokenWatcherRemover = context.addHistoryWatcher(
+                this::onPatternEditorWidgetHistoryTokenChange
+        );
     }
 
     private static SpreadsheetPatternEditorWidget spreadsheetPatternEditorWidget;

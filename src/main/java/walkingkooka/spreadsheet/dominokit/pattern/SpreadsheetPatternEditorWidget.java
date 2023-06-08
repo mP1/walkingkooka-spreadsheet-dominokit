@@ -28,6 +28,7 @@ import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.jboss.elemento.EventType;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CharSequences;
 
 /**
@@ -221,6 +222,18 @@ public final class SpreadsheetPatternEditorWidget {
         Notification.create(errorMessage)
                 .setPosition(Notification.TOP_CENTER)
                 .show();
+    }
+
+    /**
+     * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
+     */
+    public void refresh() {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+
+        context.debug("SpreadsheetPatternEditorWidget.refresh");
+
+        this.modalDialog.setTitle(context.title());
+        this.setPattern(context.loaded());
     }
 
     private final SpreadsheetPatternEditorWidgetContext context;
