@@ -42,7 +42,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
     }
 
     @Test
-    public void testSetPatterKindDifferent() {
+    public void testSetPatternKindDifferent() {
         final SpreadsheetPatternKind different = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN;
 
         this.setPatternKindAndCheck(
@@ -58,7 +58,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
     }
 
     @Test
-    public void testSetPatterKindDifferent2() {
+    public void testSetPatternKindDifferent2() {
         final SpreadsheetPatternKind different = SpreadsheetPatternKind.TIME_FORMAT_PATTERN;
 
         this.setPatternKindAndCheck(
