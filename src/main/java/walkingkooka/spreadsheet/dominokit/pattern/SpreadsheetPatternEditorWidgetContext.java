@@ -18,17 +18,30 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.spreadsheet.dominokit.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternEditorWidget} provided various inputs.
  */
-public interface SpreadsheetPatternEditorWidgetContext extends LoggingContext {
+public interface SpreadsheetPatternEditorWidgetContext extends HistoryTokenContext, LoggingContext {
 
     /**
      * The {@link SpreadsheetPatternKind} being edited.
      */
     SpreadsheetPatternKind patternKind();
+
+    /**
+     * Returns the text that will appear on a button that when clicked switches to the given {@link SpreadsheetPatternKind}.
+     */
+    String patternKindButtonText(final SpreadsheetPatternKind kind);
+
+    /**
+     * Switches the editor to the given {@link SpreadsheetPatternKind}.
+     */
+    void setPatternKind(final SpreadsheetPatternKind patternKind);
 
     /**
      * The title that will appear above the modal dialog box.
@@ -54,4 +67,10 @@ public interface SpreadsheetPatternEditorWidgetContext extends LoggingContext {
      * Removes the pattern text from its source cell etc.
      */
     void remove();
+
+    /**
+     * More specialised {@link HistoryToken} getter
+     */
+    @Override
+    SpreadsheetCellPatternHistoryToken historyToken();
 }

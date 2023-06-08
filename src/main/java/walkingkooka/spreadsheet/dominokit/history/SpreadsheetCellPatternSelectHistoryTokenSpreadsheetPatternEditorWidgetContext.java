@@ -42,6 +42,27 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
         return this.historyToken().patternKind();
     }
 
+    // SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
+    @Override
+    public String patternKindButtonText(final SpreadsheetPatternKind kind) {
+        return CaseKind.SNAKE.change(
+                kind.name().replace("PATTERN", ""),
+                CaseKind.TITLE
+        ).trim();
+    }
+
+    /**
+     * Switches the editor to the given {@link SpreadsheetPatternKind}.
+     */
+    public void setPatternKind(final SpreadsheetPatternKind patternKind) {
+        final AppContext context = this.context;
+
+        context.debug("SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext.setPatternKind " + patternKind);
+        context.pushHistoryToken(
+                this.historyToken().setPatternKind(patternKind)
+        );
+    }
+
     // Edit date/time format
     // Edit text format
     @Override
@@ -111,9 +132,20 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
         );
     }
 
-    private SpreadsheetCellPatternHistoryToken historyToken() {
+    @Override
+    public Runnable addHistoryWatcher(final HistoryTokenWatcher watcher) {
+        return this.context.addHistoryWatcher(watcher);
+    }
+
+    @Override
+    public SpreadsheetCellPatternHistoryToken historyToken() {
         return this.context.historyToken()
                 .cast(SpreadsheetCellPatternHistoryToken.class);
+    }
+
+    @Override
+    public void pushHistoryToken(final HistoryToken token) {
+        this.context.pushHistoryToken(token);
     }
 
     @Override
