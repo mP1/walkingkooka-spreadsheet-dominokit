@@ -289,8 +289,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         boolean load = true;
         final SpreadsheetId id = this.id();
         if (previous instanceof SpreadsheetIdHistoryToken) {
-            final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) previous;
-            load = false == id.equals(spreadsheetIdHistoryToken.id());
+            load = false == id.equals(
+                    previous.cast(SpreadsheetIdHistoryToken.class).id()
+            );
         }
 
         if (load) {
