@@ -24,7 +24,67 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 public final class SpreadsheetCellPatternSelectHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternSelectHistoryToken> {
+
+    private final static SpreadsheetPatternKind KIND = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+
+    // setPattern......................................................................................................
+
+    @Test
+    public void testSetPatternKindSame() {
+        final SpreadsheetCellPatternSelectHistoryToken historyToken = this.createHistoryToken();
+        assertSame(
+                historyToken,
+                historyToken.setPattern(KIND)
+        );
+    }
+
+    @Test
+    public void testSetPatterKindDifferent() {
+        final SpreadsheetPatternKind different = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN;
+
+        this.setPatternKindAndCheck(
+                this.createHistoryToken(),
+                different,
+                SpreadsheetCellPatternSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        VIEWPORT_SELECTION,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatterKindDifferent2() {
+        final SpreadsheetPatternKind different = SpreadsheetPatternKind.TIME_FORMAT_PATTERN;
+
+        this.setPatternKindAndCheck(
+                this.createHistoryToken(),
+                different,
+                SpreadsheetCellPatternSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        VIEWPORT_SELECTION,
+                        different
+                )
+        );
+    }
+
+    private void setPatternKindAndCheck(
+            final SpreadsheetCellPatternSelectHistoryToken historyToken,
+            final SpreadsheetPatternKind kind,
+            final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                historyToken.setPattern(kind),
+                () -> historyToken + " setPatternKind " + kind
+        );
+    }
+
+    // urlFragment......................................................................................................
 
     @Test
     public void testUrlFragmentCell() {
@@ -55,7 +115,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
                 id,
                 name,
                 viewportSelection,
-                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                KIND
         );
     }
 
