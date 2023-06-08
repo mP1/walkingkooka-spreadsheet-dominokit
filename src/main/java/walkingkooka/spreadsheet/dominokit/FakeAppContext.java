@@ -36,7 +36,7 @@ import java.util.Optional;
 
 public class FakeAppContext implements AppContext {
     @Override
-    public void addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
+    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
