@@ -17,6 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.KeyboardEvent;
+import elemental2.dom.Node;
+import org.jboss.elemento.Elements;
+import org.jboss.elemento.EventType;
 import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
@@ -997,6 +1003,49 @@ public abstract class HistoryToken implements HasUrlFragment {
      */
     abstract public void onHistoryTokenChange(final HistoryToken previous,
                                               final AppContext context);
+
+    // UI...............................................................................................................
+
+    /**
+     * Creates a link if enabled or text if disabled. When clicked the history token hash will be pushed.
+     */
+    public final Node linkOrText(final String text,
+                                 final String id,
+                                 final boolean enabled,
+                                 final HistoryTokenContext context) {
+        return enabled ?
+                DomGlobal.document.createTextNode(text) :
+                link(text, id, context);
+    }
+
+    /**
+     * Creates a link with the given text and id. When clicked the history token hash will be pushed.
+     */
+    public final HTMLAnchorElement link(final String text,
+                                        final String id,
+                                        final HistoryTokenContext context) {
+        final HTMLAnchorElement element = Elements.a()
+                .id(id + "-link")
+                .attr("href", "#" + this.urlFragment().value())
+                .attr("tabindex", "0")
+                .textContent(text)
+                .element();
+        element.addEventListener(
+                EventType.click.getName(),
+                (e) -> context.pushHistoryToken(this)
+        );
+        element.addEventListener(
+                EventType.keypress.getName(),
+                (e) -> {
+                    final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
+                    if (keyboardEvent.code.equals("Enter")) {
+                        keyboardEvent.preventDefault();
+                        context.pushHistoryToken(this);
+                    }
+                }
+        );
+        return element;
+    }
 
     // Object...........................................................................................................
 
