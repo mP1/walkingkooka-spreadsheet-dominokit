@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorWidget;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
@@ -112,6 +113,10 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
             onPatternEditorWidgetHistoryTokenWatcherRemover = context.addHistoryWatcher(
                     this::onPatternEditorWidgetHistoryTokenChange
             );
+
+            onPatternEditorWidgetSpreadsheetDeltaWatcherRemover = context.addSpreadsheetDeltaWatcher(
+                    this::onPatternEditorWidgetSpreadsheetDelta
+            );
         } else {
             spreadsheetPatternEditorWidget.refresh();
         }
@@ -140,4 +145,15 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     private static Runnable onPatternEditorWidgetHistoryTokenWatcherRemover;
+
+    private void onPatternEditorWidgetSpreadsheetDelta(final SpreadsheetDelta delta,
+                                                       final AppContext context) {
+        if (context.historyToken() instanceof SpreadsheetCellPatternHistoryToken) {
+            if (null != spreadsheetPatternEditorWidget) {
+                spreadsheetPatternEditorWidget.refresh();
+            }
+        }
+    }
+
+    private static Runnable onPatternEditorWidgetSpreadsheetDeltaWatcherRemover;
 }
