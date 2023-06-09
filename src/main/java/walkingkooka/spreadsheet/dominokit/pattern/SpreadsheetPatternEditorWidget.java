@@ -63,6 +63,8 @@ public final class SpreadsheetPatternEditorWidget {
      */
     private TextBox patternTextBox() {
         final TextBox textBox = new TextBox();
+
+        textBox.id(ID_PREFIX + "pattern-TextBox");
         textBox.setSpellCheck(false);
         textBox.setFieldStyle(FieldStyle.ROUNDED);
         textBox.setType("text");
@@ -92,6 +94,7 @@ public final class SpreadsheetPatternEditorWidget {
     private ModalDialog createModalDialog(final String title) {
         final ModalDialog modal = ModalDialog.create(title)
                 .setAutoClose(true);
+        modal.id(ID);
         modal.appendChild(this.patternTextBox);
 
         modal.appendFooterChild(this.saveButton());
@@ -204,6 +207,8 @@ public final class SpreadsheetPatternEditorWidget {
                           final StyleType type,
                           final EventListener listener) {
         final Button button = new Button(text);
+
+        button.id(ID_PREFIX + text.toLowerCase() + "-Button");
         button.setButtonType(type);
         button.elevate(Elevation.LEVEL_1);
 
@@ -237,4 +242,13 @@ public final class SpreadsheetPatternEditorWidget {
     }
 
     private final SpreadsheetPatternEditorWidgetContext context;
+
+    // ids..............................................................................................................
+
+    /**
+     * The ID assigned to the container TABLE element.
+     */
+    private final static String ID = "pattern";
+
+    private final static String ID_PREFIX = ID + "-";
 }
