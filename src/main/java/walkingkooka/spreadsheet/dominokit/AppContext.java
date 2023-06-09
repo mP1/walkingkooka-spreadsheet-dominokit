@@ -25,7 +25,7 @@ import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
@@ -41,7 +41,7 @@ import walkingkooka.tree.text.TextStyle;
 import java.util.Objects;
 import java.util.Optional;
 
-public interface AppContext extends LoggingContext, Context {
+public interface AppContext extends HistoryTokenContext, LoggingContext, Context {
 
     // delta............................................................................................................
 
@@ -71,23 +71,6 @@ public interface AppContext extends LoggingContext, Context {
      * {@see JsonNodeUnmarshallContext}
      */
     JsonNodeUnmarshallContext unmarshallContext();
-
-    // history..........................................................................................................
-
-    /**
-     * Adds a new {@link HistoryTokenWatcher}, the returned {@link Runnable} may be invoked to remove the watcher.
-     */
-    Runnable addHistoryWatcher(final HistoryTokenWatcher watcher);
-
-    /**
-     * Returns the current history token.
-     */
-    HistoryToken historyToken();
-
-    /**
-     * Pushes the given {@link HistoryToken} to the browser location.hash
-     */
-    void pushHistoryToken(final HistoryToken token);
 
     // UI...............................................................................................................
 
