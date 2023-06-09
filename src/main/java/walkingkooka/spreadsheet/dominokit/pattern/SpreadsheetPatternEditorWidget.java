@@ -126,7 +126,6 @@ public final class SpreadsheetPatternEditorWidget {
     private DropdownButton switchSpreadsheetPatternKindWidget() {
         final SpreadsheetPatternEditorWidgetContext context = this.context;
         final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
-        final SpreadsheetPatternKind current = context.patternKind();
 
         final DropdownButton dropdownButton = DropdownButton.create("Pattern")
                 .setPosition(DropDownPosition.BOTTOM_RIGHT);
