@@ -17,9 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.button.Button;
+import org.dominokit.domino.ui.button.DropdownButton;
+import org.dominokit.domino.ui.dropdown.DropDownPosition;
+import org.dominokit.domino.ui.dropdown.DropdownAction;
 import org.dominokit.domino.ui.forms.FieldStyle;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.modals.ModalDialog;
@@ -27,9 +31,13 @@ import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.jboss.elemento.EventType;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
+
+import static org.dominokit.domino.ui.style.Unit.px;
 
 /**
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
@@ -93,9 +101,14 @@ public final class SpreadsheetPatternEditorWidget {
      */
     private ModalDialog createModalDialog(final String title) {
         final ModalDialog modal = ModalDialog.create(title)
+                .large()
                 .setAutoClose(true);
         modal.id(ID);
         modal.appendChild(this.patternTextBox);
+
+        modal.appendFooterChild(this.switchSpreadsheetPatternKindWidget());
+
+        modal.appendFooterChild(DomGlobal.document.createTextNode(" "));
 
         modal.appendFooterChild(this.saveButton());
         modal.appendFooterChild(this.undoButton());
@@ -105,6 +118,38 @@ public final class SpreadsheetPatternEditorWidget {
         modal.open();
 
         return modal;
+    }
+
+    /**
+     * Creates a drop down holding links for each {@link SpreadsheetPatternKind}. Each link when clicked will update the {@link SpreadsheetPatternKind}.
+     */
+    private DropdownButton switchSpreadsheetPatternKindWidget() {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+        final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
+        final SpreadsheetPatternKind current = context.patternKind();
+
+        final DropdownButton dropdownButton = DropdownButton.create("Pattern")
+                .setPosition(DropDownPosition.BOTTOM_RIGHT);
+
+        dropdownButton.style()
+                .setMargin(px.of(5))
+                .setMinWidth(px.of(120));
+
+        for (final SpreadsheetPatternKind kind : SpreadsheetPatternKind.values()) {
+            dropdownButton.appendChild(
+                    DropdownAction.create(
+                            kind,
+                            historyToken.setPatternKind(kind)
+                                    .link(
+                                            context.patternKindButtonText(kind), // text
+                                            ID_PREFIX + CaseKind.SNAKE.change(kind.name(), CaseKind.KEBAB), // id
+                                            context
+                                    )
+                    )
+            );
+        }
+
+        return dropdownButton;
     }
 
     /**
