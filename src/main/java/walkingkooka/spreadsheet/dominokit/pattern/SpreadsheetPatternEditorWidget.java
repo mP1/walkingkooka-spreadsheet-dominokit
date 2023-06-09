@@ -141,7 +141,7 @@ public final class SpreadsheetPatternEditorWidget {
                             historyToken.setPatternKind(kind)
                                     .link(
                                             context.patternKindButtonText(kind), // text
-                                            ID_PREFIX + CaseKind.SNAKE.change(kind.name(), CaseKind.KEBAB), // id
+                                            spreadsheetPatternKindId(kind), // id
                                             context
                                     )
                     )
@@ -295,4 +295,13 @@ public final class SpreadsheetPatternEditorWidget {
     private final static String ID = "pattern";
 
     private final static String ID_PREFIX = ID + "-";
+
+    // @VisibleForTesting
+    static String spreadsheetPatternKindId(final SpreadsheetPatternKind kind) {
+        return ID_PREFIX +
+                CaseKind.SNAKE.change(
+                        kind.name(),
+                        CaseKind.KEBAB
+                ).replace("-pattern", "");
+    }
 }
