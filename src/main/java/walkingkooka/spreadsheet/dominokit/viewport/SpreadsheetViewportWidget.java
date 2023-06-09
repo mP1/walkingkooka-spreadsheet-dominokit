@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.Element;
 import elemental2.dom.Event;
-import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLTableCellElement;
@@ -56,7 +55,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -668,10 +666,12 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * Creates a TH with the column in UPPER CASE with column width.
      */
     private HTMLTableCellElement renderColumnHeader(final SpreadsheetColumnReference column) {
+        final AppContext context = this.context;
+
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.th()
                 .id(id(column))
                 .style(
-                        this.context.viewportColumnHeaderStyle(this.isSelected(column))
+                        context.viewportColumnHeaderStyle(this.isSelected(column))
                                 .set(
                                         TextStylePropertyName.WIDTH,
                                         this.cache.columnWidth(column)
@@ -682,9 +682,17 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                 .css() + "box-sizing: border-box;"
                 );
 
-        this.addLinkOrText(
-                column,
-                td
+        td.add(
+                context.historyToken()
+                        .setViewportSelection(
+                                Optional.of(
+                                        column.setDefaultAnchor()
+                                )
+                        ).link(
+                                column.toString().toUpperCase(),
+                                id(column),
+                                context
+                        )
         );
 
         final HTMLTableCellElement element = td.element();
@@ -739,10 +747,12 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     }
 
     private HTMLTableCellElement renderRowHeader(final SpreadsheetRowReference row) {
+        final AppContext context = this.context;
+
         final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
                 .id(id(row))
                 .style(
-                        this.context.viewportRowHeaderStyle(this.isSelected(row))
+                        context.viewportRowHeaderStyle(this.isSelected(row))
                                 .set(
                                         TextStylePropertyName.WIDTH,
                                         ROW_WIDTH
@@ -753,9 +763,17 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                 .css() + "box-sizing: border-box;"
                 );
 
-        this.addLinkOrText(
-                row,
-                td
+        td.add(
+                context.historyToken()
+                        .setViewportSelection(
+                                Optional.of(
+                                        row.setDefaultAnchor()
+                                )
+                        ).link(
+                                row.toString().toUpperCase(),
+                                id(row),
+                                context
+                        )
         );
 
         final HTMLTableCellElement element = td.element();
@@ -768,41 +786,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     }
 
     private final static Length<?> ROW_WIDTH = Length.pixel(80.0);
-
-    /**
-     * If possible creates a link to the cell or row or simply the cow/row reference as text.
-     */
-    private void addLinkOrText(final SpreadsheetColumnOrRowReference columnOrRow,
-                               final HtmlContentBuilder<HTMLTableCellElement> td) {
-        if (null == this.context.historyToken()) {
-            td.textContent(
-                    columnOrRow.toString()
-                            .toUpperCase()
-            );
-        } else {
-            td.add(
-                    this.link(columnOrRow)
-            );
-        }
-    }
-
-    /**
-     * Creates an ANCHOR including an ID and TEXT in upper case of the given {@link SpreadsheetSelection}.
-     */
-    private HTMLAnchorElement link(final SpreadsheetSelection selection) {
-        final HistoryToken token = this.context.historyToken()
-                .setViewportSelection(
-                        Optional.of(
-                                selection.setDefaultAnchor()
-                        )
-                );
-
-        return Elements.a()
-                .id(id(selection) + "-link")
-                .attr("href", "#" + token.urlFragment().value())
-                .textContent(selection.toString().toUpperCase())
-                .element();
-    }
 
     /**
      * Renders the given cell, reading the cell contents from the {@link #cache}.
