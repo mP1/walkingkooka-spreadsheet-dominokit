@@ -213,7 +213,21 @@ public final class SpreadsheetPatternEditorWidget {
         final String patternText = this.patternText();
 
         this.appendPatternToAnchor.forEach(
-                (p, a) -> a.setAttribute("href", historyToken.setSave(patternText + p).urlFragment().value())
+                (p, a) -> {
+                    String href;
+                    boolean ariaDisabled;
+                    try {
+                        href = historyToken.setSave(patternText + p)
+                                .urlFragment()
+                                .value();
+                        ariaDisabled = false;
+                    } catch (final RuntimeException invalidPattern) {
+                        href = "";
+                        ariaDisabled = true;
+                    }
+                    a.setAttribute("href", href);
+                    a.setAttribute("aria-disabled", ariaDisabled);
+                }
         );
     }
 
