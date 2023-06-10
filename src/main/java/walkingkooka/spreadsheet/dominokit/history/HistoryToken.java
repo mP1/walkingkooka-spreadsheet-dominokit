@@ -55,6 +55,8 @@ import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+import static org.jboss.elemento.Key.Enter;
+
 public abstract class HistoryToken implements HasUrlFragment {
 
     private final static int MAX_LENGTH = 8192;
@@ -1038,7 +1040,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 EventType.keypress.getName(),
                 (e) -> {
                     final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
-                    if (keyboardEvent.code.equals("Enter")) {
+                    if (keyboardEvent.code.equals(Enter)) {
                         keyboardEvent.preventDefault();
                         context.pushHistoryToken(this);
                     }
