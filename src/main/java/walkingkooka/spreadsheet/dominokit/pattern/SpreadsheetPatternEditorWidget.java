@@ -89,7 +89,14 @@ public final class SpreadsheetPatternEditorWidget {
      */
     private void onPatternTextBox(final Event event) {
         // update UI here...
-        this.context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + this.patternTextBox.getValue());
+        this.context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + this.patternText());
+    }
+
+    /**
+     * Retrieves the current pattern.
+     */
+    private String patternText() {
+        return this.patternTextBox.getValue();
     }
 
     private void setPattern(final String pattern) {
@@ -194,7 +201,7 @@ public final class SpreadsheetPatternEditorWidget {
     }
 
     private void onSaveButtonClick(final Event event) {
-        final String patternText = this.patternTextBox.getValue();
+        final String patternText = this.patternText();
         final SpreadsheetPatternEditorWidgetContext context = this.context;
 
         try {
