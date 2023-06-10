@@ -91,7 +91,7 @@ public final class SpreadsheetPatternEditorWidget {
         textBox.setFieldStyle(FieldStyle.ROUNDED);
         textBox.setType("text");
         textBox.addEventListener(
-                EventType.change,
+                EventType.input,
                 this::onPatternTextBox
         );
         return textBox;
