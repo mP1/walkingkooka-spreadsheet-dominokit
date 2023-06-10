@@ -25,17 +25,21 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.button.DropdownButton;
+import org.dominokit.domino.ui.chips.Chip;
 import org.dominokit.domino.ui.dropdown.DropDownPosition;
 import org.dominokit.domino.ui.dropdown.DropdownAction;
 import org.dominokit.domino.ui.forms.FieldStyle;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.modals.ModalDialog;
 import org.dominokit.domino.ui.notifications.Notification;
+import org.dominokit.domino.ui.style.ColorScheme;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
+import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
@@ -44,7 +48,9 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static org.dominokit.domino.ui.style.Unit.px;
 
@@ -65,6 +71,9 @@ public final class SpreadsheetPatternEditorWidget {
         this.context = context;
 
         this.patternTextBox = this.patternTextBox();
+
+        this.componentPatternParent = Elements.span();
+        this.componentChipPatternTexts = Lists.array();
 
         this.appendParent = Elements.span();
         this.appendPatternToAnchor = Maps.ordered();
@@ -105,6 +114,7 @@ public final class SpreadsheetPatternEditorWidget {
         // update UI here...
         this.context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + this.patternText());
         this.updateAppendLinks();
+        this.rebuildPatternComponentChips();
     }
 
     /**
@@ -116,6 +126,8 @@ public final class SpreadsheetPatternEditorWidget {
 
     private void setPatternText(final String pattern) {
         this.patternTextBox.setValue(pattern);
+
+        this.rebuildPatternComponentChips();
     }
 
     /**
@@ -127,6 +139,7 @@ public final class SpreadsheetPatternEditorWidget {
                 .setAutoClose(true);
         modal.id(ID);
 
+        modal.appendChild(this.componentPatternParent.element());
         modal.appendChild(this.appendParent.element());
 
         modal.appendChild(this.patternTextBox);
@@ -145,13 +158,104 @@ public final class SpreadsheetPatternEditorWidget {
         return modal;
     }
 
+    // componentPattern.................................................................................................
+
+    /**
+     * This is called anytime the pattern text is changed.
+     */
+    private void rebuildPatternComponentChips() {
+        final HtmlContentBuilder<HTMLElement> parent = this.componentPatternParent;
+
+        // TODO extract remove all child nodes
+        final HTMLElement element = parent.element();
+        for (; ; ) {
+            final Node last = element.lastChild;
+            if (null == last) {
+                break;
+            }
+            element.removeChild(last);
+        }
+
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+        final SpreadsheetPatternKind patternKind = context.patternKind();
+        final List<String> componentChipPatternTexts = this.componentChipPatternTexts;
+        componentChipPatternTexts.clear();
+
+        final String patternText = this.patternText();
+        final int patternTextLength = patternText.length();
+        int last = patternTextLength;
+
+        while (last > 0) {
+            final String tryingPatternText = patternText.substring(0, last);
+            context.debug("SpreadsheetPatternEditorWidget.rebuildPatternComponentChips trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
+
+            // try parsing...
+            try {
+                final SpreadsheetPattern pattern = patternKind.parse(tryingPatternText + "");
+
+                pattern.forEachComponent(
+                        (kind, tokenPatternText) -> {
+                            componentChipPatternTexts.add(tokenPatternText);
+                        }
+                );
+
+                if (last < patternTextLength) {
+                    componentChipPatternTexts.add(
+                            patternText.substring(last)
+                    );
+                }
+
+                // now build the chips
+                int i = 0;
+                for (final String componentChipPatternText : componentChipPatternTexts) {
+                    parent.add(
+                            Chip.create()
+                                    .setRemovable(true)
+                                    .setColorScheme(ColorScheme.PINK)
+                                    .setValue(componentChipPatternText)
+                                    .addRemoveHandler(
+                                            this.componentChipOnRemove(i)
+                                    )
+                    );
+
+                    i++;
+                }
+                break; // best attempt stop
+
+            } catch (final Exception failed) {
+                last--;
+                context.debug("SpreadsheetPatternEditorWidget.rebuildPatternComponentChips parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
+            }
+        }
+    }
+
+    /**
+     * This listener is fired when a chip is removed by clicking the X. It will recompute a new pattern and update the pattern text.
+     */
+    private RemoveHandler componentChipOnRemove(final int index) {
+        return () -> {
+            final String removed = this.componentChipPatternTexts.remove(index);
+            this.context.debug("SpreadsheetPatternEditorWidget.componentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
+            this.setPatternText(
+                    this.componentChipPatternTexts.stream().collect(Collectors.joining())
+            );
+        };
+    }
+
+    /**
+     * THe parent holding all the current component pattern chips.
+     */
+    private final HtmlContentBuilder<HTMLElement> componentPatternParent;
+
+    private final List<String> componentChipPatternTexts;
+
     // appendPattern....................................................................................................
 
     /**
      * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
-    private void rebuildAppendLinks() {
+    private void rebuildAppendPattern() {
         final HtmlContentBuilder<HTMLElement> parent = this.appendParent;
         final Map<String, HTMLAnchorElement> appendPatternToAnchor = this.appendPatternToAnchor;
         appendPatternToAnchor.clear();
@@ -410,7 +514,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.modalDialog.setTitle(context.title());
         this.setPatternText(context.loaded());
-        this.rebuildAppendLinks();
+        this.rebuildAppendPattern();
     }
 
     private final SpreadsheetPatternEditorWidgetContext context;
