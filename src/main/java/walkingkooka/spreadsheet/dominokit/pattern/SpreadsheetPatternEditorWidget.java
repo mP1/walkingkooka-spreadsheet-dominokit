@@ -66,7 +66,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.patternTextBox = this.patternTextBox();
 
-        this.appendPatternParent = Elements.span();
+        this.appendParent = Elements.span();
         this.appendPatternToAnchor = Maps.ordered();
 
         this.modalDialog = this.createModalDialog(context.title());
@@ -104,7 +104,7 @@ public final class SpreadsheetPatternEditorWidget {
     private void onPatternTextBox(final Event event) {
         // update UI here...
         this.context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + this.patternText());
-        this.updatePatternAppendLinks();
+        this.updateAppendLinks();
     }
 
     /**
@@ -127,7 +127,7 @@ public final class SpreadsheetPatternEditorWidget {
                 .setAutoClose(true);
         modal.id(ID);
 
-        modal.appendChild(this.appendPatternParent.element());
+        modal.appendChild(this.appendParent.element());
 
         modal.appendChild(this.patternTextBox);
 
@@ -151,8 +151,8 @@ public final class SpreadsheetPatternEditorWidget {
      * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
-    private void rebuildAppendPattern() {
-        final HtmlContentBuilder<HTMLElement> parent = this.appendPatternParent;
+    private void rebuildAppendLinks() {
+        final HtmlContentBuilder<HTMLElement> parent = this.appendParent;
         final Map<String, HTMLAnchorElement> appendPatternToAnchor = this.appendPatternToAnchor;
         appendPatternToAnchor.clear();
 
@@ -208,7 +208,7 @@ public final class SpreadsheetPatternEditorWidget {
      * This should be invoked each time the pattern text is updated, and will update the link for each append link.
      * The updated href is not strictly needed and is merely cosmetic.
      */
-    private void updatePatternAppendLinks() {
+    private void updateAppendLinks() {
         final SpreadsheetCellPatternHistoryToken historyToken = this.context.historyToken();
         final String patternText = this.patternText();
 
@@ -220,7 +220,7 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * THe parent holding all the append-pattern links.
      */
-    private final HtmlContentBuilder<HTMLElement> appendPatternParent;
+    private final HtmlContentBuilder<HTMLElement> appendParent;
 
     /**
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
@@ -396,7 +396,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.modalDialog.setTitle(context.title());
         this.setPatternText(context.loaded());
-        this.rebuildAppendPattern();
+        this.rebuildAppendLinks();
     }
 
     private final SpreadsheetPatternEditorWidgetContext context;
