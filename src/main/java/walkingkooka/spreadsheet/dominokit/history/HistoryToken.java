@@ -1030,23 +1030,15 @@ public abstract class HistoryToken implements HasUrlFragment {
         final HTMLAnchorElement element = Elements.a()
                 .id(id + "-link")
                 .attr("href", "#" + this.urlFragment().value())
-                .attr("tabindex", "0")
                 .textContent(text)
                 .element();
         this.addClickEventListener(
                 element,
                 context
         );
-
-        element.addEventListener(
-                EventType.keypress.getName(),
-                (e) -> {
-                    final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
-                    if (keyboardEvent.code.equals(Enter)) {
-                        keyboardEvent.preventDefault();
-                        context.pushHistoryToken(this);
-                    }
-                }
+        this.addEnterEventListener(
+                element,
+                context
         );
         return element;
     }
@@ -1061,6 +1053,25 @@ public abstract class HistoryToken implements HasUrlFragment {
                 (e) -> {
                     e.preventDefault();
                     context.pushHistoryToken(this);
+                }
+        );
+    }
+
+    /**
+     * Adds an {@link elemental2.dom.EventListener} that pushes this token to the history, when this {@link HTMLElement}
+     * receives ENTER.
+     */
+    public final void addEnterEventListener(final HTMLElement element,
+                                            final HistoryTokenContext context) {
+        element.setAttribute("tabindex", 0);
+        element.addEventListener(
+                EventType.keypress.getName(),
+                (e) -> {
+                    final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
+                    if (keyboardEvent.code.equals(Enter)) {
+                        keyboardEvent.preventDefault();
+                        context.pushHistoryToken(this);
+                    }
                 }
         );
     }
