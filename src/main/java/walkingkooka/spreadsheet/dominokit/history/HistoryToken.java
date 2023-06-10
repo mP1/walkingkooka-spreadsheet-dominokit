@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLElement;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.Node;
 import org.jboss.elemento.Elements;
@@ -1032,10 +1033,11 @@ public abstract class HistoryToken implements HasUrlFragment {
                 .attr("tabindex", "0")
                 .textContent(text)
                 .element();
-        element.addEventListener(
-                EventType.click.getName(),
-                (e) -> context.pushHistoryToken(this)
+        this.addClickEventListener(
+                element,
+                context
         );
+
         element.addEventListener(
                 EventType.keypress.getName(),
                 (e) -> {
@@ -1047,6 +1049,20 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
         );
         return element;
+    }
+
+    /**
+     * Adds an {@link elemental2.dom.EventListener} that pushes this token to the history
+     */
+    public final void addClickEventListener(final HTMLElement element,
+                                            final HistoryTokenContext context) {
+        element.addEventListener(
+                EventType.click.getName(),
+                (e) -> {
+                    e.preventDefault();
+                    context.pushHistoryToken(this);
+                }
+        );
     }
 
     // Object...........................................................................................................
