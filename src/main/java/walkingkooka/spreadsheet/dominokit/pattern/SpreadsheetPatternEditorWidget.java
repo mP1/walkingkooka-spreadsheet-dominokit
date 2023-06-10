@@ -58,7 +58,7 @@ public final class SpreadsheetPatternEditorWidget {
         this.patternTextBox = this.patternTextBox();
         this.modalDialog = this.createModalDialog(context.title());
 
-        this.setPattern(context.loaded());
+        this.setPatternText(context.loaded());
     }
 
     /**
@@ -99,7 +99,7 @@ public final class SpreadsheetPatternEditorWidget {
         return this.patternTextBox.getValue();
     }
 
-    private void setPattern(final String pattern) {
+    private void setPatternText(final String pattern) {
         this.patternTextBox.setValue(pattern);
     }
 
@@ -233,7 +233,7 @@ public final class SpreadsheetPatternEditorWidget {
         final String patternText = context.loaded();
         context.debug("SpreadsheetPatternEditorWidget.onUndoButtonClick " + CharSequences.quoteAndEscape(patternText));
 
-        this.setPattern(patternText);
+        this.setPatternText(patternText);
     }
 
     /**
@@ -292,7 +292,7 @@ public final class SpreadsheetPatternEditorWidget {
         context.debug("SpreadsheetPatternEditorWidget.refresh");
 
         this.modalDialog.setTitle(context.title());
-        this.setPattern(context.loaded());
+        this.setPatternText(context.loaded());
     }
 
     private final SpreadsheetPatternEditorWidgetContext context;
