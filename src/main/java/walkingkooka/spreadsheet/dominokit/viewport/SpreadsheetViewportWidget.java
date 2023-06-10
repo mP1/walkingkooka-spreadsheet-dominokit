@@ -689,10 +689,14 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                         column.setDefaultAnchor()
                                 )
                         ).link(
-                                column.toString().toUpperCase(),
-                                id(column),
+                                id(column)
+                        ).tabIndex(0)
+                        .pushHistoryToken(
                                 context
-                        )
+                        ).text(
+                                column.toString()
+                                        .toUpperCase()
+                        ).element()
         );
 
         final HTMLTableCellElement element = td.element();
@@ -770,10 +774,14 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                         row.setDefaultAnchor()
                                 )
                         ).link(
-                                row.toString().toUpperCase(),
-                                id(row),
+                                id(row)
+                        ).tabIndex(0)
+                        .pushHistoryToken(
                                 context
-                        )
+                        ).text(
+                                row.toString()
+                                        .toUpperCase()
+                        ).element()
         );
 
         final HTMLTableCellElement element = td.element();

@@ -140,10 +140,13 @@ public final class SpreadsheetPatternEditorWidget {
                             kind,
                             historyToken.setPatternKind(kind)
                                     .link(
-                                            context.patternKindButtonText(kind), // text
-                                            spreadsheetPatternKindId(kind), // id
+                                            spreadsheetPatternKindId(kind)
+                                    ).tabIndex(0)
+                                    .pushHistoryToken(
                                             context
-                                    )
+                                    ).text(
+                                            context.patternKindButtonText(kind)
+                                    ).element()
                     )
             );
         }
