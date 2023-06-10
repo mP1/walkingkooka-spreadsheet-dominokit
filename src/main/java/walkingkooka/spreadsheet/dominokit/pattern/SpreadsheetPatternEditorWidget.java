@@ -128,7 +128,7 @@ public final class SpreadsheetPatternEditorWidget {
         final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
 
         final DropdownButton dropdownButton = DropdownButton.create("Pattern")
-                .setPosition(DropDownPosition.BOTTOM_RIGHT);
+                .setPosition(DropDownPosition.BOTTOM);
 
         dropdownButton.style()
                 .setMargin(px.of(5))
