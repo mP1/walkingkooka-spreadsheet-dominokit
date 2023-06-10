@@ -20,6 +20,9 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.button.DropdownButton;
 import org.dominokit.domino.ui.dropdown.DropDownPosition;
@@ -30,12 +33,18 @@ import org.dominokit.domino.ui.modals.ModalDialog;
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
+import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
+import org.jboss.elemento.HtmlContentBuilder;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
+import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
+
+import java.util.Map;
 
 import static org.dominokit.domino.ui.style.Unit.px;
 
@@ -56,9 +65,14 @@ public final class SpreadsheetPatternEditorWidget {
         this.context = context;
 
         this.patternTextBox = this.patternTextBox();
+
+        this.appendPatternParent = Elements.span();
+        this.appendPatternToAnchor = Maps.ordered();
+
         this.modalDialog = this.createModalDialog(context.title());
 
         this.setPatternText(context.loaded());
+        this.refresh();
     }
 
     /**
@@ -90,6 +104,7 @@ public final class SpreadsheetPatternEditorWidget {
     private void onPatternTextBox(final Event event) {
         // update UI here...
         this.context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + this.patternText());
+        this.updatePatternAppendLinks();
     }
 
     /**
@@ -111,6 +126,9 @@ public final class SpreadsheetPatternEditorWidget {
                 .large()
                 .setAutoClose(true);
         modal.id(ID);
+
+        modal.appendChild(this.appendPatternParent.element());
+
         modal.appendChild(this.patternTextBox);
 
         modal.appendFooterChild(this.switchSpreadsheetPatternKindWidget());
@@ -126,6 +144,91 @@ public final class SpreadsheetPatternEditorWidget {
 
         return modal;
     }
+
+    // appendPattern....................................................................................................
+
+    /**
+     * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
+     * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
+     */
+    private void rebuildAppendPattern() {
+        final HtmlContentBuilder<HTMLElement> parent = this.appendPatternParent;
+        final Map<String, HTMLAnchorElement> appendPatternToAnchor = this.appendPatternToAnchor;
+        appendPatternToAnchor.clear();
+
+        // TODO extract remove all child nodes
+        final HTMLElement element = parent.element();
+        for (; ; ) {
+            final Node last = element.lastChild;
+            if (null == last) {
+                break;
+            }
+            element.removeChild(last);
+        }
+
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+
+        for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
+
+            switch(formatParserTokenKind) {
+                case COLOR_NAME:
+                case COLOR_NUMBER:
+                    break; // skip for now insert color pick instead
+                case CONDITION:
+                    break;
+                case GENERAL:
+                    break; // skip GENERAL for now
+                case TEXT_LITERAL:
+                    break; // skip - let the user insert the text literal into the patternTextBox
+
+                default:
+                    for (final String pattern : formatParserTokenKind.patterns()) {
+                        final HTMLAnchorElement link = Elements.a()
+                                .textContent(pattern)
+                                .element();
+                        link.style.set("margin", "5px");
+
+                        link.addEventListener(
+                                EventType.click.getName(),
+                                (e) -> {
+                                    e.preventDefault();
+                                    this.setPatternText(this.patternText() + pattern);
+                                }
+                        );
+
+                        appendPatternToAnchor.put(pattern, link);
+                        parent.add(link);
+                    }
+                    break;
+            }
+        }
+    }
+
+    /**
+     * This should be invoked each time the pattern text is updated, and will update the link for each append link.
+     * The updated href is not strictly needed and is merely cosmetic.
+     */
+    private void updatePatternAppendLinks() {
+        final SpreadsheetCellPatternHistoryToken historyToken = this.context.historyToken();
+        final String patternText = this.patternText();
+
+        this.appendPatternToAnchor.forEach(
+                (p, a) -> a.setAttribute("href", historyToken.setSave(patternText + p).urlFragment().value())
+        );
+    }
+
+    /**
+     * THe parent holding all the append-pattern links.
+     */
+    private final HtmlContentBuilder<HTMLElement> appendPatternParent;
+
+    /**
+     * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
+     * This is kept to support updates o the ANCHOR link as the {@link #patternTextBox} changes.
+     */
+    private final Map<String, HTMLAnchorElement> appendPatternToAnchor;
+
+    // switch pattern kind..............................................................................................
 
     /**
      * Creates a drop down holding links for each {@link SpreadsheetPatternKind}. Each link when clicked will update the {@link SpreadsheetPatternKind}.
@@ -293,6 +396,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.modalDialog.setTitle(context.title());
         this.setPatternText(context.loaded());
+        this.rebuildAppendPattern();
     }
 
     private final SpreadsheetPatternEditorWidgetContext context;
