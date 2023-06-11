@@ -693,7 +693,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         ).setTabIndex(0)
                         .pushHistoryToken(
                                 context
-                        ).text(
+                        ).setTextContent(
                                 column.toString()
                                         .toUpperCase()
                         ).element()
@@ -778,7 +778,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         ).setTabIndex(0)
                         .pushHistoryToken(
                                 context
-                        ).text(
+                        ).setTextContent(
                                 row.toString()
                                         .toUpperCase()
                         ).element()

@@ -150,7 +150,11 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         return this;
     }
 
-    public Anchor text(final String text) {
+    public String textContent() {
+        return this.element.textContent;
+    }
+
+    public Anchor setTextContent(final String text) {
         this.element.textContent = text;
         return this;
     }
