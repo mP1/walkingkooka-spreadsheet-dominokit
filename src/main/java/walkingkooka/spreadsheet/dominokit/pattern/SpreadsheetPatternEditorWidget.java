@@ -388,7 +388,7 @@ public final class SpreadsheetPatternEditorWidget {
                                     ).setTabIndex(0)
                                     .pushHistoryToken(
                                             context
-                                    ).text(
+                                    ).setTextContent(
                                             context.patternKindButtonText(kind)
                                     ).element()
                     )
