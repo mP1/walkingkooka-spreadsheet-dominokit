@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.jboss.elemento.Elements;
 import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
@@ -1006,12 +1005,9 @@ public abstract class HistoryToken implements HasUrlFragment {
      * Creates a link with the given text and id.
      */
     public final Anchor link(final String id) {
-        return Anchor.with(
-                Elements.a()
-                        .id(id + "-link")
-                        .attr("href", "#" + this.urlFragment().value())
-                        .element()
-        ).setHistoryToken(this);
+        return Anchor.empty()
+                .setId(id + "-link")
+                .setHistoryToken(this);
     }
 
     // Object...........................................................................................................

@@ -17,11 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
-import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
@@ -42,6 +40,8 @@ import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.spreadsheet.dominokit.dom.Anchor;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -258,7 +258,7 @@ public final class SpreadsheetPatternEditorWidget {
      */
     private void rebuildAppendPattern() {
         final HtmlContentBuilder<HTMLElement> parent = this.appendParent;
-        final Map<String, HTMLAnchorElement> appendPatternToAnchor = this.appendPatternToAnchor;
+        final Map<String, Anchor> appendPatternToAnchor = this.appendPatternToAnchor;
         appendPatternToAnchor.clear();
 
         // TODO extract remove all child nodes
@@ -275,7 +275,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
 
-            switch(formatParserTokenKind) {
+            switch (formatParserTokenKind) {
                 case COLOR_NAME:
                 case COLOR_NUMBER:
                     break; // skip for now insert color pick instead
@@ -288,21 +288,16 @@ public final class SpreadsheetPatternEditorWidget {
 
                 default:
                     for (final String pattern : formatParserTokenKind.patterns()) {
-                        final HTMLAnchorElement link = Elements.a()
-                                .textContent(pattern)
-                                .element();
-                        link.style.set("margin", "5px");
-
-                        link.addEventListener(
-                                EventType.click.getName(),
-                                (e) -> {
-                                    e.preventDefault();
-                                    this.setPatternText(this.patternText() + pattern);
-                                }
-                        );
-
-                        appendPatternToAnchor.put(pattern, link);
-                        parent.add(link);
+                        final Anchor anchor = Anchor.empty()
+                                .setTextContent(pattern)
+                                .addClick(
+                                        (e) -> {
+                                            e.preventDefault();
+                                            this.setPatternText(this.patternText() + pattern);
+                                        }
+                                );
+                        appendPatternToAnchor.put(pattern, anchor);
+                        parent.add(anchor);
                     }
                     break;
             }
@@ -321,32 +316,15 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.appendPatternToAnchor.forEach(
                 (p, a) -> {
-                    boolean ariaDisabled;
-                    String cursor;
-                    String href;
-                    String textDecoration;
-
+                    HistoryToken save;
                     try {
-                        ariaDisabled = false;
-                        cursor = "pointer";
-                        href = historyToken.setSave(patternText + p)
-                                .urlFragment()
-                                .value();
-                        textDecoration = "underline";
-
+                        save = historyToken.setSave(
+                                patternText + p
+                        );
                     } catch (final RuntimeException invalidPattern) {
-                        ariaDisabled = true;
-                        cursor = "not-allowed";
-                        href = "";
-                        textDecoration = "none";
+                        save = null;
                     }
-                    a.setAttribute("aria-disabled", ariaDisabled);
-                    a.setAttribute("href", href);
-
-                    //
-                    final CSSStyleDeclaration style = a.style;
-                    style.cursor = cursor;
-                    style.textDecoration = textDecoration;
+                    a.setHistoryToken(save);
                 }
         );
     }
@@ -360,7 +338,7 @@ public final class SpreadsheetPatternEditorWidget {
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
      * This is kept to support updates o the ANCHOR link as the {@link #patternTextBox} changes.
      */
-    private final Map<String, HTMLAnchorElement> appendPatternToAnchor;
+    private final Map<String, Anchor> appendPatternToAnchor;
 
     // switch pattern kind..............................................................................................
 
