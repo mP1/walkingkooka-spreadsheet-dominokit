@@ -15,17 +15,16 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history;
+package walkingkooka.spreadsheet.dominokit.dom;
 
-import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class HistoryTokenElementTest implements ClassTesting<HistoryTokenElement<?>> {
+public final class AnchorTest implements ClassTesting<Anchor> {
 
     @Override
-    public Class<HistoryTokenElement<?>> type() {
-        return Cast.to(HistoryTokenElement.class);
+    public Class<Anchor> type() {
+        return Anchor.class;
     }
 
     @Override
