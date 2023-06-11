@@ -107,15 +107,13 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
 
     public AbsoluteOrRelativeUrl href() {
         return Url.parseAbsoluteOrRelative(
-                this.getAttribute("href")
+                this.element.href
         );
     }
 
     public Anchor setHref(final Url url) {
-        return this.setAttribute(
-                "href",
-                url.toString()
-        );
+        this.element.href = url.toString();
+        return this;
     }
 
     public String id() {
