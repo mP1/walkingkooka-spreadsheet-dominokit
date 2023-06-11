@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
@@ -320,19 +321,32 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.appendPatternToAnchor.forEach(
                 (p, a) -> {
-                    String href;
                     boolean ariaDisabled;
+                    String cursor;
+                    String href;
+                    String textDecoration;
+
                     try {
+                        ariaDisabled = false;
+                        cursor = "pointer";
                         href = historyToken.setSave(patternText + p)
                                 .urlFragment()
                                 .value();
-                        ariaDisabled = false;
+                        textDecoration = "underline";
+
                     } catch (final RuntimeException invalidPattern) {
-                        href = "";
                         ariaDisabled = true;
+                        cursor = "not-allowed";
+                        href = "";
+                        textDecoration = "none";
                     }
-                    a.setAttribute("href", href);
                     a.setAttribute("aria-disabled", ariaDisabled);
+                    a.setAttribute("href", href);
+
+                    //
+                    final CSSStyleDeclaration style = a.style;
+                    style.cursor = cursor;
+                    style.textDecoration = textDecoration;
                 }
         );
     }
