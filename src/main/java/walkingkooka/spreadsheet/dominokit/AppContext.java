@@ -18,12 +18,11 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
-import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.dropdown.DropdownAction;
-import org.jboss.elemento.Elements;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -158,26 +157,15 @@ public interface AppContext extends HistoryTokenContext, LoggingContext, Context
         CharSequences.failIfNullOrEmpty(text, "text");
         Objects.requireNonNull(historyToken, "historyToken");
 
-        final DropdownAction<HistoryToken> dropdownAction;
-        if (historyToken.isPresent()) {
-            final HistoryToken value = historyToken.get();
+        final HistoryToken value = historyToken.orElse(null);
 
-            final HTMLAnchorElement link = Elements.a()
-                    .attr("href", "#" + value.urlFragment())
-                    .textContent(text)
-                    .element();
+        final Anchor anchor = Anchor.empty()
+                .setHistoryToken(value)
+                .setTextContent(text);
 
-            dropdownAction = DropdownAction.create(
-                    value,
-                    link
-            ).addSelectionHandler(this::pushHistoryToken);
-        } else {
-            dropdownAction = DropdownAction.create(
-                    null,
-                    text
-            );
-        }
-
-        return dropdownAction;
+        return DropdownAction.create(
+                value,
+                anchor.element()
+        ).addSelectionHandler(this::pushHistoryToken);
     }
 }

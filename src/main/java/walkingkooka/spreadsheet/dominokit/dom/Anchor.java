@@ -59,6 +59,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
 
     private Anchor(final HTMLAnchorElement element) {
         this.element = element;
+        element.style.set("margin", "5px");
     }
 
     public Anchor addClick(final EventListener listener) {
@@ -85,7 +86,9 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
 
     public Anchor setHistoryToken(final HistoryToken historyToken) {
         return this.setHref(
-                Url.parseRelative("" + Url.FRAGMENT_START + historyToken.urlFragment())
+                null != historyToken ?
+                        Url.parseRelative("" + Url.FRAGMENT_START + historyToken.urlFragment()) :
+                        null
         );
     }
 
@@ -124,8 +127,11 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
     }
 
     public Anchor setHref(final Url url) {
-        this.element.href = url.toString();
-        return this;
+        this.element.href =
+                null != url ?
+                        url.toString() :
+                        "";
+        return this.setDisabled(null == url);
     }
 
     public String id() {
