@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.KeyboardEvent;
@@ -35,6 +36,16 @@ import static org.jboss.elemento.Key.Enter;
  * Abstraction for working with a HTML anchor.
  */
 public final class Anchor implements IsElement<HTMLAnchorElement> {
+
+    /**
+     * Creates a new un-attached ANCHOR.
+     */
+    public static Anchor empty() {
+        return new Anchor(
+                (HTMLAnchorElement)
+                        DomGlobal.document.createElement("a")
+        );
+    }
 
     /**
      * Wraps an existing {@link HTMLAnchorElement}
