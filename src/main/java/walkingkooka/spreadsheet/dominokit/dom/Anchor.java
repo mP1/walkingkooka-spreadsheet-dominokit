@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.HTMLElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.IsElement;
@@ -40,7 +39,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
     /**
      * Wraps an existing {@link HTMLAnchorElement}
      */
-    public static <T extends HTMLElement> Anchor with(final HTMLAnchorElement element) {
+    public static Anchor with(final HTMLAnchorElement element) {
         Objects.requireNonNull(element, "element");
 
         return new Anchor(element);
