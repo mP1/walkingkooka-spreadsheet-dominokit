@@ -119,14 +119,12 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
     }
 
     public String id() {
-        return this.getAttribute("id");
+        return this.element.id;
     }
 
-    public Anchor setHref(final String id) {
-        return this.setAttribute(
-                "id",
-                id
-        );
+    public Anchor setId(final String id) {
+        this.element.id = id;
+        return this;
     }
 
     public int tabIndex() {
