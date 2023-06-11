@@ -690,7 +690,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                 )
                         ).link(
                                 id(column)
-                        ).tabIndex(0)
+                        ).setTabIndex(0)
                         .pushHistoryToken(
                                 context
                         ).text(
@@ -775,7 +775,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                 )
                         ).link(
                                 id(row)
-                        ).tabIndex(0)
+                        ).setTabIndex(0)
                         .pushHistoryToken(
                                 context
                         ).text(
