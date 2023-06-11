@@ -385,7 +385,7 @@ public final class SpreadsheetPatternEditorWidget {
                             historyToken.setPatternKind(kind)
                                     .link(
                                             spreadsheetPatternKindId(kind)
-                                    ).tabIndex(0)
+                                    ).setTabIndex(0)
                                     .pushHistoryToken(
                                             context
                                     ).text(
