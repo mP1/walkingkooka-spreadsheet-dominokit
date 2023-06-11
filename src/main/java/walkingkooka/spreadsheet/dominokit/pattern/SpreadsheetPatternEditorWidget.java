@@ -306,6 +306,8 @@ public final class SpreadsheetPatternEditorWidget {
                     break;
             }
         }
+
+        this.updateAppendLinks();
     }
 
     /**
