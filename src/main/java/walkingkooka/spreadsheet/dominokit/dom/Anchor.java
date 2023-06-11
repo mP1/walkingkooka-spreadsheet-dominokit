@@ -118,6 +118,17 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         );
     }
 
+    public String id() {
+        return this.getAttribute("id");
+    }
+
+    public Anchor setHref(final String id) {
+        return this.setAttribute(
+                "id",
+                id
+        );
+    }
+
     public Anchor tabIndex(final int tabIndex) {
         return this.setAttribute(
                 "tabindex",
