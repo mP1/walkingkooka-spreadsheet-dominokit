@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
+import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
@@ -105,6 +106,17 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         );
     }
 
+    public Anchor setDisabled(final boolean disabled) {
+        this.setAttribute("aria-disabled", disabled);
+
+        final CSSStyleDeclaration style = this.element.style;
+
+        style.cursor = disabled ? "not-allowed" : "pointer";
+        style.textDecoration = disabled ? "none" : "underline";
+
+        return this;
+    }
+
     public AbsoluteOrRelativeUrl href() {
         return Url.parseAbsoluteOrRelative(
                 this.element.href
@@ -136,6 +148,12 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
 
     public String getAttribute(final String name) {
         return this.element.getAttribute(name);
+    }
+
+    public Anchor setAttribute(final String name,
+                               final boolean value) {
+        this.element.setAttribute(name, value);
+        return this;
     }
 
     public Anchor setAttribute(final String name,
