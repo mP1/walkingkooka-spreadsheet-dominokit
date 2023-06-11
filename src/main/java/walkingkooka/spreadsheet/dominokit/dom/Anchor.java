@@ -129,7 +129,11 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         );
     }
 
-    public Anchor tabIndex(final int tabIndex) {
+    public int tabIndex() {
+        return this.getAttributeInt("tabindex");
+    }
+
+    public Anchor setTabIndex(final int tabIndex) {
         return this.setAttribute(
                 "tabindex",
                 tabIndex
@@ -138,6 +142,12 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
 
     public String getAttribute(final String name) {
         return this.element.getAttribute(name);
+    }
+
+    public int getAttributeInt(final String name) {
+        return Integer.parseInt(
+                this.getAttribute(name)
+        );
     }
 
     public Anchor setAttribute(final String name,
