@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import elemental2.dom.HTMLAnchorElement;
 import org.jboss.elemento.Elements;
 import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
@@ -27,6 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -1005,14 +1005,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Creates a link with the given text and id.
      */
-    public final HistoryTokenElement<HTMLAnchorElement> link(final String id) {
-        return HistoryTokenElement.with(
+    public final Anchor link(final String id) {
+        return Anchor.with(
                 Elements.a()
                         .id(id + "-link")
                         .attr("href", "#" + this.urlFragment().value())
-                        .element(),
-                this
-        );
+                        .element()
+        ).setHistoryToken(this);
     }
 
     // Object...........................................................................................................
