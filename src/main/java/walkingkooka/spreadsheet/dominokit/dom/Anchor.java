@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.KeyboardEvent;
@@ -28,6 +29,7 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 
@@ -64,10 +66,23 @@ public final class Anchor extends Element<HTMLAnchorElement> {
 
     // disabled.........................................................................................................
 
+    /**
+     * An {@link Anchor} is considered disabled when it has no href.
+     */
+    public boolean isDisabled() {
+        return null == this.href();
+    }
+
     public Anchor setDisabled(final boolean disabled) {
         this.setAttribute("aria-disabled", disabled);
 
-        final CSSStyleDeclaration style = this.element.style;
+        final HTMLAnchorElement element = this.element;
+
+        if(disabled) {
+            element.href = null;
+        }
+
+        final CSSStyleDeclaration style = element.style;
 
         style.cursor = disabled ? "not-allowed" : "pointer";
         style.textDecoration = disabled ? "none" : "underline";
@@ -78,16 +93,22 @@ public final class Anchor extends Element<HTMLAnchorElement> {
     // historyToken....................................................................................................
 
     public HistoryToken historyToken() {
-        return HistoryToken.parse(
-                this.href().fragment()
-        );
+        final AbsoluteOrRelativeUrl url = this.href();
+
+        return null == url ?
+                null :
+                HistoryToken.parse(
+                        url.fragment()
+                );
     }
 
     public Anchor setHistoryToken(final HistoryToken historyToken) {
         return this.setHref(
-                null != historyToken ?
-                        Url.parseRelative("" + Url.FRAGMENT_START + historyToken.urlFragment()) :
-                        null
+                null == historyToken ?
+                        null :
+                        Url.parseRelative(
+                                "" + Url.FRAGMENT_START + historyToken.urlFragment()
+                        )
         );
     }
 
@@ -111,16 +132,17 @@ public final class Anchor extends Element<HTMLAnchorElement> {
     // href.............................................................................................................
 
     public AbsoluteOrRelativeUrl href() {
-        return Url.parseAbsoluteOrRelative(
-                this.element.href
-        );
+        final String href = this.element.href;
+        return CharSequences.isNullOrEmpty(href) ?
+                null :
+                Url.parseAbsoluteOrRelative(href);
     }
 
     public Anchor setHref(final Url url) {
         this.element.href =
-                null != url ?
-                        url.toString() :
-                        "";
+                null == url ?
+                       "" :
+                        url.toString();
         return this.setDisabled(null == url);
     }
 
@@ -151,14 +173,31 @@ public final class Anchor extends Element<HTMLAnchorElement> {
     // events..........................................................................................................
     @Override
     public Anchor addClick(final EventListener listener) {
-        this.addClick0(listener);
+        this.addClick0(
+                this.disabledAwareEventListener(listener)
+        );
         return this;
     }
 
     @Override
     public Anchor addKeydown(final EventListener listener) {
-        this.addKeydown0(listener);
+        this.addKeydown0(
+                this.disabledAwareEventListener(listener)
+        );
         return this;
+    }
+
+    /**
+     * If this anchor is disabled calls {@link Event#preventDefault()} and skips calling the given {@link EventListener}.
+     */
+    private EventListener disabledAwareEventListener(final EventListener listener) {
+        return (e) -> {
+            if (this.isDisabled()) {
+                e.preventDefault();
+            } else {
+                listener.handleEvent(e);
+            }
+        };
     }
 
     // children.........................................................................................................
