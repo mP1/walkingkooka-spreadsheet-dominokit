@@ -338,7 +338,7 @@ public final class SpreadsheetPatternEditorWidget {
         final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
 
         final Map<String, Anchor> patternAppendToAnchor = this.patternAppendToAnchor;
-        context.debug(this.getClass().getSimpleName() + ".patternAppendLinksHrefRefresh " + patternAppendToAnchor.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
+        context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksHrefRefresh " + patternAppendToAnchor.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
 
         patternAppendToAnchor.forEach(
                 (p, a) -> {
