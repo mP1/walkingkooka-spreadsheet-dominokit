@@ -78,14 +78,21 @@ public final class Anchor extends Element<HTMLAnchorElement> {
 
         final HTMLAnchorElement element = this.element;
 
-        if(disabled) {
+        if (disabled) {
             element.removeAttribute("href"); // cant assign null, because href will still be present and isDisabled() wll be confused and report false
         }
 
         final CSSStyleDeclaration style = element.style;
 
-        style.cursor = disabled ? "not-allowed" : "pointer";
         style.textDecoration = disabled ? "none" : "underline";
+
+        // DominoKit includes a cursor: pointer !important in one of its styles.
+        //
+        // element.cursor with !important is ignored, the only form that works is appending to cssText
+        style.cssText = style.cssText +
+                (disabled ? ";cursor: not-allowed !important" : ";cursor: pointer !important");
+
+        DomGlobal.console.debug("@@@" + style.cursor + " " + style.cssText);
 
         return this;
     }
