@@ -73,11 +73,11 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.patternTextBox = this.patternTextBox();
 
-        this.componentPatternParent = Elements.span();
-        this.componentChipPatternTexts = Lists.array();
+        this.patternComponentParent = Elements.span();
+        this.patternComponentChipPatternTexts = Lists.array();
 
-        this.appendParent = Elements.span();
-        this.appendPatternToAnchor = Maps.ordered();
+        this.patternAppendParent = Elements.span();
+        this.patternAppendToAnchor = Maps.ordered();
 
         this.modalDialog = this.modalDialogCreate(context.title());
 
@@ -140,8 +140,8 @@ public final class SpreadsheetPatternEditorWidget {
                 .setAutoClose(true);
         modal.id(ID);
 
-        modal.appendChild(this.componentPatternParent.element());
-        modal.appendChild(this.appendParent.element());
+        modal.appendChild(this.patternComponentParent.element());
+        modal.appendChild(this.patternAppendParent.element());
 
         modal.appendChild(this.patternTextBox);
 
@@ -165,7 +165,7 @@ public final class SpreadsheetPatternEditorWidget {
      * This is called anytime the pattern text is changed.
      */
     private void patternComponentChipsRebuild() {
-        final HtmlContentBuilder<HTMLElement> parent = this.componentPatternParent;
+        final HtmlContentBuilder<HTMLElement> parent = this.patternComponentParent;
 
         // TODO extract remove all child nodes
         final HTMLElement element = parent.element();
@@ -179,7 +179,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         final SpreadsheetPatternEditorWidgetContext context = this.context;
         final SpreadsheetPatternKind patternKind = context.patternKind();
-        final List<String> componentChipPatternTexts = this.componentChipPatternTexts;
+        final List<String> componentChipPatternTexts = this.patternComponentChipPatternTexts;
         componentChipPatternTexts.clear();
 
         final String patternText = this.patternText();
@@ -235,10 +235,10 @@ public final class SpreadsheetPatternEditorWidget {
      */
     private RemoveHandler patternComponentChipOnRemove(final int index) {
         return () -> {
-            final String removed = this.componentChipPatternTexts.remove(index);
+            final String removed = this.patternComponentChipPatternTexts.remove(index);
             this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
             this.setPatternText(
-                    this.componentChipPatternTexts.stream().collect(Collectors.joining())
+                    this.patternComponentChipPatternTexts.stream().collect(Collectors.joining())
             );
         };
     }
@@ -246,9 +246,9 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * THe parent holding all the current component pattern chips.
      */
-    private final HtmlContentBuilder<HTMLElement> componentPatternParent;
+    private final HtmlContentBuilder<HTMLElement> patternComponentParent;
 
-    private final List<String> componentChipPatternTexts;
+    private final List<String> patternComponentChipPatternTexts;
 
     // appendPattern....................................................................................................
 
@@ -257,8 +257,8 @@ public final class SpreadsheetPatternEditorWidget {
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
     private void patternAppendLinksRebuild() {
-        final HtmlContentBuilder<HTMLElement> parent = this.appendParent;
-        final Map<String, Anchor> appendPatternToAnchor = this.appendPatternToAnchor;
+        final HtmlContentBuilder<HTMLElement> parent = this.patternAppendParent;
+        final Map<String, Anchor> appendPatternToAnchor = this.patternAppendToAnchor;
         appendPatternToAnchor.clear();
 
         // TODO extract remove all child nodes
@@ -314,7 +314,7 @@ public final class SpreadsheetPatternEditorWidget {
         final SpreadsheetCellPatternHistoryToken historyToken = this.context.historyToken();
         final String patternText = this.patternText();
 
-        this.appendPatternToAnchor.forEach(
+        this.patternAppendToAnchor.forEach(
                 (p, a) -> {
                     HistoryToken save;
                     try {
@@ -332,13 +332,13 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * THe parent holding all the append-pattern links.
      */
-    private final HtmlContentBuilder<HTMLElement> appendParent;
+    private final HtmlContentBuilder<HTMLElement> patternAppendParent;
 
     /**
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
      * This is kept to support updates o the ANCHOR link as the {@link #patternTextBox} changes.
      */
-    private final Map<String, Anchor> appendPatternToAnchor;
+    private final Map<String, Anchor> patternAppendToAnchor;
 
     // switch pattern kind..............................................................................................
 
