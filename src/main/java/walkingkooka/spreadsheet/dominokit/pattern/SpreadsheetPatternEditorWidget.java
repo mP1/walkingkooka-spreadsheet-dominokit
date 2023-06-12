@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
-import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.button.DropdownButton;
 import org.dominokit.domino.ui.chips.Chip;
@@ -35,12 +33,11 @@ import org.dominokit.domino.ui.style.ColorScheme;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
-import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
-import org.jboss.elemento.HtmlContentBuilder;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
+import walkingkooka.spreadsheet.dominokit.dom.Span;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
@@ -73,10 +70,10 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.patternTextBox = this.patternTextBox();
 
-        this.patternComponentParent = Elements.span();
+        this.patternComponentParent = Span.empty();
         this.patternComponentChipPatternTexts = Lists.array();
 
-        this.patternAppendParent = Elements.span();
+        this.patternAppendParent = Span.empty();
         this.patternAppendToAnchor = Maps.ordered();
 
         this.modalDialog = this.modalDialogCreate(context.title());
@@ -140,8 +137,8 @@ public final class SpreadsheetPatternEditorWidget {
                 .setAutoClose(true);
         modal.id(ID);
 
-        modal.appendChild(this.patternComponentParent.element());
-        modal.appendChild(this.patternAppendParent.element());
+        modal.appendChild(this.patternComponentParent);
+        modal.appendChild(this.patternAppendParent);
 
         modal.appendChild(this.patternTextBox);
 
@@ -165,17 +162,7 @@ public final class SpreadsheetPatternEditorWidget {
      * This is called anytime the pattern text is changed.
      */
     private void patternComponentChipsRebuild() {
-        final HtmlContentBuilder<HTMLElement> parent = this.patternComponentParent;
-
-        // TODO extract remove all child nodes
-        final HTMLElement element = parent.element();
-        for (; ; ) {
-            final Node last = element.lastChild;
-            if (null == last) {
-                break;
-            }
-            element.removeChild(last);
-        }
+        final Span parent = this.patternComponentParent.removeAllChildren();
 
         final SpreadsheetPatternEditorWidgetContext context = this.context;
         final SpreadsheetPatternKind patternKind = context.patternKind();
@@ -209,7 +196,7 @@ public final class SpreadsheetPatternEditorWidget {
                 // now build the chips
                 int i = 0;
                 for (final String componentChipPatternText : componentChipPatternTexts) {
-                    parent.add(
+                    parent.append(
                             Chip.create()
                                     .setRemovable(true)
                                     .setColorScheme(ColorScheme.PINK)
@@ -246,7 +233,7 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * THe parent holding all the current component pattern chips.
      */
-    private final HtmlContentBuilder<HTMLElement> patternComponentParent;
+    private final Span patternComponentParent;
 
     private final List<String> patternComponentChipPatternTexts;
 
@@ -257,19 +244,9 @@ public final class SpreadsheetPatternEditorWidget {
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
     private void patternAppendLinksRebuild() {
-        final HtmlContentBuilder<HTMLElement> parent = this.patternAppendParent;
+        final Span parent = this.patternAppendParent.removeAllChildren();
         final Map<String, Anchor> appendPatternToAnchor = this.patternAppendToAnchor;
         appendPatternToAnchor.clear();
-
-        // TODO extract remove all child nodes
-        final HTMLElement element = parent.element();
-        for (; ; ) {
-            final Node last = element.lastChild;
-            if (null == last) {
-                break;
-            }
-            element.removeChild(last);
-        }
 
         final SpreadsheetPatternEditorWidgetContext context = this.context;
 
@@ -297,7 +274,7 @@ public final class SpreadsheetPatternEditorWidget {
                                         }
                                 );
                         appendPatternToAnchor.put(pattern, anchor);
-                        parent.add(anchor);
+                        parent.append(anchor);
                     }
                     break;
             }
@@ -332,7 +309,7 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * THe parent holding all the append-pattern links.
      */
-    private final HtmlContentBuilder<HTMLElement> patternAppendParent;
+    private final Span patternAppendParent;
 
     /**
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
