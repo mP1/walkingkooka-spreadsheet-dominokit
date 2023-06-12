@@ -79,7 +79,7 @@ public final class SpreadsheetPatternEditorWidget {
         this.appendParent = Elements.span();
         this.appendPatternToAnchor = Maps.ordered();
 
-        this.modalDialog = this.createModalDialog(context.title());
+        this.modalDialog = this.modalDialogCreate(context.title());
 
         this.setPatternText(context.loaded());
         this.refresh();
@@ -114,8 +114,8 @@ public final class SpreadsheetPatternEditorWidget {
     private void onPatternTextBox(final Event event) {
         // update UI here...
         this.context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + this.patternText());
-        this.updateAppendLinks();
-        this.rebuildPatternComponentChips();
+        this.patternAppendLinksHrefRefresh();
+        this.patternComponentChipsRebuild();
     }
 
     /**
@@ -128,13 +128,13 @@ public final class SpreadsheetPatternEditorWidget {
     private void setPatternText(final String pattern) {
         this.patternTextBox.setValue(pattern);
 
-        this.rebuildPatternComponentChips();
+        this.patternComponentChipsRebuild();
     }
 
     /**
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
-    private ModalDialog createModalDialog(final String title) {
+    private ModalDialog modalDialogCreate(final String title) {
         final ModalDialog modal = ModalDialog.create(title)
                 .large()
                 .setAutoClose(true);
@@ -145,7 +145,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         modal.appendChild(this.patternTextBox);
 
-        modal.appendFooterChild(this.switchSpreadsheetPatternKindWidget());
+        modal.appendFooterChild(this.spreadsheetPatternKindDropDownCreate());
 
         modal.appendFooterChild(DomGlobal.document.createTextNode(" "));
 
@@ -164,7 +164,7 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * This is called anytime the pattern text is changed.
      */
-    private void rebuildPatternComponentChips() {
+    private void patternComponentChipsRebuild() {
         final HtmlContentBuilder<HTMLElement> parent = this.componentPatternParent;
 
         // TODO extract remove all child nodes
@@ -188,7 +188,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         while (last > 0) {
             final String tryingPatternText = patternText.substring(0, last);
-            context.debug("SpreadsheetPatternEditorWidget.rebuildPatternComponentChips trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
+            context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
 
             // try parsing...
             try {
@@ -215,7 +215,7 @@ public final class SpreadsheetPatternEditorWidget {
                                     .setColorScheme(ColorScheme.PINK)
                                     .setValue(componentChipPatternText)
                                     .addRemoveHandler(
-                                            this.componentChipOnRemove(i)
+                                            this.patternComponentChipOnRemove(i)
                                     )
                     );
 
@@ -225,7 +225,7 @@ public final class SpreadsheetPatternEditorWidget {
 
             } catch (final Exception failed) {
                 last--;
-                context.debug("SpreadsheetPatternEditorWidget.rebuildPatternComponentChips parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
+                context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
             }
         }
     }
@@ -233,10 +233,10 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * This listener is fired when a chip is removed by clicking the X. It will recompute a new pattern and update the pattern text.
      */
-    private RemoveHandler componentChipOnRemove(final int index) {
+    private RemoveHandler patternComponentChipOnRemove(final int index) {
         return () -> {
             final String removed = this.componentChipPatternTexts.remove(index);
-            this.context.debug("SpreadsheetPatternEditorWidget.componentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
+            this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
             this.setPatternText(
                     this.componentChipPatternTexts.stream().collect(Collectors.joining())
             );
@@ -256,7 +256,7 @@ public final class SpreadsheetPatternEditorWidget {
      * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
-    private void rebuildAppendPattern() {
+    private void patternAppendLinksRebuild() {
         final HtmlContentBuilder<HTMLElement> parent = this.appendParent;
         final Map<String, Anchor> appendPatternToAnchor = this.appendPatternToAnchor;
         appendPatternToAnchor.clear();
@@ -303,14 +303,14 @@ public final class SpreadsheetPatternEditorWidget {
             }
         }
 
-        this.updateAppendLinks();
+        this.patternAppendLinksHrefRefresh();
     }
 
     /**
      * This should be invoked each time the pattern text is updated, and will update the link for each append link.
      * The updated href is not strictly needed and is merely cosmetic.
      */
-    private void updateAppendLinks() {
+    private void patternAppendLinksHrefRefresh() {
         final SpreadsheetCellPatternHistoryToken historyToken = this.context.historyToken();
         final String patternText = this.patternText();
 
@@ -345,7 +345,7 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * Creates a drop down holding links for each {@link SpreadsheetPatternKind}. Each link when clicked will update the {@link SpreadsheetPatternKind}.
      */
-    private DropdownButton switchSpreadsheetPatternKindWidget() {
+    private DropdownButton spreadsheetPatternKindDropDownCreate() {
         final SpreadsheetPatternEditorWidgetContext context = this.context;
         final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
 
@@ -508,7 +508,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.modalDialog.setTitle(context.title());
         this.setPatternText(context.loaded());
-        this.rebuildAppendPattern();
+        this.patternAppendLinksRebuild();
     }
 
     private final SpreadsheetPatternEditorWidgetContext context;
