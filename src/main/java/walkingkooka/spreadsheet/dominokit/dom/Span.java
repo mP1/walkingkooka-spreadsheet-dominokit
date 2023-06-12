@@ -79,14 +79,14 @@ public final class Span extends Element<HTMLElement> {
 
     // events..........................................................................................................
     @Override
-    public Span addClick(final EventListener listener) {
-        this.addClick0(listener);
+    public Span addClickListener(final EventListener listener) {
+        this.addClickListener0(listener);
         return this;
     }
 
     @Override
-    public Span addKeydown(final EventListener listener) {
-        this.addKeydown0(listener);
+    public Span addKeydownListener(final EventListener listener) {
+        this.addKeydownListener0(listener);
         return this;
     }
 
