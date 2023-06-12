@@ -117,19 +117,14 @@ public final class Anchor extends Element<HTMLAnchorElement> {
         );
     }
 
+    /**
+     * The {@link #historyToken()} will be pushed if this anchor is clicked or ENTER key downed.
+     */
     public Anchor addPushHistoryToken(final HistoryTokenContext context) {
-        return this.addClickListener(
+        return this.addClickAndKeydownEnterListener(
                 (e) -> {
                     e.preventDefault();
                     context.pushHistoryToken(this.historyToken());
-                }
-        ).addKeydownListener(
-                (e) -> {
-                    final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
-                    if (keyboardEvent.code.equals(Enter)) {
-                        keyboardEvent.preventDefault();
-                        context.pushHistoryToken(this.historyToken());
-                    }
                 }
         );
     }
@@ -203,6 +198,21 @@ public final class Anchor extends Element<HTMLAnchorElement> {
                 listener.handleEvent(e);
             }
         };
+    }
+
+    /**
+     * Adds a {@link EventListener} that receives click and keydown with ENTER events.
+     */
+    public Anchor addClickAndKeydownEnterListener(final EventListener listener) {
+        return this.addClickListener(listener)
+                .addKeydownListener(
+                        (e) -> {
+                            final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
+                            if (keyboardEvent.code.equals(Enter)) {
+                                listener.handleEvent(e);
+                            }
+                        }
+                );
     }
 
     // children.........................................................................................................
