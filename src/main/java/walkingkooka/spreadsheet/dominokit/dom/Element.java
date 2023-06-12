@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.IsElement;
 
@@ -110,6 +111,27 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
                 listener
         );
         ;
+    }
+
+    // children.........................................................................................................
+
+    /**
+     * Removes all child nodes.
+     */
+    public abstract Element<T> removeAllChildren();
+
+    /**
+     * Removes all child nodes.
+     */
+    final void removeAllChildren0() {
+        final T element = this.element;
+        for (; ; ) {
+            final Node last = element.lastChild;
+            if (null == last) {
+                break;
+            }
+            element.removeChild(last);
+        }
     }
 
     // isElement........................................................................................................

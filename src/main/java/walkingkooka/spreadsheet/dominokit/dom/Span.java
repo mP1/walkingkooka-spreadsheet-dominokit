@@ -87,4 +87,12 @@ public final class Span extends Element<HTMLElement> {
         this.addKeydown0(listener);
         return this;
     }
+
+    // children.........................................................................................................
+
+    @Override
+    public Span removeAllChildren() {
+        this.removeAllChildren0();
+        return this;
+    }
 }

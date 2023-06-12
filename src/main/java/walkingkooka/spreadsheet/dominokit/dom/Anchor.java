@@ -158,4 +158,12 @@ public final class Anchor extends Element<HTMLAnchorElement> {
         this.addKeydown0(listener);
         return this;
     }
+
+    // children.........................................................................................................
+
+    @Override
+    public Anchor removeAllChildren() {
+        this.removeAllChildren0();
+        return this;
+    }
 }
