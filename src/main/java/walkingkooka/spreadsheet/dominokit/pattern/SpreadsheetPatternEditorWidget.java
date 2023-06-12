@@ -35,7 +35,6 @@ import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
 import org.jboss.elemento.EventType;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Span;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -48,7 +47,6 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.dominokit.domino.ui.style.Unit.px;
@@ -75,7 +73,7 @@ public final class SpreadsheetPatternEditorWidget {
         this.patternComponentChipPatternTexts = Lists.array();
 
         this.patternAppendParent = Span.empty();
-        this.patternAppendToAnchor = Maps.ordered();
+        this.patternAppendLinks = Lists.array();
 
         this.modalDialog = this.modalDialogCreate(context.title());
 
@@ -158,7 +156,9 @@ public final class SpreadsheetPatternEditorWidget {
                 patternText,
                 CharSequences.nullToEmpty(
                         errorMessage
-                ).length() > 0 // error
+                ).length() > 0 ?
+                        null :
+                        pattern
         );
     }
 
@@ -287,8 +287,8 @@ public final class SpreadsheetPatternEditorWidget {
         context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksRebuild");
 
         final Span parent = this.patternAppendParent.removeAllChildren();
-        final Map<String, Anchor> appendPatternToAnchor = this.patternAppendToAnchor;
-        appendPatternToAnchor.clear();
+        final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks = this.patternAppendLinks;
+        patternAppendLinks.clear();
 
         for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
 
@@ -319,7 +319,13 @@ public final class SpreadsheetPatternEditorWidget {
                                     );
                                 }
                         );
-                        appendPatternToAnchor.put(pattern, anchor);
+                        patternAppendLinks.add(
+                                SpreadsheetPatternEditorWidgetAppendLink.with(
+                                        formatParserTokenKind,
+                                        pattern,
+                                        anchor
+                                )
+                        );
                         parent.append(anchor);
                     }
                     break;
@@ -332,31 +338,59 @@ public final class SpreadsheetPatternEditorWidget {
      * The updated href is not strictly needed and is merely cosmetic.
      */
     private void patternAppendLinksHrefRefresh(final String patternText,
-                                               final boolean error) {
+                                               final SpreadsheetPattern pattern) {
         final SpreadsheetPatternEditorWidgetContext context = this.context;
 
         final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
 
-        final Map<String, Anchor> patternAppendToAnchor = this.patternAppendToAnchor;
-        context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksHrefRefresh " + patternAppendToAnchor.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
+        final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks = this.patternAppendLinks;
+        context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
 
-        patternAppendToAnchor.forEach(
-                (p, a) -> {
-                    HistoryToken save = null;
+        for (final SpreadsheetPatternEditorWidgetAppendLink link : patternAppendLinks) {
+            String savePatternText = null;
 
-                    if(false == error) {
-                        try {
-                            save = historyToken.setSave(
-                                    patternText + p
-                            );
-                        } catch (final RuntimeException invalidPattern) {
-                            // ignore
-                        }
+            if (patternText.isEmpty()) {
+                savePatternText = link.pattern;
+            } else {
+                if (null != pattern) {
+                    // get last SpreadsheetFormatPatternKind
+                    final SpreadsheetFormatParserTokenKind[] lastPatternKind = new SpreadsheetFormatParserTokenKind[1];
+                    final String[] lastPatternText = new String[1];
+
+                    pattern.forEachComponent(
+                            (kk, tt) -> {
+                                lastPatternKind[0] = kk;
+                                lastPatternText[0] = tt;
+                            }
+                    );
+
+                    savePatternText = patternText;
+
+                    // this exists so if a pattern text ends in "d" then "dd" should replace the "d" not append and make it "ddd".
+                    if (lastPatternKind[0].isDuplicate(link.kind)) {
+                        // replace last
+                        savePatternText = patternText.substring(
+                                0,
+                                patternText.length() - lastPatternText[0].length()
+                        ) + link.pattern;
+                    } else {
+                        savePatternText = savePatternText + link.pattern;
                     }
-                    context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksHrefRefresh: " + p + "=" + save);
-                    a.setHistoryToken(save);
                 }
-        );
+            }
+
+            HistoryToken save = null;
+            if (null != savePatternText) {
+                try {
+                    save = historyToken.setSave(savePatternText);
+                } catch (final RuntimeException invalidPattern) {
+                    // ignore save is already null
+                }
+            }
+
+            context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksHrefRefresh: " + link.pattern + "=" + save);
+            link.anchor.setHistoryToken(save);
+        }
     }
 
     /**
@@ -368,7 +402,7 @@ public final class SpreadsheetPatternEditorWidget {
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
      * This is kept to support updates o the ANCHOR link as the {@link #patternTextBox} changes.
      */
-    private final Map<String, Anchor> patternAppendToAnchor;
+    private final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks;
 
     // switch pattern kind..............................................................................................
 
