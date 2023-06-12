@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Span;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -266,13 +267,19 @@ public final class SpreadsheetPatternEditorWidget {
                 default:
                     for (final String pattern : formatParserTokenKind.patterns()) {
                         final Anchor anchor = Anchor.empty()
-                                .setTextContent(pattern)
-                                .addClick(
-                                        (e) -> {
-                                            e.preventDefault();
-                                            this.setPatternText(this.patternText() + pattern);
-                                        }
-                                );
+                                .setTextContent(pattern);
+                        anchor.addClick(
+                                (e) -> {
+                                    e.preventDefault();
+                                    this.setPatternText(
+                                            anchor.historyToken()
+                                                    .cast(SpreadsheetCellPatternSaveHistoryToken.class)
+                                                    .pattern()
+                                                    .orElse(null)
+                                                    .text()
+                                    );
+                                }
+                        );
                         appendPatternToAnchor.put(pattern, anchor);
                         parent.append(anchor);
                     }
