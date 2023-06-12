@@ -192,7 +192,7 @@ public final class SpreadsheetPatternEditorWidget {
 
             // try parsing...
             try {
-                final SpreadsheetPattern pattern = patternKind.parse(tryingPatternText + "");
+                final SpreadsheetPattern pattern = patternKind.parse(tryingPatternText);
 
                 pattern.forEachComponent(
                         (kind, tokenPatternText) -> {
