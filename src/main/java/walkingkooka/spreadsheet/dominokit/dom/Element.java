@@ -23,6 +23,8 @@ import elemental2.dom.Node;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.IsElement;
 
+import java.util.Objects;
+
 public abstract class Element<T extends HTMLElement> implements IsElement<T> {
 
     Element(final T element) {
@@ -114,6 +116,20 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
     }
 
     // children.........................................................................................................
+
+    public abstract Element<T> append(final Node node);
+
+    final void append0(final Node node) {
+        Objects.requireNonNull(node, "node");
+        this.element.append(node);
+    }
+
+    public abstract Element<T> append(final IsElement<?> element);
+
+    final void append0(final IsElement<?> element) {
+        Objects.requireNonNull(element, "element");
+        this.append0(element.element());
+    }
 
     /**
      * Removes all child nodes.
