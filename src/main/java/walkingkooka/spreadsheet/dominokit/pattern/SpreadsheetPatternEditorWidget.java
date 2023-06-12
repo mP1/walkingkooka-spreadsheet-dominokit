@@ -79,14 +79,11 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.modalDialog = this.modalDialogCreate(context.title());
 
+        this.patternAppendLinksRebuild();
         this.setPatternText(context.loaded());
-        this.refresh();
     }
 
-    /**
-     * The {@link TextBox} that holds the pattern in text form.
-     */
-    private final TextBox patternTextBox;
+    // patternTextBox...................................................................................................
 
     /**
      * Creates the pattern text box and installs a value change listener.
@@ -100,7 +97,7 @@ public final class SpreadsheetPatternEditorWidget {
         textBox.setType("text");
         textBox.addEventListener(
                 EventType.input,
-                this::onPatternTextBox
+                (e) -> this.onPatternTextBox(this.patternText())
         );
         return textBox;
     }
@@ -109,11 +106,60 @@ public final class SpreadsheetPatternEditorWidget {
      * Tries to parse the text box text into a {@link SpreadsheetPattern}.
      * If that fails an error message will be displayed and the SAVE button disabled.
      */
-    private void onPatternTextBox(final Event event) {
-        // update UI here...
-        this.context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + this.patternText());
-        this.patternAppendLinksHrefRefresh();
-        this.patternComponentChipsRebuild();
+    private void onPatternTextBox(final String patternText) {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+        final SpreadsheetPatternKind patternKind = context.patternKind();
+        final TextBox patternTextBox = this.patternTextBox;
+
+        context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + CharSequences.quoteAndEscape(patternText));
+
+        SpreadsheetPattern pattern = null;
+        String errorMessage = null;
+        String errorPattern = "";
+
+        final int patternTextLength = patternText.length();
+        int last = patternTextLength;
+
+        while (last > 0) {
+            final String tryingPatternText = patternText.substring(0, last);
+            context.debug("SpreadsheetPatternEditorWidget.setPatternText trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
+
+            // try parsing...
+            try {
+                pattern = patternKind.parse(tryingPatternText);
+                errorPattern = patternText.substring(last);
+                break; // best attempt stop
+
+            } catch (final Exception failed) {
+                if(null == errorMessage) {
+                    errorMessage = failed.getMessage();
+                }
+
+                last--;
+                context.debug("SpreadsheetPatternEditorWidget.setPatternText parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
+            }
+        }
+
+        context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox " + CharSequences.quoteAndEscape(patternText) + " errorMessage: " + errorMessage + " pattern: " + pattern);
+
+        // clear or update the errors
+        patternTextBox.setHelperText(
+                CharSequences.nullToEmpty(
+                        errorMessage
+                ).toString()
+        );
+
+        this.patternComponentChipsRebuild(
+                pattern,
+                errorPattern
+        );
+
+        this.patternAppendLinksHrefRefresh(
+                patternText,
+                CharSequences.nullToEmpty(
+                        errorMessage
+                ).length() > 0 // error
+        );
     }
 
     /**
@@ -123,11 +169,17 @@ public final class SpreadsheetPatternEditorWidget {
         return this.patternTextBox.getValue();
     }
 
-    private void setPatternText(final String pattern) {
-        this.patternTextBox.setValue(pattern);
-
-        this.patternComponentChipsRebuild();
+    private void setPatternText(final String patternText) {
+        this.patternTextBox.setValue(patternText);
+        this.onPatternTextBox(patternText);
     }
+
+    /**
+     * The {@link TextBox} that holds the pattern in text form.
+     */
+    private final TextBox patternTextBox;
+
+    // modalDialog......................................................................................................
 
     /**
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
@@ -162,58 +214,44 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * This is called anytime the pattern text is changed.
      */
-    private void patternComponentChipsRebuild() {
+    private void patternComponentChipsRebuild(
+            final SpreadsheetPattern pattern,
+            final String errorPattern) {
         final Span parent = this.patternComponentParent.removeAllChildren();
 
-        final SpreadsheetPatternEditorWidgetContext context = this.context;
-        final SpreadsheetPatternKind patternKind = context.patternKind();
         final List<String> componentChipPatternTexts = this.patternComponentChipPatternTexts;
         componentChipPatternTexts.clear();
 
-        final String patternText = this.patternText();
-        final int patternTextLength = patternText.length();
-        int last = patternTextLength;
+        // pattern will be null when pattern is empty
+        if(null == pattern) {
+            this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild no chips");
+        } else {
+            pattern.forEachComponent(
+                    (kind, tokenPatternText) -> {
+                        componentChipPatternTexts.add(tokenPatternText);
+                    }
+            );
 
-        while (last > 0) {
-            final String tryingPatternText = patternText.substring(0, last);
-            context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
+            this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild " +componentChipPatternTexts.size() + " chips ", componentChipPatternTexts);
 
-            // try parsing...
-            try {
-                final SpreadsheetPattern pattern = patternKind.parse(tryingPatternText);
+            if (false == errorPattern.isEmpty()) {
+                componentChipPatternTexts.add(errorPattern);
+            }
 
-                pattern.forEachComponent(
-                        (kind, tokenPatternText) -> {
-                            componentChipPatternTexts.add(tokenPatternText);
-                        }
+            // now build the chips
+            int i = 0;
+            for (final String componentChipPatternText : componentChipPatternTexts) {
+                parent.append(
+                        Chip.create()
+                                .setRemovable(true)
+                                .setColorScheme(ColorScheme.PINK)
+                                .setValue(componentChipPatternText)
+                                .addRemoveHandler(
+                                        this.patternComponentChipOnRemove(i)
+                                )
                 );
 
-                if (last < patternTextLength) {
-                    componentChipPatternTexts.add(
-                            patternText.substring(last)
-                    );
-                }
-
-                // now build the chips
-                int i = 0;
-                for (final String componentChipPatternText : componentChipPatternTexts) {
-                    parent.append(
-                            Chip.create()
-                                    .setRemovable(true)
-                                    .setColorScheme(ColorScheme.PINK)
-                                    .setValue(componentChipPatternText)
-                                    .addRemoveHandler(
-                                            this.patternComponentChipOnRemove(i)
-                                    )
-                    );
-
-                    i++;
-                }
-                break; // best attempt stop
-
-            } catch (final Exception failed) {
-                last--;
-                context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
+                i++;
             }
         }
     }
@@ -245,11 +283,12 @@ public final class SpreadsheetPatternEditorWidget {
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
     private void patternAppendLinksRebuild() {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+        context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksRebuild");
+
         final Span parent = this.patternAppendParent.removeAllChildren();
         final Map<String, Anchor> appendPatternToAnchor = this.patternAppendToAnchor;
         appendPatternToAnchor.clear();
-
-        final SpreadsheetPatternEditorWidgetContext context = this.context;
 
         for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
 
@@ -286,28 +325,35 @@ public final class SpreadsheetPatternEditorWidget {
                     break;
             }
         }
-
-        this.patternAppendLinksHrefRefresh();
     }
 
     /**
      * This should be invoked each time the pattern text is updated, and will update the link for each append link.
      * The updated href is not strictly needed and is merely cosmetic.
      */
-    private void patternAppendLinksHrefRefresh() {
-        final SpreadsheetCellPatternHistoryToken historyToken = this.context.historyToken();
-        final String patternText = this.patternText();
+    private void patternAppendLinksHrefRefresh(final String patternText,
+                                               final boolean error) {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
 
-        this.patternAppendToAnchor.forEach(
+        final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
+
+        final Map<String, Anchor> patternAppendToAnchor = this.patternAppendToAnchor;
+        context.debug(this.getClass().getSimpleName() + ".patternAppendLinksHrefRefresh " + patternAppendToAnchor.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
+
+        patternAppendToAnchor.forEach(
                 (p, a) -> {
-                    HistoryToken save;
-                    try {
-                        save = historyToken.setSave(
-                                patternText + p
-                        );
-                    } catch (final RuntimeException invalidPattern) {
-                        save = null;
+                    HistoryToken save = null;
+
+                    if(false == error) {
+                        try {
+                            save = historyToken.setSave(
+                                    patternText + p
+                            );
+                        } catch (final RuntimeException invalidPattern) {
+                            // ignore
+                        }
                     }
+                    context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksHrefRefresh: " + p + "=" + save);
                     a.setHistoryToken(save);
                 }
         );
@@ -491,8 +537,8 @@ public final class SpreadsheetPatternEditorWidget {
         context.debug("SpreadsheetPatternEditorWidget.refresh");
 
         this.modalDialog.setTitle(context.title());
-        this.setPatternText(context.loaded());
         this.patternAppendLinksRebuild();
+        this.setPatternText(context.loaded());
     }
 
     private final SpreadsheetPatternEditorWidgetContext context;
