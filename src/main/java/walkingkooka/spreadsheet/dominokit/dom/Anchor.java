@@ -92,8 +92,6 @@ public final class Anchor extends Element<HTMLAnchorElement> {
         style.cssText = style.cssText +
                 (disabled ? ";cursor: not-allowed !important" : ";cursor: pointer !important");
 
-        DomGlobal.console.debug("@@@" + style.cursor + " " + style.cssText);
-
         return this;
     }
 
