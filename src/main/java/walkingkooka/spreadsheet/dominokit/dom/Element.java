@@ -93,9 +93,9 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
     /**
      * Adds a click {@link EventListener} to this element.
      */
-    public abstract Element<T> addClick(final EventListener listener);
+    public abstract Element<T> addClickListener(final EventListener listener);
 
-    final void addClick0(final EventListener listener) {
+    final void addClickListener0(final EventListener listener) {
         this.element.addEventListener(
                 EventType.click.getName(),
                 listener
@@ -105,9 +105,9 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
     /**
      * Adds a key down {@link EventListener} to this element.
      */
-    public abstract Element<T> addKeydown(final EventListener listener);
+    public abstract Element<T> addKeydownListener(final EventListener listener);
 
-    final void addKeydown0(final EventListener listener) {
+    final void addKeydownListener0(final EventListener listener) {
         this.element.addEventListener(
                 EventType.keydown.getName(),
                 listener

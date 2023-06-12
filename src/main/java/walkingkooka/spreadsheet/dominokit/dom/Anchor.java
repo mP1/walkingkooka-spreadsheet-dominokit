@@ -120,12 +120,12 @@ public final class Anchor extends Element<HTMLAnchorElement> {
     }
 
     public Anchor addPushHistoryToken(final HistoryTokenContext context) {
-        return this.addClick(
+        return this.addClickListener(
                 (e) -> {
                     e.preventDefault();
                     context.pushHistoryToken(this.historyToken());
                 }
-        ).addKeydown(
+        ).addKeydownListener(
                 (e) -> {
                     final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
                     if (keyboardEvent.code.equals(Enter)) {
@@ -179,16 +179,16 @@ public final class Anchor extends Element<HTMLAnchorElement> {
 
     // events..........................................................................................................
     @Override
-    public Anchor addClick(final EventListener listener) {
-        this.addClick0(
+    public Anchor addClickListener(final EventListener listener) {
+        this.addClickListener0(
                 this.disabledAwareEventListener(listener)
         );
         return this;
     }
 
     @Override
-    public Anchor addKeydown(final EventListener listener) {
-        this.addKeydown0(
+    public Anchor addKeydownListener(final EventListener listener) {
+        this.addKeydownListener0(
                 this.disabledAwareEventListener(listener)
         );
         return this;
