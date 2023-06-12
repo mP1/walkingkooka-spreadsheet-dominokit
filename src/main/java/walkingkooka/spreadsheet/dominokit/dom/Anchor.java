@@ -22,8 +22,6 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.KeyboardEvent;
-import org.jboss.elemento.EventType;
-import org.jboss.elemento.IsElement;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -36,7 +34,7 @@ import static org.jboss.elemento.Key.Enter;
 /**
  * Abstraction for working with a HTML anchor.
  */
-public final class Anchor implements IsElement<HTMLAnchorElement> {
+public final class Anchor extends Element<HTMLAnchorElement> {
 
     /**
      * Creates a new un-attached ANCHOR.
@@ -58,25 +56,24 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
     }
 
     private Anchor(final HTMLAnchorElement element) {
-        this.element = element;
+        super(element);
         element.style.set("margin", "5px");
     }
 
-    public Anchor addClick(final EventListener listener) {
-        this.element.addEventListener(
-                EventType.click.getName(),
-                listener
-        );
+    // disabled.........................................................................................................
+
+    public Anchor setDisabled(final boolean disabled) {
+        this.setAttribute("aria-disabled", disabled);
+
+        final CSSStyleDeclaration style = this.element.style;
+
+        style.cursor = disabled ? "not-allowed" : "pointer";
+        style.textDecoration = disabled ? "none" : "underline";
+
         return this;
     }
 
-    public Anchor addKeydown(final EventListener listener) {
-        this.element.addEventListener(
-                EventType.keydown.getName(),
-                listener
-        );
-        return this;
-    }
+    // historyToken....................................................................................................
 
     public HistoryToken historyToken() {
         return HistoryToken.parse(
@@ -92,7 +89,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         );
     }
 
-    public Anchor pushHistoryToken(final HistoryTokenContext context) {
+    public Anchor addPushHistoryToken(final HistoryTokenContext context) {
         return this.addClick(
                 (e) -> {
                     e.preventDefault();
@@ -109,16 +106,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         );
     }
 
-    public Anchor setDisabled(final boolean disabled) {
-        this.setAttribute("aria-disabled", disabled);
-
-        final CSSStyleDeclaration style = this.element.style;
-
-        style.cursor = disabled ? "not-allowed" : "pointer";
-        style.textDecoration = disabled ? "none" : "underline";
-
-        return this;
-    }
+    // href.............................................................................................................
 
     public AbsoluteOrRelativeUrl href() {
         return Url.parseAbsoluteOrRelative(
@@ -134,68 +122,40 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         return this.setDisabled(null == url);
     }
 
-    public String id() {
-        return this.element.id;
-    }
+    // id...............................................................................................................
 
+    @Override
     public Anchor setId(final String id) {
-        this.element.id = id;
+        this.setId0(id);
         return this;
     }
 
-    public int tabIndex() {
-        return this.element.tabIndex;
-    }
+    // tabIndex.........................................................................................................
 
+    @Override
     public Anchor setTabIndex(final int tabIndex) {
-        this.element.tabIndex = tabIndex;
+        this.setTabIndex0(tabIndex);
         return this;
     }
 
-    public String getAttribute(final String name) {
-        return this.element.getAttribute(name);
-    }
+    // textContent......................................................................................................
 
-    public Anchor setAttribute(final String name,
-                               final boolean value) {
-        this.element.setAttribute(name, value);
-        return this;
-    }
-
-    public Anchor setAttribute(final String name,
-                               final String value) {
-        this.element.setAttribute(name, value);
-        return this;
-    }
-
-    public Anchor setAttribute(final String name,
-                               final int value) {
-        this.element.setAttribute(name, value);
-        return this;
-    }
-
-    public String textContent() {
-        return this.element.textContent;
-    }
-
+    @Override
     public Anchor setTextContent(final String text) {
-        this.element.textContent = text;
+        this.setTextContent0(text);
         return this;
     }
 
-    // isElement........................................................................................................
-
+    // events..........................................................................................................
     @Override
-    public HTMLAnchorElement element() {
-        return this.element;
+    public Anchor addClick(final EventListener listener) {
+        this.addClick0(listener);
+        return this;
     }
 
-    private final HTMLAnchorElement element;
-
-    // Object...........................................................................................................
-
     @Override
-    public String toString() {
-        return this.element.toString();
+    public Anchor addKeydown(final EventListener listener) {
+        this.addKeydown0(listener);
+        return this;
     }
 }

@@ -691,12 +691,12 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         ).link(
                                 id(column)
                         ).setTabIndex(0)
-                        .pushHistoryToken(
+                        .addPushHistoryToken(
                                 context
                         ).setTextContent(
                                 column.toString()
                                         .toUpperCase()
-                        ).element()
+                        )
         );
 
         final HTMLTableCellElement element = td.element();
@@ -776,12 +776,12 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         ).link(
                                 id(row)
                         ).setTabIndex(0)
-                        .pushHistoryToken(
+                        .addPushHistoryToken(
                                 context
                         ).setTextContent(
                                 row.toString()
                                         .toUpperCase()
-                        ).element()
+                        )
         );
 
         final HTMLTableCellElement element = td.element();
