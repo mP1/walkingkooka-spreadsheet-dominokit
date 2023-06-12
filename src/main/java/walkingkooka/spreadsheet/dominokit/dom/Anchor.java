@@ -22,6 +22,8 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.KeyboardEvent;
+import elemental2.dom.Node;
+import org.jboss.elemento.IsElement;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -160,6 +162,18 @@ public final class Anchor extends Element<HTMLAnchorElement> {
     }
 
     // children.........................................................................................................
+
+    @Override
+    public Anchor append(final Node node) {
+        this.append0(node);
+        return this;
+    }
+
+    @Override
+    public Anchor append(final IsElement<?> element) {
+        this.append0(element);
+        return this;
+    }
 
     @Override
     public Anchor removeAllChildren() {

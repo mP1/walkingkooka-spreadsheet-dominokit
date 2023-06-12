@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.dom;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
+import org.jboss.elemento.IsElement;
 
 import java.util.Objects;
 
@@ -89,6 +91,18 @@ public final class Span extends Element<HTMLElement> {
     }
 
     // children.........................................................................................................
+
+    @Override
+    public Span append(final Node node) {
+        this.append0(node);
+        return this;
+    }
+
+    @Override
+    public Span append(final IsElement<?> element) {
+        this.append0(element);
+        return this;
+    }
 
     @Override
     public Span removeAllChildren() {
