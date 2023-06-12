@@ -79,7 +79,7 @@ public final class Anchor extends Element<HTMLAnchorElement> {
         final HTMLAnchorElement element = this.element;
 
         if(disabled) {
-            element.href = null;
+            element.removeAttribute("href"); // cant assign null, because href will still be present and isDisabled() wll be confused and report false
         }
 
         final CSSStyleDeclaration style = element.style;
