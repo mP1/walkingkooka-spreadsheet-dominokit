@@ -307,7 +307,7 @@ public final class SpreadsheetPatternEditorWidget {
                     for (final String pattern : formatParserTokenKind.patterns()) {
                         final Anchor anchor = Anchor.empty()
                                 .setTextContent(pattern);
-                        anchor.addClickListener(
+                        anchor.addClickAndKeydownEnterListener(
                                 (e) -> {
                                     e.preventDefault();
                                     this.setPatternText(
