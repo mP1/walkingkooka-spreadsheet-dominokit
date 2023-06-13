@@ -34,9 +34,9 @@ import java.util.Optional;
  * A button component that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extends SpreadsheetViewportToolbarComponentButton {
+final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extends SpreadsheetViewportToolbarComponentButton {
 
-    static <T> SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> with(final TextStylePropertyName<T> propertyName,
+    static <T> SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> with(final TextStylePropertyName<T> propertyName,
                                                                                   final T propertyValue,
                                                                                   final MdiIcon icon,
                                                                                   final String tooltipText,
@@ -47,7 +47,7 @@ final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extend
         CharSequences.failIfNullOrEmpty(tooltipText, "tooltipText");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentTextStylePropertyButton<>(
+        return new SpreadsheetViewportToolbarComponentButtonTextStyleProperty<>(
                 propertyName,
                 propertyValue,
                 icon,
@@ -56,7 +56,7 @@ final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extend
         );
     }
 
-    private SpreadsheetViewportToolbarComponentTextStylePropertyButton(final TextStylePropertyName<T> propertyName,
+    private SpreadsheetViewportToolbarComponentButtonTextStyleProperty(final TextStylePropertyName<T> propertyName,
                                                                        final T propertyValue,
                                                                        final MdiIcon icon,
                                                                        final String tooltipText,
@@ -184,7 +184,7 @@ final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extend
 
         this.setSaveValue(saveValue);
 
-        context.debug("SpreadsheetViewportToolbarComponentTextStylePropertyButton.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
+        context.debug("SpreadsheetViewportToolbarComponentButtonTextStyleProperty.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
     }
 
     private void setButtonSelected(final boolean selected,
