@@ -17,19 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.button.ButtonSize;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import org.dominokit.domino.ui.popover.PopupPosition;
-import org.dominokit.domino.ui.popover.Tooltip;
-import org.dominokit.domino.ui.style.StyleType;
 import org.jboss.elemento.EventType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -41,7 +34,7 @@ import java.util.Optional;
  * A button component that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extends SpreadsheetViewportToolbarComponent {
+final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extends SpreadsheetViewportToolbarComponentButton {
 
     static <T> SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> with(final TextStylePropertyName<T> propertyName,
                                                                                   final T propertyValue,
@@ -68,50 +61,41 @@ final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extend
                                                                        final MdiIcon icon,
                                                                        final String tooltipText,
                                                                        final HistoryTokenContext context) {
+        super(
+                SpreadsheetViewportToolbar.id(
+                        propertyName,
+                        propertyValue
+                ),
+                icon,
+                tooltipText,
+                context
+        );
         this.propertyName = propertyName;
         this.propertyValue = propertyValue;
 
-        final Button button = Button.create(icon)
-                .circle()
-                .setSize(ButtonSize.MEDIUM)
-                .setButtonType(StyleType.DEFAULT)
-                .addEventListener(
-                        EventType.click,
-                        (event) -> this.onClick()
-                ).addEventListener(
-                        EventType.focus,
-                        (event) -> this.onFocus()
-                );
-
-        button.style(BUTTON_STYLE.css());
-        final HTMLElement element = button.element();
-        element.id = SpreadsheetViewportToolbar.id(
-                propertyName,
-                propertyValue
+        this.button.addEventListener(
+                EventType.click,
+                (event) -> this.onClick()
+        ).addEventListener(
+                EventType.focus,
+                (event) -> this.onFocus()
         );
-        element.tabIndex = 0;
 
-        Tooltip.create(
-                button,
-                tooltipText
-        ).position(PopupPosition.BOTTOM);
-
-        this.button = button;
-
-        this.context = context;
+        this.element().tabIndex = 0;
     }
 
-    private final static TextStyle BUTTON_STYLE = TextStyle.EMPTY.setMargin(
-            Length.pixel(5.0)
-    );
-
+    /**
+     * When clicked perform a save on the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} and push that.
+     */
     private void onClick() {
-        this.context.historyToken()
+        final HistoryTokenContext context = this.context;
+
+        context.historyToken()
                 .viewportSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setStyle(this.propertyName)
                                 .setSave(save(this.saveValue))
-                ).ifPresent(this.context::pushHistoryToken);
+                ).ifPresent(context::pushHistoryToken);
     }
 
     private static String save(final Object value) {
@@ -124,25 +108,18 @@ final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extend
      * Upon focus the history token is set {@link walkingkooka.spreadsheet.reference.SpreadsheetSelection} and the {@link TextStylePropertyName}.
      */
     private void onFocus() {
-        this.context.historyToken()
+        final HistoryTokenContext context = this.context;
+
+        context.historyToken()
                 .viewportSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setStyle(this.propertyName)
-                ).ifPresent(this.context::pushHistoryToken);
-    }
-
-    @Override
-    public HTMLElement element() {
-        return this.button.element();
+                ).ifPresent(context::pushHistoryToken);
     }
 
     private final TextStylePropertyName<T> propertyName;
 
     private final T propertyValue;
-
-    private final HistoryTokenContext context;
-
-    private final Button button;
 
     @Override
     void onToolbarRefreshBegin() {
@@ -233,9 +210,4 @@ final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extend
      * where null means clear and non-null is set.
      */
     private T saveValue;
-
-    @Override
-    public String toString() {
-        return this.element().id;
-    }
 }
