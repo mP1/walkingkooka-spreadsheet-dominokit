@@ -37,6 +37,10 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * A button component that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
+ * {@link Object value} when selected(clicked).
+ */
 final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetViewportToolbarComponent {
 
     static <T> SpreadsheetViewportToolbarComponentButton<T> with(final TextStylePropertyName<T> propertyName,
