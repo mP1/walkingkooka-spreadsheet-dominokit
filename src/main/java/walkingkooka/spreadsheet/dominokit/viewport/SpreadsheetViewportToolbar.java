@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -81,7 +82,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
                 .appendChild(flexItem);
     }
 
-    private List<SpreadsheetViewportToolbarComponent> components(final AppContext context) {
+    private List<SpreadsheetViewportToolbarComponent> components(final HistoryTokenContext context) {
         return Lists.of(
                 SpreadsheetViewportToolbarComponent.bold(context),
                 SpreadsheetViewportToolbarComponent.italics(context),

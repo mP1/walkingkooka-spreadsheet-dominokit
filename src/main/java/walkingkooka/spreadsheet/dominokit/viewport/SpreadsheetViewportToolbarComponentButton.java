@@ -27,6 +27,7 @@ import org.dominokit.domino.ui.style.StyleType;
 import org.jboss.elemento.EventType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
@@ -42,7 +43,7 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
                                                                  final T propertyValue,
                                                                  final MdiIcon icon,
                                                                  final String tooltipText,
-                                                                 final AppContext context) {
+                                                                 final HistoryTokenContext context) {
         Objects.requireNonNull(propertyName, "propertyName");
         Objects.requireNonNull(propertyValue, "propertyValue");
         Objects.requireNonNull(icon, "icon");
@@ -62,7 +63,7 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
                                                       final T propertyValue,
                                                       final MdiIcon icon,
                                                       final String tooltipText,
-                                                      final AppContext context) {
+                                                      final HistoryTokenContext context) {
         this.propertyName = propertyName;
         this.propertyValue = propertyValue;
 
@@ -135,7 +136,7 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
 
     private final T propertyValue;
 
-    private final AppContext context;
+    private final HistoryTokenContext context;
 
     private final Button button;
 

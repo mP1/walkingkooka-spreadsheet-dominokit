@@ -21,6 +21,7 @@ import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icons;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
@@ -33,7 +34,7 @@ import walkingkooka.tree.text.VerticalAlign;
  */
 abstract class SpreadsheetViewportToolbarComponent {
 
-    static SpreadsheetViewportToolbarComponent bold(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent bold(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.FONT_WEIGHT,
                 FontWeight.BOLD,
@@ -43,7 +44,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent italics(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent italics(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.FONT_STYLE,
                 FontStyle.ITALIC,
@@ -53,7 +54,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent strikeThru(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent strikeThru(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.LINE_THROUGH,
@@ -63,7 +64,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignLeft(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent textAlignLeft(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.LEFT,
@@ -73,7 +74,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignCenter(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent textAlignCenter(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.CENTER,
@@ -83,7 +84,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignRight(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent textAlignRight(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.RIGHT,
@@ -93,7 +94,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignJustify(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent textAlignJustify(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY,
@@ -103,7 +104,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent underline(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent underline(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE,
@@ -113,7 +114,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent verticalAlignTop(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent verticalAlignTop(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.TOP,
@@ -123,7 +124,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent verticalAlignMiddle(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent verticalAlignMiddle(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.MIDDLE,
@@ -133,7 +134,7 @@ abstract class SpreadsheetViewportToolbarComponent {
         );
     }
 
-    static SpreadsheetViewportToolbarComponent verticalAlignBottom(final AppContext context) {
+    static SpreadsheetViewportToolbarComponent verticalAlignBottom(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButton.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.BOTTOM,
