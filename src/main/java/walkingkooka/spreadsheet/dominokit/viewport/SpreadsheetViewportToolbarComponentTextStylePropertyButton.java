@@ -41,20 +41,20 @@ import java.util.Optional;
  * A button component that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetViewportToolbarComponent {
+final class SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> extends SpreadsheetViewportToolbarComponent {
 
-    static <T> SpreadsheetViewportToolbarComponentButton<T> with(final TextStylePropertyName<T> propertyName,
-                                                                 final T propertyValue,
-                                                                 final MdiIcon icon,
-                                                                 final String tooltipText,
-                                                                 final HistoryTokenContext context) {
+    static <T> SpreadsheetViewportToolbarComponentTextStylePropertyButton<T> with(final TextStylePropertyName<T> propertyName,
+                                                                                  final T propertyValue,
+                                                                                  final MdiIcon icon,
+                                                                                  final String tooltipText,
+                                                                                  final HistoryTokenContext context) {
         Objects.requireNonNull(propertyName, "propertyName");
         Objects.requireNonNull(propertyValue, "propertyValue");
         Objects.requireNonNull(icon, "icon");
         CharSequences.failIfNullOrEmpty(tooltipText, "tooltipText");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentButton<>(
+        return new SpreadsheetViewportToolbarComponentTextStylePropertyButton<>(
                 propertyName,
                 propertyValue,
                 icon,
@@ -63,11 +63,11 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
         );
     }
 
-    private SpreadsheetViewportToolbarComponentButton(final TextStylePropertyName<T> propertyName,
-                                                      final T propertyValue,
-                                                      final MdiIcon icon,
-                                                      final String tooltipText,
-                                                      final HistoryTokenContext context) {
+    private SpreadsheetViewportToolbarComponentTextStylePropertyButton(final TextStylePropertyName<T> propertyName,
+                                                                       final T propertyValue,
+                                                                       final MdiIcon icon,
+                                                                       final String tooltipText,
+                                                                       final HistoryTokenContext context) {
         this.propertyName = propertyName;
         this.propertyValue = propertyValue;
 
@@ -207,7 +207,7 @@ final class SpreadsheetViewportToolbarComponentButton<T> extends SpreadsheetView
 
         this.setSaveValue(saveValue);
 
-        context.debug("SpreadsheetViewportToolbarComponentButton.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
+        context.debug("SpreadsheetViewportToolbarComponentTextStylePropertyButton.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
     }
 
     private void setButtonSelected(final boolean selected,
