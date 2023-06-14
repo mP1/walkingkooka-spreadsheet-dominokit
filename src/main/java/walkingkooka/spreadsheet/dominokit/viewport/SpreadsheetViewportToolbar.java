@@ -94,7 +94,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
                 SpreadsheetViewportToolbarComponent.textAlignJustify(context),
                 SpreadsheetViewportToolbarComponent.verticalAlignTop(context),
                 SpreadsheetViewportToolbarComponent.verticalAlignMiddle(context),
-                SpreadsheetViewportToolbarComponent.verticalAlignBottom(context)
+                SpreadsheetViewportToolbarComponent.verticalAlignBottom(context),
+                SpreadsheetViewportToolbarComponent.clear(context)
         );
     }
 
@@ -192,11 +193,14 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
 
     // viewport-column-A
     public static <T> String id(final TextStylePropertyName<T> propertyName,
-                                final T value) {
+                                final Optional<T> value) {
         return VIEWPORT_TOOLBAR_ID_PREFIX +
                 propertyName.constantName().toLowerCase() +
-                '-' +
-                value.toString().toUpperCase();
+                value.map(
+                        v -> '-' +
+                                value.toString()
+                                        .toUpperCase()
+                ).orElse("");
     }
 
     private final static String VIEWPORT_TOOLBAR_ID_PREFIX = "viewport-toolbar-";
