@@ -64,7 +64,7 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extend
         super(
                 SpreadsheetViewportToolbar.id(
                         propertyName,
-                        propertyValue
+                        Optional.of(propertyValue)
                 ),
                 icon,
                 tooltipText,
