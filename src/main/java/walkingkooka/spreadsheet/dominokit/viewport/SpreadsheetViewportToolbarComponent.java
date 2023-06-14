@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icons;
+import org.jboss.elemento.IsElement;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -32,7 +33,7 @@ import walkingkooka.tree.text.VerticalAlign;
 /**
  * A component such as an icon within a {@link SpreadsheetViewportToolbar}.
  */
-abstract class SpreadsheetViewportToolbarComponent {
+abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElement> {
 
     static SpreadsheetViewportToolbarComponent bold(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
@@ -147,7 +148,7 @@ abstract class SpreadsheetViewportToolbarComponent {
     /**
      * The root {@link HTMLElement}
      */
-    abstract HTMLElement element();
+    public abstract HTMLElement element();
 
     // onToolbarRefresh.................................................................................................
 
