@@ -50,7 +50,21 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     }
 
     @Test
-    public void testUrlFragmentCell() {
+    public void testUrlFragmentCellAll() {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellStyleSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        TextStylePropertyName.ALL,
+                        Optional.empty()
+                ),
+                "/123/SpreadsheetName456/cell/A1/style/*/save/"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentCellColor() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/style/color/save/#123456");
     }
 

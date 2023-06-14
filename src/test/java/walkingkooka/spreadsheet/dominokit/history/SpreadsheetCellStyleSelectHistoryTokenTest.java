@@ -29,6 +29,19 @@ import walkingkooka.tree.text.TextStylePropertyName;
 public final class SpreadsheetCellStyleSelectHistoryTokenTest extends SpreadsheetCellStyleHistoryTokenTestCase<SpreadsheetCellStyleSelectHistoryToken<Color>> {
 
     @Test
+    public void testUrlFragmentCellAll() {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellStyleSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        TextStylePropertyName.ALL
+                ),
+                "/123/SpreadsheetName456/cell/A1/style/*"
+        );
+    }
+
+    @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/style/color");
     }
