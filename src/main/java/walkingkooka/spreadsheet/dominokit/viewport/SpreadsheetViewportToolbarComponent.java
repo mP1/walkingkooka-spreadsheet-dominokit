@@ -61,6 +61,13 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         );
     }
 
+    /**
+     * {@link SpreadsheetViewportToolbarComponentButtonPattern}
+     */
+    static SpreadsheetViewportToolbarComponent pattern(final HistoryTokenContext context) {
+        return SpreadsheetViewportToolbarComponentButtonPattern.with(context);
+    }
+
     static SpreadsheetViewportToolbarComponent strikeThru(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,

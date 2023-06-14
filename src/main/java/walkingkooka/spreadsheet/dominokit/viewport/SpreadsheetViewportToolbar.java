@@ -95,7 +95,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
                 SpreadsheetViewportToolbarComponent.verticalAlignTop(context),
                 SpreadsheetViewportToolbarComponent.verticalAlignMiddle(context),
                 SpreadsheetViewportToolbarComponent.verticalAlignBottom(context),
-                SpreadsheetViewportToolbarComponent.clear(context)
+                SpreadsheetViewportToolbarComponent.clear(context),
+                SpreadsheetViewportToolbarComponent.pattern(context)
         );
     }
 
@@ -203,5 +204,9 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
                 ).orElse("");
     }
 
-    private final static String VIEWPORT_TOOLBAR_ID_PREFIX = "viewport-toolbar-";
+    public static String pattern() {
+        return VIEWPORT_TOOLBAR_ID_PREFIX + "-pattern";
+    }
+
+    final static String VIEWPORT_TOOLBAR_ID_PREFIX = "viewport-toolbar-";
 }
