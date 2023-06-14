@@ -45,7 +45,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         );
     }
 
-    static SpreadsheetViewportToolbarComponentButtonTextStyleClear clear(final HistoryTokenContext context) {
+    static SpreadsheetViewportToolbarComponent clear(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentButtonTextStyleClear.with(
                 context
         );
