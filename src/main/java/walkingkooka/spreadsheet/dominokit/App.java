@@ -75,6 +75,7 @@ import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
 import java.math.MathContext;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -180,6 +181,14 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                 width,
                 newHeight
         );
+    }
+
+    // Locale...........................................................................................................
+
+    @Override
+    public Locale locale() {
+        // TODO add browser locale detect or parameter
+        return Locale.forLanguageTag("EN-AU");
     }
 
     // delta & metadata change watches..................................................................................
