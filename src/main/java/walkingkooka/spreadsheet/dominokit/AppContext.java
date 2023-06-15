@@ -174,4 +174,8 @@ public interface AppContext extends HistoryTokenContext, LoggingContext, Context
                 anchor.element()
         ).addSelectionHandler(this::pushHistoryToken);
     }
+
+    // notification.....................................................................................................
+
+    void notification(final String message);
 }
