@@ -28,7 +28,6 @@ import org.dominokit.domino.ui.dropdown.DropdownAction;
 import org.dominokit.domino.ui.forms.FieldStyle;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.modals.ModalDialog;
-import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.style.ColorScheme;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
@@ -488,7 +487,7 @@ public final class SpreadsheetPatternEditorWidget {
             context.debug("SpreadsheetPatternEditorWidget.onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
             context.save(patternText);
         } catch (final Exception cause) {
-            this.error(cause.getMessage());
+            this.context.error(cause.getMessage());
         }
     }
 
@@ -551,15 +550,6 @@ public final class SpreadsheetPatternEditorWidget {
         );
 
         return button;
-    }
-
-    /**
-     * Display an error message.
-     */
-    private void error(final String errorMessage) {
-        Notification.create(errorMessage)
-                .setPosition(Notification.TOP_CENTER)
-                .show();
     }
 
     /**

@@ -25,6 +25,7 @@ import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.layout.Layout;
+import org.dominokit.domino.ui.notifications.Notification;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import org.jboss.elemento.EventType;
@@ -728,10 +729,18 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         console.debug(values);
     }
 
+    /**
+     * Logs an error to the console and shows a DANGER notification.
+     */
     @Override
     public void error(final Object... values) {
         // see App.debug
         final elemental2.dom.Console console = DomGlobal.console;
         console.error(values);
+
+        Notification.createDanger(
+                        String.valueOf(values[0])
+                ).setPosition(Notification.TOP_CENTER)
+                .show();
     }
 }
