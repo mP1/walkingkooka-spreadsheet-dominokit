@@ -23,6 +23,10 @@ import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.button.DropdownButton;
 import org.dominokit.domino.ui.chips.Chip;
+import org.dominokit.domino.ui.datatable.ColumnConfig;
+import org.dominokit.domino.ui.datatable.DataTable;
+import org.dominokit.domino.ui.datatable.TableConfig;
+import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.dropdown.DropDownPosition;
 import org.dominokit.domino.ui.dropdown.DropdownAction;
 import org.dominokit.domino.ui.forms.FieldStyle;
@@ -32,6 +36,7 @@ import org.dominokit.domino.ui.style.ColorScheme;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
+import org.dominokit.domino.ui.utils.TextNode;
 import org.jboss.elemento.EventType;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
@@ -44,8 +49,10 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static org.dominokit.domino.ui.style.Unit.px;
@@ -66,6 +73,26 @@ public final class SpreadsheetPatternEditorWidget {
     private SpreadsheetPatternEditorWidget(final SpreadsheetPatternEditorWidgetContext context) {
         this.context = context;
 
+        final TableConfig<SpreadsheetPatternEditorWidgetSampleRowData> tableConfig = this.sampleTableConfig();
+        final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRowData> localListDataStore = new LocalListDataStore<>();
+        this.sampleDataTable = new DataTable<>(
+                tableConfig,
+                localListDataStore
+        );
+
+        final List<SpreadsheetPatternEditorWidgetSampleRowData> sampleRowDataList = Lists.array();
+        sampleRowDataList.add(
+                SpreadsheetPatternEditorWidgetSampleRowData.with(
+                        "Text",
+                        SpreadsheetPattern.parseTextFormatPattern("@"),
+                        "a",
+                        "b"
+                )
+        );
+        localListDataStore.setData(sampleRowDataList);
+        this.sampleData = sampleRowDataList;
+
+
         this.patternTextBox = this.patternTextBox();
 
         this.patternComponentParent = Span.empty();
@@ -79,6 +106,35 @@ public final class SpreadsheetPatternEditorWidget {
         this.patternAppendLinksRebuild();
         this.setPatternText(context.loaded());
     }
+
+    // sample...........................................................................................................
+
+    private TableConfig<SpreadsheetPatternEditorWidgetSampleRowData> sampleTableConfig() {
+        return new TableConfig<SpreadsheetPatternEditorWidgetSampleRowData>()
+                .addColumn(columnConfig("label", TextAlign.LEFT, d -> d.label))
+                .addColumn(columnConfig("pattern-text", TextAlign.CENTER, d -> d.pattern.text()))
+                .addColumn(columnConfig("text1", TextAlign.CENTER, (SpreadsheetPatternEditorWidgetSampleRowData d) -> d.text))
+                .addColumn(columnConfig("text2", TextAlign.CENTER, d -> d.text2));
+    }
+
+    private static ColumnConfig<SpreadsheetPatternEditorWidgetSampleRowData> columnConfig(final String columnName,
+                                                                                          final TextAlign textAlign,
+                                                                                          final Function<SpreadsheetPatternEditorWidgetSampleRowData, String> textMapper) {
+        return ColumnConfig.<SpreadsheetPatternEditorWidgetSampleRowData>create(columnName)
+                .textAlign(CaseKind.kebabEnumName(textAlign))
+                .asHeader()
+                .setCellRenderer(cell -> TextNode.of(
+                                textMapper.apply(
+                                        cell.getTableRow()
+                                                .getRecord()
+                                )
+                        )
+                );
+    }
+
+    private final List<SpreadsheetPatternEditorWidgetSampleRowData> sampleData;
+
+    private final DataTable<SpreadsheetPatternEditorWidgetSampleRowData> sampleDataTable;
 
     // patternTextBox...................................................................................................
 
@@ -188,6 +244,8 @@ public final class SpreadsheetPatternEditorWidget {
                 .large()
                 .setAutoClose(true);
         modal.id(ID);
+
+        modal.appendChild(this.sampleDataTable);
 
         modal.appendChild(this.patternComponentParent);
         modal.appendChild(this.patternAppendParent);
