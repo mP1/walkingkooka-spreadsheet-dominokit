@@ -18,13 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.tree.text.TextNode;
 
 final class SpreadsheetPatternEditorWidgetSampleRowData {
 
     static SpreadsheetPatternEditorWidgetSampleRowData with(final String label,
                                                             final SpreadsheetPattern pattern,
-                                                            final String text,
-                                                            final String text2) {
+                                                            final TextNode text,
+                                                            final TextNode text2) {
         return new SpreadsheetPatternEditorWidgetSampleRowData(
                 label,
                 pattern,
@@ -35,8 +36,8 @@ final class SpreadsheetPatternEditorWidgetSampleRowData {
 
     private SpreadsheetPatternEditorWidgetSampleRowData(final String label,
                                                         final SpreadsheetPattern pattern,
-                                                        final String text,
-                                                        final String text2) {
+                                                        final TextNode text,
+                                                        final TextNode text2) {
         this.label = label;
         this.pattern = pattern;
         this.text = text;
@@ -45,6 +46,6 @@ final class SpreadsheetPatternEditorWidgetSampleRowData {
 
     final String label;
     final SpreadsheetPattern pattern;
-    final String text;
-    final String text2;
+    final TextNode text;
+    final TextNode text2;
 }
