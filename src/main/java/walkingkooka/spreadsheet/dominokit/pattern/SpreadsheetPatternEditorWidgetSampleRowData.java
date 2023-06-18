@@ -17,35 +17,30 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.tree.text.TextNode;
 
-final class SpreadsheetPatternEditorWidgetSampleRowData {
+/**
+ * A template source for the output that appears in a sample table.
+ */
+interface SpreadsheetPatternEditorWidgetSampleRowData {
 
-    static SpreadsheetPatternEditorWidgetSampleRowData with(final String label,
-                                                            final SpreadsheetPattern pattern,
-                                                            final TextNode text,
-                                                            final TextNode text2) {
-        return new SpreadsheetPatternEditorWidgetSampleRowData(
-                label,
-                pattern,
-                text,
-                text2
-        );
-    }
+    /**
+     * The label or descriptive text that appears in the first column of the sample table.
+     */
+    String label();
 
-    private SpreadsheetPatternEditorWidgetSampleRowData(final String label,
-                                                        final SpreadsheetPattern pattern,
-                                                        final TextNode text,
-                                                        final TextNode text2) {
-        this.label = label;
-        this.pattern = pattern;
-        this.text = text;
-        this.text2 = text2;
-    }
+    /**
+     * The pattern text.
+     */
+    String pattern();
 
-    final String label;
-    final SpreadsheetPattern pattern;
-    final TextNode text;
-    final TextNode text2;
+    /**
+     * The text to be parsed, or the value to be formatted as text.
+     */
+    String text();
+
+    /**
+     * The {@link #text} parsed and formatted or the {@link #text} value formatted, both using the {@link #pattern}.
+     */
+    TextNode parsedOrFormatted();
 }

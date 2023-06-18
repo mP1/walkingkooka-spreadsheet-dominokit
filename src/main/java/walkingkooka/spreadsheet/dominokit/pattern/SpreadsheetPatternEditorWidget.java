@@ -38,6 +38,7 @@ import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
 import org.jboss.elemento.EventType;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Span;
@@ -51,6 +52,8 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
+import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.function.Function;
@@ -83,12 +86,35 @@ public final class SpreadsheetPatternEditorWidget {
 
         final List<SpreadsheetPatternEditorWidgetSampleRowData> sampleRowDataList = Lists.array();
         sampleRowDataList.add(
-                SpreadsheetPatternEditorWidgetSampleRowData.with(
-                        "Text",
-                        SpreadsheetPattern.parseTextFormatPattern("@"),
-                        TextNode.text("a"),
-                        TextNode.text("b")
-                )
+                new SpreadsheetPatternEditorWidgetSampleRowData() {
+                    @Override
+                    public String label() {
+                        return "Text description";
+                    }
+
+                    @Override
+                    public String pattern() {
+                        return "[red]@";
+                    }
+
+                    @Override
+                    public String text() {
+                        return "abc123";
+                    }
+
+                    @Override
+                    public TextNode parsedOrFormatted() {
+                        //return TextNode.text(this.text());
+                        return TextStyle.EMPTY.set(
+                                TextStylePropertyName.COLOR,
+                                Color.parse("#F00")
+                        ).setChildren(
+                                Lists.of(
+                                        TextNode.text(this.text())
+                                )
+                        );
+                    }
+                }
         );
         localListDataStore.setData(sampleRowDataList);
         this.sampleData = sampleRowDataList;
@@ -112,10 +138,10 @@ public final class SpreadsheetPatternEditorWidget {
 
     private TableConfig<SpreadsheetPatternEditorWidgetSampleRowData> sampleTableConfig() {
         return new TableConfig<SpreadsheetPatternEditorWidgetSampleRowData>()
-                .addColumn(columnConfig("label", TextAlign.LEFT, d -> Doms.textNode(d.label)))
-                .addColumn(columnConfig("pattern-text", TextAlign.CENTER, d -> Doms.textNode(d.pattern.text())))
-                .addColumn(columnConfig("text1", TextAlign.CENTER, (SpreadsheetPatternEditorWidgetSampleRowData d) -> Doms.node(d.text)))
-                .addColumn(columnConfig("text2", TextAlign.CENTER, d -> Doms.node(d.text2)));
+                .addColumn(columnConfig("label", TextAlign.LEFT, d -> Doms.textNode(d.label())))
+                .addColumn(columnConfig("pattern-text", TextAlign.CENTER, d -> Doms.textNode(d.pattern())))
+                .addColumn(columnConfig("text1", TextAlign.CENTER, (d) -> Doms.textNode(d.text())))
+                .addColumn(columnConfig("text2", TextAlign.CENTER, d -> Doms.node(d.parsedOrFormatted())));
     }
 
     private static ColumnConfig<SpreadsheetPatternEditorWidgetSampleRowData> columnConfig(final String columnName,
