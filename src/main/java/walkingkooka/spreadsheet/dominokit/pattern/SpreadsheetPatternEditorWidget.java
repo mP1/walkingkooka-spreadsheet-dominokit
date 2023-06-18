@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.button.Button;
@@ -40,6 +39,7 @@ import org.dominokit.domino.ui.utils.TextNode;
 import org.jboss.elemento.EventType;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Span;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
@@ -254,7 +254,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         modal.appendFooterChild(this.spreadsheetPatternKindDropDownCreate());
 
-        modal.appendFooterChild(DomGlobal.document.createTextNode(" "));
+        modal.appendFooterChild(Doms.textNode(""));
 
         modal.appendFooterChild(this.saveButton());
         modal.appendFooterChild(this.undoButton());

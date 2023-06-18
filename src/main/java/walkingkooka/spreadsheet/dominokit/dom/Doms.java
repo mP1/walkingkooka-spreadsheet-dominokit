@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import jsinterop.base.Js;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
@@ -47,6 +48,13 @@ public final class Doms implements PublicStaticHelper {
         return Js.cast(
                 SafeHtmlUtils.fromTrustedString(node.toHtml())
         );
+    }
+
+    /**
+     * Creates a {@link elemental2.dom.Text}
+     */
+    public static elemental2.dom.Text textNode(final String text) {
+        return DomGlobal.document.createTextNode(text);
     }
 
     /**
