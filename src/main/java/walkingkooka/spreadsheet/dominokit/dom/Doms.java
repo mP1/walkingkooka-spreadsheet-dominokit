@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.dom;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import jsinterop.base.Js;
-import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.text.TextNode;
 
@@ -42,12 +41,10 @@ public final class Doms implements PublicStaticHelper {
     }
 
     /**
-     * Creates a {@link elemental2.dom.Text}
+     * Creates a {@link elemental2.dom.Node} either a TextNode or Element depending on the provided {@link TextNode}.
      */
     public static elemental2.dom.Node node(final TextNode node) {
-        return Js.cast(
-                SafeHtmlUtils.fromTrustedString(node.toHtml())
-        );
+        return DomsNodeTextNodeVisitor.toNode(node);
     }
 
     /**
