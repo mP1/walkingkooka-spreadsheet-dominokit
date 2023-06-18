@@ -31,7 +31,6 @@ import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.icons.Icons;
 import org.dominokit.domino.ui.popover.PopupPosition;
 import org.dominokit.domino.ui.popover.Tooltip;
-import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
@@ -45,6 +44,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
@@ -804,7 +804,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
         TextStyle style = this.metadata.effectiveStyle();
-        String innerHtml = "";
+        TextNode content = null;
 
         // if an error is present add a tooltip below the cell with the error message.
         Optional<SpreadsheetError> maybeError = Optional.empty();
@@ -813,9 +813,10 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
             final SpreadsheetCell cell = maybeCell.get();
             final Optional<TextNode> maybeFormatted = cell.formatted();
             if (maybeFormatted.isPresent()) {
-                final TextNode formatted = maybeFormatted.get();
+                //final TextNode formatted = maybeFormatted.get();
 
-                innerHtml = formatted.toHtml();
+                //innerHtml = formatted.toHtml();
+                content = maybeFormatted.get();
             }
             style = cell.style()
                     .merge(style);
@@ -838,7 +839,16 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         "0"
                 ).style(
                         style.css() + "box-sizing: border-box;"
-                ).innerHtml(SafeHtmlUtils.fromTrustedString(innerHtml));
+                );
+        if (null != content) {
+            td.add(
+                    Doms.node(content)
+            );
+        }
+
+
+        //.add(Doms.node(content));
+        //).innerHtml(SafeHtmlUtils.fromTrustedString(innerHtml));
 
         final HTMLTableCellElement element = td.element();
         element.addEventListener(
