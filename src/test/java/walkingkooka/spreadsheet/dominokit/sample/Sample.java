@@ -111,51 +111,51 @@ public final class Sample {
 
     private static void print(final NumberFormat format) {
         final DecimalFormat decimalFormat = (DecimalFormat) format;
-        System.out.println(decimalFormat.toPattern());
+        System.out.println("Pattern: " + decimalFormat.toPattern());
 
-        System.out.println(format.format(+1.25) + "\t\t" + format.format(-1.25) + "\t\t" + format.format(0));
+        System.out.println("Formatted: " + format.format(+1.25) + "\t\t" + format.format(-1.25) + "\t\t" + format.format(0));
         System.out.println();
     }
 
     private static void printDate(final DateFormat format) {
         final SimpleDateFormat simpleDateFormat = simpleDateFormat(format);
 
-        System.out.println(simpleDateFormat.toPattern());
+        System.out.println("Pattern: " + simpleDateFormat.toPattern());
 
         final Date date = DateTime.localDateToDate(
                 LocalDate.of(2000, 12, 31)
         );
 
-        System.out.println(date);
-        System.out.println(simpleDateFormat.format(date));
+        System.out.println("java.util.Date.toString(): " + date);
+        System.out.println("Formatted: " + simpleDateFormat.format(date));
         System.out.println();
     }
 
     private static void printDateTime(final DateFormat format) {
         final SimpleDateFormat simpleDateFormat = simpleDateFormat(format);
 
-        System.out.println(simpleDateFormat.toPattern());
+        System.out.println("Pattern: " + simpleDateFormat.toPattern());
 
         final Date date = DateTime.localDateTimeToDate(
                 LocalDateTime.of(2000, 12, 31, 12, 58, 59)
         );
 
-        System.out.println(date);
-        System.out.println(simpleDateFormat.format(date));
+        System.out.println("java.util.Date.toString(): " + date);
+        System.out.println("Formatted: " + simpleDateFormat.format(date));
         System.out.println();
     }
 
     private static void printTime(final DateFormat format) {
         final SimpleDateFormat simpleDateFormat = simpleDateFormat(format);
 
-        System.out.println(simpleDateFormat.toPattern());
+        System.out.println("Pattern: " + simpleDateFormat.toPattern());
 
         final Date date = DateTime.localTimeToDate(
                 LocalTime.of(12, 58, 59)
         );
 
-        System.out.println(date);
-        System.out.println(simpleDateFormat.format(date));
+        System.out.println("java.util.Date.toString(): " + date);
+        System.out.println("Formatted: " + simpleDateFormat.format(date));
         System.out.println();
     }
 
