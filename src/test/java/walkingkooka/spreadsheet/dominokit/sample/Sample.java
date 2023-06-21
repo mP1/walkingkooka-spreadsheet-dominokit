@@ -17,7 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.sample;
 
+import walkingkooka.collect.list.Lists;
+
+import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneOffset;
+import java.util.Date;
 
 public final class Sample {
 
@@ -30,10 +40,122 @@ public final class Sample {
 
         System.out.println("NumberFormat.percent");
         print(NumberFormat.getPercentInstance());
+
+//        System.out.println("DateTimeFormatter.ofLocalizedDate SHORT");
+//        print(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+//
+//        System.out.println("DateTimeFormatter.ofLocalizedDate MEDIUM");
+//        print(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+//
+//        System.out.println("DateTimeFormatter.ofLocalizedDate LONG");
+//        print(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
+//
+//        System.out.println("DateTimeFormatter.ofLocalizedDate FULL");
+//        print(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
+//
+//        //DateTimeFormatter.ofLocalizedDate(null).withZone(ZoneId.of("UTF"));
+//
+//
+//        System.out.println("DateTimeFormatter.ofLocalizedTime SHORT");
+//        print(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
+//
+//        System.out.println("DateTimeFormatter.ofLocalizedTime MEDIUM");
+//        print(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM));
+//
+//        System.out.println("DateTimeFormatter.ofLocalizedTime LONG");
+//        print(DateTimeFormatter.ofLocalizedTime(FormatStyle.LONG));
+//
+//        System.out.println("DateTimeFormatter.ofLocalizedTime FULL");
+//        print(DateTimeFormatter.ofLocalizedTime(FormatStyle.FULL));
+
+        System.out.println("DateFormat.getDateInstance SHORT");
+        printDate(DateFormat.getDateInstance(DateFormat.SHORT));
+
+        System.out.println("DateFormat.getDateInstance MEDIUM");
+        printDate(DateFormat.getDateInstance(DateFormat.MEDIUM));
+
+        System.out.println("DateFormat.getDateInstance LONG");
+        printDate(DateFormat.getDateInstance(DateFormat.LONG));
+
+        for (final int date : Lists.of(DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG)) {
+            for (final int time : Lists.of(DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG)) {
+                System.out.println("DateFormat.getDateTimeInstance " + dateFormatStyle(date) + " " + dateFormatStyle(time));
+                printDateTime(DateFormat.getDateTimeInstance(date, time));
+            }
+        }
+
+        System.out.println("DateFormat.getTimeInstance SHORT");
+        printTime(DateFormat.getTimeInstance(DateFormat.SHORT));
+
+        System.out.println("DateFormat.getTimeInstance MEDIUM");
+        printTime(DateFormat.getTimeInstance(DateFormat.MEDIUM));
+
+        System.out.println("DateFormat.getTimeInstance LONG");
+        printTime(DateFormat.getTimeInstance(DateFormat.LONG));
+    }
+
+    private static String dateFormatStyle(final int value) {
+        switch (value) {
+            case DateFormat.SHORT:
+                return "SHORT";
+            case DateFormat.MEDIUM:
+                return "MEDIUM";
+            case DateFormat.LONG:
+                return "LONG";
+            case DateFormat.FULL:
+                return "FULL";
+            default:
+                throw new IllegalArgumentException("Invalid DateFormat style constant=" + value);
+        }
     }
 
     private static void print(final NumberFormat format) {
-        System.out.println(format.toString());
-        System.out.println(format.format(+1.25) + " " + format.format(-1.25) + " " + format.format(0));
+        final DecimalFormat decimalFormat = (DecimalFormat) format;
+        System.out.println(decimalFormat.toPattern());
+
+        System.out.println(format.format(+1.25) + "\t\t" + format.format(-1.25) + "\t\t" + format.format(0));
+        System.out.println();
+    }
+
+    private static void printDate(final DateFormat format) {
+        final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) format;
+
+        System.out.println(simpleDateFormat.toPattern());
+
+        final Date date = Date.from(
+                LocalDate.of(2000, 12, 31).atStartOfDay().toInstant(ZoneOffset.UTC)
+        );
+
+        System.out.println(date);
+        System.out.println(simpleDateFormat.format(date));
+        System.out.println();
+    }
+
+    private static void printDateTime(final DateFormat format) {
+        final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) format;
+
+        System.out.println(simpleDateFormat.toPattern());
+
+        final Date date = Date.from(
+                LocalDateTime.of(2000, 12, 31, 12, 58, 59).toInstant(ZoneOffset.UTC)
+        );
+
+        System.out.println(date);
+        System.out.println(simpleDateFormat.format(date));
+        System.out.println();
+    }
+
+    private static void printTime(final DateFormat format) {
+        final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) format;
+
+        System.out.println(simpleDateFormat.toPattern());
+
+        final Date date = Date.from(
+                LocalTime.of(12, 58, 59).atDate(LocalDate.EPOCH).toInstant(ZoneOffset.UTC)
+        );
+
+        System.out.println(date);
+        System.out.println(simpleDateFormat.format(date));
+        System.out.println();
     }
 }
