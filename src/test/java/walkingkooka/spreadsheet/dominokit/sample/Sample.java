@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.sample;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.datetime.DateTime;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -26,7 +27,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.ZoneOffset;
 import java.util.Date;
 
 public final class Sample {
@@ -118,12 +118,12 @@ public final class Sample {
     }
 
     private static void printDate(final DateFormat format) {
-        final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) format;
+        final SimpleDateFormat simpleDateFormat = simpleDateFormat(format);
 
         System.out.println(simpleDateFormat.toPattern());
 
-        final Date date = Date.from(
-                LocalDate.of(2000, 12, 31).atStartOfDay().toInstant(ZoneOffset.UTC)
+        final Date date = DateTime.localDateToDate(
+                LocalDate.of(2000, 12, 31)
         );
 
         System.out.println(date);
@@ -132,12 +132,12 @@ public final class Sample {
     }
 
     private static void printDateTime(final DateFormat format) {
-        final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) format;
+        final SimpleDateFormat simpleDateFormat = simpleDateFormat(format);
 
         System.out.println(simpleDateFormat.toPattern());
 
-        final Date date = Date.from(
-                LocalDateTime.of(2000, 12, 31, 12, 58, 59).toInstant(ZoneOffset.UTC)
+        final Date date = DateTime.localDateTimeToDate(
+                LocalDateTime.of(2000, 12, 31, 12, 58, 59)
         );
 
         System.out.println(date);
@@ -146,16 +146,23 @@ public final class Sample {
     }
 
     private static void printTime(final DateFormat format) {
-        final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) format;
+        final SimpleDateFormat simpleDateFormat = simpleDateFormat(format);
 
         System.out.println(simpleDateFormat.toPattern());
 
-        final Date date = Date.from(
-                LocalTime.of(12, 58, 59).atDate(LocalDate.EPOCH).toInstant(ZoneOffset.UTC)
+        final Date date = DateTime.localTimeToDate(
+                LocalTime.of(12, 58, 59)
         );
 
         System.out.println(date);
         System.out.println(simpleDateFormat.format(date));
         System.out.println();
+    }
+
+    private static SimpleDateFormat simpleDateFormat(final DateFormat format) {
+        final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) format;
+        return new SimpleDateFormat(
+                DateTime.simpleDateFormatPatternWithoutTimezone(simpleDateFormat.toPattern())
+        );
     }
 }
