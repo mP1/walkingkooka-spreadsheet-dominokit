@@ -308,7 +308,7 @@ public final class SpreadsheetPatternEditorWidget {
         if(null == pattern) {
             this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild no chips");
         } else {
-            pattern.forEachComponent(
+            pattern.components(
                     (kind, tokenPatternText) -> {
                         componentChipPatternTexts.add(tokenPatternText);
                     }
@@ -439,7 +439,7 @@ public final class SpreadsheetPatternEditorWidget {
                     final SpreadsheetFormatParserTokenKind[] lastPatternKind = new SpreadsheetFormatParserTokenKind[1];
                     final String[] lastPatternText = new String[1];
 
-                    pattern.forEachComponent(
+                    pattern.components(
                             (kk, tt) -> {
                                 lastPatternKind[0] = kk;
                                 lastPatternText[0] = tt;
