@@ -37,10 +37,10 @@ interface SpreadsheetPatternEditorWidgetSampleRow {
     /**
      * The value to be parsed, or the value to be formatted as text.
      */
-    String value();
+    String defaultFormattedValue();
 
     /**
-     * The {@link #value} parsed and formatted or the {@link #value} value formatted, both using the {@link #pattern}.
+     * The value parsed or formatted using the {@link #pattern()}.
      */
     SpreadsheetText parsedOrFormatted();
 }
