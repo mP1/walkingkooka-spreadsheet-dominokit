@@ -97,13 +97,13 @@ public final class SpreadsheetPatternEditorWidget {
                     }
 
                     @Override
-                    public String value() {
+                    public String defaultFormattedValue() {
                         return "abc123";
                     }
 
                     @Override
                     public SpreadsheetText parsedOrFormatted() {
-                        return SpreadsheetText.with(this.value())
+                        return SpreadsheetText.with(this.defaultFormattedValue())
                                 .setColor(
                                         Optional.of(
                                                 Color.parse("#f00")
@@ -148,12 +148,12 @@ public final class SpreadsheetPatternEditorWidget {
                         )
                 ).addColumn(
                         columnConfig(
-                                "text1",
+                                "default format",
                                 TextAlign.CENTER,
-                                (d) -> Doms.textNode(d.value()))
+                                (d) -> Doms.textNode(d.defaultFormattedValue()))
                 ).addColumn(
                         columnConfig(
-                                "text2",
+                                "formatted",
                                 TextAlign.CENTER,
                                 d -> Doms.node(
                                         d.parsedOrFormatted().toTextNode()
