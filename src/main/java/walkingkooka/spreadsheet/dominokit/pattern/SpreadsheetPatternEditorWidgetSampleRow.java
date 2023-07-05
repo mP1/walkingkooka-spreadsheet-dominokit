@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.tree.text.TextNode;
+import walkingkooka.spreadsheet.format.SpreadsheetText;
 
 /**
  * A template source for the output that appears in a sample table.
  */
-interface SpreadsheetPatternEditorWidgetSampleRowData {
+interface SpreadsheetPatternEditorWidgetSampleRow {
 
     /**
      * The label or descriptive text that appears in the first column of the sample table.
@@ -35,12 +35,12 @@ interface SpreadsheetPatternEditorWidgetSampleRowData {
     String pattern();
 
     /**
-     * The text to be parsed, or the value to be formatted as text.
+     * The value to be parsed, or the value to be formatted as text.
      */
-    String text();
+    String value();
 
     /**
-     * The {@link #text} parsed and formatted or the {@link #text} value formatted, both using the {@link #pattern}.
+     * The {@link #value} parsed and formatted or the {@link #value} value formatted, both using the {@link #pattern}.
      */
-    TextNode parsedOrFormatted();
+    SpreadsheetText parsedOrFormatted();
 }

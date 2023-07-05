@@ -45,17 +45,16 @@ import walkingkooka.spreadsheet.dominokit.dom.Span;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
-import walkingkooka.tree.text.TextNode;
-import walkingkooka.tree.text.TextStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -77,16 +76,16 @@ public final class SpreadsheetPatternEditorWidget {
     private SpreadsheetPatternEditorWidget(final SpreadsheetPatternEditorWidgetContext context) {
         this.context = context;
 
-        final TableConfig<SpreadsheetPatternEditorWidgetSampleRowData> tableConfig = this.sampleTableConfig();
-        final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRowData> localListDataStore = new LocalListDataStore<>();
+        final TableConfig<SpreadsheetPatternEditorWidgetSampleRow> tableConfig = this.sampleTableConfig();
+        final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRow> localListDataStore = new LocalListDataStore<>();
         this.sampleDataTable = new DataTable<>(
                 tableConfig,
                 localListDataStore
         );
 
-        final List<SpreadsheetPatternEditorWidgetSampleRowData> sampleRowDataList = Lists.array();
+        final List<SpreadsheetPatternEditorWidgetSampleRow> sampleRowDataList = Lists.array();
         sampleRowDataList.add(
-                new SpreadsheetPatternEditorWidgetSampleRowData() {
+                new SpreadsheetPatternEditorWidgetSampleRow() {
                     @Override
                     public String label() {
                         return "Text description";
@@ -98,21 +97,18 @@ public final class SpreadsheetPatternEditorWidget {
                     }
 
                     @Override
-                    public String text() {
+                    public String value() {
                         return "abc123";
                     }
 
                     @Override
-                    public TextNode parsedOrFormatted() {
-                        //return TextNode.text(this.text());
-                        return TextStyle.EMPTY.set(
-                                TextStylePropertyName.COLOR,
-                                Color.parse("#F00")
-                        ).setChildren(
-                                Lists.of(
-                                        TextNode.text(this.text())
-                                )
-                        );
+                    public SpreadsheetText parsedOrFormatted() {
+                        return SpreadsheetText.with(this.value())
+                                .setColor(
+                                        Optional.of(
+                                                Color.parse("#f00")
+                                        )
+                                );
                     }
                 }
         );
@@ -136,18 +132,40 @@ public final class SpreadsheetPatternEditorWidget {
 
     // sample...........................................................................................................
 
-    private TableConfig<SpreadsheetPatternEditorWidgetSampleRowData> sampleTableConfig() {
-        return new TableConfig<SpreadsheetPatternEditorWidgetSampleRowData>()
-                .addColumn(columnConfig("label", TextAlign.LEFT, d -> Doms.textNode(d.label())))
-                .addColumn(columnConfig("pattern-text", TextAlign.CENTER, d -> Doms.textNode(d.pattern())))
-                .addColumn(columnConfig("text1", TextAlign.CENTER, (d) -> Doms.textNode(d.text())))
-                .addColumn(columnConfig("text2", TextAlign.CENTER, d -> Doms.node(d.parsedOrFormatted())));
+    private TableConfig<SpreadsheetPatternEditorWidgetSampleRow> sampleTableConfig() {
+        return new TableConfig<SpreadsheetPatternEditorWidgetSampleRow>()
+                .addColumn(
+                        columnConfig(
+                                "label",
+                                TextAlign.LEFT,
+                                d -> Doms.textNode(d.label())
+                        )
+                ).addColumn(
+                        columnConfig(
+                                "pattern-text",
+                                TextAlign.CENTER,
+                                d -> Doms.textNode(d.pattern())
+                        )
+                ).addColumn(
+                        columnConfig(
+                                "text1",
+                                TextAlign.CENTER,
+                                (d) -> Doms.textNode(d.value()))
+                ).addColumn(
+                        columnConfig(
+                                "text2",
+                                TextAlign.CENTER,
+                                d -> Doms.node(
+                                        d.parsedOrFormatted().toTextNode()
+                                )
+                        )
+                );
     }
 
-    private static ColumnConfig<SpreadsheetPatternEditorWidgetSampleRowData> columnConfig(final String columnName,
-                                                                                          final TextAlign textAlign,
-                                                                                          final Function<SpreadsheetPatternEditorWidgetSampleRowData, Node> nodeMapper) {
-        return ColumnConfig.<SpreadsheetPatternEditorWidgetSampleRowData>create(columnName)
+    private static ColumnConfig<SpreadsheetPatternEditorWidgetSampleRow> columnConfig(final String columnName,
+                                                                                      final TextAlign textAlign,
+                                                                                      final Function<SpreadsheetPatternEditorWidgetSampleRow, Node> nodeMapper) {
+        return ColumnConfig.<SpreadsheetPatternEditorWidgetSampleRow>create(columnName)
                 .textAlign(CaseKind.kebabEnumName(textAlign))
                 .asHeader()
                 .setCellRenderer(cell -> nodeMapper.apply(
@@ -157,9 +175,9 @@ public final class SpreadsheetPatternEditorWidget {
                 );
     }
 
-    private final List<SpreadsheetPatternEditorWidgetSampleRowData> sampleData;
+    private final List<SpreadsheetPatternEditorWidgetSampleRow> sampleData;
 
-    private final DataTable<SpreadsheetPatternEditorWidgetSampleRowData> sampleDataTable;
+    private final DataTable<SpreadsheetPatternEditorWidgetSampleRow> sampleDataTable;
 
     // patternTextBox...................................................................................................
 
