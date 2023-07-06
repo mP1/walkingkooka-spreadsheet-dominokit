@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 /**
@@ -73,4 +74,9 @@ public interface SpreadsheetPatternEditorWidgetContext extends HistoryTokenConte
      */
     @Override
     SpreadsheetCellPatternHistoryToken historyToken();
+
+    /**
+     * A {@link SpreadsheetFormatterContext} which will be used to format values for the samples table.
+     */
+    SpreadsheetFormatterContext spreadsheetFormatterContext();
 }
