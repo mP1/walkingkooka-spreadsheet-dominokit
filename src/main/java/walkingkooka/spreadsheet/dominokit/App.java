@@ -223,6 +223,8 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
+        this.spreadsheetMetadata = metadata;
+
         // update the global JsonNodeUnmarshallContext.
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 metadata.expressionNumberKind(),
