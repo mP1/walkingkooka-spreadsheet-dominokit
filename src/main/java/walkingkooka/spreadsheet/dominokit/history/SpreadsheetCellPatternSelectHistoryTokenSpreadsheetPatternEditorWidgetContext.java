@@ -20,10 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorWidgetContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext implements SpreadsheetPatternEditorWidgetContext {
@@ -146,6 +148,18 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
     @Override
     public void pushHistoryToken(final HistoryToken token) {
         this.context.pushHistoryToken(token);
+    }
+
+    @Override
+    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
+        this.debug(this.context.spreadsheetMetadata());
+        return this.context.spreadsheetMetadata()
+                .formatterContext(
+                        LocalDateTime::now,
+                        (s) -> {
+                            throw new UnsupportedOperationException();
+                        }
+                );
     }
 
     @Override

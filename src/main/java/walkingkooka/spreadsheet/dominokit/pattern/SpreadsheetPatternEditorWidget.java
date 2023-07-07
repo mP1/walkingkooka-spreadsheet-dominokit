@@ -38,14 +38,14 @@ import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
 import org.jboss.elemento.EventType;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Span;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetText;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
+import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserToken;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -54,7 +54,6 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -75,47 +74,6 @@ public final class SpreadsheetPatternEditorWidget {
 
     private SpreadsheetPatternEditorWidget(final SpreadsheetPatternEditorWidgetContext context) {
         this.context = context;
-
-        final TableConfig<SpreadsheetPatternEditorWidgetSampleRow> tableConfig = this.sampleTableConfig();
-        final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRow> localListDataStore = new LocalListDataStore<>();
-        this.sampleDataTable = new DataTable<>(
-                tableConfig,
-                localListDataStore
-        );
-
-        final List<SpreadsheetPatternEditorWidgetSampleRow> sampleRowDataList = Lists.array();
-        sampleRowDataList.add(
-                new SpreadsheetPatternEditorWidgetSampleRow() {
-                    @Override
-                    public String label() {
-                        return "Text description";
-                    }
-
-                    @Override
-                    public String pattern() {
-                        return "[red]@";
-                    }
-
-                    @Override
-                    public String defaultFormattedValue() {
-                        return "abc123";
-                    }
-
-                    @Override
-                    public SpreadsheetText parsedOrFormatted() {
-                        return SpreadsheetText.with(this.defaultFormattedValue())
-                                .setColor(
-                                        Optional.of(
-                                                Color.parse("#f00")
-                                        )
-                                );
-                    }
-                }
-        );
-        localListDataStore.setData(sampleRowDataList);
-        this.sampleData = sampleRowDataList;
-
-
         this.patternTextBox = this.patternTextBox();
 
         this.patternComponentParent = Span.empty();
@@ -123,6 +81,35 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.patternAppendParent = Span.empty();
         this.patternAppendLinks = Lists.array();
+
+        final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRow> localListDataStore = new LocalListDataStore<>();
+        this.sampleDataTable = new DataTable<>(
+                this.sampleTableConfig(),
+                localListDataStore
+        );
+
+        final List<SpreadsheetPatternEditorWidgetSampleRow> sampleRowDataList = Lists.array();
+        sampleRowDataList.add(
+                SpreadsheetPatternEditorWidgetSampleRowFormat.textFormat(
+                        "Text",
+                        this::patternText,
+                        "abc123", // value to be formatted
+                        SpreadsheetFormatters.text(
+                                SpreadsheetFormatParserToken.text(
+                                        Lists.of(
+                                                SpreadsheetFormatParserToken.textLiteral(
+                                                        "@",
+                                                        "@"
+                                                )
+                                        ),
+                                        "@"
+                                )
+                        ), // default text formatter
+                        context.spreadsheetFormatterContext()
+                )
+        );
+        localListDataStore.setData(sampleRowDataList);
+        this.sampleData = sampleRowDataList;
 
         this.modalDialog = this.modalDialogCreate(context.title());
 
@@ -144,13 +131,14 @@ public final class SpreadsheetPatternEditorWidget {
                         columnConfig(
                                 "pattern-text",
                                 TextAlign.CENTER,
-                                d -> Doms.textNode(d.pattern())
+                                d -> Doms.textNode(null != d ? d.pattern() : "")
                         )
                 ).addColumn(
                         columnConfig(
-                                "default format",
+                                "default-format",
                                 TextAlign.CENTER,
-                                (d) -> Doms.textNode(d.defaultFormattedValue()))
+                                (d) -> Doms.textNode(d.defaultFormattedValue())
+                        )
                 ).addColumn(
                         columnConfig(
                                 "formatted",
@@ -258,6 +246,8 @@ public final class SpreadsheetPatternEditorWidget {
                         null :
                         pattern
         );
+
+        this.sampleDataTable.load();
     }
 
     /**
