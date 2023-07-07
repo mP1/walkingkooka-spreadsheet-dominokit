@@ -218,7 +218,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         while (last > 0) {
             final String tryingPatternText = patternText.substring(0, last);
-            context.debug("SpreadsheetPatternEditorWidget.setPatternText trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
+            context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
 
             // try parsing...
             try {
@@ -232,7 +232,7 @@ public final class SpreadsheetPatternEditorWidget {
                 }
 
                 last--;
-                context.debug("SpreadsheetPatternEditorWidget.setPatternText parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
+                context.debug("SpreadsheetPatternEditorWidget.onPatternTextBox parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
             }
         }
 
