@@ -17,30 +17,137 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.text.CharSequences;
+
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
- * A template source for the output that appears in a sample table.
+ * Represents a row of data for the sample table that appears within a {@link SpreadsheetPatternEditorWidget}.
  */
-interface SpreadsheetPatternEditorWidgetSampleRow {
+final class SpreadsheetPatternEditorWidgetSampleRow {
 
     /**
-     * The label or descriptive text that appears in the first column of the sample table.
+     * Helper that provides a {@link SpreadsheetFormatPattern} if the {@link Supplier patternText} is present and can be parsed.
      */
-    String label();
+    static Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPatternSupplier(final Supplier<Optional<String>> patternText,
+                                                                                        final Function<String, ? extends SpreadsheetFormatPattern> parser) {
+        Objects.requireNonNull(patternText, "patternText");
+
+        return () -> {
+            SpreadsheetFormatPattern spreadsheetFormatPattern = null;
+
+            final Optional<String> maybePatternText = patternText.get();
+            if (maybePatternText.isPresent()) {
+                try {
+                    spreadsheetFormatPattern = parser.apply(maybePatternText.get());
+                } catch (final Exception fail) {
+                    // ignore
+                }
+            }
+
+            return Optional.ofNullable(spreadsheetFormatPattern);
+        };
+    }
 
     /**
-     * The pattern text.
+     * Factory that creates a new {@link SpreadsheetPatternEditorWidgetSampleRow}.
      */
-    String pattern();
+    static SpreadsheetPatternEditorWidgetSampleRow with(final String label,
+                                                        final Supplier<Optional<String>> patternText,
+                                                        final Object value,
+                                                        final SpreadsheetFormatter defaultFormatter,
+                                                        final Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPattern,
+                                                        final SpreadsheetFormatterContext context) {
+        return new SpreadsheetPatternEditorWidgetSampleRow(
+                CharSequences.failIfNullOrEmpty(label, "label"),
+                Objects.requireNonNull(patternText, "patternText"),
+                Objects.requireNonNull(value, "value"),
+                Objects.requireNonNull(defaultFormatter, "defaultFormatter"),
+                Objects.requireNonNull(formatPattern, "formatPattern"),
+                Objects.requireNonNull(context, "context")
+        );
+    }
+
+    private SpreadsheetPatternEditorWidgetSampleRow(final String label,
+                                                    final Supplier<Optional<String>> patternText,
+                                                    final Object value,
+                                                    final SpreadsheetFormatter defaultFormatter,
+                                                    final Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPattern,
+                                                    final SpreadsheetFormatterContext context) {
+        this.label = label;
+        this.patternText = patternText;
+        this.value = value;
+        this.defaultFormatter = defaultFormatter;
+        this.formatPattern = formatPattern;
+        this.context = context;
+    }
 
     /**
-     * The value to be parsed, or the value to be formatted as text.
+     * The label that appears in the first column.
      */
-    String defaultFormattedValue();
+    String label() {
+        return this.label;
+    }
+
+    private final String label;
 
     /**
-     * The value parsed or formatted using the {@link #pattern()}.
+     * The pattern text that appears in the 2nd column.
      */
-    SpreadsheetText parsedOrFormatted();
+    String patternText() {
+        return this.patternText.get()
+                .orElse("");
+    }
+
+    private Supplier<Optional<String>> patternText;
+
+    /**
+     * The value default formatted.
+     */
+    String defaultFormattedValue() {
+        final SpreadsheetText formatted = this.defaultFormatter.format(
+                this.value,
+                this.context
+        ).orElse(SpreadsheetText.EMPTY);
+
+        return formatted.text();
+    }
+
+    private final Object value;
+
+    private final SpreadsheetFormatter defaultFormatter;
+
+    /**
+     * The value formatted using the {@link #patternText()}.
+     */
+    SpreadsheetText patternFormattedValue() {
+        SpreadsheetText formatted = SpreadsheetText.EMPTY;
+
+        final Optional<? extends SpreadsheetFormatPattern> formatPattern = this.formatPattern.get();
+
+        if (formatPattern.isPresent()) {
+            formatted = formatPattern.get()
+                    .formatter()
+                    .format(this.value, this.context)
+                    .orElse(SpreadsheetText.EMPTY);
+        }
+
+        return formatted;
+    }
+
+    private final Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPattern;
+
+    private final SpreadsheetFormatterContext context;
+
+    @Override
+    public String toString() {
+        return this.label();
+    }
 }
