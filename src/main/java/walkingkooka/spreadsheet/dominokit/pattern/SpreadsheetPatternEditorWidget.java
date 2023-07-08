@@ -54,6 +54,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -90,10 +91,10 @@ public final class SpreadsheetPatternEditorWidget {
 
         final List<SpreadsheetPatternEditorWidgetSampleRow> sampleRowDataList = Lists.array();
         sampleRowDataList.add(
-                SpreadsheetPatternEditorWidgetSampleRowFormat.textFormat(
+                SpreadsheetPatternEditorWidgetSampleRow.with(
                         "Text",
-                        this::patternText,
-                        "abc123", // value to be formatted
+                        () -> Optional.of(this.patternText()), // patternText
+                        "abc123", // value
                         SpreadsheetFormatters.text(
                                 SpreadsheetFormatParserToken.text(
                                         Lists.of(
@@ -105,6 +106,10 @@ public final class SpreadsheetPatternEditorWidget {
                                         "@"
                                 )
                         ), // default text formatter
+                        SpreadsheetPatternEditorWidgetSampleRow.formatPatternSupplier(
+                                () -> Optional.of(this.patternText()),
+                                SpreadsheetPattern::parseTextFormatPattern
+                        ),
                         context.spreadsheetFormatterContext()
                 )
         );
@@ -131,7 +136,7 @@ public final class SpreadsheetPatternEditorWidget {
                         columnConfig(
                                 "pattern-text",
                                 TextAlign.CENTER,
-                                d -> Doms.textNode(null != d ? d.pattern() : "")
+                                d -> Doms.textNode(d.patternText())
                         )
                 ).addColumn(
                         columnConfig(
@@ -144,7 +149,7 @@ public final class SpreadsheetPatternEditorWidget {
                                 "formatted",
                                 TextAlign.CENTER,
                                 d -> Doms.node(
-                                        d.parsedOrFormatted().toTextNode()
+                                        d.patternFormattedValue().toTextNode()
                                 )
                         )
                 );
