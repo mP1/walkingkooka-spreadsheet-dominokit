@@ -152,7 +152,6 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
 
     @Override
     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-        this.debug(this.context.spreadsheetMetadata());
         return this.context.spreadsheetMetadata()
                 .formatterContext(
                         LocalDateTime::now,
