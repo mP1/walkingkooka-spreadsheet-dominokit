@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -44,6 +45,15 @@ final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext implemen
         this.kind = kind;
         this.patternText = patternText;
         this.spreadsheetFormatterContext = spreadsheetFormatterContext;
+    }
+
+    @Override
+    public SpreadsheetFormatter defaultSpreadsheetFormatter() {
+        return this.kind()
+                .formatter(
+                        this.spreadsheetFormatterContext()
+                                .locale()
+                );
     }
 
     @Override

@@ -17,10 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 public class FakeSpreadsheetPatternEditorWidgetSampleRowProviderContext implements SpreadsheetPatternEditorWidgetSampleRowProviderContext {
+
+    @Override
+    public SpreadsheetFormatter defaultSpreadsheetFormatter() {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public SpreadsheetPatternKind kind() {
         throw new UnsupportedOperationException();

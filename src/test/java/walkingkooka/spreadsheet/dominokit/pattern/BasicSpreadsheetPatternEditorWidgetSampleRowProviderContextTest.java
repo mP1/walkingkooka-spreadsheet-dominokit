@@ -21,9 +21,12 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -74,12 +77,23 @@ public final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContextTe
     public void testWithInvalidPattern() {
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN;
         final String patternText = "Pattern123\"";
-        final SpreadsheetFormatterContext spreadsheetFormatterContext = SpreadsheetFormatterContexts.fake();
+        final SpreadsheetFormatterContext spreadsheetFormatterContext = new FakeSpreadsheetFormatterContext() {
+            @Override
+            public Locale locale() {
+                return Locale.forLanguageTag("EN-AU");
+            }
+        };
 
         final BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext context = BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext.with(
                 kind,
                 patternText,
                 spreadsheetFormatterContext
+        );
+
+        this.checkNotEquals(
+                null,
+                context.defaultSpreadsheetFormatter(),
+                "defaultSpreadsheetFormatter"
         );
 
         this.checkEquals(
