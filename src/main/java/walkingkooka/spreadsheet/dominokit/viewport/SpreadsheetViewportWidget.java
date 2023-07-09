@@ -813,9 +813,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
             final SpreadsheetCell cell = maybeCell.get();
             final Optional<TextNode> maybeFormatted = cell.formatted();
             if (maybeFormatted.isPresent()) {
-                //final TextNode formatted = maybeFormatted.get();
-
-                //innerHtml = formatted.toHtml();
                 content = maybeFormatted.get();
             }
             style = cell.style()
@@ -845,10 +842,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                     Doms.node(content)
             );
         }
-
-
-        //.add(Doms.node(content));
-        //).innerHtml(SafeHtmlUtils.fromTrustedString(innerHtml));
 
         final HTMLTableCellElement element = td.element();
         element.addEventListener(
