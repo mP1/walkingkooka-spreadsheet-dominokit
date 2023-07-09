@@ -18,8 +18,23 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 public final class SpreadsheetPatternEditorWidgetSampleRowProviderContexts implements PublicStaticHelper {
+
+    /**
+     * {@see BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext}
+     */
+    public static SpreadsheetPatternEditorWidgetSampleRowProviderContext with(final SpreadsheetPatternKind kind,
+                                                                              final String patternText,
+                                                                              final SpreadsheetFormatterContext spreadsheetFormatterContext) {
+        return BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext.with(
+                kind,
+                patternText,
+                spreadsheetFormatterContext
+        );
+    }
 
     /**
      * Stop creation
