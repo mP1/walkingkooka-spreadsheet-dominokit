@@ -17,16 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
-import java.util.Optional;
-import java.util.function.Function;
 
 /**
  * Represents a row of data for the sample table that appears within a {@link SpreadsheetPatternEditorWidget}.
@@ -34,54 +28,28 @@ import java.util.function.Function;
 final class SpreadsheetPatternEditorWidgetSampleRow {
 
     /**
-     * Helper that provides a {@link SpreadsheetPattern} using the given {@link String patternText}.
-     */
-    static <T extends SpreadsheetPattern> Optional<T> tryParsePatternText(final String patternText,
-                                                                          final Function<String, T> parser) {
-        Objects.requireNonNull(patternText, "patternText");
-
-        T spreadsheetFormatPattern = null;
-
-        try {
-            spreadsheetFormatPattern = parser.apply(patternText);
-        } catch (final Exception fail) {
-            // ignore
-        }
-
-        return Optional.ofNullable(spreadsheetFormatPattern);
-    }
-
-    /**
      * Factory that creates a new {@link SpreadsheetPatternEditorWidgetSampleRow}.
      */
     static SpreadsheetPatternEditorWidgetSampleRow with(final String label,
                                                         final String patternText,
-                                                        final Object value,
-                                                        final SpreadsheetFormatter defaultFormatter,
-                                                        final Optional<? extends SpreadsheetFormatPattern> formatPattern,
-                                                        final SpreadsheetFormatterContext context) {
+                                                        final SpreadsheetText defaultFormattedValue,
+                                                        final SpreadsheetText patternFormattedValue) {
         return new SpreadsheetPatternEditorWidgetSampleRow(
                 CharSequences.failIfNullOrEmpty(label, "label"),
                 Objects.requireNonNull(patternText, "patternText"),
-                Objects.requireNonNull(value, "value"),
-                Objects.requireNonNull(defaultFormatter, "defaultFormatter"),
-                Objects.requireNonNull(formatPattern, "formatPattern"),
-                Objects.requireNonNull(context, "context")
+                Objects.requireNonNull(defaultFormattedValue, "defaultFormattedValue"),
+                Objects.requireNonNull(patternFormattedValue, "patternFormattedValue")
         );
     }
 
     private SpreadsheetPatternEditorWidgetSampleRow(final String label,
                                                     final String patternText,
-                                                    final Object value,
-                                                    final SpreadsheetFormatter defaultFormatter,
-                                                    final Optional<? extends SpreadsheetFormatPattern> formatPattern,
-                                                    final SpreadsheetFormatterContext context) {
+                                                    final SpreadsheetText defaultFormattedValue,
+                                                    final SpreadsheetText patternFormattedValue) {
         this.label = label;
         this.patternText = patternText;
-        this.value = value;
-        this.defaultFormatter = defaultFormatter;
-        this.formatPattern = formatPattern;
-        this.context = context;
+        this.defaultFormattedValue = defaultFormattedValue;
+        this.patternFormattedValue = patternFormattedValue;
     }
 
     /**
@@ -105,39 +73,21 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
     /**
      * The value default formatted.
      */
-    String defaultFormattedValue() {
-        final SpreadsheetText formatted = this.defaultFormatter.format(
-                this.value,
-                this.context
-        ).orElse(SpreadsheetText.EMPTY);
-
-        return formatted.text();
+    SpreadsheetText defaultFormattedValue() {
+        return this.defaultFormattedValue;
     }
 
-    private final Object value;
-
-    private final SpreadsheetFormatter defaultFormatter;
+    private final SpreadsheetText defaultFormattedValue;
 
     /**
      * The value formatted using the {@link #patternText()}.
      */
     SpreadsheetText patternFormattedValue() {
-        return this.formatPattern.map(this::formatValue)
-                .orElse(SpreadsheetText.EMPTY);
+        return this.patternFormattedValue;
 
     }
 
-    private SpreadsheetText formatValue(final SpreadsheetFormatPattern pattern) {
-        return pattern.formatter()
-                .format(
-                        this.value,
-                        this.context
-                ).orElse(SpreadsheetText.EMPTY);
-    }
-
-    private final Optional<? extends SpreadsheetFormatPattern> formatPattern;
-
-    private final SpreadsheetFormatterContext context;
+    private final SpreadsheetText patternFormattedValue;
 
     @Override
     public String toString() {
