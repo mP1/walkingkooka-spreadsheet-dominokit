@@ -322,9 +322,7 @@ public final class SpreadsheetPatternEditorWidget {
             this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild no chips");
         } else {
             pattern.components(
-                    (kind, tokenPatternText) -> {
-                        componentChipPatternTexts.add(tokenPatternText);
-                    }
+                    (kind, tokenPatternText) -> componentChipPatternTexts.add(tokenPatternText)
             );
 
             this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild " +componentChipPatternTexts.size() + " chips ", componentChipPatternTexts);
