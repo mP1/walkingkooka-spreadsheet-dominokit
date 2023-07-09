@@ -24,6 +24,13 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 public final class SpreadsheetPatternEditorWidgetSampleRowProviderContexts implements PublicStaticHelper {
 
     /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderContext}
+     */
+    public static SpreadsheetPatternEditorWidgetSampleRowProviderContext fake() {
+        return new FakeSpreadsheetPatternEditorWidgetSampleRowProviderContext();
+    }
+
+    /**
      * {@see BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext}
      */
     public static SpreadsheetPatternEditorWidgetSampleRowProviderContext with(final SpreadsheetPatternKind kind,
