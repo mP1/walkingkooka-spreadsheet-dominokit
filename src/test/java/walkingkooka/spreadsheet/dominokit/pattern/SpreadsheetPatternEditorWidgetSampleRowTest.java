@@ -51,7 +51,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
 
     private final static Supplier<Optional<String>> PATTERN_TEXT_SUPPLIER = () -> Optional.of("");
 
-    private final static Supplier<Optional<? extends SpreadsheetFormatPattern>> FORMAT_PATTERN_SUPPLIER = () -> Optional.empty();
+    private final static Supplier<Optional<? extends SpreadsheetFormatPattern>> FORMAT_PATTERN_SUPPLIER = Optional::empty;
 
     private final static Color BLUE = Color.parse("#12f");
 
