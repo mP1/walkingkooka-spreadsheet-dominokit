@@ -49,7 +49,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
 
     private final static String LABEL = "Label123";
 
-    private final static Supplier<Optional<String>> PATTERN_TEXT_SUPPLIER = () -> Optional.of("");
+    private final static Supplier<String> PATTERN_TEXT_SUPPLIER = () -> "";
 
     private final static Supplier<Optional<? extends SpreadsheetFormatPattern>> FORMAT_PATTERN_SUPPLIER = Optional::empty;
 
@@ -133,7 +133,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
     }
 
     private void withFails(final String label,
-                           final Supplier<Optional<String>> patternText,
+                           final Supplier<String> patternText,
                            final Object value,
                            final SpreadsheetFormatter defaultFormatter,
                            final Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPattern,
@@ -230,7 +230,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                     final String defaultDateFormatter,
                                     final String defaultFormattedText,
                                     final SpreadsheetText patternFormatted) {
-        final Supplier<Optional<String>> patternTextSupplier = () -> Optional.of(patternText);
+        final Supplier<String> patternTextSupplier = () -> patternText;
 
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
@@ -354,7 +354,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                         final String defaultDateTimeFormatter,
                                         final String defaultFormattedText,
                                         final SpreadsheetText patternFormatted) {
-        final Supplier<Optional<String>> patternTextSupplier = () -> Optional.of(patternText);
+        final Supplier<String> patternTextSupplier = () -> patternText;
 
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
@@ -478,7 +478,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                       final String defaultNumberFormatter,
                                       final String defaultFormattedText,
                                       final SpreadsheetText patternFormatted) {
-        final Supplier<Optional<String>> patternTextSupplier = () -> Optional.of(patternText);
+        final Supplier<String> patternTextSupplier = () -> patternText;
 
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
@@ -617,7 +617,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                     final String defaultTextFormatter,
                                     final String defaultFormattedText,
                                     final SpreadsheetText patternFormatted) {
-        final Supplier<Optional<String>> patternTextSupplier = () -> Optional.of(patternText);
+        final Supplier<String> patternTextSupplier = () -> patternText;
 
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
@@ -741,7 +741,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                     final String defaultTimeFormatter,
                                     final String defaultFormattedText,
                                     final SpreadsheetText patternFormatted) {
-        final Supplier<Optional<String>> patternTextSupplier = () -> Optional.of(patternText);
+        final Supplier<String> patternTextSupplier = () -> patternText;
 
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
