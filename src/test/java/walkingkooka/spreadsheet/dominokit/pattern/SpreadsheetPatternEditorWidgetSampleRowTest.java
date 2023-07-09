@@ -876,7 +876,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
     }
 
     @Override
-    public final JavaVisibility typeVisibility() {
+    public JavaVisibility typeVisibility() {
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
