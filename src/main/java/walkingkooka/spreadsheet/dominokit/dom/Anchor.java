@@ -22,7 +22,6 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.KeyboardEvent;
 import elemental2.dom.Node;
 import org.jboss.elemento.IsElement;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -207,8 +206,7 @@ public final class Anchor extends Element<HTMLAnchorElement> {
         return this.addClickListener(listener)
                 .addKeydownListener(
                         (e) -> {
-                            final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
-                            if (keyboardEvent.code.equals(Enter)) {
+                            if (Enter.match(e)) {
                                 listener.handleEvent(e);
                             }
                         }
