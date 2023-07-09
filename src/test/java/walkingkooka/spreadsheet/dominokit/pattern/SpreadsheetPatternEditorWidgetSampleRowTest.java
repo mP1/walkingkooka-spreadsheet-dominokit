@@ -40,7 +40,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -49,9 +48,9 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
 
     private final static String LABEL = "Label123";
 
-    private final static Supplier<String> PATTERN_TEXT_SUPPLIER = () -> "";
+    private final static String PATTERN_TEXT = "";
 
-    private final static Supplier<Optional<? extends SpreadsheetFormatPattern>> FORMAT_PATTERN_SUPPLIER = Optional::empty;
+    private final static Optional<? extends SpreadsheetFormatPattern> FORMAT_PATTERN = Optional.empty();
 
     private final static Color BLUE = Color.parse("#12f");
 
@@ -61,10 +60,10 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
     public void testWithNullLabelFails() {
         this.withFails(
                 null,
-                PATTERN_TEXT_SUPPLIER,
+                PATTERN_TEXT,
                 LocalDate.now(),
                 SpreadsheetFormatters.fake(),
-                FORMAT_PATTERN_SUPPLIER,
+                FORMAT_PATTERN,
                 SpreadsheetFormatterContexts.fake()
         );
     }
@@ -75,10 +74,10 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                 IllegalArgumentException.class,
                 () -> SpreadsheetPatternEditorWidgetSampleRow.with(
                         "",
-                        PATTERN_TEXT_SUPPLIER,
+                        PATTERN_TEXT,
                         LocalDate.now(),
                         SpreadsheetFormatters.fake(),
-                        FORMAT_PATTERN_SUPPLIER,
+                        FORMAT_PATTERN,
                         SpreadsheetFormatterContexts.fake()
                 )
         );
@@ -91,7 +90,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                 null,
                 LocalDate.now(),
                 SpreadsheetFormatters.fake(),
-                FORMAT_PATTERN_SUPPLIER,
+                FORMAT_PATTERN,
                 SpreadsheetFormatterContexts.fake()
         );
     }
@@ -100,10 +99,10 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
     public void testWithNullValueFails() {
         this.withFails(
                 LABEL,
-                PATTERN_TEXT_SUPPLIER,
+                PATTERN_TEXT,
                 null,
                 SpreadsheetFormatters.fake(),
-                FORMAT_PATTERN_SUPPLIER,
+                FORMAT_PATTERN,
                 SpreadsheetFormatterContexts.fake()
         );
     }
@@ -112,10 +111,10 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
     public void testWithNullDefaultFormatterFails() {
         this.withFails(
                 LABEL,
-                PATTERN_TEXT_SUPPLIER,
+                PATTERN_TEXT,
                 LocalDate.now(),
                 null,
-                FORMAT_PATTERN_SUPPLIER,
+                FORMAT_PATTERN,
                 SpreadsheetFormatterContexts.fake()
         );
     }
@@ -124,19 +123,19 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
     public void testWithNullContextFails() {
         this.withFails(
                 LABEL,
-                PATTERN_TEXT_SUPPLIER,
+                PATTERN_TEXT,
                 LocalDate.now(),
                 SpreadsheetFormatters.fake(),
-                FORMAT_PATTERN_SUPPLIER,
+                FORMAT_PATTERN,
                 null
         );
     }
 
     private void withFails(final String label,
-                           final Supplier<String> patternText,
+                           final String patternText,
                            final Object value,
                            final SpreadsheetFormatter defaultFormatter,
-                           final Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPattern,
+                           final Optional<? extends SpreadsheetFormatPattern> formatPattern,
                            final SpreadsheetFormatterContext context) {
         assertThrows(
                 NullPointerException.class,
@@ -230,17 +229,15 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                     final String defaultDateFormatter,
                                     final String defaultFormattedText,
                                     final SpreadsheetText patternFormatted) {
-        final Supplier<String> patternTextSupplier = () -> patternText;
-
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
                         LABEL,
-                        patternTextSupplier,
+                        patternText,
                         value,
                         SpreadsheetPattern.parseDateFormatPattern(defaultDateFormatter)
                                 .formatter(),
-                        SpreadsheetPatternEditorWidgetSampleRow.formatPatternSupplier(
-                                patternTextSupplier,
+                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                                patternText,
                                 SpreadsheetPattern::parseDateFormatPattern
                         ),
                         new FakeSpreadsheetFormatterContext() {
@@ -354,17 +351,15 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                         final String defaultDateTimeFormatter,
                                         final String defaultFormattedText,
                                         final SpreadsheetText patternFormatted) {
-        final Supplier<String> patternTextSupplier = () -> patternText;
-
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
                         LABEL,
-                        patternTextSupplier,
+                        patternText,
                         value,
                         SpreadsheetPattern.parseDateTimeFormatPattern(defaultDateTimeFormatter)
                                 .formatter(),
-                        SpreadsheetPatternEditorWidgetSampleRow.formatPatternSupplier(
-                                patternTextSupplier,
+                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                                patternText,
                                 SpreadsheetPattern::parseDateTimeFormatPattern
                         ),
                         new FakeSpreadsheetFormatterContext() {
@@ -478,17 +473,15 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                       final String defaultNumberFormatter,
                                       final String defaultFormattedText,
                                       final SpreadsheetText patternFormatted) {
-        final Supplier<String> patternTextSupplier = () -> patternText;
-
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
                         LABEL,
-                        patternTextSupplier,
+                        patternText,
                         ExpressionNumberKind.BIG_DECIMAL.create(number),
                         SpreadsheetPattern.parseNumberFormatPattern(defaultNumberFormatter)
                                 .formatter(),
-                        SpreadsheetPatternEditorWidgetSampleRow.formatPatternSupplier(
-                                patternTextSupplier,
+                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                                patternText,
                                 SpreadsheetPattern::parseNumberFormatPattern
                         ),
                         new FakeSpreadsheetFormatterContext() {
@@ -617,17 +610,15 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                     final String defaultTextFormatter,
                                     final String defaultFormattedText,
                                     final SpreadsheetText patternFormatted) {
-        final Supplier<String> patternTextSupplier = () -> patternText;
-
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
                         LABEL,
-                        patternTextSupplier,
+                        patternText,
                         text,
                         SpreadsheetPattern.parseTextFormatPattern(defaultTextFormatter)
                                 .formatter(),
-                        SpreadsheetPatternEditorWidgetSampleRow.formatPatternSupplier(
-                                patternTextSupplier,
+                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                                patternText,
                                 SpreadsheetPattern::parseTextFormatPattern
                         ),
                         new FakeSpreadsheetFormatterContext() {
@@ -741,17 +732,15 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                     final String defaultTimeFormatter,
                                     final String defaultFormattedText,
                                     final SpreadsheetText patternFormatted) {
-        final Supplier<String> patternTextSupplier = () -> patternText;
-
         this.check(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
                         LABEL,
-                        patternTextSupplier,
+                        patternText,
                         value,
                         SpreadsheetPattern.parseTimeFormatPattern(defaultTimeFormatter)
                                 .formatter(),
-                        SpreadsheetPatternEditorWidgetSampleRow.formatPatternSupplier(
-                                patternTextSupplier,
+                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                                patternText,
                                 SpreadsheetPattern::parseTimeFormatPattern
                         ),
                         new FakeSpreadsheetFormatterContext() {
@@ -837,10 +826,10 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
         this.toStringAndCheck(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
                         LABEL,
-                        PATTERN_TEXT_SUPPLIER,
+                        PATTERN_TEXT,
                         LocalTime.now(),
                         SpreadsheetFormatters.fake(),
-                        FORMAT_PATTERN_SUPPLIER,
+                        FORMAT_PATTERN,
                         SpreadsheetFormatterContexts.fake()
                 ),
                 LABEL

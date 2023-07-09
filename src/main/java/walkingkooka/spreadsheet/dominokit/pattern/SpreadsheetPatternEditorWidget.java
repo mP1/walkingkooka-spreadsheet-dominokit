@@ -88,11 +88,13 @@ public final class SpreadsheetPatternEditorWidget {
                 localListDataStore
         );
 
+        final String patternText = this.patternText();
+
         final List<SpreadsheetPatternEditorWidgetSampleRow> sampleRowDataList = Lists.array();
         sampleRowDataList.add(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
                         "Text",
-                        this::patternText, // patternText
+                        patternText, // patternText
                         "abc123", // value
                         SpreadsheetFormatters.text(
                                 SpreadsheetFormatParserToken.text(
@@ -105,8 +107,8 @@ public final class SpreadsheetPatternEditorWidget {
                                         "@"
                                 )
                         ), // default text formatter
-                        SpreadsheetPatternEditorWidgetSampleRow.formatPatternSupplier(
-                                this::patternText,
+                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                                patternText,
                                 SpreadsheetPattern::parseTextFormatPattern
                         ),
                         context.spreadsheetFormatterContext()

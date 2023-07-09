@@ -36,33 +36,29 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
     /**
      * Helper that provides a {@link SpreadsheetFormatPattern} if the {@link Supplier patternText} is present and can be parsed.
      */
-    static Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPatternSupplier(final Supplier<String> patternText,
-                                                                                        final Function<String, ? extends SpreadsheetFormatPattern> parser) {
+    static Optional<? extends SpreadsheetFormatPattern> tryParsePatternText(final String patternText,
+                                                                            final Function<String, ? extends SpreadsheetFormatPattern> parser) {
         Objects.requireNonNull(patternText, "patternText");
 
-        return () -> {
-            SpreadsheetFormatPattern spreadsheetFormatPattern = null;
+        SpreadsheetFormatPattern spreadsheetFormatPattern = null;
 
-            try {
-                spreadsheetFormatPattern = parser.apply(
-                        patternText.get()
-                );
-            } catch (final Exception fail) {
-                // ignore
-            }
+        try {
+            spreadsheetFormatPattern = parser.apply(patternText);
+        } catch (final Exception fail) {
+            // ignore
+        }
 
-            return Optional.ofNullable(spreadsheetFormatPattern);
-        };
+        return Optional.ofNullable(spreadsheetFormatPattern);
     }
 
     /**
      * Factory that creates a new {@link SpreadsheetPatternEditorWidgetSampleRow}.
      */
     static SpreadsheetPatternEditorWidgetSampleRow with(final String label,
-                                                        final Supplier<String> patternText,
+                                                        final String patternText,
                                                         final Object value,
                                                         final SpreadsheetFormatter defaultFormatter,
-                                                        final Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPattern,
+                                                        final Optional<? extends SpreadsheetFormatPattern> formatPattern,
                                                         final SpreadsheetFormatterContext context) {
         return new SpreadsheetPatternEditorWidgetSampleRow(
                 CharSequences.failIfNullOrEmpty(label, "label"),
@@ -75,10 +71,10 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
     }
 
     private SpreadsheetPatternEditorWidgetSampleRow(final String label,
-                                                    final Supplier<String> patternText,
+                                                    final String patternText,
                                                     final Object value,
                                                     final SpreadsheetFormatter defaultFormatter,
-                                                    final Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPattern,
+                                                    final Optional<? extends SpreadsheetFormatPattern> formatPattern,
                                                     final SpreadsheetFormatterContext context) {
         this.label = label;
         this.patternText = patternText;
@@ -101,10 +97,10 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
      * The pattern text that appears in the 2nd column.
      */
     String patternText() {
-        return this.patternText.get();
+        return this.patternText;
     }
 
-    private final Supplier<String> patternText;
+    private final String patternText;
 
     /**
      * The value default formatted.
@@ -126,21 +122,20 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
      * The value formatted using the {@link #patternText()}.
      */
     SpreadsheetText patternFormattedValue() {
-        SpreadsheetText formatted = SpreadsheetText.EMPTY;
+        return this.formatPattern.map(this::formatValue)
+                .orElse(SpreadsheetText.EMPTY);
 
-        final Optional<? extends SpreadsheetFormatPattern> formatPattern = this.formatPattern.get();
-
-        if (formatPattern.isPresent()) {
-            formatted = formatPattern.get()
-                    .formatter()
-                    .format(this.value, this.context)
-                    .orElse(SpreadsheetText.EMPTY);
-        }
-
-        return formatted;
     }
 
-    private final Supplier<Optional<? extends SpreadsheetFormatPattern>> formatPattern;
+    private SpreadsheetText formatValue(final SpreadsheetFormatPattern pattern) {
+        return pattern.formatter()
+                .format(
+                        this.value,
+                        this.context
+                ).orElse(SpreadsheetText.EMPTY);
+    }
+
+    private final Optional<? extends SpreadsheetFormatPattern> formatPattern;
 
     private final SpreadsheetFormatterContext context;
 
