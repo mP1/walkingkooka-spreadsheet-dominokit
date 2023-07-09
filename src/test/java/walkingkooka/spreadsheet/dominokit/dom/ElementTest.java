@@ -17,14 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class ElementTest implements ClassTesting<Element> {
+public final class ElementTest implements ClassTesting<Element<?>> {
 
     @Override
-    public Class<Element> type() {
-        return Element.class;
+    public Class<Element<?>> type() {
+        return Cast.to(Element.class);
     }
 
     @Override
