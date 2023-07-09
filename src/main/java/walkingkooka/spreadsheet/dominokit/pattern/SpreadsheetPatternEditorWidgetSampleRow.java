@@ -19,14 +19,35 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * Represents a row of data for the sample table that appears within a {@link SpreadsheetPatternEditorWidget}.
  */
 final class SpreadsheetPatternEditorWidgetSampleRow {
+
+    /**
+     * Helper that provides a {@link SpreadsheetPattern} using the given {@link String patternText}.
+     */
+    static <T extends SpreadsheetPattern> Optional<T> tryParsePatternText(final String patternText,
+                                                                          final Function<String, T> parser) {
+        Objects.requireNonNull(patternText, "patternText");
+
+        T spreadsheetFormatPattern = null;
+
+        try {
+            spreadsheetFormatPattern = parser.apply(patternText);
+        } catch (final Exception fail) {
+            // ignore
+        }
+
+        return Optional.ofNullable(spreadsheetFormatPattern);
+    }
 
     /**
      * Factory that creates a new {@link SpreadsheetPatternEditorWidgetSampleRow}.

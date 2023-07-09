@@ -172,7 +172,7 @@ public final class SpreadsheetPatternEditorWidget {
                                         )
                                 ).format(value, formatterContext)
                                 .orElse(SpreadsheetText.EMPTY),
-                        tryParsePatternText(
+                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
                                 patternText,
                                 SpreadsheetPattern::parseTextFormatPattern
                         ).map(p -> p.formatter().format(value, formatterContext).orElse(SpreadsheetText.EMPTY))
@@ -182,24 +182,6 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.sampleDataTableDataStore.setData(sampleRowDataList);
         this.sampleDataTable.load();
-    }
-
-    /**
-     * Helper that provides a {@link SpreadsheetPattern} using the given {@link String patternText}.
-     */
-    private static <T extends SpreadsheetPattern> Optional<T> tryParsePatternText(final String patternText,
-                                                                                  final Function<String, T> parser) {
-        Objects.requireNonNull(patternText, "patternText");
-
-        T spreadsheetFormatPattern = null;
-
-        try {
-            spreadsheetFormatPattern = parser.apply(patternText);
-        } catch (final Exception fail) {
-            // ignore
-        }
-
-        return Optional.ofNullable(spreadsheetFormatPattern);
     }
 
     private final DataTable<SpreadsheetPatternEditorWidgetSampleRow> sampleDataTable;
