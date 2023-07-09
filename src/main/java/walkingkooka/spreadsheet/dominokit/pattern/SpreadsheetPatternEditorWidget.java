@@ -87,35 +87,7 @@ public final class SpreadsheetPatternEditorWidget {
                 this.sampleTableConfig(),
                 localListDataStore
         );
-
-        final String patternText = this.patternText();
-
-        final List<SpreadsheetPatternEditorWidgetSampleRow> sampleRowDataList = Lists.array();
-        sampleRowDataList.add(
-                SpreadsheetPatternEditorWidgetSampleRow.with(
-                        "Text",
-                        patternText, // patternText
-                        "abc123", // value
-                        SpreadsheetFormatters.text(
-                                SpreadsheetFormatParserToken.text(
-                                        Lists.of(
-                                                SpreadsheetFormatParserToken.textLiteral(
-                                                        "@",
-                                                        "@"
-                                                )
-                                        ),
-                                        "@"
-                                )
-                        ), // default text formatter
-                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
-                                patternText,
-                                SpreadsheetPattern::parseTextFormatPattern
-                        ),
-                        context.spreadsheetFormatterContext()
-                )
-        );
-        localListDataStore.setData(sampleRowDataList);
-        this.sampleData = sampleRowDataList;
+        this.sampleDataTableDataStore = localListDataStore;
 
         this.modalDialog = this.modalDialogCreate(context.title());
 
@@ -169,9 +141,41 @@ public final class SpreadsheetPatternEditorWidget {
                 );
     }
 
-    private final List<SpreadsheetPatternEditorWidgetSampleRow> sampleData;
+    private void prepareSampleData() {
+        final String patternText = this.patternText();
+
+        final List<SpreadsheetPatternEditorWidgetSampleRow> sampleRowDataList = Lists.array();
+        sampleRowDataList.add(
+                SpreadsheetPatternEditorWidgetSampleRow.with(
+                        "Text",
+                        patternText, // patternText
+                        "abc123", // value
+                        SpreadsheetFormatters.text(
+                                SpreadsheetFormatParserToken.text(
+                                        Lists.of(
+                                                SpreadsheetFormatParserToken.textLiteral(
+                                                        "@",
+                                                        "@"
+                                                )
+                                        ),
+                                        "@"
+                                )
+                        ), // default text formatter
+                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                                patternText,
+                                SpreadsheetPattern::parseTextFormatPattern
+                        ),
+                        this.context.spreadsheetFormatterContext()
+                )
+        );
+
+        this.sampleDataTableDataStore.setData(sampleRowDataList);
+        this.sampleDataTable.load();
+    }
 
     private final DataTable<SpreadsheetPatternEditorWidgetSampleRow> sampleDataTable;
+
+    private final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRow> sampleDataTableDataStore;
 
     // patternTextBox...................................................................................................
 
@@ -253,7 +257,7 @@ public final class SpreadsheetPatternEditorWidget {
                         pattern
         );
 
-        this.sampleDataTable.load();
+        this.prepareSampleData();
     }
 
     /**
