@@ -106,7 +106,7 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
                 .orElse("");
     }
 
-    private Supplier<Optional<String>> patternText;
+    private final Supplier<Optional<String>> patternText;
 
     /**
      * The value default formatted.
