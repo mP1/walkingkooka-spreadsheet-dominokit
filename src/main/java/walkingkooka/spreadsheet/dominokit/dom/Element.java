@@ -112,7 +112,6 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
                 EventType.keydown.getName(),
                 listener
         );
-        ;
     }
 
     // children.........................................................................................................
