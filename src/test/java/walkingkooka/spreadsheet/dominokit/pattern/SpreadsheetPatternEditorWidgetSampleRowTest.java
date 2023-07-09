@@ -525,27 +525,6 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                                 return 'D';
                             }
 
-                            @Override public String exponentSymbol() {
-                                return super.exponentSymbol();
-                            }
-
-                            @Override public char groupSeparator() {
-                                return super.groupSeparator();
-                            }
-
-                            @Override public char negativeSign() {
-                                return super.negativeSign();
-                            }
-
-                            @Override public char percentageSymbol() {
-                                return super.percentageSymbol();
-                            }
-
-                            @Override
-                            public char positiveSign() {
-                                return super.positiveSign();
-                            }
-
                             @Override
                             public MathContext mathContext() {
                                 return MathContext.DECIMAL32;
