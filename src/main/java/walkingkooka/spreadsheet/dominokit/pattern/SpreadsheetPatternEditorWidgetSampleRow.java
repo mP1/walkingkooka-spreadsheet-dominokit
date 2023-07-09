@@ -21,12 +21,12 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 /**
  * Represents a row of data for the sample table that appears within a {@link SpreadsheetPatternEditorWidget}.
@@ -34,13 +34,13 @@ import java.util.function.Supplier;
 final class SpreadsheetPatternEditorWidgetSampleRow {
 
     /**
-     * Helper that provides a {@link SpreadsheetFormatPattern} if the {@link Supplier patternText} is present and can be parsed.
+     * Helper that provides a {@link SpreadsheetPattern} using the given {@link String patternText}.
      */
-    static Optional<? extends SpreadsheetFormatPattern> tryParsePatternText(final String patternText,
-                                                                            final Function<String, ? extends SpreadsheetFormatPattern> parser) {
+    static <T extends SpreadsheetPattern> Optional<T> tryParsePatternText(final String patternText,
+                                                                          final Function<String, T> parser) {
         Objects.requireNonNull(patternText, "patternText");
 
-        SpreadsheetFormatPattern spreadsheetFormatPattern = null;
+        T spreadsheetFormatPattern = null;
 
         try {
             spreadsheetFormatPattern = parser.apply(patternText);
