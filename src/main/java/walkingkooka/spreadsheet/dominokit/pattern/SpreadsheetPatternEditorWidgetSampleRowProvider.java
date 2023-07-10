@@ -26,6 +26,16 @@ import java.util.function.BiFunction;
  */
 abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunction<String, SpreadsheetPatternEditorWidgetSampleRowProviderContext, List<SpreadsheetPatternEditorWidgetSampleRow>> {
 
+    /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat textFormat() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat.INSTANCE;
+    }
+
+    /**
+     * Package private to limit sub classing.
+     */
     SpreadsheetPatternEditorWidgetSampleRowProvider() {
         super();
     }
