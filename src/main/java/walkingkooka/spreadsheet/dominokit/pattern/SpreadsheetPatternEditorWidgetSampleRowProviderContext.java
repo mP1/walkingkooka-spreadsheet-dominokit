@@ -50,11 +50,6 @@ public interface SpreadsheetPatternEditorWidgetSampleRowProviderContext extends 
     SpreadsheetPatternKind kind();
 
     /**
-     * The current pattern as text.
-     */
-    String patternText();
-
-    /**
      * Uses the given {@link SpreadsheetFormatter} to format the given {@link Object value}.
      */
     default SpreadsheetText format(final SpreadsheetFormatter formatter,

@@ -26,24 +26,19 @@ import java.util.Objects;
 final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext implements SpreadsheetPatternEditorWidgetSampleRowProviderContext {
 
     static BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext with(final SpreadsheetPatternKind kind,
-                                                                            final String patternText,
                                                                             final SpreadsheetFormatterContext spreadsheetFormatterContext) {
         Objects.requireNonNull(kind, "kind");
-        Objects.requireNonNull(patternText, "patternText");
         Objects.requireNonNull(spreadsheetFormatterContext, "spreadsheetFormatterContext");
 
         return new BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext(
                 kind,
-                patternText,
                 spreadsheetFormatterContext
         );
     }
 
     private BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext(final SpreadsheetPatternKind kind,
-                                                                        final String patternText,
                                                                         final SpreadsheetFormatterContext spreadsheetFormatterContext) {
         this.kind = kind;
-        this.patternText = patternText;
         this.spreadsheetFormatterContext = spreadsheetFormatterContext;
     }
 
@@ -64,13 +59,6 @@ final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext implemen
     private final SpreadsheetPatternKind kind;
 
     @Override
-    public String patternText() {
-        return this.patternText;
-    }
-
-    private final String patternText;
-
-    @Override
     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
         return this.spreadsheetFormatterContext;
     }
@@ -79,6 +67,6 @@ final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext implemen
 
     @Override
     public String toString() {
-        return this.patternText();
+        return this.kind() + " " + this.spreadsheetFormatterContext().toString();
     }
 }

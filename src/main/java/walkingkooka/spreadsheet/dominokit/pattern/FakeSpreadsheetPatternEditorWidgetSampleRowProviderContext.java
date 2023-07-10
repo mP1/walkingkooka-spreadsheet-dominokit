@@ -34,11 +34,6 @@ public class FakeSpreadsheetPatternEditorWidgetSampleRowProviderContext implemen
     }
 
     @Override
-    public String patternText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
         throw new UnsupportedOperationException();
     }

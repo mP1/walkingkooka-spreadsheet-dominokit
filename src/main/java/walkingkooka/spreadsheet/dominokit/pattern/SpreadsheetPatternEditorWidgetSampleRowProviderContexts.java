@@ -27,11 +27,9 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderContexts imple
      * {@see BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext}
      */
     public static SpreadsheetPatternEditorWidgetSampleRowProviderContext basic(final SpreadsheetPatternKind kind,
-                                                                               final String patternText,
                                                                                final SpreadsheetFormatterContext spreadsheetFormatterContext) {
         return BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext.with(
                 kind,
-                patternText,
                 spreadsheetFormatterContext
         );
     }

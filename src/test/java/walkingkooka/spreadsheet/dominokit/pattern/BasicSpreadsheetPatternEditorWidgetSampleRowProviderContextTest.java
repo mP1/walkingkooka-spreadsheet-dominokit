@@ -37,16 +37,6 @@ public final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContextTe
     public void testWithNullKindFails() {
         this.withFails(
                 null,
-                "",
-                SpreadsheetFormatterContexts.fake()
-        );
-    }
-
-    @Test
-    public void testWithNullPatternTextFails() {
-        this.withFails(
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
-                null,
                 SpreadsheetFormatterContexts.fake()
         );
     }
@@ -55,28 +45,24 @@ public final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContextTe
     public void testWithNullSpreadsheetFormatterContextFails() {
         this.withFails(
                 SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
-                "",
                 null
         );
     }
 
     private void withFails(final SpreadsheetPatternKind kind,
-                           final String patternText,
                            final SpreadsheetFormatterContext spreadsheetFormatterContext) {
         assertThrows(
                 NullPointerException.class,
                 () -> BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext.with(
                         kind,
-                        patternText,
                         spreadsheetFormatterContext
                 )
         );
     }
 
     @Test
-    public void testWithInvalidPattern() {
+    public void testWith() {
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN;
-        final String patternText = "Pattern123\"";
         final SpreadsheetFormatterContext spreadsheetFormatterContext = new FakeSpreadsheetFormatterContext() {
             @Override
             public Locale locale() {
@@ -86,7 +72,6 @@ public final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContextTe
 
         final BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext context = BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext.with(
                 kind,
-                patternText,
                 spreadsheetFormatterContext
         );
 
@@ -102,11 +87,6 @@ public final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContextTe
                 "kind"
         );
         this.checkEquals(
-                patternText,
-                context.patternText(),
-                "patternText"
-        );
-        this.checkEquals(
                 spreadsheetFormatterContext,
                 context.spreadsheetFormatterContext(),
                 "spreadsheetFormatterContext"
@@ -117,15 +97,15 @@ public final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContextTe
 
     @Test
     public void testToString() {
-        final String patternText = "Pattern123";
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+        final SpreadsheetFormatterContext context = SpreadsheetFormatterContexts.fake();
 
         this.toStringAndCheck(
                 BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext.with(
-                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
-                        patternText,
-                        SpreadsheetFormatterContexts.fake()
+                        kind,
+                        context
                 ),
-                patternText
+                kind + " " + context
         );
     }
 
