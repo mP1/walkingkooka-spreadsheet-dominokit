@@ -30,7 +30,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
 
     private final static String LABEL = "Label123";
 
-    private final static String PATTERN_TEXT = "";
+    private final static String PATTERN_TEXT = "@";
 
     private final static SpreadsheetText DEFAULT_FORMATTED_VALUE = SpreadsheetText.with("default formatted value");
 
@@ -117,7 +117,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                         DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 ),
-                LABEL
+                "\"" + LABEL + "\" | \"" + PATTERN_TEXT + "\" | " + DEFAULT_FORMATTED_VALUE + " | " + PATTERN_FORMATTED_VALUE
         );
     }
 
