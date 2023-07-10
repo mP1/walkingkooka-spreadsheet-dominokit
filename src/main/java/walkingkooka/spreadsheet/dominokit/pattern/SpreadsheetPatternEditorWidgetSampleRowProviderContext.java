@@ -55,6 +55,17 @@ public interface SpreadsheetPatternEditorWidgetSampleRowProviderContext extends 
     String patternText();
 
     /**
+     * Uses the given {@link SpreadsheetFormatter} to format the given {@link Object value}.
+     */
+    default SpreadsheetText format(final SpreadsheetFormatter formatter,
+                                   final Object value) {
+        return formatter.formatOrEmptyText(
+                value,
+                this.spreadsheetFormatterContext()
+        );
+    }
+
+    /**
      * The {@link SpreadsheetFormatterContext} to be used when formatting a value with this pattern.
      */
     SpreadsheetFormatterContext spreadsheetFormatterContext();

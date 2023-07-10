@@ -22,6 +22,7 @@ import walkingkooka.Context;
 import walkingkooka.ContextTesting;
 import walkingkooka.Either;
 import walkingkooka.color.Color;
+import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
@@ -76,6 +77,38 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderContextTest im
                         return new TestSpreadsheetFormatterContext();
                     }
                 }.defaultFormat(text)
+        );
+    }
+
+    @Test
+    public void testFormat() {
+        final String text = "Abc123";
+        final SpreadsheetText expected = SpreadsheetText.with(
+                text + text + text
+        ).setColor(
+                Optional.of(RED)
+        );
+
+        this.checkEquals(
+                expected,
+                new FakeSpreadsheetPatternEditorWidgetSampleRowProviderContext() {
+
+                    @Override
+                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
+                        return new TestSpreadsheetFormatterContext();
+                    }
+                }.format(
+                        new FakeSpreadsheetFormatter() {
+
+                            @Override
+                            public Optional<SpreadsheetText> format(final Object value,
+                                                                    final SpreadsheetFormatterContext context) {
+                                checkEquals(text, value);
+                                return Optional.of(expected);
+                            }
+                        },
+                        text
+                )
         );
     }
 
