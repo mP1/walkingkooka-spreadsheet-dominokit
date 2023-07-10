@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 /**
@@ -31,6 +32,17 @@ public interface SpreadsheetPatternEditorWidgetSampleRowProviderContext extends 
      * Returns the default {@link SpreadsheetFormatter} for the {@link #kind()}.
      */
     SpreadsheetFormatter defaultSpreadsheetFormatter();
+
+    /**
+     * Uses the {@link #defaultSpreadsheetFormatter()} to format the {@link Object value}.
+     */
+    default SpreadsheetText defaultFormat(final Object value) {
+        return this.defaultSpreadsheetFormatter()
+                .format(
+                        value,
+                        this.spreadsheetFormatterContext()
+                ).orElse(SpreadsheetText.EMPTY);
+    }
 
     /**
      * The {@link SpreadsheetPatternKind} for the parent pattern.
