@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -26,6 +27,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetText;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassTesting<SpreadsheetPatternEditorWidgetSampleRow>,
+        HashCodeEqualsDefinedTesting2<SpreadsheetPatternEditorWidgetSampleRow>,
         ToStringTesting<SpreadsheetPatternEditorWidgetSampleRow> {
 
     private final static String LABEL = "Label123";
@@ -103,6 +105,65 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                         defaultFormattedValue,
                         patternFormattedValue
                 )
+        );
+    }
+    // equals............................................................................................................
+
+    @Test
+    public void testEqualsDifferentLabel() {
+        this.checkNotEquals(
+                SpreadsheetPatternEditorWidgetSampleRow.with(
+                        "different",
+                        PATTERN_TEXT,
+                        DEFAULT_FORMATTED_VALUE,
+                        PATTERN_FORMATTED_VALUE
+                )
+        );
+    }
+
+    @Test
+    public void testEqualsDifferentPatternText() {
+        this.checkNotEquals(
+                SpreadsheetPatternEditorWidgetSampleRow.with(
+                        LABEL,
+                        "different",
+                        DEFAULT_FORMATTED_VALUE,
+                        PATTERN_FORMATTED_VALUE
+                )
+        );
+    }
+
+    @Test
+    public void testEqualsDifferentDefaultFormattedValue() {
+        this.checkNotEquals(
+                SpreadsheetPatternEditorWidgetSampleRow.with(
+                        LABEL,
+                        PATTERN_TEXT,
+                        SpreadsheetText.with("different"),
+                        PATTERN_FORMATTED_VALUE
+                )
+        );
+    }
+
+    @Test
+    public void testEqualsDifferentPatternFormattedValue() {
+        this.checkNotEquals(
+                SpreadsheetPatternEditorWidgetSampleRow.with(
+                        LABEL,
+                        PATTERN_TEXT,
+                        DEFAULT_FORMATTED_VALUE,
+                        SpreadsheetText.with("different")
+                )
+        );
+    }
+
+    @Override
+    public SpreadsheetPatternEditorWidgetSampleRow createObject() {
+        return SpreadsheetPatternEditorWidgetSampleRow.with(
+                LABEL,
+                PATTERN_TEXT,
+                DEFAULT_FORMATTED_VALUE,
+                PATTERN_FORMATTED_VALUE
         );
     }
 

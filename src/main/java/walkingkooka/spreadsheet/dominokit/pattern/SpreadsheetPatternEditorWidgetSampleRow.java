@@ -90,6 +90,30 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
 
     private final SpreadsheetText patternFormattedValue;
 
+    // Object...........................................................................................................
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                this.label,
+                this.patternText,
+                this.defaultFormattedValue,
+                this.patternFormattedValue
+        );
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        return this == other || other instanceof SpreadsheetPatternEditorWidgetSampleRow && this.equals0((SpreadsheetPatternEditorWidgetSampleRow) other);
+    }
+
+    private boolean equals0(final SpreadsheetPatternEditorWidgetSampleRow other) {
+        return this.label.equals(other.label) &&
+                this.patternText.equals(other.patternText) &&
+                this.defaultFormattedValue.equals(other.defaultFormattedValue) &&
+                this.patternFormattedValue.equals(other.patternFormattedValue);
+    }
+
     @Override
     public String toString() {
         return ToStringBuilder.empty()
