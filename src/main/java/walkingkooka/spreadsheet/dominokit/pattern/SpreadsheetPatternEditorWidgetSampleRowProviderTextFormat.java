@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * A {@link SpreadsheetPatternEditorWidgetSampleRowProvider} for {@link SpreadsheetTextFormatPattern}.
- * Curently it provides two samples, one for the current pattern and the second the default text format pattern.
+ * Currently it provides two samples, one for the current pattern and the second the default text format pattern.
  */
 final class SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat extends SpreadsheetPatternEditorWidgetSampleRowProvider {
 
