@@ -44,10 +44,6 @@ import walkingkooka.spreadsheet.dominokit.dom.Span;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
-import walkingkooka.spreadsheet.format.SpreadsheetText;
-import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserToken;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -56,8 +52,6 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -149,38 +143,16 @@ public final class SpreadsheetPatternEditorWidget {
     }
 
     private void prepareSampleData() {
-        final String patternText = this.patternText();
-
-        final SpreadsheetPatternEditorWidgetContext providerContext = this.context;
-        final SpreadsheetFormatterContext formatterContext = providerContext.spreadsheetFormatterContext();
-        final String value = "abc123";
-
-        final List<SpreadsheetPatternEditorWidgetSampleRow> sampleRowDataList = Lists.array();
-        sampleRowDataList.add(
-                SpreadsheetPatternEditorWidgetSampleRow.with(
-                        "Text",
-                        patternText, // patternText
-                        SpreadsheetFormatters.text(
-                                        SpreadsheetFormatParserToken.text(
-                                                Lists.of(
-                                                        SpreadsheetFormatParserToken.textLiteral(
-                                                                "@",
-                                                                "@"
-                                                        )
-                                                ),
-                                                "@"
-                                        )
-                                ).format(value, formatterContext)
-                                .orElse(SpreadsheetText.EMPTY),
-                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
-                                patternText,
-                                SpreadsheetPattern::parseTextFormatPattern
-                        ).map(p -> p.formatter().format(value, formatterContext).orElse(SpreadsheetText.EMPTY))
-                                .orElse(SpreadsheetText.EMPTY)
-                )
+        this.sampleDataTableDataStore.setData(
+                SpreadsheetPatternEditorWidgetSampleRowProvider.textFormat()
+                        .apply(
+                                this.patternText(),
+                                SpreadsheetPatternEditorWidgetSampleRowProviderContexts.basic(
+                                        SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
+                                        this.context.spreadsheetFormatterContext()
+                                )
+                        )
         );
-
-        this.sampleDataTableDataStore.setData(sampleRowDataList);
         this.sampleDataTable.load();
     }
 
