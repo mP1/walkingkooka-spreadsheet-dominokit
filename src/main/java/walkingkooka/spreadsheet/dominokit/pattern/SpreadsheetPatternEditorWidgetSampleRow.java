@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.ToStringBuilder;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.text.CharSequences;
 
@@ -91,6 +92,12 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
 
     @Override
     public String toString() {
-        return this.label();
+        return ToStringBuilder.empty()
+                .separator(" | ")
+                .value(this.label())
+                .value(this.patternText())
+                .value(this.defaultFormattedValue())
+                .value(this.patternFormattedValue())
+                .build();
     }
 }
