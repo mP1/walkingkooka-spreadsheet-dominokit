@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 
 /**
  * A provider that uses the user's {@link java.util.Locale} and active {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} to prepare rows
  * for the sample.
  */
-abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements Function<SpreadsheetPatternEditorWidgetSampleRowProviderContext, List<SpreadsheetPatternEditorWidgetSampleRow>> {
+abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunction<String, SpreadsheetPatternEditorWidgetSampleRowProviderContext, List<SpreadsheetPatternEditorWidgetSampleRow>> {
 
     SpreadsheetPatternEditorWidgetSampleRowProvider() {
         super();
