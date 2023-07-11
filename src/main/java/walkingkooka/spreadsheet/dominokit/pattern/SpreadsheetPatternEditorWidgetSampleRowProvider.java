@@ -29,42 +29,42 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
      */
-    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty dateFormat() {
+    static SpreadsheetPatternEditorWidgetSampleRowProvider dateFormat() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
      */
-    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty dateParse() {
+    static SpreadsheetPatternEditorWidgetSampleRowProvider dateParse() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
      */
-    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty dateTimeFormat() {
+    static SpreadsheetPatternEditorWidgetSampleRowProvider dateTimeFormat() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
      */
-    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty dateTimeParse() {
+    static SpreadsheetPatternEditorWidgetSampleRowProvider dateTimeParse() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
      */
-    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty numberFormat() {
+    static SpreadsheetPatternEditorWidgetSampleRowProvider numberFormat() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
      */
-    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty numberParse() {
+    static SpreadsheetPatternEditorWidgetSampleRowProvider numberParse() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
@@ -78,14 +78,14 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
      */
-    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty timeFormat() {
+    static SpreadsheetPatternEditorWidgetSampleRowProvider timeFormat() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
      */
-    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty timeParse() {
+    static SpreadsheetPatternEditorWidgetSampleRowProvider timeParse() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
