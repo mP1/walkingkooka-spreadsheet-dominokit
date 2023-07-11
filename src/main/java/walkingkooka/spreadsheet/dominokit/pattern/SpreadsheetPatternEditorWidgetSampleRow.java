@@ -149,8 +149,8 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
                 .separator(" | ")
                 .value(this.label())
                 .value(this.patternText())
-                .value(this.defaultFormattedValue())
-                .value(this.patternFormattedValue())
+                .value(this.defaultFormattedValue().text())
+                .value(this.patternFormattedValue().text())
                 .build();
     }
 }
