@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.ToStringBuilder;
+import walkingkooka.ToStringBuilderOption;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
@@ -135,9 +136,16 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
                 this.patternFormattedValue.equals(other.patternFormattedValue);
     }
 
+    /**
+     * Produces a row with each of the properties separated by the PIPE SYMBOL.
+     * <pre>
+     * Label123 | dd/yyyy/mm | 31/12/1999 | 31/1999/12
+     * </pre>
+     */
     @Override
     public String toString() {
         return ToStringBuilder.empty()
+                .disable(ToStringBuilderOption.QUOTE)
                 .separator(" | ")
                 .value(this.label())
                 .value(this.patternText())
