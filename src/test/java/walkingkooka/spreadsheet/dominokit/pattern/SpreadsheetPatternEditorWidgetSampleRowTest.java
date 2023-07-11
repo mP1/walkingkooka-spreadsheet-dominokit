@@ -178,7 +178,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
                         DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 ),
-                "" + LABEL + " | " + PATTERN_TEXT + " | " + DEFAULT_FORMATTED_VALUE + " | " + PATTERN_FORMATTED_VALUE
+                "Label123 | @ | default formatted value | pattern formatted value"
         );
     }
 
