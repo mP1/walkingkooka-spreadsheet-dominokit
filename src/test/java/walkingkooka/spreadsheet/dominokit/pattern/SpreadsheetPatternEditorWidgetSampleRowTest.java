@@ -182,6 +182,32 @@ public final class SpreadsheetPatternEditorWidgetSampleRowTest implements ClassT
         );
     }
 
+    @Test
+    public void testToStringEmptyPatternText() {
+        this.toStringAndCheck(
+                SpreadsheetPatternEditorWidgetSampleRow.with(
+                        LABEL,
+                        "",
+                        DEFAULT_FORMATTED_VALUE,
+                        PATTERN_FORMATTED_VALUE
+                ),
+                "Label123 | | default formatted value | pattern formatted value"
+        );
+    }
+
+    @Test
+    public void testToStringAllEmpty() {
+        this.toStringAndCheck(
+                SpreadsheetPatternEditorWidgetSampleRow.with(
+                        LABEL,
+                        "",
+                        SpreadsheetText.EMPTY,
+                        SpreadsheetText.EMPTY
+                ),
+                "Label123 | | |"
+        );
+    }
+
     // ClassVisibility..................................................................................................
 
     @Override

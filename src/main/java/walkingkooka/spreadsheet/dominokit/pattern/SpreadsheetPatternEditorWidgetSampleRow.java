@@ -17,8 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.ToStringBuilder;
-import walkingkooka.ToStringBuilderOption;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
@@ -144,13 +142,42 @@ final class SpreadsheetPatternEditorWidgetSampleRow {
      */
     @Override
     public String toString() {
-        return ToStringBuilder.empty()
-                .disable(ToStringBuilderOption.QUOTE)
-                .separator(" | ")
-                .value(this.label())
-                .value(this.patternText())
-                .value(this.defaultFormattedValue().text())
-                .value(this.patternFormattedValue().text())
-                .build();
+        final StringBuilder b = new StringBuilder();
+
+        {
+            final String label = this.label;
+            if (false == label.isEmpty()) {
+                b.append(label);
+            }
+            b.append(" | ");
+        }
+
+        {
+            final String patternText = this.patternText;
+            if (false == patternText.isEmpty()) {
+                b.append(patternText)
+                        .append(' ');
+            }
+            b.append("| ");
+        }
+
+        {
+            final String defaultFormattedValue = this.defaultFormattedValue.text();
+            if (false == defaultFormattedValue.isEmpty()) {
+                b.append(defaultFormattedValue)
+                        .append(' ');
+            }
+            b.append("| ");
+        }
+
+        {
+            final String patternFormattedValue = this.patternFormattedValue.text();
+            if (false == patternFormattedValue.isEmpty()) {
+                b.append(patternFormattedValue);
+            }
+        }
+
+        return b.toString()
+                .trim();
     }
 }
