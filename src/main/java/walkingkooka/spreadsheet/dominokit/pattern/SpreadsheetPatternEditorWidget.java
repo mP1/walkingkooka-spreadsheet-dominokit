@@ -37,6 +37,7 @@ import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
 import org.jboss.elemento.EventType;
+import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -143,15 +144,53 @@ public final class SpreadsheetPatternEditorWidget {
     }
 
     private void prepareSampleData() {
+        final SpreadsheetPatternEditorWidgetSampleRowProvider provider;
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+
+        final SpreadsheetPatternKind patternKind = context.patternKind();
+        switch (patternKind) {
+            case DATE_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.dateFormat();
+                break;
+            case DATE_PARSE_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.dateParse();
+                break;
+            case DATE_TIME_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.dateTimeFormat();
+                break;
+            case DATE_TIME_PARSE_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.dateTimeParse();
+                break;
+            case NUMBER_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.numberFormat();
+                break;
+            case NUMBER_PARSE_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.numberParse();
+                break;
+            case TEXT_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.textFormat();
+                break;
+            case TIME_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.timeFormat();
+                break;
+            case TIME_PARSE_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.timeParse();
+                break;
+            default:
+                provider = NeverError.unhandledEnum(
+                        patternKind,
+                        SpreadsheetPatternKind.values()
+                );
+        }
+
         this.sampleDataTableDataStore.setData(
-                SpreadsheetPatternEditorWidgetSampleRowProvider.textFormat()
-                        .apply(
-                                this.patternText(),
-                                SpreadsheetPatternEditorWidgetSampleRowProviderContexts.basic(
-                                        SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
-                                        this.context.spreadsheetFormatterContext()
-                                )
+                provider.apply(
+                        this.patternText(),
+                        SpreadsheetPatternEditorWidgetSampleRowProviderContexts.basic(
+                                patternKind,
+                                context.spreadsheetFormatterContext()
                         )
+                )
         );
         this.sampleDataTable.load();
     }

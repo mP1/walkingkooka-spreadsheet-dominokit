@@ -27,10 +27,66 @@ import java.util.function.BiFunction;
 abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunction<String, SpreadsheetPatternEditorWidgetSampleRowProviderContext, List<SpreadsheetPatternEditorWidgetSampleRow>> {
 
     /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty dateFormat() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty dateParse() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty dateTimeFormat() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty dateTimeParse() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty numberFormat() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty numberParse() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+    }
+
+    /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat textFormat() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat.INSTANCE;
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty timeFormat() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProviderEmpty timeParse() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
     }
 
     /**
