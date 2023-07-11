@@ -21,17 +21,31 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.text.LineEnding;
+import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.util.BiFunctionTesting;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<T extends SpreadsheetPatternEditorWidgetSampleRowProvider> implements
         BiFunctionTesting<T, String, SpreadsheetPatternEditorWidgetSampleRowProviderContext, List<SpreadsheetPatternEditorWidgetSampleRow>>,
         ClassTesting<T>,
-        ToStringTesting<T> {
+        ToStringTesting<T>,
+        TreePrintableTesting {
 
     SpreadsheetPatternEditorWidgetSampleRowProviderTestCase() {
         super();
+    }
+
+    final void applyAndCheckFirst(final String patternText,
+                                  final SpreadsheetPatternEditorWidgetSampleRowProviderContext context,
+                                  final SpreadsheetPatternEditorWidgetSampleRow expected) {
+        this.applyAndCheck(
+                patternText,
+                context,
+                Lists.of(expected)
+        );
     }
 
     final void applyAndCheck(final String patternText,
@@ -53,6 +67,32 @@ public abstract class SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<T 
                 patternText,
                 context,
                 Lists.of(expected)
+        );
+    }
+
+    final void applyAndCheck2(final String patternText,
+                              final SpreadsheetPatternEditorWidgetSampleRowProviderContext context,
+                              final String rows) {
+        this.applyAndCheck2(
+                this.createProvider(),
+                patternText,
+                context,
+                rows
+        );
+    }
+
+    final void applyAndCheck2(final T provider,
+                              final String patternText,
+                              final SpreadsheetPatternEditorWidgetSampleRowProviderContext context,
+                              final String rows) {
+        this.checkEquals(
+                rows,
+                provider.apply(
+                                patternText,
+                                context
+                        ).stream()
+                        .map(Object::toString)
+                        .collect(Collectors.joining(LineEnding.NL))
         );
     }
 

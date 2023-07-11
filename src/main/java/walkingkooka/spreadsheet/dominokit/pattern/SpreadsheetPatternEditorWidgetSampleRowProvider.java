@@ -27,10 +27,10 @@ import java.util.function.BiFunction;
 abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunction<String, SpreadsheetPatternEditorWidgetSampleRowProviderContext, List<SpreadsheetPatternEditorWidgetSampleRow>> {
 
     /**
-     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider dateFormat() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+        return SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat.INSTANCE;
     }
 
     /**
