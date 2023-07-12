@@ -212,6 +212,6 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat extend
 
     @Override
     public String toString() {
-        return SpreadsheetPatternKind.DATE_FORMAT_PATTERN.toString();
+        return SpreadsheetPatternKind.DATE_TIME_FORMAT_PATTERN.toString();
     }
 }
