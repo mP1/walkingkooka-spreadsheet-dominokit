@@ -213,6 +213,6 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat extends Sp
 
     @Override
     public String toString() {
-        return SpreadsheetPatternKind.TEXT_FORMAT_PATTERN.toString();
+        return SpreadsheetPatternKind.DATE_FORMAT_PATTERN.toString();
     }
 }
