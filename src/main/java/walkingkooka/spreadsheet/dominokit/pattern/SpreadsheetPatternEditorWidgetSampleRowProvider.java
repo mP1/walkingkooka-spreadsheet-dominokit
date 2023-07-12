@@ -76,10 +76,10 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     /**
-     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderTimeFormat}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider timeFormat() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+        return SpreadsheetPatternEditorWidgetSampleRowProviderTimeFormat.INSTANCE;
     }
 
     /**
