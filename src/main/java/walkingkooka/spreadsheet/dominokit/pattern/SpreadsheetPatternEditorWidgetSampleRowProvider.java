@@ -41,10 +41,10 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     /**
-     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider dateTimeFormat() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+        return SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat.INSTANCE;
     }
 
     /**
