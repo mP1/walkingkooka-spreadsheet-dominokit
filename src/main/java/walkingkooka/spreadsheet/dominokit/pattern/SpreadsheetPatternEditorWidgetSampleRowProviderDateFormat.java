@@ -33,7 +33,6 @@ import java.util.Optional;
 
 /**
  * A {@link SpreadsheetPatternEditorWidgetSampleRowProvider} for {@link SpreadsheetTextFormatPattern}.
- * Currently it provides two samples, one for the current pattern and the second the default text format pattern.
  */
 final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat extends SpreadsheetPatternEditorWidgetSampleRowProvider {
 
@@ -88,22 +87,22 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat extends Sp
                                                                       final LocalDate date,
                                                                       final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
         return Lists.of(
-                this.shortDateFormat(
+                this.shortSimpleDateFormat(
                         label,
                         date,
                         context
                 ),
-                this.mediumDateFormat(
+                this.mediumSimpleDateFormat(
                         label,
                         date,
                         context
                 ),
-                this.longDateFormat(
+                this.longSimpleDateFormat(
                         label,
                         date,
                         context
                 ),
-                this.fullDateFormat(
+                this.fullSimpleDateFormat(
                         label,
                         date,
                         context
@@ -111,7 +110,7 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat extends Sp
         );
     }
 
-    private SpreadsheetPatternEditorWidgetSampleRow shortDateFormat(
+    private SpreadsheetPatternEditorWidgetSampleRow shortSimpleDateFormat(
             final String label,
             final LocalDate date,
             final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
@@ -123,7 +122,7 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat extends Sp
         );
     }
 
-    private SpreadsheetPatternEditorWidgetSampleRow mediumDateFormat(
+    private SpreadsheetPatternEditorWidgetSampleRow mediumSimpleDateFormat(
             final String label,
             final LocalDate date,
             final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
@@ -135,7 +134,7 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat extends Sp
         );
     }
 
-    private SpreadsheetPatternEditorWidgetSampleRow longDateFormat(
+    private SpreadsheetPatternEditorWidgetSampleRow longSimpleDateFormat(
             final String label,
             final LocalDate date,
             final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
@@ -147,7 +146,7 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat extends Sp
         );
     }
 
-    private SpreadsheetPatternEditorWidgetSampleRow fullDateFormat(
+    private SpreadsheetPatternEditorWidgetSampleRow fullSimpleDateFormat(
             final String label,
             final LocalDate date,
             final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
@@ -162,11 +161,11 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat extends Sp
     private SpreadsheetPatternEditorWidgetSampleRow simpleDateFormat(
             final String label,
             final LocalDate date,
-            final int dateStyle,
+            final int style,
             final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.dateParsePattern(
                 (SimpleDateFormat) DateFormat.getDateInstance(
-                        dateStyle,
+                        style,
                         context.spreadsheetFormatterContext()
                                 .locale()
                 )
