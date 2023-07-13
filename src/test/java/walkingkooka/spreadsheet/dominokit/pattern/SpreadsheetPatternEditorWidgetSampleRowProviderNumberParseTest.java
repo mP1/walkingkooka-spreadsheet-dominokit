@@ -30,7 +30,7 @@ import java.math.MathContext;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormatTest extends SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat> {
+public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberParseTest extends SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<SpreadsheetPatternEditorWidgetSampleRowProviderNumberParse> {
 
     private final static Color BLUE = Color.parse("#0F1");
 
@@ -128,15 +128,15 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormatTe
     }
 
     @Test
-    public void testValidPatternTextWithColor() {
+    public void testValidPatternText2() {
         final String patternText = "[BLUE] #.000";
 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Positive Pattern | [BLUE] #.000 | 1G234D56 |  1234D560\n" +
-                        "Negative Pattern | [BLUE] #.000 | N9G876D54 |  N9876D540\n" +
-                        "Zero Pattern | [BLUE] #.000 | 0D |  D000\n" +
+                "Positive Pattern | | 1G234D56 |\n" +
+                        "Negative Pattern | | N9G876D54 |\n" +
+                        "Zero Pattern | | 0D |\n" +
                         "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
                         "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
                         "Zero Number | #,##0.### | 0D | 0D\n" +
@@ -176,12 +176,12 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormatTe
     }
 
     @Override
-    SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat createProvider() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat.INSTANCE;
+    SpreadsheetPatternEditorWidgetSampleRowProviderNumberParse createProvider() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderNumberParse.INSTANCE;
     }
 
     @Override
-    public Class<SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat> type() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat.class;
+    public Class<SpreadsheetPatternEditorWidgetSampleRowProviderNumberParse> type() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderNumberParse.class;
     }
 }

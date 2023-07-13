@@ -54,7 +54,7 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat extends Sp
                                 tryParsePatternText(
                                         patternText,
                                         SpreadsheetPattern::parseTextFormatPattern
-                                ).map(SpreadsheetTextFormatPattern::formatter)
+                                ).map(SpreadsheetPattern::formatter)
                                         .orElse(SpreadsheetFormatters.emptyText()),
                                 value
                         )

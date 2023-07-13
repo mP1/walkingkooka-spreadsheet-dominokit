@@ -17,25 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetTextFormatPattern;
 
 /**
- * A {@link SpreadsheetPatternEditorWidgetSampleRowProvider} for {@link SpreadsheetNumberFormatPattern}.
+ * A {@link SpreadsheetPatternEditorWidgetSampleRowProvider} for {@link SpreadsheetTextFormatPattern}.
  */
-final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat extends SpreadsheetPatternEditorWidgetSampleRowProviderNumber {
+final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse extends SpreadsheetPatternEditorWidgetSampleRowProviderDateTime {
 
     /**
      * Singleton
      */
-    final static SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat INSTANCE = new SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat();
+    final static SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse INSTANCE = new SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse();
 
-    private SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat() {
+    private SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse() {
         super();
     }
 
     @Override
     SpreadsheetPatternKind kind() {
-        return SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN;
+        return SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN;
     }
 }

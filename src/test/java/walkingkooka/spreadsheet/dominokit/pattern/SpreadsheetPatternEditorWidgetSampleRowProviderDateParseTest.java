@@ -19,11 +19,9 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
-import walkingkooka.color.Color;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.time.LocalDate;
@@ -31,9 +29,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 
-public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest extends SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat> {
+public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateParseTest extends SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<SpreadsheetPatternEditorWidgetSampleRowProviderDateParse> {
 
     private final static LocalDateTime NOW = LocalDateTime.of(
             LocalDate.of(
@@ -132,13 +129,6 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
                         50,
                         () -> NOW
                 );
-
-                @Override
-                public Optional<Color> colorName(final SpreadsheetColorName name) {
-                    return Optional.of(
-                            Color.parse("#00f")
-                    );
-                }
             }
     );
 
@@ -162,13 +152,32 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
     }
 
     @Test
-    public void testValidPatternTextWithColor() {
+    public void testValidPatternText2() {
+        final String patternText = "yyyy/dd/mmm";
+
+        this.applyAndCheck2(
+                patternText,
+                CONTEXT,
+                "Edit | yyyy/dd/mmm | Tuesday, 11 July 2023 | 2023/11/Jul.\n" +
+                        "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
+                        "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
+                        "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
+                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023 | Tuesday, 11 July 2023\n" +
+                        "31 December 1999 Short | d/m/yy | Friday, 31 December 1999 | 31/12/99\n" +
+                        "31 December 1999 Medium | d mmm yyyy | Friday, 31 December 1999 | 31 Dec. 1999\n" +
+                        "31 December 1999 Long | d mmmm yyyy | Friday, 31 December 1999 | 31 December 1999\n" +
+                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999 | Friday, 31 December 1999"
+        );
+    }
+
+    @Test
+    public void testPatternWithColor() {
         final String patternText = "[RED]yyyy/dd/mmm";
 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | [RED]yyyy/dd/mmm | Tuesday, 11 July 2023 | 2023/11/Jul.\n" +
+                "Edit | | Tuesday, 11 July 2023 |\n" +
                         "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
                         "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
                         "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
@@ -198,12 +207,12 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
     }
 
     @Override
-    SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat createProvider() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat.INSTANCE;
+    SpreadsheetPatternEditorWidgetSampleRowProviderDateParse createProvider() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderDateParse.INSTANCE;
     }
 
     @Override
-    public Class<SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat> type() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat.class;
+    public Class<SpreadsheetPatternEditorWidgetSampleRowProviderDateParse> type() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderDateParse.class;
     }
 }

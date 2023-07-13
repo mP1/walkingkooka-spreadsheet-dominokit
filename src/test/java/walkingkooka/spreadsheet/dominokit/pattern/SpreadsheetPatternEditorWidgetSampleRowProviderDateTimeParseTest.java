@@ -33,15 +33,19 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest extends SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat> {
+public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParseTest extends SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse> {
 
     private final static LocalDateTime NOW = LocalDateTime.of(
             LocalDate.of(
                     2023,
                     7,
-                    11
+                    12
             ),
-            LocalTime.MIN
+            LocalTime.of(
+                    12,
+                    58,
+                    59
+            )
     );
 
     private final static SpreadsheetPatternEditorWidgetSampleRowProviderContext CONTEXT = SpreadsheetPatternEditorWidgetSampleRowProviderContexts.basic(
@@ -55,7 +59,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
                 @Override
                 public boolean canConvert(final Object value,
                                           final Class<?> type) {
-                    return value instanceof LocalDate && LocalDateTime.class == type;
+                    return value instanceof LocalDateTime && LocalDateTime.class == type;
                 }
 
                 @Override
@@ -63,10 +67,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
                                                      final Class<T> target) {
                     this.canConvertOrFail(value, target);
                     return this.successfulConversion(
-                            LocalDateTime.of(
-                                    LocalDate.class.cast(value),
-                                    LocalTime.NOON
-                            ),
+                            (LocalDateTime) value,
                             target
                     );
                 }
@@ -74,6 +75,16 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
                 @Override
                 public LocalDateTime now() {
                     return NOW;
+                }
+
+                @Override
+                public List<String> ampms() {
+                    return this.dateTimeContext.ampms();
+                }
+
+                @Override
+                public String ampm(final int hourOfDay) {
+                    return this.dateTimeContext.ampm(hourOfDay);
                 }
 
                 @Override
@@ -149,15 +160,15 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | yyyy/mm/dd | Tuesday, 11 July 2023 | 2023/07/11\n" +
-                        "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
-                        "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
-                        "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
-                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023 | Tuesday, 11 July 2023\n" +
-                        "31 December 1999 Short | d/m/yy | Friday, 31 December 1999 | 31/12/99\n" +
-                        "31 December 1999 Medium | d mmm yyyy | Friday, 31 December 1999 | 31 Dec. 1999\n" +
-                        "31 December 1999 Long | d mmmm yyyy | Friday, 31 December 1999 | 31 December 1999\n" +
-                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999 | Friday, 31 December 1999"
+                "Edit | yyyy/mm/dd | Wednesday, 12 July 2023 | 2023/07/12\n" +
+                        "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
+                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
+                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
+                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | Friday, 31 December 1999 | 31/12/99, 12:58 PM\n" +
+                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | Friday, 31 December 1999 | 31 Dec. 1999, 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | 31 December 1999 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | Friday, 31 December 1999 at 12:58:59 PM"
         );
     }
 
@@ -168,15 +179,15 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | [RED]yyyy/dd/mmm | Tuesday, 11 July 2023 | 2023/11/Jul.\n" +
-                        "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
-                        "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
-                        "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
-                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023 | Tuesday, 11 July 2023\n" +
-                        "31 December 1999 Short | d/m/yy | Friday, 31 December 1999 | 31/12/99\n" +
-                        "31 December 1999 Medium | d mmm yyyy | Friday, 31 December 1999 | 31 Dec. 1999\n" +
-                        "31 December 1999 Long | d mmmm yyyy | Friday, 31 December 1999 | 31 December 1999\n" +
-                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999 | Friday, 31 December 1999"
+                "Edit | | Wednesday, 12 July 2023 |\n" +
+                        "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
+                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
+                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
+                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | Friday, 31 December 1999 | 31/12/99, 12:58 PM\n" +
+                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | Friday, 31 December 1999 | 31 Dec. 1999, 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | 31 December 1999 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | Friday, 31 December 1999 at 12:58:59 PM"
         );
     }
 
@@ -185,25 +196,25 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateFormatTest
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Edit | | Tuesday, 11 July 2023 |\n" +
-                        "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
-                        "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
-                        "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
-                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023 | Tuesday, 11 July 2023\n" +
-                        "31 December 1999 Short | d/m/yy | Friday, 31 December 1999 | 31/12/99\n" +
-                        "31 December 1999 Medium | d mmm yyyy | Friday, 31 December 1999 | 31 Dec. 1999\n" +
-                        "31 December 1999 Long | d mmmm yyyy | Friday, 31 December 1999 | 31 December 1999\n" +
-                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999 | Friday, 31 December 1999"
+                "Edit | | Wednesday, 12 July 2023 |\n" +
+                        "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
+                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
+                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
+                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | Friday, 31 December 1999 | 31/12/99, 12:58 PM\n" +
+                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | Friday, 31 December 1999 | 31 Dec. 1999, 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | 31 December 1999 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | Friday, 31 December 1999 at 12:58:59 PM"
         );
     }
 
     @Override
-    SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat createProvider() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat.INSTANCE;
+    SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse createProvider() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse.INSTANCE;
     }
 
     @Override
-    public Class<SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat> type() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat.class;
+    public Class<SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse> type() {
+        return SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse.class;
     }
 }

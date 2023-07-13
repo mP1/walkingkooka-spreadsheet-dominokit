@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 
 import java.util.List;
@@ -41,10 +40,10 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     /**
-     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider dateParse() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+        return SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse.INSTANCE;
     }
 
     /**
@@ -55,10 +54,10 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     /**
-     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider dateTimeParse() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+        return SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeParse.INSTANCE;
     }
 
     /**
@@ -69,10 +68,10 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     /**
-     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderNumberParse}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider numberParse() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+        return SpreadsheetPatternEditorWidgetSampleRowProviderNumberParse.INSTANCE;
     }
 
     /**
@@ -90,28 +89,28 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     /**
-     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderTimeParse}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider timeParse() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+        return SpreadsheetPatternEditorWidgetSampleRowProviderTimeParse.INSTANCE;
     }
 
     /**
      * Helper that provides a {@link SpreadsheetPattern} using the given {@link String patternText}.
      */
-    static <T extends SpreadsheetPattern> Optional<T> tryParsePatternText(final String patternText,
-                                                                          final Function<String, T> parser) {
+    static Optional<SpreadsheetPattern> tryParsePatternText(final String patternText,
+                                                            final Function<String, SpreadsheetPattern> parser) {
         Objects.requireNonNull(patternText, "patternText");
 
-        T spreadsheetFormatPattern = null;
+        SpreadsheetPattern spreadsheetPattern = null;
 
         try {
-            spreadsheetFormatPattern = parser.apply(patternText);
+            spreadsheetPattern = parser.apply(patternText);
         } catch (final Exception fail) {
             // ignore
         }
 
-        return Optional.ofNullable(spreadsheetFormatPattern);
+        return Optional.ofNullable(spreadsheetPattern);
     }
 
     /**
@@ -122,7 +121,7 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     final SpreadsheetPatternEditorWidgetSampleRow row(final String label,
-                                                      final SpreadsheetFormatPattern pattern,
+                                                      final SpreadsheetPattern pattern,
                                                       final Object value,
                                                       final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
         return this.row(
@@ -134,7 +133,7 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     final SpreadsheetPatternEditorWidgetSampleRow row(final String label,
-                                                      final Optional<SpreadsheetFormatPattern> pattern,
+                                                      final Optional<SpreadsheetPattern> pattern,
                                                       final Object value,
                                                       final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
         return SpreadsheetPatternEditorWidgetSampleRow.with(
@@ -143,7 +142,7 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
                         .orElse(""),
                 context.defaultFormat(value),
                 context.format(
-                        pattern.map(SpreadsheetFormatPattern::formatter)
+                        pattern.map(SpreadsheetPattern::formatter)
                                 .orElse(SpreadsheetFormatters.emptyText()),
                         value
                 )
