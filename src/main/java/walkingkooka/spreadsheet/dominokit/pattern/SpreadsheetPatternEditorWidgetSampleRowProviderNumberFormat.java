@@ -175,26 +175,6 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat extends 
         return kind.zero();
     }
 
-//    private SpreadsheetPatternEditorWidgetSampleRow decimalFormat(
-//            final String label,
-//            final ExpressionNumber number,
-//            final Function<Locale, NumberFormat> decimalFormat,
-//            final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
-//        final SpreadsheetParsePattern pattern = SpreadsheetPattern.decimalFormat(
-//                (DecimalFormat) decimalFormat.apply(
-//                        context.spreadsheetFormatterContext()
-//                                .locale()
-//                )
-//        );
-//
-//        return row(
-//                label,
-//                pattern.toFormat(),
-//                number,
-//                context
-//        );
-//    }
-
     private SpreadsheetPatternEditorWidgetSampleRow row(final String label,
                                                         final SpreadsheetFormatPattern pattern,
                                                         final ExpressionNumber number,
