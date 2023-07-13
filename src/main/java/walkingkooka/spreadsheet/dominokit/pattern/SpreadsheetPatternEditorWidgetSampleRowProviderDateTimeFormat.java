@@ -18,8 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -29,7 +27,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * A {@link SpreadsheetPatternEditorWidgetSampleRowProvider} for {@link SpreadsheetTextFormatPattern}.
@@ -176,35 +173,6 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat extend
                 pattern.toFormat(),
                 dateTime,
                 context
-        );
-    }
-
-    private SpreadsheetPatternEditorWidgetSampleRow row(final String label,
-                                                        final SpreadsheetFormatPattern pattern,
-                                                        final LocalDateTime dateTime,
-                                                        final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
-        return this.row(
-                label,
-                Optional.of(pattern),
-                dateTime,
-                context
-        );
-    }
-
-    private SpreadsheetPatternEditorWidgetSampleRow row(final String label,
-                                                        final Optional<SpreadsheetFormatPattern> pattern,
-                                                        final LocalDateTime dateTime,
-                                                        final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
-        return SpreadsheetPatternEditorWidgetSampleRow.with(
-                label,
-                pattern.map(SpreadsheetPattern::text)
-                        .orElse(""),
-                context.defaultFormat(dateTime),
-                context.format(
-                        pattern.map(SpreadsheetFormatPattern::formatter)
-                                .orElse(SpreadsheetFormatters.emptyText()),
-                        dateTime
-                )
         );
     }
 
