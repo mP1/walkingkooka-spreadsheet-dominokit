@@ -17,25 +17,24 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 /**
- * A {@link SpreadsheetPatternEditorWidgetSampleRowProvider} for {@link SpreadsheetNumberFormatPattern}.
+ * A {@link SpreadsheetPatternEditorWidgetSampleRowProvider} for {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern}.
  */
-final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat extends SpreadsheetPatternEditorWidgetSampleRowProviderNumber {
+final class SpreadsheetPatternEditorWidgetSampleRowProviderDateParse extends SpreadsheetPatternEditorWidgetSampleRowProviderDate {
 
     /**
      * Singleton
      */
-    final static SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat INSTANCE = new SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat();
+    final static SpreadsheetPatternEditorWidgetSampleRowProviderDateParse INSTANCE = new SpreadsheetPatternEditorWidgetSampleRowProviderDateParse();
 
-    private SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat() {
+    private SpreadsheetPatternEditorWidgetSampleRowProviderDateParse() {
         super();
     }
 
     @Override
     SpreadsheetPatternKind kind() {
-        return SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN;
+        return SpreadsheetPatternKind.DATE_PARSE_PATTERN;
     }
 }

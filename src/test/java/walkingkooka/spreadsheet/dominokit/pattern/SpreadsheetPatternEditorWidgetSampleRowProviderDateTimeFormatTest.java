@@ -19,9 +19,11 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
+import walkingkooka.color.Color;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.time.LocalDate;
@@ -29,6 +31,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormatTest extends SpreadsheetPatternEditorWidgetSampleRowProviderTestCase<SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat> {
 
@@ -140,6 +143,13 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat
                         50,
                         () -> NOW
                 );
+
+                @Override
+                public Optional<Color> colorName(final SpreadsheetColorName name) {
+                    return Optional.of(
+                            Color.parse("#00f")
+                    );
+                }
             }
     );
 
@@ -163,13 +173,13 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat
     }
 
     @Test
-    public void testValidPatternText2() {
-        final String patternText = "yyyy/dd/mmm";
+    public void testValidPatternTextWithColor() {
+        final String patternText = "[RED]yyyy/dd/mmm";
 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | yyyy/dd/mmm | Wednesday, 12 July 2023 | 2023/12/Jul.\n" +
+                "Edit | [RED]yyyy/dd/mmm | Wednesday, 12 July 2023 | 2023/12/Jul.\n" +
                         "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
                         "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
                         "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
