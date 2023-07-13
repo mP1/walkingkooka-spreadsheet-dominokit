@@ -55,10 +55,10 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     /**
-     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderEmpty}
+     * {@see SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat}
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider numberFormat() {
-        return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+        return SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat.INSTANCE;
     }
 
     /**
