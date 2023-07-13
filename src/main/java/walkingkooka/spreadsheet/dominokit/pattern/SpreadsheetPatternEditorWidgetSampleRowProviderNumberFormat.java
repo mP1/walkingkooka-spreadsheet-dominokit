@@ -55,7 +55,10 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat extends 
         rows.addAll(
                 row(
                         "Pattern",
-                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(patternText, SpreadsheetPattern::parseNumberFormatPattern),
+                        tryParsePatternText(
+                                patternText,
+                                SpreadsheetPattern::parseNumberFormatPattern
+                        ),
                         context
                 )
         );

@@ -51,10 +51,10 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat extends Sp
                         patternText,
                         context.defaultFormat(value),
                         context.format(
-                                SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
-                                                patternText,
-                                                SpreadsheetPattern::parseTextFormatPattern
-                                        ).map(SpreadsheetTextFormatPattern::formatter)
+                                tryParsePatternText(
+                                        patternText,
+                                        SpreadsheetPattern::parseTextFormatPattern
+                                ).map(SpreadsheetTextFormatPattern::formatter)
                                         .orElse(SpreadsheetFormatters.emptyText()),
                                 value
                         )

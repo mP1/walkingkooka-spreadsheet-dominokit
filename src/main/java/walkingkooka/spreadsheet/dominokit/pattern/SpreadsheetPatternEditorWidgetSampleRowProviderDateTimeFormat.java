@@ -56,7 +56,7 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat extend
         rows.add(
                 row(
                         "Edit",
-                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                        tryParsePatternText(
                                 patternText,
                                 SpreadsheetPattern::parseDateTimeFormatPattern
                         ),
