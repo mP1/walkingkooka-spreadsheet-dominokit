@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -176,35 +175,6 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberFormat extends 
 
     private ExpressionNumber zero(final ExpressionNumberKind kind) {
         return kind.zero();
-    }
-
-    private SpreadsheetPatternEditorWidgetSampleRow row(final String label,
-                                                        final SpreadsheetFormatPattern pattern,
-                                                        final ExpressionNumber number,
-                                                        final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
-        return this.row(
-                label,
-                Optional.of(pattern),
-                number,
-                context
-        );
-    }
-
-    private SpreadsheetPatternEditorWidgetSampleRow row(final String label,
-                                                        final Optional<SpreadsheetFormatPattern> pattern,
-                                                        final ExpressionNumber number,
-                                                        final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
-        return SpreadsheetPatternEditorWidgetSampleRow.with(
-                label,
-                pattern.map(SpreadsheetPattern::text)
-                        .orElse(""),
-                context.defaultFormat(number),
-                context.format(
-                        pattern.map(SpreadsheetFormatPattern::formatter)
-                                .orElse(SpreadsheetFormatters.emptyText()),
-                        number
-                )
-        );
     }
 
     // toString.........................................................................................................

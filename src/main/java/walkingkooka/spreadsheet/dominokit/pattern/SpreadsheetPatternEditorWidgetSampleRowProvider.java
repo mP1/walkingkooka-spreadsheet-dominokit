@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 
 import java.util.List;
@@ -117,5 +119,34 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
      */
     SpreadsheetPatternEditorWidgetSampleRowProvider() {
         super();
+    }
+
+    final SpreadsheetPatternEditorWidgetSampleRow row(final String label,
+                                                      final SpreadsheetFormatPattern pattern,
+                                                      final Object value,
+                                                      final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
+        return this.row(
+                label,
+                Optional.of(pattern),
+                value,
+                context
+        );
+    }
+
+    final SpreadsheetPatternEditorWidgetSampleRow row(final String label,
+                                                      final Optional<SpreadsheetFormatPattern> pattern,
+                                                      final Object value,
+                                                      final SpreadsheetPatternEditorWidgetSampleRowProviderContext context) {
+        return SpreadsheetPatternEditorWidgetSampleRow.with(
+                label,
+                pattern.map(SpreadsheetPattern::text)
+                        .orElse(""),
+                context.defaultFormat(value),
+                context.format(
+                        pattern.map(SpreadsheetFormatPattern::formatter)
+                                .orElse(SpreadsheetFormatters.emptyText()),
+                        value
+                )
+        );
     }
 }
