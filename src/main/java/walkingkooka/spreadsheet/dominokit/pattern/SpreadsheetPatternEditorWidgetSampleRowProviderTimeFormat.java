@@ -57,7 +57,7 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderTimeFormat extends Sp
         rows.add(
                 row(
                         "Edit",
-                        SpreadsheetPatternEditorWidgetSampleRow.tryParsePatternText(
+                        tryParsePatternText(
                                 patternText,
                                 SpreadsheetPattern::parseTimeFormatPattern
                         ),

@@ -17,8 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 
 /**
  * A provider that uses the user's {@link java.util.Locale} and active {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} to prepare rows
@@ -87,6 +92,24 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
      */
     static SpreadsheetPatternEditorWidgetSampleRowProvider timeParse() {
         return SpreadsheetPatternEditorWidgetSampleRowProviderEmpty.INSTANCE;
+    }
+
+    /**
+     * Helper that provides a {@link SpreadsheetPattern} using the given {@link String patternText}.
+     */
+    static <T extends SpreadsheetPattern> Optional<T> tryParsePatternText(final String patternText,
+                                                                          final Function<String, T> parser) {
+        Objects.requireNonNull(patternText, "patternText");
+
+        T spreadsheetFormatPattern = null;
+
+        try {
+            spreadsheetFormatPattern = parser.apply(patternText);
+        } catch (final Exception fail) {
+            // ignore
+        }
+
+        return Optional.ofNullable(spreadsheetFormatPattern);
     }
 
     /**
