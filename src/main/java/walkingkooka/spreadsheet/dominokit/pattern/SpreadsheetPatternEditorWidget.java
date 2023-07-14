@@ -22,6 +22,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.button.DropdownButton;
+import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.chips.Chip;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
@@ -41,7 +42,6 @@ import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
-import walkingkooka.spreadsheet.dominokit.dom.Span;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
@@ -75,10 +75,10 @@ public final class SpreadsheetPatternEditorWidget {
         this.context = context;
         this.patternTextBox = this.patternTextBox();
 
-        this.patternComponentParent = Span.empty();
+        this.patternComponentParent = Card.create();
         this.patternComponentChipPatternTexts = Lists.array();
 
-        this.patternAppendParent = Span.empty();
+        this.patternAppendParent = Card.create().pullLeft();
         this.patternAppendLinks = Lists.array();
 
         final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRow> localListDataStore = new LocalListDataStore<>();
@@ -313,7 +313,12 @@ public final class SpreadsheetPatternEditorWidget {
                 .setAutoClose(true);
         modal.id(ID);
 
-        modal.appendChild(this.sampleDataTable);
+        modal.appendChild(
+                Card.create()
+                        .appendChild(
+                                this.sampleDataTable
+                        )
+        );
 
         this.sampleDataTable.headerElement().hide();
 
@@ -344,7 +349,7 @@ public final class SpreadsheetPatternEditorWidget {
     private void patternComponentChipsRebuild(
             final SpreadsheetPattern pattern,
             final String errorPattern) {
-        final Span parent = this.patternComponentParent.removeAllChildren();
+        final Card parent = this.patternComponentParent.clearBody();
 
         final List<String> componentChipPatternTexts = this.patternComponentChipPatternTexts;
         componentChipPatternTexts.clear();
@@ -366,7 +371,7 @@ public final class SpreadsheetPatternEditorWidget {
             // now build the chips
             int i = 0;
             for (final String componentChipPatternText : componentChipPatternTexts) {
-                parent.append(
+                parent.appendChild(
                         Chip.create()
                                 .setRemovable(true)
                                 .setColorScheme(ColorScheme.PINK)
@@ -397,7 +402,7 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * THe parent holding all the current component pattern chips.
      */
-    private final Span patternComponentParent;
+    private final Card patternComponentParent;
 
     private final List<String> patternComponentChipPatternTexts;
 
@@ -411,7 +416,7 @@ public final class SpreadsheetPatternEditorWidget {
         final SpreadsheetPatternEditorWidgetContext context = this.context;
         context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksRebuild");
 
-        final Span parent = this.patternAppendParent.removeAllChildren();
+        final Card parent = this.patternAppendParent.clearBody();
         final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks = this.patternAppendLinks;
         patternAppendLinks.clear();
 
@@ -451,7 +456,7 @@ public final class SpreadsheetPatternEditorWidget {
                                         anchor
                                 )
                         );
-                        parent.append(anchor);
+                        parent.appendChild(anchor);
                     }
                     break;
             }
@@ -521,7 +526,7 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * THe parent holding all the append-pattern links.
      */
-    private final Span patternAppendParent;
+    private final Card patternAppendParent;
 
     /**
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
