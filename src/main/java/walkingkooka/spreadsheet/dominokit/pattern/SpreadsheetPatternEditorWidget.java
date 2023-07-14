@@ -85,7 +85,9 @@ public final class SpreadsheetPatternEditorWidget {
         this.sampleDataTable = new DataTable<>(
                 this.sampleTableConfig(),
                 localListDataStore
-        );
+        ).noStripes()
+                .condense()
+                .noBorder();
         this.sampleDataTableDataStore = localListDataStore;
 
         this.modalDialog = this.modalDialogCreate(context.title());
@@ -134,8 +136,9 @@ public final class SpreadsheetPatternEditorWidget {
                                                                                       final TextAlign textAlign,
                                                                                       final Function<SpreadsheetPatternEditorWidgetSampleRow, Node> nodeMapper) {
         return ColumnConfig.<SpreadsheetPatternEditorWidgetSampleRow>create(columnName)
+                .setFixed(true)
+                .minWidth("25%")
                 .textAlign(CaseKind.kebabEnumName(textAlign))
-                .asHeader()
                 .setCellRenderer(cell -> nodeMapper.apply(
                                 cell.getTableRow()
                                         .getRecord()
@@ -311,6 +314,8 @@ public final class SpreadsheetPatternEditorWidget {
         modal.id(ID);
 
         modal.appendChild(this.sampleDataTable);
+
+        this.sampleDataTable.headerElement().hide();
 
         modal.appendChild(this.patternComponentParent);
         modal.appendChild(this.patternAppendParent);
