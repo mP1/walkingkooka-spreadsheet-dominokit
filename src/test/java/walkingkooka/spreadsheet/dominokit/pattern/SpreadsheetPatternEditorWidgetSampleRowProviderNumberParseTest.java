@@ -112,6 +112,9 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberParseTes
                 "Positive Pattern | $#.## | 1G234D56 | AUD1234D56\n" +
                         "Negative Pattern | $#.## | N9G876D54 | AUDN9876D54\n" +
                         "Zero Pattern | $#.## | 0D | AUDD\n" +
+                        "Positive General | General | 1G234D56 | 1234D6\n" +
+                        "Negative General | General | N9G876D54 | N9876D5\n" +
+                        "Zero General | General | 0D | 0\n" +
                         "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
                         "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
                         "Zero Number | #,##0.### | 0D | 0D\n" +
@@ -137,6 +140,9 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberParseTes
                 "Positive Pattern | | 1G234D56 |\n" +
                         "Negative Pattern | | N9G876D54 |\n" +
                         "Zero Pattern | | 0D |\n" +
+                        "Positive General | General | 1G234D56 | 1234D6\n" +
+                        "Negative General | General | N9G876D54 | N9876D5\n" +
+                        "Zero General | General | 0D | 0\n" +
                         "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
                         "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
                         "Zero Number | #,##0.### | 0D | 0D\n" +
@@ -160,6 +166,9 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberParseTes
                 "Positive Pattern | | 1G234D56 |\n" +
                         "Negative Pattern | | N9G876D54 |\n" +
                         "Zero Pattern | | 0D |\n" +
+                        "Positive General | General | 1G234D56 | 1234D6\n" +
+                        "Negative General | General | N9G876D54 | N9876D5\n" +
+                        "Zero General | General | 0D | 0\n" +
                         "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
                         "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
                         "Zero Number | #,##0.### | 0D | 0D\n" +

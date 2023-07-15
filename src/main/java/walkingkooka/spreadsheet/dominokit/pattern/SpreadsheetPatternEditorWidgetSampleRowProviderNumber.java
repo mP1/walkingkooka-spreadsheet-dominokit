@@ -55,6 +55,13 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProviderNumber extends Spr
 
         rows.addAll(
                 row(
+                        "General",
+                        GENERAL,
+                        context
+                )
+        );
+        rows.addAll(
+                row(
                         "Number",
                         DecimalFormat::getInstance,
                         context
@@ -84,6 +91,8 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProviderNumber extends Spr
 
         return Lists.readOnly(rows);
     }
+
+    private final static SpreadsheetFormatPattern GENERAL = SpreadsheetPattern.parseNumberFormatPattern("General");
 
     private List<SpreadsheetPatternEditorWidgetSampleRow> row(final String label,
                                                               final Function<Locale, NumberFormat> decimalFormat,
