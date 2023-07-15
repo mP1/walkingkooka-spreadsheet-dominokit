@@ -114,6 +114,11 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunc
     }
 
     /**
+     * The label used for the row displaying the pattern text box.
+     */
+    final static String LABEL = "Edit Pattern";
+
+    /**
      * Package private to limit sub classing.
      */
     SpreadsheetPatternEditorWidgetSampleRowProvider() {

@@ -107,7 +107,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderTimeParseTest 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | hh/mm/ss | 3:33:59 AM | 03/33/59\n" +
+                "Edit Pattern | hh/mm/ss | 3:33:59 AM | 03/33/59\n" +
                         "Now Short | h:mm AM/PM | 3:33:59 AM | 3:33 AM\n" +
                         "Now Long | h:mm:ss AM/PM | 3:33:59 AM | 3:33:59 AM\n" +
                         "12:58:59 AM Short | h:mm AM/PM | 12:58:59 PM | 12:58 PM\n" +
@@ -124,7 +124,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderTimeParseTest 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | h/m/s | 3:33:59 AM | 3/33/59\n" +
+                "Edit Pattern | h/m/s | 3:33:59 AM | 3/33/59\n" +
                         "Now Short | h:mm AM/PM | 3:33:59 AM | 3:33 AM\n" +
                         "Now Long | h:mm:ss AM/PM | 3:33:59 AM | 3:33:59 AM\n" +
                         "12:58:59 AM Short | h:mm AM/PM | 12:58:59 PM | 12:58 PM\n" +
@@ -141,7 +141,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderTimeParseTest 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | | 3:33:59 AM |\n" +
+                "Edit Pattern | | 3:33:59 AM |\n" +
                         "Now Short | h:mm AM/PM | 3:33:59 AM | 3:33 AM\n" +
                         "Now Long | h:mm:ss AM/PM | 3:33:59 AM | 3:33:59 AM\n" +
                         "12:58:59 AM Short | h:mm AM/PM | 12:58:59 PM | 12:58 PM\n" +
@@ -156,7 +156,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderTimeParseTest 
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Edit | | 3:33:59 AM |\n" +
+                "Edit Pattern | | 3:33:59 AM |\n" +
                         "Now Short | h:mm AM/PM | 3:33:59 AM | 3:33 AM\n" +
                         "Now Long | h:mm:ss AM/PM | 3:33:59 AM | 3:33:59 AM\n" +
                         "12:58:59 AM Short | h:mm AM/PM | 12:58:59 PM | 12:58 PM\n" +

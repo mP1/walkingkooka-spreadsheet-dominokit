@@ -109,9 +109,9 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberParseTes
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Positive Pattern | $#.## | 1G234D56 | AUD1234D56\n" +
-                        "Negative Pattern | $#.## | N9G876D54 | AUDN9876D54\n" +
-                        "Zero Pattern | $#.## | 0D | AUDD\n" +
+                "Positive Edit Pattern | $#.## | 1G234D56 | AUD1234D56\n" +
+                        "Negative Edit Pattern | $#.## | N9G876D54 | AUDN9876D54\n" +
+                        "Zero Edit Pattern | $#.## | 0D | AUDD\n" +
                         "Positive General | General | 1G234D56 | 1234D6\n" +
                         "Negative General | General | N9G876D54 | N9876D5\n" +
                         "Zero General | General | 0D | 0\n" +
@@ -137,9 +137,9 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberParseTes
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Positive Pattern | | 1G234D56 |\n" +
-                        "Negative Pattern | | N9G876D54 |\n" +
-                        "Zero Pattern | | 0D |\n" +
+                "Positive Edit Pattern | | 1G234D56 |\n" +
+                        "Negative Edit Pattern | | N9G876D54 |\n" +
+                        "Zero Edit Pattern | | 0D |\n" +
                         "Positive General | General | 1G234D56 | 1234D6\n" +
                         "Negative General | General | N9G876D54 | N9876D5\n" +
                         "Zero General | General | 0D | 0\n" +
@@ -163,9 +163,9 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderNumberParseTes
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Positive Pattern | | 1G234D56 |\n" +
-                        "Negative Pattern | | N9G876D54 |\n" +
-                        "Zero Pattern | | 0D |\n" +
+                "Positive Edit Pattern | | 1G234D56 |\n" +
+                        "Negative Edit Pattern | | N9G876D54 |\n" +
+                        "Zero Edit Pattern | | 0D |\n" +
                         "Positive General | General | 1G234D56 | 1234D6\n" +
                         "Negative General | General | N9G876D54 | N9876D5\n" +
                         "Zero General | General | 0D | 0\n" +

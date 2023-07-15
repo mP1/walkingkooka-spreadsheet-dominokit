@@ -44,7 +44,7 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProviderTime extends Sprea
 
         rows.add(
                 row(
-                        "Edit",
+                        LABEL,
                         tryParsePatternText(
                                 patternText,
                                 this.kind()::parse

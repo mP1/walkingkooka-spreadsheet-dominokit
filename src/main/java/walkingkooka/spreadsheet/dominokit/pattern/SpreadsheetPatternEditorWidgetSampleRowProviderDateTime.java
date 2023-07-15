@@ -43,7 +43,7 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProviderDateTime extends S
 
         rows.add(
                 row(
-                        "Edit",
+                        LABEL,
                         tryParsePatternText(
                                 patternText,
                                 this.kind()::parse
