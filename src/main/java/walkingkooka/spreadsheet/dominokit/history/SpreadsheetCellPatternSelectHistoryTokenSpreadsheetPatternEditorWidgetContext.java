@@ -65,15 +65,14 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
         );
     }
 
-    // Edit date/time format
-    // Edit text format
+    // Date/Time format
+    // Text format
     @Override
     public String title() {
-        return "Edit " +
-                CaseKind.SNAKE.change(
-                        this.patternKind().name(),
-                        CaseKind.TITLE
-                ).replace("Pattern", "pattern");
+        return CaseKind.SNAKE.change(
+                this.patternKind().name(),
+                CaseKind.TITLE
+        ).replace("Pattern", "pattern");
     }
 
     /**
