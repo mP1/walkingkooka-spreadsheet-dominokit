@@ -61,7 +61,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderTextFormatTest
                 "@@",
                 CONTEXT,
                 SpreadsheetPatternEditorWidgetSampleRow.with(
-                        "Text",
+                        "Edit Pattern",
                         "@@",
                         SpreadsheetText.EMPTY.setText(text),
                         SpreadsheetText.EMPTY.setText(text + text)
@@ -83,7 +83,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderTextFormatTest
                 "\"Unclosed",
                 CONTEXT,
                 SpreadsheetPatternEditorWidgetSampleRow.with(
-                        "Text",
+                        "Edit Pattern",
                         "\"Unclosed",
                         SpreadsheetText.EMPTY.setText(text),
                         SpreadsheetText.EMPTY

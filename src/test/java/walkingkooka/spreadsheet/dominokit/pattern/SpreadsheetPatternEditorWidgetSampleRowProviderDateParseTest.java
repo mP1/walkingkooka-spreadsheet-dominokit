@@ -139,7 +139,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateParseTest 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | yyyy/mm/dd | Tuesday, 11 July 2023 | 2023/07/11\n" +
+                "Edit Pattern | yyyy/mm/dd | Tuesday, 11 July 2023 | 2023/07/11\n" +
                         "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
                         "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
                         "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
@@ -158,7 +158,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateParseTest 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | yyyy/dd/mmm | Tuesday, 11 July 2023 | 2023/11/Jul.\n" +
+                "Edit Pattern | yyyy/dd/mmm | Tuesday, 11 July 2023 | 2023/11/Jul.\n" +
                         "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
                         "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
                         "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
@@ -177,7 +177,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateParseTest 
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | | Tuesday, 11 July 2023 |\n" +
+                "Edit Pattern | | Tuesday, 11 July 2023 |\n" +
                         "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
                         "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
                         "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
@@ -194,7 +194,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateParseTest 
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Edit | | Tuesday, 11 July 2023 |\n" +
+                "Edit Pattern | | Tuesday, 11 July 2023 |\n" +
                         "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
                         "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
                         "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +

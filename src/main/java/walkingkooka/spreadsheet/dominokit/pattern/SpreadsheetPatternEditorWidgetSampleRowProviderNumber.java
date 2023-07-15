@@ -44,7 +44,7 @@ abstract class SpreadsheetPatternEditorWidgetSampleRowProviderNumber extends Spr
 
         rows.addAll(
                 row(
-                        "Pattern",
+                        LABEL,
                         tryParsePatternText(
                                 patternText,
                                 this.kind()::parse

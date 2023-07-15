@@ -47,7 +47,7 @@ final class SpreadsheetPatternEditorWidgetSampleRowProviderTextFormat extends Sp
 
         return Lists.of(
                 SpreadsheetPatternEditorWidgetSampleRow.with(
-                        "Text",
+                        LABEL,
                         patternText,
                         context.defaultFormat(value),
                         context.format(

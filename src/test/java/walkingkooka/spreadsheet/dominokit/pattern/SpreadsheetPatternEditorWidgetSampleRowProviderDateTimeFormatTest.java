@@ -160,7 +160,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | yyyy/mm/dd | Wednesday, 12 July 2023 | 2023/07/12\n" +
+                "Edit Pattern | yyyy/mm/dd | Wednesday, 12 July 2023 | 2023/07/12\n" +
                         "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
                         "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
                         "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
@@ -179,7 +179,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit | [RED]yyyy/dd/mmm | Wednesday, 12 July 2023 | 2023/12/Jul.\n" +
+                "Edit Pattern | [RED]yyyy/dd/mmm | Wednesday, 12 July 2023 | 2023/12/Jul.\n" +
                         "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
                         "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
                         "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
@@ -196,7 +196,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderDateTimeFormat
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Edit | | Wednesday, 12 July 2023 |\n" +
+                "Edit Pattern | | Wednesday, 12 July 2023 |\n" +
                         "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
                         "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
                         "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
