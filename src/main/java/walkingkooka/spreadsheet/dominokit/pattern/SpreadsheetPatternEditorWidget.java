@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
+import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.button.DropdownButton;
@@ -40,6 +41,9 @@ import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
 import org.jboss.elemento.EventType;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.net.Url;
+import walkingkooka.net.UrlPath;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -110,7 +114,8 @@ public final class SpreadsheetPatternEditorWidget {
                         columnConfig(
                                 "pattern-text",
                                 TextAlign.CENTER,
-                                d -> Doms.textNode(d.patternText())
+                                //d -> Doms.textNode(d.patternText())
+                                d -> this.patternAnchor(d.patternText())
                         )
                 ).addColumn(
                         columnConfig(
@@ -144,6 +149,28 @@ public final class SpreadsheetPatternEditorWidget {
                                         .getRecord()
                         )
                 );
+    }
+
+    /**
+     * Creates an anchor which will appear in the pattern column, which when clicked updates the pattern text box.
+     * The history token is not updated.
+     */
+    private HTMLAnchorElement patternAnchor(final String patternText) {
+        return Anchor.empty()
+                .setHref(
+                        Url.relative(
+                                UrlPath.EMPTY,
+                                UrlQueryString.EMPTY,
+                                this.context.historyToken()
+                                        .setSave(patternText)
+                                        .urlFragment()
+                        )
+                ).setTextContent(patternText)
+                .addClickAndKeydownEnterListener(e ->
+                {
+                    e.preventDefault();
+                    this.setPatternText(patternText);
+                }).element();
     }
 
     private void prepareSampleData() {
