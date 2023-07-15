@@ -42,8 +42,6 @@ import org.jboss.elemento.EventType;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
-import walkingkooka.net.UrlPath;
-import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -158,9 +156,7 @@ public final class SpreadsheetPatternEditorWidget {
     private HTMLAnchorElement patternAnchor(final String patternText) {
         return Anchor.empty()
                 .setHref(
-                        Url.relative(
-                                UrlPath.EMPTY,
-                                UrlQueryString.EMPTY,
+                        Url.EMPTY_RELATIVE_URL.setFragment(
                                 this.context.historyToken()
                                         .setSave(patternText)
                                         .urlFragment()
