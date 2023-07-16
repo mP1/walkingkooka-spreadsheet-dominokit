@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.spreadsheet.dominokit.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 

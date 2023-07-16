@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
