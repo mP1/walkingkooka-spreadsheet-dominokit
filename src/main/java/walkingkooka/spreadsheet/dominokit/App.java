@@ -37,9 +37,11 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -57,7 +59,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -88,6 +89,12 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     public App() {
         SpreadsheetDelta.EMPTY.toString(); // force json register.
+
+        final LoggingContext loggingContext = LoggingContexts.elemental();
+        this.loggingContext = loggingContext;
+
+        this.history = Historys.elemental(loggingContext);
+
     }
 
     // header = metadata toggle | clickable(editable) spreadsheet name
@@ -381,45 +388,15 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
      */
     @Override
     public void pushHistoryToken(final HistoryToken token) {
-        Scheduler.get()
-                .scheduleDeferred(
-                        () -> {
-                            final String newHash = "#" + token.urlFragment();
-                            final String current = DomGlobal.location.hash;
-                            if (false == current.equals(newHash)) {
-                                this.debug("App.pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + CharSequences.quoteAndEscape(newHash));
-
-                                DomGlobal.location.hash = newHash;
-                            }
-                        }
-                );
+        this.history.pushHistoryToken(token);
     }
 
     @Override
     public HistoryToken historyToken() {
-        // remove the leading hash if necessary.
-        String hash = DomGlobal.location.hash;
-        if (false == hash.equals(this.locationHash)) {
-            if (hash.startsWith("#")) {
-                hash = hash.substring(1);
-            }
-
-            this.locationHash = hash;
-            this.historyToken = HistoryToken.parse(UrlFragment.parse(hash));
-        }
-
-        return this.historyToken;
+        return this.history.historyToken();
     }
 
-    /**
-     * The original window.location.hash used to produce the {@link #historyToken}.
-     */
-    private String locationHash;
-
-    /**
-     * A cached {@link HistoryToken} for the current {@link DomGlobal#location#locationHash}.
-     */
-    private HistoryToken historyToken;
+    private final History history;
 
     // HistoryWatcher...................................................................................................
 
@@ -734,5 +711,5 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                 .show();
     }
 
-    private final LoggingContext loggingContext = LoggingContexts.elemental();
+    private final LoggingContext loggingContext;
 }
