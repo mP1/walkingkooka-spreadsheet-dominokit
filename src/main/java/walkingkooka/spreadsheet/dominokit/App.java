@@ -42,6 +42,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatchers;
@@ -716,19 +718,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     @Override
     public void debug(final Object... values) {
-        // invoking DomGlobal.console.debug caused GWT compile failures
-        //
-        //[INFO]                [ERROR] at App.java(719): <source info not available>
-        //[INFO]                   com.google.gwt.dev.js.ast.JsExprStmt
-        //[INFO]                [ERROR] at com.google.gwt.dev.js.ast.JsProgram(0): var _;
-        //[INFO] $wnd.goog = $wnd.goog || {};
-        //[INFO] $wnd.goog.global = $wnd.goog.global || $wnd;
-        //[INFO] bootstrap();
-        //[INFO] [...]
-        //[INFO]
-        //[INFO]                   com.google.gwt.dev.js.ast.JsGlobalBlock
-        final elemental2.dom.Console console = DomGlobal.console;
-        console.debug(values);
+        this.loggingContext.debug(values);
     }
 
     /**
@@ -736,13 +726,13 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
      */
     @Override
     public void error(final Object... values) {
-        // see App.debug
-        final elemental2.dom.Console console = DomGlobal.console;
-        console.error(values);
+        this.loggingContext.error(values);
 
         Notification.createDanger(
                         String.valueOf(values[0])
                 ).setPosition(Notification.TOP_CENTER)
                 .show();
     }
+
+    private final LoggingContext loggingContext = LoggingContexts.elemental();
 }
