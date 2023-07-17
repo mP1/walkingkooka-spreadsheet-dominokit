@@ -28,6 +28,8 @@ public final class SpreadsheetDeltaWatchersTest implements ClassTesting<Spreadsh
 
     @Test
     public void testAddThenFire() {
+        this.fired = 0;
+
         final SpreadsheetDelta spreadsheetDelta = SpreadsheetDelta.EMPTY;
         final AppContext appContext = new FakeAppContext();
 
@@ -40,15 +42,44 @@ public final class SpreadsheetDeltaWatchersTest implements ClassTesting<Spreadsh
                         SpreadsheetDeltaWatchersTest.this.checkEquals(spreadsheetDelta, delta);
                         SpreadsheetDeltaWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetDeltaWatchersTest.this.fired = true;
+                        SpreadsheetDeltaWatchersTest.this.fired++;
                     }
                 });
         watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
 
-        this.checkEquals(true, this.fired);
+        this.checkEquals(1, this.fired);
     }
 
-    private boolean fired = false;
+    @Test
+    public void testAddOnce() {
+        this.fired = 0;
+
+        final SpreadsheetDelta spreadsheetDelta = SpreadsheetDelta.EMPTY;
+        final AppContext appContext = new FakeAppContext();
+
+        final SpreadsheetDeltaWatchers watchers = SpreadsheetDeltaWatchers.empty();
+        watchers.addOnce(
+                new SpreadsheetDeltaWatcher() {
+                    @Override
+                    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                                   final AppContext context) {
+                        SpreadsheetDeltaWatchersTest.this.checkEquals(spreadsheetDelta, delta);
+                        SpreadsheetDeltaWatchersTest.this.checkEquals(appContext, context);
+
+                        SpreadsheetDeltaWatchersTest.this.fired++;
+                    }
+                });
+        watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
+        this.checkEquals(1, this.fired);
+
+        watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
+        this.checkEquals(1, this.fired);
+
+        watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
+        this.checkEquals(1, this.fired);
+    }
+
+    private int fired = 0;
 
     // ClassTesting....................................................................................................
 
