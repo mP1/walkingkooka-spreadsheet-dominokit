@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.store.Watchers;
+import walkingkooka.watch.Watchers;
 
 public final class SpreadsheetMetadataWatchers implements SpreadsheetMetadataWatcher {
 
