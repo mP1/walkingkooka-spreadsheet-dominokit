@@ -27,6 +27,9 @@ public final class SpreadsheetDeltaWatchers implements SpreadsheetDeltaWatcher {
         return new SpreadsheetDeltaWatchers();
     }
 
+    /**
+     * Adds a new {@link SpreadsheetDeltaWatcher} which will receive all events until removed using the returned {@link Runnable}.
+     */
     public Runnable add(final SpreadsheetDeltaWatcher watcher) {
         return this.watchers.addWatcher(
                 (e) -> e.accept(watcher)
@@ -35,7 +38,7 @@ public final class SpreadsheetDeltaWatchers implements SpreadsheetDeltaWatcher {
 
     /**
      * Adds a {@link SpreadsheetDeltaWatcher} which will be removed after the first event is fired. This is unlike
-     * {@link #add(SpreadsheetDeltaWatcher)} will continue receive all events until the watcher is removed.
+     * {@link #add(SpreadsheetDeltaWatcher)} will continue to receive all events until the watcher is removed.
      */
     public void addOnce(final SpreadsheetDeltaWatcher watcher) {
         final Runnable[] remover = new Runnable[1];
