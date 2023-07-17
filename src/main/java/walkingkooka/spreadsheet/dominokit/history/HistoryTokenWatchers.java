@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.store.Watchers;
+import walkingkooka.watch.Watchers;
 
 public final class HistoryTokenWatchers implements HistoryTokenWatcher {
 

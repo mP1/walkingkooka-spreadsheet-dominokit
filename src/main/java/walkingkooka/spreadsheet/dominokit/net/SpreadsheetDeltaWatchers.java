@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.store.Watchers;
+import walkingkooka.watch.Watchers;
 
 public final class SpreadsheetDeltaWatchers implements SpreadsheetDeltaWatcher {
 
