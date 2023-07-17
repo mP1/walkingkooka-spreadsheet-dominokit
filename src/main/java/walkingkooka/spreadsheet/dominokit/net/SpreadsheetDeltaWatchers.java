@@ -33,6 +33,23 @@ public final class SpreadsheetDeltaWatchers implements SpreadsheetDeltaWatcher {
         );
     }
 
+    /**
+     * Adds a {@link SpreadsheetDeltaWatcher} which will be removed after the first event is fired. This is unlike
+     * {@link #add(SpreadsheetDeltaWatcher)} will continue receive all events until the watcher is removed.
+     */
+    public void addOnce(final SpreadsheetDeltaWatcher watcher) {
+        final Runnable[] remover = new Runnable[1];
+        remover[0] = this.add(
+                (d, c) -> {
+                    try {
+                        watcher.onSpreadsheetDelta(d, c);
+                    } finally {
+                        remover[0].run();
+                    }
+                }
+        );
+    }
+
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
