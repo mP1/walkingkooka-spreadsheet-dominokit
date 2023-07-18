@@ -36,6 +36,12 @@ public final class SpreadsheetMetadataWatchers implements SpreadsheetMetadataWat
         );
     }
 
+    public Runnable addOnce(final SpreadsheetMetadataWatcher watcher) {
+        return this.watchers.addOnce(
+                (e) -> e.accept(watcher)
+        );
+    }
+
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
