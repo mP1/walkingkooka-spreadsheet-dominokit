@@ -31,7 +31,7 @@ public final class SpreadsheetDeltaWatchers implements SpreadsheetDeltaWatcher {
      * Adds a new {@link SpreadsheetDeltaWatcher} which will receive all events until removed using the returned {@link Runnable}.
      */
     public Runnable add(final SpreadsheetDeltaWatcher watcher) {
-        return this.watchers.addWatcher(
+        return this.watchers.add(
                 (e) -> e.accept(watcher)
         );
     }

@@ -27,7 +27,7 @@ public final class HistoryTokenWatchers implements HistoryTokenWatcher {
     }
 
     public Runnable add(final HistoryTokenWatcher watcher) {
-        return this.watchers.addWatcher(
+        return this.watchers.add(
                 (e) -> e.accept(watcher)
         );
     }
