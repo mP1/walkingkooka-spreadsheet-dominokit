@@ -31,7 +31,7 @@ public final class SpreadsheetMetadataWatchers implements SpreadsheetMetadataWat
      * Adds a new {@link SpreadsheetMetadataWatcher} which will receive all events until removed using the returned {@link Runnable}.
      */
     public Runnable add(final SpreadsheetMetadataWatcher watcher) {
-        return this.watchers.addWatcher(
+        return this.watchers.add(
                 (e) -> e.accept(watcher)
         );
     }
