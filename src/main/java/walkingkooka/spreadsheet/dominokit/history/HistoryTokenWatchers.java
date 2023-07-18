@@ -32,6 +32,12 @@ public final class HistoryTokenWatchers implements HistoryTokenWatcher {
         );
     }
 
+    public Runnable addOnce(final HistoryTokenWatcher watcher) {
+        return this.watchers.addOnce(
+                (e) -> e.accept(watcher)
+        );
+    }
+
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
