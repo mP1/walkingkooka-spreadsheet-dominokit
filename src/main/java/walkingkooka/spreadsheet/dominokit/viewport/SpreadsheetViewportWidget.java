@@ -273,7 +273,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * Returns the window used by this viewport.
      */
     public SpreadsheetViewportWindows window() {
-        return this.cache.windows;
+        return this.cache.windows();
     }
 
     /**

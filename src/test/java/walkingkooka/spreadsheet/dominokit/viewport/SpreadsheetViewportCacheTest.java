@@ -2023,7 +2023,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                              final SpreadsheetViewportWindows expected) {
         this.checkEquals(
                 expected,
-                cache.windows,
+                cache.windows(),
                 "windows"
         );
     }

@@ -321,10 +321,16 @@ final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, Spreads
     final Map<SpreadsheetRowReference, Length<?>> rowHeights = Maps.sorted();
 
     /**
+     * The viewport window.
+     */
+    SpreadsheetViewportWindows windows() {
+        return this.windows;
+    }
+
+    /**
      * The viewport. This is used to filter cells and labels in the cache.
      */
-    // VisibleForTesting
-    SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.EMPTY;
+    private SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.EMPTY;
 
     @Override
     public String toString() {
