@@ -86,15 +86,40 @@ import java.util.Optional;
 @LocaleAware
 public class App implements EntryPoint, AppContext, HistoryTokenWatcher, SpreadsheetMetadataWatcher, SpreadsheetDeltaWatcher, UncaughtExceptionHandler {
 
-
     public App() {
+        GWT.setUncaughtExceptionHandler(this);
         SpreadsheetDelta.EMPTY.toString(); // force json register.
 
+        // logging
         final LoggingContext loggingContext = LoggingContexts.elemental();
         this.loggingContext = loggingContext;
 
-        this.history = Historys.elemental(loggingContext);
+        // metadata
+        this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
+        this.metadataWatchers = SpreadsheetMetadataWatchers.empty();
+        this.spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(
+                this.metadataWatchers,
+                this
+        );
+        this.addSpreadsheetMetadataWatcher(this);
 
+        // delta
+        this.spreadsheetDeltaWatchers = SpreadsheetDeltaWatchers.empty();
+        this.spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
+                this.spreadsheetDeltaWatchers,
+                this
+        );
+        this.addSpreadsheetDeltaWatcher(this);
+
+        // history
+        this.history = Historys.elemental(loggingContext);
+        this.previousToken = HistoryToken.unknown(UrlFragment.EMPTY);
+        this.historyWatchers = HistoryTokenWatchers.empty();
+        this.setupHistoryListener();
+
+        this.registerWindowResizeListener();
+
+        this.viewportWidget = SpreadsheetViewportWidget.empty(this);
     }
 
     // header = metadata toggle | clickable(editable) spreadsheet name
@@ -105,18 +130,10 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private final Layout layout = Layout.create();
 
     public void onModuleLoad() {
-        this.addSpreadsheetDeltaWatcher(this);
-        this.addSpreadsheetMetadataWatcher(this);
-        GWT.setUncaughtExceptionHandler(this);
-
-        this.setupHistoryListener();
-
         this.prepareLayout();
 
         this.setSpreadsheetName("Untitled 123");
         this.showMetadataPanel(false);
-
-        this.registerWindowResizeListener();
         this.fireInitialHistoryToken();
         this.fireInitialWindowSize();
     }
@@ -268,7 +285,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         return this.spreadsheetMetadata;
     }
 
-    private SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
+    private SpreadsheetMetadata spreadsheetMetadata;
 
     @Override
     public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
@@ -278,7 +295,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     /**
      * A collection of listeners for {@link SpreadsheetDeltaWatcher}
      */
-    final SpreadsheetDeltaWatchers spreadsheetDeltaWatchers = SpreadsheetDeltaWatchers.empty();
+    private final SpreadsheetDeltaWatchers spreadsheetDeltaWatchers;
 
     @Override
     public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
@@ -289,28 +306,21 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     /**
      * A collection of listeners for {@link SpreadsheetMetadataWatcher}
      */
-    final SpreadsheetMetadataWatchers metadataWatchers = SpreadsheetMetadataWatchers.empty();
-
+    private final SpreadsheetMetadataWatchers metadataWatchers;
 
     @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         return this.spreadsheetDeltaFetcher;
     }
 
-    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
-            this.spreadsheetDeltaWatchers,
-            this
-    );
+    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
 
     @Override
     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
         return this.spreadsheetMetadataFetcher;
     }
 
-    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(
-            this.metadataWatchers,
-            this
-    );
+    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
 
     // misc..........................................................................................................
 
@@ -405,7 +415,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         return this.historyWatchers.add(watcher);
     }
 
-    private final HistoryTokenWatchers historyWatchers = HistoryTokenWatchers.empty();
+    private final HistoryTokenWatchers historyWatchers;
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
@@ -440,8 +450,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     /**
      * Used to track if the history token actually changed. Changes will fire the HistoryToken#onChange method.
      */
-    private HistoryToken previousToken = HistoryToken.unknown(UrlFragment.EMPTY);
-
+    private HistoryToken previousToken;
 
     // UI...............................................................................................................
 
@@ -460,7 +469,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     /**
      * Init here to avoid race conditions with other fields like {@link #metadataWatchers}.
      */
-    private final SpreadsheetViewportWidget viewportWidget = SpreadsheetViewportWidget.empty(this);
+    private final SpreadsheetViewportWidget viewportWidget;
 
     @Override
     public void giveFormulaTextBoxFocus() {
