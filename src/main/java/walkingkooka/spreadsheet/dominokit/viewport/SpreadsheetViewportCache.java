@@ -48,12 +48,12 @@ import java.util.Set;
  * A cache of the cells and labels for a viewport. This is mostly used during the rendering phase to provide content
  * for the cells in the spreadsheet viewport TABLE.
  */
-final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher {
+public final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, SpreadsheetMetadataWatcher {
 
     /**
      * Creates a new cache with no cells or labels present.
      */
-    static SpreadsheetViewportCache empty() {
+    public static SpreadsheetViewportCache empty() {
         return new SpreadsheetViewportCache();
     }
 
