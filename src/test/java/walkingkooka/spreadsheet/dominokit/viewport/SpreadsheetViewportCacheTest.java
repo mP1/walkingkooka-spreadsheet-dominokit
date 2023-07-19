@@ -2212,6 +2212,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+        return JavaVisibility.PUBLIC;
     }
 }
