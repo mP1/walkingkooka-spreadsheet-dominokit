@@ -211,8 +211,9 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
     private void loadViewportCellsIfNecessary() {
         if (this.reload) {
-            if (this.metadata.isEmpty()) {
-                this.context.debug("SpreadsheetViewportWidget.loadViewportCellsIfNecessary waiting for metadata");
+            final AppContext context = this.context;
+            if (context.spreadsheetMetadata().isEmpty()) {
+                context.debug("SpreadsheetViewportWidget.loadViewportCellsIfNecessary waiting for metadata");
             } else {
                 this.loadViewportCells(
                         Optional.empty()
@@ -232,7 +233,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         context.viewportCache()
                 .clear(); // clear all cached data.
         this.reload = false;
-        final SpreadsheetMetadata metadata = this.metadata;
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         context.spreadsheetDeltaFetcher()
                 .loadCells(
@@ -782,7 +783,8 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
-        TextStyle style = this.metadata.effectiveStyle();
+        TextStyle style = context.spreadsheetMetadata()
+                .effectiveStyle();
         TextNode content = null;
 
         // if an error is present add a tooltip below the cell with the error message.
@@ -850,7 +852,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      */
     private void selectCell(final SpreadsheetCellReference cell,
                             final AppContext context) {
-        final SpreadsheetMetadata metadata = this.metadata;
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         final Optional<SpreadsheetName> name = metadata.name();
         final Optional<SpreadsheetId> id = metadata.id();
 
