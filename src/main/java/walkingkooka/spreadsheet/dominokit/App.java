@@ -477,6 +477,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     @Override
+    public void viewportCacheClear() {
+        this.viewportWidget.clearCache();
+    }
+
+    @Override
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
         return this.viewportWidget.viewportCell(selection);
     }

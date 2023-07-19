@@ -216,6 +216,13 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
     private Predicate<SpreadsheetSelection> selection = Predicates.never();
 
+    /**
+     * Clears the accompanying cache.
+     */
+    public void clearCache() {
+        this.cache.clear();
+    }
+
     private void loadViewportCellsIfNecessary() {
         if (this.reload) {
             if (this.metadata.isEmpty()) {
@@ -234,7 +241,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private void loadViewportCells(final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
         Objects.requireNonNull(navigation, "navigation");
 
-        this.cache.clear(); // clear all cached data.
+        this.clearCache(); // clear all cached data.
         this.reload = false;
         final SpreadsheetMetadata metadata = this.metadata;
 

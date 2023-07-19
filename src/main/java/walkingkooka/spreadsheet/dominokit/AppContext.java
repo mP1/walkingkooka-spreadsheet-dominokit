@@ -100,6 +100,11 @@ public interface AppContext extends HistoryTokenContext, LoggingContext, Context
     void setFormula(final SpreadsheetSelection selection);
 
     /**
+     * Clears the viewport cache of cells and more.
+     */
+    void viewportCacheClear();
+
+    /**
      * Getter that returns a {@link SpreadsheetCell} if one exists for the {@link SpreadsheetSelection},
      * which may be a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}.
      */
