@@ -116,6 +116,11 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
+    public void viewportCacheClear() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
