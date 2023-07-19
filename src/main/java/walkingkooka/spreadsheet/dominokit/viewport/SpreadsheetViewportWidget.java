@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -144,8 +143,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                    final AppContext context) {
         Objects.requireNonNull(delta, "delta");
 
-        this.cache.onSpreadsheetDelta(delta, context);
-
         this.render();
     }
 
@@ -161,11 +158,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         this.metadata = metadata;
 
         this.loadViewportCellsIfNecessary();
-
-        this.cache.onSpreadsheetMetadata(
-                metadata,
-                context
-        );
 
         final Optional<SpreadsheetId> spreadsheetId = metadata.id();
         if (spreadsheetId.isPresent()) {
@@ -196,7 +188,8 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
         if (maybeViewportSelection.isPresent()) {
             // special case for label
-            final Optional<SpreadsheetSelection> maybeNotLabel = this.cache.nonLabelSelection(maybeViewportSelection.get().selection());
+            final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
+                    .nonLabelSelection(maybeViewportSelection.get().selection());
             if (maybeNotLabel.isPresent()) {
                 predicate = maybeNotLabel.get();
             }
@@ -216,13 +209,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
     private Predicate<SpreadsheetSelection> selection = Predicates.never();
 
-    /**
-     * Clears the accompanying cache.
-     */
-    public void clearCache() {
-        this.cache.clear();
-    }
-
     private void loadViewportCellsIfNecessary() {
         if (this.reload) {
             if (this.metadata.isEmpty()) {
@@ -241,11 +227,14 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private void loadViewportCells(final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
         Objects.requireNonNull(navigation, "navigation");
 
-        this.clearCache(); // clear all cached data.
+        final AppContext context = this.context;
+
+        context.viewportCache()
+                .clear(); // clear all cached data.
         this.reload = false;
         final SpreadsheetMetadata metadata = this.metadata;
 
-        this.context.spreadsheetDeltaFetcher()
+        context.spreadsheetDeltaFetcher()
                 .loadCells(
                         metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID), // id
                         metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1), // home
@@ -260,26 +249,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
      */
     private boolean reload = false;
-
-    /**
-     * Handles resolving a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName} into a {@link SpreadsheetSelection}
-     * or just returns the selection.
-     */
-    public Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
-        return this.cache.nonLabelSelection(selection);
-    }
-
-    /**
-     * Returns the window used by this viewport.
-     */
-    public SpreadsheetViewportWindows window() {
-        return this.cache.windows();
-    }
-
-    /**
-     * Cache that holds all the cells, labels etc displayed by this widget.
-     */
-    private final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
 
     // root.............................................................................................................
 
@@ -418,9 +387,10 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     public void setFormula(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
 
+        final AppContext context = this.context;
         String text = "";
 
-        final SpreadsheetViewportCache cache = this.cache;
+        final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetSelection> maybeNonLabel = cache.nonLabelSelection(selection);
         if (maybeNonLabel.isPresent()) {
             final SpreadsheetSelection nonLabel = maybeNonLabel.get();
@@ -433,7 +403,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
             // TODO show error somewhere in formula ?
         }
 
-        this.context.debug("SpreadsheetViewportWidget.setFormula text=" + CharSequences.quoteAndEscape(text));
+        context.debug("SpreadsheetViewportWidget.setFormula text=" + CharSequences.quoteAndEscape(text));
         this.formulaTextBox.setValue(text);
     }
 
@@ -578,7 +548,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
         this.formulaTextBox.toggleDisplay(shouldFormulaEnabled);
 
-        final SpreadsheetViewportCache cache = this.cache;
+        final SpreadsheetViewportCache cache = context.viewportCache();
         // "window": "A1:B12,WI1:WW12"
         //    A1:B12,
         //    WI1:WW12
@@ -593,7 +563,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final Set<SpreadsheetRowReference> rows = Sets.sorted();
 
         // gather visible columns and rows.
-        for (final SpreadsheetCellRange window : this.window().cellRanges()) {
+        for (final SpreadsheetCellRange window : cache.windows().cellRanges()) {
             for (final SpreadsheetColumnReference column : window.columnRange()) {
                 if (false == cache.isColumnHidden(column)) {
                     columns.add(column);
@@ -681,7 +651,8 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         context.viewportColumnHeaderStyle(this.isSelected(column))
                                 .set(
                                         TextStylePropertyName.WIDTH,
-                                        this.cache.columnWidth(column)
+                                        context.viewportCache()
+                                                .columnWidth(column)
                                 ).set(
                                         TextStylePropertyName.HEIGHT,
                                         COLUMN_HEIGHT
@@ -769,7 +740,8 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                         ROW_WIDTH
                                 ).set(
                                         TextStylePropertyName.HEIGHT,
-                                        this.cache.rowHeight(row)
+                                        context.viewportCache()
+                                                .rowHeight(row)
                                 )
                                 .css() + "box-sizing: border-box;"
                 );
@@ -803,11 +775,11 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private final static Length<?> ROW_WIDTH = Length.pixel(80.0);
 
     /**
-     * Renders the given cell, reading the cell contents from the {@link #cache}.
+     * Renders the given cell, reading the cell contents using {@link AppContext#viewportCache()}.
      */
     private HTMLTableCellElement renderCell(final SpreadsheetCellReference cellReference) {
         final AppContext context = this.context;
-        final SpreadsheetViewportCache cache = this.cache;
+        final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
         TextStyle style = this.metadata.effectiveStyle();
@@ -980,9 +952,11 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
         Optional<SpreadsheetCell> cell = Optional.empty();
 
-        final Optional<SpreadsheetSelection> nonLabelSelection = this.nonLabelSelection(selection);
+        final SpreadsheetViewportCache cache = this.context.viewportCache();
+
+        final Optional<SpreadsheetSelection> nonLabelSelection = cache.nonLabelSelection(selection);
         if (nonLabelSelection.isPresent()) {
-            cell = this.cache.cell(nonLabelSelection.get().toCell());
+            cell = cache.cell(nonLabelSelection.get().toCell());
         }
 
         return cell;

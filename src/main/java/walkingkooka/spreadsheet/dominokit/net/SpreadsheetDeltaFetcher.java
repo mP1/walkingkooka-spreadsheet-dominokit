@@ -166,7 +166,8 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
                         Optional.empty()
                 ).setQuery(
                         SpreadsheetDeltaFetcher.appendWindow(
-                                this.context.viewportWindow(),
+                                this.context.viewportCache()
+                                        .windows(),
                                 UrlQueryString.EMPTY
                         )
                 )

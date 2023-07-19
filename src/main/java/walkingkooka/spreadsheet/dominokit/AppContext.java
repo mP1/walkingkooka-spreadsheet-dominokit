@@ -21,7 +21,6 @@ import elemental2.dom.Element;
 import org.dominokit.domino.ui.dropdown.DropdownAction;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -30,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -100,9 +100,9 @@ public interface AppContext extends HistoryTokenContext, LoggingContext, Context
     void setFormula(final SpreadsheetSelection selection);
 
     /**
-     * Clears the viewport cache of cells and more.
+     * A cache for the viewport cache.
      */
-    void viewportCacheClear();
+    SpreadsheetViewportCache viewportCache();
 
     /**
      * Getter that returns a {@link SpreadsheetCell} if one exists for the {@link SpreadsheetSelection},
@@ -123,15 +123,7 @@ public interface AppContext extends HistoryTokenContext, LoggingContext, Context
      * Returns a {@link SpreadsheetSelection} resolving labels for the current viewport selection.
      * This basically exists to resolve labels to cells or cell-ranges.
      */
-    default Optional<SpreadsheetSelection> viewportNonLabelSelection() {
-        return this.viewportSelection()
-                .flatMap(this::nonLabelSelection);
-    }
-
-    /**
-     * Getter that returns the ranges of the viewport window.
-     */
-    SpreadsheetViewportWindows viewportWindow();
+    Optional<SpreadsheetSelection> viewportNonLabelSelection();
 
     TextStyle viewportAllStyle(final boolean selected);
 
@@ -140,12 +132,6 @@ public interface AppContext extends HistoryTokenContext, LoggingContext, Context
     TextStyle viewportColumnHeaderStyle(final boolean selected);
 
     TextStyle viewportRowHeaderStyle(final boolean selected);
-
-    /**
-     * If the {@link SpreadsheetSelection} is a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}
-     * return a {link SpreadsheetCellReference} otherwise return the original {@link SpreadsheetSelection}.
-     */
-    Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection);
 
     /**
      * If the {@link SpreadsheetSelection} is present, the element will be given focus.

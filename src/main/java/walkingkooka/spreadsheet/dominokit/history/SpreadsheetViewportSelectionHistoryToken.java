@@ -116,7 +116,8 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
                 ).setQuery(
                         SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
                                 viewportSelection,
-                                context.viewportWindow(),
+                                context.viewportCache()
+                                        .windows(),
                                 UrlQueryString.EMPTY
                         )
                 ),
@@ -196,7 +197,8 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
     final void giveViewportFocus(final AppContext context) {
         final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
         final SpreadsheetSelection selection = viewportSelection.selection();
-        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.nonLabelSelection(selection);
+        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.viewportCache()
+                .nonLabelSelection(selection);
 
         if (maybeNonLabelSelection.isPresent()) {
             final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
