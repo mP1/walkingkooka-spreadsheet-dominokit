@@ -110,7 +110,8 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                 ).setQuery(
                         SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
                                 viewportSelection,
-                                context.viewportWindow(),
+                                context.viewportCache()
+                                        .windows(),
                                 UrlQueryString.EMPTY
                         )
                 ),

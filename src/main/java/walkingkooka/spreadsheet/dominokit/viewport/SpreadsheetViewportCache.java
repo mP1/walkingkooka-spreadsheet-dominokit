@@ -230,12 +230,12 @@ public final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, 
      * Attempts to resolve any labels to a non label {@link SpreadsheetSelection}.
      * This is useful when trying to show selected cells for a label.
      */
-    Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
+    public Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
 
         SpreadsheetSelection nonLabel = selection;
 
-        if(selection.isLabelName()) {
+        if (selection.isLabelName()) {
             nonLabel = this.labelToNonLabel.get((SpreadsheetLabelName) selection);
         }
 
@@ -323,7 +323,7 @@ public final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, 
     /**
      * The viewport window.
      */
-    SpreadsheetViewportWindows windows() {
+    public SpreadsheetViewportWindows windows() {
         return this.windows;
     }
 

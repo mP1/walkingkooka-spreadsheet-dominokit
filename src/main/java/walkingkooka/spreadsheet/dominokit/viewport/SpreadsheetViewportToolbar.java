@@ -135,7 +135,9 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
                 visibility = "visible";
 
                 // if window is missing might be browser refresh, and refreshComponents is happening before loadViewportCells etc
-                if (false == context.viewportWindow().isEmpty()) {
+                if (false == context.viewportCache()
+                        .windows()
+                        .isEmpty()) {
                     refreshComponents(selection, context);
                 }
             }
@@ -153,7 +155,8 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
      */
     private void refreshComponents(final SpreadsheetSelection selection,
                                    final AppContext context) {
-        final SpreadsheetViewportWindows window = context.viewportWindow();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportWindows window = cache.windows();
         context.debug("SpreadsheetViewportToolbar.refreshComponents begin " + selection + " window: " + window);
 
         final List<SpreadsheetViewportToolbarComponent> components = this.components;

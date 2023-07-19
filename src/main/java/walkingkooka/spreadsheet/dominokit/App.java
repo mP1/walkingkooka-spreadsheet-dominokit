@@ -35,7 +35,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -52,6 +51,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatchers;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbar;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidget;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -123,6 +123,10 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         this.setupHistoryListener();
 
         this.registerWindowResizeListener();
+
+        this.viewportCache = SpreadsheetViewportCache.empty();
+        this.addSpreadsheetMetadataWatcher(this.viewportCache);
+        this.addSpreadsheetDeltaWatcher(this.viewportCache);
 
         this.viewportWidget = SpreadsheetViewportWidget.empty(this);
     }
@@ -469,6 +473,15 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     // Viewport.........................................................................................................
 
     /**
+     * Cache for the contents of the viewport.
+     */
+    public SpreadsheetViewportCache viewportCache() {
+        return this.viewportCache;
+    }
+
+    private final SpreadsheetViewportCache viewportCache;
+
+    /**
      * Init here to avoid race conditions with other fields like {@link #metadataWatchers}.
      */
     private final SpreadsheetViewportWidget viewportWidget;
@@ -488,18 +501,16 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     @Override
-    public void viewportCacheClear() {
-        this.viewportWidget.clearCache();
-    }
-
-    @Override
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
         return this.viewportWidget.viewportCell(selection);
     }
 
     @Override
-    public SpreadsheetViewportWindows viewportWindow() {
-        return this.viewportWidget.window();
+    public Optional<SpreadsheetSelection> viewportNonLabelSelection() {
+        return this.viewportSelection()
+                .flatMap(
+                        this.viewportCache()::nonLabelSelection
+                );
     }
 
     @Override
@@ -608,11 +619,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private final static Color COLUMN_ROW_UNSELECTED = Color.parse("#aaa");
 
     @Override
-    public Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
-        return this.viewportWidget.nonLabelSelection(selection);
-    }
-
-    @Override
     public void giveViewportFocus(final SpreadsheetSelection selection) {
         this.debug("App.giveViewportFocus " + selection);
 
@@ -652,7 +658,10 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     @Override
     public Optional<Element> findViewportElement(final SpreadsheetSelection selection) {
         Element element = null;
-        final Optional<SpreadsheetSelection> maybeNotLabel = this.nonLabelSelection(selection);
+
+        final Optional<SpreadsheetSelection> maybeNotLabel = this.viewportCache()
+                .nonLabelSelection(selection);
+
         if (maybeNotLabel.isPresent()) {
             element = DomGlobal.document
                     .getElementById(

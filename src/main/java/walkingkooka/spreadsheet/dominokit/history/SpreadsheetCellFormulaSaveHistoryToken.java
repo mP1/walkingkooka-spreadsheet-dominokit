@@ -118,7 +118,8 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                 ).setQuery(
                         SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
                                 viewportSelection,
-                                context.viewportWindow(),
+                                context.viewportCache()
+                                        .windows(),
                                 UrlQueryString.EMPTY
                         )
                 ),

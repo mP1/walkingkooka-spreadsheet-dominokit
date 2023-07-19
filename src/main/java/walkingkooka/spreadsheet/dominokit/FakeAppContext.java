@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -116,17 +116,17 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public void viewportCacheClear() {
+    public SpreadsheetViewportCache viewportCache() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<SpreadsheetSelection> viewportNonLabelSelection() {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetViewportWindows viewportWindow() {
         throw new UnsupportedOperationException();
     }
 
@@ -147,11 +147,6 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public TextStyle viewportRowHeaderStyle(final boolean selected) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
 
