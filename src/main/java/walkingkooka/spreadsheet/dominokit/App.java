@@ -94,6 +94,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         final LoggingContext loggingContext = LoggingContexts.elemental();
         this.loggingContext = loggingContext;
 
+        this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
+                ExpressionNumberKind.DEFAULT,
+                MathContext.DECIMAL32
+        );
+
         // metadata
         this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
         this.metadataWatchers = SpreadsheetMetadataWatchers.empty();
@@ -353,10 +358,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         return this.unmarshallContext;
     }
 
-    private JsonNodeUnmarshallContext unmarshallContext = JsonNodeUnmarshallContexts.basic(
-            ExpressionNumberKind.DEFAULT,
-            MathContext.DECIMAL32
-    );
+    private JsonNodeUnmarshallContext unmarshallContext;
 
     // history eventListener............................................................................................
 
