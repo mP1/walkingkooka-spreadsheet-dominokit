@@ -38,4 +38,9 @@ public interface HistoryTokenContext extends Context {
      * Pushes the given {@link HistoryToken} to the browser location.hash
      */
     void pushHistoryToken(final HistoryToken token);
+
+    /**
+     * Fires the current {@link HistoryToken} to all {@link HistoryTokenWatcher watchers}.
+     */
+    void fireCurrentHistoryToken();
 }

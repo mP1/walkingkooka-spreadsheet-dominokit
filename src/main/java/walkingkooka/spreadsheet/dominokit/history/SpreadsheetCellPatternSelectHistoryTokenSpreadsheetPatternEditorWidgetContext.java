@@ -150,6 +150,11 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
     }
 
     @Override
+    public void fireCurrentHistoryToken() {
+        this.context.fireCurrentHistoryToken();
+    }
+
+    @Override
     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
         return this.context.spreadsheetMetadata()
                 .formatterContext(
