@@ -88,8 +88,8 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
+    public void onHistoryTokenChange0(final HistoryToken previous,
+                                      final AppContext context) {
         // nop
     }
 

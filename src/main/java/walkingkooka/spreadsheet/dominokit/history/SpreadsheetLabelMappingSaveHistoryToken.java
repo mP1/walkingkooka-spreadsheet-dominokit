@@ -84,8 +84,8 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     }
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
+    void onHistoryTokenChange0(final HistoryToken previous,
+                               final AppContext context) {
         // POST label mapping
     }
 }

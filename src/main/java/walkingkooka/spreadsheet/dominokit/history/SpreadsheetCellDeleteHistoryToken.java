@@ -77,8 +77,8 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
+    void onHistoryTokenChange0(final HistoryToken previous,
+                               final AppContext context) {
         context.spreadsheetDeltaFetcher()
                 .deleteDelta(
                         this.id(),

@@ -105,8 +105,8 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
+    void onHistoryTokenChange0(final HistoryToken previous,
+                               final AppContext context) {
         final SpreadsheetPatternKind kind = this.patternKind();
 
         // clear the save from the history token.
