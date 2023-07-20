@@ -96,6 +96,11 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public void fireCurrentHistoryToken() {
+        throw new UnsupportedOperationException();
+    }
+
     // UI...............................................................................................................
 
     @Override

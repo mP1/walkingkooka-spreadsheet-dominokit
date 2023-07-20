@@ -414,6 +414,14 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     private final History history;
 
+    @Override
+    public void fireCurrentHistoryToken() {
+        this.historyWatchers.onHistoryTokenChange(
+                this.historyToken(),
+                this
+        );
+    }
+
     // HistoryWatcher...................................................................................................
 
     @Override
