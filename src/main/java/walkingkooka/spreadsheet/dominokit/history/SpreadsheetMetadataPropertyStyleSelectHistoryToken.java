@@ -62,8 +62,8 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
     }
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
+    void onHistoryTokenChange0(final HistoryToken previous,
+                               final AppContext context) {
         // show metadata style UI
     }
 }

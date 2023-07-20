@@ -20,7 +20,9 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
@@ -170,7 +172,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         HistoryToken result = this;
 
         final Optional<String> style = parseComponent(cursor);
-        if(style.isPresent()) {
+        if (style.isPresent()) {
             result = this.setStyle(
                     TextStylePropertyName.with(
                             style.get()
@@ -178,5 +180,45 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
             );
         }
         return result;
+    }
+
+    // onHistoryTokenChange.............................................................................................
+
+    /**
+     * Fired whenever a new history token change happens.
+     */
+    @Override
+    public final void onHistoryTokenChange(final HistoryToken previous,
+                                           final AppContext context) {
+        // if the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to
+        // be loaded then fire history token again.
+        if (this.id()
+                .equals(
+                        context.spreadsheetMetadata()
+                                .id()
+                                .orElse(null)
+                )) {
+            this.onHistoryTokenChange0(
+                    previous,
+                    context
+            );
+        } else {
+            context.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange token and context metadata have different ids, load SpreadsheetId and then fire current history token");
+            context.addSpreadsheetMetadataWatcher(this::onSpreadsheetMetadataFireHistory);
+        }
+    }
+
+    /**
+     * This method is only called if the {@link SpreadsheetMetadata} for the {@link #id()} has already been loaded.
+     */
+    abstract void onHistoryTokenChange0(final HistoryToken previous,
+                                        final AppContext context);
+
+    /**
+     * Fire the current history token again given the {@link SpreadsheetMetadata} has loaded.
+     */
+    private void onSpreadsheetMetadataFireHistory(final SpreadsheetMetadata metadata,
+                                                  final AppContext context) {
+        context.fireCurrentHistoryToken();
     }
 }

@@ -284,8 +284,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
      * If the {@link SpreadsheetId} has changed, load the new id.
      */
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
+    void onHistoryTokenChange0(final HistoryToken previous,
+                               final AppContext context) {
         boolean load = true;
         final SpreadsheetId id = this.id();
         if (previous instanceof SpreadsheetIdHistoryToken) {
