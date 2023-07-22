@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 public final class SpreadsheetViewportToolbarComponentTest extends SpreadsheetViewportToolbarComponentTestCase<SpreadsheetViewportToolbarComponent> {
+
+
     @Override
     public Class<SpreadsheetViewportToolbarComponent> type() {
         return SpreadsheetViewportToolbarComponent.class;

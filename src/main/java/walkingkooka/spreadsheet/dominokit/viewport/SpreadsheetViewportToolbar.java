@@ -201,9 +201,7 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
         return VIEWPORT_TOOLBAR_ID_PREFIX +
                 propertyName.constantName().toLowerCase() +
                 value.map(
-                        v -> '-' +
-                                value.toString()
-                                        .toUpperCase()
+                        v -> '-' + v.toString().toUpperCase()
                 ).orElse("");
     }
 
