@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.Event;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.jboss.elemento.EventType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -75,10 +76,10 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extend
 
         this.button.addEventListener(
                 EventType.click,
-                (event) -> this.onClick()
+                this::onClick
         ).addEventListener(
                 EventType.focus,
-                (event) -> this.onFocus()
+                this::onFocus
         );
 
         this.element().tabIndex = 0;
@@ -87,7 +88,7 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extend
     /**
      * When clicked perform a save on the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} and push that.
      */
-    private void onClick() {
+    private void onClick(final Event event) {
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
@@ -107,7 +108,7 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extend
     /**
      * Upon focus the history token is set {@link walkingkooka.spreadsheet.reference.SpreadsheetSelection} and the {@link TextStylePropertyName}.
      */
-    private void onFocus() {
+    private void onFocus(final Event event) {
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
