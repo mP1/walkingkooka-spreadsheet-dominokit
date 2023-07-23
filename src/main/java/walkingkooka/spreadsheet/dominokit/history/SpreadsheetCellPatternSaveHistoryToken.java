@@ -54,7 +54,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
                 id,
                 name,
                 viewportSelection,
-                patternKind
+                Optional.of(patternKind)
         );
 
         if (pattern.isPresent()) {
@@ -71,7 +71,8 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
                 id,
                 name,
                 this.viewportSelection(),
-                this.patternKind(),
+                this.patternKind()
+                        .get(),
                 this.pattern()
         );
     }
@@ -90,12 +91,12 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return cellPattern(
                 this.id(),
                 this.name(),
                 this.viewportSelection(),
-                patternKind
+                patternKind.get()
         );
     }
 
@@ -107,11 +108,14 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final SpreadsheetPatternKind kind = this.patternKind();
+        final SpreadsheetPatternKind kind = this.patternKind()
+                .get();
 
         // clear the save from the history token.
         context.pushHistoryToken(
-                this.setPatternKind(kind)
+                this.setPatternKind(
+                        Optional.of(kind)
+                )
         );
 
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();

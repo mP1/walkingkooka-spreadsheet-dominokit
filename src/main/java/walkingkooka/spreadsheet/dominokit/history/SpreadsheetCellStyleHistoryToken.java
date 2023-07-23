@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCellHistoryToken {
 
@@ -61,7 +62,7 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
     }
 
     @Override //
-    final HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
+    final HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 }

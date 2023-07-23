@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Optional;
+
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetMetadataHistoryToken(final SpreadsheetId id,
@@ -100,7 +102,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     }
 
     @Override //
-    final HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
+    final HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 

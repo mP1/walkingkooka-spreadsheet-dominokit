@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSelectionHistoryToken {
 
     SpreadsheetRowHistoryToken(final SpreadsheetId id,
@@ -103,7 +105,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportSele
     }
 
     @Override //
-    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return this; // TODO
     }
 

@@ -55,6 +55,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -577,7 +578,9 @@ public final class SpreadsheetPatternEditorWidget {
             dropdownButton.appendChild(
                     DropdownAction.create(
                             kind,
-                            historyToken.setPatternKind(kind)
+                            historyToken.setPatternKind(
+                                            Optional.of(kind)
+                                    )
                                     .link(
                                             spreadsheetPatternKindId(kind)
                                     ).setTabIndex(0)

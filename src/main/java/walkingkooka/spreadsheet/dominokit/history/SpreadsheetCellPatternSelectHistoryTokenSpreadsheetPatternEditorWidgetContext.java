@@ -41,7 +41,9 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
 
     @Override
     public SpreadsheetPatternKind patternKind() {
-        return this.historyToken().patternKind();
+        return this.historyToken()
+                .patternKind()
+                .get();
     }
 
     // SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
@@ -61,7 +63,10 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
 
         context.debug("SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidgetContext.setPatternKind " + patternKind);
         context.pushHistoryToken(
-                this.historyToken().setPatternKind(patternKind)
+                this.historyToken()
+                        .setPatternKind(
+                                Optional.of(patternKind)
+                        )
         );
     }
 

@@ -27,6 +27,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
+import java.util.Optional;
+
 public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellFreezeHistoryToken with(final SpreadsheetId id,
@@ -82,7 +84,7 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 

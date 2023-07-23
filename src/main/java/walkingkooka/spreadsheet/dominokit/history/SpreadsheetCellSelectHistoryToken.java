@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidgetWatc
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
+import java.util.Optional;
+
 public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHistoryToken
         implements SpreadsheetViewportWidgetWatcher {
 
@@ -73,13 +75,23 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
-        return cellPattern(
-                this.id(),
-                this.name(),
-                this.viewportSelection(),
-                patternKind
-        );
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+
+        return patternKind.isPresent() ?
+                cellPattern(
+                        id,
+                        name,
+                        viewportSelection,
+                        patternKind.get()
+                ) :
+                cellPatternToolbar(
+                        id,
+                        name,
+                        viewportSelection
+                );
     }
 
     @Override

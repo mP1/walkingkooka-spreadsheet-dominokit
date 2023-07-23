@@ -180,6 +180,19 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * {@see SpreadsheetCellPatternToolbarHistoryToken}
+     */
+    public static SpreadsheetCellPatternToolbarHistoryToken cellPatternToolbar(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellPatternToolbarHistoryToken.with(
+                id,
+                name,
+                viewportSelection
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellStyleSelectHistoryToken}
      */
     public static <T> SpreadsheetCellStyleSelectHistoryToken<T> cellStyle(final SpreadsheetId id,
@@ -835,7 +848,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a {@link HistoryToken} with the {@link SpreadsheetPatternKind}.
      */
-    public final HistoryToken setPatternKind(final SpreadsheetPatternKind kind) {
+    public final HistoryToken setPatternKind(final Optional<SpreadsheetPatternKind> kind) {
         return this.setIfSpreadsheetNameHistoryToken0(
                 SpreadsheetNameHistoryToken::setPatternKind0,
                 kind

@@ -28,20 +28,16 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public final class SpreadsheetCellPatternSelectHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternSelectHistoryToken> {
-
-    private final static SpreadsheetPatternKind KIND = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternToolbarHistoryToken> {
 
     // setPatternKind......................................................................................................
 
     @Test
     public void testSetPatternKindSame() {
-        final SpreadsheetCellPatternSelectHistoryToken historyToken = this.createHistoryToken();
+        final SpreadsheetCellPatternToolbarHistoryToken historyToken = this.createHistoryToken();
         assertSame(
                 historyToken,
-                historyToken.setPatternKind(
-                        Optional.of(KIND)
-                )
+                historyToken.setPatternKind(Optional.empty())
         );
     }
 
@@ -78,7 +74,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
     }
 
     private void setPatternKindAndCheck(
-            final SpreadsheetCellPatternSelectHistoryToken historyToken,
+            final SpreadsheetCellPatternToolbarHistoryToken historyToken,
             final Optional<SpreadsheetPatternKind> kind,
             final HistoryToken expected) {
         this.checkEquals(
@@ -92,14 +88,14 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/pattern/date-format");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/pattern");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/pattern/date-format"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/pattern"
         );
     }
 
@@ -107,24 +103,23 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/pattern/date-format"
+                "/123/SpreadsheetName456/cell/Label123/pattern"
         );
     }
 
     @Override
-    SpreadsheetCellPatternSelectHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                                final SpreadsheetName name,
-                                                                final SpreadsheetViewportSelection viewportSelection) {
-        return SpreadsheetCellPatternSelectHistoryToken.with(
+    SpreadsheetCellPatternToolbarHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final SpreadsheetViewportSelection viewportSelection) {
+        return SpreadsheetCellPatternToolbarHistoryToken.with(
                 id,
                 name,
-                viewportSelection,
-                KIND
+                viewportSelection
         );
     }
 
     @Override
-    public Class<SpreadsheetCellPatternSelectHistoryToken> type() {
-        return SpreadsheetCellPatternSelectHistoryToken.class;
+    public Class<SpreadsheetCellPatternToolbarHistoryToken> type() {
+        return SpreadsheetCellPatternToolbarHistoryToken.class;
     }
 }
