@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.tree.text.TextStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -81,16 +80,16 @@ final class SpreadsheetViewportToolbarComponentButtonPattern extends Spreadsheet
     }
 
     /**
-     * Upon focus the history token is set {@link walkingkooka.spreadsheet.reference.SpreadsheetSelection} and the {@link TextStylePropertyName}.
+     * Upon focus the history token is set {@link walkingkooka.spreadsheet.reference.SpreadsheetSelection} without the property name.
+     * A history token with the property name will actually open the {@link walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorWidget}.
      */
     private void onFocus(final Event event) {
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
                 .viewportSelectionHistoryTokenOrEmpty()
-                .map(
-                        t -> t.setPatternKind(this.spreadsheetPatternKind())
-                ).ifPresent(context::pushHistoryToken);
+                .map(t -> t.setPatternKind(this.spreadsheetPatternKind()))
+                .ifPresent(context::pushHistoryToken);
     }
 
     @Override
