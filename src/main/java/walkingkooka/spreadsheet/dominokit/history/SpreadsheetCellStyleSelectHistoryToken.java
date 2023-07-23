@@ -88,10 +88,6 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // show style controls like BOLD icon etc
-        context.setFormula(
-                this.viewportSelection()
-                        .selection()
-        );
+        // TODO select toolbar icon
     }
 }
