@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
+import java.util.Optional;
+
 public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellDeleteHistoryToken with(final SpreadsheetId id,
@@ -67,7 +69,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 

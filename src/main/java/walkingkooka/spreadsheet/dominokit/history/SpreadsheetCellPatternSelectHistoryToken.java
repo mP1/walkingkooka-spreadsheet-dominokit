@@ -50,7 +50,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                 id,
                 name,
                 viewportSelection,
-                patternKind
+                Optional.of(patternKind)
         );
     }
 
@@ -67,28 +67,31 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                 name,
                 this.viewportSelection(),
                 this.patternKind()
+                        .get()
         );
     }
 
     @Override
-    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return this.patternKind().equals(patternKind) ?
                 this :
                 this.replacePatternKind(patternKind);
     }
 
-    private HistoryToken replacePatternKind(final SpreadsheetPatternKind patternKind) {
+    private HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return new SpreadsheetCellPatternSelectHistoryToken(
                 this.id(),
                 this.name(),
                 this.viewportSelection(),
-                patternKind
+                patternKind.get()
         );
     }
 
     @Override
     HistoryToken setSave0(final String pattern) {
-        final SpreadsheetPatternKind patternKind = this.patternKind();
+        final SpreadsheetPatternKind patternKind = this.patternKind()
+                .get();
+
 
         return cellPatternSave(
                 this.id(),

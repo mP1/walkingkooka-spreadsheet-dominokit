@@ -74,24 +74,20 @@ final class SpreadsheetViewportToolbarComponentButtonPattern extends Spreadsheet
         context.historyToken()
                 .viewportSelectionHistoryTokenOrEmpty()
                 .map(
-                        t -> t.setPatternKind(this.spreadsheetPatternKind())
-                                .setSave("")
+                        t -> t.setPatternKind(
+                                Optional.of(
+                                        this.spreadsheetPatternKind()
+                                )
+                        ).setSave("")
                 ).ifPresent(context::pushHistoryToken);
     }
 
-    /**
-     * Temporary fix for https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/722.
-     * Previously giving focus to the pattern icon would immediately open the {@link walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorWidget}.
-     * This behaviour meant clicking the CLOSE button would give focus to the PATTERN ICON which would immediately re-open
-     * the {@link walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorWidget}.
-     * This FIX also means tabbing to the PATTERN ICON results in it losing focus, this will be fixed by
-     * https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/759.
-     */
     private void onFocus(final Event event) {
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
                 .viewportSelectionHistoryTokenOrEmpty()
+                .map(t -> t.setPatternKind(Optional.empty()))
                 .ifPresent(context::pushHistoryToken);
     }
 

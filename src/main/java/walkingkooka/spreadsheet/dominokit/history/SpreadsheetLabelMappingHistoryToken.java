@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSelectionHistoryToken {
 
     SpreadsheetLabelMappingHistoryToken(final SpreadsheetId id,
@@ -75,8 +77,8 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override //
-    final HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
-        return this;
+    final HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+        return this; // ignore
     }
 
     @Override //

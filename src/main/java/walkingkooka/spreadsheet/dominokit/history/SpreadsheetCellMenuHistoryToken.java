@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidgetWatc
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
+import java.util.Optional;
+
 public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistoryToken
         implements SpreadsheetViewportWidgetWatcher {
 
@@ -69,7 +71,7 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override
-    HistoryToken setPatternKind0(final SpreadsheetPatternKind patternKind) {
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 
