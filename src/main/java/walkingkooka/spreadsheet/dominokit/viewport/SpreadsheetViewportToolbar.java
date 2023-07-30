@@ -18,9 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.grid.flex.FlexItem;
-import org.dominokit.domino.ui.grid.flex.FlexLayout;
-import org.jboss.elemento.IsElement;
+import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -29,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.layout.FlexLayout;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -70,16 +69,15 @@ public final class SpreadsheetViewportToolbar implements HistoryTokenWatcher,
      * Creates a {@link FlexLayout} and populates it with the toolbar icons etc.
      */
     private FlexLayout createFlexLayout() {
-        final FlexItem<HTMLDivElement> flexItem = FlexItem.create();
+        final FlexLayout flexLayout = new FlexLayout();
 
         for (final SpreadsheetViewportToolbarComponent component : this.components) {
-            flexItem.appendChild(
+            flexLayout.appendChild(
                     component.element()
             );
         }
 
-        return FlexLayout.create()
-                .appendChild(flexItem);
+        return flexLayout;
     }
 
     private List<SpreadsheetViewportToolbarComponent> components(final HistoryTokenContext context) {

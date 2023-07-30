@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.dom;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
-import org.jboss.elemento.EventType;
-import org.jboss.elemento.IsElement;
+import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.events.EventType;
 
 import java.util.Objects;
 

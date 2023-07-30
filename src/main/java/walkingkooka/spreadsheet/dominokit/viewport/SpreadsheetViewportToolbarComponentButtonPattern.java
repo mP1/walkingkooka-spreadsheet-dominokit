@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.Event;
-import org.dominokit.domino.ui.icons.Icons;
-import org.jboss.elemento.EventType;
+import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.icons.lib.Icons;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -50,7 +50,7 @@ final class SpreadsheetViewportToolbarComponentButtonPattern extends Spreadsheet
     private SpreadsheetViewportToolbarComponentButtonPattern(final HistoryTokenContext context) {
         super(
                 SpreadsheetViewportToolbar.pattern(),
-                Icons.ALL.format_text_mdi(),
+                Icons.format_text(),
                 "Pattern edit",
                 context
         );
