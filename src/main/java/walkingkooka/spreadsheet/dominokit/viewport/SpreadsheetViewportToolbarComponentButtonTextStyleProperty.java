@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextNode;
-import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -186,20 +185,6 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extend
         this.setSaveValue(saveValue);
 
         context.debug("SpreadsheetViewportToolbarComponentButtonTextStyleProperty.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
-    }
-
-    private void setButtonSelected(final boolean selected,
-                                   final AppContext context) {
-        TextStyle style = BUTTON_STYLE;
-        if (selected) {
-            style = style.merge(
-                    context.selectedIconStyle()
-            );
-        }
-
-        this.button.style(
-                style.css()
-        );
     }
 
     private void setSaveValue(final T saveValue) {
