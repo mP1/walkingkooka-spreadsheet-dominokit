@@ -185,6 +185,12 @@ public class SpreadsheetDeltaFetcher implements Fetcher {
             final Optional<SpreadsheetViewportSelection> viewportSelection,
             final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
         Objects.requireNonNull(navigation, "navigation");
+        if (width <= 0) {
+            throw new IllegalArgumentException("Invalid width " + width + " <= 0");
+        }
+        if (height <= 0) {
+            throw new IllegalArgumentException("Invalid height " + height + " <= 0");
+        }
 
         this.context.debug("SpreadsheetDeltaFetcher.loadCells " + home + " " + width + "x" + height);
 
