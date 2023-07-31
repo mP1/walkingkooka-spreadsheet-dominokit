@@ -20,23 +20,25 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLTableCellElement;
-import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.elements.DivElement;
+import org.dominokit.domino.ui.elements.TBodyElement;
+import org.dominokit.domino.ui.elements.TDElement;
+import org.dominokit.domino.ui.elements.THElement;
+import org.dominokit.domino.ui.elements.TableElement;
+import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
+import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
-import org.jboss.elemento.Elements;
-import org.jboss.elemento.HtmlContentBuilder;
-import org.jboss.elemento.Key;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -45,6 +47,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
@@ -259,25 +262,25 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      */
     @Override
     public HTMLDivElement element() {
-        return this.root;
+        return this.root.element();
     }
 
     // root.............................................................................................................
 
-    private HTMLDivElement createRoot() {
-        final HtmlContentBuilder<HTMLDivElement> root = Elements.div();
+    private DivElement createRoot() {
+        final DivElement root = ElementsFactory.elements.div();
         root.style("border: none; margin: 0px; padding: none; width:100%");
 
-        root.add(this.formulaTextBox.element());
-        root.add(this.tableElement.element());
+        root.appendChild(this.formulaTextBox.element());
+        root.appendChild(this.tableElement);
 
-        return root.element();
+        return root;
     }
 
     /**
      * The root or container that holds the {@link #formulaTextBox} and {@link #tableElement}.
      */
-    private final HTMLDivElement root;
+    private final DivElement root;
 
     // formula..........................................................................................................
 
@@ -315,10 +318,9 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     }
 
     private void onFormulaTextBoxKeyDownEvent(final KeyboardEvent event) {
-        final Key key = Key.fromEvent(event);
         final AppContext context = this.context;
 
-        switch (key) {
+        switch (Key.fromEvent(event)) {
             case Enter:
                 context.debug("SpreadsheetViewportWidget.onFormulaTextBoxKeyDownEvent ENTER");
 
@@ -410,7 +412,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     }
 
     /**
-     * A {@link HTMLInputElement} that holds the selected cell formula for editing.
+     * A {@link TextBox} that holds the selected cell formula for editing.
      */
     private final TextBox formulaTextBox;
 
@@ -424,17 +426,17 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * Creates an empty table with minimal styling including some placeholder text.
      */
-    private HtmlContentBuilder<HTMLTableElement> createTable() {
-        final HtmlContentBuilder<HTMLTableElement> tableElement = Elements.table();
-        tableElement.id(VIEWPORT_ID);
+    private TableElement createTable() {
+        final TableElement tableElement = ElementsFactory.elements.table();
+        tableElement.setId(VIEWPORT_ID);
         tableElement.style("width: 100%; height: 100%;");
-        tableElement.add(
-                Elements.tbody()
-                        .add(
-                                Elements.tr()
-                                        .add(
-                                                Elements.td()
-                                                        .add(
+        tableElement.appendChild(
+                ElementsFactory.elements.tbody()
+                        .appendChild(
+                                ElementsFactory.elements.tr()
+                                        .appendChild(
+                                                ElementsFactory.elements.td()
+                                                        .appendChild(
                                                                 "spreadsheet here"
                                                         ).element()
                                         ).element()
@@ -447,7 +449,8 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     /**
      * A TABLE that holds the grid of cells including the column and row headers.
      */
-    private final HtmlContentBuilder<HTMLTableElement> tableElement;
+    //private final HtmlContentBuilder<HTMLTableElement tableElement;
+    private final TableElement tableElement;
 
     /**
      * The ID assigned to the container TABLE element.
@@ -472,13 +475,11 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private void onViewportKeyDownEvent(final KeyboardEvent event) {
         event.preventDefault();
 
-        final Key key = Key.fromEvent(event);
         final boolean shifted = event.shiftKey;
         final AppContext context = this.context;
 
         SpreadsheetViewportSelectionNavigation navigation = null;
-
-        switch (key) {
+        switch (Key.fromEvent(event)) {
             case ArrowLeft:
                 navigation = shifted ?
                         SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
@@ -533,12 +534,12 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      */
     private void render() {
         final boolean shouldFormulaEnabled = this.isFormulaEnabled();
-        final HtmlContentBuilder<HTMLTableElement> tableElement = this.tableElement;
+        final TableElement tableElement = this.tableElement;
 
         final AppContext context = this.context;
         context.debug("SpreadsheetViewportWidget.render isFormulaEnabled: " + shouldFormulaEnabled);
 
-        Elements.removeChildrenFrom(tableElement.element());
+        tableElement.clearElement();
 
         tableElement.element()
                 .style.set(
@@ -580,12 +581,12 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         }
 
         // top row of column headers
-        tableElement.add(
+        tableElement.appendChild(
                 renderColumnHeaders(columns)
         );
 
         // render the rows and cells
-        tableElement.add(
+        tableElement.appendChild(
                 this.renderRows(
                         rows,
                         columns
@@ -603,19 +604,19 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * Creates a THEAD holding a TR with the SELECT ALL and COLUMN headers.
      */
     private HTMLTableSectionElement renderColumnHeaders(final Collection<SpreadsheetColumnReference> columns) {
-        final HtmlContentBuilder<HTMLTableRowElement> tr = Elements.tr()
-                .add(
+        final TableRowElement tr = ElementsFactory.elements.tr()
+                .appendChild(
                         this.selectAll()
                 );
 
         for (final SpreadsheetColumnReference column : columns) {
-            tr.add(
+            tr.appendChild(
                     this.renderColumnHeader(column)
             );
         }
 
-        return Elements.thead()
-                .add(tr.element())
+        return ElementsFactory.elements.thead()
+                .appendChild(tr.element())
                 .element();
     }
 
@@ -624,9 +625,9 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      */
     // TODO add link
     private HTMLTableCellElement selectAll() {
-        return Elements.th()
+        return ElementsFactory.elements.th()
                 .id(VIEWPORT_SELECT_ALL_CELLS)
-                .add("ALL")
+                .appendChild("ALL")
                 .style(
                         this.context.viewportAllStyle(false)
                                 .set(
@@ -647,7 +648,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private HTMLTableCellElement renderColumnHeader(final SpreadsheetColumnReference column) {
         final AppContext context = this.context;
 
-        final HtmlContentBuilder<HTMLTableCellElement> td = Elements.th()
+        final THElement th = ElementsFactory.elements.th()
                 .id(id(column))
                 .style(
                         context.viewportColumnHeaderStyle(this.isSelected(column))
@@ -662,7 +663,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                 .css() + "box-sizing: border-box;"
                 );
 
-        td.add(
+        th.appendChild(
                 context.historyToken()
                         .setViewportSelection(
                                 Optional.of(
@@ -679,7 +680,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         ).element()
         );
 
-        final HTMLTableCellElement element = td.element();
+        final HTMLTableCellElement element = th.element();
         this.addViewportKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
@@ -695,10 +696,10 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      */
     private HTMLTableSectionElement renderRows(final Set<SpreadsheetRowReference> rows,
                                                final Set<SpreadsheetColumnReference> columns) {
-        final HtmlContentBuilder<HTMLTableSectionElement> tbody = Elements.tbody();
+        final TBodyElement tbody = ElementsFactory.elements.tbody();
 
         for (final SpreadsheetRowReference row : rows) {
-            tbody.add(
+            tbody.appendChild(
                     this.renderRow(
                             row,
                             columns
@@ -714,13 +715,13 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      */
     private HTMLTableRowElement renderRow(final SpreadsheetRowReference row,
                                           final Collection<SpreadsheetColumnReference> columns) {
-        final HtmlContentBuilder<HTMLTableRowElement> tr = Elements.tr()
-                .add(
+        final TableRowElement tr = ElementsFactory.elements.tr()
+                .appendChild(
                         this.renderRowHeader(row)
                 );
 
         for (final SpreadsheetColumnReference column : columns) {
-            tr.add(
+            tr.appendChild(
                     this.renderCell(
                             column.setRow(row)
                     )
@@ -733,7 +734,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private HTMLTableCellElement renderRowHeader(final SpreadsheetRowReference row) {
         final AppContext context = this.context;
 
-        final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
+        final TDElement td = ElementsFactory.elements.td()
                 .id(id(row))
                 .style(
                         context.viewportRowHeaderStyle(this.isSelected(row))
@@ -748,7 +749,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                 .css() + "box-sizing: border-box;"
                 );
 
-        td.add(
+        td.appendChild(
                 context.historyToken()
                         .setViewportSelection(
                                 Optional.of(
@@ -810,17 +811,15 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         .set(TextStylePropertyName.HEIGHT, cache.rowHeight(cellReference.row()))
         );
 
-        final HtmlContentBuilder<HTMLTableCellElement> td = Elements.td()
+        final TDElement td = ElementsFactory.elements.td()
                 .id(
                         id(cellReference)
-                ).attr(
-                        "tabindex",
-                        "0"
-                ).style(
+                ).setTabIndex(0)
+                .style(
                         style.css() + "box-sizing: border-box;"
                 );
         if (null != content) {
-            td.add(
+            td.appendChild(
                     Doms.node(content)
             );
         }

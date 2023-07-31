@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.CSSStyleDeclaration;
-import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
-import org.jboss.elemento.Key;
+import org.dominokit.domino.ui.elements.AnchorElement;
+import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -36,16 +36,13 @@ import java.util.Objects;
 /**
  * Abstraction for working with a HTML anchor.
  */
-public final class Anchor extends Element<HTMLAnchorElement> {
+public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
 
     /**
      * Creates a new un-attached ANCHOR.
      */
     public static Anchor empty() {
-        return new Anchor(
-                (HTMLAnchorElement)
-                        DomGlobal.document.createElement("a")
-        );
+        return new Anchor(ElementsFactory.elements.a());
     }
 
     /**
@@ -54,12 +51,16 @@ public final class Anchor extends Element<HTMLAnchorElement> {
     public static Anchor with(final HTMLAnchorElement element) {
         Objects.requireNonNull(element, "element");
 
-        return new Anchor(element);
+        return new Anchor(
+                AnchorElement.of(
+                        element
+                )
+        );
     }
 
-    private Anchor(final HTMLAnchorElement element) {
+    private Anchor(final AnchorElement element) {
         super(element);
-        element.style.set("margin", "5px");
+        element.element().style.set("margin", "5px");
     }
 
     // disabled.........................................................................................................
@@ -74,7 +75,7 @@ public final class Anchor extends Element<HTMLAnchorElement> {
     public Anchor setDisabled(final boolean disabled) {
         this.setAttribute("aria-disabled", disabled);
 
-        final HTMLAnchorElement element = this.element;
+        final HTMLAnchorElement element = this.element();
 
         if (disabled) {
             element.removeAttribute("href"); // cant assign null, because href will still be present and isDisabled() wll be confused and report false
@@ -130,16 +131,16 @@ public final class Anchor extends Element<HTMLAnchorElement> {
     // href.............................................................................................................
 
     public AbsoluteOrRelativeUrl href() {
-        final String href = this.element.href;
+        final String href = this.element().href;
         return CharSequences.isNullOrEmpty(href) ?
                 null :
                 Url.parseAbsoluteOrRelative(href);
     }
 
     public Anchor setHref(final Url url) {
-        this.element.href =
+        this.element().href =
                 null == url ?
-                       "" :
+                        "" :
                         url.toString();
         return this.setDisabled(null == url);
     }
@@ -202,14 +203,9 @@ public final class Anchor extends Element<HTMLAnchorElement> {
      * Adds a {@link EventListener} that receives click and keydown with ENTER events.
      */
     public Anchor addClickAndKeydownEnterListener(final EventListener listener) {
-        return this.addClickListener(listener)
-                .addKeydownListener(
-                        (e) -> {
-                            if (Key.Enter.match(e)) {
-                                listener.handleEvent(e);
-                            }
-                        }
-                );
+        this.element.onKeyPress(e -> e.onEnter(listener));
+
+        return this.addClickListener(listener);
     }
 
     // children.........................................................................................................
@@ -228,7 +224,7 @@ public final class Anchor extends Element<HTMLAnchorElement> {
 
     @Override
     public Anchor removeAllChildren() {
-        this.removeAllChildren0();
+        this.element.clearElement();
         return this;
     }
 }
