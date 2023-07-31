@@ -211,7 +211,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private Predicate<SpreadsheetSelection> selection = Predicates.never();
 
     private void loadViewportCellsIfNecessary() {
-        if (this.reload) {
+        if (this.reload && this.width > 0 && this.height > 0) {
             final AppContext context = this.context;
             if (context.spreadsheetMetadata().isEmpty()) {
                 context.debug("SpreadsheetViewportWidget.loadViewportCellsIfNecessary waiting for metadata");
