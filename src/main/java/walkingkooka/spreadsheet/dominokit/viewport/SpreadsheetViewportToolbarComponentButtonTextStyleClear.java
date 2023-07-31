@@ -132,19 +132,5 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleClear extends Spre
         context.debug("SpreadsheetViewportToolbarComponentButtonTextStyleClear.onToolbarRefreshEnd " + PROPERTY + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected);
     }
 
-    private void setButtonSelected(final boolean selected,
-                                   final AppContext context) {
-        TextStyle style = BUTTON_STYLE;
-        if (selected) {
-            style = style.merge(
-                    context.selectedIconStyle()
-            );
-        }
-
-        this.button.style(
-                style.css()
-        );
-    }
-
     private static final TextStylePropertyName<Void> PROPERTY = TextStylePropertyName.ALL;
 }

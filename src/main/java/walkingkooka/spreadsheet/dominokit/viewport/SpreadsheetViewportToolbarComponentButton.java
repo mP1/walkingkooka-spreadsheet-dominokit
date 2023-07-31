@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
@@ -53,7 +54,21 @@ abstract class SpreadsheetViewportToolbarComponentButton extends SpreadsheetView
         this.context = context;
     }
 
-    final static TextStyle BUTTON_STYLE = TextStyle.EMPTY.setMargin(
+    final void setButtonSelected(final boolean selected,
+                                 final AppContext context) {
+        TextStyle style = BUTTON_STYLE;
+        if (selected) {
+            style = style.merge(
+                    context.selectedIconStyle()
+            );
+        }
+
+        this.button.style(
+                style.css()
+        );
+    }
+
+    private final static TextStyle BUTTON_STYLE = TextStyle.EMPTY.setMargin(
             Length.pixel(5.0)
     );
 

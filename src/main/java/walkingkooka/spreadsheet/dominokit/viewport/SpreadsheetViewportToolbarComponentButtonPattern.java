@@ -150,20 +150,6 @@ final class SpreadsheetViewportToolbarComponentButtonPattern extends Spreadsheet
         context.debug("SpreadsheetViewportToolbarComponentButtonPattern.onToolbarRefreshEnd selected: " + selected + " patternToKindCount: " + patternKindToCount);
     }
 
-    private void setButtonSelected(final boolean selected,
-                                   final AppContext context) {
-        TextStyle style = BUTTON_STYLE;
-        if (selected) {
-            style = style.merge(
-                    context.selectedIconStyle()
-            );
-        }
-
-        this.button.style(
-                style.css()
-        );
-    }
-
     private SpreadsheetPatternKind spreadsheetPatternKind() {
         SpreadsheetPatternKind kind = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN;
         int count = 0;
