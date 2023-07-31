@@ -27,14 +27,15 @@ import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
+import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.icons.Icons;
-import org.dominokit.domino.ui.popover.PopupPosition;
+import org.dominokit.domino.ui.icons.lib.Icons;
+import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import org.jboss.elemento.Elements;
-import org.jboss.elemento.EventType;
 import org.jboss.elemento.HtmlContentBuilder;
-import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.predicate.Predicates;
@@ -267,7 +268,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final HtmlContentBuilder<HTMLDivElement> root = Elements.div();
         root.style("border: none; margin: 0px; padding: none; width:100%");
 
-        root.add(this.formulaTextBox);
+        root.add(this.formulaTextBox.element());
         root.add(this.tableElement.element());
 
         return root.element();
@@ -285,9 +286,6 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      */
     private TextBox createFormulaTextBox() {
         final TextBox textBox = TextBox.create()
-                .asTableField()
-                .setFieldStyle(() -> "")
-                .setSpellCheck(false)
                 .addEventListener(
                         EventType.keydown.getName(),
                         (event) -> onFormulaTextBoxKeyDownEvent(
@@ -295,20 +293,23 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         )
                 );
 
-        // if not hidden results in an extra pixel or two below the INPUT element.
-        textBox.getNotesContainer()
-                .hide();
+        textBox.element()
+                .style.set("margin-bottom", "0"); //
 
         textBox.getInputElement()
                 .addEventListener(
                         EventType.focus.getName(),
                         this::onFormulaTextBoxFocus
+                ).apply(
+                        self ->
+                                self.appendChild(
+                                        PostfixAddOn.of(
+                                                Icons.close_circle()
+                                                        .clickable()
+                                                        .addClickListener(evt -> self.element().value = "")
+                                        )
+                                )
                 );
-
-        textBox.addRightAddOn(
-                Icons.ALL.clear()
-                        .addClickListener(this::onFormulaTextBoxClearClickEvent)
-        );
 
         return textBox;
     }
@@ -675,7 +676,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         ).setTextContent(
                                 column.toString()
                                         .toUpperCase()
-                        )
+                        ).element()
         );
 
         final HTMLTableCellElement element = td.element();
@@ -761,7 +762,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                         ).setTextContent(
                                 row.toString()
                                         .toUpperCase()
-                        )
+                        ).element()
         );
 
         final HTMLTableCellElement element = td.element();
@@ -841,7 +842,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
             Tooltip.create(
                     element,
                     maybeError.get().message()
-            ).position(PopupPosition.BOTTOM);
+            ).setPosition(DropDirection.BOTTOM_MIDDLE);
         }
 
         return element;

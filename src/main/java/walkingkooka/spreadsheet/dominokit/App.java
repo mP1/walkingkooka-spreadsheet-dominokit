@@ -20,15 +20,16 @@ package walkingkooka.spreadsheet.dominokit;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
+import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
-import elemental2.dom.HTMLElement;
-import jsinterop.base.Js;
-import org.dominokit.domino.ui.layout.Layout;
+import org.dominokit.domino.ui.elements.SectionElement;
+import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.notifications.Notification;
+import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
-import org.jboss.elemento.EventType;
 import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
@@ -136,7 +137,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     // content = toolbar
     //   formula,
     //   table holding spreadsheet cells
-    private final Layout layout = Layout.create();
+    private final AppLayout layout = AppLayout.create();
 
     public void onModuleLoad() {
         this.prepareLayout();
@@ -152,27 +153,25 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private void prepareLayout() {
         final SpreadsheetViewportToolbar toolbar = SpreadsheetViewportToolbar.create(this);
 
-        final Layout layout = this.layout;
+        final AppLayout layout = this.layout;
         layout.style()
                 .setOverFlowX("hidden")
                 .setOverFlowY("hidden");
-        layout.fitHeight();
-        layout.fitWidth();
 
-        layout.getTopBar()
-                .element()
-                .append(toolbar.element());
+        final SectionElement content = layout.getContent();
+        content.appendChild(this.viewportWidget.element());
 
-        // remove flex-grow results in the toolbar now being left aligned rather than right.
-        Js.<HTMLElement>cast(
-                layout.getAppTitle()
-                        .parentElement
-                        .parentElement
-        ).style.set("flex-grow", "");
+        final CSSStyleDeclaration contentStyle = content.elementStyle();
+        contentStyle.set("padding", "0px"); // kills the dui-layout-content padding: 25px
+        contentStyle.set("overflow-y", "hidden"); // stop scrollbars on the cell viewport
 
-        layout.setContent(this.viewportWidget.element());
+        layout.getNavBar()
+                .getBody()
+                .appendChild(
+                        toolbar.element()
+                );
 
-        layout.show();
+        DomGlobal.document.body.append(layout.element());
     }
 
     private void registerWindowResizeListener() {
@@ -207,8 +206,10 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     private void onResize(final int width,
                           final int height) {
-        final Layout layout = this.layout;
-        final int navigationBarHeight = layout.getNavigationBar().element().offsetHeight;
+        final AppLayout layout = this.layout;
+        final int navigationBarHeight = layout.getNavBar()
+                .element()
+                .offsetHeight;
 
         final int newHeight = height - navigationBarHeight;
         this.debug("App.onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
@@ -334,11 +335,12 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     // misc..........................................................................................................
 
     public void setSpreadsheetName(final String name) {
-        this.layout.setTitle(name);
+        this.layout.getNavBar()
+                .setTitle(name);
     }
 
     private void showMetadataPanel(final boolean show) {
-        this.layout.getRightPanel()
+        this.layout.getRightDrawer()
                 .toggleDisplay(show);
     }
 
@@ -738,9 +740,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     public void error(final Object... values) {
         this.loggingContext.error(values);
 
-        Notification.createDanger(
+        Notification.create(
                         String.valueOf(values[0])
-                ).setPosition(Notification.TOP_CENTER)
+                ).setPosition(Position.TOP_MIDDLE)
                 .show();
     }
 

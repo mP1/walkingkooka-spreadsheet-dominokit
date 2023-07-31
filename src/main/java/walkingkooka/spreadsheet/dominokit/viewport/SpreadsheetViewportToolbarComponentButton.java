@@ -19,11 +19,9 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.button.ButtonSize;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import org.dominokit.domino.ui.popover.PopupPosition;
+import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
-import org.dominokit.domino.ui.style.StyleType;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
@@ -38,9 +36,7 @@ abstract class SpreadsheetViewportToolbarComponentButton extends SpreadsheetView
                                               final String tooltipText,
                                               final HistoryTokenContext context) {
         final Button button = Button.create(icon)
-                .circle()
-                .setSize(ButtonSize.MEDIUM)
-                .setButtonType(StyleType.DEFAULT);
+                .circle();
 
         button.style(BUTTON_STYLE.css());
         final HTMLElement element = button.element();
@@ -50,7 +46,7 @@ abstract class SpreadsheetViewportToolbarComponentButton extends SpreadsheetView
         Tooltip.create(
                 button,
                 tooltipText
-        ).position(PopupPosition.BOTTOM);
+        ).setPosition(DropDirection.BOTTOM_MIDDLE);
 
         this.button = button;
 

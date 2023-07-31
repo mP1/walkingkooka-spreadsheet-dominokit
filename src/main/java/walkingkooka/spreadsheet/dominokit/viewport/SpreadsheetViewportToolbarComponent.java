@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.icons.Icons;
-import org.jboss.elemento.IsElement;
+import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.icons.lib.Icons;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -39,7 +39,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.FONT_WEIGHT,
                 FontWeight.BOLD,
-                Icons.ALL.format_bold_mdi(),
+                Icons.format_bold(),
                 "Bold",
                 context
         );
@@ -55,7 +55,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.FONT_STYLE,
                 FontStyle.ITALIC,
-                Icons.ALL.format_italic_mdi(),
+                Icons.format_italic(),
                 "Italics",
                 context
         );
@@ -72,7 +72,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.LINE_THROUGH,
-                Icons.ALL.format_strikethrough_mdi(),
+                Icons.format_strikethrough(),
                 "Strike-thru",
                 context
         );
@@ -82,7 +82,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.LEFT,
-                Icons.ALL.format_align_left_mdi(),
+                Icons.format_align_left(),
                 "Left align",
                 context
         );
@@ -92,7 +92,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.CENTER,
-                Icons.ALL.format_align_center_mdi(),
+                Icons.format_align_center(),
                 "Center align",
                 context
         );
@@ -102,7 +102,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.RIGHT,
-                Icons.ALL.format_align_right_mdi(),
+                Icons.format_align_right(),
                 "Right align",
                 context
         );
@@ -112,7 +112,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY,
-                Icons.ALL.format_align_justify_mdi(),
+                Icons.format_align_justify(),
                 "Justify",
                 context
         );
@@ -122,7 +122,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE,
-                Icons.ALL.format_underline_mdi(),
+                Icons.format_underline(),
                 "Underline",
                 context
         );
@@ -132,7 +132,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.TOP,
-                Icons.ALL.format_align_top_mdi(),
+                Icons.format_align_top(),
                 "Align top",
                 context
         );
@@ -142,7 +142,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.MIDDLE,
-                Icons.ALL.format_align_middle_mdi(),
+                Icons.format_align_middle(),
                 "Align middle",
                 context
         );
@@ -152,7 +152,7 @@ abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElem
         return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.BOTTOM,
-                Icons.ALL.format_align_bottom_mdi(),
+                Icons.format_align_bottom(),
                 "Align bottom",
                 context
         );

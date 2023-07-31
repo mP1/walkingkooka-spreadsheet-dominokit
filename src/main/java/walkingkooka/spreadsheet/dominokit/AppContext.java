@@ -18,7 +18,8 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
-import org.dominokit.domino.ui.dropdown.DropdownAction;
+import org.dominokit.domino.ui.menu.AbstractMenuItem;
+import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
@@ -33,7 +34,6 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
@@ -144,15 +144,11 @@ public interface AppContext extends HistoryTokenContext, LoggingContext, Context
     Optional<Element> findViewportElement(final SpreadsheetSelection selection);
 
     /**
-     * Creates a {@link DropdownAction} which may be added to a drop-down menu.
-     * <br>
-     * If a {@link HistoryToken} is present a clickable link with its HREF with the {@link HistoryToken#urlFragment()}
-     * will be created.
-     * When clicked it will push the given {@link HistoryToken} to the history.
+     * Creates an ANCHOR with the givn text and if a {@link HistoryToken} is present will push that if clicked or
+     * selected with ENTER.
      */
-    default DropdownAction<HistoryToken> dropdownAction(final String text,
-                                                        final Optional<HistoryToken> historyToken) {
-        CharSequences.failIfNullOrEmpty(text, "text");
+    default AbstractMenuItem<Void> menuItem(final String text,
+                                            final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
         final HistoryToken value = historyToken.orElse(null);
@@ -161,9 +157,11 @@ public interface AppContext extends HistoryTokenContext, LoggingContext, Context
                 .setHistoryToken(value)
                 .setTextContent(text);
 
-        return DropdownAction.create(
-                value,
-                anchor.element()
-        ).addSelectionHandler(this::pushHistoryToken);
+        final AbstractMenuItem<Void> menu = new AbstractMenuItem<>() {
+
+        };
+        menu.appendChild(anchor);
+        menu.addSelectionHandler((ignored) -> this.pushHistoryToken(value));
+        return menu;
     }
 }

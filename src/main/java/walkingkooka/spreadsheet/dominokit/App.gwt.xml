@@ -17,8 +17,9 @@
   -->
 
 <module>
-<inherits name="walkingkooka.spreadsheet.Spreadsheet" />-->
+<inherits name="walkingkooka.spreadsheet.Spreadsheet"/>
     <inherits name="org.dominokit.domino.ui.DominoUI"/>
+    <inherits name="org.jboss.elemento.Core"/>
 
     <source path="">
         <exclude name="public"/>

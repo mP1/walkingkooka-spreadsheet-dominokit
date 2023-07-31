@@ -23,7 +23,8 @@ import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
-import org.jboss.elemento.IsElement;
+import org.dominokit.domino.ui.IsElement;
+import org.jboss.elemento.Key;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -31,8 +32,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
-
-import static org.jboss.elemento.Key.Enter;
 
 /**
  * Abstraction for working with a HTML anchor.
@@ -206,7 +205,7 @@ public final class Anchor extends Element<HTMLAnchorElement> {
         return this.addClickListener(listener)
                 .addKeydownListener(
                         (e) -> {
-                            if (Enter.match(e)) {
+                            if (Key.Enter.match(e)) {
                                 listener.handleEvent(e);
                             }
                         }

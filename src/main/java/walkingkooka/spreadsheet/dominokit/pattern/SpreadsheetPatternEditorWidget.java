@@ -25,20 +25,23 @@ import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.button.DropdownButton;
 import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.chips.Chip;
+import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.dropdown.DropDownPosition;
-import org.dominokit.domino.ui.dropdown.DropdownAction;
-import org.dominokit.domino.ui.forms.FieldStyle;
+import org.dominokit.domino.ui.dialogs.Dialog;
+import org.dominokit.domino.ui.dialogs.DialogSize;
+import org.dominokit.domino.ui.dialogs.DialogType;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.modals.ModalDialog;
-import org.dominokit.domino.ui.style.ColorScheme;
+import org.dominokit.domino.ui.icons.lib.Icons;
+import org.dominokit.domino.ui.layout.NavBar;
+import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
-import org.dominokit.domino.ui.utils.HasRemoveHandler.RemoveHandler;
-import org.jboss.elemento.EventType;
+import org.dominokit.domino.ui.utils.ElementsFactory;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
@@ -56,10 +59,11 @@ import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static org.dominokit.domino.ui.style.Unit.px;
+import static org.dominokit.domino.ui.utils.Unit.px;
 
 /**
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
@@ -81,19 +85,17 @@ public final class SpreadsheetPatternEditorWidget {
         this.patternComponentParent = Card.create();
         this.patternComponentChipPatternTexts = Lists.array();
 
-        this.patternAppendParent = Card.create().pullLeft();
+        this.patternAppendParent = Card.create();
         this.patternAppendLinks = Lists.array();
 
         final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRow> localListDataStore = new LocalListDataStore<>();
         this.sampleDataTable = new DataTable<>(
                 this.sampleTableConfig(),
                 localListDataStore
-        ).noStripes()
-                .condense()
-                .noBorder();
+        );
         this.sampleDataTableDataStore = localListDataStore;
 
-        this.modalDialog = this.modalDialogCreate(context.title());
+        this.dialog = this.dialogCreate(context.title());
 
         this.patternAppendLinksRebuild();
         this.setPatternText(context.loaded());
@@ -142,7 +144,11 @@ public final class SpreadsheetPatternEditorWidget {
         return ColumnConfig.<SpreadsheetPatternEditorWidgetSampleRow>create(columnName)
                 .setFixed(true)
                 .minWidth("25%")
-                .textAlign(CaseKind.kebabEnumName(textAlign))
+                .setTextAlign(
+                        CellTextAlign.valueOf(
+                                textAlign.name()
+                        )
+                )
                 .setCellRenderer(cell -> nodeMapper.apply(
                                 cell.getTableRow()
                                         .getRecord()
@@ -235,9 +241,13 @@ public final class SpreadsheetPatternEditorWidget {
         final TextBox textBox = new TextBox();
 
         textBox.id(ID_PREFIX + "pattern-TextBox");
-        textBox.setSpellCheck(false);
-        textBox.setFieldStyle(FieldStyle.ROUNDED);
-        textBox.setType("text");
+//        textBox.setSpellCheck(false);
+//        textBox.setFieldStyle(FieldStyle.ROUNDED);
+//        textBox.setType("text");
+
+        textBox.element().spellcheck = false;
+        textBox.element().type = "text";
+
         textBox.addEventListener(
                 EventType.input,
                 (e) -> this.onPatternTextBox(this.patternText())
@@ -326,15 +336,33 @@ public final class SpreadsheetPatternEditorWidget {
      */
     private final TextBox patternTextBox;
 
-    // modalDialog......................................................................................................
+    // dialog......................................................................................................
 
     /**
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
-    private ModalDialog modalDialogCreate(final String title) {
-        final ModalDialog modal = ModalDialog.create(title)
-                .large()
-                .setAutoClose(true);
+    private Dialog dialogCreate(final String title) {
+        final Dialog modal = Dialog.create() // TODO title
+                .setType(DialogType.DEFAULT) // large
+                .setAutoClose(true)
+                .setModal(true)
+                .setStretchWidth(DialogSize.LARGE)
+                .setStretchHeight(DialogSize.LARGE)
+                .withHeader(
+                        (dialog, header) ->
+                                header.appendChild(
+                                        NavBar.create(title)
+                                                //.addCss(dui_h_8, dui_p_0)
+                                                .appendChild(
+                                                        PostfixAddOn.of(
+                                                                Icons.close()
+                                                                        //.addCss(dui_fg)
+                                                                        .clickable()
+                                                                        .addClickListener(evt -> dialog.close())
+                                                        )
+                                                )
+                                )
+                );
         modal.id(ID);
 
         modal.appendChild(
@@ -351,14 +379,18 @@ public final class SpreadsheetPatternEditorWidget {
 
         modal.appendChild(this.patternTextBox);
 
-        modal.appendFooterChild(this.spreadsheetPatternKindDropDownCreate());
 
-        modal.appendFooterChild(Doms.textNode(""));
+        modal.footer().appendChild("FOOTER");
 
-        modal.appendFooterChild(this.saveButton());
-        modal.appendFooterChild(this.undoButton());
-        modal.appendFooterChild(this.removeButton());
-        modal.appendFooterChild(this.closeButton());
+        modal.appendChild(
+                ElementsFactory.elements.div()
+                        .appendChild(this.spreadsheetPatternKindDropDownCreate())
+                        .appendChild(" ")
+                        .appendChild(this.saveButton())
+                        .appendChild(this.undoButton())
+                        .appendChild(this.removeButton())
+                        .appendChild(this.closeButton())
+        );
 
         modal.open();
 
@@ -373,7 +405,7 @@ public final class SpreadsheetPatternEditorWidget {
     private void patternComponentChipsRebuild(
             final SpreadsheetPattern pattern,
             final String errorPattern) {
-        final Card parent = this.patternComponentParent.clearBody();
+        final Card parent = this.patternComponentParent.clearElement();
 
         final List<String> componentChipPatternTexts = this.patternComponentChipPatternTexts;
         componentChipPatternTexts.clear();
@@ -395,14 +427,11 @@ public final class SpreadsheetPatternEditorWidget {
             // now build the chips
             int i = 0;
             for (final String componentChipPatternText : componentChipPatternTexts) {
+                final int ii = i;
                 parent.appendChild(
-                        Chip.create()
+                        Chip.create(componentChipPatternText)
                                 .setRemovable(true)
-                                .setColorScheme(ColorScheme.PINK)
-                                .setValue(componentChipPatternText)
-                                .addRemoveHandler(
-                                        this.patternComponentChipOnRemove(i)
-                                )
+                                .addOnRemoveListener(this.patternComponentChipOnRemove(ii))
                 );
 
                 i++;
@@ -413,8 +442,8 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * This listener is fired when a chip is removed by clicking the X. It will recompute a new pattern and update the pattern text.
      */
-    private RemoveHandler patternComponentChipOnRemove(final int index) {
-        return () -> {
+    private Consumer<Chip> patternComponentChipOnRemove(final int index) {
+        return (chip) -> {
             final String removed = this.patternComponentChipPatternTexts.remove(index);
             this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
             this.setPatternText(
@@ -440,7 +469,7 @@ public final class SpreadsheetPatternEditorWidget {
         final SpreadsheetPatternEditorWidgetContext context = this.context;
         context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksRebuild");
 
-        final Card parent = this.patternAppendParent.clearBody();
+        final Card parent = this.patternAppendParent.clearElement();
         final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks = this.patternAppendLinks;
         patternAppendLinks.clear();
 
@@ -563,48 +592,47 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * Creates a drop down holding links for each {@link SpreadsheetPatternKind}. Each link when clicked will update the {@link SpreadsheetPatternKind}.
      */
-    private DropdownButton spreadsheetPatternKindDropDownCreate() {
+    private DropdownButton<?, ?> spreadsheetPatternKindDropDownCreate() {
         final SpreadsheetPatternEditorWidgetContext context = this.context;
         final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
 
-        final DropdownButton dropdownButton = DropdownButton.create("Pattern")
-                .setPosition(DropDownPosition.BOTTOM);
-
-        dropdownButton.style()
-                .setMargin(px.of(5))
-                .setMinWidth(px.of(120));
-
+        final Menu<?> menu = Menu.create();
         for (final SpreadsheetPatternKind kind : SpreadsheetPatternKind.values()) {
-            dropdownButton.appendChild(
-                    DropdownAction.create(
-                            kind,
-                            historyToken.setPatternKind(
-                                            Optional.of(kind)
-                                    )
-                                    .link(
-                                            spreadsheetPatternKindId(kind)
-                                    ).setTabIndex(0)
-                                    .addPushHistoryToken(
-                                            context
-                                    ).setTextContent(
-                                            context.patternKindButtonText(kind)
-                                    ).element()
-                    )
+            menu.appendChild(
+                    historyToken.setPatternKind(
+                                    Optional.of(kind)
+                            )
+                            .link(
+                                    spreadsheetPatternKindId(kind)
+                            ).setTabIndex(0)
+                            .addPushHistoryToken(
+                                    context
+                            ).setTextContent(
+                                    context.patternKindButtonText(kind)
+                            ).element()
             );
         }
+
+        final DropdownButton<?, ?> dropdownButton = DropdownButton.create(
+                Button.create("Pattern"),
+                menu
+        );
+
+        dropdownButton.style()
+                .setMinWidth(px.of(120));
 
         return dropdownButton;
     }
 
     /**
-     * Closes or hides the {@link ModalDialog}. THis is necessary when the history token changes and editing a pattern
+     * Closes or hides the {@link Dialog}. THis is necessary when the history token changes and editing a pattern
      * is no longer true.
      */
     public void close() {
-        this.modalDialog.close();
+        this.dialog.close();
     }
 
-    private final ModalDialog modalDialog;
+    private final Dialog dialog;
 
     /**
      * When clicked the CLOSE button invokes {@link #close}.
@@ -621,7 +649,7 @@ public final class SpreadsheetPatternEditorWidget {
         final SpreadsheetPatternEditorWidgetContext context = this.context;
         context.debug("SpreadsheetPatternEditorWidget.onCloseButtonClick");
         context.close();
-        this.modalDialog.close();
+        this.dialog.close();
     }
 
     /**
@@ -698,7 +726,7 @@ public final class SpreadsheetPatternEditorWidget {
         final Button button = new Button(text);
 
         button.id(ID_PREFIX + text.toLowerCase() + "-Button");
-        button.setButtonType(type);
+        button.addCss("dui-" + type.getStyle());
         button.elevate(Elevation.LEVEL_1);
 
         button.addEventListener(
@@ -717,7 +745,7 @@ public final class SpreadsheetPatternEditorWidget {
 
         context.debug("SpreadsheetPatternEditorWidget.refresh");
 
-        this.modalDialog.setTitle(context.title());
+        ///TODOthis.dialog.setTitle(context.title());
         this.patternAppendLinksRebuild();
         this.setPatternText(context.loaded());
     }

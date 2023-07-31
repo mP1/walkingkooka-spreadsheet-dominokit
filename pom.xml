@@ -30,7 +30,7 @@
     </issueManagement>
 
     <properties>
-        <domino.ui.version>1.0.0-RC18</domino.ui.version>
+        <domino.ui.version>HEAD-SNAPSHOT</domino.ui.version>
         <elemento.version>1.0.3</elemento.version>
         <elemental2.version>1.1.0</elemental2.version>
         <gwt.version>2.10.0</gwt.version>
@@ -94,6 +94,12 @@
                 <updatePolicy>daily</updatePolicy>
             </snapshots>
         </repository>
+
+        <repository>
+            <id>maven.repository.snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+
     </repositories>
 
     <dependencies>
@@ -150,6 +156,12 @@
             <groupId>org.gwtproject.editor</groupId>
             <artifactId>gwt-editor-processor</artifactId>
             <version>1.0.0-RC1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+            <version>1.0.3</version>
         </dependency>
 
         <!-- test scope is important to avoid clash with gwt-compiler -->

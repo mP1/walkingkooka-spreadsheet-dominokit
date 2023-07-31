@@ -21,7 +21,7 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
-import org.jboss.elemento.IsElement;
+import org.dominokit.domino.ui.IsElement;
 
 import java.util.Objects;
 
