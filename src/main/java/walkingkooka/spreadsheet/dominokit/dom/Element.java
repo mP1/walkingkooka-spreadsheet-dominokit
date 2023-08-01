@@ -18,41 +18,43 @@
 package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.EventListener;
-import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.elements.BaseElement;
 import org.dominokit.domino.ui.events.EventType;
 
 import java.util.Objects;
 
-public abstract class Element<T extends HTMLElement> implements IsElement<T> {
+public abstract class Element<D extends BaseElement<E, D>, E extends elemental2.dom.HTMLElement> implements IsElement<E> {
 
-    Element(final T element) {
+    //public abstract class Element<D extends BaseElement<E, T>, E extends elemental2.dom.Element, T extends BaseElement<E, T>> {
+
+    Element(final D element) {
         this.element = element;
     }
 
     // id...............................................................................................................
 
     public final String id() {
-        return this.element.id;
+        return this.element().id;
     }
 
-    public abstract Element<T> setId(final String id);
+    public abstract Element<D, E> setId(final String id);
 
     final void setId0(final String id) {
-        this.element.id = id;
+        this.element().id = id;
     }
 
     // tabIndex........................................................................................................
 
     public final int tabIndex() {
-        return this.element.tabIndex;
+        return this.element().tabIndex;
     }
 
-    public abstract Element<T> setTabIndex(final int tabIndex);
+    public abstract Element<D, E> setTabIndex(final int tabIndex);
 
     final void setTabIndex0(final int tabIndex) {
-        this.element.tabIndex = tabIndex;
+        this.element().tabIndex = tabIndex;
     }
 
     // attributes.......................................................................................................
@@ -79,13 +81,13 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
     // TextContent......................................................................................................
 
     public final String textContent() {
-        return this.element.textContent;
+        return this.element().textContent;
     }
 
-    public abstract Element<T> setTextContent(final String text);
+    public abstract Element<D, E> setTextContent(final String text);
 
     final void setTextContent0(final String text) {
-        this.element.textContent = text;
+        this.element().textContent = text;
     }
 
     // Events...........................................................................................................
@@ -93,7 +95,7 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
     /**
      * Adds a click {@link EventListener} to this element.
      */
-    public abstract Element<T> addClickListener(final EventListener listener);
+    public abstract Element<D, E> addClickListener(final EventListener listener);
 
     final void addClickListener0(final EventListener listener) {
         this.element.addEventListener(
@@ -105,7 +107,7 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
     /**
      * Adds a key down {@link EventListener} to this element.
      */
-    public abstract Element<T> addKeydownListener(final EventListener listener);
+    public abstract Element<D, E> addKeydownListener(final EventListener listener);
 
     final void addKeydownListener0(final EventListener listener) {
         this.element.addEventListener(
@@ -116,14 +118,14 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
 
     // children.........................................................................................................
 
-    public abstract Element<T> append(final Node node);
+    public abstract Element<D, E> append(final Node node);
 
     final void append0(final Node node) {
         Objects.requireNonNull(node, "node");
-        this.element.append(node);
+        this.element.appendChild(node);
     }
 
-    public abstract Element<T> append(final IsElement<?> element);
+    public abstract Element<D, E> append(final IsElement<?> element);
 
     final void append0(final IsElement<?> element) {
         Objects.requireNonNull(element, "element");
@@ -133,30 +135,16 @@ public abstract class Element<T extends HTMLElement> implements IsElement<T> {
     /**
      * Removes all child nodes.
      */
-    public abstract Element<T> removeAllChildren();
-
-    /**
-     * Removes all child nodes.
-     */
-    final void removeAllChildren0() {
-        final T element = this.element;
-        for (; ; ) {
-            final Node last = element.lastChild;
-            if (null == last) {
-                break;
-            }
-            element.removeChild(last);
-        }
-    }
+    public abstract Element<D, E> removeAllChildren();
 
     // isElement........................................................................................................
 
     @Override
-    public final T element() {
-        return this.element;
+    public final E element() {
+        return this.element.element();
     }
 
-    final T element;
+    final D element;
 
     // Object...........................................................................................................
 

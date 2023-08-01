@@ -158,12 +158,6 @@
             <version>1.0.0-RC1</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.jboss.elemento</groupId>
-            <artifactId>elemento-core</artifactId>
-            <version>1.0.3</version>
-        </dependency>
-
         <!-- test scope is important to avoid clash with gwt-compiler -->
         <dependency>
             <groupId>walkingkooka</groupId>
