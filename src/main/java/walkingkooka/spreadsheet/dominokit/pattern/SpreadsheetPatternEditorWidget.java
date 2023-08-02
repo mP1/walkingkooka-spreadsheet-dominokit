@@ -348,11 +348,9 @@ public final class SpreadsheetPatternEditorWidget {
                         (dialog, header) ->
                                 header.appendChild(
                                         NavBar.create(title)
-                                                //.addCss(dui_h_8, dui_p_0)
                                                 .appendChild(
                                                         PostfixAddOn.of(
                                                                 Icons.close()
-                                                                        //.addCss(dui_fg)
                                                                         .clickable()
                                                                         .addClickListener(evt -> dialog.close())
                                                         )
@@ -374,9 +372,6 @@ public final class SpreadsheetPatternEditorWidget {
         modal.appendChild(this.patternAppendParent);
 
         modal.appendChild(this.patternTextBox);
-
-
-        modal.footer().appendChild("FOOTER");
 
         modal.appendChild(
                 ElementsFactory.elements.div()
