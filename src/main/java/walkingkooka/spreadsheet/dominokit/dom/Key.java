@@ -32,11 +32,11 @@
  */
 package walkingkooka.spreadsheet.dominokit.dom;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import elemental2.dom.Event;
 import elemental2.dom.KeyboardEvent;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Selected key values according to <a href="https://www.w3.org/TR/DOM-Level-3-Events-key/">https://www.w3.org/TR/DOM-Level-3-Events-key/</a>.
@@ -131,7 +131,7 @@ public enum Key {
     ZoomIn("ZoomIn"),
     ZoomOut("ZoomOut");
 
-    private static Map<String, Key> keys = new HashMap<>();
+    private static final Map<String, Key> keys = new HashMap<>();
 
     static {
         for (Key key : Key.values()) {

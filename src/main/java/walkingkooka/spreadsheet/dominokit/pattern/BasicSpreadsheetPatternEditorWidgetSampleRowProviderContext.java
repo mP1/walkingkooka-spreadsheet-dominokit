@@ -63,7 +63,7 @@ final class BasicSpreadsheetPatternEditorWidgetSampleRowProviderContext implemen
         return this.spreadsheetFormatterContext;
     }
 
-    private SpreadsheetFormatterContext spreadsheetFormatterContext;
+    private final SpreadsheetFormatterContext spreadsheetFormatterContext;
 
     @Override
     public String toString() {
