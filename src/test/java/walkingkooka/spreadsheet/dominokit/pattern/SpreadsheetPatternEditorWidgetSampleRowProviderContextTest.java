@@ -135,7 +135,7 @@ public final class SpreadsheetPatternEditorWidgetSampleRowProviderContextTest im
         };
     }
 
-    class TestSpreadsheetFormatterContext extends FakeSpreadsheetFormatterContext {
+    static class TestSpreadsheetFormatterContext extends FakeSpreadsheetFormatterContext {
 
         @Override
         public boolean canConvert(final Object value,
