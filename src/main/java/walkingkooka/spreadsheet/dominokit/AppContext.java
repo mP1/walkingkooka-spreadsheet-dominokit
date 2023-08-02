@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
-import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
