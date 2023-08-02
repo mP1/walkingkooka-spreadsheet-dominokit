@@ -19,9 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.menu.Menu;
-import org.dominokit.domino.ui.menu.direction.BestFitSideDropDirection;
 import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
-import org.dominokit.domino.ui.menu.direction.TopMiddleDropDirection;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.net.UrlFragment;
