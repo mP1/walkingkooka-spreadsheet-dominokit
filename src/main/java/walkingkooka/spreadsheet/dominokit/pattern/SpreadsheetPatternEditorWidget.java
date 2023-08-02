@@ -241,10 +241,6 @@ public final class SpreadsheetPatternEditorWidget {
         final TextBox textBox = new TextBox();
 
         textBox.id(ID_PREFIX + "pattern-TextBox");
-//        textBox.setSpellCheck(false);
-//        textBox.setFieldStyle(FieldStyle.ROUNDED);
-//        textBox.setType("text");
-
         textBox.element().spellcheck = false;
         textBox.element().type = "text";
 
