@@ -171,6 +171,11 @@ final class SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorWidg
     }
 
     @Override
+    public void giveFocus(final Runnable focus) {
+        this.context.giveFocus(focus);
+    }
+
+    @Override
     public void debug(final Object... values) {
         this.context.debug(values);
     }
