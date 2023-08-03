@@ -82,11 +82,11 @@ public final class SpreadsheetPatternEditorWidget {
         this.context = context;
         this.patternTextBox = this.patternTextBox();
 
-        this.patternComponentParent = Card.create();
-        this.patternComponentChipPatternTexts = Lists.array();
+        this.componentParent = Card.create();
+        this.componentChipPatterns = Lists.array();
 
-        this.patternAppendParent = Card.create();
-        this.patternAppendLinks = Lists.array();
+        this.appendParent = Card.create();
+        this.appendLinks = Lists.array();
 
         final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRow> localListDataStore = new LocalListDataStore<>();
         this.sampleDataTable = new DataTable<>(
@@ -97,7 +97,80 @@ public final class SpreadsheetPatternEditorWidget {
 
         this.dialog = this.dialogCreate(context.title());
 
-        this.patternAppendLinksRebuild();
+        this.appendLinksRebuild();
+        this.setPatternText(context.loaded());
+    }
+
+    // dialog......................................................................................................
+
+    /**
+     * Creates the modal dialog, loaded with the pattern textbox and some buttons.
+     */
+    private Dialog dialogCreate(final String title) {
+        final Dialog modal = Dialog.create() // TODO title
+                .setType(DialogType.DEFAULT) // large
+                .setAutoClose(true)
+                .setModal(true)
+                .setStretchWidth(DialogSize.LARGE)
+                .setStretchHeight(DialogSize.LARGE)
+                .withHeader(
+                        (dialog, header) ->
+                                header.appendChild(
+                                        NavBar.create(title)
+                                                .appendChild(
+                                                        PostfixAddOn.of(
+                                                                Icons.close()
+                                                                        .clickable()
+                                                                        .addClickListener(evt -> dialog.close())
+                                                        )
+                                                )
+                                )
+                );
+        modal.id(ID);
+
+        modal.appendChild(
+                Card.create()
+                        .appendChild(
+                                this.sampleDataTable
+                        )
+        );
+
+        this.sampleDataTable.headerElement().hide();
+
+        modal.appendChild(this.componentParent);
+        modal.appendChild(this.appendParent);
+
+        modal.appendChild(this.patternTextBox);
+
+        modal.appendChild(
+                ElementsFactory.elements.div()
+                        .appendChild(this.spreadsheetPatternKindDropDownCreate())
+                        .appendChild(" ")
+                        .appendChild(this.saveButton())
+                        .appendChild(this.undoButton())
+                        .appendChild(this.removeButton())
+                        .appendChild(this.closeButton())
+        );
+
+        modal.open();
+
+        return modal;
+    }
+
+    private final Dialog dialog;
+
+    private final SpreadsheetPatternEditorWidgetContext context;
+
+    /**
+     * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
+     */
+    public void refresh() {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+
+        context.debug("SpreadsheetPatternEditorWidget.refresh");
+
+        ///TODOthis.dialog.setTitle(context.title());
+        this.appendLinksRebuild();
         this.setPatternText(context.loaded());
     }
 
@@ -169,14 +242,15 @@ public final class SpreadsheetPatternEditorWidget {
                                         .urlFragment()
                         )
                 ).setTextContent(patternText)
-                .addClickAndKeydownEnterListener(e ->
-                {
-                    e.preventDefault();
-                    this.setPatternText(patternText);
-                }).element();
+                .addClickAndKeydownEnterListener(
+                        e ->
+                        {
+                            e.preventDefault();
+                            this.setPatternText(patternText);
+                        }).element();
     }
 
-    private void prepareSampleData() {
+    private void sampleDataPrepare() {
         final SpreadsheetPatternEditorWidgetSampleRowProvider provider;
         final SpreadsheetPatternEditorWidgetContext context = this.context;
 
@@ -232,6 +306,197 @@ public final class SpreadsheetPatternEditorWidget {
 
     private final LocalListDataStore<SpreadsheetPatternEditorWidgetSampleRow> sampleDataTableDataStore;
 
+    // componentChips...................................................................................................
+
+    /**
+     * This is called anytime the pattern text is changed.
+     */
+    private void componentChipsRebuild(
+            final SpreadsheetPattern pattern,
+            final String errorPattern) {
+        final Card parent = this.componentParent.clearElement();
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+
+        final List<String> componentChipPatterns = this.componentChipPatterns;
+        componentChipPatterns.clear();
+
+        // pattern will be null when pattern is empty
+        if (null == pattern) {
+            context.debug("SpreadsheetPatternEditorWidget.componentChipsRebuild no chips");
+        } else {
+            pattern.components(
+                    (kind, tokenPatternText) -> componentChipPatterns.add(tokenPatternText)
+            );
+
+            context.debug("SpreadsheetPatternEditorWidget.componentChipsRebuild " + componentChipPatterns.size() + " chips ", componentChipPatterns);
+
+            if (false == errorPattern.isEmpty()) {
+                componentChipPatterns.add(errorPattern);
+            }
+
+            // now build the chips
+            int i = 0;
+            for (final String componentChipPattern : componentChipPatterns) {
+                final int ii = i;
+                parent.appendChild(
+                        Chip.create(componentChipPattern)
+                                .setRemovable(true)
+                                .addOnRemoveListener(this.componentChipOnRemove(ii))
+                );
+
+                i++;
+            }
+        }
+    }
+
+    /**
+     * This listener is fired when a chip is removed by clicking the X. It will recompute a new pattern and update the pattern text.
+     */
+    private Consumer<Chip> componentChipOnRemove(final int index) {
+        return (chip) -> {
+            final String removed = this.componentChipPatterns.remove(index);
+            this.context.debug("SpreadsheetPatternEditorWidget.componentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
+            this.setPatternText(
+                    this.componentChipPatterns.stream().collect(Collectors.joining())
+            );
+        };
+    }
+
+    /**
+     * THe parent holding all the current component pattern chips.
+     */
+    private final Card componentParent;
+
+    private final List<String> componentChipPatterns;
+
+    // appendLinks......................................................................................................
+
+    /**
+     * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
+     * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
+     */
+    private void appendLinksRebuild() {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+        context.debug("SpreadsheetPatternEditorWidget.appendLinksRebuild");
+
+        final Card parent = this.appendParent.clearElement();
+        final List<SpreadsheetPatternEditorWidgetAppendLink> appendLinks = this.appendLinks;
+        appendLinks.clear();
+
+        for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
+
+            switch (formatParserTokenKind) {
+                case COLOR_NAME:
+                case COLOR_NUMBER:
+                    break; // skip for now insert color pick instead
+                case CONDITION:
+                    break;
+                case GENERAL:
+                    break; // skip GENERAL for now
+                case TEXT_LITERAL:
+                    break; // skip - let the user insert the text literal into the patternTextBox
+
+                default:
+                    for (final String pattern : formatParserTokenKind.patterns()) {
+                        final Anchor anchor = Anchor.empty()
+                                .setTextContent(pattern);
+                        anchor.addClickAndKeydownEnterListener(
+                                (e) -> {
+                                    e.preventDefault();
+                                    this.setPatternText(
+                                            anchor.historyToken()
+                                                    .cast(SpreadsheetCellPatternSaveHistoryToken.class)
+                                                    .pattern()
+                                                    .orElse(null)
+                                                    .text()
+                                    );
+                                }
+                        );
+                        appendLinks.add(
+                                SpreadsheetPatternEditorWidgetAppendLink.with(
+                                        formatParserTokenKind,
+                                        pattern,
+                                        anchor
+                                )
+                        );
+                        parent.appendChild(anchor);
+                    }
+                    break;
+            }
+        }
+    }
+
+    /**
+     * This should be invoked each time the pattern text is updated, and will update the HREF for each append link.
+     * The updated href is not strictly needed and is merely cosmetic.
+     */
+    private void appendLinksHrefRefresh(final String patternText,
+                                        final SpreadsheetPattern pattern) {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+
+        final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
+
+        final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks = this.appendLinks;
+        context.debug("SpreadsheetPatternEditorWidget.appendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
+
+        for (final SpreadsheetPatternEditorWidgetAppendLink link : patternAppendLinks) {
+            String savePatternText = null;
+
+            if (patternText.isEmpty()) {
+                savePatternText = link.pattern;
+            } else {
+                if (null != pattern) {
+                    // get last SpreadsheetFormatPatternKind
+                    final SpreadsheetFormatParserTokenKind[] lastPatternKind = new SpreadsheetFormatParserTokenKind[1];
+                    final String[] lastPatternText = new String[1];
+
+                    pattern.components(
+                            (kk, tt) -> {
+                                lastPatternKind[0] = kk;
+                                lastPatternText[0] = tt;
+                            }
+                    );
+
+                    savePatternText = patternText;
+
+                    // this exists so if a pattern text ends in "d" then "dd" should replace the "d" not append and make it "ddd".
+                    if (lastPatternKind[0].isDuplicate(link.kind)) {
+                        // replace last
+                        savePatternText = patternText.substring(
+                                0,
+                                patternText.length() - lastPatternText[0].length()
+                        ) + link.pattern;
+                    } else {
+                        savePatternText = savePatternText + link.pattern;
+                    }
+                }
+            }
+
+            HistoryToken save = null;
+            if (null != savePatternText) {
+                try {
+                    save = historyToken.setSave(savePatternText);
+                } catch (final RuntimeException invalidPattern) {
+                    // ignore save is already null
+                }
+            }
+
+            context.debug("SpreadsheetPatternEditorWidget.appendLinksHrefRefresh: " + link.pattern + "=" + save);
+            link.anchor.setHistoryToken(save);
+        }
+    }
+
+    /**
+     * THe parent holding all the append-pattern links.
+     */
+    private final Card appendParent;
+
+    /**
+     * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
+     * This is kept to support updates o the ANCHOR link as the {@link #patternTextBox} changes.
+     */
+    private final List<SpreadsheetPatternEditorWidgetAppendLink> appendLinks;
+
     // patternTextBox...................................................................................................
 
     /**
@@ -280,7 +545,7 @@ public final class SpreadsheetPatternEditorWidget {
                 break; // best attempt stop
 
             } catch (final Exception failed) {
-                if(null == errorMessage) {
+                if (null == errorMessage) {
                     errorMessage = failed.getMessage();
                 }
 
@@ -298,12 +563,12 @@ public final class SpreadsheetPatternEditorWidget {
                 ).toString()
         );
 
-        this.patternComponentChipsRebuild(
+        this.componentChipsRebuild(
                 pattern,
                 errorPattern
         );
 
-        this.patternAppendLinksHrefRefresh(
+        this.appendLinksHrefRefresh(
                 patternText,
                 CharSequences.nullToEmpty(
                         errorMessage
@@ -312,7 +577,7 @@ public final class SpreadsheetPatternEditorWidget {
                         pattern
         );
 
-        this.prepareSampleData();
+        this.sampleDataPrepare();
     }
 
     /**
@@ -331,252 +596,6 @@ public final class SpreadsheetPatternEditorWidget {
      * The {@link TextBox} that holds the pattern in text form.
      */
     private final TextBox patternTextBox;
-
-    // dialog......................................................................................................
-
-    /**
-     * Creates the modal dialog, loaded with the pattern textbox and some buttons.
-     */
-    private Dialog dialogCreate(final String title) {
-        final Dialog modal = Dialog.create() // TODO title
-                .setType(DialogType.DEFAULT) // large
-                .setAutoClose(true)
-                .setModal(true)
-                .setStretchWidth(DialogSize.LARGE)
-                .setStretchHeight(DialogSize.LARGE)
-                .withHeader(
-                        (dialog, header) ->
-                                header.appendChild(
-                                        NavBar.create(title)
-                                                .appendChild(
-                                                        PostfixAddOn.of(
-                                                                Icons.close()
-                                                                        .clickable()
-                                                                        .addClickListener(evt -> dialog.close())
-                                                        )
-                                                )
-                                )
-                );
-        modal.id(ID);
-
-        modal.appendChild(
-                Card.create()
-                        .appendChild(
-                                this.sampleDataTable
-                        )
-        );
-
-        this.sampleDataTable.headerElement().hide();
-
-        modal.appendChild(this.patternComponentParent);
-        modal.appendChild(this.patternAppendParent);
-
-        modal.appendChild(this.patternTextBox);
-
-        modal.appendChild(
-                ElementsFactory.elements.div()
-                        .appendChild(this.spreadsheetPatternKindDropDownCreate())
-                        .appendChild(" ")
-                        .appendChild(this.saveButton())
-                        .appendChild(this.undoButton())
-                        .appendChild(this.removeButton())
-                        .appendChild(this.closeButton())
-        );
-
-        modal.open();
-
-        return modal;
-    }
-
-    // componentPattern.................................................................................................
-
-    /**
-     * This is called anytime the pattern text is changed.
-     */
-    private void patternComponentChipsRebuild(
-            final SpreadsheetPattern pattern,
-            final String errorPattern) {
-        final Card parent = this.patternComponentParent.clearElement();
-
-        final List<String> componentChipPatternTexts = this.patternComponentChipPatternTexts;
-        componentChipPatternTexts.clear();
-
-        // pattern will be null when pattern is empty
-        if(null == pattern) {
-            this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild no chips");
-        } else {
-            pattern.components(
-                    (kind, tokenPatternText) -> componentChipPatternTexts.add(tokenPatternText)
-            );
-
-            this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipsRebuild " +componentChipPatternTexts.size() + " chips ", componentChipPatternTexts);
-
-            if (false == errorPattern.isEmpty()) {
-                componentChipPatternTexts.add(errorPattern);
-            }
-
-            // now build the chips
-            int i = 0;
-            for (final String componentChipPatternText : componentChipPatternTexts) {
-                final int ii = i;
-                parent.appendChild(
-                        Chip.create(componentChipPatternText)
-                                .setRemovable(true)
-                                .addOnRemoveListener(this.patternComponentChipOnRemove(ii))
-                );
-
-                i++;
-            }
-        }
-    }
-
-    /**
-     * This listener is fired when a chip is removed by clicking the X. It will recompute a new pattern and update the pattern text.
-     */
-    private Consumer<Chip> patternComponentChipOnRemove(final int index) {
-        return (chip) -> {
-            final String removed = this.patternComponentChipPatternTexts.remove(index);
-            this.context.debug("SpreadsheetPatternEditorWidget.patternComponentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
-            this.setPatternText(
-                    this.patternComponentChipPatternTexts.stream().collect(Collectors.joining())
-            );
-        };
-    }
-
-    /**
-     * THe parent holding all the current component pattern chips.
-     */
-    private final Card patternComponentParent;
-
-    private final List<String> patternComponentChipPatternTexts;
-
-    // appendPattern....................................................................................................
-
-    /**
-     * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
-     * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
-     */
-    private void patternAppendLinksRebuild() {
-        final SpreadsheetPatternEditorWidgetContext context = this.context;
-        context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksRebuild");
-
-        final Card parent = this.patternAppendParent.clearElement();
-        final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks = this.patternAppendLinks;
-        patternAppendLinks.clear();
-
-        for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
-
-            switch (formatParserTokenKind) {
-                case COLOR_NAME:
-                case COLOR_NUMBER:
-                    break; // skip for now insert color pick instead
-                case CONDITION:
-                    break;
-                case GENERAL:
-                    break; // skip GENERAL for now
-                case TEXT_LITERAL:
-                    break; // skip - let the user insert the text literal into the patternTextBox
-
-                default:
-                    for (final String pattern : formatParserTokenKind.patterns()) {
-                        final Anchor anchor = Anchor.empty()
-                                .setTextContent(pattern);
-                        anchor.addClickAndKeydownEnterListener(
-                                (e) -> {
-                                    e.preventDefault();
-                                    this.setPatternText(
-                                            anchor.historyToken()
-                                                    .cast(SpreadsheetCellPatternSaveHistoryToken.class)
-                                                    .pattern()
-                                                    .orElse(null)
-                                                    .text()
-                                    );
-                                }
-                        );
-                        patternAppendLinks.add(
-                                SpreadsheetPatternEditorWidgetAppendLink.with(
-                                        formatParserTokenKind,
-                                        pattern,
-                                        anchor
-                                )
-                        );
-                        parent.appendChild(anchor);
-                    }
-                    break;
-            }
-        }
-    }
-
-    /**
-     * This should be invoked each time the pattern text is updated, and will update the link for each append link.
-     * The updated href is not strictly needed and is merely cosmetic.
-     */
-    private void patternAppendLinksHrefRefresh(final String patternText,
-                                               final SpreadsheetPattern pattern) {
-        final SpreadsheetPatternEditorWidgetContext context = this.context;
-
-        final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
-
-        final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks = this.patternAppendLinks;
-        context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
-
-        for (final SpreadsheetPatternEditorWidgetAppendLink link : patternAppendLinks) {
-            String savePatternText = null;
-
-            if (patternText.isEmpty()) {
-                savePatternText = link.pattern;
-            } else {
-                if (null != pattern) {
-                    // get last SpreadsheetFormatPatternKind
-                    final SpreadsheetFormatParserTokenKind[] lastPatternKind = new SpreadsheetFormatParserTokenKind[1];
-                    final String[] lastPatternText = new String[1];
-
-                    pattern.components(
-                            (kk, tt) -> {
-                                lastPatternKind[0] = kk;
-                                lastPatternText[0] = tt;
-                            }
-                    );
-
-                    savePatternText = patternText;
-
-                    // this exists so if a pattern text ends in "d" then "dd" should replace the "d" not append and make it "ddd".
-                    if (lastPatternKind[0].isDuplicate(link.kind)) {
-                        // replace last
-                        savePatternText = patternText.substring(
-                                0,
-                                patternText.length() - lastPatternText[0].length()
-                        ) + link.pattern;
-                    } else {
-                        savePatternText = savePatternText + link.pattern;
-                    }
-                }
-            }
-
-            HistoryToken save = null;
-            if (null != savePatternText) {
-                try {
-                    save = historyToken.setSave(savePatternText);
-                } catch (final RuntimeException invalidPattern) {
-                    // ignore save is already null
-                }
-            }
-
-            context.debug("SpreadsheetPatternEditorWidget.patternAppendLinksHrefRefresh: " + link.pattern + "=" + save);
-            link.anchor.setHistoryToken(save);
-        }
-    }
-
-    /**
-     * THe parent holding all the append-pattern links.
-     */
-    private final Card patternAppendParent;
-
-    /**
-     * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
-     * This is kept to support updates o the ANCHOR link as the {@link #patternTextBox} changes.
-     */
-    private final List<SpreadsheetPatternEditorWidgetAppendLink> patternAppendLinks;
 
     // switch pattern kind..............................................................................................
 
@@ -615,6 +634,8 @@ public final class SpreadsheetPatternEditorWidget {
         return dropdownButton;
     }
 
+    // buttons..........................................................................................................
+
     /**
      * Closes or hides the {@link Dialog}. THis is necessary when the history token changes and editing a pattern
      * is no longer true.
@@ -622,8 +643,6 @@ public final class SpreadsheetPatternEditorWidget {
     public void close() {
         this.dialog.close();
     }
-
-    private final Dialog dialog;
 
     /**
      * When clicked the CLOSE button invokes {@link #close}.
@@ -727,21 +746,6 @@ public final class SpreadsheetPatternEditorWidget {
 
         return button;
     }
-
-    /**
-     * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
-     */
-    public void refresh() {
-        final SpreadsheetPatternEditorWidgetContext context = this.context;
-
-        context.debug("SpreadsheetPatternEditorWidget.refresh");
-
-        ///TODOthis.dialog.setTitle(context.title());
-        this.patternAppendLinksRebuild();
-        this.setPatternText(context.loaded());
-    }
-
-    private final SpreadsheetPatternEditorWidgetContext context;
 
     // ids..............................................................................................................
 
