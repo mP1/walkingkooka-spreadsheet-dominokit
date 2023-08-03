@@ -17,8 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.NeverError;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +33,52 @@ import java.util.function.Function;
  * for the sample.
  */
 abstract class SpreadsheetPatternEditorWidgetSampleRowProvider implements BiFunction<String, SpreadsheetPatternEditorWidgetSampleRowProviderContext, List<SpreadsheetPatternEditorWidgetSampleRow>> {
+
+    /**
+     * Selects the correct {@link SpreadsheetPatternEditorWidgetSampleRowProvider} using the given {@link SpreadsheetPatternKind}.
+     */
+    static SpreadsheetPatternEditorWidgetSampleRowProvider spreadsheetPatternKind(final SpreadsheetPatternKind kind) {
+        Objects.requireNonNull(kind, "kind");
+
+        final SpreadsheetPatternEditorWidgetSampleRowProvider provider;
+
+        switch (kind) {
+            case DATE_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.dateFormat();
+                break;
+            case DATE_PARSE_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.dateParse();
+                break;
+            case DATE_TIME_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.dateTimeFormat();
+                break;
+            case DATE_TIME_PARSE_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.dateTimeParse();
+                break;
+            case NUMBER_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.numberFormat();
+                break;
+            case NUMBER_PARSE_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.numberParse();
+                break;
+            case TEXT_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.textFormat();
+                break;
+            case TIME_FORMAT_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.timeFormat();
+                break;
+            case TIME_PARSE_PATTERN:
+                provider = SpreadsheetPatternEditorWidgetSampleRowProvider.timeParse();
+                break;
+            default:
+                provider = NeverError.unhandledEnum(
+                        kind,
+                        SpreadsheetPatternKind.values()
+                );
+        }
+
+        return provider;
+    }
 
     /**
      * {@see SpreadsheetPatternEditorWidgetSampleRowProviderDateFormat}
