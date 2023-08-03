@@ -22,7 +22,6 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.button.DropdownButton;
 import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.chips.Chip;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
@@ -37,9 +36,10 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.NavBar;
-import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
+import org.dominokit.domino.ui.tabs.Tab;
+import org.dominokit.domino.ui.tabs.TabsPanel;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
@@ -61,8 +61,6 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
-import static org.dominokit.domino.ui.utils.Unit.px;
 
 /**
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
@@ -94,7 +92,15 @@ public final class SpreadsheetPatternEditorWidget {
         );
         this.sampleDataTableDataStore = localListDataStore;
 
-        this.dialog = this.dialogCreate(context.title());
+        this.dialogNavBar = NavBar.create(context.title())
+                .appendChild(
+                        PostfixAddOn.of(
+                                Icons.close()
+                                        .clickable()
+                                        .addClickListener(evt -> this.close())
+                        )
+                );
+        this.dialog = this.dialogCreate();
 
         this.appendLinksRebuild();
         this.setPatternText(context.loaded());
@@ -105,8 +111,8 @@ public final class SpreadsheetPatternEditorWidget {
     /**
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
-    private Dialog dialogCreate(final String title) {
-        final Dialog modal = Dialog.create() // TODO title
+    private Dialog dialogCreate() {
+        final Dialog modal = Dialog.create()
                 .setType(DialogType.DEFAULT) // large
                 .setAutoClose(true)
                 .setModal(true)
@@ -114,18 +120,11 @@ public final class SpreadsheetPatternEditorWidget {
                 .setStretchHeight(DialogSize.LARGE)
                 .withHeader(
                         (dialog, header) ->
-                                header.appendChild(
-                                        NavBar.create(title)
-                                                .appendChild(
-                                                        PostfixAddOn.of(
-                                                                Icons.close()
-                                                                        .clickable()
-                                                                        .addClickListener(evt -> dialog.close())
-                                                        )
-                                                )
-                                )
+                                header.appendChild(this.dialogNavBar)
                 );
         modal.id(ID);
+
+        modal.appendChild(this.spreadsheetPatternKindTabs());
 
         modal.appendChild(
                 Card.create()
@@ -143,8 +142,6 @@ public final class SpreadsheetPatternEditorWidget {
 
         modal.appendChild(
                 ElementsFactory.elements.div()
-                        .appendChild(this.spreadsheetPatternKindDropDownCreate())
-                        .appendChild(" ")
                         .appendChild(this.saveButton())
                         .appendChild(this.undoButton())
                         .appendChild(this.removeButton())
@@ -153,10 +150,19 @@ public final class SpreadsheetPatternEditorWidget {
 
         modal.open();
 
+        context.giveFocus(
+                () -> this.patternTextBox.focus()
+        );
+
         return modal;
     }
 
     private final Dialog dialog;
+
+    /**
+     * Includes the dialog title.
+     */
+    private final NavBar dialogNavBar;
 
     private final SpreadsheetPatternEditorWidgetContext context;
 
@@ -168,9 +174,51 @@ public final class SpreadsheetPatternEditorWidget {
 
         context.debug("SpreadsheetPatternEditorWidget.refresh");
 
-        ///TODOthis.dialog.setTitle(context.title());
+        this.dialogNavBar.setTitle(context.title());
         this.appendLinksRebuild();
         this.setPatternText(context.loaded());
+    }
+
+    // tabs............................................................................................................
+
+    /**
+     * Returns a {@link TabsPanel} with tabs for each of the possible {@link SpreadsheetPatternKind}, with each
+     * tab holding a link which will switch to that pattern.
+     */
+    private TabsPanel spreadsheetPatternKindTabs() {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+        final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
+        final Optional<SpreadsheetPatternKind> maybePatternKind = historyToken.patternKind();
+
+        final TabsPanel tabsPanel = TabsPanel.create();
+
+        for (final SpreadsheetPatternKind kind : SpreadsheetPatternKind.values()) {
+            final String text = context.patternKindButtonText(kind);
+            final Tab tab = Tab.create(text);
+            final Anchor anchor = Anchor.with(
+                    (HTMLAnchorElement)
+                            tab.getTab()
+                                    .element()
+                                    .firstElementChild
+            ).setId(spreadsheetPatternKindId(kind));
+
+            final boolean match = maybePatternKind.isPresent() &&
+                    maybePatternKind.get().equals(kind);
+            anchor.setDisabled(match);
+            tab.activate(match);
+
+            if (false == match) {
+                anchor.setHistoryToken(
+                        historyToken.setPatternKind(
+                                Optional.of(kind)
+                        )
+                ).addPushHistoryToken(context);
+            }
+
+            tabsPanel.appendChild(tab);
+        }
+
+        return tabsPanel;
     }
 
     // sample...........................................................................................................
@@ -560,43 +608,6 @@ public final class SpreadsheetPatternEditorWidget {
      * The {@link TextBox} that holds the pattern in text form.
      */
     private final TextBox patternTextBox;
-
-    // switch pattern kind..............................................................................................
-
-    /**
-     * Creates a drop down holding links for each {@link SpreadsheetPatternKind}. Each link when clicked will update the {@link SpreadsheetPatternKind}.
-     */
-    private DropdownButton<?, ?> spreadsheetPatternKindDropDownCreate() {
-        final SpreadsheetPatternEditorWidgetContext context = this.context;
-        final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
-
-        final Menu<?> menu = Menu.create();
-        for (final SpreadsheetPatternKind kind : SpreadsheetPatternKind.values()) {
-            menu.appendChild(
-                    historyToken.setPatternKind(
-                                    Optional.of(kind)
-                            )
-                            .link(
-                                    spreadsheetPatternKindId(kind)
-                            ).setTabIndex(0)
-                            .addPushHistoryToken(
-                                    context
-                            ).setTextContent(
-                                    context.patternKindButtonText(kind)
-                            ).element()
-            );
-        }
-
-        final DropdownButton<?, ?> dropdownButton = DropdownButton.create(
-                Button.create("Pattern"),
-                menu
-        );
-
-        dropdownButton.style()
-                .setMinWidth(px.of(120));
-
-        return dropdownButton;
-    }
 
     // buttons..........................................................................................................
 

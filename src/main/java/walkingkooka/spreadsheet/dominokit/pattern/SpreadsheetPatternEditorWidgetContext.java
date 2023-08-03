@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
@@ -27,7 +28,9 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternEditorWidget} provided various inputs.
  */
-public interface SpreadsheetPatternEditorWidgetContext extends HistoryTokenContext, LoggingContext {
+public interface SpreadsheetPatternEditorWidgetContext extends CanGiveFocus,
+        HistoryTokenContext,
+        LoggingContext {
 
     /**
      * The {@link SpreadsheetPatternKind} being edited.
