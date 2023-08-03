@@ -690,7 +690,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
      * Schedules giving focus to the {@link Element} if it exists. If multiple attempts are made to give focus in a short
      * period of time an {@link IllegalStateException} will be thrown.
      */
-    private void giveFocus(final Runnable giveFocus) {
+    public void giveFocus(final Runnable giveFocus) {
         this.debug("App.giveFocus " + giveFocus);
 
         final Runnable existingGiveFocus = this.giveFocus;
