@@ -165,6 +165,15 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
+    // LoggingContext...................................................................................................
+
     @Override
     public void debug(final Object... values) {
         throw new UnsupportedOperationException();
