@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
+import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -41,7 +42,10 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
-public interface AppContext extends HistoryTokenContext, LoggingContext, Context {
+public interface AppContext extends CanGiveFocus,
+        HistoryTokenContext,
+        LoggingContext,
+        Context {
 
     /**
      * Returns the current or active {@link Locale}.
