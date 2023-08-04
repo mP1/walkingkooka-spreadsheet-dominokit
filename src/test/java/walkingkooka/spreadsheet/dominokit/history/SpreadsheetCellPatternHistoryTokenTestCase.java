@@ -25,6 +25,22 @@ public abstract class SpreadsheetCellPatternHistoryTokenTestCase<T extends Sprea
         super();
     }
 
+    // setFormula.......................................................................................................
+
+    @Test
+    public final void testSetFormula() {
+        final T token = this.createHistoryToken();
+
+        this.checkEquals(
+                HistoryToken.formula(
+                        ID,
+                        NAME,
+                        VIEWPORT_SELECTION
+                ),
+                token.setFormula()
+        );
+    }
+
     // setMenu1(Selection)..................................................................................................
 
     @Test
