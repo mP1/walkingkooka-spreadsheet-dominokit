@@ -58,7 +58,11 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     @Override
     public final HistoryToken setFormula() {
-        return this;
+        return formula(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
     }
 
     @Override //
