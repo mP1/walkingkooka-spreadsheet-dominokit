@@ -66,6 +66,14 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportSel
         );
     }
 
+    final HistoryToken setFormula0() {
+        return formula(
+                this.id(),
+                this.name(),
+                this.viewportSelection()
+        );
+    }
+
     @Override //
     final HistoryToken setFreeze0() {
         return cellFreeze(

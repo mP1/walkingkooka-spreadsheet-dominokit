@@ -73,11 +73,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
     @Override
     public HistoryToken setFormula() {
-        return HistoryToken.formula(
-                this.id(),
-                this.name(),
-                this.viewportSelection()
-        );
+        return setFormula0();
     }
 
     @Override

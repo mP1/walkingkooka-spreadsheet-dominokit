@@ -55,7 +55,7 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
 
     @Override
     public HistoryToken setFormula() {
-        return this;
+        return setFormula0();
     }
 
     @Override

@@ -57,11 +57,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
     @Override
     public HistoryToken setFormula() {
-        return formula(
-                this.id(),
-                this.name(),
-                this.viewportSelection()
-        );
+        return setFormula0();
     }
 
     @Override
