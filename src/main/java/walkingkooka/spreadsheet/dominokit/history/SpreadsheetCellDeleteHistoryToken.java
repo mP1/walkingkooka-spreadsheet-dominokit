@@ -55,7 +55,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
 
     @Override
     public HistoryToken setFormula() {
-        return this;
+        return setFormula0();
     }
 
     @Override

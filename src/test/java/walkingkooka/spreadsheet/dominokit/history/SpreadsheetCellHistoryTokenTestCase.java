@@ -105,6 +105,22 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // setFormula.......................................................................................................
+
+    @Test
+    public final void testSetFormula() {
+        final T token = this.createHistoryToken();
+
+        this.checkEquals(
+                HistoryToken.formula(
+                        ID,
+                        NAME,
+                        VIEWPORT_SELECTION
+                ),
+                token.setFormula()
+        );
+    }
+
     // setViewportSelection.............................................................................................
 
     @Test

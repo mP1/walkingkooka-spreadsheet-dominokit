@@ -57,7 +57,7 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
 
     @Override
     public HistoryToken setFormula() {
-        return this;
+        return setFormula0();
     }
 
     @Override
