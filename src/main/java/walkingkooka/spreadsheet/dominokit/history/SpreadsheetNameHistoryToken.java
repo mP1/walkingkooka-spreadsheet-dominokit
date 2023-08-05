@@ -187,18 +187,26 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                                            final AppContext context) {
         // if the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to
         // be loaded then fire history token again.
-        if (this.id()
-                .equals(
-                        context.spreadsheetMetadata()
-                                .id()
-                                .orElse(null)
-                )) {
+        final SpreadsheetId id = this.id();
+        final SpreadsheetId previousId = context.spreadsheetMetadata()
+                .id()
+                .orElse(null);
+        if (id.equals(previousId)) {
             this.onHistoryTokenChange0(
                     previous,
                     context
             );
         } else {
-            context.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange token and context metadata have different ids, load SpreadsheetId and then fire current history token");
+            context.debug(
+                    this.getClass().getSimpleName() +
+                            ".onHistoryTokenChange token " +
+                            id +
+                            " and context metadata " +
+                            previousId +
+                            " have different ids, load SpreadsheetId and then fire current history token"
+            );
+            context.spreadsheetMetadataFetcher()
+                    .loadSpreadsheetMetadata(id);
             context.addSpreadsheetMetadataWatcher(this::onSpreadsheetMetadataFireHistory);
         }
     }
