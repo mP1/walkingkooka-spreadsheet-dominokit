@@ -520,6 +520,15 @@ public final class SpreadsheetPatternEditorWidget {
         textBox.id(ID_PREFIX + "pattern-TextBox");
         textBox.element().spellcheck = false;
         textBox.element().type = "text";
+        textBox.apply(
+                self -> self.appendChild(
+                        PostfixAddOn.of(
+                                Icons.close_circle()
+                                        .clickable()
+                                        .addClickListener(event -> this.setPatternText(""))
+                        )
+                )
+        );
 
         textBox.addEventListener(
                 EventType.input,
