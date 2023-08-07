@@ -152,8 +152,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     // layout...........................................................................................................
 
     private void prepareLayout() {
-        final SpreadsheetViewportToolbar toolbar = SpreadsheetViewportToolbar.create(this);
-
         final AppLayout layout = this.layout;
         layout.style()
                 .setOverFlowX("hidden")
@@ -169,7 +167,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         layout.getNavBar()
                 .getBody()
                 .appendChild(
-                        toolbar.element()
+                        SpreadsheetViewportToolbar.create(this)
                 );
 
         DomGlobal.document.body.append(layout.element());
