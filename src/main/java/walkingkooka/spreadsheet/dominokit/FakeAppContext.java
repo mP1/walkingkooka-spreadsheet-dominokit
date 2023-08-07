@@ -32,15 +32,9 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
 
-import java.util.Locale;
 import java.util.Optional;
 
 public class FakeAppContext implements AppContext {
-
-    @Override
-    public Locale locale() {
-        throw new UnsupportedOperationException();
-    }
 
     @Override
     public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
