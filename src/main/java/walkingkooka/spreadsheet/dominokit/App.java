@@ -51,7 +51,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatchers;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbar;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidget;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -162,7 +162,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         layout.getNavBar()
                 .getBody()
                 .appendChild(
-                        SpreadsheetViewportToolbar.create(this)
+                        SpreadsheetViewportToolbarComponent.create(this)
                 );
 
         DomGlobal.document.body.append(

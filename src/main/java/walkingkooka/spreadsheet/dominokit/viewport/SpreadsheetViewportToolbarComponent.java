@@ -17,170 +17,195 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.icons.lib.Icons;
+import walkingkooka.collect.iterable.Iterables;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.tree.text.FontStyle;
-import walkingkooka.tree.text.FontWeight;
-import walkingkooka.tree.text.TextAlign;
-import walkingkooka.tree.text.TextDecorationLine;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.layout.FlexLayout;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.tree.text.VerticalAlign;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
- * A component such as an icon within a {@link SpreadsheetViewportToolbar}.
+ * A toolbar that contains icons that trigger an action for the viewport selection.
  */
-abstract class SpreadsheetViewportToolbarComponent implements IsElement<HTMLElement> {
+public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWatcher,
+        IsElement<HTMLDivElement>,
+        SpreadsheetDeltaWatcher {
 
-    static SpreadsheetViewportToolbarComponent bold(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.FONT_WEIGHT,
-                FontWeight.BOLD,
-                Icons.format_bold(),
-                "Bold",
-                context
-        );
+    public static SpreadsheetViewportToolbarComponent create(final AppContext context) {
+        return new SpreadsheetViewportToolbarComponent(context);
     }
 
-    static SpreadsheetViewportToolbarComponent clear(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleClear.with(
-                context
-        );
+    private SpreadsheetViewportToolbarComponent(final AppContext context) {
+        this.components = this.components(context);
+        this.flexLayout = this.createFlexLayout();
+
+        context.addHistoryWatcher(this);
+        context.addSpreadsheetDeltaWatcher(this);
     }
 
-    static SpreadsheetViewportToolbarComponent italics(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.FONT_STYLE,
-                FontStyle.ITALIC,
-                Icons.format_italic(),
-                "Italics",
-                context
+    // isElement........................................................................................................
+
+    @Override
+    public HTMLDivElement element() {
+        return this.flexLayout.element();
+    }
+
+    private final FlexLayout flexLayout;
+
+    /**
+     * Creates a {@link FlexLayout} and populates it with the toolbar icons etc.
+     */
+    private FlexLayout createFlexLayout() {
+        final FlexLayout flexLayout = new FlexLayout();
+
+        for (final SpreadsheetViewportToolbarComponentItem component : this.components) {
+            flexLayout.appendChild(
+                    component.element()
+            );
+        }
+
+        return flexLayout;
+    }
+
+    private List<SpreadsheetViewportToolbarComponentItem> components(final HistoryTokenContext context) {
+        return Lists.of(
+                SpreadsheetViewportToolbarComponentItem.bold(context),
+                SpreadsheetViewportToolbarComponentItem.italics(context),
+                SpreadsheetViewportToolbarComponentItem.strikeThru(context),
+                SpreadsheetViewportToolbarComponentItem.underline(context),
+                SpreadsheetViewportToolbarComponentItem.textAlignLeft(context),
+                SpreadsheetViewportToolbarComponentItem.textAlignCenter(context),
+                SpreadsheetViewportToolbarComponentItem.textAlignRight(context),
+                SpreadsheetViewportToolbarComponentItem.textAlignJustify(context),
+                SpreadsheetViewportToolbarComponentItem.verticalAlignTop(context),
+                SpreadsheetViewportToolbarComponentItem.verticalAlignMiddle(context),
+                SpreadsheetViewportToolbarComponentItem.verticalAlignBottom(context),
+                SpreadsheetViewportToolbarComponentItem.clear(context),
+                SpreadsheetViewportToolbarComponentItem.pattern(context)
         );
     }
 
     /**
-     * {@link SpreadsheetViewportToolbarComponentButtonPattern}
+     * The UI components within the toolbar thqt react to selection changes and also support updates.
      */
-    static SpreadsheetViewportToolbarComponent pattern(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonPattern.with(context);
+    private final List<SpreadsheetViewportToolbarComponentItem> components;
+
+    // HistoryTokenWatcher..............................................................................................
+
+    @Override
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
+        this.refresh(context);
     }
 
-    static SpreadsheetViewportToolbarComponent strikeThru(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.TEXT_DECORATION_LINE,
-                TextDecorationLine.LINE_THROUGH,
-                Icons.format_strikethrough(),
-                "Strike-thru",
-                context
-        );
+    // SpreadsheetDeltaWatcher..........................................................................................
+
+    @Override
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        this.refresh(context);
     }
 
-    static SpreadsheetViewportToolbarComponent textAlignLeft(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.LEFT,
-                Icons.format_align_left(),
-                "Left align",
-                context
-        );
-    }
+    // refresh..........................................................................................................
 
-    static SpreadsheetViewportToolbarComponent textAlignCenter(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.CENTER,
-                Icons.format_align_center(),
-                "Center align",
-                context
-        );
-    }
+    private void refresh(final AppContext context) {
+        context.debug("SpreadsheetViewportToolbarComponent.refresh");
 
-    static SpreadsheetViewportToolbarComponent textAlignRight(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.RIGHT,
-                Icons.format_align_right(),
-                "Right align",
-                context
-        );
-    }
+        String visibility = "hidden";
 
-    static SpreadsheetViewportToolbarComponent textAlignJustify(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.JUSTIFY,
-                Icons.format_align_justify(),
-                "Justify",
-                context
-        );
-    }
+        final Optional<SpreadsheetSelection> maybeSelection = context.viewportNonLabelSelection();
+        if (maybeSelection.isPresent()) {
+            final SpreadsheetSelection selection = maybeSelection.get();
+            if (selection.isCellReference() || selection.isCellRange()) {
+                visibility = "visible";
 
-    static SpreadsheetViewportToolbarComponent underline(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.TEXT_DECORATION_LINE,
-                TextDecorationLine.UNDERLINE,
-                Icons.format_underline(),
-                "Underline",
-                context
-        );
-    }
+                // if window is missing might be browser refresh, and refreshComponents is happening before loadViewportCells etc
+                if (false == context.viewportCache()
+                        .windows()
+                        .isEmpty()) {
+                    refreshComponents(selection, context);
+                }
+            }
+        }
 
-    static SpreadsheetViewportToolbarComponent verticalAlignTop(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.TOP,
-                Icons.format_align_top(),
-                "Align top",
-                context
-        );
-    }
-
-    static SpreadsheetViewportToolbarComponent verticalAlignMiddle(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.MIDDLE,
-                Icons.format_align_middle(),
-                "Align middle",
-                context
-        );
-    }
-
-    static SpreadsheetViewportToolbarComponent verticalAlignBottom(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentButtonTextStyleProperty.with(
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.BOTTOM,
-                Icons.format_align_bottom(),
-                "Align bottom",
-                context
-        );
+        this.element()
+                .style.set(
+                        "visibility",
+                        visibility
+                );
     }
 
     /**
-     * The root {@link HTMLElement}
+     * Refreshes the individual components aka icons in the toolbar.
      */
-    public abstract HTMLElement element();
+    private void refreshComponents(final SpreadsheetSelection selection,
+                                   final AppContext context) {
+        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportWindows window = cache.windows();
+        context.debug("SpreadsheetViewportToolbarComponent.refreshComponents begin " + selection + " window: " + window);
 
-    // onToolbarRefresh.................................................................................................
+        final List<SpreadsheetViewportToolbarComponentItem> components = this.components;
+        for (final SpreadsheetViewportToolbarComponentItem component : components) {
+            component.onToolbarRefreshBegin();
+        }
 
-    /**
-     * Fired at the beginning of a selection or cell change.
-     * This should be used to reset counters etc.
-     */
-    abstract void onToolbarRefreshBegin();
+        int cellCount = 0;
 
-    /**
-     * Fired for each cell within the current selection.
-     */
-    abstract void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                               final AppContext context);
+        for (final SpreadsheetCellReference cellReference : Iterables.iterator(window.cells(selection))) {
+            final Optional<SpreadsheetCell> maybeCell = context.viewportCell(cellReference);
+            context.debug("SpreadsheetViewportToolbarComponent.refreshComponents " + cellReference, maybeCell.orElse(null));
+            if (maybeCell.isPresent()) {
+                final SpreadsheetCell cell = maybeCell.get();
 
-    /**
-     * Fired after receiving all cell {@link walkingkooka.tree.text.TextStyle}.
-     */
-    abstract void onToolbarRefreshEnd(final int cellPresentCount,
-                                      final AppContext context);
+                for (final SpreadsheetViewportToolbarComponentItem component : components) {
+                    component.onToolbarRefreshSelectedCell(
+                            cell,
+                            context
+                    );
+                }
+            }
 
+            cellCount++;
+        }
+
+        for (final SpreadsheetViewportToolbarComponentItem component : components) {
+            component.onToolbarRefreshEnd(
+                    cellCount,
+                    context
+            );
+        }
+
+        context.debug("SpreadsheetViewportToolbarComponent.refreshComponents end " + selection);
+    }
+
+    // element..........................................................................................................
+
+    // viewport-column-A
+    public static <T> String id(final TextStylePropertyName<T> propertyName,
+                                final Optional<T> value) {
+        return VIEWPORT_TOOLBAR_ID_PREFIX +
+                propertyName.constantName().toLowerCase() +
+                value.map(
+                        v -> '-' + v.toString().toUpperCase()
+                ).orElse("");
+    }
+
+    public static String pattern() {
+        return VIEWPORT_TOOLBAR_ID_PREFIX + "-pattern";
+    }
+
+    final static String VIEWPORT_TOOLBAR_ID_PREFIX = "viewport-toolbar-";
 }

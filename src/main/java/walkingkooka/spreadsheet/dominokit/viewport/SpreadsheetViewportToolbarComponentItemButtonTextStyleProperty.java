@@ -34,20 +34,20 @@ import java.util.Optional;
  * A button component that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extends SpreadsheetViewportToolbarComponentButton {
+final class SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<T> extends SpreadsheetViewportToolbarComponentItemButton {
 
-    static <T> SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> with(final TextStylePropertyName<T> propertyName,
-                                                                                  final T propertyValue,
-                                                                                  final MdiIcon icon,
-                                                                                  final String tooltipText,
-                                                                                  final HistoryTokenContext context) {
+    static <T> SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<T> with(final TextStylePropertyName<T> propertyName,
+                                                                                      final T propertyValue,
+                                                                                      final MdiIcon icon,
+                                                                                      final String tooltipText,
+                                                                                      final HistoryTokenContext context) {
         Objects.requireNonNull(propertyName, "propertyName");
         Objects.requireNonNull(propertyValue, "propertyValue");
         Objects.requireNonNull(icon, "icon");
         CharSequences.failIfNullOrEmpty(tooltipText, "tooltipText");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentButtonTextStyleProperty<>(
+        return new SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<>(
                 propertyName,
                 propertyValue,
                 icon,
@@ -56,13 +56,13 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extend
         );
     }
 
-    private SpreadsheetViewportToolbarComponentButtonTextStyleProperty(final TextStylePropertyName<T> propertyName,
-                                                                       final T propertyValue,
-                                                                       final MdiIcon icon,
-                                                                       final String tooltipText,
-                                                                       final HistoryTokenContext context) {
+    private SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty(final TextStylePropertyName<T> propertyName,
+                                                                           final T propertyValue,
+                                                                           final MdiIcon icon,
+                                                                           final String tooltipText,
+                                                                           final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportToolbar.id(
+                SpreadsheetViewportToolbarComponent.id(
                         propertyName,
                         Optional.of(propertyValue)
                 ),
@@ -184,7 +184,7 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleProperty<T> extend
 
         this.setSaveValue(saveValue);
 
-        context.debug("SpreadsheetViewportToolbarComponentButtonTextStyleProperty.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
+        context.debug("SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
     }
 
     private void setSaveValue(final T saveValue) {

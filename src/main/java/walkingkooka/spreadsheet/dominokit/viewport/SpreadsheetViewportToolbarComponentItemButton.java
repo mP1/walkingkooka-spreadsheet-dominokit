@@ -30,12 +30,12 @@ import walkingkooka.tree.text.TextStyle;
 /**
  * A templated class that displays a button. Sub classes will have to add {link EventListeners} as required.
  */
-abstract class SpreadsheetViewportToolbarComponentButton extends SpreadsheetViewportToolbarComponent {
+abstract class SpreadsheetViewportToolbarComponentItemButton extends SpreadsheetViewportToolbarComponentItem {
 
-    SpreadsheetViewportToolbarComponentButton(final String id,
-                                              final MdiIcon icon,
-                                              final String tooltipText,
-                                              final HistoryTokenContext context) {
+    SpreadsheetViewportToolbarComponentItemButton(final String id,
+                                                  final MdiIcon icon,
+                                                  final String tooltipText,
+                                                  final HistoryTokenContext context) {
         final Button button = Button.create(icon)
                 .circle();
 
