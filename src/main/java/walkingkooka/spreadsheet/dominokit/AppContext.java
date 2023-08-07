@@ -38,7 +38,6 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
 
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -46,11 +45,6 @@ public interface AppContext extends CanGiveFocus,
         HistoryTokenContext,
         LoggingContext,
         Context {
-
-    /**
-     * Returns the current or active {@link Locale}.
-     */
-    Locale locale();
 
     // delta............................................................................................................
 
