@@ -44,6 +44,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -66,7 +67,7 @@ import java.util.stream.Collectors;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public final class SpreadsheetPatternEditorWidget {
+public final class SpreadsheetPatternEditorWidget implements ComponentLifecycle {
 
     /**
      * Creates a new {@link SpreadsheetPatternEditorWidget}.
@@ -165,19 +166,6 @@ public final class SpreadsheetPatternEditorWidget {
     private final NavBar dialogNavBar;
 
     private final SpreadsheetPatternEditorWidgetContext context;
-
-    /**
-     * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
-     */
-    public void refresh() {
-        final SpreadsheetPatternEditorWidgetContext context = this.context;
-
-        context.debug("SpreadsheetPatternEditorWidget.refresh");
-
-        this.dialogNavBar.setTitle(context.title());
-        this.appendLinksRebuild();
-        this.setPatternText(context.loaded());
-    }
 
     // tabs............................................................................................................
 
@@ -621,14 +609,6 @@ public final class SpreadsheetPatternEditorWidget {
     // buttons..........................................................................................................
 
     /**
-     * Closes or hides the {@link Dialog}. THis is necessary when the history token changes and editing a pattern
-     * is no longer true.
-     */
-    public void close() {
-        this.dialog.close();
-    }
-
-    /**
      * When clicked the CLOSE button invokes {@link #close}.
      */
     private Button closeButton() {
@@ -729,6 +709,36 @@ public final class SpreadsheetPatternEditorWidget {
         );
 
         return button;
+    }
+
+    // ComponentLifecycle...............................................................................................
+
+    @Override
+    public void open() {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Closes or hides the {@link Dialog}. THis is necessary when the history token changes and editing a pattern
+     * is no longer true.
+     */
+    @Override
+    public void close() {
+        this.dialog.close();
+    }
+
+    /**
+     * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
+     */
+    @Override
+    public void refresh() {
+        final SpreadsheetPatternEditorWidgetContext context = this.context;
+
+        context.debug("SpreadsheetPatternEditorWidget.refresh");
+
+        this.dialogNavBar.setTitle(context.title());
+        this.appendLinksRebuild();
+        this.setPatternText(context.loaded());
     }
 
     // ids..............................................................................................................
