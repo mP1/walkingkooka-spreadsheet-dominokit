@@ -25,7 +25,7 @@ import walkingkooka.test.ParseStringTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetViewportWidgetTest implements ClassTesting<SpreadsheetViewportWidget>, ParseStringTesting<Optional<SpreadsheetSelection>> {
+public final class SpreadsheetViewportComponentTest implements ClassTesting<SpreadsheetViewportComponent>, ParseStringTesting<Optional<SpreadsheetSelection>> {
 
     // id...............................................................................................................
 
@@ -57,7 +57,7 @@ public final class SpreadsheetViewportWidgetTest implements ClassTesting<Spreads
                             final String id) {
         this.checkEquals(
                 id,
-                SpreadsheetViewportWidget.id(selection),
+                SpreadsheetViewportComponent.id(selection),
                 () -> selection + " id"
         );
     }
@@ -173,7 +173,7 @@ public final class SpreadsheetViewportWidgetTest implements ClassTesting<Spreads
 
     @Override
     public Optional<SpreadsheetSelection> parseString(final String id) {
-        return SpreadsheetViewportWidget.parseId(id);
+        return SpreadsheetViewportComponent.parseId(id);
     }
 
     @Override
@@ -189,8 +189,8 @@ public final class SpreadsheetViewportWidgetTest implements ClassTesting<Spreads
     // ClassTesting....................................................................................................
 
     @Override
-    public Class<SpreadsheetViewportWidget> type() {
-        return SpreadsheetViewportWidget.class;
+    public Class<SpreadsheetViewportComponent> type() {
+        return SpreadsheetViewportComponent.class;
     }
 
     @Override

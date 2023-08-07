@@ -21,11 +21,11 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidgetWatcher;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken
-        implements SpreadsheetViewportWidgetWatcher {
+        implements SpreadsheetViewportComponentWatcher {
 
     static SpreadsheetRowMenuHistoryToken with(final SpreadsheetId id,
                                                final SpreadsheetName name,
@@ -69,7 +69,7 @@ public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken
     }
 
     @Override
-    public void onAfterSpreadsheetViewportWidgetRender(final AppContext context) {
+    public void onAfterSpreadsheetViewportComponentRender(final AppContext context) {
         this.renderDropDownMenu(context);
     }
 }
