@@ -20,10 +20,8 @@ package walkingkooka.spreadsheet.dominokit;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
-import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
-import org.dominokit.domino.ui.elements.SectionElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.notifications.Notification;
@@ -153,16 +151,14 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     private void prepareLayout() {
         final AppLayout layout = this.layout;
-        layout.style()
-                .setOverFlowX("hidden")
+
+        layout.setOverFlowX("hidden")
                 .setOverFlowY("hidden");
 
-        final SectionElement content = layout.getContent();
-        content.appendChild(this.viewportWidget.element());
-
-        final CSSStyleDeclaration contentStyle = content.elementStyle();
-        contentStyle.set("padding", "0px"); // kills the dui-layout-content padding: 25px
-        contentStyle.set("overflow-y", "hidden"); // stop scrollbars on the cell viewport
+        layout.getContent()
+                .setPadding("0px") // kills the dui-layout-content padding: 25px
+                .setOverFlowY("hidden") // stop scrollbars on the cell viewport
+                .appendChild(this.viewportWidget);
 
         layout.getNavBar()
                 .getBody()
@@ -170,7 +166,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                         SpreadsheetViewportToolbar.create(this)
                 );
 
-        DomGlobal.document.body.append(layout.element());
+        DomGlobal.document.body.append(
+                layout.element()
+        );
     }
 
     private void registerWindowResizeListener() {
