@@ -141,8 +141,8 @@ public interface AppContext extends CanGiveFocus,
     Optional<Element> findViewportElement(final SpreadsheetSelection selection);
 
     /**
-     * Creates an ANCHOR with the givn text and if a {@link HistoryToken} is present will push that if clicked or
-     * selected with ENTER.
+     * Creates an ANCHOR with the given text and if a {@link HistoryToken} is passed, it will be pushed that if this
+     * menu item clicked or selected with ENTER.
      */
     default AbstractMenuItem<Void> menuItem(final String text,
                                             final Optional<HistoryToken> historyToken) {
