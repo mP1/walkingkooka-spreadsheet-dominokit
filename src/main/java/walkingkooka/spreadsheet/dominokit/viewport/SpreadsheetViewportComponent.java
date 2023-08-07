@@ -76,18 +76,18 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement>,
+public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher,
         SpreadsheetMetadataWatcher,
         HistoryTokenWatcher {
 
-    public static SpreadsheetViewportWidget empty(final AppContext context) {
+    public static SpreadsheetViewportComponent empty(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportWidget(context);
+        return new SpreadsheetViewportComponent(context);
     }
 
-    private SpreadsheetViewportWidget(final AppContext context) {
+    private SpreadsheetViewportComponent(final AppContext context) {
         this.context = context;
 
         this.formulaTextBox = this.createFormulaTextBox();
@@ -103,7 +103,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                                   final int height) {
         final boolean reload = width > this.width || height > this.height;
 
-        this.context.debug("SpreadsheetViewportWidget.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
+        this.context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
 
         this.width = width;
         this.height = height;
@@ -185,7 +185,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     private void setViewportSelection(final Optional<SpreadsheetViewportSelection> maybeViewportSelection) {
         final AppContext context = this.context;
         context.debug(
-                "SpreadsheetViewportWidget.setViewportSelection " + maybeViewportSelection.orElse(null)
+                "SpreadsheetViewportComponent.setViewportSelection " + maybeViewportSelection.orElse(null)
         );
 
         Predicate<SpreadsheetSelection> predicate = null;
@@ -217,7 +217,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         if (this.reload && this.width > 0 && this.height > 0) {
             final AppContext context = this.context;
             if (context.spreadsheetMetadata().isEmpty()) {
-                context.debug("SpreadsheetViewportWidget.loadViewportCellsIfNecessary waiting for metadata");
+                context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
             } else {
                 this.loadViewportCells(
                         Optional.empty()
@@ -322,7 +322,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
 
         switch (Key.fromEvent(event)) {
             case Enter:
-                context.debug("SpreadsheetViewportWidget.onFormulaTextBoxKeyDownEvent ENTER");
+                context.debug("SpreadsheetViewportComponent.onFormulaTextBoxKeyDownEvent ENTER");
 
                 // if cell then edit formula
                 context.pushHistoryToken(
@@ -332,7 +332,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
                 );
                 break;
             case Escape:
-                context.debug("SpreadsheetViewportWidget.onFormulaTextBoxKeyDownEvent ESCAPE restoring text");
+                context.debug("SpreadsheetViewportComponent.onFormulaTextBoxKeyDownEvent ESCAPE restoring text");
                 this.onFormulaTextBoxUndo();
                 break;
             default:
@@ -359,7 +359,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final AppContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
 
-        context.debug("SpreadsheetViewportWidget.onFormulaTextBoxFocus " + historyToken.viewportSelectionOrEmpty());
+        context.debug("SpreadsheetViewportComponent.onFormulaTextBoxFocus " + historyToken.viewportSelectionOrEmpty());
 
         context.pushHistoryToken(
                 historyToken.setFormula()
@@ -370,7 +370,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * Clears the formula textbox when the big CROSS to the right of the formula is clicked.
      */
     private void onFormulaTextBoxClearClickEvent(final Event event) {
-        this.context.debug("SpreadsheetViewportWidget.onFormulaTextBoxClearClickEvent");
+        this.context.debug("SpreadsheetViewportComponent.onFormulaTextBoxClearClickEvent");
         this.formulaTextBox.clear();
     }
 
@@ -379,7 +379,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
      * with the formula every time a new {@link SpreadsheetDelta} is returned.
      */
     public void giveFcrmulaTextBoxFocus() {
-        this.context.debug("SpreadsheetViewportWidget.giveFormulaTextBoxFocus");
+        this.context.debug("SpreadsheetViewportComponent.giveFormulaTextBoxFocus");
 
         this.formulaTextBox.focus();
     }
@@ -407,7 +407,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
             // TODO show error somewhere in formula ?
         }
 
-        context.debug("SpreadsheetViewportWidget.setFormula text=" + CharSequences.quoteAndEscape(text));
+        context.debug("SpreadsheetViewportComponent.setFormula text=" + CharSequences.quoteAndEscape(text));
         this.formulaTextBox.setValue(text);
     }
 
@@ -537,7 +537,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         final TableElement tableElement = this.tableElement;
 
         final AppContext context = this.context;
-        context.debug("SpreadsheetViewportWidget.render isFormulaEnabled: " + shouldFormulaEnabled);
+        context.debug("SpreadsheetViewportComponent.render isFormulaEnabled: " + shouldFormulaEnabled);
 
         tableElement.clearElement();
 
@@ -594,9 +594,9 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
         );
 
         final HistoryToken historyToken = context.historyToken();
-        if (historyToken instanceof SpreadsheetViewportWidgetWatcher) {
-            final SpreadsheetViewportWidgetWatcher watcher = (SpreadsheetViewportWidgetWatcher) historyToken;
-            watcher.onAfterSpreadsheetViewportWidgetRender(context);
+        if (historyToken instanceof SpreadsheetViewportComponentWatcher) {
+            final SpreadsheetViewportComponentWatcher watcher = (SpreadsheetViewportComponentWatcher) historyToken;
+            watcher.onAfterSpreadsheetViewportComponentRender(context);
         }
     }
 
@@ -903,7 +903,7 @@ public final class SpreadsheetViewportWidget implements IsElement<HTMLDivElement
     }
 
     /**
-     * Takes an id hopefully sourced from a {@link SpreadsheetViewportWidget} descendant element and tries to extract a {@link SpreadsheetSelection}.
+     * Takes an id hopefully sourced from a {@link SpreadsheetViewportComponent} descendant element and tries to extract a {@link SpreadsheetSelection}.
      * <br>
      * This is the inverse of {@link #id(SpreadsheetSelection)}.
      */

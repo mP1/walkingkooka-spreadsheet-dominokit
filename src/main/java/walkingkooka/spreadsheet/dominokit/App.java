@@ -51,8 +51,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatchers;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbarComponent;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportWidget;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -126,7 +126,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         this.addSpreadsheetMetadataWatcher(this.viewportCache);
         this.addSpreadsheetDeltaWatcher(this.viewportCache);
 
-        this.viewportWidget = SpreadsheetViewportWidget.empty(this);
+        this.viewportComponent = SpreadsheetViewportComponent.empty(this);
     }
 
     // header = metadata toggle | clickable(editable) spreadsheet name
@@ -157,7 +157,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         layout.getContent()
                 .setPadding("0px") // kills the dui-layout-content padding: 25px
                 .setOverFlowY("hidden") // stop scrollbars on the cell viewport
-                .appendChild(this.viewportWidget);
+                .appendChild(this.viewportComponent);
 
         layout.getNavBar()
                 .getBody()
@@ -210,7 +210,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         final int newHeight = height - navigationBarHeight;
         this.debug("App.onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
 
-        this.viewportWidget.setWidthAndHeight(
+        this.viewportComponent.setWidthAndHeight(
                 width,
                 newHeight
         );
@@ -486,25 +486,25 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     /**
      * Init here to avoid race conditions with other fields like {@link #metadataWatchers}.
      */
-    private final SpreadsheetViewportWidget viewportWidget;
+    private final SpreadsheetViewportComponent viewportComponent;
 
     @Override
     public void giveFormulaTextBoxFocus() {
         this.debug("App.giveFormulaTextBoxFocus");
 
         this.giveFocus(
-                this.viewportWidget::giveFcrmulaTextBoxFocus
+                this.viewportComponent::giveFcrmulaTextBoxFocus
         );
     }
 
     @Override
     public void setFormula(final SpreadsheetSelection selection) {
-        this.viewportWidget.setFormula(selection);
+        this.viewportComponent.setFormula(selection);
     }
 
     @Override
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
-        return this.viewportWidget.viewportCell(selection);
+        return this.viewportComponent.viewportCell(selection);
     }
 
     @Override
@@ -667,7 +667,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         if (maybeNotLabel.isPresent()) {
             element = DomGlobal.document
                     .getElementById(
-                            SpreadsheetViewportWidget.id(
+                            SpreadsheetViewportComponent.id(
                                     selection
                             )
                     );

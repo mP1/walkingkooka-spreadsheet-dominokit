@@ -19,11 +19,11 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public interface SpreadsheetViewportWidgetWatcher {
+public interface SpreadsheetViewportComponentWatcher {
 
     /**
-     * This is fired after the {@link SpreadsheetViewportWidget#render()} has finished rendering all elements of
+     * This is fired after the {@link SpreadsheetViewportComponent#render()} has finished rendering all elements of
      * the viewport
      */
-    void onAfterSpreadsheetViewportWidgetRender(final AppContext context);
+    void onAfterSpreadsheetViewportComponentRender(final AppContext context);
 }
