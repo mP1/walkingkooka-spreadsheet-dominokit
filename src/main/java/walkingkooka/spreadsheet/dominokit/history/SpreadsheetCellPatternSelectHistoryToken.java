@@ -142,12 +142,6 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                     onPatternEditorWidgetSpreadsheetDeltaWatcherRemover = null;
                 }
             }
-
-            final Runnable remover = onPatternEditorWidgetHistoryTokenWatcherRemover;
-            if (null == remover) {
-                onPatternEditorWidgetHistoryTokenWatcherRemover = null;
-                remover.run();
-            }
         }
     }
 
