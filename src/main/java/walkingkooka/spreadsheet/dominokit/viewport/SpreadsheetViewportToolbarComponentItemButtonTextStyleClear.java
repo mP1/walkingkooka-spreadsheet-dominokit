@@ -33,19 +33,19 @@ import java.util.Optional;
  * A button component that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetViewportToolbarComponentButtonTextStyleClear extends SpreadsheetViewportToolbarComponentButton {
+final class SpreadsheetViewportToolbarComponentItemButtonTextStyleClear extends SpreadsheetViewportToolbarComponentItemButton {
 
-    static SpreadsheetViewportToolbarComponentButtonTextStyleClear with(final HistoryTokenContext context) {
+    static SpreadsheetViewportToolbarComponentItemButtonTextStyleClear with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentButtonTextStyleClear(
+        return new SpreadsheetViewportToolbarComponentItemButtonTextStyleClear(
                 context
         );
     }
 
-    private SpreadsheetViewportToolbarComponentButtonTextStyleClear(final HistoryTokenContext context) {
+    private SpreadsheetViewportToolbarComponentItemButtonTextStyleClear(final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportToolbar.id(
+                SpreadsheetViewportToolbarComponent.id(
                         PROPERTY,
                         Optional.empty()
                 ),
@@ -129,7 +129,7 @@ final class SpreadsheetViewportToolbarComponentButtonTextStyleClear extends Spre
                 context
         );
 
-        context.debug("SpreadsheetViewportToolbarComponentButtonTextStyleClear.onToolbarRefreshEnd " + PROPERTY + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected);
+        context.debug("SpreadsheetViewportToolbarComponentItemButtonTextStyleClear.onToolbarRefreshEnd " + PROPERTY + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected);
     }
 
     private static final TextStylePropertyName<Void> PROPERTY = TextStylePropertyName.ALL;

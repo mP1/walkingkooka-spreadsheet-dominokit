@@ -17,17 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+public final class SpreadsheetViewportToolbarComponentItemTest extends SpreadsheetViewportToolbarComponentItemTestCase<SpreadsheetViewportToolbarComponentItem> {
 
-public abstract class SpreadsheetViewportToolbarComponentTestCase<T extends SpreadsheetViewportToolbarComponent> implements ClassTesting<T> {
-
-    SpreadsheetViewportToolbarComponentTestCase() {
-        super();
-    }
 
     @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<SpreadsheetViewportToolbarComponentItem> type() {
+        return SpreadsheetViewportToolbarComponentItem.class;
     }
 }

@@ -17,9 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-public final class SpreadsheetViewportToolbarComponentButtonTest extends SpreadsheetViewportToolbarComponentTestCase<SpreadsheetViewportToolbarComponentButton> {
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
+
+public abstract class SpreadsheetViewportToolbarComponentItemTestCase<T extends SpreadsheetViewportToolbarComponentItem> implements ClassTesting<T> {
+
+    SpreadsheetViewportToolbarComponentItemTestCase() {
+        super();
+    }
+
     @Override
-    public Class<SpreadsheetViewportToolbarComponentButton> type() {
-        return SpreadsheetViewportToolbarComponentButton.class;
+    public final JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

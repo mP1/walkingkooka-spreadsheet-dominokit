@@ -17,11 +17,67 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-public final class SpreadsheetViewportToolbarComponentTest extends SpreadsheetViewportToolbarComponentTestCase<SpreadsheetViewportToolbarComponent> {
+import org.junit.jupiter.api.Test;
+import walkingkooka.color.Color;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
+public final class SpreadsheetViewportToolbarComponentTest implements ClassTesting<SpreadsheetViewportToolbarComponent> {
+
+    // id...............................................................................................................
+
+    @Test
+    public void testIdWithoutValue() {
+        this.idAndCheck(
+                TextStylePropertyName.COLOR,
+                Optional.empty(),
+                "viewport-toolbar-color"
+        );
+    }
+
+    @Test
+    public void testIdWithValue() {
+        this.idAndCheck(
+                TextStylePropertyName.COLOR,
+                Optional.of(Color.BLACK),
+                "viewport-toolbar-color-#000000"
+        );
+    }
+
+    @Test
+    public void testIdWithValue2() {
+        this.idAndCheck(
+                TextStylePropertyName.TEXT_ALIGN,
+                Optional.of(TextAlign.CENTER),
+                "viewport-toolbar-text_align-CENTER"
+        );
+    }
+
+    private <T> void idAndCheck(final TextStylePropertyName<T> property,
+                                final Optional<T> value,
+                                final String expected) {
+        this.checkEquals(
+                expected,
+                SpreadsheetViewportToolbarComponent.id(
+                        property,
+                        value
+                )
+        );
+    }
+
+    // ClassTesting.....................................................................................................
 
     @Override
     public Class<SpreadsheetViewportToolbarComponent> type() {
         return SpreadsheetViewportToolbarComponent.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 }

@@ -37,19 +37,19 @@ import java.util.Optional;
 /**
  * A button component that may exist withing a toolbar, which actives the pattern editor.
  */
-final class SpreadsheetViewportToolbarComponentButtonPattern extends SpreadsheetViewportToolbarComponentButton {
+final class SpreadsheetViewportToolbarComponentItemButtonPattern extends SpreadsheetViewportToolbarComponentItemButton {
 
-    static SpreadsheetViewportToolbarComponentButtonPattern with(final HistoryTokenContext context) {
+    static SpreadsheetViewportToolbarComponentItemButtonPattern with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentButtonPattern(
+        return new SpreadsheetViewportToolbarComponentItemButtonPattern(
                 context
         );
     }
 
-    private SpreadsheetViewportToolbarComponentButtonPattern(final HistoryTokenContext context) {
+    private SpreadsheetViewportToolbarComponentItemButtonPattern(final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportToolbar.pattern(),
+                SpreadsheetViewportToolbarComponent.pattern(),
                 Icons.format_text(),
                 "Pattern edit",
                 context
@@ -147,7 +147,7 @@ final class SpreadsheetViewportToolbarComponentButtonPattern extends Spreadsheet
                 context
         );
 
-        context.debug("SpreadsheetViewportToolbarComponentButtonPattern.onToolbarRefreshEnd selected: " + selected + " patternToKindCount: " + patternKindToCount);
+        context.debug("SpreadsheetViewportToolbarComponentItemButtonPattern.onToolbarRefreshEnd selected: " + selected + " patternToKindCount: " + patternKindToCount);
     }
 
     private SpreadsheetPatternKind spreadsheetPatternKind() {

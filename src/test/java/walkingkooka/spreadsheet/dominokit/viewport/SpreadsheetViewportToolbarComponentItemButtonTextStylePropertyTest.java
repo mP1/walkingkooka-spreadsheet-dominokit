@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.Cast;
 
-public final class SpreadsheetViewportToolbarComponentButtonTextStylePropertyTest extends SpreadsheetViewportToolbarComponentTestCase<SpreadsheetViewportToolbarComponentButtonTextStyleProperty<?>> {
+public final class SpreadsheetViewportToolbarComponentItemButtonTextStylePropertyTest extends SpreadsheetViewportToolbarComponentItemTestCase<SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<?>> {
     @Override
-    public Class<SpreadsheetViewportToolbarComponentButtonTextStyleProperty<?>> type() {
-        return Cast.to(SpreadsheetViewportToolbarComponentButtonTextStyleProperty.class);
+    public Class<SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<?>> type() {
+        return Cast.to(SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.class);
     }
 }
