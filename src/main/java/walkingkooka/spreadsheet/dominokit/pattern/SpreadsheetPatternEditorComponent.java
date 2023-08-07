@@ -113,21 +113,21 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
     private Dialog dialogCreate() {
-        final Dialog modal = Dialog.create()
+        final Dialog dialog = Dialog.create()
                 .setType(DialogType.DEFAULT) // large
                 .setAutoClose(true)
                 .setModal(true)
                 .setStretchWidth(DialogSize.LARGE)
                 .setStretchHeight(DialogSize.LARGE)
                 .withHeader(
-                        (dialog, header) ->
+                        (d, header) ->
                                 header.appendChild(this.dialogNavBar)
                 );
-        modal.id(ID);
+        dialog.id(ID);
 
-        modal.appendChild(this.spreadsheetPatternKindTabs());
+        dialog.appendChild(this.spreadsheetPatternKindTabs());
 
-        modal.appendChild(
+        dialog.appendChild(
                 Card.create()
                         .appendChild(
                                 this.sampleDataTable
@@ -136,12 +136,12 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
         this.sampleDataTable.headerElement().hide();
 
-        modal.appendChild(this.componentParent);
-        modal.appendChild(this.appendParent);
+        dialog.appendChild(this.componentParent);
+        dialog.appendChild(this.appendParent);
 
-        modal.appendChild(this.patternTextBox);
+        dialog.appendChild(this.patternTextBox);
 
-        modal.appendChild(
+        dialog.appendChild(
                 ElementsFactory.elements.div()
                         .appendChild(this.saveButton())
                         .appendChild(this.undoButton())
@@ -149,13 +149,13 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                         .appendChild(this.closeButton())
         );
 
-        modal.open();
+        dialog.open();
 
         context.giveFocus(
                 () -> this.patternTextBox.focus()
         );
 
-        return modal;
+        return dialog;
     }
 
     private final Dialog dialog;
