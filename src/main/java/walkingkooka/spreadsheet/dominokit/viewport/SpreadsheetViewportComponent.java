@@ -303,16 +303,17 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 .addEventListener(
                         EventType.focus.getName(),
                         this::onFormulaTextBoxFocus
-                ).apply(
-                        self ->
-                                self.appendChild(
-                                        PostfixAddOn.of(
-                                                Icons.close_circle()
-                                                        .clickable()
-                                                        .addClickListener(evt -> self.element().value = "")
-                                        )
-                                )
                 );
+        textBox.apply(
+                self ->
+                        self.appendChild(
+                                PostfixAddOn.of(
+                                        Icons.close_circle()
+                                                .clickable()
+                                                .addClickListener(this::onFormulaTextBoxClear)
+                                )
+                        )
+        );
 
         return textBox;
     }
@@ -369,8 +370,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * Clears the formula textbox when the big CROSS to the right of the formula is clicked.
      */
-    private void onFormulaTextBoxClearClickEvent(final Event event) {
-        this.context.debug("SpreadsheetViewportComponent.onFormulaTextBoxClearClickEvent");
+    private void onFormulaTextBoxClear(final Event event) {
+        this.context.debug("SpreadsheetViewportComponent.onFormulaTextBoxClear");
         this.formulaTextBox.clear();
     }
 
