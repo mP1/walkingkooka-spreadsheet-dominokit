@@ -149,12 +149,6 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                         .appendChild(this.closeButton())
         );
 
-        dialog.open();
-
-        context.giveFocus(
-                () -> this.patternTextBox.focus()
-        );
-
         return dialog;
     }
 
@@ -715,7 +709,12 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
     @Override
     public void open() {
-        throw new UnsupportedOperationException();
+        this.context.debug("SpreadsheetPatternEditorComponent.open");
+        this.dialog.open();
+
+        this.context.giveFocus(
+                () -> this.patternTextBox.focus()
+        );
     }
 
     /**
