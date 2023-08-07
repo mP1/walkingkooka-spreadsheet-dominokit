@@ -139,6 +139,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     //   table holding spreadsheet cells
     private final AppLayout layout = AppLayout.create();
 
+    @Override
     public void onModuleLoad() {
         this.prepareLayout();
 
