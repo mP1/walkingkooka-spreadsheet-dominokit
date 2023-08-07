@@ -134,8 +134,12 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
             if (null != spreadsheetPatternEditorWidget) {
                 try {
                     spreadsheetPatternEditorWidget.close();
+                    onPatternEditorWidgetHistoryTokenWatcherRemover.run();
+                    onPatternEditorWidgetSpreadsheetDeltaWatcherRemover.run();
                 } finally {
                     spreadsheetPatternEditorWidget = null;
+                    onPatternEditorWidgetHistoryTokenWatcherRemover = null;
+                    onPatternEditorWidgetSpreadsheetDeltaWatcherRemover = null;
                 }
             }
 
