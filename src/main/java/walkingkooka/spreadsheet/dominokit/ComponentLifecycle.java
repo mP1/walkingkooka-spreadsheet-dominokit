@@ -23,6 +23,11 @@ package walkingkooka.spreadsheet.dominokit;
 public interface ComponentLifecycle {
 
     /**
+     * Used to test if this component is open or visible.
+     */
+    boolean isOpen();
+
+    /**
      * The widget should open or show.
      */
     void open(final AppContext context);

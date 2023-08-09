@@ -718,6 +718,14 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
     // ComponentLifecycle...............................................................................................
 
+    /**
+     * Returns true if the dialog is open.
+     */
+    @Override
+    public boolean isOpen() {
+        return this.dialog.isOpen();
+    }
+
     @Override
     public void open(final AppContext context) {
         this.context.debug("SpreadsheetPatternEditorComponent.open");
