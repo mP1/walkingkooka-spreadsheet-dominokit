@@ -17,10 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+
 /**
  * Interface that provides simple operations to update the visual state of a component.
+ * Dont forget to register this {@link HistoryTokenWatcher}.
  */
-public interface ComponentLifecycle {
+public interface ComponentLifecycle extends HistoryTokenWatcher {
 
     /**
      * Used to test if this component is open or visible.
@@ -41,4 +45,38 @@ public interface ComponentLifecycle {
      * The widget should close or hide.
      */
     void close(final AppContext context);
+
+    /**
+     * Tests if this component should be open for the given {@link HistoryToken}
+     */
+    boolean isMatch(final HistoryToken token);
+
+    // HistoryTokenWatcher..............................................................................................
+
+    /**
+     * Watches {@link HistoryToken} changes and fires the other lifecycle methods.
+     */
+    @Override
+    default void onHistoryTokenChange(final HistoryToken previous,
+                                      final AppContext context) {
+        final boolean nextOpen = this.isMatch(
+                context.historyToken()
+        );
+
+        if (this.isOpen()) {
+            if (nextOpen) {
+                // open -> open -> refresh
+                this.refresh(context);
+            } else {
+                // open -> close -> close
+                this.close(context);
+            }
+        } else {
+            if (nextOpen) {
+                // close -> open -> open
+                this.open(context);
+            }
+            // close -> close -> do nothing
+        }
+    }
 }

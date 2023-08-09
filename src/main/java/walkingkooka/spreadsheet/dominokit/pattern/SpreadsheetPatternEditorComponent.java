@@ -718,6 +718,11 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
     // ComponentLifecycle...............................................................................................
 
+    @Override
+    public boolean isMatch(HistoryToken token) {
+        throw new UnsupportedOperationException();
+    }
+
     /**
      * Returns true if the dialog is open.
      */
