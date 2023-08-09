@@ -44,6 +44,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -708,7 +709,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     // ComponentLifecycle...............................................................................................
 
     @Override
-    public void open() {
+    public void open(final AppContext context) {
         this.context.debug("SpreadsheetPatternEditorComponent.open");
         this.dialog.open();
 
