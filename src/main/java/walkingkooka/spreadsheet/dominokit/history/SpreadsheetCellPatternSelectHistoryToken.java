@@ -113,7 +113,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
             spreadsheetPatternEditorComponent = SpreadsheetPatternEditorComponent.with(
                     SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorComponentContext.with(context)
             );
-            spreadsheetPatternEditorComponent.open();
+            spreadsheetPatternEditorComponent.open(context);
             onPatternEditorComponentHistoryTokenWatcherRemover = context.addHistoryWatcher(
                     this::onPatternEditorComponentHistoryTokenChange
             );

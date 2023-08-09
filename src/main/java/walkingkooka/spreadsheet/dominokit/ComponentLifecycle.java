@@ -25,7 +25,7 @@ public interface ComponentLifecycle {
     /**
      * The widget should open or show.
      */
-    void open();
+    void open(final AppContext context);
 
     /**
      * The widget should refresh its visible appearance and state.
