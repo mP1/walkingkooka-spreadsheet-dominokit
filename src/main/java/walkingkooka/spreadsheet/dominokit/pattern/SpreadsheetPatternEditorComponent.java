@@ -731,14 +731,14 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
      * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
      */
     @Override
-    public void refresh() {
-        final SpreadsheetPatternEditorComponentContext context = this.context;
+    public void refresh(final AppContext context) {
+        final SpreadsheetPatternEditorComponentContext componentContext = this.context;
 
         context.debug("SpreadsheetPatternEditorComponent.refresh");
 
-        this.dialogNavBar.setTitle(context.title());
+        this.dialogNavBar.setTitle(componentContext.title());
         this.appendLinksRebuild();
-        this.setPatternText(context.loaded());
+        this.setPatternText(componentContext.loaded());
     }
 
     // ids..............................................................................................................

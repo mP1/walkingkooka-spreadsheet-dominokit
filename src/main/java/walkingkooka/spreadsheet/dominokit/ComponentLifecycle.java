@@ -30,7 +30,7 @@ public interface ComponentLifecycle {
     /**
      * The widget should refresh its visible appearance and state.
      */
-    void refresh();
+    void refresh(final AppContext context);
 
     /**
      * The widget should close or hide.
