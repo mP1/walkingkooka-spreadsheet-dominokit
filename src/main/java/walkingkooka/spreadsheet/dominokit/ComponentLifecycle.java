@@ -35,5 +35,5 @@ public interface ComponentLifecycle {
     /**
      * The widget should close or hide.
      */
-    void close();
+    void close(final AppContext context);
 }

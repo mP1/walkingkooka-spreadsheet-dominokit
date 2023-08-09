@@ -99,7 +99,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                         PostfixAddOn.of(
                                 Icons.close()
                                         .clickable()
-                                        .addClickListener(evt -> this.close())
+                                        .addClickListener(evt -> this.close(null))
                         )
                 );
         this.dialog = this.dialogCreate();
@@ -723,7 +723,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
      * is no longer true.
      */
     @Override
-    public void close() {
+    public void close(final AppContext context) {
         this.dialog.close();
     }
 
