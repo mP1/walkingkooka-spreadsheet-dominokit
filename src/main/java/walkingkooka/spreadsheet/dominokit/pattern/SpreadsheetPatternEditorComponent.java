@@ -94,21 +94,36 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         );
         this.sampleDataTableDataStore = localListDataStore;
 
-        this.dialogNavBar = NavBar.create(context.title())
-                .appendChild(
-                        PostfixAddOn.of(
-                                Icons.close()
-                                        .clickable()
-                                        .addClickListener(evt -> this.close(null))
-                        )
-                );
+        this.dialogNavBar = this.dialogNavBar(context);
         this.dialog = this.dialogCreate();
 
         this.appendLinksRebuild();
         this.setPatternText(context.loaded());
     }
 
-    // dialog......................................................................................................
+    // dialogNavBar.....................................................................................................
+
+    private NavBar dialogNavBar(final SpreadsheetPatternEditorComponentContext context) {
+        return NavBar.create(context.title())
+                .appendChild(
+                        PostfixAddOn.of(
+                                Icons.close()
+                                        .clickable()
+                                        .addClickListener(this::onDialogClose)
+                        )
+                );
+    }
+
+    private void onDialogClose(final Event event) {
+        this.context.close();
+    }
+
+    /**
+     * Includes the dialog title.
+     */
+    private final NavBar dialogNavBar;
+
+    // dialog...........................................................................................................
 
     /**
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
@@ -154,11 +169,6 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     }
 
     private final Dialog dialog;
-
-    /**
-     * Includes the dialog title.
-     */
-    private final NavBar dialogNavBar;
 
     private final SpreadsheetPatternEditorComponentContext context;
 
