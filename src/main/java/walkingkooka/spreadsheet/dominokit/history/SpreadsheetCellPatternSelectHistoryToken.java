@@ -122,7 +122,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                     this::onPatternEditorComponentSpreadsheetDelta
             );
         } else {
-            spreadsheetPatternEditorComponent.refresh();
+            spreadsheetPatternEditorComponent.refresh(context);
         }
     }
 
@@ -152,7 +152,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                                                           final AppContext context) {
         if (context.historyToken() instanceof SpreadsheetCellPatternHistoryToken) {
             if (null != spreadsheetPatternEditorComponent) {
-                spreadsheetPatternEditorComponent.refresh();
+                spreadsheetPatternEditorComponent.refresh(context);
             }
         }
     }
