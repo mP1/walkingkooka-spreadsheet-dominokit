@@ -138,8 +138,10 @@ final class BasicSpreadsheetPatternEditorComponentContext implements Spreadsheet
     // clear the pattern part leaving just the selection history token.
     @Override
     public void close() {
-        this.historyToken()
-                .close();
+        this.pushHistoryToken(
+                this.historyToken()
+                        .close()
+        );
     }
 
     @Override
