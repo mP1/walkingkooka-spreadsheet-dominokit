@@ -50,6 +50,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatchers;
+import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponent;
+import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponentContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbarComponent;
@@ -127,6 +129,21 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         this.addSpreadsheetDeltaWatcher(this.viewportCache);
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
+
+        this.spreadsheetPatternEditorComponent();
+    }
+
+    private void spreadsheetPatternEditorComponent() {
+        final SpreadsheetPatternEditorComponent component = SpreadsheetPatternEditorComponent.with(
+                SpreadsheetPatternEditorComponentContexts.basic(this)
+        );
+        this.addHistoryWatcher(component);
+        this.addSpreadsheetDeltaWatcher(
+                (delta, context) -> component.refreshIfOpen(this)
+        );
+        this.addSpreadsheetMetadataWatcher(
+                (metadata, context) -> component.refreshIfOpen(this)
+        );
     }
 
     // header = metadata toggle | clickable(editable) spreadsheet name

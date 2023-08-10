@@ -51,6 +51,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -79,6 +80,10 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
     private SpreadsheetPatternEditorComponent(final SpreadsheetPatternEditorComponentContext context) {
         this.context = context;
+
+        this.patternKindTabs = this.patternKindTabs();
+        this.patternKindTabsPanel = this.patternKindTabsPanel();
+
         this.patternTextBox = this.patternTextBox();
 
         this.componentParent = Card.create();
@@ -94,17 +99,14 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         );
         this.sampleDataTableDataStore = localListDataStore;
 
-        this.dialogNavBar = this.dialogNavBar(context);
+        this.dialogNavBar = this.dialogNavBar();
         this.dialog = this.dialogCreate();
-
-        this.appendLinksRebuild();
-        this.setPatternText(context.loaded());
     }
 
     // dialogNavBar.....................................................................................................
 
-    private NavBar dialogNavBar(final SpreadsheetPatternEditorComponentContext context) {
-        return NavBar.create(context.title())
+    private NavBar dialogNavBar() {
+        return NavBar.create() //
                 .appendChild(
                         PostfixAddOn.of(
                                 Icons.close()
@@ -141,7 +143,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                 );
         dialog.id(ID);
 
-        dialog.appendChild(this.spreadsheetPatternKindTabs());
+        dialog.appendChild(this.patternKindTabsPanel);
 
         dialog.appendChild(
                 Card.create()
@@ -175,43 +177,85 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     // tabs............................................................................................................
 
     /**
+     * Factory that creates a TAB for each {@link SpreadsheetPatternKind}. Note the anchors links are not set and need to be
+     * {@link #patternKindTabsRefresh()}.
+     */
+    private Tab[] patternKindTabs() {
+        final SpreadsheetPatternEditorComponentContext context = this.context;
+
+        final SpreadsheetPatternKind[] kinds = SpreadsheetPatternKind.values();
+        final Tab[] tabs = new Tab[kinds.length];
+
+        int i = 0;
+        for (final SpreadsheetPatternKind kind : kinds) {
+            final String text = context.patternKindButtonText(kind);
+            final Tab tab = Tab.create(text);
+
+            Anchor.with(
+                            (HTMLAnchorElement)
+                                    tab.getTab()
+                                            .element()
+                                            .firstElementChild
+                    ).setId(spreadsheetPatternKindId(kind))
+                    .addPushHistoryToken(context)
+                    .setDisabled(false);
+
+            tabs[i++] = tab;
+        }
+
+        return tabs;
+    }
+
+    private Tab[] patternKindTabs;
+
+    /**
      * Returns a {@link TabsPanel} with tabs for each of the possible {@link SpreadsheetPatternKind}, with each
      * tab holding a link which will switch to that pattern.
      */
-    private TabsPanel spreadsheetPatternKindTabs() {
-        final SpreadsheetPatternEditorComponentContext context = this.context;
-        final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
-        final Optional<SpreadsheetPatternKind> maybePatternKind = historyToken.patternKind();
-
+    private TabsPanel patternKindTabsPanel() {
         final TabsPanel tabsPanel = TabsPanel.create();
 
-        for (final SpreadsheetPatternKind kind : SpreadsheetPatternKind.values()) {
-            final String text = context.patternKindButtonText(kind);
-            final Tab tab = Tab.create(text);
+        for (final Tab tab : this.patternKindTabs) {
+            tabsPanel.appendChild(tab);
+        }
+
+        return tabsPanel;
+    }
+
+    private final TabsPanel patternKindTabsPanel;
+
+    /**
+     * Iterates over the links in each tab updating the link, disabling and activating as necessary.
+     */
+    private void patternKindTabsRefresh() {
+        final SpreadsheetPatternKind kind = this.context.patternKind();
+
+        int i = 0;
+        final Tab[] tabs = this.patternKindTabs;
+        for (final SpreadsheetPatternKind possible : SpreadsheetPatternKind.values()) {
+            final Tab tab = tabs[i++];
             final Anchor anchor = Anchor.with(
                     (HTMLAnchorElement)
                             tab.getTab()
                                     .element()
                                     .firstElementChild
-            ).setId(spreadsheetPatternKindId(kind));
-
-            final boolean match = maybePatternKind.isPresent() &&
-                    maybePatternKind.get().equals(kind);
+            );
+            final boolean match = kind.equals(possible);
             anchor.setDisabled(match);
             tab.activate(match);
 
             if (false == match) {
+                final SpreadsheetCellPatternSelectHistoryToken historyToken = context.historyToken()
+                        .cast(
+                                SpreadsheetCellPatternSelectHistoryToken.class
+                        );
                 anchor.setHistoryToken(
                         historyToken.setPatternKind(
-                                Optional.of(kind)
+                                Optional.of(possible)
                         )
-                ).addPushHistoryToken(context);
+                );
             }
-
-            tabsPanel.appendChild(tab);
         }
-
-        return tabsPanel;
     }
 
     // sample...........................................................................................................
@@ -228,7 +272,6 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                         columnConfig(
                                 "pattern-text",
                                 TextAlign.CENTER,
-                                //d -> Doms.textNode(d.patternText())
                                 d -> this.patternAnchor(d.patternText())
                         )
                 ).addColumn(
@@ -293,6 +336,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     private void sampleDataPrepare() {
         final SpreadsheetPatternEditorComponentContext context = this.context;
         final SpreadsheetPatternKind patternKind = context.patternKind();
+        context.debug("sample: " + patternKind);
 
         this.sampleDataTableDataStore.setData(
                 SpreadsheetPatternEditorComponentSampleRowProvider.spreadsheetPatternKind(patternKind)
@@ -719,8 +763,8 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     // ComponentLifecycle...............................................................................................
 
     @Override
-    public boolean isMatch(HistoryToken token) {
-        throw new UnsupportedOperationException();
+    public boolean isMatch(final HistoryToken token) {
+        return token instanceof SpreadsheetCellPatternSelectHistoryToken;
     }
 
     /**
@@ -760,6 +804,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         context.debug("SpreadsheetPatternEditorComponent.refresh");
 
         this.dialogNavBar.setTitle(componentContext.title());
+        this.patternKindTabsRefresh();
         this.appendLinksRebuild();
         this.setPatternText(componentContext.loaded());
     }
