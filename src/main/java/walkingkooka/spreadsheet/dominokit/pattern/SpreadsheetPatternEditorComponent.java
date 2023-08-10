@@ -675,7 +675,6 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         final SpreadsheetPatternEditorComponentContext context = this.context;
         context.debug("SpreadsheetPatternEditorComponent.onCloseButtonClick");
         context.close();
-        this.dialog.close();
     }
 
     /**
