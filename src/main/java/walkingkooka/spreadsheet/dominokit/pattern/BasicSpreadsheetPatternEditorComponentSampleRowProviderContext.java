@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -26,20 +27,25 @@ import java.util.Objects;
 final class BasicSpreadsheetPatternEditorComponentSampleRowProviderContext implements SpreadsheetPatternEditorComponentSampleRowProviderContext {
 
     static BasicSpreadsheetPatternEditorComponentSampleRowProviderContext with(final SpreadsheetPatternKind kind,
-                                                                               final SpreadsheetFormatterContext spreadsheetFormatterContext) {
+                                                                               final SpreadsheetFormatterContext spreadsheetFormatterContext,
+                                                                               final LoggingContext loggingContext) {
         Objects.requireNonNull(kind, "kind");
         Objects.requireNonNull(spreadsheetFormatterContext, "spreadsheetFormatterContext");
+        Objects.requireNonNull(loggingContext, "loggingContext");
 
         return new BasicSpreadsheetPatternEditorComponentSampleRowProviderContext(
                 kind,
-                spreadsheetFormatterContext
+                spreadsheetFormatterContext,
+                loggingContext
         );
     }
 
     private BasicSpreadsheetPatternEditorComponentSampleRowProviderContext(final SpreadsheetPatternKind kind,
-                                                                           final SpreadsheetFormatterContext spreadsheetFormatterContext) {
+                                                                           final SpreadsheetFormatterContext spreadsheetFormatterContext,
+                                                                           final LoggingContext loggingContext) {
         this.kind = kind;
         this.spreadsheetFormatterContext = spreadsheetFormatterContext;
+        this.loggingContext = loggingContext;
     }
 
     @Override
@@ -66,7 +72,21 @@ final class BasicSpreadsheetPatternEditorComponentSampleRowProviderContext imple
     private final SpreadsheetFormatterContext spreadsheetFormatterContext;
 
     @Override
+    public void debug(final Object... values) {
+        this.loggingContext.debug(values);
+    }
+
+    @Override
+    public void error(final Object... values) {
+        this.loggingContext.error(values);
+    }
+
+    private final LoggingContext loggingContext;
+
+    // Object...........................................................................................................
+
+    @Override
     public String toString() {
-        return this.kind() + " " + this.spreadsheetFormatterContext().toString();
+        return this.kind() + " " + this.spreadsheetFormatterContext() + " " + this.loggingContext;
     }
 }

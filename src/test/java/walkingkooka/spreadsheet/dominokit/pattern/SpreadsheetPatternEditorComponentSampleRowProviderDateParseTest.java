@@ -129,7 +129,8 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderDateParseTe
                         50,
                         () -> NOW
                 );
-            }
+            },
+            LOGGING_CONTEXT
     );
 
     @Test

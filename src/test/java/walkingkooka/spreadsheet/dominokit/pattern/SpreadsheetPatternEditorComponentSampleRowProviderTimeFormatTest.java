@@ -97,7 +97,8 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderTimeFormatT
                         50,
                         () -> NOW
                 );
-            }
+            },
+            LOGGING_CONTEXT
     );
 
     @Test

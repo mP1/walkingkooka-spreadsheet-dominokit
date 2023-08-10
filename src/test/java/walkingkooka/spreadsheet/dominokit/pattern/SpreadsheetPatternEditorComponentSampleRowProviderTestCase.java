@@ -21,6 +21,8 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.util.BiFunctionTesting;
@@ -33,6 +35,8 @@ public abstract class SpreadsheetPatternEditorComponentSampleRowProviderTestCase
         ClassTesting<T>,
         ToStringTesting<T>,
         TreePrintableTesting {
+
+    final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
 
     SpreadsheetPatternEditorComponentSampleRowProviderTestCase() {
         super();
