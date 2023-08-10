@@ -120,8 +120,9 @@ final class BasicSpreadsheetPatternEditorComponentContext implements Spreadsheet
      */
     @Override
     public void save(final String pattern) {
-        this.context.pushHistoryToken(
-                this.historyToken().setSave(pattern)
+        this.pushHistoryToken(
+                this.historyToken()
+                        .setSave(pattern)
         );
     }
 
@@ -130,8 +131,9 @@ final class BasicSpreadsheetPatternEditorComponentContext implements Spreadsheet
      */
     @Override
     public void remove() {
-        this.context.pushHistoryToken(
-                this.historyToken().setSave("")
+        this.pushHistoryToken(
+                this.historyToken()
+                        .setSave("")
         );
     }
 
