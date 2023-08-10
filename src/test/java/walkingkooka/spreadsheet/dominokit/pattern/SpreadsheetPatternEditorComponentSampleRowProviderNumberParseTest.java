@@ -35,7 +35,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberParse
     private final static Color BLUE = Color.parse("#0F1");
 
     private final SpreadsheetPatternEditorComponentSampleRowProviderContext CONTEXT = SpreadsheetPatternEditorComponentSampleRowProviderContexts.basic(
-            SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN,
+            SpreadsheetPatternKind.NUMBER_PARSE_PATTERN,
             new FakeSpreadsheetFormatterContext() {
                 @Override
                 public Locale locale() {
@@ -113,9 +113,6 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberParse
                 "Positive Edit Pattern | $#.## | 1G234D56 | AUD1234D56\n" +
                         "Negative Edit Pattern | $#.## | N9G876D54 | AUDN9876D54\n" +
                         "Zero Edit Pattern | $#.## | 0D | AUDD\n" +
-                        "Positive General | General | 1G234D56 | 1234D6\n" +
-                        "Negative General | General | N9G876D54 | N9876D5\n" +
-                        "Zero General | General | 0D | 0\n" +
                         "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
                         "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
                         "Zero Number | #,##0.### | 0D | 0D\n" +
@@ -141,9 +138,6 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberParse
                 "Positive Edit Pattern | | 1G234D56 |\n" +
                         "Negative Edit Pattern | | N9G876D54 |\n" +
                         "Zero Edit Pattern | | 0D |\n" +
-                        "Positive General | General | 1G234D56 | 1234D6\n" +
-                        "Negative General | General | N9G876D54 | N9876D5\n" +
-                        "Zero General | General | 0D | 0\n" +
                         "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
                         "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
                         "Zero Number | #,##0.### | 0D | 0D\n" +
@@ -167,9 +161,29 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberParse
                 "Positive Edit Pattern | | 1G234D56 |\n" +
                         "Negative Edit Pattern | | N9G876D54 |\n" +
                         "Zero Edit Pattern | | 0D |\n" +
-                        "Positive General | General | 1G234D56 | 1234D6\n" +
-                        "Negative General | General | N9G876D54 | N9876D5\n" +
-                        "Zero General | General | 0D | 0\n" +
+                        "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
+                        "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
+                        "Zero Number | #,##0.### | 0D | 0D\n" +
+                        "Positive Integer | #,##0 | 1G234D56 | 1G235\n" +
+                        "Negative Integer | #,##0 | N9G876D54 | N9G877\n" +
+                        "Zero Integer | #,##0 | 0D | 0\n" +
+                        "Positive Percent | #,##0% | 1G234D56 | 123G456P\n" +
+                        "Negative Percent | #,##0% | N9G876D54 | N987G654P\n" +
+                        "Zero Percent | #,##0% | 0D | 0P\n" +
+                        "Positive Currency | $#,##0.00 | 1G234D56 | AUD1G234D56\n" +
+                        "Negative Currency | $#,##0.00 | N9G876D54 | AUDN9G876D54\n" +
+                        "Zero Currency | $#,##0.00 | 0D | AUD0D00"
+        );
+    }
+
+    @Test
+    public void testGeneral() {
+        this.applyAndCheck2(
+                "General",
+                CONTEXT,
+                "Positive Edit Pattern | | 1G234D56 |\n" +
+                        "Negative Edit Pattern | | N9G876D54 |\n" +
+                        "Zero Edit Pattern | | 0D |\n" +
                         "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
                         "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
                         "Zero Number | #,##0.### | 0D | 0D\n" +
