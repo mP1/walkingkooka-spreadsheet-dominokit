@@ -37,6 +37,15 @@ public interface ComponentLifecycle extends HistoryTokenWatcher {
     void open(final AppContext context);
 
     /**
+     * Conditionally calls {@link #refresh(AppContext)} if this component is {@link #isOpen()}.
+     */
+    default void refreshIfOpen(final AppContext context) {
+        if (this.isOpen()) {
+            this.refresh(context);
+        }
+    }
+
+    /**
      * The widget should refresh its visible appearance and state.
      */
     void refresh(final AppContext context);
