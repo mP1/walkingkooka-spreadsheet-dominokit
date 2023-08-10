@@ -88,10 +88,10 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProvider implements BiF
     }
 
     /**
-     * {@see SpreadsheetPatternEditorComponentSampleRowProviderDateTimeParse}
+     * {@see SpreadsheetPatternEditorComponentSampleRowProviderDateParse}
      */
     static SpreadsheetPatternEditorComponentSampleRowProvider dateParse() {
-        return SpreadsheetPatternEditorComponentSampleRowProviderDateTimeParse.INSTANCE;
+        return SpreadsheetPatternEditorComponentSampleRowProviderDateParse.INSTANCE;
     }
 
     /**
