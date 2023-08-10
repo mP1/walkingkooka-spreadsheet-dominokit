@@ -60,6 +60,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -75,6 +76,8 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
      * Creates a new {@link SpreadsheetPatternEditorComponent}.
      */
     public static SpreadsheetPatternEditorComponent with(final SpreadsheetPatternEditorComponentContext context) {
+        Objects.requireNonNull(context, "context");
+
         return new SpreadsheetPatternEditorComponent(context);
     }
 
