@@ -339,7 +339,6 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     private void sampleDataPrepare() {
         final SpreadsheetPatternEditorComponentContext context = this.context;
         final SpreadsheetPatternKind patternKind = context.patternKind();
-        context.debug("sample: " + patternKind);
 
         this.sampleDataTableDataStore.setData(
                 SpreadsheetPatternEditorComponentSampleRowProvider.spreadsheetPatternKind(patternKind)
