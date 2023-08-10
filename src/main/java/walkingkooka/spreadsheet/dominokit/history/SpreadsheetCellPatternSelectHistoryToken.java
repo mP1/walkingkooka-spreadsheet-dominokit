@@ -21,8 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponent;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
@@ -109,53 +107,6 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        if (null == spreadsheetPatternEditorComponent) {
-            spreadsheetPatternEditorComponent = SpreadsheetPatternEditorComponent.with(
-                    SpreadsheetCellPatternSelectHistoryTokenSpreadsheetPatternEditorComponentContext.with(context)
-            );
-            spreadsheetPatternEditorComponent.open(context);
-            onPatternEditorComponentHistoryTokenWatcherRemover = context.addHistoryWatcher(
-                    this::onPatternEditorComponentHistoryTokenChange
-            );
-
-            onPatternEditorComponentSpreadsheetDeltaWatcherRemover = context.addSpreadsheetDeltaWatcher(
-                    this::onPatternEditorComponentSpreadsheetDelta
-            );
-        } else {
-            spreadsheetPatternEditorComponent.refresh(context);
-        }
+        // NOP because SpreadsheetPatternEditorComponent implements ComponentLifecycle
     }
-
-    private static SpreadsheetPatternEditorComponent spreadsheetPatternEditorComponent;
-
-    private void onPatternEditorComponentHistoryTokenChange(final HistoryToken previous,
-                                                            final AppContext context) {
-        if (false == context.historyToken() instanceof SpreadsheetCellPatternHistoryToken) {
-
-            if (null != spreadsheetPatternEditorComponent) {
-                try {
-                    spreadsheetPatternEditorComponent.close(context);
-                    onPatternEditorComponentHistoryTokenWatcherRemover.run();
-                    onPatternEditorComponentSpreadsheetDeltaWatcherRemover.run();
-                } finally {
-                    spreadsheetPatternEditorComponent = null;
-                    onPatternEditorComponentHistoryTokenWatcherRemover = null;
-                    onPatternEditorComponentSpreadsheetDeltaWatcherRemover = null;
-                }
-            }
-        }
-    }
-
-    private static Runnable onPatternEditorComponentHistoryTokenWatcherRemover;
-
-    private void onPatternEditorComponentSpreadsheetDelta(final SpreadsheetDelta delta,
-                                                          final AppContext context) {
-        if (context.historyToken() instanceof SpreadsheetCellPatternHistoryToken) {
-            if (null != spreadsheetPatternEditorComponent) {
-                spreadsheetPatternEditorComponent.refresh(context);
-            }
-        }
-    }
-
-    private static Runnable onPatternEditorComponentSpreadsheetDeltaWatcherRemover;
 }

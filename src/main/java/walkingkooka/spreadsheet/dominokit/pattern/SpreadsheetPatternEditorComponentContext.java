@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -76,7 +76,7 @@ public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
      * More specialised {@link HistoryToken} getter
      */
     @Override
-    SpreadsheetCellPatternHistoryToken historyToken();
+    SpreadsheetCellPatternSelectHistoryToken historyToken();
 
     /**
      * A {@link SpreadsheetFormatterContext} which will be used to format values for the samples table.

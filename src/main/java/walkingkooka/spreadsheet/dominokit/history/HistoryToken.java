@@ -674,6 +674,24 @@ public abstract class HistoryToken implements HasUrlFragment {
     // token factory methods............................................................................................
 
     /**
+     * Used to close a currently active state, such as a dialog.
+     */
+    public final HistoryToken close() {
+        HistoryToken closed = this;
+
+        if (this instanceof SpreadsheetCellPatternSelectHistoryToken) {
+            final SpreadsheetCellPatternSelectHistoryToken patternSelect = (SpreadsheetCellPatternSelectHistoryToken) this;
+            closed = cellPatternToolbar(
+                    patternSelect.id(),
+                    patternSelect.name(),
+                    patternSelect.viewportSelection()
+            );
+        }
+
+        return closed;
+    }
+
+    /**
      * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
      */
     public final HistoryToken setAnchor(final SpreadsheetViewportSelectionAnchor anchor) {
