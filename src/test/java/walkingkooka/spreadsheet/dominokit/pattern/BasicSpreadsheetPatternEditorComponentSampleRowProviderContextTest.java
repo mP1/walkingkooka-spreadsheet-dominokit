@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
@@ -37,7 +39,8 @@ public final class BasicSpreadsheetPatternEditorComponentSampleRowProviderContex
     public void testWithNullKindFails() {
         this.withFails(
                 null,
-                SpreadsheetFormatterContexts.fake()
+                SpreadsheetFormatterContexts.fake(),
+                LoggingContexts.fake()
         );
     }
 
@@ -45,17 +48,29 @@ public final class BasicSpreadsheetPatternEditorComponentSampleRowProviderContex
     public void testWithNullSpreadsheetFormatterContextFails() {
         this.withFails(
                 SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
+                null,
+                LoggingContexts.fake()
+        );
+    }
+
+    @Test
+    public void testWithNullLoggingContextFails() {
+        this.withFails(
+                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
+                SpreadsheetFormatterContexts.fake(),
                 null
         );
     }
 
     private void withFails(final SpreadsheetPatternKind kind,
-                           final SpreadsheetFormatterContext spreadsheetFormatterContext) {
+                           final SpreadsheetFormatterContext spreadsheetFormatterContext,
+                           final LoggingContext loggingContext) {
         assertThrows(
                 NullPointerException.class,
                 () -> BasicSpreadsheetPatternEditorComponentSampleRowProviderContext.with(
                         kind,
-                        spreadsheetFormatterContext
+                        spreadsheetFormatterContext,
+                        loggingContext
                 )
         );
     }
@@ -72,7 +87,8 @@ public final class BasicSpreadsheetPatternEditorComponentSampleRowProviderContex
 
         final BasicSpreadsheetPatternEditorComponentSampleRowProviderContext context = BasicSpreadsheetPatternEditorComponentSampleRowProviderContext.with(
                 kind,
-                spreadsheetFormatterContext
+                spreadsheetFormatterContext,
+                LoggingContexts.fake()
         );
 
         this.checkNotEquals(
@@ -99,13 +115,15 @@ public final class BasicSpreadsheetPatternEditorComponentSampleRowProviderContex
     public void testToString() {
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
         final SpreadsheetFormatterContext context = SpreadsheetFormatterContexts.fake();
+        final LoggingContext loggingContext = LoggingContexts.fake();
 
         this.toStringAndCheck(
                 BasicSpreadsheetPatternEditorComponentSampleRowProviderContext.with(
                         kind,
-                        context
+                        context,
+                        loggingContext
                 ),
-                kind + " " + context
+                kind + " " + context + " " + loggingContext
         );
     }
 

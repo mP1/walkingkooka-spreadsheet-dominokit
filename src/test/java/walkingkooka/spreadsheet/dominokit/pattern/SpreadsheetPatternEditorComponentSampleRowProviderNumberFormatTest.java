@@ -99,7 +99,8 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberForma
                 public MathContext mathContext() {
                     return MathContext.DECIMAL32;
                 }
-            }
+            },
+            LOGGING_CONTEXT
     );
 
     @Test

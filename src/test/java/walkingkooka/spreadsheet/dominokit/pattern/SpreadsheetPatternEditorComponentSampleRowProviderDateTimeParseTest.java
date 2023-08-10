@@ -150,7 +150,8 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderDateTimePar
                             Color.parse("#00f")
                     );
                 }
-            }
+            },
+            LOGGING_CONTEXT
     );
 
     @Test

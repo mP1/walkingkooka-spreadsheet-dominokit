@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
@@ -26,7 +27,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 /**
  * A {@link Context} accompanying a {@link SpreadsheetPatternEditorComponentSampleRowProvider}.
  */
-public interface SpreadsheetPatternEditorComponentSampleRowProviderContext extends Context {
+public interface SpreadsheetPatternEditorComponentSampleRowProviderContext extends LoggingContext {
 
     /**
      * Returns the default {@link SpreadsheetFormatter} for the {@link #kind()}.

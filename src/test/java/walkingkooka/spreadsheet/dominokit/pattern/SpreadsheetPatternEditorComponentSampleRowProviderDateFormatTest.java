@@ -139,7 +139,8 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderDateFormatT
                             Color.parse("#00f")
                     );
                 }
-            }
+            },
+            LOGGING_CONTEXT
     );
 
     @Test

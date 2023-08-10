@@ -37,4 +37,14 @@ public class FakeSpreadsheetPatternEditorComponentSampleRowProviderContext imple
     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void debug(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void error(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
 }

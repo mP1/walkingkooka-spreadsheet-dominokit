@@ -50,7 +50,8 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormatT
                             target
                     );
                 }
-            }
+            },
+            LOGGING_CONTEXT
     );
 
     @Test

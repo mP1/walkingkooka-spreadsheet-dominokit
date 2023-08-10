@@ -346,7 +346,8 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                                 this.patternText(),
                                 SpreadsheetPatternEditorComponentSampleRowProviderContexts.basic(
                                         patternKind,
-                                        context.spreadsheetFormatterContext()
+                                        context.spreadsheetFormatterContext(),
+                                        context
                                 )
                         )
         );
