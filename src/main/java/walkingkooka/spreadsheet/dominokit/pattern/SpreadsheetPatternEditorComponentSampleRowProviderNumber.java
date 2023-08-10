@@ -53,13 +53,16 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProviderNumber extends 
                 )
         );
 
-        rows.addAll(
-                row(
-                        "General",
-                        GENERAL,
-                        context
-                )
-        );
+        if (this instanceof SpreadsheetPatternEditorComponentSampleRowProviderNumberFormat) {
+            rows.addAll(
+                    row(
+                            "General",
+                            GENERAL,
+                            context
+                    )
+            );
+        }
+
         rows.addAll(
                 row(
                         "Number",
