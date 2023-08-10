@@ -17,28 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.log;
 
-import walkingkooka.reflect.PublicStaticHelper;
-
-public final class LoggingContexts implements PublicStaticHelper {
-
-    /**
-     * {@see ElementalLoggingContext}.
-     */
-    public static LoggingContext elemental() {
-        return ElementalLoggingContext.INSTANCE;
+public class FakeLoggingContext implements LoggingContext {
+    @Override
+    public void debug(final Object... values) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * {@see FakeLoggingContext}
-     */
-    public static LoggingContext fake() {
-        return new FakeLoggingContext();
-    }
-
-    /**
-     * Stop creation
-     */
-    private LoggingContexts() {
+    @Override
+    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }
