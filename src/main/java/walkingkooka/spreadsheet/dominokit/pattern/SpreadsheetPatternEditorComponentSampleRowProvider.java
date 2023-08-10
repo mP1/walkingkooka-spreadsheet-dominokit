@@ -19,8 +19,10 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.NeverError;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
+import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.text.CharSequences;
 
 import java.util.List;
 import java.util.Objects;
@@ -189,16 +191,24 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProvider implements BiF
                                                          final Optional<SpreadsheetPattern> pattern,
                                                          final Object value,
                                                          final SpreadsheetPatternEditorComponentSampleRowProviderContext context) {
+        final String patternText = pattern.map(SpreadsheetPattern::text)
+                .orElse("");
+
+        final SpreadsheetText defaultFormatted = context.defaultFormat(value);
+
+        final SpreadsheetText formatted = context.format(
+                pattern.map(SpreadsheetPattern::formatter)
+                        .orElse(SpreadsheetFormatters.emptyText()),
+                value
+        );
+
+        context.debug(this.getClass().getSimpleName() + " " + label + " " + CharSequences.quoteAndEscape(patternText) + " " + defaultFormatted + " " + formatted);
+
         return SpreadsheetPatternEditorComponentSampleRow.with(
                 label,
-                pattern.map(SpreadsheetPattern::text)
-                        .orElse(""),
-                context.defaultFormat(value),
-                context.format(
-                        pattern.map(SpreadsheetPattern::formatter)
-                                .orElse(SpreadsheetFormatters.emptyText()),
-                        value
-                )
+                patternText,
+                defaultFormatted,
+                formatted
         );
     }
 }
