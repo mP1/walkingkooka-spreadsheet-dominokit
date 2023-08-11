@@ -304,7 +304,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * A TABLE that holds the grid of cells including the column and row headers.
      */
-    //private final HtmlContentBuilder<HTMLTableElement tableElement;
     private final TableElement tableElement;
 
     /**
