@@ -34,7 +34,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -641,37 +640,12 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     public void giveViewportFocus(final SpreadsheetSelection selection) {
         this.debug("App.giveViewportFocus " + selection);
 
-        this.giveFocus(() -> this.giveViewportFocus0(selection));
-    }
-
-    private void giveViewportFocus0(final SpreadsheetSelection selection) {
-        final Optional<Element> maybeElement = this.findViewportElement(selection);
-        if (maybeElement.isPresent()) {
-            Element element = maybeElement.get();
-
-            boolean give = true;
-
-            final Element active = DomGlobal.document.activeElement;
-            if (null != active) {
-                // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
-                give = false == Doms.isOrHasChild(
-                        element,
-                        active
-                );
-            }
-
-            if (give) {
-                // for column/row the anchor and not the TH/TD should receive focus.
-                if (selection.isColumnReference() || selection.isRowReference()) {
-                    element = element.firstElementChild;
-                }
-
-                this.debug("App.giveViewportFocus0 " + selection + " focus element " + element);
-                element.focus();
-            }
-        } else {
-            this.debug("App.giveViewportFocus0 " + selection + " element not found!");
-        }
+        this.giveFocus(
+                AppGiveViewportFocusRunnable.with(
+                        selection,
+                        this
+                )
+        );
     }
 
     @Override
@@ -703,7 +677,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         this.debug("App.giveFocus " + giveFocus);
 
         final Runnable existingGiveFocus = this.giveFocus;
-        if (null != existingGiveFocus) {
+        if (null != existingGiveFocus && false == giveFocus.equals(existingGiveFocus)) {
             this.giveFocus = null;
             throw new IllegalStateException("Second attempt to give focus " + existingGiveFocus + " AND " + giveFocus);
         }
