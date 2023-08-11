@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -45,6 +46,8 @@ public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWa
         SpreadsheetDeltaWatcher {
 
     public static SpreadsheetViewportToolbarComponent with(final AppContext context) {
+        Objects.requireNonNull(context, "context");
+
         return new SpreadsheetViewportToolbarComponent(context);
     }
 
