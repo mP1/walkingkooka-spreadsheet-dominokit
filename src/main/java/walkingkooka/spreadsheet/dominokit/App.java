@@ -179,7 +179,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         layout.getNavBar()
                 .getBody()
                 .appendChild(
-                        SpreadsheetViewportToolbarComponent.create(this)
+                        SpreadsheetViewportToolbarComponent.with(this)
                 );
 
         DomGlobal.document.body.append(
