@@ -75,14 +75,19 @@ public interface ComponentLifecycle extends HistoryTokenWatcher {
         if (this.isOpen()) {
             if (nextOpen) {
                 // open -> open -> refresh
+
+                context.debug(this.getClass().getSimpleName() + " refresh");
                 this.refresh(context);
             } else {
                 // open -> close -> close
+
+                context.debug(this.getClass().getSimpleName() + " close");
                 this.close(context);
             }
         } else {
             if (nextOpen) {
                 // close -> open -> open
+                context.debug(this.getClass().getSimpleName() + " open");
                 this.open(context);
             }
             // close -> close -> do nothing
