@@ -779,7 +779,6 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
     @Override
     public void open(final AppContext context) {
-        this.context.debug("SpreadsheetPatternEditorComponent.open");
         this.dialog.open();
 
         this.context.giveFocus(
@@ -802,8 +801,6 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     @Override
     public void refresh(final AppContext context) {
         final SpreadsheetPatternEditorComponentContext componentContext = this.context;
-
-        context.debug("SpreadsheetPatternEditorComponent.refresh");
 
         this.dialogNavBar.setTitle(componentContext.title());
         this.patternKindTabsRefresh();
