@@ -33,12 +33,9 @@ import org.dominokit.domino.ui.elements.THElement;
 import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -50,7 +47,6 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -63,7 +59,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -90,7 +85,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private SpreadsheetViewportComponent(final AppContext context) {
         this.context = context;
 
-        this.formulaTextBox = this.createFormulaTextBox();
         this.tableElement = this.createTable();
         this.root = this.createRoot();
 
@@ -98,6 +92,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
     }
+
+    // viewport table...................................................................................................
 
     public void setWidthAndHeight(final int width,
                                   final int height) {
@@ -133,13 +129,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.setViewportSelection(maybeViewportSelection);
 
         this.render();
-    }
-
-    /**
-     * A returned value of <code>true</code> indicates the formula should be enabled for editing.
-     */
-    private boolean isFormulaEnabled() {
-        return this.context.historyToken() instanceof SpreadsheetCellHistoryToken;
     }
 
     @Override
@@ -271,151 +260,16 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         final DivElement root = ElementsFactory.elements.div();
         root.style("border: none; margin: 0px; padding: none; width:100%");
 
-        root.appendChild(this.formulaTextBox.element());
+        root.appendChild(SpreadsheetFormulaComponent.with(this.context));
         root.appendChild(this.tableElement);
 
         return root;
     }
 
     /**
-     * The root or container that holds the {@link #formulaTextBox} and {@link #tableElement}.
+     * The root or container that holds the {@link SpreadsheetFormulaComponent} and {@link #tableElement}.
      */
     private final DivElement root;
-
-    // formula..........................................................................................................
-
-    /**
-     * Creates a {@link TextBox} that holds the formula for editing.
-     */
-    private TextBox createFormulaTextBox() {
-        final TextBox textBox = TextBox.create()
-                .addEventListener(
-                        EventType.keydown.getName(),
-                        (event) -> onFormulaTextBoxKeyDownEvent(
-                                Js.cast(event)
-                        )
-                );
-
-        textBox.element()
-                .style.set("margin-bottom", "0"); //
-
-        textBox.getInputElement()
-                .addEventListener(
-                        EventType.focus.getName(),
-                        this::onFormulaTextBoxFocus
-                );
-        textBox.apply(
-                self ->
-                        self.appendChild(
-                                PostfixAddOn.of(
-                                        Icons.close_circle()
-                                                .clickable()
-                                                .addClickListener(this::onFormulaTextBoxClear)
-                                )
-                        )
-        );
-
-        return textBox;
-    }
-
-    private void onFormulaTextBoxKeyDownEvent(final KeyboardEvent event) {
-        final AppContext context = this.context;
-
-        switch (Key.fromEvent(event)) {
-            case Enter:
-                context.debug("SpreadsheetViewportComponent.onFormulaTextBoxKeyDownEvent ENTER");
-
-                // if cell then edit formula
-                context.pushHistoryToken(
-                        context.historyToken()
-                                .setFormula()
-                                .setSave(this.formulaTextBox.getValue())
-                );
-                break;
-            case Escape:
-                context.debug("SpreadsheetViewportComponent.onFormulaTextBoxKeyDownEvent ESCAPE restoring text");
-                this.onFormulaTextBoxUndo();
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
-    }
-
-    /**
-     * Reloads the formula textbox with the last saved (loaded) value.
-     */
-    private void onFormulaTextBoxUndo() {
-        final AppContext context = this.context;
-        final Optional<SpreadsheetSelection> viewportSelection = context.viewportSelection();
-
-        if (viewportSelection.isPresent()) {
-            this.setFormula(
-                    viewportSelection.get()
-            );
-        }
-    }
-
-    private void onFormulaTextBoxFocus(final Event event) {
-        final AppContext context = this.context;
-        final HistoryToken historyToken = context.historyToken();
-
-        context.debug("SpreadsheetViewportComponent.onFormulaTextBoxFocus " + historyToken.viewportSelectionOrEmpty());
-
-        context.pushHistoryToken(
-                historyToken.setFormula()
-        );
-    }
-
-    /**
-     * Clears the formula textbox when the big CROSS to the right of the formula is clicked.
-     */
-    private void onFormulaTextBoxClear(final Event event) {
-        this.context.debug("SpreadsheetViewportComponent.onFormulaTextBoxClear");
-        this.formulaTextBox.clear();
-    }
-
-    /**
-     * Only gives focus to the formula text box assumes that it is already shown and has been updated
-     * with the formula every time a new {@link SpreadsheetDelta} is returned.
-     */
-    public void giveFcrmulaTextBoxFocus() {
-        this.context.debug("SpreadsheetViewportComponent.giveFormulaTextBoxFocus");
-
-        this.formulaTextBox.focus();
-    }
-
-    /**
-     * Uses the {@link SpreadsheetSelection} which may be a label to fetch the {@link SpreadsheetCell} and updates
-     * the formula text.
-     */
-    public void setFormula(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
-
-        final AppContext context = this.context;
-        String text = "";
-
-        final SpreadsheetViewportCache cache = context.viewportCache();
-        final Optional<SpreadsheetSelection> maybeNonLabel = cache.nonLabelSelection(selection);
-        if (maybeNonLabel.isPresent()) {
-            final SpreadsheetSelection nonLabel = maybeNonLabel.get();
-            final Optional<SpreadsheetCell> maybeCell = cache.cell(nonLabel.toCell());
-
-            if (maybeCell.isPresent()) {
-                text = maybeCell.get().formula().text();
-            }
-
-            // TODO show error somewhere in formula ?
-        }
-
-        context.debug("SpreadsheetViewportComponent.setFormula text=" + CharSequences.quoteAndEscape(text));
-        this.formulaTextBox.setValue(text);
-    }
-
-    /**
-     * A {@link TextBox} that holds the selected cell formula for editing.
-     */
-    private final TextBox formulaTextBox;
 
     /**
      * The height of the formula textbox.
@@ -534,23 +388,17 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * is rendered again!
      */
     private void render() {
-        final boolean shouldFormulaEnabled = this.isFormulaEnabled();
         final TableElement tableElement = this.tableElement;
 
         final AppContext context = this.context;
-        context.debug("SpreadsheetViewportComponent.render isFormulaEnabled: " + shouldFormulaEnabled);
 
         tableElement.clearElement();
 
         tableElement.element()
                 .style.set(
                         "height",
-                        (this.height -
-                                (shouldFormulaEnabled ? FORMULA_TEXTBOX_HEIGHT : 0)
-                        ) + "px"
+                        (this.height - FORMULA_TEXTBOX_HEIGHT) + "px"
                 );
-
-        this.formulaTextBox.toggleDisplay(shouldFormulaEnabled);
 
         final SpreadsheetViewportCache cache = context.viewportCache();
         // "window": "A1:B12,WI1:WW12"

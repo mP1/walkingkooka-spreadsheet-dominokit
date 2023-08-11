@@ -86,17 +86,6 @@ public interface AppContext extends CanGiveFocus,
     // viewport.........................................................................................................
 
     /**
-     * Gives focus to the formula textbox.
-     */
-    void giveFormulaTextBoxFocus();
-
-    /**
-     * Updates the formula text and more to the {@link SpreadsheetSelection}.
-     * The {@link SpreadsheetSelection} should be either a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} or {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}.
-     */
-    void setFormula(final SpreadsheetSelection selection);
-
-    /**
      * A cache for the viewport cache.
      */
     SpreadsheetViewportCache viewportCache();

@@ -79,14 +79,6 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // if after a SAVE FORMULA do nothing.
-        if (false == previous instanceof SpreadsheetCellFormulaSaveHistoryToken) {
-            // enable formula text box and give focus
-            context.setFormula(
-                    this.viewportSelection()
-                            .selection()
-            );
-            context.giveFormulaTextBoxFocus();
-        }
+        // SpreadsheetFormulaComponent will grab focus etc.
     }
 }

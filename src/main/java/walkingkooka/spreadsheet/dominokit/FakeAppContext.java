@@ -105,16 +105,6 @@ public class FakeAppContext implements AppContext {
     // viewport.........................................................................................................
 
     @Override
-    public void giveFormulaTextBoxFocus() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setFormula(final SpreadsheetSelection selection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public SpreadsheetViewportCache viewportCache() {
         throw new UnsupportedOperationException();
     }

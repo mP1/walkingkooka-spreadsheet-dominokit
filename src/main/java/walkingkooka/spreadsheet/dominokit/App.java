@@ -505,20 +505,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private final SpreadsheetViewportComponent viewportComponent;
 
     @Override
-    public void giveFormulaTextBoxFocus() {
-        this.debug("App.giveFormulaTextBoxFocus");
-
-        this.giveFocus(
-                this.viewportComponent::giveFcrmulaTextBoxFocus
-        );
-    }
-
-    @Override
-    public void setFormula(final SpreadsheetSelection selection) {
-        this.viewportComponent.setFormula(selection);
-    }
-
-    @Override
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
         return this.viewportComponent.viewportCell(selection);
     }
