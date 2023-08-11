@@ -24,9 +24,10 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.layout.FlexLayout;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -41,7 +42,7 @@ import java.util.Optional;
 /**
  * A toolbar that contains icons that trigger an action for the viewport selection.
  */
-public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWatcher,
+public final class SpreadsheetViewportToolbarComponent implements ComponentLifecycle,
         IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher {
 
@@ -106,14 +107,6 @@ public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWa
      */
     private final List<SpreadsheetViewportToolbarComponentItem> components;
 
-    // HistoryTokenWatcher..............................................................................................
-
-    @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        this.refresh(context);
-    }
-
     // SpreadsheetDeltaWatcher..........................................................................................
 
     @Override
@@ -122,28 +115,33 @@ public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWa
         this.refresh(context);
     }
 
-    // refresh..........................................................................................................
+    // ComponentLifecycle..............................................................................................
 
-    private void refresh(final AppContext context) {
-        context.debug("SpreadsheetViewportToolbarComponent.refresh");
+    @Override
+    public boolean isMatch(final HistoryToken token) {
+        return token instanceof SpreadsheetCellHistoryToken;
+    }
 
-        String visibility = "hidden";
+    @Override
+    public boolean isOpen() {
+        return false == "hidden".equals(
+                this.element()
+                        .style
+                        .visibility
+        );
+    }
 
-        final Optional<SpreadsheetSelection> maybeSelection = context.viewportNonLabelSelection();
-        if (maybeSelection.isPresent()) {
-            final SpreadsheetSelection selection = maybeSelection.get();
-            if (selection.isCellReference() || selection.isCellRange()) {
-                visibility = "visible";
+    @Override
+    public void open(final AppContext context) {
+        this.setVisibility("visible");
+    }
 
-                // if window is missing might be browser refresh, and refreshComponents is happening before loadViewportCells etc
-                if (false == context.viewportCache()
-                        .windows()
-                        .isEmpty()) {
-                    refreshComponents(selection, context);
-                }
-            }
-        }
+    @Override
+    public void close(final AppContext context) {
+        this.setVisibility("hidden");
+    }
 
+    private void setVisibility(final String visibility) {
         this.element()
                 .style.set(
                         "visibility",
@@ -151,14 +149,30 @@ public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWa
                 );
     }
 
+    @Override
+    public void refresh(final AppContext context) {
+        context.debug("SpreadsheetViewportToolbarComponent.refresh");
+
+        final Optional<SpreadsheetSelection> maybeSelection = context.viewportNonLabelSelection();
+        if (maybeSelection.isPresent()) {
+            final SpreadsheetSelection selection = maybeSelection.get();
+            if (selection.isCellReference() || selection.isCellRange()) {
+                this.refreshItems(
+                        selection,
+                        context
+                );
+            }
+        }
+    }
+
     /**
      * Refreshes the individual components aka icons in the toolbar.
      */
-    private void refreshComponents(final SpreadsheetSelection selection,
-                                   final AppContext context) {
+    private void refreshItems(final SpreadsheetSelection selection,
+                              final AppContext context) {
         final SpreadsheetViewportCache cache = context.viewportCache();
         final SpreadsheetViewportWindows window = cache.windows();
-        context.debug("SpreadsheetViewportToolbarComponent.refreshComponents begin " + selection + " window: " + window);
+        context.debug("SpreadsheetViewportToolbarComponent.refreshItems begin " + selection + " window: " + window);
 
         final List<SpreadsheetViewportToolbarComponentItem> components = this.components;
         for (final SpreadsheetViewportToolbarComponentItem component : components) {
@@ -169,7 +183,7 @@ public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWa
 
         for (final SpreadsheetCellReference cellReference : Iterables.iterator(window.cells(selection))) {
             final Optional<SpreadsheetCell> maybeCell = context.viewportCell(cellReference);
-            context.debug("SpreadsheetViewportToolbarComponent.refreshComponents " + cellReference, maybeCell.orElse(null));
+            context.debug("SpreadsheetViewportToolbarComponent.refreshItems " + cellReference, maybeCell.orElse(null));
             if (maybeCell.isPresent()) {
                 final SpreadsheetCell cell = maybeCell.get();
 
@@ -191,7 +205,7 @@ public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWa
             );
         }
 
-        context.debug("SpreadsheetViewportToolbarComponent.refreshComponents end " + selection);
+        context.debug("SpreadsheetViewportToolbarComponent.refreshItems end " + selection);
     }
 
     // element..........................................................................................................
