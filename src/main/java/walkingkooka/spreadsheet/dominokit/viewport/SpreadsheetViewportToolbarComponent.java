@@ -44,7 +44,7 @@ public final class SpreadsheetViewportToolbarComponent implements HistoryTokenWa
         IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher {
 
-    public static SpreadsheetViewportToolbarComponent create(final AppContext context) {
+    public static SpreadsheetViewportToolbarComponent with(final AppContext context) {
         return new SpreadsheetViewportToolbarComponent(context);
     }
 
