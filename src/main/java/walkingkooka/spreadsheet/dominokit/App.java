@@ -506,7 +506,10 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
 
     @Override
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
-        return this.viewportComponent.viewportCell(selection);
+        return this.viewportComponent.viewportCell(
+                selection,
+                this
+        );
     }
 
     @Override
@@ -621,37 +624,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     // TODO get these from theme
     private final static Color COLUMN_ROW_SELECTED = Color.parse("#555");
     private final static Color COLUMN_ROW_UNSELECTED = Color.parse("#aaa");
-
-    @Override
-    public void giveViewportFocus(final SpreadsheetSelection selection) {
-        this.debug("App.giveViewportFocus " + selection);
-
-        this.giveFocus(
-                AppGiveViewportFocusRunnable.with(
-                        selection,
-                        this
-                )
-        );
-    }
-
-    @Override
-    public Optional<Element> findViewportElement(final SpreadsheetSelection selection) {
-        Element element = null;
-
-        final Optional<SpreadsheetSelection> maybeNotLabel = this.viewportCache()
-                .nonLabelSelection(selection);
-
-        if (maybeNotLabel.isPresent()) {
-            element = DomGlobal.document
-                    .getElementById(
-                            SpreadsheetViewportComponent.id(
-                                    selection
-                            )
-                    );
-        }
-
-        return Optional.ofNullable(element);
-    }
 
     // focus............................................................................................................
 

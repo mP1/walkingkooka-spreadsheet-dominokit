@@ -139,16 +139,6 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public void giveViewportFocus(final SpreadsheetSelection selection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<Element> findViewportElement(final SpreadsheetSelection selection) {
-        throw new UnsupportedOperationException();
-    }
-
     // CanGiveFocus.....................................................................................................
 
     @Override

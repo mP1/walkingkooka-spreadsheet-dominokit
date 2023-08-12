@@ -64,36 +64,6 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
 
     abstract UrlFragment selectionViewportUrlFragment();
 
-    /**
-     * Tries to create a freeze token or {@link Optional#empty()} because the {@link SpreadsheetSelection} is invalid.
-     */
-    final Optional<HistoryToken> freezeOrEmpty() {
-        HistoryToken token;
-
-        try {
-            token = this.setFreeze();
-        } catch (final RuntimeException ignored) {
-            token = null;
-        }
-
-        return Optional.ofNullable(token);
-    }
-
-    /**
-     * Tries to create an unfreeze token or {@link Optional#empty()} because the {@link SpreadsheetSelection} is invalid.
-     */
-    final Optional<HistoryToken> unfreezeOrEmpty() {
-        HistoryToken token;
-
-        try {
-            token = this.setUnfreeze();
-        } catch (final RuntimeException ignored) {
-            token = null;
-        }
-
-        return Optional.ofNullable(token);
-    }
-
     final void deltaClearSelectionAndPushViewportSelectionHistoryToken(final AppContext context) {
         this.deltaClearSelection(context);
         this.pushViewportSelectionHistoryToken(context);
@@ -190,84 +160,5 @@ public abstract class SpreadsheetViewportSelectionHistoryToken extends Spreadshe
     final void pushViewportSelectionHistoryToken(final AppContext context) {
         this.viewportSelectionHistoryTokenOrEmpty()
                 .ifPresent(context::pushHistoryToken);
-    }
-
-    /**
-     * Helper for the select sub-classes which includes handling of labels, resolving them to a cell.
-     */
-    final void giveViewportFocus(final AppContext context) {
-        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
-        final SpreadsheetSelection selection = viewportSelection.selection();
-        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.viewportCache()
-                .nonLabelSelection(selection);
-
-        if (maybeNonLabelSelection.isPresent()) {
-            final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
-
-            context.giveViewportFocus(
-                    nonLabelSelection.focused(
-                            selection.isLabelName() ?
-                                    nonLabelSelection.defaultAnchor() :
-                                    viewportSelection.anchor()
-                    )
-            );
-        }
-    }
-
-    /**
-     * Renders a drop down menu. This helper is intended only for the menu sub-classes.
-     */
-    final void renderDropDownMenu(final AppContext context) {
-        // show context setMenu1
-        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
-        final Optional<Element> maybeElement = context.findViewportElement(
-                viewportSelection.selection().focused(viewportSelection.anchor())
-        );
-
-        context.debug(this.getClass().getSimpleName() + ".renderDropDownMenu " + viewportSelection);
-
-        if (maybeElement.isPresent()) {
-            final DominoElement<?> element = new DominoElement<>(maybeElement.get());
-
-            // CLEAR
-            // DELETE
-            // -------
-            // FREEZE
-            // UNFREEZE
-
-            final Menu<Void> menu = Menu.<Void>create()
-                    .setContextMenu(true)
-                    .setDropDirection(new MouseBestFitDirection())
-                    .setTargetElement(element)
-                    .appendChild(
-                            context.menuItem(
-                                    "Clear",
-                                    Optional.of(
-                                            this.setClear()
-                                    )
-                            )
-                    ).appendChild(
-                            context.menuItem(
-                                    "Delete",
-                                    Optional.of(
-                                            this.setDelete()
-                                    )
-                            )
-                    ).appendChild(new Separator())
-                    .appendChild(
-                            context.menuItem(
-                                    "Freeze",
-                                    this.freezeOrEmpty()
-                            )
-                    ).appendChild(
-                            context.menuItem(
-                                    "Unfreeze",
-                                    this.unfreezeOrEmpty()
-                            )
-                    );
-
-            element.setDropMenu(menu);
-            menu.open(true); // true = focus
-        }
     }
 }

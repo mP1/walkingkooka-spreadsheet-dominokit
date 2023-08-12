@@ -21,11 +21,9 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
-public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryToken
-        implements SpreadsheetViewportComponentWatcher {
+public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnMenuHistoryToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name,
@@ -65,11 +63,6 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        this.renderDropDownMenu(context);
-    }
-
-    @Override
-    public void onAfterSpreadsheetViewportComponentRender(final AppContext context) {
-        this.renderDropDownMenu(context);
+        // SpreadsheetViewportComponent will open a column menu
     }
 }

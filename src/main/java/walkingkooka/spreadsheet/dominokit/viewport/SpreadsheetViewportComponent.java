@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
@@ -33,9 +34,13 @@ import org.dominokit.domino.ui.elements.THElement;
 import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
+import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
+import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -43,10 +48,17 @@ import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -77,7 +89,7 @@ import java.util.function.Predicate;
 public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher,
         SpreadsheetMetadataWatcher,
-        HistoryTokenWatcher {
+        ComponentLifecycle {
 
     public static SpreadsheetViewportComponent empty(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -189,10 +201,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Renders the TABLE element again using its current state. Note no elements are cached or re-used, everything
      * is rendered again!
      */
-    private void render() {
-        final TableElement tableElement = this.tableElement;
+    private void render(final AppContext context) {
+        final HistoryToken historyToken = context.historyToken();
+        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
+        this.setViewportSelection(
+                maybeViewportSelection
+        );
 
-        final AppContext context = this.context;
+        final TableElement tableElement = this.tableElement;
 
         tableElement.clearElement();
 
@@ -233,21 +249,38 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         // top row of column headers
         tableElement.appendChild(
-                renderColumnHeaders(columns)
+                renderColumnHeaders(
+                        columns,
+                        context
+                )
         );
 
         // render the rows and cells
         tableElement.appendChild(
                 this.renderRows(
                         rows,
-                        columns
+                        columns,
+                        context
                 )
         );
 
-        final HistoryToken historyToken = context.historyToken();
-        if (historyToken instanceof SpreadsheetViewportComponentWatcher) {
-            final SpreadsheetViewportComponentWatcher watcher = (SpreadsheetViewportComponentWatcher) historyToken;
-            watcher.onAfterSpreadsheetViewportComponentRender(context);
+        if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
+                historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
+                historyToken instanceof SpreadsheetRowSelectHistoryToken) {
+            this.giveViewportSelectionFocus(
+                    historyToken.cast(SpreadsheetViewportSelectionHistoryToken.class)
+                            .viewportSelection(),
+                    context
+            );
+        }
+
+        if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
+                historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
+                historyToken instanceof SpreadsheetRowMenuHistoryToken) {
+            this.renderContextMenu(
+                    historyToken.cast(SpreadsheetViewportSelectionHistoryToken.class),
+                    context
+            );
         }
     }
 
@@ -259,15 +292,19 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * Creates a THEAD holding a TR with the SELECT ALL and COLUMN headers.
      */
-    private HTMLTableSectionElement renderColumnHeaders(final Collection<SpreadsheetColumnReference> columns) {
+    private HTMLTableSectionElement renderColumnHeaders(final Collection<SpreadsheetColumnReference> columns,
+                                                        final AppContext context) {
         final TableRowElement tr = ElementsFactory.elements.tr()
                 .appendChild(
-                        this.renderSelectAll()
+                        this.renderSelectAll(context)
                 );
 
         for (final SpreadsheetColumnReference column : columns) {
             tr.appendChild(
-                    this.renderColumnHeader(column)
+                    this.renderColumnHeader(
+                            column,
+                            context
+                    )
             );
         }
 
@@ -280,12 +317,12 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Factory that creates the element that appears in the top left and may be used to select the entire spreadsheet.
      */
     // TODO add link
-    private HTMLTableCellElement renderSelectAll() {
+    private HTMLTableCellElement renderSelectAll(final AppContext context) {
         return ElementsFactory.elements.th()
                 .id(VIEWPORT_SELECT_ALL_CELLS)
                 .appendChild("ALL")
                 .style(
-                        this.context.viewportAllStyle(false)
+                        context.viewportAllStyle(false)
                                 .set(
                                         TextStylePropertyName.WIDTH,
                                         ROW_WIDTH
@@ -301,9 +338,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * Creates a TH with the column in UPPER CASE with column width.
      */
-    private HTMLTableCellElement renderColumnHeader(final SpreadsheetColumnReference column) {
-        final AppContext context = this.context;
-
+    private HTMLTableCellElement renderColumnHeader(final SpreadsheetColumnReference column,
+                                                    final AppContext context) {
         final THElement th = ElementsFactory.elements.th()
                 .id(id(column))
                 .style(
@@ -351,14 +387,16 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Factory that creates a TABLE CELL for the column header, including a link to select that column when clicked.
      */
     private HTMLTableSectionElement renderRows(final Set<SpreadsheetRowReference> rows,
-                                               final Set<SpreadsheetColumnReference> columns) {
+                                               final Set<SpreadsheetColumnReference> columns,
+                                               final AppContext context) {
         final TBodyElement tbody = ElementsFactory.elements.tbody();
 
         for (final SpreadsheetRowReference row : rows) {
             tbody.appendChild(
                     this.renderRow(
                             row,
-                            columns
+                            columns,
+                            context
                     )
             );
         }
@@ -370,16 +408,21 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Creates a TR which will hold the ROW and then cells.
      */
     private HTMLTableRowElement renderRow(final SpreadsheetRowReference row,
-                                          final Collection<SpreadsheetColumnReference> columns) {
+                                          final Collection<SpreadsheetColumnReference> columns,
+                                          final AppContext context) {
         final TableRowElement tr = ElementsFactory.elements.tr()
                 .appendChild(
-                        this.renderRowHeader(row)
+                        this.renderRowHeader(
+                                row,
+                                context
+                        )
                 );
 
         for (final SpreadsheetColumnReference column : columns) {
             tr.appendChild(
                     this.renderCell(
-                            column.setRow(row)
+                            column.setRow(row),
+                            context
                     )
             );
         }
@@ -387,9 +430,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return tr.element();
     }
 
-    private HTMLTableCellElement renderRowHeader(final SpreadsheetRowReference row) {
-        final AppContext context = this.context;
-
+    private HTMLTableCellElement renderRowHeader(final SpreadsheetRowReference row,
+                                                 final AppContext context) {
         final TDElement td = ElementsFactory.elements.td()
                 .id(id(row))
                 .style(
@@ -436,8 +478,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * Renders the given cell, reading the cell contents using {@link AppContext#viewportCache()}.
      */
-    private HTMLTableCellElement renderCell(final SpreadsheetCellReference cellReference) {
-        final AppContext context = this.context;
+    private HTMLTableCellElement renderCell(final SpreadsheetCellReference cellReference,
+                                            final AppContext context) {
         final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
@@ -524,17 +566,48 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         }
     }
 
-    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
-        Optional<SpreadsheetCell> cell = Optional.empty();
+    private void giveViewportSelectionFocus(final SpreadsheetViewportSelection viewportSelection,
+                                            final AppContext context) {
+        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.viewportCache()
+                .nonLabelSelection(
+                        viewportSelection.selection()
+                );
+        if (maybeNonLabelSelection.isPresent()) {
+            final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
+            final SpreadsheetSelection selection = nonLabelSelection.focused(
+                    viewportSelection.anchor()
+            );
+            final Optional<Element> maybeElement = this.findViewportElement(
+                    selection,
+                    context
+            );
+            if (maybeElement.isPresent()) {
+                Element element = maybeElement.get();
 
-        final SpreadsheetViewportCache cache = this.context.viewportCache();
+                boolean give = true;
 
-        final Optional<SpreadsheetSelection> nonLabelSelection = cache.nonLabelSelection(selection);
-        if (nonLabelSelection.isPresent()) {
-            cell = cache.cell(nonLabelSelection.get().toCell());
+                final Element active = DomGlobal.document.activeElement;
+                if (null != active) {
+                    // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
+                    give = false == Doms.isOrHasChild(
+                            element,
+                            active
+                    );
+                }
+
+                if (give) {
+                    // for column/row the anchor and not the TH/TD should receive focus.
+                    if (selection.isColumnReference() || selection.isRowReference()) {
+                        element = element.firstElementChild;
+                    }
+
+                    context.debug("SpreadsheetViewportComponent " + selection + " focus element " + element);
+                    element.focus();
+                }
+            } else {
+                context.debug("SpreadsheetViewportComponent " + selection + " element not found!");
+            }
         }
-
-        return cell;
     }
 
     // key down.........................................................................................................
@@ -638,17 +711,93 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
     }
 
+    /**
+     * Renders a drop down menu.
+     */
+    private void renderContextMenu(final SpreadsheetViewportSelectionHistoryToken historyToken,
+                                   final AppContext context) {
+        // show context setMenu1
+        final SpreadsheetViewportSelection viewportSelection = historyToken.viewportSelection();
+        final Optional<Element> maybeElement = this.findViewportElement(
+                viewportSelection.selection()
+                        .focused(viewportSelection.anchor()),
+                context
+        );
+
+        context.debug("SpreadsheetViewportComponent.renderContextMenu " + viewportSelection);
+
+        if (maybeElement.isPresent()) {
+            final DominoElement<?> element = new DominoElement<>(maybeElement.get());
+
+            // CLEAR
+            // DELETE
+            // -------
+            // FREEZE
+            // UNFREEZE
+
+            final Menu<Void> menu = Menu.<Void>create()
+                    .setContextMenu(true)
+                    .setDropDirection(new MouseBestFitDirection())
+                    .setTargetElement(element)
+                    .appendChild(
+                            context.menuItem(
+                                    "Clear",
+                                    Optional.of(
+                                            historyToken.setClear()
+                                    )
+                            )
+                    ).appendChild(
+                            context.menuItem(
+                                    "Delete",
+                                    Optional.of(
+                                            historyToken.setDelete()
+                                    )
+                            )
+                    ).appendChild(new Separator())
+                    .appendChild(
+                            context.menuItem(
+                                    "Freeze",
+                                    historyToken.freezeOrEmpty()
+                            )
+                    ).appendChild(
+                            context.menuItem(
+                                    "Unfreeze",
+                                    historyToken.unfreezeOrEmpty()
+                            )
+                    );
+
+            element.setDropMenu(menu);
+            menu.open(true); // true = focus
+        }
+    }
+
     // history..........................................................................................................
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
+    public boolean isMatch(final HistoryToken token) {
+        return token instanceof SpreadsheetViewportSelectionHistoryToken;
+    }
 
-        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
-        this.setViewportSelection(maybeViewportSelection);
+    @Override
+    public boolean isOpen() {
+        return null != this.selection;
+    }
 
-        this.render();
+    @Override
+    public void open(final AppContext context) {
+        // NOP
+    }
+
+    @Override
+    public void refresh(final AppContext context) {
+        this.render(
+                context
+        );
+    }
+
+    @Override
+    public void close(final AppContext context) {
+        this.setViewportSelection(Optional.empty());
     }
 
     // delta............................................................................................................
@@ -658,7 +807,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                    final AppContext context) {
         Objects.requireNonNull(delta, "delta");
 
-        this.render();
+        this.render(context);
     }
 
     // metadata.........................................................................................................
@@ -687,7 +836,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             );
         }
 
-        this.render();
+        this.render(context);
     }
 
     /**
@@ -767,6 +916,39 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     }
 
     private Predicate<SpreadsheetSelection> selection = Predicates.never();
+
+   Optional<Element> findViewportElement(final SpreadsheetSelection selection,
+                                         final AppContext context) {
+        Element element = null;
+
+        final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
+                .nonLabelSelection(selection);
+
+        if (maybeNotLabel.isPresent()) {
+            element = DomGlobal.document
+                    .getElementById(
+                            SpreadsheetViewportComponent.id(
+                                    selection
+                            )
+                    );
+        }
+
+        return Optional.ofNullable(element);
+    }
+
+    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection,
+                                                  final AppContext context) {
+        Optional<SpreadsheetCell> cell = Optional.empty();
+
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        final Optional<SpreadsheetSelection> nonLabelSelection = cache.nonLabelSelection(selection);
+        if (nonLabelSelection.isPresent()) {
+            cell = cache.cell(nonLabelSelection.get().toCell());
+        }
+
+        return cell;
+    }
 
     private final AppContext context;
 
