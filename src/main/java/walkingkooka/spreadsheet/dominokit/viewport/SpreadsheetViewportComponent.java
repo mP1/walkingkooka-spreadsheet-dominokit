@@ -71,6 +71,9 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+/**
+ * A component that displays a table holding the cells and headers for the columns and rows.
+ */
 public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher,
         SpreadsheetMetadataWatcher,
