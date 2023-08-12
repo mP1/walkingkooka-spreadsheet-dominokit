@@ -764,6 +764,12 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
     // ComponentLifecycle...............................................................................................
 
+    // save should not open or close the dialog.
+    @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        return token instanceof SpreadsheetCellPatternSaveHistoryToken;
+    }
+
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetCellPatternSelectHistoryToken;

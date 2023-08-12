@@ -27,6 +27,16 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 public interface ComponentLifecycle extends HistoryTokenWatcher {
 
     /**
+     * Tests if this component should ignore this {@link HistoryToken} and not change open/close state.
+     */
+    boolean shouldIgnore(final HistoryToken token);
+
+    /**
+     * Tests if this component should be open for the given {@link HistoryToken}
+     */
+    boolean isMatch(final HistoryToken token);
+
+    /**
      * Used to test if this component is open or visible.
      */
     boolean isOpen();
@@ -55,11 +65,6 @@ public interface ComponentLifecycle extends HistoryTokenWatcher {
      */
     void close(final AppContext context);
 
-    /**
-     * Tests if this component should be open for the given {@link HistoryToken}
-     */
-    boolean isMatch(final HistoryToken token);
-
     // HistoryTokenWatcher..............................................................................................
 
     /**
@@ -68,29 +73,32 @@ public interface ComponentLifecycle extends HistoryTokenWatcher {
     @Override
     default void onHistoryTokenChange(final HistoryToken previous,
                                       final AppContext context) {
-        final boolean nextOpen = this.isMatch(
-                context.historyToken()
-        );
-
-        if (this.isOpen()) {
-            if (nextOpen) {
-                // open -> open -> refresh
-
-                context.debug(this.getClass().getSimpleName() + " refresh");
-                this.refresh(context);
-            } else {
-                // open -> close -> close
-
-                context.debug(this.getClass().getSimpleName() + " close");
-                this.close(context);
-            }
+        final HistoryToken token = context.historyToken();
+        if (this.shouldIgnore(token)) {
+            context.debug(this.getClass().getSimpleName() + " ignored");
         } else {
-            if (nextOpen) {
-                // close -> open -> open
-                context.debug(this.getClass().getSimpleName() + " open");
-                this.open(context);
+            final boolean nextOpen = this.isMatch(token);
+
+            if (this.isOpen()) {
+                if (nextOpen) {
+                    // open -> open -> refresh
+
+                    context.debug(this.getClass().getSimpleName() + " refresh");
+                    this.refresh(context);
+                } else {
+                    // open -> close -> close
+
+                    context.debug(this.getClass().getSimpleName() + " close");
+                    this.close(context);
+                }
+            } else {
+                if (nextOpen) {
+                    // close -> open -> open
+                    context.debug(this.getClass().getSimpleName() + " open");
+                    this.open(context);
+                }
+                // close -> close -> do nothing
             }
-            // close -> close -> do nothing
         }
     }
 }
