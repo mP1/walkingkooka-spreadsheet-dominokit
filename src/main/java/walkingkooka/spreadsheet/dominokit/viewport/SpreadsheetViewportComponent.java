@@ -93,167 +93,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         context.addSpreadsheetDeltaWatcher(this);
     }
 
-    // viewport table...................................................................................................
-
-    public void setWidthAndHeight(final int width,
-                                  final int height) {
-        final boolean reload = width > this.width || height > this.height;
-
-        this.context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
-
-        this.width = width;
-        this.height = height;
-
-        this.reload = reload;
-        this.loadViewportCellsIfNecessary();
-    }
-
-    /**
-     * The width allocated to the widget.
-     */
-    private int width;
-
-    /**
-     * The height allocated to the widget.
-     */
-    private int height;
-
-    private final AppContext context;
-
-    @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
-
-        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
-        this.setViewportSelection(maybeViewportSelection);
-
-        this.render();
-    }
-
-    @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
-                                   final AppContext context) {
-        Objects.requireNonNull(delta, "delta");
-
-        this.render();
-    }
-
-    @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
-        Objects.requireNonNull(metadata, "metadata");
-
-        if (metadata.shouldViewRefresh(this.metadata)) {
-            this.reload = true;
-        }
-
-        this.metadata = metadata;
-
-        this.loadViewportCellsIfNecessary();
-
-        final Optional<SpreadsheetId> spreadsheetId = metadata.id();
-        if (spreadsheetId.isPresent()) {
-            context.pushHistoryToken(
-                    context.historyToken()
-                            .setIdAndName(
-                                    spreadsheetId.get(),
-                                    metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
-                            )
-            );
-        }
-
-        this.render();
-    }
-
-    /**
-     * Initial metadata is EMPTY or nothing.
-     */
-    private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
-
-    private void setViewportSelection(final Optional<SpreadsheetViewportSelection> maybeViewportSelection) {
-        final AppContext context = this.context;
-        context.debug(
-                "SpreadsheetViewportComponent.setViewportSelection " + maybeViewportSelection.orElse(null)
-        );
-
-        Predicate<SpreadsheetSelection> predicate = null;
-
-        if (maybeViewportSelection.isPresent()) {
-            // special case for label
-            final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
-                    .nonLabelSelection(maybeViewportSelection.get().selection());
-            if (maybeNotLabel.isPresent()) {
-                predicate = maybeNotLabel.get();
-            }
-        }
-
-        this.selection = null != predicate ?
-                predicate :
-                Predicates.never();
-    }
-
-    /**
-     * Tests if the given {@link SpreadsheetSelection} typically a cell, column or row is matched by the {@link SpreadsheetMetadataPropertyName#SELECTION}.
-     */
-    private boolean isSelected(final SpreadsheetSelection selection) {
-        return this.selection.test(selection);
-    }
-
-    private Predicate<SpreadsheetSelection> selection = Predicates.never();
-
-    private void loadViewportCellsIfNecessary() {
-        if (this.reload && this.width > 0 && this.height > 0) {
-            final AppContext context = this.context;
-            if (context.spreadsheetMetadata().isEmpty()) {
-                context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
-            } else {
-                this.loadViewportCells(
-                        Optional.empty()
-                );
-            }
-        }
-    }
-
-    /**
-     * Loads all the cells to fill the viewport. Assumes that a metadata with id is present.
-     */
-    private void loadViewportCells(final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
-        Objects.requireNonNull(navigation, "navigation");
-
-        final AppContext context = this.context;
-
-        context.viewportCache()
-                .clear(); // clear all cached data.
-        this.reload = false;
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-
-        context.spreadsheetDeltaFetcher()
-                .loadCells(
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID), // id
-                        metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1), // home
-                        this.width,
-                        this.height,
-                        metadata.get(SpreadsheetMetadataPropertyName.SELECTION), // viewportSelection
-                        navigation
-                );
-    }
-
-    /**
-     * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
-     */
-    private boolean reload = false;
-
-    // root.............................................................................................................
-
-    /**
-     * The root DIV element holding the formula and TABLE holding all headers and cells.
-     */
-    @Override
-    public HTMLDivElement element() {
-        return this.root.element();
-    }
-
     // root.............................................................................................................
 
     private DivElement createRoot() {
@@ -271,10 +110,15 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private final DivElement root;
 
+    // IsElement........................................................................................................
+
     /**
-     * The height of the formula textbox.
+     * The root DIV element holding the formula and TABLE holding all headers and cells.
      */
-    private final static int FORMULA_TEXTBOX_HEIGHT = 26;
+    @Override
+    public HTMLDivElement element() {
+        return this.root.element();
+    }
 
     // table............................................................................................................
 
@@ -311,76 +155,32 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private final static String VIEWPORT_ID = "viewport";
 
-    /**
-     * Registers a keydown event handler on the given {@link Element}.
-     */
-    private void addViewportKeyDownEventListener(final Element element) {
-        element.addEventListener(
-                EventType.keydown.getName(),
-                (event) -> onViewportKeyDownEvent(
-                        Js.cast(event)
-                )
-        );
+    // viewport table...................................................................................................
+
+    public void setWidthAndHeight(final int width,
+                                  final int height) {
+        final boolean reload = width > this.width || height > this.height;
+
+        this.context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
+
+        this.width = width;
+        this.height = height;
+
+        this.reload = reload;
+        this.loadViewportCellsIfNecessary();
     }
 
     /**
-     * Generic key event handler that handles any key events for cell/column OR row.
+     * The width allocated to the widget.
      */
-    private void onViewportKeyDownEvent(final KeyboardEvent event) {
-        event.preventDefault();
+    private int width;
 
-        final boolean shifted = event.shiftKey;
-        final AppContext context = this.context;
+    /**
+     * The height allocated to the widget.
+     */
+    private int height;
 
-        SpreadsheetViewportSelectionNavigation navigation = null;
-        switch (Key.fromEvent(event)) {
-            case ArrowLeft:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
-                        SpreadsheetViewportSelectionNavigation.LEFT;
-                break;
-            case ArrowUp:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_UP :
-                        SpreadsheetViewportSelectionNavigation.UP;
-                break;
-            case ArrowRight:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
-                        SpreadsheetViewportSelectionNavigation.RIGHT;
-                break;
-            case ArrowDown:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
-                        SpreadsheetViewportSelectionNavigation.DOWN;
-                break;
-            case Enter:
-                // if cell then edit formula
-                context.pushHistoryToken(
-                        context.historyToken()
-                                .setFormula()
-                );
-                break;
-            case Escape:
-                // clear any selection
-                context.pushHistoryToken(
-                        context.historyToken()
-                                .setViewportSelection(
-                                        Optional.empty()
-                                )
-                );
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
-
-        if (null != navigation) {
-            this.loadViewportCells(
-                    Optional.of(navigation)
-            );
-        }
-    }
+    // render..........................................................................................................
 
     /**
      * Renders the TABLE element again using its current state. Note no elements are cached or re-used, everything
@@ -449,12 +249,17 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     }
 
     /**
+     * The height of the formula textbox.
+     */
+    private final static int FORMULA_TEXTBOX_HEIGHT = 26;
+
+    /**
      * Creates a THEAD holding a TR with the SELECT ALL and COLUMN headers.
      */
     private HTMLTableSectionElement renderColumnHeaders(final Collection<SpreadsheetColumnReference> columns) {
         final TableRowElement tr = ElementsFactory.elements.tr()
                 .appendChild(
-                        this.selectAll()
+                        this.renderSelectAll()
                 );
 
         for (final SpreadsheetColumnReference column : columns) {
@@ -472,7 +277,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Factory that creates the element that appears in the top left and may be used to select the entire spreadsheet.
      */
     // TODO add link
-    private HTMLTableCellElement selectAll() {
+    private HTMLTableCellElement renderSelectAll() {
         return ElementsFactory.elements.th()
                 .id(VIEWPORT_SELECT_ALL_CELLS)
                 .appendChild("ALL")
@@ -529,7 +334,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
 
         final HTMLTableCellElement element = th.element();
-        this.addViewportKeyDownEventListener(element);
+        this.addKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
                 column
@@ -615,7 +420,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
 
         final HTMLTableCellElement element = td.element();
-        this.addViewportKeyDownEventListener(element);
+        this.addKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
                 row
@@ -679,7 +484,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                         cellReference, context
                 )
         );
-        this.addViewportKeyDownEventListener(element);
+        this.addKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
                 cellReference
@@ -716,6 +521,94 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         }
     }
 
+    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
+        Optional<SpreadsheetCell> cell = Optional.empty();
+
+        final SpreadsheetViewportCache cache = this.context.viewportCache();
+
+        final Optional<SpreadsheetSelection> nonLabelSelection = cache.nonLabelSelection(selection);
+        if (nonLabelSelection.isPresent()) {
+            cell = cache.cell(nonLabelSelection.get().toCell());
+        }
+
+        return cell;
+    }
+
+    // key down.........................................................................................................
+
+    /**
+     * Registers a keydown event handler on the given {@link Element}.
+     */
+    private void addKeyDownEventListener(final Element element) {
+        element.addEventListener(
+                EventType.keydown.getName(),
+                (event) -> onKeyDownEvent(
+                        Js.cast(event)
+                )
+        );
+    }
+
+    /**
+     * Generic key event handler that handles any key events for cell/column OR row.
+     */
+    private void onKeyDownEvent(final KeyboardEvent event) {
+        event.preventDefault();
+
+        final boolean shifted = event.shiftKey;
+        final AppContext context = this.context;
+
+        SpreadsheetViewportSelectionNavigation navigation = null;
+        switch (Key.fromEvent(event)) {
+            case ArrowLeft:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
+                        SpreadsheetViewportSelectionNavigation.LEFT;
+                break;
+            case ArrowUp:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_UP :
+                        SpreadsheetViewportSelectionNavigation.UP;
+                break;
+            case ArrowRight:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
+                        SpreadsheetViewportSelectionNavigation.RIGHT;
+                break;
+            case ArrowDown:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
+                        SpreadsheetViewportSelectionNavigation.DOWN;
+                break;
+            case Enter:
+                // if cell then edit formula
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .setFormula()
+                );
+                break;
+            case Escape:
+                // clear any selection
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .setViewportSelection(
+                                        Optional.empty()
+                                )
+                );
+                break;
+            default:
+                // ignore other keys
+                break;
+        }
+
+        if (null != navigation) {
+            this.loadViewportCells(
+                    Optional.of(navigation)
+            );
+        }
+    }
+
+    // context menu.....................................................................................................
+
     private void addContextMenuEventListener(final Element element,
                                              final SpreadsheetSelection selection) {
         element.addEventListener(
@@ -741,6 +634,140 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                         )
         );
     }
+
+    // history..........................................................................................................
+
+    @Override
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
+        final HistoryToken historyToken = context.historyToken();
+
+        final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
+        this.setViewportSelection(maybeViewportSelection);
+
+        this.render();
+    }
+
+    // delta............................................................................................................
+
+    @Override
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        Objects.requireNonNull(delta, "delta");
+
+        this.render();
+    }
+
+    // metadata.........................................................................................................
+
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        Objects.requireNonNull(metadata, "metadata");
+
+        if (metadata.shouldViewRefresh(this.metadata)) {
+            this.reload = true;
+        }
+
+        this.metadata = metadata;
+
+        this.loadViewportCellsIfNecessary();
+
+        final Optional<SpreadsheetId> spreadsheetId = metadata.id();
+        if (spreadsheetId.isPresent()) {
+            context.pushHistoryToken(
+                    context.historyToken()
+                            .setIdAndName(
+                                    spreadsheetId.get(),
+                                    metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
+                            )
+            );
+        }
+
+        this.render();
+    }
+
+    /**
+     * Initial metadata is EMPTY or nothing.
+     */
+    private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
+
+    private void setViewportSelection(final Optional<SpreadsheetViewportSelection> maybeViewportSelection) {
+        final AppContext context = this.context;
+        context.debug(
+                "SpreadsheetViewportComponent.setViewportSelection " + maybeViewportSelection.orElse(null)
+        );
+
+        Predicate<SpreadsheetSelection> predicate = null;
+
+        if (maybeViewportSelection.isPresent()) {
+            // special case for label
+            final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
+                    .nonLabelSelection(maybeViewportSelection.get().selection());
+            if (maybeNotLabel.isPresent()) {
+                predicate = maybeNotLabel.get();
+            }
+        }
+
+        this.selection = null != predicate ?
+                predicate :
+                Predicates.never();
+    }
+
+    private void loadViewportCellsIfNecessary() {
+        if (this.reload && this.width > 0 && this.height > 0) {
+            final AppContext context = this.context;
+            if (context.spreadsheetMetadata().isEmpty()) {
+                context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
+            } else {
+                this.loadViewportCells(
+                        Optional.empty()
+                );
+            }
+        }
+    }
+
+    /**
+     * Loads all the cells to fill the viewport. Assumes that a metadata with id is present.
+     */
+    private void loadViewportCells(final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
+        Objects.requireNonNull(navigation, "navigation");
+
+        final AppContext context = this.context;
+
+        context.viewportCache()
+                .clear(); // clear all cached data.
+        this.reload = false;
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+
+        context.spreadsheetDeltaFetcher()
+                .loadCells(
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID), // id
+                        metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1), // home
+                        this.width,
+                        this.height,
+                        metadata.get(SpreadsheetMetadataPropertyName.SELECTION), // viewportSelection
+                        navigation
+                );
+    }
+
+    /**
+     * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
+     */
+    private boolean reload = false;
+
+    /**
+     * Tests if the given {@link SpreadsheetSelection} typically a cell, column or row is matched by the {@link SpreadsheetMetadataPropertyName#SELECTION}.
+     */
+    private boolean isSelected(final SpreadsheetSelection selection) {
+        return this.selection.test(selection);
+    }
+
+    private Predicate<SpreadsheetSelection> selection = Predicates.never();
+
+    private final AppContext context;
+
+    // helpers..........................................................................................................
 
     // viewport-column-A
     public static String id(final SpreadsheetSelection selection) {
@@ -798,17 +825,4 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Prefix for any component within a viewport
      */
     private final static String VIEWPORT_ID_PREFIX = VIEWPORT_ID + "-";
-
-    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
-        Optional<SpreadsheetCell> cell = Optional.empty();
-
-        final SpreadsheetViewportCache cache = this.context.viewportCache();
-
-        final Optional<SpreadsheetSelection> nonLabelSelection = cache.nonLabelSelection(selection);
-        if (nonLabelSelection.isPresent()) {
-            cell = cache.cell(nonLabelSelection.get().toCell());
-        }
-
-        return cell;
-    }
 }
