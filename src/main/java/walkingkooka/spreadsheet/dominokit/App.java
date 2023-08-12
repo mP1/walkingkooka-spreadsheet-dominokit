@@ -513,14 +513,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     @Override
-    public Optional<SpreadsheetSelection> viewportNonLabelSelection() {
-        return this.viewportSelection()
-                .flatMap(
-                        this.viewportCache()::nonLabelSelection
-                );
-    }
-
-    @Override
     public TextStyle viewportAllStyle(final boolean selected) {
         return this.viewportColumnRowHeaderStyle(selected);
     }

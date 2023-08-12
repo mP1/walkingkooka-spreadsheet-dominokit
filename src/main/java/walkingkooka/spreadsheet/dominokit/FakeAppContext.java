@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import elemental2.dom.Element;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -106,11 +105,6 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public SpreadsheetViewportCache viewportCache() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetSelection> viewportNonLabelSelection() {
         throw new UnsupportedOperationException();
     }
 

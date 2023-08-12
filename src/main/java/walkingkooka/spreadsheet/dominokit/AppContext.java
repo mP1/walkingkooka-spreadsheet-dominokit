@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import elemental2.dom.Element;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -33,7 +32,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
@@ -95,21 +93,6 @@ public interface AppContext extends CanGiveFocus,
      * which may be a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}.
      */
     Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection);
-
-    /**
-     * Getter that returns the current {@link SpreadsheetSelection} by checking the {@link #historyToken()}.
-     */
-    default Optional<SpreadsheetSelection> viewportSelection() {
-        return this.historyToken()
-                .viewportSelectionOrEmpty()
-                .map(SpreadsheetViewportSelection::selection);
-    }
-
-    /**
-     * Returns a {@link SpreadsheetSelection} resolving labels for the current viewport selection.
-     * This basically exists to resolve labels to cells or cell-ranges.
-     */
-    Optional<SpreadsheetSelection> viewportNonLabelSelection();
 
     TextStyle viewportAllStyle(final boolean selected);
 
