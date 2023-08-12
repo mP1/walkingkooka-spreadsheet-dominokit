@@ -120,16 +120,6 @@ public interface AppContext extends CanGiveFocus,
     TextStyle viewportRowHeaderStyle(final boolean selected);
 
     /**
-     * If the {@link SpreadsheetSelection} is present, the element will be given focus.
-     */
-    void giveViewportFocus(final SpreadsheetSelection selection);
-
-    /**
-     * Finds an existing {@link Element} for the given {@link SpreadsheetSelection}.
-     */
-    Optional<Element> findViewportElement(final SpreadsheetSelection selection);
-
-    /**
      * Creates an ANCHOR with the given text and if a {@link HistoryToken} is passed, it will be pushed that if this
      * menu item clicked or selected with ENTER.
      */

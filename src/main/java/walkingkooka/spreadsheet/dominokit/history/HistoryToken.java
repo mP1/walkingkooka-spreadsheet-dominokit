@@ -788,6 +788,21 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Tries to create a freeze token or {@link Optional#empty()} because the {@link SpreadsheetSelection} is invalid.
+     */
+    public final Optional<HistoryToken> freezeOrEmpty() {
+        HistoryToken token;
+
+        try {
+            token = this.setFreeze();
+        } catch (final RuntimeException ignored) {
+            token = null;
+        }
+
+        return Optional.ofNullable(token);
+    }
+
+    /**
      * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
      * entire history token.
      */
@@ -919,6 +934,21 @@ public abstract class HistoryToken implements HasUrlFragment {
         return this.setIfSpreadsheetNameHistoryToken(
                 SpreadsheetNameHistoryToken::setUnfreeze0
         );
+    }
+
+    /**
+     * Tries to create an unfreeze token or {@link Optional#empty()} because the {@link SpreadsheetSelection} is invalid.
+     */
+    public final Optional<HistoryToken> unfreezeOrEmpty() {
+        HistoryToken token;
+
+        try {
+            token = this.setUnfreeze();
+        } catch (final RuntimeException ignored) {
+            token = null;
+        }
+
+        return Optional.ofNullable(token);
     }
 
     private HistoryToken setIfSpreadsheetNameHistoryToken(final Function<SpreadsheetNameHistoryToken, HistoryToken> setter) {
