@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -114,12 +113,7 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
      * Reloads the textbox with the last saved (loaded) value.
      */
     private void onUndo() {
-        final AppContext context = this.context;
-        final Optional<SpreadsheetSelection> viewportSelection = context.viewportSelection();
-
-        if (viewportSelection.isPresent()) {
-            this.textBox.setValue(this.undoText);
-        }
+        this.textBox.setValue(this.undoText);
     }
 
     private String undoText;
