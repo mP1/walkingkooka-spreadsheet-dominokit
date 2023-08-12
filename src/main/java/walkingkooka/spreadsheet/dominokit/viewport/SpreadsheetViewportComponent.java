@@ -577,7 +577,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             final SpreadsheetSelection selection = nonLabelSelection.focused(
                     viewportSelection.anchor()
             );
-            final Optional<Element> maybeElement = this.findViewportElement(
+            final Optional<Element> maybeElement = this.findElement(
                     selection,
                     context
             );
@@ -718,7 +718,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                    final AppContext context) {
         // show context setMenu1
         final SpreadsheetViewportSelection viewportSelection = historyToken.viewportSelection();
-        final Optional<Element> maybeElement = this.findViewportElement(
+        final Optional<Element> maybeElement = this.findElement(
                 viewportSelection.selection()
                         .focused(viewportSelection.anchor()),
                 context
@@ -917,8 +917,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     private Predicate<SpreadsheetSelection> selection = Predicates.never();
 
-   Optional<Element> findViewportElement(final SpreadsheetSelection selection,
-                                         final AppContext context) {
+    /**
+     * Helper that finds the {@link Element} for the given {@link SpreadsheetSelection}
+     */
+    private Optional<Element> findElement(final SpreadsheetSelection selection,
+                                          final AppContext context) {
         Element element = null;
 
         final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
