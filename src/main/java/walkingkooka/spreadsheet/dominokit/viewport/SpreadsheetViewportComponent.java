@@ -774,6 +774,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     // history..........................................................................................................
 
     @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        return false;
+    }
+
+    @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetViewportSelectionHistoryToken;
     }

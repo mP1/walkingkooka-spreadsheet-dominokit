@@ -151,6 +151,11 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
     // ComponentLifecycle..............................................................................................
 
     @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        return false;
+    }
+
+    @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetCellHistoryToken;
     }
