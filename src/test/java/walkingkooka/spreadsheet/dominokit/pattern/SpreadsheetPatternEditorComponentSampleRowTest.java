@@ -23,6 +23,7 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
+import walkingkooka.tree.text.TextNode;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -34,9 +35,11 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
 
     private final static String PATTERN_TEXT = "@";
 
-    private final static SpreadsheetText DEFAULT_FORMATTED_VALUE = SpreadsheetText.with("default formatted value");
+    private final static TextNode DEFAULT_FORMATTED_VALUE = SpreadsheetText.with("default formatted value")
+            .toTextNode();
 
-    private final static SpreadsheetText PATTERN_FORMATTED_VALUE = SpreadsheetText.with("pattern formatted value");
+    private final static TextNode PATTERN_FORMATTED_VALUE = SpreadsheetText.with("pattern formatted value")
+            .toTextNode();
 
     // dateFormat.......................................................................................................
 
@@ -95,8 +98,8 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
 
     private void withFails(final String label,
                            final String patternText,
-                           final SpreadsheetText defaultFormattedValue,
-                           final SpreadsheetText patternFormattedValue) {
+                           final TextNode defaultFormattedValue,
+                           final TextNode patternFormattedValue) {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetPatternEditorComponentSampleRow.with(
@@ -139,7 +142,8 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
                         PATTERN_TEXT,
-                        SpreadsheetText.with("different"),
+                        SpreadsheetText.with("different")
+                                .toTextNode(),
                         PATTERN_FORMATTED_VALUE
                 )
         );
@@ -152,7 +156,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
                         LABEL,
                         PATTERN_TEXT,
                         DEFAULT_FORMATTED_VALUE,
-                        SpreadsheetText.with("different")
+                        SpreadsheetText.with("different").toTextNode()
                 )
         );
     }
@@ -201,8 +205,9 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
                         "",
-                        SpreadsheetText.EMPTY,
                         SpreadsheetText.EMPTY
+                                .toTextNode(),
+                        SpreadsheetText.EMPTY.toTextNode()
                 ),
                 "Label123 | | |"
         );

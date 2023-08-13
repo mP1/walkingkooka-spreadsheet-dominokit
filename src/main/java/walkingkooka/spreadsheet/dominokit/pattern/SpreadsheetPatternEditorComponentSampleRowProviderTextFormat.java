@@ -49,7 +49,8 @@ final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormat extends
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
                         patternText,
-                        context.defaultFormat(value),
+                        context.defaultFormat(value)
+                                .toTextNode(),
                         context.format(
                                 tryParsePatternText(
                                         patternText,
@@ -57,17 +58,18 @@ final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormat extends
                                 ).map(SpreadsheetPattern::formatter)
                                         .orElse(SpreadsheetFormatters.emptyText()),
                                 value
-                        )
+                        ).toTextNode()
                 ),
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Default text format",
                         "@",
-                        context.defaultFormat(value),
+                        context.defaultFormat(value)
+                                .toTextNode(),
                         context.format(
                                 SpreadsheetPattern.parseTextFormatPattern("@")
                                         .formatter(),
                                 value
-                        )
+                        ).toTextNode()
                 )
         );
     }

@@ -64,14 +64,18 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormatT
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Edit Pattern",
                         "@@",
-                        SpreadsheetText.EMPTY.setText(text),
+                        SpreadsheetText.EMPTY.setText(text)
+                                .toTextNode(),
                         SpreadsheetText.EMPTY.setText(text + text)
+                                .toTextNode()
                 ),
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Default text format",
                         "@",
-                        SpreadsheetText.EMPTY.setText(text),
                         SpreadsheetText.EMPTY.setText(text)
+                                .toTextNode(),
+                        SpreadsheetText.EMPTY.setText(text)
+                                .toTextNode()
                 )
         );
     }
@@ -86,14 +90,17 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormatT
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Edit Pattern",
                         "\"Unclosed",
-                        SpreadsheetText.EMPTY.setText(text),
-                        SpreadsheetText.EMPTY
+                        SpreadsheetText.EMPTY.setText(text)
+                                .toTextNode(),
+                        SpreadsheetText.EMPTY.toTextNode()
                 ),
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Default text format",
                         "@",
-                        SpreadsheetText.EMPTY.setText(text),
                         SpreadsheetText.EMPTY.setText(text)
+                                .toTextNode(),
+                        SpreadsheetText.EMPTY.setText(text)
+                                .toTextNode()
                 )
         );
     }

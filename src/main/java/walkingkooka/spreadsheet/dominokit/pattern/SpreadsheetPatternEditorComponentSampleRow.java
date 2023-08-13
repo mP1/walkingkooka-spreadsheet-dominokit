@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;
 
@@ -32,8 +32,8 @@ final class SpreadsheetPatternEditorComponentSampleRow {
      */
     static SpreadsheetPatternEditorComponentSampleRow with(final String label,
                                                            final String patternText,
-                                                           final SpreadsheetText defaultFormattedValue,
-                                                           final SpreadsheetText patternFormattedValue) {
+                                                           final TextNode defaultFormattedValue,
+                                                           final TextNode patternFormattedValue) {
         return new SpreadsheetPatternEditorComponentSampleRow(
                 CharSequences.failIfNullOrEmpty(label, "label"),
                 Objects.requireNonNull(patternText, "patternText"),
@@ -44,8 +44,8 @@ final class SpreadsheetPatternEditorComponentSampleRow {
 
     private SpreadsheetPatternEditorComponentSampleRow(final String label,
                                                        final String patternText,
-                                                       final SpreadsheetText defaultFormattedValue,
-                                                       final SpreadsheetText patternFormattedValue) {
+                                                       final TextNode defaultFormattedValue,
+                                                       final TextNode patternFormattedValue) {
         this.label = label;
         this.patternText = patternText;
         this.defaultFormattedValue = defaultFormattedValue;
@@ -73,21 +73,21 @@ final class SpreadsheetPatternEditorComponentSampleRow {
     /**
      * The value default formatted.
      */
-    SpreadsheetText defaultFormattedValue() {
+    TextNode defaultFormattedValue() {
         return this.defaultFormattedValue;
     }
 
-    private final SpreadsheetText defaultFormattedValue;
+    private final TextNode defaultFormattedValue;
 
     /**
      * The value formatted using the {@link #patternText()}.
      */
-    SpreadsheetText patternFormattedValue() {
+    TextNode patternFormattedValue() {
         return this.patternFormattedValue;
 
     }
 
-    private final SpreadsheetText patternFormattedValue;
+    private final TextNode patternFormattedValue;
 
     // Object...........................................................................................................
 
