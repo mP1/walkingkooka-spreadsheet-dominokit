@@ -18,11 +18,18 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
+import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.text.TextNode;
+import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.TextWhitespace;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -42,8 +49,8 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProviderNumber extends 
                                                                         final SpreadsheetPatternEditorComponentSampleRowProviderContext context) {
         final List<SpreadsheetPatternEditorComponentSampleRow> rows = Lists.array();
 
-        rows.addAll(
-                row(
+        rows.add(
+                numberRow(
                         LABEL,
                         tryParsePatternText(
                                 patternText,
@@ -54,8 +61,8 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProviderNumber extends 
         );
 
         if (this instanceof SpreadsheetPatternEditorComponentSampleRowProviderNumberFormat) {
-            rows.addAll(
-                    row(
+            rows.add(
+                    numberRow(
                             "General",
                             GENERAL,
                             context
@@ -63,29 +70,29 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProviderNumber extends 
             );
         }
 
-        rows.addAll(
-                row(
+        rows.add(
+                numberRow(
                         "Number",
                         DecimalFormat::getInstance,
                         context
                 )
         );
-        rows.addAll(
-                row(
+        rows.add(
+                numberRow(
                         "Integer",
                         DecimalFormat::getIntegerInstance,
                         context
                 )
         );
-        rows.addAll(
-                row(
+        rows.add(
+                numberRow(
                         "Percent",
                         DecimalFormat::getPercentInstance,
                         context
                 )
         );
-        rows.addAll(
-                row(
+        rows.add(
+                numberRow(
                         "Currency",
                         DecimalFormat::getCurrencyInstance,
                         context
@@ -97,10 +104,10 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProviderNumber extends 
 
     private final static SpreadsheetFormatPattern GENERAL = SpreadsheetPattern.parseNumberFormatPattern("General");
 
-    private List<SpreadsheetPatternEditorComponentSampleRow> row(final String label,
+    private SpreadsheetPatternEditorComponentSampleRow numberRow(final String label,
                                                                  final Function<Locale, NumberFormat> decimalFormat,
                                                                  final SpreadsheetPatternEditorComponentSampleRowProviderContext context) {
-        return row(
+        return numberRow(
                 label,
                 SpreadsheetPattern.decimalFormat(
                         (DecimalFormat) decimalFormat.apply(
@@ -112,61 +119,109 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProviderNumber extends 
         );
     }
 
-    private List<SpreadsheetPatternEditorComponentSampleRow> row(final String label,
+    private SpreadsheetPatternEditorComponentSampleRow numberRow(final String label,
+                                                                 final SpreadsheetPattern pattern,
+                                                                 final SpreadsheetPatternEditorComponentSampleRowProviderContext context) {
+        return this.numberRow(
+                label,
+                Optional.of(pattern),
+                context
+        );
+    }
+
+    private SpreadsheetPatternEditorComponentSampleRow numberRow(final String label,
                                                                  final Optional<SpreadsheetPattern> pattern,
                                                                  final SpreadsheetPatternEditorComponentSampleRowProviderContext context) {
-        final ExpressionNumberKind kind = context.spreadsheetFormatterContext()
-                .expressionNumberKind();
+        final String patternText = pattern.map(SpreadsheetPattern::text)
+                .orElse("");
 
-        return Lists.of(
-                this.row(
-                        "Positive " + label,
-                        pattern,
-                        positive(kind),
-                        context
+        final ExpressionNumberKind kind = context.spreadsheetFormatterContext().expressionNumberKind();
+
+        final ExpressionNumber positive = positive(kind);
+        final ExpressionNumber negative = negative(kind);
+        final ExpressionNumber zero = zero(kind);
+
+        final SpreadsheetText defaultFormattedPositive = context.defaultFormat(positive);
+
+        final SpreadsheetText defaultFormattedNegative = context.defaultFormat(negative);
+
+        final SpreadsheetText defaultFormattedZero = context.defaultFormat(zero);
+
+        final SpreadsheetText formattedPositive = context.format(
+                pattern.map(SpreadsheetPattern::formatter)
+                        .orElse(SpreadsheetFormatters.emptyText()),
+                positive
+        );
+
+        final SpreadsheetText formattedNegative = context.format(
+                pattern.map(SpreadsheetPattern::formatter)
+                        .orElse(SpreadsheetFormatters.emptyText()),
+                negative
+        );
+
+        final SpreadsheetText formattedZero = context.format(
+                pattern.map(SpreadsheetPattern::formatter)
+                        .orElse(SpreadsheetFormatters.emptyText()),
+                zero
+        );
+
+        context.debug(
+                this.getClass().getSimpleName() +
+                        " " +
+                        label +
+                        " " +
+                        CharSequences.quoteAndEscape(patternText) +
+                        " " +
+                        defaultFormattedPositive +
+                        " " +
+                        defaultFormattedNegative +
+                        " " +
+                        defaultFormattedZero +
+                        " " +
+                        formattedPositive +
+                        " " +
+                        formattedNegative +
+                        " " +
+                        formattedZero
+        );
+
+        return SpreadsheetPatternEditorComponentSampleRow.with(
+                label,
+                patternText,
+                textNode(
+                        defaultFormattedPositive,
+                        defaultFormattedNegative,
+                        defaultFormattedZero
                 ),
-                this.row(
-                        "Negative " + label,
-                        pattern,
-                        negative(kind),
-                        context
-                ),
-                this.row(
-                        "Zero " + label,
-                        pattern,
-                        zero(kind),
-                        context
+                textNode(
+                        formattedPositive,
+                        formattedNegative,
+                        formattedZero
                 )
         );
     }
 
-    private List<SpreadsheetPatternEditorComponentSampleRow> row(final String label,
-                                                                 final SpreadsheetFormatPattern pattern,
-                                                                 final SpreadsheetPatternEditorComponentSampleRowProviderContext context) {
-        final ExpressionNumberKind kind = context.spreadsheetFormatterContext()
-                .expressionNumberKind();
-
-        return Lists.of(
-                this.row(
-                        "Positive " + label,
-                        pattern,
-                        positive(kind),
-                        context
-                ),
-                this.row(
-                        "Negative " + label,
-                        pattern,
-                        negative(kind),
-                        context
-                ),
-                this.row(
-                        "Zero " + label,
-                        pattern,
-                        zero(kind),
-                        context
+    /**
+     * Creates three lines, with each line holding a single formatted number.
+     */
+    private static TextNode textNode(final SpreadsheetText positive,
+                                     final SpreadsheetText negative,
+                                     final SpreadsheetText zero) {
+        return TextNode.style(
+                Lists.of(
+                        positive.toTextNode(),
+                        LINE_BREAK,
+                        negative.toTextNode(),
+                        LINE_BREAK,
+                        zero.toTextNode()
                 )
+        ).setAttributes(
+                Maps.of(
+                        TextStylePropertyName.WHITE_SPACE, TextWhitespace.PRE)
         );
     }
+
+    private final static TextNode LINE_BREAK = TextNode.text("\r\n");
 
     private ExpressionNumber positive(final ExpressionNumberKind kind) {
         return kind.create(1234.56);

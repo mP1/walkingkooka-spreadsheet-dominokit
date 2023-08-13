@@ -104,7 +104,7 @@ public abstract class SpreadsheetPatternEditorComponentSampleRowProviderTestCase
                                 patternText,
                                 context
                         ).stream()
-                        .map(Object::toString)
+                        .map(t -> t.toString().replace("\r\n", "\\r\\n"))
                         .collect(Collectors.joining(LineEnding.NL))
         );
     }

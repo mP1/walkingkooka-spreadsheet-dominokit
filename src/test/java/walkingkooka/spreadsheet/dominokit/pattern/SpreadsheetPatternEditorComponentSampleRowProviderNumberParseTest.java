@@ -110,21 +110,11 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberParse
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Positive Edit Pattern | $#.## | 1G234D56 | AUD1234D56\n" +
-                        "Negative Edit Pattern | $#.## | N9G876D54 | AUDN9876D54\n" +
-                        "Zero Edit Pattern | $#.## | 0D | AUDD\n" +
-                        "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
-                        "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
-                        "Zero Number | #,##0.### | 0D | 0D\n" +
-                        "Positive Integer | #,##0 | 1G234D56 | 1G235\n" +
-                        "Negative Integer | #,##0 | N9G876D54 | N9G877\n" +
-                        "Zero Integer | #,##0 | 0D | 0\n" +
-                        "Positive Percent | #,##0% | 1G234D56 | 123G456P\n" +
-                        "Negative Percent | #,##0% | N9G876D54 | N987G654P\n" +
-                        "Zero Percent | #,##0% | 0D | 0P\n" +
-                        "Positive Currency | $#,##0.00 | 1G234D56 | AUD1G234D56\n" +
-                        "Negative Currency | $#,##0.00 | N9G876D54 | AUDN9G876D54\n" +
-                        "Zero Currency | $#,##0.00 | 0D | AUD0D00"
+                "Edit Pattern | $#.## | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1234D56\\r\\nAUDN9876D54\\r\\nAUDD\n" +
+                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
+                        "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
+                        "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
+                        "Currency | $#,##0.00 | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
         );
     }
 
@@ -135,21 +125,11 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberParse
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Positive Edit Pattern | | 1G234D56 |\n" +
-                        "Negative Edit Pattern | | N9G876D54 |\n" +
-                        "Zero Edit Pattern | | 0D |\n" +
-                        "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
-                        "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
-                        "Zero Number | #,##0.### | 0D | 0D\n" +
-                        "Positive Integer | #,##0 | 1G234D56 | 1G235\n" +
-                        "Negative Integer | #,##0 | N9G876D54 | N9G877\n" +
-                        "Zero Integer | #,##0 | 0D | 0\n" +
-                        "Positive Percent | #,##0% | 1G234D56 | 123G456P\n" +
-                        "Negative Percent | #,##0% | N9G876D54 | N987G654P\n" +
-                        "Zero Percent | #,##0% | 0D | 0P\n" +
-                        "Positive Currency | $#,##0.00 | 1G234D56 | AUD1G234D56\n" +
-                        "Negative Currency | $#,##0.00 | N9G876D54 | AUDN9G876D54\n" +
-                        "Zero Currency | $#,##0.00 | 0D | AUD0D00"
+                "Edit Pattern | | 1G234D56\\r\\nN9G876D54\\r\\n0D |\n" +
+                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
+                        "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
+                        "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
+                        "Currency | $#,##0.00 | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
         );
     }
 
@@ -158,21 +138,11 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberParse
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Positive Edit Pattern | | 1G234D56 |\n" +
-                        "Negative Edit Pattern | | N9G876D54 |\n" +
-                        "Zero Edit Pattern | | 0D |\n" +
-                        "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
-                        "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
-                        "Zero Number | #,##0.### | 0D | 0D\n" +
-                        "Positive Integer | #,##0 | 1G234D56 | 1G235\n" +
-                        "Negative Integer | #,##0 | N9G876D54 | N9G877\n" +
-                        "Zero Integer | #,##0 | 0D | 0\n" +
-                        "Positive Percent | #,##0% | 1G234D56 | 123G456P\n" +
-                        "Negative Percent | #,##0% | N9G876D54 | N987G654P\n" +
-                        "Zero Percent | #,##0% | 0D | 0P\n" +
-                        "Positive Currency | $#,##0.00 | 1G234D56 | AUD1G234D56\n" +
-                        "Negative Currency | $#,##0.00 | N9G876D54 | AUDN9G876D54\n" +
-                        "Zero Currency | $#,##0.00 | 0D | AUD0D00"
+                "Edit Pattern | | 1G234D56\\r\\nN9G876D54\\r\\n0D |\n" +
+                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
+                        "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
+                        "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
+                        "Currency | $#,##0.00 | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
         );
     }
 
@@ -181,21 +151,11 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberParse
         this.applyAndCheck2(
                 "General",
                 CONTEXT,
-                "Positive Edit Pattern | | 1G234D56 |\n" +
-                        "Negative Edit Pattern | | N9G876D54 |\n" +
-                        "Zero Edit Pattern | | 0D |\n" +
-                        "Positive Number | #,##0.### | 1G234D56 | 1G234D56\n" +
-                        "Negative Number | #,##0.### | N9G876D54 | N9G876D54\n" +
-                        "Zero Number | #,##0.### | 0D | 0D\n" +
-                        "Positive Integer | #,##0 | 1G234D56 | 1G235\n" +
-                        "Negative Integer | #,##0 | N9G876D54 | N9G877\n" +
-                        "Zero Integer | #,##0 | 0D | 0\n" +
-                        "Positive Percent | #,##0% | 1G234D56 | 123G456P\n" +
-                        "Negative Percent | #,##0% | N9G876D54 | N987G654P\n" +
-                        "Zero Percent | #,##0% | 0D | 0P\n" +
-                        "Positive Currency | $#,##0.00 | 1G234D56 | AUD1G234D56\n" +
-                        "Negative Currency | $#,##0.00 | N9G876D54 | AUDN9G876D54\n" +
-                        "Zero Currency | $#,##0.00 | 0D | AUD0D00"
+                "Edit Pattern | | 1G234D56\\r\\nN9G876D54\\r\\n0D |\n" +
+                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
+                        "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
+                        "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
+                        "Currency | $#,##0.00 | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
         );
     }
 

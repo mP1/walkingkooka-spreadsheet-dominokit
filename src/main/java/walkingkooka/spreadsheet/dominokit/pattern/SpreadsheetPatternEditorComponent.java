@@ -283,7 +283,6 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                                 TextAlign.CENTER,
                                 (d) -> Doms.node(
                                         d.defaultFormattedValue()
-                                                .toTextNode()
                                 )
                         )
                 ).addColumn(
@@ -291,7 +290,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                                 "formatted",
                                 TextAlign.CENTER,
                                 d -> Doms.node(
-                                        d.patternFormattedValue().toTextNode()
+                                        d.patternFormattedValue()
                                 )
                         )
                 );

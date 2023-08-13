@@ -207,8 +207,8 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProvider implements BiF
         return SpreadsheetPatternEditorComponentSampleRow.with(
                 label,
                 patternText,
-                defaultFormatted,
-                formatted
+                defaultFormatted.toTextNode(),
+                formatted.toTextNode()
         );
     }
 }
