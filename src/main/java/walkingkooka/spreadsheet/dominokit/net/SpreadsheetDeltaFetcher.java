@@ -39,7 +39,7 @@ import walkingkooka.text.CaseKind;
 import java.util.Objects;
 import java.util.Optional;
 
-public class SpreadsheetDeltaFetcher implements Fetcher {
+public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     /**
      * Creates a {@link UrlQueryString} with parameters taken from the given method parameters.
