@@ -36,6 +36,20 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     }
 
     @Test
+    public void testClose() {
+        final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
+
+        this.checkEquals(
+                HistoryToken.spreadsheetSelect(
+                        token.id(),
+                        token.name()
+                ),
+                this.createHistoryToken()
+                        .close()
+        );
+    }
+
+    @Test
     public void testSetDelete() {
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
         final SpreadsheetLabelName labelName = token.labelName();
