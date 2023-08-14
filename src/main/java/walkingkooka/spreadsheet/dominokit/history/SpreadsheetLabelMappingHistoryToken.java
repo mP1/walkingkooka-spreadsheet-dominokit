@@ -47,7 +47,10 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
                 .append(this.labelUrlFragment());
     }
 
-    abstract SpreadsheetLabelName labelName();
+    /**
+     * Getter that returns the {@link SpreadsheetLabelName}.
+     */
+    abstract public SpreadsheetLabelName labelName();
 
     abstract UrlFragment labelUrlFragment();
 

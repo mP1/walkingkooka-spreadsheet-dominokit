@@ -49,7 +49,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
-    SpreadsheetLabelName labelName() {
+    public SpreadsheetLabelName labelName() {
         return this.labelName;
     }
 
