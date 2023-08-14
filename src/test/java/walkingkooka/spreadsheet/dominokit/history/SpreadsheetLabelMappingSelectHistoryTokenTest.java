@@ -20,7 +20,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingSelectHistoryToken> {
 
@@ -29,6 +32,60 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         this.urlFragmentAndCheck(
                 LABEL,
                 "/123/SpreadsheetName456/label/Label123"
+        );
+    }
+
+    @Test
+    public void testSetDelete() {
+        final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
+        final SpreadsheetLabelName labelName = token.labelName();
+
+        this.checkEquals(
+                HistoryToken.labelMappingDelete(
+                        token.id(),
+                        token.name(),
+                        labelName
+                ),
+                this.createHistoryToken()
+                        .setDelete()
+        );
+    }
+
+    @Test
+    public void testSetSaveCell() {
+        final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
+        final SpreadsheetLabelName labelName = token.labelName();
+        final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
+
+        this.checkEquals(
+                HistoryToken.labelMappingSave(
+                        token.id(),
+                        token.name(),
+                        labelName.mapping(cell)
+                ),
+                this.createHistoryToken()
+                        .setSave(
+                                cell.toString()
+                        )
+        );
+    }
+
+    @Test
+    public void testSetSaveCellRange() {
+        final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
+        final SpreadsheetLabelName labelName = token.labelName();
+        final SpreadsheetCellRange cells = SpreadsheetSelection.parseCellRange("C3:D4");
+
+        this.checkEquals(
+                HistoryToken.labelMappingSave(
+                        token.id(),
+                        token.name(),
+                        labelName.mapping(cells)
+                ),
+                this.createHistoryToken()
+                        .setSave(
+                                cells.toString()
+                        )
         );
     }
 
