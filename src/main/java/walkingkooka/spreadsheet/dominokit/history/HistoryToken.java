@@ -679,6 +679,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken close() {
         HistoryToken closed = this;
 
+        if (this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
+            final SpreadsheetLabelMappingSelectHistoryToken labelSelect = (SpreadsheetLabelMappingSelectHistoryToken) this;
+            closed = spreadsheetSelect(
+                    labelSelect.id(),
+                    labelSelect.name()
+            );
+        }
         if (this instanceof SpreadsheetCellPatternSelectHistoryToken) {
             final SpreadsheetCellPatternSelectHistoryToken patternSelect = (SpreadsheetCellPatternSelectHistoryToken) this;
             closed = cellPatternToolbar(
