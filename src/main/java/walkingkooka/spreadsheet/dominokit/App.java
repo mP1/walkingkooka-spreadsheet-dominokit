@@ -46,6 +46,9 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatchers;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatchers;
@@ -57,6 +60,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbarCom
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -83,7 +87,11 @@ import java.util.Objects;
 import java.util.Optional;
 
 @LocaleAware
-public class App implements EntryPoint, AppContext, HistoryTokenWatcher, SpreadsheetMetadataWatcher, SpreadsheetDeltaWatcher, UncaughtExceptionHandler {
+public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
+        SpreadsheetMetadataWatcher,
+        SpreadsheetDeltaWatcher,
+        SpreadsheetLabelMappingWatcher,
+        UncaughtExceptionHandler {
 
     public App() {
         GWT.setUncaughtExceptionHandler(this);
@@ -114,6 +122,14 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
                 this
         );
         this.addSpreadsheetDeltaWatcher(this);
+
+        // labelMapping
+        this.spreadsheetLabelMappingWatchers = SpreadsheetLabelMappingWatchers.empty();
+        this.spreadsheetLabelMappingFetcher = SpreadsheetLabelMappingFetcher.with(
+                this.spreadsheetLabelMappingWatchers,
+                this
+        );
+        this.addSpreadsheetLabelMappingWatcher(this);
 
         // history
         this.history = Historys.elemental(loggingContext);
@@ -257,6 +273,12 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
         }
     }
 
+    @Override
+    public void onSpreadsheetLabelMapping(final SpreadsheetLabelMapping labelMapping,
+                                          final AppContext context) {
+        // nop
+    }
+
     /**
      * Update the spreadsheet-id, spreadsheet-name and viewport selection from the given {@link SpreadsheetMetadata}.
      */
@@ -312,6 +334,16 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     private final SpreadsheetDeltaWatchers spreadsheetDeltaWatchers;
 
     @Override
+    public Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingWatcher watcher) {
+        return this.spreadsheetLabelMappingWatchers.add(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetLabelMappingWatcher}
+     */
+    private final SpreadsheetLabelMappingWatchers spreadsheetLabelMappingWatchers;
+
+    @Override
     public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
         Objects.requireNonNull(watcher, "watcher");
         return this.metadataWatchers.add(watcher);
@@ -328,6 +360,13 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher, Spreads
     }
 
     private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
+
+    @Override
+    public SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher() {
+        return this.spreadsheetLabelMappingFetcher;
+    }
+
+    private final SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher;
 
     @Override
     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
