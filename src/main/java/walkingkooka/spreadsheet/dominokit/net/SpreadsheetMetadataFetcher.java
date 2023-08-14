@@ -29,7 +29,7 @@ import walkingkooka.tree.json.JsonNode;
 
 import java.util.Objects;
 
-public class SpreadsheetMetadataFetcher implements Fetcher {
+public final class SpreadsheetMetadataFetcher implements Fetcher {
 
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataWatcher watcher,
                                                   final AppContext context) {
