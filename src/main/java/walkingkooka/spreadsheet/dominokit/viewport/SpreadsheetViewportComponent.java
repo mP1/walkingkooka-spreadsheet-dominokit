@@ -775,7 +775,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return false;
+        return true;
     }
 
     @Override
@@ -785,7 +785,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     @Override
     public boolean isOpen() {
-        return null != this.selection;
+        return true; // always open
     }
 
     @Override
@@ -802,7 +802,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     @Override
     public void close(final AppContext context) {
-        this.setViewportSelection(Optional.empty());
+        // nop
     }
 
     // delta............................................................................................................
