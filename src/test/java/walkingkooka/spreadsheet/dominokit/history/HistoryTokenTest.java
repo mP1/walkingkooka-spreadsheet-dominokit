@@ -355,21 +355,21 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setLabelMapping..................................................................................................
 
     @Test
-    public void testSetLabelMappingWithNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testSetLabelNameWhenNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setLabelMapping(LABEL),
+                historyToken.setLabelName(LABEL),
                 historyToken
         );
     }
 
     @Test
-    public void testSetLabelMapping() {
+    public void testSetLabelName() {
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
 
         this.checkEquals(
-                historyToken.setLabelMapping(LABEL),
+                historyToken.setLabelName(LABEL),
                 HistoryToken.labelMapping(
                         ID,
                         NAME,
