@@ -113,7 +113,7 @@ public final class SpreadsheetViewportToolbarComponent implements ComponentLifec
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.refresh(context);
+        this.refreshIfOpen(context);
     }
 
     // ComponentLifecycle..............................................................................................
