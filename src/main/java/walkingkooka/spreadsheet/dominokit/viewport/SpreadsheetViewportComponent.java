@@ -775,12 +775,12 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetViewportSelectionHistoryToken;
+        return true;
     }
 
     @Override
