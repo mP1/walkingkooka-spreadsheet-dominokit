@@ -60,7 +60,6 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbarCom
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -90,7 +89,6 @@ import java.util.Optional;
 public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         SpreadsheetMetadataWatcher,
         SpreadsheetDeltaWatcher,
-        SpreadsheetLabelMappingWatcher,
         UncaughtExceptionHandler {
 
     public App() {
@@ -129,7 +127,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
                 this.spreadsheetLabelMappingWatchers,
                 this
         );
-        this.addSpreadsheetLabelMappingWatcher(this);
 
         // history
         this.history = Historys.elemental(loggingContext);
@@ -271,12 +268,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
                 );
             }
         }
-    }
-
-    @Override
-    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> labelMapping,
-                                          final AppContext context) {
-        // nop
     }
 
     /**
