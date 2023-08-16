@@ -20,11 +20,13 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
+import java.util.Optional;
+
 /**
  * A watcher that receives all {@link SpreadsheetLabelMapping} response events.
  */
 public interface SpreadsheetLabelMappingWatcher {
 
-    void onSpreadsheetLabelMapping(final SpreadsheetLabelMapping mapping,
+    void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                    final AppContext context);
 }

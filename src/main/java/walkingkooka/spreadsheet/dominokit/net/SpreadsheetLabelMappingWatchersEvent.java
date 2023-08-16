@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
@@ -27,11 +28,13 @@ import java.util.function.Consumer;
  */
 final class SpreadsheetLabelMappingWatchersEvent implements Consumer<SpreadsheetLabelMappingWatcher> {
 
-    static SpreadsheetLabelMappingWatchersEvent with(final SpreadsheetLabelMapping mapping, final AppContext context) {
+    static SpreadsheetLabelMappingWatchersEvent with(final Optional<SpreadsheetLabelMapping> mapping,
+                                                     final AppContext context) {
         return new SpreadsheetLabelMappingWatchersEvent(mapping, context);
     }
 
-    private SpreadsheetLabelMappingWatchersEvent(final SpreadsheetLabelMapping mapping, final AppContext context) {
+    private SpreadsheetLabelMappingWatchersEvent(final Optional<SpreadsheetLabelMapping> mapping,
+                                                 final AppContext context) {
         this.mapping = mapping;
         this.context = context;
     }
@@ -51,7 +54,7 @@ final class SpreadsheetLabelMappingWatchersEvent implements Consumer<Spreadsheet
         }
     }
 
-    private final SpreadsheetLabelMapping mapping;
+    private final Optional<SpreadsheetLabelMapping> mapping;
 
     private final AppContext context;
 
