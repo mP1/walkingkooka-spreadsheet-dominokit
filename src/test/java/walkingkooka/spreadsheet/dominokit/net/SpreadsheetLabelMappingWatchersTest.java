@@ -25,21 +25,25 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
+
 public final class SpreadsheetLabelMappingWatchersTest implements ClassTesting<SpreadsheetLabelMappingWatchers> {
 
     @Test
     public void testAddThenFire() {
         this.fired = 0;
 
-        final SpreadsheetLabelMapping spreadsheetLabelMapping = SpreadsheetSelection.labelName("Label123")
-                .mapping(SpreadsheetSelection.A1);
+        final Optional<SpreadsheetLabelMapping> spreadsheetLabelMapping = Optional.of(
+                SpreadsheetSelection.labelName("Label123")
+                        .mapping(SpreadsheetSelection.A1)
+        );
         final AppContext appContext = new FakeAppContext();
 
         final SpreadsheetLabelMappingWatchers watchers = SpreadsheetLabelMappingWatchers.empty();
         watchers.add(
                 new SpreadsheetLabelMappingWatcher() {
                     @Override
-                    public void onSpreadsheetLabelMapping(final SpreadsheetLabelMapping mapping,
+                    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                                           final AppContext context) {
                         SpreadsheetLabelMappingWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
                         SpreadsheetLabelMappingWatchersTest.this.checkEquals(appContext, context);
@@ -56,15 +60,17 @@ public final class SpreadsheetLabelMappingWatchersTest implements ClassTesting<S
     public void testAddOnce() {
         this.fired = 0;
 
-        final SpreadsheetLabelMapping spreadsheetLabelMapping = SpreadsheetSelection.labelName("Label123")
-                .mapping(SpreadsheetSelection.A1);
+        final Optional<SpreadsheetLabelMapping> spreadsheetLabelMapping = Optional.of(
+                SpreadsheetSelection.labelName("Label123")
+                        .mapping(SpreadsheetSelection.A1)
+        );
         final AppContext appContext = new FakeAppContext();
 
         final SpreadsheetLabelMappingWatchers watchers = SpreadsheetLabelMappingWatchers.empty();
         watchers.addOnce(
                 new SpreadsheetLabelMappingWatcher() {
                     @Override
-                    public void onSpreadsheetLabelMapping(final SpreadsheetLabelMapping mapping,
+                    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                                           final AppContext context) {
                         SpreadsheetLabelMappingWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
                         SpreadsheetLabelMappingWatchersTest.this.checkEquals(appContext, context);

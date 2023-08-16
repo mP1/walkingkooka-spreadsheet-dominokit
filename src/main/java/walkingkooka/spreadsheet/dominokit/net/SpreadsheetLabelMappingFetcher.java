@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public final class SpreadsheetLabelMappingFetcher implements Fetcher {
 
@@ -123,9 +124,13 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     @Override
     public void onSuccess(final String body) {
         this.watcher.onSpreadsheetLabelMapping(
-                this.parse(
-                        body,
-                        SpreadsheetLabelMapping.class
+                Optional.ofNullable(
+                        body.isEmpty() ?
+                                null :
+                                this.parse(
+                                        body,
+                                        SpreadsheetLabelMapping.class
+                                )
                 ),
                 this.context
         );

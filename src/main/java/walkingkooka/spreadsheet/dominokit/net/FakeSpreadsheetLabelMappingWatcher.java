@@ -20,9 +20,11 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
+import java.util.Optional;
+
 public class FakeSpreadsheetLabelMappingWatcher implements SpreadsheetLabelMappingWatcher {
     @Override
-    public void onSpreadsheetLabelMapping(final SpreadsheetLabelMapping mapping,
+    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
         throw new UnsupportedOperationException();
     }

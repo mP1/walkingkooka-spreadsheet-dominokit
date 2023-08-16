@@ -21,6 +21,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.watch.Watchers;
 
+import java.util.Optional;
+
 public final class SpreadsheetLabelMappingWatchers implements SpreadsheetLabelMappingWatcher {
 
     public static SpreadsheetLabelMappingWatchers empty() {
@@ -47,7 +49,7 @@ public final class SpreadsheetLabelMappingWatchers implements SpreadsheetLabelMa
     }
 
     @Override
-    public void onSpreadsheetLabelMapping(final SpreadsheetLabelMapping mapping,
+    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
         this.watchers.accept(
                 SpreadsheetLabelMappingWatchersEvent.with(

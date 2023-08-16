@@ -274,7 +274,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     }
 
     @Override
-    public void onSpreadsheetLabelMapping(final SpreadsheetLabelMapping labelMapping,
+    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> labelMapping,
                                           final AppContext context) {
         // nop
     }
