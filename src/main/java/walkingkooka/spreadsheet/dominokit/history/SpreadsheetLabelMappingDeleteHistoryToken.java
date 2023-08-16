@@ -83,6 +83,11 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // DELETE label mapping
+        context.spreadsheetLabelMappingFetcher()
+                .deleteLabelMapping(
+                        this.id(),
+                        this.labelName()
+                );
+        this.pushLabelSelect(context);
     }
 }

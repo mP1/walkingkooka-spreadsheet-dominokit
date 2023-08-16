@@ -41,6 +41,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponent;
+import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponentContext;
+import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponentContexts;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -142,6 +145,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
 
+        SpreadsheetLabelMappingEditorComponent.with(
+                SpreadsheetLabelMappingEditorComponentContexts.basic(this)
+        );
         this.spreadsheetPatternEditorComponent();
     }
 

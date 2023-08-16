@@ -86,6 +86,15 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // POST label mapping
+        final SpreadsheetId id = this.id();
+        final SpreadsheetLabelMapping mapping = this.mapping;
+        context.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange0 save " + id + " " + mapping);
+
+        context.spreadsheetLabelMappingFetcher()
+                .saveLabelMapping(
+                        id,
+                        mapping
+                );
+        this.pushLabelSelect(context);
     }
 }
