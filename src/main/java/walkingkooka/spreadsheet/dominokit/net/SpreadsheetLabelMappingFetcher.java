@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpStatus;
@@ -102,16 +103,15 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     // GET http://localhost:3000/api/spreadsheet/1/label/Label123
     public RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetLabelName labelName) {
-        return this.context.spreadsheetMetadataFetcher()
-                .url(id)
-                .setPath(
-                        LABEL.append(
-                                UrlPathName.with(
-                                        labelName.value()
-                                )
-                        )
-                );
+        return Url.EMPTY_RELATIVE_URL.setPath(
+                API.append(
+                                UrlPathName.with(id.toString())
+                        ).append(LABEL)
+                        .append(UrlPathName.with(labelName.value()))
+        );
     }
+
+    private final static UrlPath API = UrlPath.parse("/api/spreadsheet");
 
     private final static UrlPath LABEL = UrlPath.parse("/label");
 
