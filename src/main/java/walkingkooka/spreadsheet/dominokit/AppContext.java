@@ -50,17 +50,23 @@ public interface AppContext extends CanGiveFocus,
 
     Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
 
+    Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaWatcher watcher);
+
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
     // labelMapping............................................................................................................
 
     Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingWatcher watcher);
 
+    Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingWatcher watcher);
+
     SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher();
 
     // metadata..........................................................................................................
 
     Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
+
+    Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataWatcher watcher);
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 

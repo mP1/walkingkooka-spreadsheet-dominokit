@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponent;
-import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponentContext;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponentContexts;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
@@ -85,7 +84,6 @@ import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
 import java.math.MathContext;
-import java.util.Objects;
 import java.util.Optional;
 
 @LocaleAware
@@ -325,6 +323,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         return this.spreadsheetDeltaWatchers.add(watcher);
     }
 
+    @Override
+    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaWatcher watcher) {
+        return this.spreadsheetDeltaWatchers.addOnce(watcher);
+    }
+
     /**
      * A collection of listeners for {@link SpreadsheetDeltaWatcher}
      */
@@ -335,6 +338,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         return this.spreadsheetLabelMappingWatchers.add(watcher);
     }
 
+    @Override
+    public Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingWatcher watcher) {
+        return this.spreadsheetLabelMappingWatchers.addOnce(watcher);
+    }
+
     /**
      * A collection of listeners for {@link SpreadsheetLabelMappingWatcher}
      */
@@ -342,7 +350,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
 
     @Override
     public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
-        Objects.requireNonNull(watcher, "watcher");
+        return this.metadataWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataWatcher watcher) {
         return this.metadataWatchers.add(watcher);
     }
 
