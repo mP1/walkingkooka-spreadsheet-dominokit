@@ -60,6 +60,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -67,6 +68,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
@@ -88,6 +90,7 @@ import java.util.function.Predicate;
  */
 public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher,
+        SpreadsheetLabelMappingWatcher,
         SpreadsheetMetadataWatcher,
         ComponentLifecycle {
 
@@ -813,6 +816,19 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         Objects.requireNonNull(delta, "delta");
 
         this.render(context);
+    }
+
+    // SpreadsheetLabelMappingWatcher...................................................................................
+
+    /**
+     * Any label mapping change should refresh the viewport cells.
+     */
+    @Override
+    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
+                                          final AppContext context) {
+        this.loadViewportCells(
+                Optional.empty() // navigation
+        );
     }
 
     // metadata.........................................................................................................
