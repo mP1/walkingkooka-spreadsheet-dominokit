@@ -807,10 +807,23 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     public void refresh(final AppContext context) {
         final SpreadsheetPatternEditorComponentContext componentContext = this.context;
 
-        this.dialogNavBar.setTitle(componentContext.title());
+        this.dialogNavBar.setTitle(
+                title(
+                        componentContext.patternKind()
+                )
+        );
         this.patternKindTabsRefresh();
         this.appendLinksRebuild();
         this.setPatternText(componentContext.loaded());
+    }
+
+    // Date/Time format
+    // Text format
+    static String title(final SpreadsheetPatternKind kind) {
+        return CaseKind.SNAKE.change(
+                kind.name(),
+                CaseKind.TITLE
+        ).replace("Pattern", "pattern");
     }
 
     // ids..............................................................................................................

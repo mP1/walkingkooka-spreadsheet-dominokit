@@ -74,17 +74,6 @@ final class BasicSpreadsheetPatternEditorComponentContext implements Spreadsheet
         );
     }
 
-    // Date/Time format
-    // Text format
-    @Override
-    public String title() {
-        return CaseKind.SNAKE.change(
-                this.patternKind()
-                        .name(),
-                CaseKind.TITLE
-        ).replace("Pattern", "pattern");
-    }
-
     /**
      * Takes the pattern for the matching {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern}.
      */
