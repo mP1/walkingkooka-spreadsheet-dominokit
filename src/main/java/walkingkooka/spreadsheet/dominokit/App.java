@@ -280,6 +280,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
+        final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
         this.spreadsheetMetadata = metadata;
 
         // update the global JsonNodeUnmarshallContext.
@@ -288,15 +289,18 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
                 metadata.mathContext()
         );
 
-        final Optional<SpreadsheetId> id = metadata.id();
-        final Optional<SpreadsheetName> name = metadata.name();
+        final Optional<SpreadsheetId> maybeId = metadata.id();
+        final Optional<SpreadsheetName> maybeName = metadata.name();
 
-        if (id.isPresent() && name.isPresent()) {
+        if (maybeId.isPresent() && maybeName.isPresent()) {
+            final SpreadsheetId id = maybeId.get();
+            final SpreadsheetName name = maybeName.get();
+
             final HistoryToken historyToken = context.historyToken();
             final HistoryToken idNameViewportSelectionHistoryToken = historyToken
                     .setIdAndName(
-                            id.get(),
-                            name.get()
+                            id,
+                            name
                     ).setViewportSelection(
                             metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
                     );
@@ -304,6 +308,18 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
             if (false == historyToken.equals(idNameViewportSelectionHistoryToken)) {
                 context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/viewportSelection " + idNameViewportSelectionHistoryToken, metadata);
                 context.pushHistoryToken(idNameViewportSelectionHistoryToken);
+            } else {
+                // must have loaded a new spreadsheet, need to fire history token
+                //
+                // eg so a focused cell is given focus etc.
+                if (false == id.equals(
+                        previousMetadata.id()
+                                .orElse(null)
+                )) {
+                    context.debug("App.onSpreadsheetMetadata new spreadsheet " + id + " loaded, firing history token again");
+
+                    context.fireCurrentHistoryToken();
+                }
             }
         }
     }
