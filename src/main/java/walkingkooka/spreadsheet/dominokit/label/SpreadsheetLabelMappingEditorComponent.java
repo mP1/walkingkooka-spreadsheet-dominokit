@@ -434,7 +434,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     public void refresh(final AppContext context) {
         final SpreadsheetLabelMappingEditorComponentContext componentContext = this.context;
 
-        this.dialogNavBar.setTitle(componentContext.title());
+        this.dialogNavBar.setTitle("Label");
 
         final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
                 .cast(SpreadsheetLabelMappingSelectHistoryToken.class);

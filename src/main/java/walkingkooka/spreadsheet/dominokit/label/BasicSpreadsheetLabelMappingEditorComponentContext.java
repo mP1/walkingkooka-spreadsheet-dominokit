@@ -81,11 +81,6 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
     }
 
     @Override
-    public String title() {
-        return "Label";
-    }
-
-    @Override
     public SpreadsheetLabelName label() {
         return this.historyToken().labelName();
     }
