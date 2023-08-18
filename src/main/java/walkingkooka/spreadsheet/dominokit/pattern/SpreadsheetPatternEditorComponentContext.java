@@ -48,11 +48,6 @@ public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
     void setPatternKind(final SpreadsheetPatternKind patternKind);
 
     /**
-     * The title that will appear above the modal dialog box.
-     */
-    String title();
-
-    /**
      * Provides the UNDO or loaded text.
      */
     String loaded();
