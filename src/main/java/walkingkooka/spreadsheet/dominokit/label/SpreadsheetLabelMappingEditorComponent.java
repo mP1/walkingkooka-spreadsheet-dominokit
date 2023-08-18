@@ -37,7 +37,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -428,7 +427,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     }
 
     /**
-     * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
+     * Refreshes the widget, typically done when the label within the history token changes.
      */
     @Override
     public void refresh(final AppContext context) {
