@@ -40,11 +40,6 @@ public interface SpreadsheetLabelMappingEditorComponentContext extends HistoryTo
     void addLabelMappingWatcher(final SpreadsheetLabelMappingWatcher watcher);
 
     /**
-     * The title of the dialog.
-     */
-    String title();
-
-    /**
      * The original or loaded {@link SpreadsheetLabelName}. Used by UNDO to reload the label name text box.
      */
     SpreadsheetLabelName label();
