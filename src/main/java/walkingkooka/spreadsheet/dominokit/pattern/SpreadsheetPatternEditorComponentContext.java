@@ -38,11 +38,6 @@ public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
     SpreadsheetPatternKind patternKind();
 
     /**
-     * Returns the text that will appear on a button that when clicked switches to the given {@link SpreadsheetPatternKind}.
-     */
-    String patternKindButtonText(final SpreadsheetPatternKind kind);
-
-    /**
      * Switches the editor to the given {@link SpreadsheetPatternKind}.
      */
     void setPatternKind(final SpreadsheetPatternKind patternKind);

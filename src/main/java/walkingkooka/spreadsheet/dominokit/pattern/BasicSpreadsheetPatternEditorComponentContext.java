@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHi
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.text.CaseKind;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -48,15 +47,6 @@ final class BasicSpreadsheetPatternEditorComponentContext implements Spreadsheet
         return this.historyToken()
                 .patternKind()
                 .get();
-    }
-
-    // SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
-    @Override
-    public String patternKindButtonText(final SpreadsheetPatternKind kind) {
-        return CaseKind.SNAKE.change(
-                kind.name().replace("PATTERN", ""),
-                CaseKind.TITLE
-        ).trim();
     }
 
     /**

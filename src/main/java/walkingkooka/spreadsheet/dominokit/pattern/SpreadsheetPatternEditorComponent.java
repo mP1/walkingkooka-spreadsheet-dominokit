@@ -191,8 +191,9 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
         int i = 0;
         for (final SpreadsheetPatternKind kind : kinds) {
-            final String text = context.patternKindButtonText(kind);
-            final Tab tab = Tab.create(text);
+            final Tab tab = Tab.create(
+                    patternKindText(kind)
+            );
 
             Anchor.with(
                             (HTMLAnchorElement)
@@ -207,6 +208,19 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         }
 
         return tabs;
+    }
+
+    /**
+     * Returns the text that will appear on a tab that when clicked switches to the given {@link SpreadsheetPatternKind}.
+     * <pre>
+     * SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
+     * </pre>
+     */
+    static String patternKindText(final SpreadsheetPatternKind kind) {
+        return CaseKind.SNAKE.change(
+                kind.name().replace("PATTERN", ""),
+                CaseKind.TITLE
+        ).trim();
     }
 
     private Tab[] patternKindTabs;
