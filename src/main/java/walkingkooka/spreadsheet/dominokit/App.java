@@ -250,7 +250,29 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         );
     }
 
-    // delta & metadata change watches..................................................................................
+    // SpreadsheetDelta.................................................................................................
+
+    @Override
+    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
+        return this.spreadsheetDeltaFetcher;
+    }
+
+    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
+
+    @Override
+    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
+        return this.spreadsheetDeltaWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaWatcher watcher) {
+        return this.spreadsheetDeltaWatchers.addOnce(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetDeltaWatcher}
+     */
+    private final SpreadsheetDeltaWatchers spreadsheetDeltaWatchers;
 
     /**
      * If a viewport selection is present then copy the received selection even if its now gone.
@@ -274,6 +296,54 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
             }
         }
     }
+
+    // SpreadsheetLabelMapping..........................................................................................
+
+    @Override
+    public Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingWatcher watcher) {
+        return this.spreadsheetLabelMappingWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingWatcher watcher) {
+        return this.spreadsheetLabelMappingWatchers.addOnce(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetLabelMappingWatcher}
+     */
+    private final SpreadsheetLabelMappingWatchers spreadsheetLabelMappingWatchers;
+
+    @Override
+    public SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher() {
+        return this.spreadsheetLabelMappingFetcher;
+    }
+
+    private final SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher;
+
+    // SpreadsheetMetadata..............................................................................................
+
+    @Override
+    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
+        return this.spreadsheetMetadataFetcher;
+    }
+
+    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
+
+    @Override
+    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+        return this.metadataWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataWatcher watcher) {
+        return this.metadataWatchers.add(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetMetadataWatcher}
+     */
+    private final SpreadsheetMetadataWatchers metadataWatchers;
 
     /**
      * Update the spreadsheet-id, spreadsheet-name and viewport selection from the given {@link SpreadsheetMetadata}.
@@ -334,72 +404,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     }
 
     private SpreadsheetMetadata spreadsheetMetadata;
-
-    @Override
-    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
-        return this.spreadsheetDeltaWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaWatcher watcher) {
-        return this.spreadsheetDeltaWatchers.addOnce(watcher);
-    }
-
-    /**
-     * A collection of listeners for {@link SpreadsheetDeltaWatcher}
-     */
-    private final SpreadsheetDeltaWatchers spreadsheetDeltaWatchers;
-
-    @Override
-    public Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingWatcher watcher) {
-        return this.spreadsheetLabelMappingWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingWatcher watcher) {
-        return this.spreadsheetLabelMappingWatchers.addOnce(watcher);
-    }
-
-    /**
-     * A collection of listeners for {@link SpreadsheetLabelMappingWatcher}
-     */
-    private final SpreadsheetLabelMappingWatchers spreadsheetLabelMappingWatchers;
-
-    @Override
-    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
-        return this.metadataWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataWatcher watcher) {
-        return this.metadataWatchers.add(watcher);
-    }
-
-    /**
-     * A collection of listeners for {@link SpreadsheetMetadataWatcher}
-     */
-    private final SpreadsheetMetadataWatchers metadataWatchers;
-
-    @Override
-    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
-        return this.spreadsheetDeltaFetcher;
-    }
-
-    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
-
-    @Override
-    public SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher() {
-        return this.spreadsheetLabelMappingFetcher;
-    }
-
-    private final SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher;
-
-    @Override
-    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
-        return this.spreadsheetMetadataFetcher;
-    }
-
-    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
 
     // misc..........................................................................................................
 
