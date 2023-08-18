@@ -207,7 +207,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
             );
             context.spreadsheetMetadataFetcher()
                     .loadSpreadsheetMetadata(id);
-            context.addSpreadsheetMetadataWatcher(this::onSpreadsheetMetadataFireHistory);
         }
     }
 
@@ -216,12 +215,4 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
      */
     abstract void onHistoryTokenChange0(final HistoryToken previous,
                                         final AppContext context);
-
-    /**
-     * Fire the current history token again given the {@link SpreadsheetMetadata} has loaded.
-     */
-    private void onSpreadsheetMetadataFireHistory(final SpreadsheetMetadata metadata,
-                                                  final AppContext context) {
-        context.fireCurrentHistoryToken();
-    }
 }
