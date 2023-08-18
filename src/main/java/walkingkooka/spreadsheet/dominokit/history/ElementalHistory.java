@@ -67,8 +67,18 @@ final class ElementalHistory implements History {
                 hash = hash.substring(1);
             }
 
+            final UrlFragment urlFragment = UrlFragment.parse(hash);
+            final HistoryToken historyToken = HistoryToken.parse(urlFragment);
+            final UrlFragment historyTokenUrlFragment = historyToken.urlFragment();
+
+            // if different, the hash must have been invalid, update with the actual parsed result.
+            if(false == historyTokenUrlFragment.equals(urlFragment)) {
+                hash = historyTokenUrlFragment.value();
+                DomGlobal.location.hash = hash;
+            }
+
+            this.historyToken = historyToken;
             this.locationHash = hash;
-            this.historyToken = HistoryToken.parse(UrlFragment.parse(hash));
         }
 
         return this.historyToken;

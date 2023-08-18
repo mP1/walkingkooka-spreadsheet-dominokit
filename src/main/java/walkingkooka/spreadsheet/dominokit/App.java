@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponentContexts;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -454,17 +455,26 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     }
 
     private void onHistoryTokenChange(final HistoryToken token) {
-            final HistoryToken previousToken = this.previousToken;
-            this.debug("App.onHistoryTokenChange from " + previousToken + " to " + token);
+        this.debug("App.onHistoryTokenChange token change " + token);
 
-            if (false == token.equals(previousToken)) {
+        final HistoryToken previousToken = this.previousToken;
+
+        if (false == token.equals(previousToken)) {
+            if (token instanceof UnknownHistoryToken) {
+                this.debug("App.onHistoryTokenChange updated with invalid token " + token + ", will restore previous " + previousToken);
+                this.pushHistoryToken(previousToken);
+
+            } else {
+                this.debug("App.onHistoryTokenChange from " + previousToken + " to " + token);
+
                 this.historyWatchers.onHistoryTokenChange(
                         previousToken,
                         this
                 );
 
-                this.previousToken = this.historyToken();
+                this.previousToken = token;
             }
+        }
     }
 
     // AppContext history...............................................................................................
