@@ -43,6 +43,11 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
+    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         throw new UnsupportedOperationException();
     }
@@ -53,12 +58,22 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
+    public Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher() {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
