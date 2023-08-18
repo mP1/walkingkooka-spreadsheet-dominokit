@@ -458,6 +458,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         this.debug("App.onHistoryTokenChange token change " + token);
 
         final HistoryToken previousToken = this.previousToken;
+        this.previousToken = token;
 
         if (false == token.equals(previousToken)) {
             if (token instanceof UnknownHistoryToken) {
@@ -471,8 +472,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
                         previousToken,
                         this
                 );
-
-                this.previousToken = token;
             }
         }
     }
