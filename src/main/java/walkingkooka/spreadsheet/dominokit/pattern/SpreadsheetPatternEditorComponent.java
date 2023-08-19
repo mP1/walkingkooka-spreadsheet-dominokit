@@ -232,7 +232,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         ).trim();
     }
 
-    private Tab[] patternKindTabs;
+    private final Tab[] patternKindTabs;
 
     /**
      * Returns a {@link TabsPanel} with tabs for each of the possible {@link SpreadsheetPatternKind}, with each

@@ -270,7 +270,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         }
     }
 
-    private Button saveButton;
+    private final Button saveButton;
 
     /**
      * When clicked the undo button invokes {@link #onUndoButtonClick}.
@@ -318,7 +318,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         context.delete();
     }
 
-    private Button deleteButton;
+    private final Button deleteButton;
 
     /**
      * Creates one of the modal action buttons that appear at the bottom of the modal dialog.
