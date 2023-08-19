@@ -154,7 +154,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         final SpreadsheetPatternEditorComponent component = SpreadsheetPatternEditorComponent.with(
                 SpreadsheetPatternEditorComponentContexts.cell(this)
         );
-        this.addHistoryWatcher(component);
         this.addSpreadsheetDeltaWatcher(
                 (delta, context) -> component.refreshIfOpen(this)
         );

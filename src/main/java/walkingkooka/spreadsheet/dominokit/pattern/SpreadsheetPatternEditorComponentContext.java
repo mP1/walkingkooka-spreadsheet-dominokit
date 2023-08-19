@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
@@ -63,6 +64,11 @@ public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
      * Removes the pattern text from its source cell etc.
      */
     void remove();
+
+    /**
+     * Adds a {@link HistoryTokenWatcher}.
+     */
+    Runnable addHistoryWatcher(final HistoryTokenWatcher watcher);
 
     /**
      * More specialised {@link HistoryToken} getter

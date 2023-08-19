@@ -83,6 +83,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
     private SpreadsheetPatternEditorComponent(final SpreadsheetPatternEditorComponentContext context) {
         this.context = context;
+        context.addHistoryWatcher(this);
 
         this.patternKindTabs = this.patternKindTabs();
         this.patternKindTabsPanel = this.patternKindTabsPanel();
