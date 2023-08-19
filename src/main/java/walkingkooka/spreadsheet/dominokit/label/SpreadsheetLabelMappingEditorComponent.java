@@ -413,7 +413,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         }
 
         context.giveFocus(
-                () -> this.labelNameTextBox.focus()
+                this.labelNameTextBox::focus
         );
     }
 
