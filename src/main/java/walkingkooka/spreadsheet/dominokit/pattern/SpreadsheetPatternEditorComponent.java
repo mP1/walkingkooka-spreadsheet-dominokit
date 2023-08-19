@@ -53,10 +53,12 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryT
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
@@ -72,7 +74,9 @@ import java.util.stream.Collectors;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public final class SpreadsheetPatternEditorComponent implements ComponentLifecycle, SpreadsheetDeltaWatcher {
+public final class SpreadsheetPatternEditorComponent implements ComponentLifecycle,
+        SpreadsheetDeltaWatcher,
+        SpreadsheetMetadataWatcher {
 
     /**
      * Creates a new {@link SpreadsheetPatternEditorComponent}.
@@ -87,6 +91,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         this.context = context;
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
+        context.addSpreadsheetMetadataWatcher(this);
 
         this.patternKindTabs = this.patternKindTabs();
         this.patternKindTabsPanel = this.patternKindTabsPanel();
@@ -784,6 +789,14 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
+        this.refreshIfOpen(context);
+    }
+
+    // SpreadsheetMetadataWatcher..........................................................................................
+
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
         this.refreshIfOpen(context);
     }
 

@@ -147,15 +147,8 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         SpreadsheetLabelMappingEditorComponent.with(
                 SpreadsheetLabelMappingEditorComponentContexts.basic(this)
         );
-        this.spreadsheetPatternEditorComponent();
-    }
-
-    private void spreadsheetPatternEditorComponent() {
-        final SpreadsheetPatternEditorComponent component = SpreadsheetPatternEditorComponent.with(
+        SpreadsheetPatternEditorComponent.with(
                 SpreadsheetPatternEditorComponentContexts.cell(this)
-        );
-        this.addSpreadsheetMetadataWatcher(
-                (metadata, context) -> component.refreshIfOpen(this)
         );
     }
 
