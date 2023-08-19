@@ -132,10 +132,7 @@ final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetP
      */
     @Override
     public void remove() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .setSave("")
-        );
+        this.save("");
     }
 
     // clear the pattern part leaving just the selection history token.
