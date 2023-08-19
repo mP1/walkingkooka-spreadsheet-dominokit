@@ -49,7 +49,6 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
@@ -508,7 +507,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                                         final SpreadsheetPattern pattern) {
         final SpreadsheetPatternEditorComponentContext context = this.context;
 
-        final SpreadsheetCellPatternHistoryToken historyToken = context.historyToken();
+        final HistoryToken historyToken = context.historyToken();
 
         final List<SpreadsheetPatternEditorComponentAppendLink> patternAppendLinks = this.appendLinks;
         context.debug("SpreadsheetPatternEditorComponent.appendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
