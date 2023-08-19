@@ -24,17 +24,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
  * Interface that provides simple operations to update the visual state of a component.
  * Dont forget to register this {@link HistoryTokenWatcher}.
  */
-public interface ComponentLifecycle extends HistoryTokenWatcher {
-
-    /**
-     * Tests if this component should ignore this {@link HistoryToken} and not change open/close state.
-     */
-    boolean shouldIgnore(final HistoryToken token);
-
-    /**
-     * Tests if this component should be open for the given {@link HistoryToken}
-     */
-    boolean isMatch(final HistoryToken token);
+public interface ComponentLifecycle extends HistoryTokenWatcher,
+        ComponentLifecycleMatcher {
 
     /**
      * Used to test if this component is open or visible.
