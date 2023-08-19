@@ -17,11 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import elemental2.dom.Element;
-import org.dominokit.domino.ui.menu.Menu;
-import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
-import org.dominokit.domino.ui.utils.DominoElement;
-import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
@@ -32,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 import java.util.Objects;
