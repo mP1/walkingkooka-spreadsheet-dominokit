@@ -826,7 +826,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         this.dialog.open();
 
         this.context.giveFocus(
-                () -> this.patternTextBox.focus()
+                this.patternTextBox::focus
         );
     }
 
