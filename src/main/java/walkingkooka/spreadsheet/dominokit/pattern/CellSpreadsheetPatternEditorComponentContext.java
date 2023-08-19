@@ -65,6 +65,7 @@ final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetP
     @Override
     public SpreadsheetPatternKind patternKind() {
         return this.historyToken()
+                .cast(SpreadsheetCellPatternSelectHistoryToken.class)
                 .patternKind()
                 .get();
     }
@@ -93,6 +94,7 @@ final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetP
 
         final Optional<SpreadsheetCell> maybeCell = this.context.viewportCell(
                 this.historyToken()
+                        .cast(SpreadsheetCellPatternSelectHistoryToken.class)
                         .viewportSelection()
                         .selection()
         );
@@ -151,9 +153,8 @@ final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetP
     }
 
     @Override
-    public SpreadsheetCellPatternSelectHistoryToken historyToken() {
-        return this.context.historyToken()
-                .cast(SpreadsheetCellPatternSelectHistoryToken.class);
+    public HistoryToken historyToken() {
+        return this.context.historyToken();
     }
 
     @Override
