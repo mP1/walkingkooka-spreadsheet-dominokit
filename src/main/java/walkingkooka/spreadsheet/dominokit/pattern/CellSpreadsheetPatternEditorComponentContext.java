@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -178,6 +179,11 @@ final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetP
     @Override
     public void giveFocus(final Runnable focus) {
         this.context.giveFocus(focus);
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
+        return this.context.addSpreadsheetDeltaWatcher(watcher);
     }
 
     @Override

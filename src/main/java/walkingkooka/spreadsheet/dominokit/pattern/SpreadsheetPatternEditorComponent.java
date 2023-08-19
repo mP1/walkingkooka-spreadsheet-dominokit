@@ -52,6 +52,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -70,7 +72,7 @@ import java.util.stream.Collectors;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public final class SpreadsheetPatternEditorComponent implements ComponentLifecycle {
+public final class SpreadsheetPatternEditorComponent implements ComponentLifecycle, SpreadsheetDeltaWatcher {
 
     /**
      * Creates a new {@link SpreadsheetPatternEditorComponent}.
@@ -84,6 +86,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     private SpreadsheetPatternEditorComponent(final SpreadsheetPatternEditorComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetDeltaWatcher(this);
 
         this.patternKindTabs = this.patternKindTabs();
         this.patternKindTabsPanel = this.patternKindTabsPanel();
@@ -774,6 +777,14 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         );
 
         return button;
+    }
+
+    // SpreadsheetDeltaWatcher..........................................................................................
+
+    @Override
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        this.refreshIfOpen(context);
     }
 
     // ComponentLifecycle...............................................................................................
