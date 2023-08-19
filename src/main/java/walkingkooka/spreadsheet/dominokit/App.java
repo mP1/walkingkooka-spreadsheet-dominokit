@@ -152,7 +152,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
 
     private void spreadsheetPatternEditorComponent() {
         final SpreadsheetPatternEditorComponent component = SpreadsheetPatternEditorComponent.with(
-                SpreadsheetPatternEditorComponentContexts.basic(this)
+                SpreadsheetPatternEditorComponentContexts.cell(this)
         );
         this.addHistoryWatcher(component);
         this.addSpreadsheetDeltaWatcher(

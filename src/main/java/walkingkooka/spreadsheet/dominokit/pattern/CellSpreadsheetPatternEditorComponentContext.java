@@ -31,15 +31,18 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
-final class BasicSpreadsheetPatternEditorComponentContext implements SpreadsheetPatternEditorComponentContext {
+/**
+ * A {@link SpreadsheetPatternEditorComponentContext} for editing patterns for a cell.
+ */
+final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetPatternEditorComponentContext {
 
-    static BasicSpreadsheetPatternEditorComponentContext with(final AppContext context) {
+    static CellSpreadsheetPatternEditorComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new BasicSpreadsheetPatternEditorComponentContext(context);
+        return new CellSpreadsheetPatternEditorComponentContext(context);
     }
 
-    private BasicSpreadsheetPatternEditorComponentContext(final AppContext context) {
+    private CellSpreadsheetPatternEditorComponentContext(final AppContext context) {
         this.context = context;
     }
 
@@ -70,7 +73,7 @@ final class BasicSpreadsheetPatternEditorComponentContext implements Spreadsheet
     public void setPatternKind(final SpreadsheetPatternKind patternKind) {
         final AppContext context = this.context;
 
-        context.debug("BasicSpreadsheetPatternEditorComponentContext.setPatternKind " + patternKind);
+        context.debug("CellSpreadsheetPatternEditorComponentContext.setPatternKind " + patternKind);
         context.pushHistoryToken(
                 this.historyToken()
                         .setPatternKind(
