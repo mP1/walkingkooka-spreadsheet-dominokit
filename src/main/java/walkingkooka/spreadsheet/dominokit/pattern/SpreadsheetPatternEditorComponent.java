@@ -780,12 +780,12 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     // save should not open or close the dialog.
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return token instanceof SpreadsheetCellPatternSaveHistoryToken;
+        return this.context.shouldIgnore(token);
     }
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellPatternSelectHistoryToken;
+        return this.context.isMatch(token);
     }
 
     /**

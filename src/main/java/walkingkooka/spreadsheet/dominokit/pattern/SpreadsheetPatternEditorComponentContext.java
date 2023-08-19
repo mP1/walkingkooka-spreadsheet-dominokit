@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -30,6 +31,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
  */
 public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
         HistoryTokenContext,
+        ComponentLifecycleMatcher,
         LoggingContext {
 
     /**

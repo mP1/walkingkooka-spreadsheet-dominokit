@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -41,6 +42,20 @@ final class BasicSpreadsheetPatternEditorComponentContext implements Spreadsheet
     private BasicSpreadsheetPatternEditorComponentContext(final AppContext context) {
         this.context = context;
     }
+
+    // ComponentLifecycleMatcher........................................................................................
+
+    @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        return token instanceof SpreadsheetCellPatternSaveHistoryToken;
+    }
+
+    @Override
+    public boolean isMatch(final HistoryToken token) {
+        return token instanceof SpreadsheetCellPatternSelectHistoryToken;
+    }
+
+    // SpreadsheetPatternEditorComponentContext.........................................................................
 
     @Override
     public SpreadsheetPatternKind patternKind() {
