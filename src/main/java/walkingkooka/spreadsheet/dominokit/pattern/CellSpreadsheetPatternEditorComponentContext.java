@@ -86,7 +86,7 @@ final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetP
     }
 
     /**
-     * Takes the pattern for the matching {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern}.
+     * Returns the pattern text for the current {@link #patternKind()}.
      */
     @Override
     public String loaded() {
