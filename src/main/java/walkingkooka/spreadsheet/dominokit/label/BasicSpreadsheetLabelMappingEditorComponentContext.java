@@ -60,8 +60,8 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
     }
 
     @Override
-    public Runnable addHistoryWatcher(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryWatcher(watcher);
+    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        return this.context.addHistoryTokenWatcher(watcher);
     }
 
     @Override

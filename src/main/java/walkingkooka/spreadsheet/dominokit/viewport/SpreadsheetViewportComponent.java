@@ -106,7 +106,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.tableElement = this.createTable();
         this.root = this.createRoot();
 
-        context.addHistoryWatcher(this);
+        context.addHistoryTokenWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
     }
