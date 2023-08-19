@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -70,12 +69,6 @@ public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
      * Adds a {@link HistoryTokenWatcher}.
      */
     Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher);
-
-    /**
-     * More specialised {@link HistoryToken} getter
-     */
-    @Override
-    HistoryToken historyToken();
 
     /**
      * A {@link SpreadsheetFormatterContext} which will be used to format values for the samples table.
