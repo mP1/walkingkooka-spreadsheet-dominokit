@@ -68,7 +68,7 @@ public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
     /**
      * Adds a {@link HistoryTokenWatcher}.
      */
-    Runnable addHistoryWatcher(final HistoryTokenWatcher watcher);
+    Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher);
 
     /**
      * More specialised {@link HistoryToken} getter

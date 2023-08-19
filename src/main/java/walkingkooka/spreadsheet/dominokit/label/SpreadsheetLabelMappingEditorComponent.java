@@ -73,7 +73,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         this.dialogNavBar = this.dialogNavBar();
         this.dialog = this.dialogCreate();
 
-        context.addHistoryWatcher(this);
+        context.addHistoryTokenWatcher(this);
         context.addLabelMappingWatcher(this);
     }
 

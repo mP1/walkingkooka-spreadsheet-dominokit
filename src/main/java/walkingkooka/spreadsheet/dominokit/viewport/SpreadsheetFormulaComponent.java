@@ -82,7 +82,7 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
         this.textBox = textBox;
         this.context = context;
 
-        context.addHistoryWatcher(this);
+        context.addHistoryTokenWatcher(this);
     }
 
     private void onKeyDownEvent(final KeyboardEvent event) {

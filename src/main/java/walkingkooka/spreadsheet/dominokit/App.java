@@ -447,7 +447,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     }
 
     private void setupHistoryListener() {
-        this.addHistoryWatcher(this);
+        this.addHistoryTokenWatcher(this);
 
         DomGlobal.self.addEventListener(
                 EventType.hashchange.getName(),
@@ -504,10 +504,10 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         );
     }
 
-    // HistoryWatcher...................................................................................................
+    // HistoryTokenWatcher...............................................................................................
 
     @Override
-    public Runnable addHistoryWatcher(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
         return this.historyWatchers.add(watcher);
     }
 

@@ -57,7 +57,7 @@ public final class SpreadsheetViewportToolbarComponent implements ComponentLifec
         this.components = this.components(context);
         this.flexLayout = this.createFlexLayout();
 
-        context.addHistoryWatcher(this);
+        context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
     }
 
