@@ -23,10 +23,10 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetPatternEditorComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetPatternEditorComponentContext}
+     * {@see CellSpreadsheetPatternEditorComponentContext}
      */
-    public static SpreadsheetPatternEditorComponentContext basic(final AppContext context) {
-        return BasicSpreadsheetPatternEditorComponentContext.with(context);
+    public static SpreadsheetPatternEditorComponentContext cell(final AppContext context) {
+        return CellSpreadsheetPatternEditorComponentContext.with(context);
     }
 
     /**
