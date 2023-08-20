@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import walkingkooka.spreadsheet.dominokit.CrudDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
@@ -26,7 +27,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingEditorComponent}.
  */
-public interface SpreadsheetLabelMappingEditorComponentContext extends HistoryTokenContext,
+public interface SpreadsheetLabelMappingEditorComponentContext extends
+        CrudDialogComponentContext<SpreadsheetLabelMapping>,
+        HistoryTokenContext,
         LoggingContext {
 
     /**
@@ -43,19 +46,4 @@ public interface SpreadsheetLabelMappingEditorComponentContext extends HistoryTo
      * The original or loaded {@link SpreadsheetLabelName}. Used by UNDO to reload the label name text box.
      */
     SpreadsheetLabelName label();
-
-    /**
-     * Deletes the current {@link SpreadsheetLabelMapping}.
-     */
-    void delete();
-
-    /**
-     * Saves the given {@link SpreadsheetLabelMapping}.
-     */
-    void save(final SpreadsheetLabelMapping mapping);
-
-    /**
-     * Closes or finishes a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping} dialog.
-     */
-    void close();
 }
