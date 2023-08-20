@@ -17,10 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -28,7 +31,8 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T> {
+public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T>
+        implements HasSpreadsheetPattern {
 
     static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> with(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
@@ -101,5 +105,16 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
                                 this.propertyValue().orElse(null)
                         )
                 );
+    }
+
+    // HasSpreadsheetPattern............................................................................................
+
+    @Override
+    public Optional<SpreadsheetPattern> pattern() {
+        return this.propertyName().isPattern() ?
+                Cast.to(
+                        this.propertyValue()
+                ) :
+                Optional.empty();
     }
 }
