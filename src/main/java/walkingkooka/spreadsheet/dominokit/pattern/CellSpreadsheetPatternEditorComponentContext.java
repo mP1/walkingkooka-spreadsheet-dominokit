@@ -121,27 +121,12 @@ final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetP
      * Save the pattern and push the new {@link HistoryToken}
      */
     @Override
-    public void save(final String pattern) {
+    public void save(final SpreadsheetPattern pattern) {
         this.pushHistoryToken(
                 this.historyToken()
-                        .setSave(pattern)
-        );
-    }
-
-    /**
-     * Pushes a new {@link HistoryToken} which will result in the removal of the pattern from the selection.
-     */
-    @Override
-    public void remove() {
-        this.save("");
-    }
-
-    // clear the pattern part leaving just the selection history token.
-    @Override
-    public void close() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .close()
+                        .setSave(
+                                pattern.text()
+                        )
         );
     }
 
