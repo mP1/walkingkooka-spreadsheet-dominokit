@@ -27,7 +27,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import java.util.Objects;
 import java.util.Optional;
 
-abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCellHistoryToken {
+abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCellHistoryToken
+        implements HasSpreadsheetPatternKind {
 
     SpreadsheetCellPatternHistoryToken(final SpreadsheetId id,
                                        final SpreadsheetName name,
@@ -42,6 +43,7 @@ abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCell
         this.patternKind = Objects.requireNonNull(patternKind, "patternKind");
     }
 
+    @Override
     public final Optional<SpreadsheetPatternKind> patternKind() {
         return this.patternKind;
     }
