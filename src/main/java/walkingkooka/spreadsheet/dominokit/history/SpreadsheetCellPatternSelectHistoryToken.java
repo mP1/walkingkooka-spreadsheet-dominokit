@@ -77,12 +77,22 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     private HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return new SpreadsheetCellPatternSelectHistoryToken(
-                this.id(),
-                this.name(),
-                this.viewportSelection(),
-                patternKind.get()
-        );
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+
+        return patternKind.isPresent() ?
+                new SpreadsheetCellPatternSelectHistoryToken(
+                        id,
+                        name,
+                        viewportSelection,
+                        patternKind.get()
+                ) :
+                cell(
+                        id,
+                        name,
+                        viewportSelection
+                );
     }
 
     @Override
