@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.CrudDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -25,12 +26,14 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternEditorComponent} provided various inputs.
  */
 public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
+        CrudDialogComponentContext<SpreadsheetPattern>,
         HistoryTokenContext,
         ComponentLifecycleMatcher,
         LoggingContext {
@@ -49,21 +52,6 @@ public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
      * Provides the UNDO or loaded text.
      */
     String loaded();
-
-    /**
-     * Saves the given pattern text.
-     */
-    void save(final String patternText);
-
-    /**
-     * Call back when the editor is closed.
-     */
-    void close();
-
-    /**
-     * Removes the pattern text from its source cell etc.
-     */
-    void remove();
 
     /**
      * Adds a {@link HistoryTokenWatcher}.

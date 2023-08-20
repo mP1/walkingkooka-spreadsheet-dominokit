@@ -714,9 +714,9 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         final SpreadsheetPatternEditorComponentContext context = this.context;
 
         try {
-            context.patternKind().parse(patternText);
+            final SpreadsheetPattern pattern = context.patternKind().parse(patternText);
             context.debug("SpreadsheetPatternEditorComponent.onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
-            context.save(patternText);
+            context.save(pattern);
         } catch (final Exception cause) {
             this.context.error(cause.getMessage());
         }
@@ -746,7 +746,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     }
 
     /**
-     * When clicked the REMOVE button invokes {@link SpreadsheetPatternEditorComponentContext#remove()}.
+     * When clicked the REMOVE button invokes {@link SpreadsheetPatternEditorComponentContext#delete()}.
      */
     private Button removeButton() {
         return this.button(
@@ -760,7 +760,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         final SpreadsheetPatternEditorComponentContext context = this.context;
 
         context.debug("SpreadsheetPatternEditorComponent.onRemoveButtonClick");
-        context.remove();
+        context.delete();
     }
 
     /**
