@@ -17,22 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetPatternEditorComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetPatternEditorComponentContextBasicTest implements ClassTesting<SpreadsheetPatternEditorComponentContextBasic> {
 
-    /**
-     * {@see SpreadsheetPatternEditorComponentContextBasicCell}
-     */
-    public static SpreadsheetPatternEditorComponentContext cell(final AppContext context) {
-        return SpreadsheetPatternEditorComponentContextBasicCell.with(context);
+    @Override
+    public Class<SpreadsheetPatternEditorComponentContextBasic> type() {
+        return SpreadsheetPatternEditorComponentContextBasic.class;
     }
 
-    /**
-     * Stop creation
-     */
-    private SpreadsheetPatternEditorComponentContexts() {
-        throw new UnsupportedOperationException();
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

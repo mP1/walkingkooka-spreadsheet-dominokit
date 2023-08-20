@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class CellSpreadsheetPatternEditorComponentContextTest implements ClassTesting<CellSpreadsheetPatternEditorComponentContext> {
+public final class SpreadsheetPatternEditorComponentContextBasicCellTest implements ClassTesting<SpreadsheetPatternEditorComponentContextBasicCell> {
 
     @Override
-    public Class<CellSpreadsheetPatternEditorComponentContext> type() {
-        return CellSpreadsheetPatternEditorComponentContext.class;
+    public Class<SpreadsheetPatternEditorComponentContextBasicCell> type() {
+        return SpreadsheetPatternEditorComponentContextBasicCell.class;
     }
 
     @Override
