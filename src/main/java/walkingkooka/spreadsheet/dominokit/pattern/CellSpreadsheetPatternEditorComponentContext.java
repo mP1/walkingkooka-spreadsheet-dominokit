@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHi
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -65,7 +66,7 @@ final class CellSpreadsheetPatternEditorComponentContext implements SpreadsheetP
     @Override
     public SpreadsheetPatternKind patternKind() {
         return this.historyToken()
-                .cast(SpreadsheetCellPatternSelectHistoryToken.class)
+                .cast(HasSpreadsheetPatternKind.class)
                 .patternKind()
                 .get();
     }
