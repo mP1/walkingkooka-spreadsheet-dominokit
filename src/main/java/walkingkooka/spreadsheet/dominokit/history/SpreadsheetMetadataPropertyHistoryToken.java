@@ -20,11 +20,15 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
-public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends SpreadsheetMetadataHistoryToken {
+public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends SpreadsheetMetadataHistoryToken
+        implements HasSpreadsheetPatternKind {
 
     SpreadsheetMetadataPropertyHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
@@ -43,8 +47,19 @@ public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends Spreads
 
     private final SpreadsheetMetadataPropertyName<T> propertyName;
 
+    // HasSpreadsheetPatternKind........................................................................................
+
     @Override
-    final UrlFragment metadataUrlFragment() {
+    public final Optional<SpreadsheetPatternKind> patternKind() {
+        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
+        return propertyName.isPattern() ?
+                propertyName.patternKind() :
+                Optional.empty();
+    }
+
+    // HasUrlFragment...................................................................................................
+
+    @Override final UrlFragment metadataUrlFragment() {
         return this.propertyName()
                 .urlFragment()
                 .append(this.metadataPropertyUrlFragment());

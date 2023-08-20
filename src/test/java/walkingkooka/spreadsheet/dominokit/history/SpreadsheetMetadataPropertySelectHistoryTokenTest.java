@@ -21,10 +21,50 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
 public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends SpreadsheetMetadataPropertyHistoryTokenTestCase<SpreadsheetMetadataPropertySelectHistoryToken<ExpressionNumberKind>, ExpressionNumberKind> {
+
+    // HasSpreadsheetPatternKind........................................................................................
+
+    @Test
+    public void testHasSpreadsheetPatternKindColor1() {
+        this.hasSpreadsheetPatternKindAndCheck(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.numberedColor(1)
+                )
+        );
+    }
+
+    @Test
+    public void testHasSpreadsheetPatternKindDateFormatPattern() {
+        this.hasSpreadsheetPatternKindAndCheck(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+                ),
+                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+        );
+    }
+
+    @Test
+    public void testHasSpreadsheetPatternKindDateTimeParsePattern() {
+        this.hasSpreadsheetPatternKindAndCheck(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN
+                ),
+                SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN
+        );
+    }
+
+    // UrlFragment......................................................................................................
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {
@@ -54,6 +94,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                 "/123/SpreadsheetName456/metadata/default-year"
         );
     }
+
+    // Parse............................................................................................................
 
     @Test
     public void testParseDateFormatPattern() {
