@@ -49,12 +49,11 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
+import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -270,10 +269,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
             tab.activate(match);
 
             if (false == match) {
-                final SpreadsheetCellPatternSelectHistoryToken historyToken = context.historyToken()
-                        .cast(
-                                SpreadsheetCellPatternSelectHistoryToken.class
-                        );
+                final HistoryToken historyToken = this.context.historyToken();
                 anchor.setHistoryToken(
                         historyToken.setPatternKind(
                                 Optional.of(possible)
@@ -478,7 +474,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                                     e.preventDefault();
                                     this.setPatternText(
                                             anchor.historyToken()
-                                                    .cast(SpreadsheetCellPatternSaveHistoryToken.class)
+                                                    .cast(HasSpreadsheetPattern.class)
                                                     .pattern()
                                                     .orElse(null)
                                                     .text()

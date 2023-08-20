@@ -30,6 +30,13 @@ public final class SpreadsheetPatternEditorComponentContexts implements PublicSt
     }
 
     /**
+     * {@see SpreadsheetPatternEditorComponentContextBasicMetadata}
+     */
+    public static SpreadsheetPatternEditorComponentContext metadata(final AppContext context) {
+        return SpreadsheetPatternEditorComponentContextBasicMetadata.with(context);
+    }
+
+    /**
      * Stop creation
      */
     private SpreadsheetPatternEditorComponentContexts() {
