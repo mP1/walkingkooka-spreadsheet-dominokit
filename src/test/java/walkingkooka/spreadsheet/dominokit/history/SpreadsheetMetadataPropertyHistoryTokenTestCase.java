@@ -19,10 +19,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKindTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
-public abstract class SpreadsheetMetadataPropertyHistoryTokenTestCase<T extends SpreadsheetMetadataPropertyHistoryToken<V>, V> extends SpreadsheetMetadataHistoryTokenTestCase<T> {
+public abstract class SpreadsheetMetadataPropertyHistoryTokenTestCase<T extends SpreadsheetMetadataPropertyHistoryToken<V>, V> extends SpreadsheetMetadataHistoryTokenTestCase<T>
+        implements HasSpreadsheetPatternKindTesting {
 
     final static SpreadsheetMetadataPropertyName<ExpressionNumberKind> EXPRESSION_NUMBER_KIND = SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND;
 
