@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -82,6 +83,11 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
                 this.propertyName(),
                 this.propertyValue()
         );
+    }
+
+    @Override //
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+        return this;
     }
 
     @Override

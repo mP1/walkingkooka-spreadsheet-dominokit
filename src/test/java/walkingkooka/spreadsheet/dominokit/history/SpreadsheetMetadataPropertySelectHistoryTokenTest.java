@@ -25,6 +25,11 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends SpreadsheetMetadataPropertyHistoryTokenTestCase<SpreadsheetMetadataPropertySelectHistoryToken<ExpressionNumberKind>, ExpressionNumberKind> {
 
     // HasSpreadsheetPatternKind........................................................................................
@@ -143,6 +148,93 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                 )
         );
     }
+
+    // setPatternKind...................................................................................................
+
+    @Test
+    public void testSetPatternKindNullFails() {
+        final SpreadsheetMetadataPropertySelectHistoryToken<?> token = this.createHistoryToken();
+        assertThrows(
+                NullPointerException.class,
+                () -> token.setPatternKind(null)
+        );
+    }
+
+    @Test
+    public void testSetPatternKindSame() {
+        final SpreadsheetMetadataPropertySelectHistoryToken<?> token = SpreadsheetMetadataPropertySelectHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+        );
+        assertSame(
+                token,
+                token.setPatternKind(
+                        Optional.of(
+                                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindDifferent() {
+        this.checkEquals(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+                ),
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                ).setPatternKind(
+                        Optional.of(
+                                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindDifferent2() {
+        this.checkEquals(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN
+                ),
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                ).setPatternKind(
+                        Optional.of(
+                                SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindEmpty() {
+        this.checkEquals(
+                HistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                ),
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                ).setPatternKind(
+                        Optional.empty()
+                )
+        );
+    }
+
+    // helper...........................................................................................................
 
     @Override
     SpreadsheetMetadataPropertySelectHistoryToken<ExpressionNumberKind> createHistoryToken(final SpreadsheetId id,

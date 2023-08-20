@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -62,6 +63,30 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
                 name,
                 this.propertyName()
         );
+    }
+
+    @Override
+    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+        return this.patternKind().equals(patternKind) ?
+                this :
+                this.replacePatternKind(patternKind);
+    }
+
+    private HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+
+        return patternKind.isPresent() ?
+                new SpreadsheetMetadataPropertySelectHistoryToken(
+                        id,
+                        name,
+                        patternKind.get()
+                                .spreadsheetMetadataPropertyName()
+                ) :
+                HistoryToken.metadataSelect(
+                        id,
+                        name
+                );
     }
 
     @Override
