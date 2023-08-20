@@ -85,12 +85,7 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
         return this.historyToken().labelName();
     }
 
-    @Override
-    public void delete() {
-        this.pushHistoryToken(
-                this.historyToken().setDelete()
-        );
-    }
+    // Crud...................................................................................................
 
     @Override
     public void save(final SpreadsheetLabelMapping mapping) {
@@ -105,15 +100,7 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
         );
     }
 
-    @Override
-    public void close() {
-        this.debug("close: " + this.historyToken()
-                .close());
-        this.pushHistoryToken(
-                this.historyToken()
-                        .close()
-        );
-    }
+    // LoggingContext...................................................................................................
 
     @Override
     public void debug(final Object... values) {
