@@ -71,18 +71,26 @@ public final class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsheet
     HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         return this.patternKind().equals(patternKind) ?
                 this :
-                this.replacePatternKind(
-                        patternKind.get()
-                );
+                this.replacePatternKind(patternKind);
     }
 
-    private HistoryToken replacePatternKind(final SpreadsheetPatternKind patternKind) {
-        return cellPattern(
-                this.id(),
-                this.name(),
-                this.viewportSelection(),
-                patternKind
-        );
+    private HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+
+        return patternKind.isPresent() ?
+                cellPattern(
+                        id,
+                        name,
+                        viewportSelection,
+                        patternKind.get()
+                ) :
+                cell(
+                        id,
+                        name,
+                        viewportSelection
+                );
     }
 
     @Override

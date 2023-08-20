@@ -73,6 +73,19 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
         );
     }
 
+    @Test
+    public void testSetPatternKindEmpty() {
+        this.setPatternKindAndCheck(
+                this.createHistoryToken(),
+                Optional.empty(),
+                SpreadsheetCellPatternToolbarHistoryToken.with(
+                        ID,
+                        NAME,
+                        VIEWPORT_SELECTION
+                )
+        );
+    }
+
     private void setPatternKindAndCheck(
             final SpreadsheetCellPatternToolbarHistoryToken historyToken,
             final Optional<SpreadsheetPatternKind> kind,
