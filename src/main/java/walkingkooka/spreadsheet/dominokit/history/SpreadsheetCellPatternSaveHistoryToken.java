@@ -23,13 +23,15 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCellPatternHistoryToken {
+public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCellPatternHistoryToken
+        implements HasSpreadsheetPattern {
 
     static SpreadsheetCellPatternSaveHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
@@ -77,6 +79,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         );
     }
 
+    @Override
     public Optional<SpreadsheetPattern> pattern() {
         return this.pattern;
     }
