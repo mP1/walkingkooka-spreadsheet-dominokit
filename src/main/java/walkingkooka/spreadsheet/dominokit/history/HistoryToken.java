@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import elemental2.dom.DomGlobal;
 import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
@@ -692,6 +693,13 @@ public abstract class HistoryToken implements HasUrlFragment {
                     patternSelect.id(),
                     patternSelect.name(),
                     patternSelect.viewportSelection()
+            );
+        }
+        if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
+            final SpreadsheetMetadataPropertyHistoryToken<?> metadata = (SpreadsheetMetadataPropertyHistoryToken<?>) this;
+            closed = metadataSelect(
+                    metadata.id(),
+                    metadata.name()
             );
         }
 

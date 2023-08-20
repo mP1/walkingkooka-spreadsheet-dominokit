@@ -150,6 +150,9 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         SpreadsheetPatternEditorComponent.with(
                 SpreadsheetPatternEditorComponentContexts.cell(this)
         );
+        SpreadsheetPatternEditorComponent.with(
+                SpreadsheetPatternEditorComponentContexts.metadata(this)
+        );
     }
 
     // header = metadata toggle | clickable(editable) spreadsheet name
