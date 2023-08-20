@@ -97,11 +97,24 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
+        final SpreadsheetId id = this.id();
+        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName();
+
+        // clear the save from the history token.
+        context.pushHistoryToken(
+                metadataPropertySelect(
+                        id,
+                        this.name(),
+                        propertyName
+                )
+        );
+
+        // now perform patch
         context.spreadsheetMetadataFetcher()
                 .patchMetadata(
-                        this.id(),
+                        id,
                         SpreadsheetMetadata.EMPTY.setOrRemove(
-                                this.propertyName(),
+                                propertyName,
                                 this.propertyValue().orElse(null)
                         )
                 );
