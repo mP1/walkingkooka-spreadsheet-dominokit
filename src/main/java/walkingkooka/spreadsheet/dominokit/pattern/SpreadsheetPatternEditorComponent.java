@@ -266,9 +266,12 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
             );
             final boolean match = kind.equals(possible);
             anchor.setDisabled(match);
-            tab.activate(match);
 
-            if (false == match) {
+            if (match) {
+                tab.activate(true); // true=silent
+            } else {
+                tab.deActivate(true); // true=silent
+
                 final HistoryToken historyToken = this.context.historyToken();
                 anchor.setHistoryToken(
                         historyToken.setPatternKind(
