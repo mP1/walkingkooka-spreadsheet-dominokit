@@ -46,6 +46,8 @@ import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorCom
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponentContexts;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
+import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
+import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatchers;
@@ -57,6 +59,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatchers;
 import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponent;
 import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.AppRightDrawerOpenableComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbarComponent;
@@ -155,6 +158,11 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         );
 
         this.layout = this.prepareLayout();
+
+        SpreadsheetMetadataPanelComponent.with(
+                AppRightDrawerOpenableComponent.with(this.layout),
+                SpreadsheetMetadataPanelComponentContexts.basic(this)
+        );
     }
 
     private final AppLayout layout;
