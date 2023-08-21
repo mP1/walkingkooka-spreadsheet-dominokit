@@ -25,17 +25,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
  * Dont forget to register this {@link HistoryTokenWatcher}.
  */
 public interface ComponentLifecycle extends HistoryTokenWatcher,
-        ComponentLifecycleMatcher {
-
-    /**
-     * Used to test if this component is open or visible.
-     */
-    boolean isOpen();
-
-    /**
-     * The widget should open or show.
-     */
-    void open(final AppContext context);
+        ComponentLifecycleMatcher,
+        OpenableComponent {
 
     /**
      * Conditionally calls {@link #refresh(AppContext)} if this component is {@link #isOpen()}.
@@ -50,11 +41,6 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
      * The widget should refresh its visible appearance and state.
      */
     void refresh(final AppContext context);
-
-    /**
-     * The widget should close or hide.
-     */
-    void close(final AppContext context);
 
     // HistoryTokenWatcher..............................................................................................
 
