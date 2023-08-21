@@ -153,29 +153,19 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         SpreadsheetPatternEditorComponent.with(
                 SpreadsheetPatternEditorComponentContexts.metadata(this)
         );
+
+        this.layout = this.prepareLayout();
     }
+
+    private final AppLayout layout;
 
     // header = metadata toggle | clickable(editable) spreadsheet name
     // right = editable metadata properties
     // content = toolbar
     //   formula,
     //   table holding spreadsheet cells
-    private final AppLayout layout = AppLayout.create();
-
-    @Override
-    public void onModuleLoad() {
-        this.prepareLayout();
-
-        this.setSpreadsheetName("Untitled 123");
-        this.showMetadataPanel(false);
-        this.fireInitialHistoryToken();
-        this.fireInitialWindowSize();
-    }
-
-    // layout...........................................................................................................
-
-    private void prepareLayout() {
-        final AppLayout layout = this.layout;
+    private AppLayout prepareLayout() {
+        final AppLayout layout = AppLayout.create();
 
         layout.setOverFlowX("hidden")
                 .setOverFlowY("hidden");
@@ -194,7 +184,19 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         DomGlobal.document.body.append(
                 layout.element()
         );
+
+        return layout;
     }
+
+    @Override
+    public void onModuleLoad() {
+        this.setSpreadsheetName("Untitled 123");
+        this.showMetadataPanel(false);
+        this.fireInitialHistoryToken();
+        this.fireInitialWindowSize();
+    }
+
+    // window...........................................................................................................
 
     private void registerWindowResizeListener() {
         DomGlobal.window.addEventListener(
