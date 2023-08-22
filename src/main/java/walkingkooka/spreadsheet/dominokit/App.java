@@ -199,7 +199,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     @Override
     public void onModuleLoad() {
         this.setSpreadsheetName("Untitled 123");
-        this.showMetadataPanel(false);
         this.fireInitialHistoryToken();
         this.fireInitialWindowSize();
     }
@@ -412,11 +411,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     public void setSpreadsheetName(final String name) {
         this.layout.getNavBar()
                 .setTitle(name);
-    }
-
-    private void showMetadataPanel(final boolean show) {
-        this.layout.getRightDrawer()
-                .toggleDisplay(show);
     }
 
     // json.............................................................................................................
