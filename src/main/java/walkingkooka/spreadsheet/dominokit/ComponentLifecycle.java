@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
  */
 public interface ComponentLifecycle extends HistoryTokenWatcher,
         ComponentLifecycleMatcher,
+        ComponentRefreshable,
         OpenableComponent {
 
     /**
@@ -36,11 +37,6 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
             this.refresh(context);
         }
     }
-
-    /**
-     * The widget should refresh its visible appearance and state.
-     */
-    void refresh(final AppContext context);
 
     // HistoryTokenWatcher..............................................................................................
 
