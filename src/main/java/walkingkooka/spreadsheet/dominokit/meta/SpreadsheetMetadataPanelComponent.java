@@ -90,6 +90,8 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.precision());
         items.add(this.roundingMode());
 
+        items.add(this.currencySymbol());
+
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
                 .appendChild(tBody);
@@ -198,6 +200,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.ROUNDING_MODE,
                 this.context::formatEnum
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> currencySymbol() {
+        return text(
+                SpreadsheetMetadataPropertyName.CURRENCY_SYMBOL,
+                Object::toString
         );
     }
 
