@@ -100,6 +100,9 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.positiveSign());
         items.add(this.valueSeparator());
 
+        items.add(this.numberFormatPattern());
+        items.add(this.numberParsePattern());
+
         items.add(this.dateTimeOffset());
         items.add(this.defaultYear());
         items.add(this.twoDigitYear());
@@ -277,6 +280,20 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.VALUE_SEPARATOR,
                 Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> numberFormatPattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.NUMBER_FORMAT_PATTERN,
+                SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> numberParsePattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN,
+                SpreadsheetPattern::text
         );
     }
 
