@@ -22,7 +22,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.util.Locale;
 import java.util.Objects;
 
 final class BasicSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext {
@@ -43,8 +45,17 @@ final class BasicSpreadsheetMetadataPanelComponentContext implements Spreadsheet
 
     }
 
+    // HasLocale........................................................................................................
+
+    @Override
+    public Locale locale() {
+        return this.context.spreadsheetMetadata()
+                .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
+    }
+
     // SpreadsheetMetadataWatcher.......................................................................................
 
+    @Override
     public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
         return this.context.addSpreadsheetMetadataWatcher(watcher);
     }

@@ -22,8 +22,10 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
+import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.layout.AppLayout;
+import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
@@ -158,11 +160,6 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         );
 
         this.layout = this.prepareLayout();
-
-        SpreadsheetMetadataPanelComponent.with(
-                AppRightDrawerOpenableComponent.with(this.layout),
-                SpreadsheetMetadataPanelComponentContexts.basic(this)
-        );
     }
 
     private final AppLayout layout;
@@ -187,6 +184,15 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
                 .getBody()
                 .appendChild(
                         SpreadsheetViewportToolbarComponent.with(this)
+                );
+
+        layout.setRightDrawerSize(RightDrawerSize.XLARGE)
+                .getRightDrawerContent()
+                .appendChild(
+                        Card.create().appendChild(SpreadsheetMetadataPanelComponent.with(
+                                AppRightDrawerOpenableComponent.with(layout),
+                                SpreadsheetMetadataPanelComponentContexts.basic(this)
+                        ))
                 );
 
         DomGlobal.document.body.append(
