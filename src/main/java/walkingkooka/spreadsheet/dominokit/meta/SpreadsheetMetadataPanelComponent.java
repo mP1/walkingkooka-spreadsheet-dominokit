@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
@@ -78,6 +79,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.createdDateTime());
         items.add(this.modifiedBy());
         items.add(this.modifiedDateTime());
+        items.add(this.locale());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -152,6 +154,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
                 this.context::formatDateTime
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> locale() {
+        return text(
+                SpreadsheetMetadataPropertyName.LOCALE,
+                Locale::toLanguageTag
         );
     }
 
