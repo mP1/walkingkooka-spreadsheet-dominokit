@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToke
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetTextFormatPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
@@ -80,6 +81,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.modifiedBy());
         items.add(this.modifiedDateTime());
         items.add(this.locale());
+        items.add(this.textFormatPattern());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -161,6 +163,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.LOCALE,
                 Locale::toLanguageTag
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> textFormatPattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN,
+                SpreadsheetTextFormatPattern::text
         );
     }
 
