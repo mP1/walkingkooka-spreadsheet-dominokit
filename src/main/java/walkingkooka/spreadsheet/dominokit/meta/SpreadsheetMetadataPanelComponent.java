@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetTextFormatPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 
 import java.util.List;
 import java.util.Locale;
@@ -86,6 +87,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.textFormatPattern());
 
         // Number
+        items.add(this.expressionNumberKind());
         items.add(this.precision());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
@@ -175,6 +177,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN,
                 SpreadsheetTextFormatPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> expressionNumberKind() {
+        return text(
+                SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND,
+                ExpressionNumberKind::name
         );
     }
 
