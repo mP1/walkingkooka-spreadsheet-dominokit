@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.text.CaseKind;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -44,5 +45,9 @@ public interface SpreadsheetMetadataPanelComponentContext extends CrudDialogComp
                         FormatStyle.SHORT
                 ).withLocale(this.locale())
                 .format(dateTime);
+    }
+
+    default String formatEnum(final Enum<?> enumValue) {
+        return CaseKind.kebabEnumName(enumValue);
     }
 }
