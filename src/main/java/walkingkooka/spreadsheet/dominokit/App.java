@@ -192,14 +192,18 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         layout.setRightDrawerSize(RightDrawerSize.XLARGE)
                 .getRightDrawerContent()
                 .appendChild(
-                        Card.create().appendChild(SpreadsheetMetadataPanelComponent.with(
-                                AppRightDrawerOpenableComponent.with(layout),
-                                SpreadsheetMetadataPanelComponentContexts.basic(this)
-                        ))
+                        Card.create()
+                                .appendChild(
+                                        SpreadsheetMetadataPanelComponent.with(
+                                                AppRightDrawerOpenableComponent.with(layout),
+                                                SpreadsheetMetadataPanelComponentContexts.basic(this)
+                                        ))
                 );
 
         final Icon<?> rightToggleIcon = Icons.menu_open();
-        rightToggleIcon.addClickListener(this::appLayoutRightToggleIconOnClick);
+        rightToggleIcon.addClickListener(
+                this::appLayoutRightToggleIconOnClick
+        );
         layout.setRightDrawerToggleIcon(rightToggleIcon);
 
         DomGlobal.document.body.append(
