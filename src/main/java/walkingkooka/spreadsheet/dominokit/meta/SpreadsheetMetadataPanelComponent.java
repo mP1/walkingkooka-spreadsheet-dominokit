@@ -91,6 +91,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.roundingMode());
 
         items.add(this.currencySymbol());
+        items.add(this.decimalSeparator());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -206,6 +207,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     private SpreadsheetMetadataItemComponent<?> currencySymbol() {
         return text(
                 SpreadsheetMetadataPropertyName.CURRENCY_SYMBOL,
+                Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> decimalSeparator() {
+        return text(
+                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
                 Object::toString
         );
     }
