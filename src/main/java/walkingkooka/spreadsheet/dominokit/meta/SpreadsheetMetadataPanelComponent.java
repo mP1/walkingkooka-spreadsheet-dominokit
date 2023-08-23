@@ -93,7 +93,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.currencySymbol());
         items.add(this.decimalSeparator());
         items.add(this.exponentSymbol());
-        items.add(this.groupingSeparator());
+        items.add(this.groupSeparator());
         items.add(this.negativeSign());
         items.add(this.percentageSymbol());
         items.add(this.positiveSign());
@@ -231,7 +231,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> groupingSeparator() {
+    private SpreadsheetMetadataItemComponent<?> groupSeparator() {
         return text(
                 SpreadsheetMetadataPropertyName.GROUP_SEPARATOR,
                 Object::toString
