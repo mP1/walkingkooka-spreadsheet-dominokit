@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToke
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetTextFormatPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -102,6 +103,15 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.dateTimeOffset());
         items.add(this.defaultYear());
         items.add(this.twoDigitYear());
+
+        items.add(this.dateFormatPattern());
+        items.add(this.dateParsePattern());
+
+        items.add(this.dateTimeFormatPattern());
+        items.add(this.dateTimeParsePattern());
+
+        items.add(this.timeFormatPattern());
+        items.add(this.timeParsePattern());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -288,6 +298,48 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR,
                 Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> dateFormatPattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
+                SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> dateParsePattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN,
+                SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> dateTimeFormatPattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.DATETIME_FORMAT_PATTERN,
+                SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> dateTimeParsePattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN,
+                SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> timeFormatPattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.TIME_FORMAT_PATTERN,
+                SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> timeParsePattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.TIME_PARSE_PATTERN,
+                SpreadsheetPattern::text
         );
     }
 
