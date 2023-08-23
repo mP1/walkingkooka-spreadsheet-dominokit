@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import elemental2.dom.DomGlobal;
 import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
@@ -815,6 +814,40 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return Optional.ofNullable(token);
+    }
+
+    /**
+     * Returns if a possible a {@link HistoryToken} which shows the metadata panel
+     */
+    public final HistoryToken metadataShow() {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = token.cast(SpreadsheetNameHistoryToken.class);
+            token = HistoryToken.metadataSelect(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name()
+            );
+        }
+
+        return token;
+    }
+
+    /**
+     * Returns if a possible a {@link HistoryToken} which hides the metadata panel
+     */
+    public final HistoryToken metadataHide() {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetMetadataHistoryToken) {
+            final SpreadsheetMetadataHistoryToken spreadsheetMetadataHistoryToken = token.cast(SpreadsheetMetadataHistoryToken.class);
+            token = HistoryToken.spreadsheetSelect(
+                    spreadsheetMetadataHistoryToken.id(),
+                    spreadsheetMetadataHistoryToken.name()
+            );
+        }
+
+        return token;
     }
 
     /**

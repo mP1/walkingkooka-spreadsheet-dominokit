@@ -22,8 +22,11 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
+import elemental2.dom.Event;
 import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.icons.Icon;
+import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
@@ -195,11 +198,29 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
                         ))
                 );
 
+        final Icon<?> rightToggleIcon = Icons.menu_open();
+        rightToggleIcon.addClickListener(this::appLayoutRightToggleIconOnClick);
+        layout.setRightDrawerToggleIcon(rightToggleIcon);
+
         DomGlobal.document.body.append(
                 layout.element()
         );
 
         return layout;
+    }
+
+    /**
+     * Handler that reacts to the right panel toggle icon being clicked, updating the history. The {@link SpreadsheetMetadataPanelComponent}
+     * will see the history token change and then open or hide itself.
+     */
+    private void appLayoutRightToggleIconOnClick(final Event event) {
+        HistoryToken token = this.historyToken();
+
+        this.pushHistoryToken(
+                this.layout.isRightDrawerOpen() ?
+                        token.metadataHide() :
+                        token.metadataShow()
+        );
     }
 
     @Override
