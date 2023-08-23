@@ -99,6 +99,8 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.positiveSign());
         items.add(this.valueSeparator());
 
+        items.add(this.dateTimeOffset());
+
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
                 .appendChild(tBody);
@@ -262,6 +264,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     private SpreadsheetMetadataItemComponent<?> valueSeparator() {
         return text(
                 SpreadsheetMetadataPropertyName.VALUE_SEPARATOR,
+                Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> dateTimeOffset() {
+        return text(
+                SpreadsheetMetadataPropertyName.DATETIME_OFFSET,
                 Object::toString
         );
     }
