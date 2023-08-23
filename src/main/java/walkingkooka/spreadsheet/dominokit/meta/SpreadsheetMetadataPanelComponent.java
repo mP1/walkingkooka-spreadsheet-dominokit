@@ -100,6 +100,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.valueSeparator());
 
         items.add(this.dateTimeOffset());
+        items.add(this.defaultYear());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -271,6 +272,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     private SpreadsheetMetadataItemComponent<?> dateTimeOffset() {
         return text(
                 SpreadsheetMetadataPropertyName.DATETIME_OFFSET,
+                Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> defaultYear() {
+        return text(
+                SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
                 Object::toString
         );
     }
