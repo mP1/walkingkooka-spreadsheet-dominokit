@@ -92,6 +92,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
 
         items.add(this.currencySymbol());
         items.add(this.decimalSeparator());
+        items.add(this.exponentSymbol());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -214,6 +215,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     private SpreadsheetMetadataItemComponent<?> decimalSeparator() {
         return text(
                 SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
+                Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> exponentSymbol() {
+        return text(
+                SpreadsheetMetadataPropertyName.EXPONENT_SYMBOL,
                 Object::toString
         );
     }
