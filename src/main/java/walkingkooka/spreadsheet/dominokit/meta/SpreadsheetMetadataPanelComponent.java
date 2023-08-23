@@ -81,7 +81,12 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.modifiedBy());
         items.add(this.modifiedDateTime());
         items.add(this.locale());
+
+        // Text
         items.add(this.textFormatPattern());
+
+        // Number
+        items.add(this.precision());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -170,6 +175,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN,
                 SpreadsheetTextFormatPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> precision() {
+        return text(
+                SpreadsheetMetadataPropertyName.PRECISION,
+                Object::toString
         );
     }
 
