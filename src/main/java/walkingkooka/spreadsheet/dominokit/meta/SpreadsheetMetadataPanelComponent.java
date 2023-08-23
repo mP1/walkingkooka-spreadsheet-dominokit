@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -89,6 +90,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         // Number
         items.add(this.expressionNumberKind());
         items.add(this.precision());
+        items.add(this.roundingMode());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -191,6 +193,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.PRECISION,
                 Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> roundingMode() {
+        return text(
+                SpreadsheetMetadataPropertyName.ROUNDING_MODE,
+                RoundingMode::name
         );
     }
 
