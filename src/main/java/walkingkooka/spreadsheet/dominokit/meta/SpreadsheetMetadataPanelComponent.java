@@ -95,6 +95,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.exponentSymbol());
         items.add(this.groupingSeparator());
         items.add(this.negativeSign());
+        items.add(this.percentageSymbol());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -238,6 +239,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     private SpreadsheetMetadataItemComponent<?> negativeSign() {
         return text(
                 SpreadsheetMetadataPropertyName.NEGATIVE_SIGN,
+                Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> percentageSymbol() {
+        return text(
+                SpreadsheetMetadataPropertyName.PERCENTAGE_SYMBOL,
                 Object::toString
         );
     }
