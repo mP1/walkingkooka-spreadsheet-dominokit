@@ -101,6 +101,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
 
         items.add(this.dateTimeOffset());
         items.add(this.defaultYear());
+        items.add(this.twoDigitYear());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -279,6 +280,13 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     private SpreadsheetMetadataItemComponent<?> defaultYear() {
         return text(
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
+                Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> twoDigitYear() {
+        return text(
+                SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR,
                 Object::toString
         );
     }
