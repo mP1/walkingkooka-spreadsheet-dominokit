@@ -25,12 +25,13 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public final class SpreadsheetLabelMappingSelectHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
     static SpreadsheetLabelMappingSelectHistoryToken with(final SpreadsheetId id,
                                                           final SpreadsheetName name,
-                                                          final SpreadsheetLabelName labelName) {
+                                                          final Optional<SpreadsheetLabelName> labelName) {
         return new SpreadsheetLabelMappingSelectHistoryToken(
                 id,
                 name,
@@ -40,7 +41,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
 
     private SpreadsheetLabelMappingSelectHistoryToken(final SpreadsheetId id,
                                                       final SpreadsheetName name,
-                                                      final SpreadsheetLabelName labelName) {
+                                                      final Optional<SpreadsheetLabelName> labelName) {
         super(
                 id,
                 name
@@ -49,24 +50,32 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
-    public SpreadsheetLabelName labelName() {
+    public Optional<SpreadsheetLabelName> labelName() {
         return this.labelName;
     }
 
-    private final SpreadsheetLabelName labelName;
+    private final Optional<SpreadsheetLabelName> labelName;
 
+    //
+    // Label123
     @Override
     UrlFragment labelUrlFragment() {
-        return SELECT;
+        return this.labelName.map(
+                l -> UrlFragment.with(
+                        "/" + l.value()
+                )
+        ).orElse(UrlFragment.EMPTY);
     }
 
     @Override
     HistoryToken setDelete0() {
-        return labelMappingDelete(
-                this.id(),
-                this.name(),
-                this.labelName()
-        );
+        final Optional<SpreadsheetLabelName> labelName = this.labelName;
+        return labelName.isPresent() ?
+                labelMappingDelete(
+                        this.id(),
+                        this.name(),
+                        labelName.get()
+                ) : this;
     }
 
     // new id/name same labelName
@@ -76,19 +85,24 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
         return with(
                 id,
                 name,
-                this.labelName()
+                this.labelName
         );
     }
 
     @Override
     HistoryToken setSave0(final String value) {
-        return labelMappingSave(
-                this.id(),
-                this.name(),
-                this.labelName().mapping(
-                        SpreadsheetSelection.parseExpressionReference(value)
-                )
-        );
+        final Optional<SpreadsheetLabelName> labelName = this.labelName;
+
+        return labelName.isPresent() ?
+                labelMappingSave(
+                        this.id(),
+                        this.name(),
+                        labelName.get()
+                                .mapping(
+                                        SpreadsheetSelection.parseExpressionReference(value)
+                                )
+                ) :
+                this;
     }
 
     @Override

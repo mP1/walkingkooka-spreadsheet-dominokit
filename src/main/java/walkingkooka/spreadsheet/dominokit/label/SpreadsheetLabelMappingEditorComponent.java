@@ -290,7 +290,8 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         final SpreadsheetLabelMappingEditorComponentContext context = this.context;
 
         final String labelName = context.label()
-                .value();
+                .map(SpreadsheetLabelName::value)
+                .orElse("");
         final String referenceText = this.loadedReferenceText;
         context.debug("SpreadsheetLabelMappingEditorComponent.onUndoButtonClick " + CharSequences.quoteAndEscape(labelName) + " " + CharSequences.quoteAndEscape(referenceText));
 
@@ -403,14 +404,18 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
 
         final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
                 .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
-        final SpreadsheetLabelName labelName = token.labelName();
-        final String text = labelName.text();
-        this.setLabelName(text);
-        try {
-            this.context.loadLabel(labelName);
-        } catch (final RuntimeException ignore) {
-            this.context.error("Unable to load label " + CharSequences.quoteAndEscape(text));
+        final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
+        if (maybeLabelName.isPresent()) {
+            final SpreadsheetLabelName labelName = maybeLabelName.get();
+            final String text = labelName.text();
+            this.setLabelName(text);
+            try {
+                this.context.loadLabel(labelName);
+            } catch (final RuntimeException ignore) {
+                this.context.error("Unable to load label " + CharSequences.quoteAndEscape(text));
+            }
         }
+
 
         context.giveFocus(
                 this.labelNameTextBox::focus
@@ -431,13 +436,15 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
      */
     @Override
     public void refresh(final AppContext context) {
-        final SpreadsheetLabelMappingEditorComponentContext componentContext = this.context;
-
         this.dialogNavBar.setTitle("Label");
 
         final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
                 .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
-        this.setLabelName(token.labelName().value());
+        this.setLabelName(
+                token.labelName()
+                        .map(SpreadsheetLabelName::value)
+                        .orElse("")
+        );
     }
 
     // SpreadsheetLabelMappingWatcher...................................................................................

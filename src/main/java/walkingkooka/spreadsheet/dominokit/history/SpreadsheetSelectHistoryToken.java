@@ -162,17 +162,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     private HistoryToken parseLabel(final TextCursor cursor) {
-        HistoryToken result = this;
-
         final Optional<String> label = parseComponent(cursor);
-        if (label.isPresent()) {
-            result = this.setLabelName(
-                    SpreadsheetSelection.labelName(
-                            label.get()
-                    )
-            );
-        }
-        return result;
+        return this.setLabelName(
+                label.map(SpreadsheetSelection::labelName)
+        );
     }
 
     private HistoryToken parseMetadata(final TextCursor cursor) {

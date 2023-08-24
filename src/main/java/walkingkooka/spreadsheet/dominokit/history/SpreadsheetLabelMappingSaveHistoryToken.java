@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
@@ -49,17 +50,31 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     }
 
     @Override
-    public SpreadsheetLabelName labelName() {
-        return this.mapping.label();
+    public Optional<SpreadsheetLabelName> labelName() {
+        return Optional.of(
+                this.mapping.label()
+        );
     }
 
     private final SpreadsheetLabelMapping mapping;
 
+    // /Label123/save/B2
     @Override
     UrlFragment labelUrlFragment() {
-        return SAVE.append(
-                UrlFragment.with(this.mapping.reference().toString())
-        );
+        final SpreadsheetLabelMapping mapping = this.mapping;
+
+        return UrlFragment.SLASH.append(
+                        UrlFragment.with(
+                                mapping.label()
+                                        .value()
+                        )
+                ).append(SAVE)
+                .append(
+                        UrlFragment.with(
+                                mapping.reference()
+                                        .toString()
+                        )
+                );
     }
 
     @Override
