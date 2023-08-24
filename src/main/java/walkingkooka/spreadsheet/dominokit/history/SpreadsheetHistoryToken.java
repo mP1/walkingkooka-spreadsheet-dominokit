@@ -33,8 +33,7 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment FREEZE = UrlFragment.SLASH.append(UrlFragment.with("freeze"));
 
-    final static UrlFragment LABEL = UrlFragment.SLASH.append(UrlFragment.with("label"))
-            .append(UrlFragment.SLASH);
+    final static UrlFragment LABEL = UrlFragment.SLASH.append(UrlFragment.with("label"));
 
     final static UrlFragment MENU = UrlFragment.SLASH.append(UrlFragment.with("menu"));
 

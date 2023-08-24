@@ -44,14 +44,15 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
      */
     @Override //
     final UrlFragment selectionUrlFragment() {
-        return LABEL.append(UrlFragment.with(this.labelName().value()))
-                .append(this.labelUrlFragment());
+        return LABEL.append(
+                this.labelUrlFragment()
+        );
     }
 
     /**
      * Getter that returns the {@link SpreadsheetLabelName}.
      */
-    abstract public SpreadsheetLabelName labelName();
+    abstract public Optional<SpreadsheetLabelName> labelName();
 
     abstract UrlFragment labelUrlFragment();
 
@@ -99,12 +100,16 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
      * Pushes a label select, typically called after a save or delete label.
      */
     final void pushLabelSelect(final AppContext context) {
-        context.pushHistoryToken(
-                HistoryToken.labelMapping(
-                        this.id(),
-                        this.name(),
-                        this.labelName()
-                )
-        );
+        final Optional<SpreadsheetLabelName> labelName = this.labelName();
+
+        if (labelName.isPresent()) {
+            context.pushHistoryToken(
+                    HistoryToken.labelMapping(
+                            this.id(),
+                            this.name(),
+                            labelName
+                    )
+            );
+        }
     }
 }

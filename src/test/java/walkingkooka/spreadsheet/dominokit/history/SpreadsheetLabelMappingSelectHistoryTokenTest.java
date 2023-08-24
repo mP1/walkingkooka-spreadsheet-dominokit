@@ -25,13 +25,39 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
+
 public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingSelectHistoryToken> {
 
     @Test
-    public void testUrlFragment() {
+    public void testWithEmptyLabel() {
+        final SpreadsheetLabelMappingSelectHistoryToken token = SpreadsheetLabelMappingSelectHistoryToken.with(
+                ID,
+                NAME,
+                Optional.empty()
+        );
+        this.checkEquals(ID, token.id(), "id");
+        this.checkEquals(NAME, token.name(), "name");
+        this.checkEquals(Optional.empty(), token.labelName(), "labelName");
+    }
+
+    @Test
+    public void testUrlFragmentWithLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
                 "/123/SpreadsheetName456/label/Label123"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithoutLabel() {
+        this.urlFragmentAndCheck(
+                SpreadsheetLabelMappingSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        Optional.empty()
+                ),
+                "/123/SpreadsheetName456/label"
         );
     }
 
@@ -52,13 +78,13 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     @Test
     public void testSetDelete() {
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
-        final SpreadsheetLabelName labelName = token.labelName();
+        final Optional<SpreadsheetLabelName> labelName = token.labelName();
 
         this.checkEquals(
                 HistoryToken.labelMappingDelete(
                         token.id(),
                         token.name(),
-                        labelName
+                        labelName.get()
                 ),
                 this.createHistoryToken()
                         .setDelete()
@@ -68,14 +94,15 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     @Test
     public void testSetSaveCell() {
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
-        final SpreadsheetLabelName labelName = token.labelName();
+        final Optional<SpreadsheetLabelName> labelName = token.labelName();
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
 
         this.checkEquals(
                 HistoryToken.labelMappingSave(
                         token.id(),
                         token.name(),
-                        labelName.mapping(cell)
+                        labelName.get()
+                                .mapping(cell)
                 ),
                 this.createHistoryToken()
                         .setSave(
@@ -87,14 +114,14 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     @Test
     public void testSetSaveCellRange() {
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
-        final SpreadsheetLabelName labelName = token.labelName();
+        final Optional<SpreadsheetLabelName> labelName = token.labelName();
         final SpreadsheetCellRange cells = SpreadsheetSelection.parseCellRange("C3:D4");
 
         this.checkEquals(
                 HistoryToken.labelMappingSave(
                         token.id(),
                         token.name(),
-                        labelName.mapping(cells)
+                        labelName.get().mapping(cells)
                 ),
                 this.createHistoryToken()
                         .setSave(
@@ -110,7 +137,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         return SpreadsheetLabelMappingSelectHistoryToken.with(
                 id,
                 name,
-                label
+                Optional.of(label)
         );
     }
 

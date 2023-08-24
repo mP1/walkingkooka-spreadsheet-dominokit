@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A basic implementation of {@link SpreadsheetLabelMappingEditorComponentContext}.
@@ -81,8 +82,9 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
     }
 
     @Override
-    public SpreadsheetLabelName label() {
-        return this.historyToken().labelName();
+    public Optional<SpreadsheetLabelName> label() {
+        return this.historyToken()
+                .labelName();
     }
 
     // Crud...................................................................................................
@@ -92,7 +94,9 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
         this.pushHistoryToken(
                 this.historyToken()
                         .setLabelName(
-                                mapping.label()
+                                Optional.of(
+                                        mapping.label()
+                                )
                         ).setSave(
                                 mapping.reference()
                                         .text()

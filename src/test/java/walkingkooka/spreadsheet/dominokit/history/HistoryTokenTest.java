@@ -72,7 +72,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private static final SpreadsheetLabelMappingSelectHistoryToken LABEL_MAPPING_HHT = HistoryToken.labelMapping(
             ID,
             NAME,
-            LABEL
+            Optional.of(LABEL)
     );
 
     private final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("AA");
@@ -359,7 +359,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setLabelName(LABEL),
+                historyToken.setLabelName(
+                        Optional.of(LABEL)
+                ),
                 historyToken
         );
     }
@@ -369,11 +371,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
 
         this.checkEquals(
-                historyToken.setLabelName(LABEL),
+                historyToken.setLabelName(
+                        Optional.of(LABEL)
+                ),
                 HistoryToken.labelMapping(
                         ID,
                         NAME,
-                        LABEL
+                        Optional.of(LABEL)
                 )
         );
     }
@@ -2719,7 +2723,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelMissingName() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/label",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+                HistoryToken.labelMapping(
+                        ID,
+                        NAME,
+                        Optional.empty()
+                )
         );
     }
 
@@ -2810,7 +2818,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.labelMapping(
                         ID,
                         NAME,
-                        LABEL
+                        Optional.of(LABEL)
                 )
         );
     }
@@ -2822,7 +2830,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.labelMapping(
                         ID,
                         NAME,
-                        LABEL
+                        Optional.of(LABEL)
                 )
         );
     }

@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public final class SpreadsheetLabelMappingDeleteHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
@@ -48,15 +49,21 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     }
 
     @Override
-    public SpreadsheetLabelName labelName() {
-        return this.labelName;
+    public Optional<SpreadsheetLabelName> labelName() {
+        return Optional.of(this.labelName);
     }
 
     private final SpreadsheetLabelName labelName;
 
+    // /Label123/delete
     @Override
     UrlFragment labelUrlFragment() {
-        return DELETE;
+        return UrlFragment.SLASH
+                .append(
+                        UrlFragment.with(
+                                this.labelName.value()
+                        )
+                ).append(DELETE);
     }
 
     @Override
@@ -71,7 +78,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
         return with(
                 id,
                 name,
-                this.labelName()
+                this.labelName
         );
     }
 
@@ -86,7 +93,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
         context.spreadsheetLabelMappingFetcher()
                 .deleteLabelMapping(
                         this.id(),
-                        this.labelName()
+                        this.labelName
                 );
         this.pushLabelSelect(context);
     }
