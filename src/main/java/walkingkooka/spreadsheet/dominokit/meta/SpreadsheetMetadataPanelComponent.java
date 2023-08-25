@@ -83,9 +83,6 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.modifiedDateTime());
         items.add(this.locale());
 
-        // Text
-        items.add(this.textFormatPattern());
-
         // Number
         items.add(this.expressionNumberKind());
         items.add(this.precision());
@@ -100,9 +97,6 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.positiveSign());
         items.add(this.valueSeparator());
 
-        items.add(this.numberFormatPattern());
-        items.add(this.numberParsePattern());
-
         items.add(this.dateTimeOffset());
         items.add(this.defaultYear());
         items.add(this.twoDigitYear());
@@ -112,6 +106,11 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
 
         items.add(this.dateTimeFormatPattern());
         items.add(this.dateTimeParsePattern());
+
+        items.add(this.numberFormatPattern());
+        items.add(this.numberParsePattern());
+
+        items.add(this.textFormatPattern());
 
         items.add(this.timeFormatPattern());
         items.add(this.timeParsePattern());
@@ -199,13 +198,6 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> textFormatPattern() {
-        return text(
-                SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN,
-                SpreadsheetTextFormatPattern::text
-        );
-    }
-
     private SpreadsheetMetadataItemComponent<?> expressionNumberKind() {
         return text(
                 SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND,
@@ -283,20 +275,6 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> numberFormatPattern() {
-        return text(
-                SpreadsheetMetadataPropertyName.NUMBER_FORMAT_PATTERN,
-                SpreadsheetPattern::text
-        );
-    }
-
-    private SpreadsheetMetadataItemComponent<?> numberParsePattern() {
-        return text(
-                SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN,
-                SpreadsheetPattern::text
-        );
-    }
-
     private SpreadsheetMetadataItemComponent<?> dateTimeOffset() {
         return text(
                 SpreadsheetMetadataPropertyName.DATETIME_OFFSET,
@@ -343,6 +321,27 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return text(
                 SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN,
                 SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> numberFormatPattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.NUMBER_FORMAT_PATTERN,
+                SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> numberParsePattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN,
+                SpreadsheetPattern::text
+        );
+    }
+
+    private SpreadsheetMetadataItemComponent<?> textFormatPattern() {
+        return text(
+                SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN,
+                SpreadsheetTextFormatPattern::text
         );
     }
 
