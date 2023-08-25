@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -71,12 +72,12 @@ final class SpreadsheetMetadataItemComponentText<T> extends SpreadsheetMetadataI
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
+        final String text = metadata.getIgnoringDefaults(propertyName)
+                .map(this.formatter)
+                .orElse("");
+        context.debug(this.getClass().getSimpleName() + ".refresh " + propertyName + "=" + CharSequences.quoteAndEscape(text));
 
-        this.element.setTextContent(
-                metadata.getIgnoringDefaults(propertyName)
-                        .map(this.formatter)
-                        .orElse("")
-        );
+        this.element.setTextContent(text);
     }
 
     /**
