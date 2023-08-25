@@ -36,8 +36,18 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToke
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.format.SpreadsheetText;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateTimeFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateTimeParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetTextFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetTimeFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetTimeParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
@@ -296,66 +306,79 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> dateFormatPattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetDateFormatPattern> dateFormatPattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
-                SpreadsheetPattern::text
+                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> dateParsePattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetDateParsePattern> dateParsePattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN,
-                SpreadsheetPattern::text
+                SpreadsheetPatternKind.DATE_PARSE_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> dateTimeFormatPattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetDateTimeFormatPattern> dateTimeFormatPattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.DATETIME_FORMAT_PATTERN,
-                SpreadsheetPattern::text
+                SpreadsheetPatternKind.DATE_TIME_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> dateTimeParsePattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetDateTimeParsePattern> dateTimeParsePattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN,
-                SpreadsheetPattern::text
+                SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> numberFormatPattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetNumberFormatPattern> numberFormatPattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.NUMBER_FORMAT_PATTERN,
-                SpreadsheetPattern::text
+                SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> numberParsePattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetNumberParsePattern> numberParsePattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN,
-                SpreadsheetPattern::text
+                SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> textFormatPattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetTextFormatPattern> textFormatPattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN,
-                SpreadsheetTextFormatPattern::text
+                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> timeFormatPattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetTimeFormatPattern> timeFormatPattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.TIME_FORMAT_PATTERN,
-                SpreadsheetPattern::text
+                SpreadsheetPatternKind.TIME_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> timeParsePattern() {
-        return text(
+    private SpreadsheetMetadataItemComponent<SpreadsheetTimeParsePattern> timeParsePattern() {
+        return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.TIME_PARSE_PATTERN,
-                SpreadsheetPattern::text
+                SpreadsheetPatternKind.TIME_PARSE_PATTERN
+        );
+    }
+
+    /**
+     * Factory that creates a single ROW without any default button.
+     * TODO add default button later.
+     */
+    private <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponent<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                                  final SpreadsheetPatternKind patternKind) {
+        return SpreadsheetMetadataItemComponent.spreadsheetPattern(
+                propertyName,
+                patternKind,
+                this.context
         );
     }
 
