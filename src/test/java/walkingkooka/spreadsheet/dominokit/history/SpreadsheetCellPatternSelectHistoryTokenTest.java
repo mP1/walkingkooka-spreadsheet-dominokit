@@ -51,7 +51,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
 
         this.setPatternKindAndCheck(
                 this.createHistoryToken(),
-                Optional.of(different),
+                different,
                 SpreadsheetCellPatternSelectHistoryToken.with(
                         ID,
                         NAME,
@@ -67,7 +67,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
 
         this.setPatternKindAndCheck(
                 this.createHistoryToken(),
-                Optional.of(different),
+                different,
                 SpreadsheetCellPatternSelectHistoryToken.with(
                         ID,
                         NAME,
@@ -81,23 +81,11 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
     public void testSetPatternKindEmpty() {
         this.setPatternKindAndCheck(
                 this.createHistoryToken(),
-                Optional.empty(),
                 HistoryToken.cell(
                         ID,
                         NAME,
                         VIEWPORT_SELECTION
                 )
-        );
-    }
-
-    private void setPatternKindAndCheck(
-            final SpreadsheetCellPatternSelectHistoryToken historyToken,
-            final Optional<SpreadsheetPatternKind> kind,
-            final HistoryToken expected) {
-        this.checkEquals(
-                expected,
-                historyToken.setPatternKind(kind),
-                () -> historyToken + " setPatternKind " + kind
         );
     }
 
