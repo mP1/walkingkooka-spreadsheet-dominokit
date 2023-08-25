@@ -21,6 +21,8 @@ import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.button.Button;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
@@ -32,6 +34,19 @@ import java.util.function.Function;
  * implements {@link ComponentRefreshable}, it is assumed it will only be refreshed when the parent panel is open and refreshed.
  */
 abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshable, IsElement<Element> {
+
+    /**
+     * {@see SpreadsheetMetadataItemComponentText}
+     */
+    static <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponentSpreadsheetPattern<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                                                   final SpreadsheetPatternKind patternKind,
+                                                                                                                   final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataItemComponentSpreadsheetPattern.with(
+                propertyName,
+                patternKind,
+                context
+        );
+    }
 
     /**
      * {@see SpreadsheetMetadataItemComponentText}
