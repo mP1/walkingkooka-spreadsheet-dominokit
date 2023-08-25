@@ -26,6 +26,9 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -86,6 +89,46 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                         name
                 ),
                 () -> token + " id=" + id + " name=" + name
+        );
+    }
+
+    // setPatternKind...................................................................................................
+
+    @Test
+    public final void testSetPatternKindNullFails() {
+        final T token = this.createHistoryToken();
+        assertThrows(
+                NullPointerException.class,
+                () -> token.setPatternKind(null)
+        );
+    }
+
+    final void setPatternKindAndCheck(final HistoryToken token,
+                                      final HistoryToken expected) {
+        this.setPatternKindAndCheck(
+                token,
+                Optional.empty(),
+                expected
+        );
+    }
+
+    final void setPatternKindAndCheck(final HistoryToken token,
+                                      final SpreadsheetPatternKind patternKind,
+                                      final HistoryToken expected) {
+        this.setPatternKindAndCheck(
+                token,
+                Optional.of(patternKind),
+                expected
+        );
+    }
+
+    final void setPatternKindAndCheck(final HistoryToken token,
+                                      final Optional<SpreadsheetPatternKind> patternKind,
+                                      final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setPatternKind(patternKind),
+                () -> token + " setPatternKind " + patternKind
         );
     }
 
