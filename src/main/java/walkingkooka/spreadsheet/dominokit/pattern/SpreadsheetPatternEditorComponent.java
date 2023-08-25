@@ -827,7 +827,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     @Override
     public void open(final AppContext context) {
         this.dialog.open();
-
+        this.refresh(context);
         this.context.giveFocus(
                 this.patternTextBox::focus
         );
