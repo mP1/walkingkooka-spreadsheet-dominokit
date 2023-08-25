@@ -1116,7 +1116,9 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final Anchor link(final String id) {
         return Anchor.empty()
                 .setId(id + "-link")
-                .setHistoryToken(this);
+                .setHistoryToken(
+                        Optional.of(this)
+                );
     }
 
     // Object...........................................................................................................

@@ -274,8 +274,10 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
                 final HistoryToken historyToken = this.context.historyToken();
                 anchor.setHistoryToken(
-                        historyToken.setPatternKind(
-                                Optional.of(possible)
+                        Optional.of(
+                                historyToken.setPatternKind(
+                                        Optional.of(possible)
+                                )
                         )
                 );
             }
@@ -477,10 +479,11 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                                     e.preventDefault();
                                     this.setPatternText(
                                             anchor.historyToken()
-                                                    .cast(HasSpreadsheetPattern.class)
-                                                    .pattern()
-                                                    .orElse(null)
-                                                    .text()
+                                                    .map(t -> t.cast(HasSpreadsheetPattern.class)
+                                                            .pattern()
+                                                            .map(p -> p.text())
+                                                            .orElse("")
+                                                    ).orElse("")
                                     );
                                 }
                         );
@@ -554,7 +557,9 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
             }
 
             context.debug("SpreadsheetPatternEditorComponent.appendLinksHrefRefresh: " + link.pattern + "=" + save);
-            link.anchor.setHistoryToken(save);
+            link.anchor.setHistoryToken(
+                    Optional.ofNullable(save)
+            );
         }
     }
 
