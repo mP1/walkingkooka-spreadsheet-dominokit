@@ -252,7 +252,8 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
      */
     private void patternKindTabsRefresh() {
-        final SpreadsheetPatternKind kind = this.context.patternKind();
+        final SpreadsheetPatternEditorComponentContext context = this.context;
+        final SpreadsheetPatternKind kind = context.patternKind();
 
         int i = 0;
         final Tab[] tabs = this.patternKindTabs;
@@ -272,14 +273,15 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
             } else {
                 tab.deActivate(true); // true=silent
 
-                final HistoryToken historyToken = this.context.historyToken();
-                anchor.setHistoryToken(
-                        Optional.of(
-                                historyToken.setPatternKind(
-                                        Optional.of(possible)
-                                )
-                        )
+                final HistoryToken historyToken = context.historyToken();
+                final HistoryToken historyTokenWithPatternKind = historyToken.setPatternKind(
+                        Optional.of(possible)
                 );
+                anchor.setHistoryToken(
+                        Optional.of(historyTokenWithPatternKind)
+                );
+
+                context.debug(this.getClass().getSimpleName() + ".patternKindTabsRefresh " + historyTokenWithPatternKind);
             }
         }
     }
