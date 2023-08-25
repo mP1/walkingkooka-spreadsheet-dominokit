@@ -20,6 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 public final class SpreadsheetMetadataSelectHistoryTokenTest extends SpreadsheetMetadataHistoryTokenTestCase<SpreadsheetMetadataSelectHistoryToken> {
 
@@ -49,6 +55,76 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
                 )
         );
     }
+
+    // setPatternKind...................................................................................................
+
+    @Test
+    public void testSetPatternKindSame() {
+        final SpreadsheetMetadataPropertySelectHistoryToken<?> token = SpreadsheetMetadataPropertySelectHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+        );
+        assertSame(
+                token,
+                token.setPatternKind(
+                        Optional.of(
+                                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindDifferent() {
+        this.setPatternKindAndCheck(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                ),
+                SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindDifferent2() {
+        this.setPatternKindAndCheck(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                ),
+                SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN,
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindEmpty() {
+        this.setPatternKindAndCheck(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                ),
+                HistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    // helpers..........................................................................................................
 
     @Override
     SpreadsheetMetadataSelectHistoryToken createHistoryToken(final SpreadsheetId id,
