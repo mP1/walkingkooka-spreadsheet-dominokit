@@ -124,17 +124,22 @@ public interface AppContext extends CanGiveFocus,
                                             final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
-        final HistoryToken value = historyToken.orElse(null);
-
         final Anchor anchor = Anchor.empty()
-                .setHistoryToken(value)
+                .setHistoryToken(historyToken)
                 .setTextContent(text);
 
         final AbstractMenuItem<Void> menu = new AbstractMenuItem<>() {
 
         };
         menu.appendChild(anchor);
-        menu.addSelectionHandler((ignored) -> this.pushHistoryToken(value));
+
+        if (historyToken.isPresent()) {
+            menu.addSelectionHandler(
+                    (ignored) -> this.pushHistoryToken(
+                            historyToken.get()
+                    )
+            );
+        }
         return menu;
     }
 }

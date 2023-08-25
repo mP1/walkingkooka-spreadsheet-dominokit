@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Abstraction for working with a HTML anchor.
@@ -96,22 +97,26 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
 
     // historyToken....................................................................................................
 
-    public HistoryToken historyToken() {
+    public Optional<HistoryToken> historyToken() {
         final AbsoluteOrRelativeUrl url = this.href();
 
-        return null == url ?
-                null :
-                HistoryToken.parse(
-                        url.fragment()
-                );
+        return Optional.ofNullable(
+                null == url ?
+                        null :
+                        HistoryToken.parse(
+                                url.fragment()
+                        )
+        );
     }
 
-    public Anchor setHistoryToken(final HistoryToken historyToken) {
+    public Anchor setHistoryToken(final Optional<HistoryToken> historyToken) {
+        final HistoryToken historyTokenOrNull = historyToken.orElse(null);
+
         return this.setHref(
-                null == historyToken ?
+                null == historyTokenOrNull ?
                         null :
                         Url.parseRelative(
-                                "" + Url.FRAGMENT_START + historyToken.urlFragment()
+                                "" + Url.FRAGMENT_START + historyTokenOrNull.urlFragment()
                         )
         );
     }
@@ -123,7 +128,11 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
         return this.addClickAndKeydownEnterListener(
                 (e) -> {
                     e.preventDefault();
-                    context.pushHistoryToken(this.historyToken());
+
+                    this.historyToken()
+                            .ifPresent(
+                                    context::pushHistoryToken
+                            );
                 }
         );
     }
