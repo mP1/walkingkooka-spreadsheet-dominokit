@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetLoadHistoryToken> {
 
@@ -35,6 +36,13 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
                 differentId,
                 NAME,
                 HistoryToken.spreadsheetSelect(differentId, NAME)
+        );
+    }
+
+    @Test
+    public void testSetMetadataPropertyName() {
+        this.setMetadataPropertyNameAndCheck(
+                SpreadsheetMetadataPropertyName.LOCALE
         );
     }
 

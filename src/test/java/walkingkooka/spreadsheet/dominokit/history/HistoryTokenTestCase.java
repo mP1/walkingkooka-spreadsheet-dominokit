@@ -27,9 +27,11 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class HistoryTokenTestCase<T extends HistoryToken> implements ClassTesting<T>, HashCodeEqualsDefinedTesting2<T>, ToStringTesting<T> {
@@ -89,6 +91,51 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                         name
                 ),
                 () -> token + " id=" + id + " name=" + name
+        );
+    }
+
+    // setMetadataPropertyName..........................................................................................
+
+    @Test
+    public final void testSetMetadataPropertyNameWithNullFails() {
+        final T token = this.createHistoryToken();
+        assertThrows(
+                NullPointerException.class,
+                () -> token.setMetadataPropertyName(null)
+        );
+    }
+
+    final void setMetadataPropertyNameAndCheck(final SpreadsheetMetadataPropertyName<?> propertyName) {
+        this.setMetadataPropertyNameAndCheck(
+                this.createHistoryToken(),
+                propertyName
+        );
+    }
+
+    final void setMetadataPropertyNameAndCheck(final HistoryToken token,
+                                               final SpreadsheetMetadataPropertyName<?> propertyName) {
+        assertSame(
+                token,
+                token.setMetadataPropertyName(propertyName)
+        );
+    }
+
+    final void setMetadataPropertyNameAndCheck(final SpreadsheetMetadataPropertyName<?> propertyName,
+                                               final HistoryToken expected) {
+        this.setMetadataPropertyNameAndCheck(
+                this.createHistoryToken(),
+                propertyName,
+                expected
+        );
+    }
+
+    final void setMetadataPropertyNameAndCheck(final HistoryToken token,
+                                               final SpreadsheetMetadataPropertyName<?> propertyName,
+                                               final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setMetadataPropertyName(propertyName),
+                () -> token + " setMetadataPropertyName " + propertyName
         );
     }
 

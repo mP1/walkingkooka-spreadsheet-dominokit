@@ -927,6 +927,27 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Setter that tries to set a {@link SpreadsheetMetadataPropertyName} to the current {@link HistoryToken}.
+     */
+    public final HistoryToken setMetadataPropertyName(final SpreadsheetMetadataPropertyName<?> propertyName) {
+        Objects.requireNonNull(propertyName, "propertyName");
+
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+
+            token = HistoryToken.metadataPropertySelect(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name(),
+                    propertyName
+            );
+        }
+
+        return token;
+    }
+
+    /**
      * if possible creates a {@link HistoryToken} with the {@link SpreadsheetPatternKind}.
      */
     public final HistoryToken setPatternKind(final Optional<SpreadsheetPatternKind> kind) {
