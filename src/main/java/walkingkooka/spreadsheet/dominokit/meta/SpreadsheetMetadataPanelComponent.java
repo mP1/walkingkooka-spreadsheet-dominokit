@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.Element;
 import elemental2.dom.HTMLTableElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.button.Button;
@@ -472,5 +473,11 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     @Override
     public String toString() {
         return this.drawer.toString();
+    }
+
+    // id...............................................................................................................
+
+    static String id(final SpreadsheetMetadataPropertyName<?> propertyName) {
+        return "metadata-" + propertyName.value();
     }
 }
