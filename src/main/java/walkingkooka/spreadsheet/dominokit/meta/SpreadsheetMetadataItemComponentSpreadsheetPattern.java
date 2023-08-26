@@ -57,7 +57,8 @@ final class SpreadsheetMetadataItemComponentSpreadsheetPattern<T extends Spreads
                 context
         );
         this.patternKind = patternKind;
-        this.anchor = Anchor.empty();
+        this.anchor = Anchor.empty()
+                .setId(SpreadsheetMetadataPanelComponent.id(propertyName) + "-link");
     }
 
     @Override
