@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import elemental2.dom.Element;
 import elemental2.dom.HTMLTableElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.button.Button;
@@ -138,11 +137,10 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
                                     label(item.propertyName)
                             )
             );
+
             row.appendChild(
                     ElementsFactory.elements.td()
-                            .appendChild(
-                                    item.element()
-                            )
+                            .appendChild(item)
             );
 
             final Optional<Button> defaultButton = item.defaultButton();
