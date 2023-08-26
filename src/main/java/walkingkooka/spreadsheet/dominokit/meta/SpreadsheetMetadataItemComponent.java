@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
@@ -34,6 +35,19 @@ import java.util.function.Function;
  * implements {@link ComponentRefreshable}, it is assumed it will only be refreshed when the parent panel is open and refreshed.
  */
 abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshable, IsElement<Element> {
+
+    /**
+     * {@see SpreadsheetMetadataItemComponentEnum}
+     */
+    static <T extends Enum<T>> SpreadsheetMetadataItemComponentEnum<T> enumValue(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                 final List<T> values,
+                                                                                 final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataItemComponentEnum.with(
+                propertyName,
+                values,
+                context
+        );
+    }
 
     /**
      * {@see SpreadsheetMetadataItemComponentText}
