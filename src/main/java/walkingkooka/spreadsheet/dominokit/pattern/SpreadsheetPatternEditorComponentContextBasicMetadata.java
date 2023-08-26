@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -51,10 +50,7 @@ final class SpreadsheetPatternEditorComponentContextBasicMetadata extends Spread
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-                token.cast(HasSpreadsheetPatternKind.class)
-                        .patternKind()
-                        .isPresent();
+        return SpreadsheetPatternEditorComponentContexts.isMetadata(token);
     }
 
     // SpreadsheetPatternEditorComponentContext.........................................................................
