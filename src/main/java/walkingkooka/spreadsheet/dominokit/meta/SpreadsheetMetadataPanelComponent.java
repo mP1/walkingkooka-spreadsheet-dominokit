@@ -51,7 +51,9 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetTimeParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -208,9 +210,9 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataItemComponent<?> expressionNumberKind() {
-        return text(
+        return this.enumValue(
                 SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND,
-                this.context::formatEnum
+                Lists.of(ExpressionNumberKind.values())
         );
     }
 
@@ -222,9 +224,9 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataItemComponent<?> roundingMode() {
-        return text(
+        return this.enumValue(
                 SpreadsheetMetadataPropertyName.ROUNDING_MODE,
-                this.context::formatEnum
+                Lists.of(RoundingMode.values())
         );
     }
 
@@ -365,6 +367,18 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.TIME_PARSE_PATTERN,
                 SpreadsheetPatternKind.TIME_PARSE_PATTERN
+        );
+    }
+
+    /**
+     * Factory that displays a slider with thumbs for each Enum value.
+     */
+    private <T extends Enum<T>> SpreadsheetMetadataItemComponentEnum<T> enumValue(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                  final List<T> values) {
+        return SpreadsheetMetadataItemComponent.enumValue(
+                propertyName,
+                values,
+                this.context
         );
     }
 
