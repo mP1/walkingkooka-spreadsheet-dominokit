@@ -21,6 +21,7 @@ import walkingkooka.locale.HasLocale;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.text.CaseKind;
 
 import java.time.LocalDateTime;
@@ -29,6 +30,7 @@ import java.time.format.FormatStyle;
 
 public interface SpreadsheetMetadataPanelComponentContext extends CloseableHistoryTokenContext,
         HasLocale,
+        HasSpreadsheetMetadata,
         LoggingContext {
 
     Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
