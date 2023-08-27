@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -42,6 +43,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 public interface AppContext extends CanGiveFocus,
+        HasSpreadsheetMetadata,
         HistoryTokenContext,
         LoggingContext,
         Context {
@@ -73,6 +75,7 @@ public interface AppContext extends CanGiveFocus,
     /**
      * Returns the current or last loaded {@link SpreadsheetMetadata}.
      */
+    @Override
     SpreadsheetMetadata spreadsheetMetadata();
 
     // json............................................................................................................
