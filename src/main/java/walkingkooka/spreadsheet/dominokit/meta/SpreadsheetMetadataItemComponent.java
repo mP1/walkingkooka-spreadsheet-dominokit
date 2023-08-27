@@ -50,6 +50,21 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     }
 
     /**
+     * {@see SpreadsheetMetadataItemComponentNumber}
+     */
+    static SpreadsheetMetadataItemComponentNumber number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
+                                                         final int min,
+                                                         final int max,
+                                                         final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataItemComponentNumber.with(
+                propertyName,
+                min,
+                max,
+                context
+        );
+    }
+
+    /**
      * {@see SpreadsheetMetadataItemComponentText}
      */
     static <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponentSpreadsheetPattern<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,

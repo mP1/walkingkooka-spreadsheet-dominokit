@@ -294,16 +294,18 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataItemComponent<?> defaultYear() {
-        return text(
+        return number(
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
-                Object::toString
+                1800,
+                2100
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> twoDigitYear() {
-        return text(
+        return number(
                 SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR,
-                Object::toString
+                0,
+                99
         );
     }
 
@@ -378,6 +380,20 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return SpreadsheetMetadataItemComponent.enumValue(
                 propertyName,
                 values,
+                this.context
+        );
+    }
+
+    /**
+     * Factory that creates a number text field to edit a integer {@link SpreadsheetMetadataPropertyName} value.
+     */
+    private SpreadsheetMetadataItemComponent<?> number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
+                                                       final int min,
+                                                       final int max) {
+        return SpreadsheetMetadataItemComponent.number(
+                propertyName,
+                min,
+                max,
                 this.context
         );
     }
