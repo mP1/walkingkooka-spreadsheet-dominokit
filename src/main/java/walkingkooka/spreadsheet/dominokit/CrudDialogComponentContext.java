@@ -18,13 +18,12 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 
 /**
  * A {@link Context} that contains a basic operations required by an editing dialog component with basic default implementations.
  */
-public interface CrudDialogComponentContext<T> extends HistoryTokenContext,
-        CloseableContext {
+public interface CrudDialogComponentContext<T> extends CloseableHistoryTokenContext {
 
     /**
      * Deletes the current value.
@@ -40,15 +39,4 @@ public interface CrudDialogComponentContext<T> extends HistoryTokenContext,
      * Saves the given value.
      */
     void save(final T value);
-
-    /**
-     * Closes or finishes this dialog.
-     */
-    @Override
-    default void close() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .close()
-        );
-    }
 }
