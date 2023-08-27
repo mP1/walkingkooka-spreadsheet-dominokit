@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.spreadsheet.dominokit.history.CrudDialogComponentHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
@@ -30,7 +30,7 @@ import java.util.Optional;
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingEditorComponent}.
  */
 public interface SpreadsheetLabelMappingEditorComponentContext extends
-        CrudDialogComponentHistoryTokenContext<SpreadsheetLabelMapping>,
+        CrudHistoryTokenContext<SpreadsheetLabelMapping>,
         HistoryTokenContext,
         LoggingContext {
 
