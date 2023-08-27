@@ -15,15 +15,12 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
-
-import walkingkooka.Context;
-import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
+package walkingkooka.spreadsheet.dominokit.history;
 
 /**
- * A {@link Context} that contains a basic operations required by an editing dialog component with basic default implementations.
+ * A {@link CloseableHistoryTokenContext} that contains a basic operations required by an editing dialog component with basic default implementations.
  */
-public interface CrudDialogComponentContext<T> extends CloseableHistoryTokenContext {
+public interface CrudDialogComponentHistoryTokenContext<T> extends CloseableHistoryTokenContext {
 
     /**
      * Deletes the current value.
