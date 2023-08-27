@@ -23,7 +23,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 /**
  * A {@link Context} that contains a basic operations required by an editing dialog component with basic default implementations.
  */
-public interface CrudDialogComponentContext<T> extends HistoryTokenContext {
+public interface CrudDialogComponentContext<T> extends HistoryTokenContext,
+        CloseableContext {
 
     /**
      * Deletes the current value.
@@ -43,6 +44,7 @@ public interface CrudDialogComponentContext<T> extends HistoryTokenContext {
     /**
      * Closes or finishes this dialog.
      */
+    @Override
     default void close() {
         this.pushHistoryToken(
                 this.historyToken()
