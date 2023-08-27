@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.history.CrudDialogComponentHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternEditorComponent} provided various inputs.
  */
 public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
-        CrudDialogComponentHistoryTokenContext<SpreadsheetPattern>,
+        CrudHistoryTokenContext<SpreadsheetPattern>,
         HistoryTokenContext,
         ComponentLifecycleMatcher,
         LoggingContext {

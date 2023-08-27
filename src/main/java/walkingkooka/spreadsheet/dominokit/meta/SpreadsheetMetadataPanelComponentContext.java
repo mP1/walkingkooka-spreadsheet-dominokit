@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import walkingkooka.locale.HasLocale;
-import walkingkooka.spreadsheet.dominokit.history.CrudDialogComponentHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
@@ -29,7 +29,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
-public interface SpreadsheetMetadataPanelComponentContext extends CrudDialogComponentHistoryTokenContext<SpreadsheetMetadata>,
+public interface SpreadsheetMetadataPanelComponentContext extends CrudHistoryTokenContext<SpreadsheetMetadata>,
         HasLocale,
         HistoryTokenContext,
         LoggingContext {

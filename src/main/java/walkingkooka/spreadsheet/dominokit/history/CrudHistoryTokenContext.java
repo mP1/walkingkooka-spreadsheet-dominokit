@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 /**
  * A {@link CloseableHistoryTokenContext} that contains a basic operations required by an editing dialog component with basic default implementations.
  */
-public interface CrudDialogComponentHistoryTokenContext<T> extends CloseableHistoryTokenContext {
+public interface CrudHistoryTokenContext<T> extends CloseableHistoryTokenContext {
 
     /**
      * Deletes the current value.
