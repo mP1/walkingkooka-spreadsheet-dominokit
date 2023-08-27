@@ -21,7 +21,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Locale;
@@ -38,11 +37,6 @@ final class BasicSpreadsheetMetadataPanelComponentContext implements Spreadsheet
     private BasicSpreadsheetMetadataPanelComponentContext(final AppContext context) {
         super();
         this.context = context;
-    }
-
-    @Override
-    public void save(final SpreadsheetMetadata value) {
-
     }
 
     // HasLocale........................................................................................................

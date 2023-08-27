@@ -18,20 +18,17 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import walkingkooka.locale.HasLocale;
-import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseKind;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
-public interface SpreadsheetMetadataPanelComponentContext extends CrudHistoryTokenContext<SpreadsheetMetadata>,
+public interface SpreadsheetMetadataPanelComponentContext extends CloseableHistoryTokenContext,
         HasLocale,
-        HistoryTokenContext,
         LoggingContext {
 
     Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
