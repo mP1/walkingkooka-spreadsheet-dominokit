@@ -17,14 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.spreadsheet.dominokit.CloseableContext;
+
 /**
  * A {@link HistoryTokenContext} with close support.
  */
-public interface CloseableHistoryTokenContext extends HistoryTokenContext {
+public interface CloseableHistoryTokenContext extends HistoryTokenContext,
+        CloseableContext {
 
     /**
      * Closes or finishes this conversation/dialog.
      */
+    @Override
     default void close() {
         this.pushHistoryToken(
                 this.historyToken()
