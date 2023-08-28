@@ -106,7 +106,6 @@ final class SpreadsheetMetadataItemComponentNumber extends SpreadsheetMetadataIt
     }
 
     private void save() {
-        final SpreadsheetMetadataPanelComponentContext context = this.context;
         final IntegerBox integerBox = this.integerBox;
         final String saveText;
 
@@ -115,12 +114,14 @@ final class SpreadsheetMetadataItemComponentNumber extends SpreadsheetMetadataIt
         } else {
             saveText = String.valueOf(integerBox.getValue());
         }
-        context.debug(this.getClass().getSimpleName() + ".save " + CharSequences.quoteAndEscape(saveText));
 
-        context.pushHistoryToken(
-                context.historyToken()
-                        .setMetadataPropertyName(this.propertyName)
-                        .setSave(saveText)
+        final SpreadsheetMetadataPropertyName<?> propertyName = this.propertyName;
+        final SpreadsheetMetadataPanelComponentContext context = this.context;
+        context.debug(this.getClass().getSimpleName() + ".save " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
+
+        context.save(
+                propertyName,
+                saveText
         );
     }
 

@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.text.CharSequences;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -43,5 +45,20 @@ public interface SpreadsheetMetadataPanelComponentContext extends CloseableHisto
                         FormatStyle.SHORT
                 ).withLocale(this.locale())
                 .format(dateTime);
+    }
+
+    default void save(final SpreadsheetMetadataPropertyName<?> propertyName,
+                      final String saveText) {
+        this.debug(
+                this.getClass().getSimpleName() +
+                        ".save " +
+                        CharSequences.quoteAndEscape(saveText)
+        );
+
+        this.pushHistoryToken(
+                this.historyToken()
+                        .setMetadataPropertyName(propertyName)
+                        .setSave(saveText)
+        );
     }
 }
