@@ -17,16 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import elemental2.dom.Event;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.KeyboardEvent;
-import jsinterop.base.Js;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CharSequences;
 
 /**
  * A {@link SpreadsheetMetadataItemComponent} that displays {@link String text}
@@ -51,61 +45,7 @@ final class SpreadsheetMetadataItemComponentText extends SpreadsheetMetadataItem
                 context
         );
 
-        final TextBox textBox = new TextBox()
-                .addEventListener(
-                        EventType.change,
-                        this::onChange
-                ).addEventListener(
-                        EventType.keydown,
-                        (event) -> onKeyDownEvent(
-                                Js.cast(event)
-                        )
-                );
-
-        // clear the margin-bottom: 16px
-        textBox.element()
-                .style
-                .setProperty("margin-bottom", "0");
-        this.textBox = textBox;
-    }
-
-    private void onChange(final Event event) {
-        this.save();
-    }
-
-    private void onKeyDownEvent(final KeyboardEvent event) {
-        final SpreadsheetMetadataPanelComponentContext context = this.context;
-
-        switch (Key.fromEvent(event)) {
-            case Enter:
-                context.debug(this.getClass().getSimpleName() + ".onKeyDownEvent ENTER");
-
-                this.save();
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
-    }
-
-    private void save() {
-        final TextBox textBox = this.textBox;
-        final String saveText;
-
-        if (textBox.isEmpty()) {
-            saveText = "";
-        } else {
-            saveText = String.valueOf(textBox.getValue());
-        }
-
-        final SpreadsheetMetadataPropertyName<?> propertyName = this.propertyName;
-        final SpreadsheetMetadataPanelComponentContext context = this.context;
-        context.debug(this.getClass().getSimpleName() + ".save " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
-
-        context.save(
-                propertyName,
-                saveText
-        );
+        this.textBox = this.textBox();
     }
 
     // ComponentRefreshable.............................................................................................
