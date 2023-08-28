@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
+import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
@@ -184,6 +185,48 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
             saveText = "";
         } else {
             saveText = String.valueOf(integerBox.getValue());
+        }
+
+        this.save(saveText);
+    }
+
+    final TextBox textBox() {
+        final TextBox textBox = new TextBox();
+
+        textBox.addEventListener(
+                EventType.change,
+                (final Event event) -> this.saveText(textBox)
+        ).addEventListener(
+                EventType.keydown,
+                (final Event event) -> {
+                    event.preventDefault();
+
+                    final KeyboardEvent keyboardEvent = Js.cast(event);
+                    switch (Key.fromEvent(keyboardEvent)) {
+                        case Enter:
+                            this.saveText(textBox);
+                            break;
+                        default:
+                            // ignore other keys
+                            break;
+                    }
+                }
+        );
+
+        // clear the margin-bottom: 16px
+        textBox.element()
+                .style
+                .setProperty("margin-bottom", "0");
+        return textBox;
+    }
+
+    private void saveText(final TextBox textBox) {
+        final String saveText;
+
+        if (textBox.isEmpty()) {
+            saveText = "";
+        } else {
+            saveText = String.valueOf(textBox.getValue());
         }
 
         this.save(saveText);
