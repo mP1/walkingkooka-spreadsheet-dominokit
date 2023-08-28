@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -27,7 +26,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -58,11 +56,6 @@ final class SpreadsheetMetadataItemComponentReadOnlyText<T> extends SpreadsheetM
                 context
         );
         this.formatter = formatter;
-    }
-
-    @Override
-    Optional<Button> defaultButton() {
-        return Optional.empty();
     }
 
     // ComponentRefreshable.............................................................................................

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLAnchorElement;
-import org.dominokit.domino.ui.button.Button;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -59,11 +58,6 @@ final class SpreadsheetMetadataItemComponentSpreadsheetPattern<T extends Spreads
         this.patternKind = patternKind;
         this.anchor = Anchor.empty()
                 .setId(SpreadsheetMetadataPanelComponent.id(propertyName) + "-link");
-    }
-
-    @Override
-    Optional<Button> defaultButton() {
-        return Optional.empty();
     }
 
     // ComponentRefreshable.............................................................................................

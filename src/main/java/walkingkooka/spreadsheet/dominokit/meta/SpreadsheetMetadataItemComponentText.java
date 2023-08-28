@@ -21,15 +21,12 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
-
-import java.util.Optional;
 
 /**
  * A {@link SpreadsheetMetadataItemComponent} that displays {@link String text}
@@ -109,11 +106,6 @@ final class SpreadsheetMetadataItemComponentText extends SpreadsheetMetadataItem
                 propertyName,
                 saveText
         );
-    }
-
-    @Override
-    Optional<Button> defaultButton() {
-        return Optional.empty(); // default button later.
     }
 
     // ComponentRefreshable.............................................................................................
