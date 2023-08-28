@@ -231,9 +231,8 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataItemComponent<?> currencySymbol() {
-        return readOnlyText(
-                SpreadsheetMetadataPropertyName.CURRENCY_SYMBOL,
-                Object::toString
+        return text(
+                SpreadsheetMetadataPropertyName.CURRENCY_SYMBOL
         );
     }
 
@@ -419,6 +418,16 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return SpreadsheetMetadataItemComponent.spreadsheetPattern(
                 propertyName,
                 patternKind,
+                this.context
+        );
+    }
+
+    /**
+     * Factory that creates a single ROW with a single {@link org.dominokit.domino.ui.forms.TextBox}.
+     */
+    private <T> SpreadsheetMetadataItemComponent<?> text(final SpreadsheetMetadataPropertyName<String> propertyName) {
+        return SpreadsheetMetadataItemComponent.text(
+                propertyName,
                 this.context
         );
     }
