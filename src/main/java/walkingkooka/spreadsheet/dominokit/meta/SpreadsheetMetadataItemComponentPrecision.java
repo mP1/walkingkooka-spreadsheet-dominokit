@@ -53,7 +53,7 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
                 context
         );
 
-        this.list = ElementsFactory.elements.ul();
+        final UListElement list = ElementsFactory.elements.ul();
 
         final IntegerBox integerBox = this.integerBox(
                         this::save
@@ -62,26 +62,27 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
                 .setStep(1);
         this.integerBox = integerBox;
 
-        this.list.appendChild(integerBox);
+        list.appendChild(integerBox);
 
         // build links for 0 | 32 | 64 | 128
         final HistoryToken token = context.historyToken()
-                .setMetadataPropertyName(propertyName);
+                .setMetadataPropertyName(SpreadsheetMetadataPropertyName.PRECISION);
         final Map<Integer, Anchor> valueToAnchors = Maps.sorted();
 
         for (final int value : Lists.of(0, 32, 64, 128)) {
             final Anchor anchor = token
                     .setSave(String.valueOf(value))
-                    .link(SpreadsheetMetadataPanelComponent.id(propertyName) + "-" + value + "-link")
+                    .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value + "-link")
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
                     .setTextContent(0 == value ? "Unlimited" : String.valueOf(value));
 
             valueToAnchors.put(value, anchor);
 
-            this.list.appendChild(anchor);
+            list.appendChild(anchor);
         }
 
+        this.list = list;
         this.valueToAnchors = valueToAnchors;
     }
 
