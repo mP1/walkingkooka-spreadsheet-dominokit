@@ -133,16 +133,10 @@ final class SpreadsheetMetadataItemComponentNumber extends SpreadsheetMetadataIt
 
     @Override
     public void refresh(final AppContext context) {
-        this.value = null;
         context.spreadsheetMetadata()
                 .get(this.propertyName)
-                .ifPresent(v -> {
-                    this.value = v;
-                    this.integerBox.setValue(v);
-                });
+                .ifPresent(this.integerBox::setValue);
     }
-
-    private Integer value;
 
     // isElement........................................................................................................
 
