@@ -17,14 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import elemental2.dom.Event;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.KeyboardEvent;
-import jsinterop.base.Js;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
 
@@ -57,49 +52,11 @@ final class SpreadsheetMetadataItemComponentNumber extends SpreadsheetMetadataIt
                 context
         );
 
-        // https://github.com/DominoKit/domino-ui/issues/825
-        final IntegerBox integerBox = new IntegerBox() {
-            @Override
-            public String getType() {
-                return "number";
-            }
-        }.setMinValue(min)
+        this.integerBox = this.integerBox(
+                        this::save
+                ).setMinValue(min)
                 .setMaxValue(max)
-                .setStep(1)
-                .addEventListener(
-                        EventType.change,
-                        this::onChange
-                ).addEventListener(
-                        EventType.keydown,
-                        (event) -> onKeyDownEvent(
-                                Js.cast(event)
-                        )
-                );
-
-        // clear the margin-bottom: 16px
-        integerBox.element()
-                .style
-                .setProperty("margin-bottom", "0");
-        this.integerBox = integerBox;
-    }
-
-    private void onChange(final Event event) {
-        this.save();
-    }
-
-    private void onKeyDownEvent(final KeyboardEvent event) {
-        final SpreadsheetMetadataPanelComponentContext context = this.context;
-
-        switch (Key.fromEvent(event)) {
-            case Enter:
-                context.debug(this.getClass().getSimpleName() + ".onKeyDownEvent ENTER");
-
-                this.save();
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
+                .setStep(1);
     }
 
     private void save() {

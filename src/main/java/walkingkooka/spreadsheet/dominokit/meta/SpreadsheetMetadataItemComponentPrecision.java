@@ -17,19 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import elemental2.dom.Event;
 import elemental2.dom.HTMLUListElement;
-import elemental2.dom.KeyboardEvent;
-import jsinterop.base.Js;
 import org.dominokit.domino.ui.elements.UListElement;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
@@ -60,29 +55,11 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
 
         this.list = ElementsFactory.elements.ul();
 
-        // https://github.com/DominoKit/domino-ui/issues/825
-        final IntegerBox integerBox = new IntegerBox() {
-            @Override
-            public String getType() {
-                return "number";
-            }
-        }.setMinValue(0)
+        final IntegerBox integerBox = this.integerBox(
+                        this::save
+                ).setMinValue(0)
                 .setMaxValue(128)
-                .setStep(1)
-                .addEventListener(
-                        EventType.change,
-                        this::onChange
-                ).addEventListener(
-                        EventType.keydown,
-                        (event) -> onKeyDownEvent(
-                                Js.cast(event)
-                        )
-                );
-
-        // clear the margin-bottom: 16px
-        integerBox.element()
-                .style
-                .setProperty("margin-bottom", "0");
+                .setStep(1);
         this.integerBox = integerBox;
 
         this.list.appendChild(integerBox);
@@ -106,25 +83,6 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
         }
 
         this.valueToAnchors = valueToAnchors;
-    }
-
-    private void onChange(final Event event) {
-        this.save();
-    }
-
-    private void onKeyDownEvent(final KeyboardEvent event) {
-        final SpreadsheetMetadataPanelComponentContext context = this.context;
-
-        switch (Key.fromEvent(event)) {
-            case Enter:
-                context.debug(this.getClass().getSimpleName() + ".onKeyDownEvent ENTER");
-
-                this.save();
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
     }
 
     private void save() {

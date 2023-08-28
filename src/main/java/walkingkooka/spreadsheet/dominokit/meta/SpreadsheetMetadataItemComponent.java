@@ -18,8 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.Element;
+import elemental2.dom.Event;
+import elemental2.dom.KeyboardEvent;
+import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
+import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -125,6 +131,45 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
                                      final SpreadsheetMetadataPanelComponentContext context) {
         this.propertyName = propertyName;
         this.context = context;
+    }
+
+    // DOM factory methods..............................................................................................
+
+    /**
+     * Factory that creates an {@link IntegerBox} and fires save when the value changes or ENTER is typed.
+     */
+    final IntegerBox integerBox(final Runnable save) {
+        final IntegerBox integerBox = new IntegerBox() {
+            @Override
+            public String getType() {
+                return "number";
+            }
+        }.addEventListener(
+                EventType.change.getName(),
+                (final Event event) -> save.run()
+        ).addEventListener(
+                EventType.keydown.getName(),
+                (final Event event) -> {
+                    event.preventDefault();
+
+                    final KeyboardEvent keyboardEvent = Js.cast(event);
+                    switch (Key.fromEvent(keyboardEvent)) {
+                        case Enter:
+                            save.run();
+                            break;
+                        default:
+                            // ignore other keys
+                            break;
+                    }
+                }
+        );
+
+        // clear the margin-bottom: 16px
+        integerBox.element()
+                .style
+                .setProperty("margin-bottom", "0");
+
+        return integerBox;
     }
 
     // properties......................................................................................................
