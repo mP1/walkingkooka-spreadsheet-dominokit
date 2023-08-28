@@ -63,6 +63,15 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     }
 
     /**
+     * {@see SpreadsheetMetadataItemComponentPrecision}
+     */
+    static SpreadsheetMetadataItemComponentPrecision precision(final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataItemComponentPrecision.with(
+                context
+        );
+    }
+
+    /**
      * {@see SpreadsheetMetadataItemComponentReadOnlyText}
      */
     static <T> SpreadsheetMetadataItemComponent<T> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,

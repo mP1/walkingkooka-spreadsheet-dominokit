@@ -205,9 +205,8 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataItemComponent<?> precision() {
-        return readOnlyText(
-                SpreadsheetMetadataPropertyName.PRECISION,
-                Object::toString
+        return SpreadsheetMetadataItemComponent.precision(
+                this.context
         );
     }
 
