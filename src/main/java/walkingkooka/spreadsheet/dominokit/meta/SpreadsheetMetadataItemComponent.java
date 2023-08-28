@@ -186,9 +186,13 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
             saveText = String.valueOf(integerBox.getValue());
         }
 
+        this.save(saveText);
+    }
+
+    private void save(final String saveText) {
         final SpreadsheetMetadataPropertyName<?> propertyName = this.propertyName;
         final SpreadsheetMetadataPanelComponentContext context = this.context;
-        context.debug(this.getClass().getSimpleName() + ".saveIntegerValue " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
+        context.debug(this.getClass().getSimpleName() + ".save " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
 
         context.save(
                 propertyName,
