@@ -90,6 +90,17 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
         );
     }
 
+    /**
+     * {@see SpreadsheetMetadataItemComponentText}
+     */
+    static SpreadsheetMetadataItemComponentText text(final SpreadsheetMetadataPropertyName<String> propertyName,
+                                                     final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataItemComponentText.with(
+                propertyName,
+                context
+        );
+    }
+
     // factory helpers..................................................................................................
 
     static void checkPropertyName(final SpreadsheetMetadataPropertyName<?> propertyName) {
