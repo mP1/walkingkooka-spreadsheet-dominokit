@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.text.CharSequences;
 
 import java.util.List;
 import java.util.Objects;
@@ -138,15 +139,17 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     /**
      * Factory that creates an {@link IntegerBox} and fires save when the value changes or ENTER is typed.
      */
-    final IntegerBox integerBox(final Runnable save) {
+    final IntegerBox integerBox() {
         final IntegerBox integerBox = new IntegerBox() {
             @Override
             public String getType() {
                 return "number";
             }
-        }.addEventListener(
+        };
+
+        integerBox.addEventListener(
                 EventType.change.getName(),
-                (final Event event) -> save.run()
+                (final Event event) -> this.saveIntegerValue(integerBox)
         ).addEventListener(
                 EventType.keydown.getName(),
                 (final Event event) -> {
@@ -155,7 +158,7 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
                     final KeyboardEvent keyboardEvent = Js.cast(event);
                     switch (Key.fromEvent(keyboardEvent)) {
                         case Enter:
-                            save.run();
+                            this.saveIntegerValue(integerBox);
                             break;
                         default:
                             // ignore other keys
@@ -170,6 +173,25 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
                 .setProperty("margin-bottom", "0");
 
         return integerBox;
+    }
+
+    private void saveIntegerValue(final IntegerBox integerBox) {
+        final String saveText;
+
+        if (integerBox.isEmpty()) {
+            saveText = "";
+        } else {
+            saveText = String.valueOf(integerBox.getValue());
+        }
+
+        final SpreadsheetMetadataPropertyName<?> propertyName = this.propertyName;
+        final SpreadsheetMetadataPanelComponentContext context = this.context;
+        context.debug(this.getClass().getSimpleName() + ".saveIntegerValue " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
+
+        context.save(
+                propertyName,
+                saveText
+        );
     }
 
     // properties......................................................................................................

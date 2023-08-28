@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CharSequences;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -55,9 +54,8 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
 
         final UListElement list = ElementsFactory.elements.ul();
 
-        final IntegerBox integerBox = this.integerBox(
-                        this::save
-                ).setMinValue(0)
+        final IntegerBox integerBox = this.integerBox()
+                .setMinValue(0)
                 .setMaxValue(128)
                 .setStep(1);
         this.integerBox = integerBox;
@@ -84,26 +82,6 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
 
         this.list = list;
         this.valueToAnchors = valueToAnchors;
-    }
-
-    private void save() {
-        final IntegerBox integerBox = this.integerBox;
-        final String saveText;
-
-        if (integerBox.isEmpty()) {
-            saveText = "";
-        } else {
-            saveText = String.valueOf(integerBox.getValue());
-        }
-
-        final SpreadsheetMetadataPropertyName<?> propertyName = this.propertyName;
-        final SpreadsheetMetadataPanelComponentContext context = this.context;
-        context.debug(this.getClass().getSimpleName() + ".save " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
-
-        context.save(
-                propertyName,
-                saveText
-        );
     }
 
     private final IntegerBox integerBox;
