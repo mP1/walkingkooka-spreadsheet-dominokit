@@ -34,25 +34,25 @@ import java.util.function.Function;
  * A {@link SpreadsheetMetadataItemComponent} that only displays the current property value, formatting it to text
  * using the provided {@link Function} formatter.
  */
-final class SpreadsheetMetadataItemComponentText<T> extends SpreadsheetMetadataItemComponent<T> {
+final class SpreadsheetMetadataItemComponentReadOnlyText<T> extends SpreadsheetMetadataItemComponent<T> {
 
-    static <T> SpreadsheetMetadataItemComponentText<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                            final Function<T, String> formatter,
-                                                            final SpreadsheetMetadataPanelComponentContext context) {
+    static <T> SpreadsheetMetadataItemComponentReadOnlyText<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                    final Function<T, String> formatter,
+                                                                    final SpreadsheetMetadataPanelComponentContext context) {
         checkPropertyName(propertyName);
         Objects.requireNonNull(formatter, "formatter");
         checkContext(context);
 
-        return new SpreadsheetMetadataItemComponentText<>(
+        return new SpreadsheetMetadataItemComponentReadOnlyText<>(
                 propertyName,
                 formatter,
                 context
         );
     }
 
-    private SpreadsheetMetadataItemComponentText(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                 final Function<T, String> formatter,
-                                                 final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataItemComponentReadOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                         final Function<T, String> formatter,
+                                                         final SpreadsheetMetadataPanelComponentContext context) {
         super(
                 propertyName,
                 context

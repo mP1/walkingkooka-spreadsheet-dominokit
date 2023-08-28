@@ -161,49 +161,49 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     // factory methods to create the individual SpreadsheetMetadataItemComponent for a given property.
 
     private SpreadsheetMetadataItemComponent<?> spreadsheetId() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetId::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> spreadsheetName() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
                 SpreadsheetName::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> creator() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.CREATOR,
                 EmailAddress::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> createdDateTime() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
                 this.context::formatDateTime
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> modifiedBy() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.MODIFIED_BY,
                 EmailAddress::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> modifiedDateTime() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
                 this.context::formatDateTime
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> locale() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.LOCALE,
                 Locale::toLanguageTag
         );
@@ -217,7 +217,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataItemComponent<?> precision() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.PRECISION,
                 Object::toString
         );
@@ -231,63 +231,63 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataItemComponent<?> currencySymbol() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.CURRENCY_SYMBOL,
                 Object::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> decimalSeparator() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
                 Object::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> exponentSymbol() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.EXPONENT_SYMBOL,
                 Object::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> groupSeparator() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.GROUP_SEPARATOR,
                 Object::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> negativeSign() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.NEGATIVE_SIGN,
                 Object::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> percentageSymbol() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.PERCENTAGE_SYMBOL,
                 Object::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> positiveSign() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.POSITIVE_SIGN,
                 Object::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> valueSeparator() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.VALUE_SEPARATOR,
                 Object::toString
         );
     }
 
     private SpreadsheetMetadataItemComponent<?> dateTimeOffset() {
-        return text(
+        return readOnlyText(
                 SpreadsheetMetadataPropertyName.DATETIME_OFFSET,
                 Object::toString
         );
@@ -400,6 +400,18 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
 
     /**
      * Factory that creates a single ROW without any default button.
+     */
+    private <T> SpreadsheetMetadataItemComponent<?> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                 final Function<T, String> formatter) {
+        return SpreadsheetMetadataItemComponent.readOnlyText(
+                propertyName,
+                formatter,
+                this.context
+        );
+    }
+
+    /**
+     * Factory that creates a single ROW without any default button.
      * TODO add default button later.
      */
     private <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponent<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
@@ -407,18 +419,6 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return SpreadsheetMetadataItemComponent.spreadsheetPattern(
                 propertyName,
                 patternKind,
-                this.context
-        );
-    }
-
-    /**
-     * Factory that creates a single ROW without any default button.
-     */
-    private <T> SpreadsheetMetadataItemComponent<?> text(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                         final Function<T, String> formatter) {
-        return SpreadsheetMetadataItemComponent.text(
-                propertyName,
-                formatter,
                 this.context
         );
     }

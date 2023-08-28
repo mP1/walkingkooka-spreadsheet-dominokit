@@ -65,7 +65,20 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     }
 
     /**
-     * {@see SpreadsheetMetadataItemComponentText}
+     * {@see SpreadsheetMetadataItemComponentReadOnlyText}
+     */
+    static <T> SpreadsheetMetadataItemComponent<T> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                final Function<T, String> formatter,
+                                                                final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataItemComponentReadOnlyText.with(
+                propertyName,
+                formatter,
+                context
+        );
+    }
+
+    /**
+     * {@see SpreadsheetMetadataItemComponentReadOnlyText}
      */
     static <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponentSpreadsheetPattern<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                                                                    final SpreadsheetPatternKind patternKind,
@@ -73,19 +86,6 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
         return SpreadsheetMetadataItemComponentSpreadsheetPattern.with(
                 propertyName,
                 patternKind,
-                context
-        );
-    }
-
-    /**
-     * {@see SpreadsheetMetadataItemComponentText}
-     */
-    static <T> SpreadsheetMetadataItemComponent<T> text(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                        final Function<T, String> formatter,
-                                                        final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataItemComponentText.with(
-                propertyName,
-                formatter,
                 context
         );
     }
