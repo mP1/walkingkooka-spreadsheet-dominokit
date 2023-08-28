@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.IntegerBox;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -52,7 +51,7 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
                 context
         );
 
-        final UListElement list = ElementsFactory.elements.ul();
+        final UListElement list = this.uListElement();
 
         final IntegerBox integerBox = this.integerBox()
                 .setMinValue(0)

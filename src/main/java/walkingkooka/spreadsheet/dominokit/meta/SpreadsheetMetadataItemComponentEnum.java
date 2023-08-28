@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
@@ -61,7 +60,7 @@ final class SpreadsheetMetadataItemComponentEnum<T extends Enum<T>> extends Spre
                 context
         );
 
-        this.list = ElementsFactory.elements.ul();
+        this.list = this.uListElement();
 
         final HistoryToken token = context.historyToken()
                 .setMetadataPropertyName(propertyName);

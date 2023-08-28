@@ -22,8 +22,10 @@ import elemental2.dom.Event;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
+import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -192,6 +194,12 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
                 propertyName,
                 saveText
         );
+    }
+
+    final UListElement uListElement() {
+        final UListElement element = ElementsFactory.elements.ul();
+        element.style().setPaddingLeft("0");
+        return element;
     }
 
     // properties......................................................................................................
