@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.button.Button;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -27,7 +26,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -119,11 +117,6 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
         this.propertyName = propertyName;
         this.context = context;
     }
-
-    /**
-     * Returns the {@link Button} belonging to a default button if there is one.
-     */
-    abstract Optional<Button> defaultButton();
 
     // properties......................................................................................................
 

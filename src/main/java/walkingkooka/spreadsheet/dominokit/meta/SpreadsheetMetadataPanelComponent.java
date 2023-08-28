@@ -19,10 +19,8 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLTableElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.TBodyElement;
 import org.dominokit.domino.ui.elements.TableElement;
-import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.email.EmailAddress;
@@ -57,7 +55,6 @@ import java.math.RoundingMode;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -132,27 +129,18 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
                 .appendChild(tBody);
 
         for (final SpreadsheetMetadataItemComponent<?> item : items) {
-            final TableRowElement row = ElementsFactory.elements.tr();
-            row.appendChild(
-                    ElementsFactory.elements.td()
-                            .setTextContent(
-                                    label(item.propertyName)
+            tBody.appendChild(
+                    ElementsFactory.elements.tr()
+                            .appendChild(
+                                    ElementsFactory.elements.td()
+                                            .setTextContent(
+                                                    label(item.propertyName)
+                                            )
+                            ).appendChild(
+                                    ElementsFactory.elements.td()
+                                            .appendChild(item)
                             )
             );
-
-            row.appendChild(
-                    ElementsFactory.elements.td()
-                            .appendChild(item)
-            );
-
-            final Optional<Button> defaultButton = item.defaultButton();
-            if (defaultButton.isPresent()) {
-                row.appendChild(
-                        ElementsFactory.elements.td()
-                                .appendChild(defaultButton.get())
-                );
-            }
-            tBody.appendChild(row);
         }
 
         this.items = items;
@@ -398,7 +386,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     /**
-     * Factory that creates a single ROW without any default button.
+     * Factory that creates a single ROW.
      */
     private <T> SpreadsheetMetadataItemComponent<?> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                  final Function<T, String> formatter) {
@@ -410,8 +398,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     /**
-     * Factory that creates a single ROW without any default button.
-     * TODO add default button later.
+     * Factory that creates a link that opens the pattern editor dialog
      */
     private <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponent<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                                                   final SpreadsheetPatternKind patternKind) {

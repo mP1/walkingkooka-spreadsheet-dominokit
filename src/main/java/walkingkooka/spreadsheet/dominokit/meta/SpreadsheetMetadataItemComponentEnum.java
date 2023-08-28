@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.map.Maps;
@@ -83,11 +82,6 @@ final class SpreadsheetMetadataItemComponentEnum<T extends Enum<T>> extends Spre
         }
 
         this.valueToAnchors = valueToAnchors;
-    }
-
-    @Override
-    Optional<Button> defaultButton() {
-        return Optional.empty(); // default button later.
     }
 
     // ComponentRefreshable.............................................................................................
