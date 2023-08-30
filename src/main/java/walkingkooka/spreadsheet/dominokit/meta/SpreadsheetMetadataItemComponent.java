@@ -181,6 +181,15 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
                             break;
                     }
                 }
+        ).apply(
+                self ->
+                        self.appendChild(
+                                PostfixAddOn.of(
+                                        Icons.close_circle()
+                                                .clickable()
+                                                .addClickListener((e) -> self.clear())
+                                )
+                        )
         );
 
         // clear the margin-bottom: 16px
