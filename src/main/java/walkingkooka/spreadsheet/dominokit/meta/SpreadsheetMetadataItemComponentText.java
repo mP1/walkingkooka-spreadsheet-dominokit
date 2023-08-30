@@ -54,7 +54,7 @@ final class SpreadsheetMetadataItemComponentText extends SpreadsheetMetadataItem
     public void refresh(final AppContext context) {
         this.textBox.setValue(
                 context.spreadsheetMetadata()
-                        .get(this.propertyName)
+                        .getIgnoringDefaults(this.propertyName)
                         .orElse(null)
         );
     }
