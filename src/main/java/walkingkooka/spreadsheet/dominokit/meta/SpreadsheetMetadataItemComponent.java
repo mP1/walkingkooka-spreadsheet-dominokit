@@ -26,7 +26,9 @@ import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import org.dominokit.domino.ui.forms.TextBox;
+import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -222,6 +224,15 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
                             break;
                     }
                 }
+        ).apply(
+                self ->
+                        self.appendChild(
+                                PostfixAddOn.of(
+                                        Icons.close_circle()
+                                                .clickable()
+                                                .addClickListener((e) -> self.clear())
+                                )
+                        )
         );
 
         // clear the margin-bottom: 16px
