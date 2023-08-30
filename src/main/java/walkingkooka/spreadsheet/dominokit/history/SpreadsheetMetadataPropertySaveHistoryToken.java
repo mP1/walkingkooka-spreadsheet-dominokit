@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -119,8 +118,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
         context.spreadsheetMetadataFetcher()
                 .patchMetadata(
                         id,
-                        SpreadsheetMetadata.EMPTY.setOrRemove(
-                                propertyName,
+                        propertyName.patch(
                                 this.propertyValue().orElse(null)
                         )
                 );
