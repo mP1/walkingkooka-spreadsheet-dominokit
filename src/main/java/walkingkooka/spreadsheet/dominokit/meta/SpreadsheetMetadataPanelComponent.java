@@ -273,9 +273,8 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataItemComponent<?> dateTimeOffset() {
-        return readOnlyText(
-                SpreadsheetMetadataPropertyName.DATETIME_OFFSET,
-                Object::toString
+        return SpreadsheetMetadataItemComponent.dateTimeOffset(
+                this.context
         );
     }
 

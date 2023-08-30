@@ -58,6 +58,17 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     }
 
     /**
+     * {@see SpreadsheetMetadataItemComponentDateTimeOffset}
+     */
+    static SpreadsheetMetadataItemComponentDateTimeOffset dateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
+        checkContext(context);
+
+        return SpreadsheetMetadataItemComponentDateTimeOffset.with(
+                context
+        );
+    }
+
+    /**
      * {@see SpreadsheetMetadataItemComponentNumber}
      */
     static SpreadsheetMetadataItemComponentNumber number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
@@ -232,7 +243,7 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
         this.save(saveText);
     }
 
-    private void save(final String saveText) {
+    final void save(final String saveText) {
         final SpreadsheetMetadataPropertyName<?> propertyName = this.propertyName;
         final SpreadsheetMetadataPanelComponentContext context = this.context;
         context.debug(this.getClass().getSimpleName() + ".save " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
