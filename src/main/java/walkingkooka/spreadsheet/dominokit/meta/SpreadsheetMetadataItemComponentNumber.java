@@ -64,7 +64,7 @@ final class SpreadsheetMetadataItemComponentNumber extends SpreadsheetMetadataIt
     public void refresh(final AppContext context) {
         this.integerBox.setValue(
                 context.spreadsheetMetadata()
-                        .get(this.propertyName)
+                        .getIgnoringDefaults(this.propertyName)
                         .orElse(null)
         );
     }
