@@ -52,6 +52,7 @@ final class SpreadsheetMetadataItemComponentNumber extends SpreadsheetMetadataIt
         );
 
         this.integerBox = this.integerBox()
+                .setPattern("#")
                 .setMinValue(min)
                 .setMaxValue(max)
                 .setStep(1);
