@@ -169,11 +169,10 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
         ).addEventListener(
                 EventType.keydown.getName(),
                 (final Event event) -> {
-                    event.preventDefault();
-
                     final KeyboardEvent keyboardEvent = Js.cast(event);
                     switch (Key.fromEvent(keyboardEvent)) {
                         case Enter:
+                            event.preventDefault();
                             this.saveIntegerValue(integerBox);
                             break;
                         default:
@@ -221,11 +220,10 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
         ).addEventListener(
                 EventType.keydown,
                 (final Event event) -> {
-                    event.preventDefault();
-
                     final KeyboardEvent keyboardEvent = Js.cast(event);
                     switch (Key.fromEvent(keyboardEvent)) {
                         case Enter:
+                            event.preventDefault();
                             this.saveText(textBox);
                             break;
                         default:
