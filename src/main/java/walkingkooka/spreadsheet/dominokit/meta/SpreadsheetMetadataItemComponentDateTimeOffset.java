@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.DateBox;
+import org.dominokit.domino.ui.icons.lib.Icons;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.convert.Converter;
@@ -89,6 +91,15 @@ final class SpreadsheetMetadataItemComponentDateTimeOffset extends SpreadsheetMe
                                             ""
                             );
                         }
+                ).apply(
+                        self ->
+                                self.appendChild(
+                                        PostfixAddOn.of(
+                                                Icons.close_circle()
+                                                        .clickable()
+                                                        .addClickListener((e) -> self.clear())
+                                        )
+                                )
                 );
 
         list.appendChild(dateBox);
