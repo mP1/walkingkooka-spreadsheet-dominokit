@@ -114,7 +114,7 @@ final class SpreadsheetMetadataItemComponentDateTimeOffset extends SpreadsheetMe
         for (final Long value : Lists.of(_1900, _1904)) {
             final Anchor anchor = token
                     .setSave(String.valueOf(value))
-                    .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value + "-link")
+                    .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value)
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
                     .setTextContent(_1900 == value ? "1900" : "1904");
