@@ -24,7 +24,7 @@ import walkingkooka.reflect.JavaVisibility;
 import java.util.Calendar;
 import java.util.Date;
 
-public final class SpreadsheetMetadataItemComponentDateTimeOffsetTest implements ClassTesting<SpreadsheetMetadataItemComponentDateTimeOffset> {
+public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest implements ClassTesting<SpreadsheetMetadataPanelComponentItemDateTimeOffset> {
 
     @Test
     public void testToDateToLongToDate1900() {
@@ -109,8 +109,8 @@ public final class SpreadsheetMetadataItemComponentDateTimeOffsetTest implements
     private void toDateToLongToDateAndCheck(final Date date) {
         this.checkEquals(
                 date,
-                SpreadsheetMetadataItemComponentDateTimeOffset.toDate(
-                        SpreadsheetMetadataItemComponentDateTimeOffset.toLong(date)
+                SpreadsheetMetadataPanelComponentItemDateTimeOffset.toDate(
+                        SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(date)
                 ),
                 () -> date.toString()
         );
@@ -122,7 +122,7 @@ public final class SpreadsheetMetadataItemComponentDateTimeOffsetTest implements
     public void testToLong() {
         this.checkEquals(
                 2L,
-                SpreadsheetMetadataItemComponentDateTimeOffset.toLong(
+                SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(
                         new Date(
                                 Date.UTC(
                                         1900 - 1900,
@@ -140,8 +140,8 @@ public final class SpreadsheetMetadataItemComponentDateTimeOffsetTest implements
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetMetadataItemComponentDateTimeOffset> type() {
-        return SpreadsheetMetadataItemComponentDateTimeOffset.class;
+    public Class<SpreadsheetMetadataPanelComponentItemDateTimeOffset> type() {
+        return SpreadsheetMetadataPanelComponentItemDateTimeOffset.class;
     }
 
     @Override

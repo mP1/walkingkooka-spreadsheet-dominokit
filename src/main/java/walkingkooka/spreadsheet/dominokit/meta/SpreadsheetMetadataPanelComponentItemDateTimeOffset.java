@@ -44,9 +44,9 @@ import java.util.Optional;
 
 
 /**
- * A {@link SpreadsheetMetadataItemComponent} for {@link SpreadsheetMetadataPropertyName#DATETIME_OFFSET}
+ * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#DATETIME_OFFSET}
  */
-final class SpreadsheetMetadataItemComponentDateTimeOffset extends SpreadsheetMetadataItemComponent<Long> {
+final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends SpreadsheetMetadataPanelComponentItem<Long> {
 
     private final static SpreadsheetMetadataPropertyName<Long> PROPERTY_NAME = SpreadsheetMetadataPropertyName.DATETIME_OFFSET;
 
@@ -61,17 +61,17 @@ final class SpreadsheetMetadataItemComponentDateTimeOffset extends SpreadsheetMe
     private final static long _1904 = Converters.EXCEL_1904_DATE_SYSTEM_OFFSET - Converters.EXCEL_1900_DATE_SYSTEM_OFFSET;
 
     /**
-     * Factory that creates a new {@link SpreadsheetMetadataItemComponentDateTimeOffset}.
+     * Factory that creates a new {@link SpreadsheetMetadataPanelComponentItemDateTimeOffset}.
      */
-    static SpreadsheetMetadataItemComponentDateTimeOffset with(final SpreadsheetMetadataPanelComponentContext context) {
+    static SpreadsheetMetadataPanelComponentItemDateTimeOffset with(final SpreadsheetMetadataPanelComponentContext context) {
         checkContext(context);
 
-        return new SpreadsheetMetadataItemComponentDateTimeOffset(
+        return new SpreadsheetMetadataPanelComponentItemDateTimeOffset(
                 context
         );
     }
 
-    private SpreadsheetMetadataItemComponentDateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataPanelComponentItemDateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
         super(
                 PROPERTY_NAME,
                 context

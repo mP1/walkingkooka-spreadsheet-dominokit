@@ -18,51 +18,41 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.forms.IntegerBox;
+import org.dominokit.domino.ui.forms.TextBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
- * A {@link SpreadsheetMetadataItemComponent} that displays a number text box.
+ * A {@link SpreadsheetMetadataPanelComponentItem} that displays {@link String text}
  */
-final class SpreadsheetMetadataItemComponentNumber extends SpreadsheetMetadataItemComponent<Integer> {
+final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadataPanelComponentItem<String> {
 
-    static SpreadsheetMetadataItemComponentNumber with(final SpreadsheetMetadataPropertyName<Integer> propertyName,
-                                                       final int min,
-                                                       final int max,
-                                                       final SpreadsheetMetadataPanelComponentContext context) {
+    static SpreadsheetMetadataPanelComponentItemText with(final SpreadsheetMetadataPropertyName<String> propertyName,
+                                                          final SpreadsheetMetadataPanelComponentContext context) {
         checkPropertyName(propertyName);
         checkContext(context);
 
-        return new SpreadsheetMetadataItemComponentNumber(
+        return new SpreadsheetMetadataPanelComponentItemText(
                 propertyName,
-                min,
-                max,
                 context
         );
     }
 
-    private SpreadsheetMetadataItemComponentNumber(final SpreadsheetMetadataPropertyName<Integer> propertyName,
-                                                   final int min,
-                                                   final int max,
-                                                   final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataPanelComponentItemText(final SpreadsheetMetadataPropertyName<String> propertyName,
+                                                      final SpreadsheetMetadataPanelComponentContext context) {
         super(
                 propertyName,
                 context
         );
 
-        this.integerBox = this.integerBox()
-                .setPattern("#")
-                .setMinValue(min)
-                .setMaxValue(max)
-                .setStep(1);
+        this.textBox = this.textBox();
     }
 
     // ComponentRefreshable.............................................................................................
 
     @Override
     public void refresh(final AppContext context) {
-        this.integerBox.setValue(
+        this.textBox.setValue(
                 context.spreadsheetMetadata()
                         .getIgnoringDefaults(this.propertyName)
                         .orElse(null)
@@ -73,8 +63,8 @@ final class SpreadsheetMetadataItemComponentNumber extends SpreadsheetMetadataIt
 
     @Override
     public HTMLFieldSetElement element() {
-        return this.integerBox.element();
+        return this.textBox.element();
     }
 
-    private final IntegerBox integerBox;
+    private final TextBox textBox;
 }

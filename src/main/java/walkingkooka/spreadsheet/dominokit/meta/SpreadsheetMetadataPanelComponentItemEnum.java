@@ -19,99 +19,91 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
-import org.dominokit.domino.ui.forms.IntegerBox;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.text.CaseKind;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A {@link SpreadsheetMetadataItemComponent} for {@link SpreadsheetMetadataPropertyName#PRECISION}
+ * A {@link SpreadsheetMetadataPanelComponentItem} that creates multiple links for each enum value. If the enum value is currently
+ * selected in the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} that link will be disabled all others are enabled.
  */
-final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadataItemComponent<Integer> {
+final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends SpreadsheetMetadataPanelComponentItem<T> {
 
-    static SpreadsheetMetadataItemComponentPrecision with(final SpreadsheetMetadataPanelComponentContext context) {
+    static <T extends Enum<T>> SpreadsheetMetadataPanelComponentItemEnum<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                 final List<T> values,
+                                                                                 final SpreadsheetMetadataPanelComponentContext context) {
+        checkPropertyName(propertyName);
+        Objects.requireNonNull(values, "values");
         checkContext(context);
 
-        return new SpreadsheetMetadataItemComponentPrecision(
+        return new SpreadsheetMetadataPanelComponentItemEnum<>(
+                propertyName,
+                values,
                 context
         );
     }
 
-    private SpreadsheetMetadataItemComponentPrecision(final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataPanelComponentItemEnum(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                      final List<T> values,
+                                                      final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                SpreadsheetMetadataPropertyName.PRECISION,
+                propertyName,
                 context
         );
 
-        final UListElement list = this.uListElement();
+        this.list = this.uListElement();
 
-        final IntegerBox integerBox = this.integerBox()
-                .setMinValue(0)
-                .setMaxValue(128)
-                .setStep(1);
-        this.integerBox = integerBox;
-
-        list.appendChild(integerBox);
-
-        // build links for 0 | 32 | 64 | 128
         final HistoryToken token = context.historyToken()
-                .setMetadataPropertyName(SpreadsheetMetadataPropertyName.PRECISION);
-        final Map<Integer, Anchor> valueToAnchors = Maps.sorted();
+                .setMetadataPropertyName(propertyName);
 
-        for (final int value : Lists.of(0, 32, 64, 128)) {
+        final Map<T, Anchor> valueToAnchors = Maps.hash();
+
+        for (final T value : values) {
             final Anchor anchor = token
-                    .setSave(String.valueOf(value))
-                    .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value)
+                    .setSave(value.name())
+                    .link(SpreadsheetMetadataPanelComponent.id(propertyName) + "-" + CaseKind.kebabEnumName(value))
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
-                    .setTextContent(0 == value ? "Unlimited" : String.valueOf(value));
+                    .setTextContent(CaseKind.SNAKE.change(value.name(), CaseKind.TITLE));
 
             valueToAnchors.put(value, anchor);
 
-            list.appendChild(anchor);
+            this.list.appendChild(anchor);
         }
 
-        this.list = list;
         this.valueToAnchors = valueToAnchors;
     }
-
-    private final IntegerBox integerBox;
 
     // ComponentRefreshable.............................................................................................
 
     @Override
     public void refresh(final AppContext context) {
-        this.integerBox.setValue(
-                context.spreadsheetMetadata()
-                        .get(this.propertyName)
-                        .orElse(null)
-        );
-
-        final SpreadsheetMetadataPropertyName<Integer> propertyName = SpreadsheetMetadataPropertyName.PRECISION;
-
-        final Integer metadataValue = context.spreadsheetMetadata()
+        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
+        final T metadataValue = context.spreadsheetMetadata()
                 .getIgnoringDefaults(propertyName)
                 .orElse(null);
 
         final HistoryToken token = context.historyToken()
                 .setMetadataPropertyName(propertyName);
 
-        for (final Entry<Integer, Anchor> valueAndAnchor : this.valueToAnchors.entrySet()) {
-            final Integer value = valueAndAnchor.getKey();
+        for (final Entry<T, Anchor> valueAndAnchor : this.valueToAnchors.entrySet()) {
+            final T value = valueAndAnchor.getKey();
             final Anchor anchor = valueAndAnchor.getValue();
 
             anchor.setHistoryToken(
                     Optional.of(
                             token.setSave(
-                                    String.valueOf(value)
+                                    valueAndAnchor.getKey()
+                                            .name()
                             )
                     )
             );
@@ -124,7 +116,8 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
         }
     }
 
-    private final Map<Integer, Anchor> valueToAnchors;
+
+    private final Map<T, Anchor> valueToAnchors;
 
     // isElement........................................................................................................
 
