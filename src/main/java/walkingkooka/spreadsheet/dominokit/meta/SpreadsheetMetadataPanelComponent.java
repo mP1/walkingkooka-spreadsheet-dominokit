@@ -83,7 +83,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
 
         this.context = context;
 
-        final List<SpreadsheetMetadataItemComponent<?>> items = Lists.array();
+        final List<SpreadsheetMetadataPanelComponentItem<?>> items = Lists.array();
         items.add(this.spreadsheetId());
         items.add(this.spreadsheetName());
         items.add(this.creator());
@@ -128,7 +128,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         this.table = ElementsFactory.elements.table()
                 .appendChild(tBody);
 
-        for (final SpreadsheetMetadataItemComponent<?> item : items) {
+        for (final SpreadsheetMetadataPanelComponentItem<?> item : items) {
             tBody.appendChild(
                     ElementsFactory.elements.tr()
                             .appendChild(
@@ -146,139 +146,139 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         this.items = items;
     }
 
-    // factory methods to create the individual SpreadsheetMetadataItemComponent for a given property.
+    // factory methods to create the individual SpreadsheetMetadataPanelComponentItem for a given property.
 
-    private SpreadsheetMetadataItemComponent<?> spreadsheetId() {
+    private SpreadsheetMetadataPanelComponentItem<?> spreadsheetId() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetId::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> spreadsheetName() {
+    private SpreadsheetMetadataPanelComponentItem<?> spreadsheetName() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
                 SpreadsheetName::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> creator() {
+    private SpreadsheetMetadataPanelComponentItem<?> creator() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.CREATOR,
                 EmailAddress::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> createdDateTime() {
+    private SpreadsheetMetadataPanelComponentItem<?> createdDateTime() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
                 this.context::formatDateTime
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> modifiedBy() {
+    private SpreadsheetMetadataPanelComponentItem<?> modifiedBy() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.MODIFIED_BY,
                 EmailAddress::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> modifiedDateTime() {
+    private SpreadsheetMetadataPanelComponentItem<?> modifiedDateTime() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
                 this.context::formatDateTime
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> locale() {
+    private SpreadsheetMetadataPanelComponentItem<?> locale() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.LOCALE,
                 Locale::toLanguageTag
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> expressionNumberKind() {
+    private SpreadsheetMetadataPanelComponentItem<?> expressionNumberKind() {
         return this.enumValue(
                 SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND,
                 Lists.of(ExpressionNumberKind.values())
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> precision() {
-        return SpreadsheetMetadataItemComponent.precision(
+    private SpreadsheetMetadataPanelComponentItem<?> precision() {
+        return SpreadsheetMetadataPanelComponentItem.precision(
                 this.context
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> roundingMode() {
+    private SpreadsheetMetadataPanelComponentItem<?> roundingMode() {
         return this.enumValue(
                 SpreadsheetMetadataPropertyName.ROUNDING_MODE,
                 Lists.of(RoundingMode.values())
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> currencySymbol() {
+    private SpreadsheetMetadataPanelComponentItem<?> currencySymbol() {
         return text(
                 SpreadsheetMetadataPropertyName.CURRENCY_SYMBOL
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> decimalSeparator() {
+    private SpreadsheetMetadataPanelComponentItem<?> decimalSeparator() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
                 Object::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> exponentSymbol() {
+    private SpreadsheetMetadataPanelComponentItem<?> exponentSymbol() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.EXPONENT_SYMBOL,
                 Object::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> groupSeparator() {
+    private SpreadsheetMetadataPanelComponentItem<?> groupSeparator() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.GROUP_SEPARATOR,
                 Object::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> negativeSign() {
+    private SpreadsheetMetadataPanelComponentItem<?> negativeSign() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.NEGATIVE_SIGN,
                 Object::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> percentageSymbol() {
+    private SpreadsheetMetadataPanelComponentItem<?> percentageSymbol() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.PERCENTAGE_SYMBOL,
                 Object::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> positiveSign() {
+    private SpreadsheetMetadataPanelComponentItem<?> positiveSign() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.POSITIVE_SIGN,
                 Object::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> valueSeparator() {
+    private SpreadsheetMetadataPanelComponentItem<?> valueSeparator() {
         return readOnlyText(
                 SpreadsheetMetadataPropertyName.VALUE_SEPARATOR,
                 Object::toString
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> dateTimeOffset() {
-        return SpreadsheetMetadataItemComponent.dateTimeOffset(
+    private SpreadsheetMetadataPanelComponentItem<?> dateTimeOffset() {
+        return SpreadsheetMetadataPanelComponentItem.dateTimeOffset(
                 this.context
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> defaultYear() {
+    private SpreadsheetMetadataPanelComponentItem<?> defaultYear() {
         return number(
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
                 1800,
@@ -286,7 +286,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         );
     }
 
-    private SpreadsheetMetadataItemComponent<?> twoDigitYear() {
+    private SpreadsheetMetadataPanelComponentItem<?> twoDigitYear() {
         return number(
                 SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR,
                 0,
@@ -294,63 +294,63 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetDateFormatPattern> dateFormatPattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateFormatPattern> dateFormatPattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
                 SpreadsheetPatternKind.DATE_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetDateParsePattern> dateParsePattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateParsePattern> dateParsePattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN,
                 SpreadsheetPatternKind.DATE_PARSE_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetDateTimeFormatPattern> dateTimeFormatPattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateTimeFormatPattern> dateTimeFormatPattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.DATETIME_FORMAT_PATTERN,
                 SpreadsheetPatternKind.DATE_TIME_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetDateTimeParsePattern> dateTimeParsePattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateTimeParsePattern> dateTimeParsePattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN,
                 SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetNumberFormatPattern> numberFormatPattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetNumberFormatPattern> numberFormatPattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.NUMBER_FORMAT_PATTERN,
                 SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetNumberParsePattern> numberParsePattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetNumberParsePattern> numberParsePattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN,
                 SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetTextFormatPattern> textFormatPattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetTextFormatPattern> textFormatPattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN,
                 SpreadsheetPatternKind.TEXT_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetTimeFormatPattern> timeFormatPattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetTimeFormatPattern> timeFormatPattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.TIME_FORMAT_PATTERN,
                 SpreadsheetPatternKind.TIME_FORMAT_PATTERN
         );
     }
 
-    private SpreadsheetMetadataItemComponent<SpreadsheetTimeParsePattern> timeParsePattern() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetTimeParsePattern> timeParsePattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.TIME_PARSE_PATTERN,
                 SpreadsheetPatternKind.TIME_PARSE_PATTERN
@@ -360,9 +360,9 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     /**
      * Factory that displays a slider with thumbs for each Enum value.
      */
-    private <T extends Enum<T>> SpreadsheetMetadataItemComponentEnum<T> enumValue(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                  final List<T> values) {
-        return SpreadsheetMetadataItemComponent.enumValue(
+    private <T extends Enum<T>> SpreadsheetMetadataPanelComponentItemEnum<T> enumValue(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                       final List<T> values) {
+        return SpreadsheetMetadataPanelComponentItem.enumValue(
                 propertyName,
                 values,
                 this.context
@@ -372,10 +372,10 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     /**
      * Factory that creates a number text field to edit a integer {@link SpreadsheetMetadataPropertyName} value.
      */
-    private SpreadsheetMetadataItemComponent<?> number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
-                                                       final int min,
-                                                       final int max) {
-        return SpreadsheetMetadataItemComponent.number(
+    private SpreadsheetMetadataPanelComponentItem<?> number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
+                                                            final int min,
+                                                            final int max) {
+        return SpreadsheetMetadataPanelComponentItem.number(
                 propertyName,
                 min,
                 max,
@@ -386,9 +386,9 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     /**
      * Factory that creates a single ROW.
      */
-    private <T> SpreadsheetMetadataItemComponent<?> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                 final Function<T, String> formatter) {
-        return SpreadsheetMetadataItemComponent.readOnlyText(
+    private <T> SpreadsheetMetadataPanelComponentItem<?> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                      final Function<T, String> formatter) {
+        return SpreadsheetMetadataPanelComponentItem.readOnlyText(
                 propertyName,
                 formatter,
                 this.context
@@ -398,9 +398,9 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     /**
      * Factory that creates a link that opens the pattern editor dialog
      */
-    private <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponent<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                                  final SpreadsheetPatternKind patternKind) {
-        return SpreadsheetMetadataItemComponent.spreadsheetPattern(
+    private <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItem<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                                       final SpreadsheetPatternKind patternKind) {
+        return SpreadsheetMetadataPanelComponentItem.spreadsheetPattern(
                 propertyName,
                 patternKind,
                 this.context
@@ -410,8 +410,8 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     /**
      * Factory that creates a single ROW with a single {@link org.dominokit.domino.ui.forms.TextBox}.
      */
-    private <T> SpreadsheetMetadataItemComponent<?> text(final SpreadsheetMetadataPropertyName<String> propertyName) {
-        return SpreadsheetMetadataItemComponent.text(
+    private <T> SpreadsheetMetadataPanelComponentItem<?> text(final SpreadsheetMetadataPropertyName<String> propertyName) {
+        return SpreadsheetMetadataPanelComponentItem.text(
                 propertyName,
                 this.context
         );
@@ -470,7 +470,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         this.items.forEach(i -> i.refresh(context));
     }
 
-    private final List<SpreadsheetMetadataItemComponent<?>> items;
+    private final List<SpreadsheetMetadataPanelComponentItem<?>> items;
 
     @Override
     public void close(final AppContext context) {

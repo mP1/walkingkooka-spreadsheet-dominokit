@@ -44,15 +44,15 @@ import java.util.function.Function;
  * Base class for a item that may be displayed within a {@link SpreadsheetMetadataPanelComponent}. It only
  * implements {@link ComponentRefreshable}, it is assumed it will only be refreshed when the parent panel is open and refreshed.
  */
-abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshable, IsElement<Element> {
+abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefreshable, IsElement<Element> {
 
     /**
-     * {@see SpreadsheetMetadataItemComponentEnum}
+     * {@see SpreadsheetMetadataPanelComponentItemEnum}
      */
-    static <T extends Enum<T>> SpreadsheetMetadataItemComponentEnum<T> enumValue(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                 final List<T> values,
-                                                                                 final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataItemComponentEnum.with(
+    static <T extends Enum<T>> SpreadsheetMetadataPanelComponentItemEnum<T> enumValue(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                      final List<T> values,
+                                                                                      final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemEnum.with(
                 propertyName,
                 values,
                 context
@@ -60,24 +60,24 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     }
 
     /**
-     * {@see SpreadsheetMetadataItemComponentDateTimeOffset}
+     * {@see SpreadsheetMetadataPanelComponentItemDateTimeOffset}
      */
-    static SpreadsheetMetadataItemComponentDateTimeOffset dateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
+    static SpreadsheetMetadataPanelComponentItemDateTimeOffset dateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
         checkContext(context);
 
-        return SpreadsheetMetadataItemComponentDateTimeOffset.with(
+        return SpreadsheetMetadataPanelComponentItemDateTimeOffset.with(
                 context
         );
     }
 
     /**
-     * {@see SpreadsheetMetadataItemComponentNumber}
+     * {@see SpreadsheetMetadataPanelComponentItemNumber}
      */
-    static SpreadsheetMetadataItemComponentNumber number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
-                                                         final int min,
-                                                         final int max,
-                                                         final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataItemComponentNumber.with(
+    static SpreadsheetMetadataPanelComponentItemNumber number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
+                                                              final int min,
+                                                              final int max,
+                                                              final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemNumber.with(
                 propertyName,
                 min,
                 max,
@@ -86,21 +86,21 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     }
 
     /**
-     * {@see SpreadsheetMetadataItemComponentPrecision}
+     * {@see SpreadsheetMetadataPanelComponentItemPrecision}
      */
-    static SpreadsheetMetadataItemComponentPrecision precision(final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataItemComponentPrecision.with(
+    static SpreadsheetMetadataPanelComponentItemPrecision precision(final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemPrecision.with(
                 context
         );
     }
 
     /**
-     * {@see SpreadsheetMetadataItemComponentReadOnlyText}
+     * {@see SpreadsheetMetadataPanelComponentItemReadOnlyText}
      */
-    static <T> SpreadsheetMetadataItemComponent<T> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                final Function<T, String> formatter,
-                                                                final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataItemComponentReadOnlyText.with(
+    static <T> SpreadsheetMetadataPanelComponentItem<T> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                     final Function<T, String> formatter,
+                                                                     final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemReadOnlyText.with(
                 propertyName,
                 formatter,
                 context
@@ -108,12 +108,12 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     }
 
     /**
-     * {@see SpreadsheetMetadataItemComponentReadOnlyText}
+     * {@see SpreadsheetMetadataPanelComponentItemReadOnlyText}
      */
-    static <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponentSpreadsheetPattern<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                                                   final SpreadsheetPatternKind patternKind,
-                                                                                                                   final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataItemComponentSpreadsheetPattern.with(
+    static <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItemSpreadsheetPatternItem<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                                                            final SpreadsheetPatternKind patternKind,
+                                                                                                                            final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemSpreadsheetPatternItem.with(
                 propertyName,
                 patternKind,
                 context
@@ -121,11 +121,11 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     }
 
     /**
-     * {@see SpreadsheetMetadataItemComponentText}
+     * {@see SpreadsheetMetadataPanelComponentItemText}
      */
-    static SpreadsheetMetadataItemComponentText text(final SpreadsheetMetadataPropertyName<String> propertyName,
-                                                     final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataItemComponentText.with(
+    static SpreadsheetMetadataPanelComponentItemText text(final SpreadsheetMetadataPropertyName<String> propertyName,
+                                                          final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemText.with(
                 propertyName,
                 context
         );
@@ -144,8 +144,8 @@ abstract class SpreadsheetMetadataItemComponent<T> implements ComponentRefreshab
     /**
      * Package private ctor to limit sub-classing.
      */
-    SpreadsheetMetadataItemComponent(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                     final SpreadsheetMetadataPanelComponentContext context) {
+    SpreadsheetMetadataPanelComponentItem(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                          final SpreadsheetMetadataPanelComponentContext context) {
         this.propertyName = propertyName;
         this.context = context;
     }

@@ -30,27 +30,27 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A {@link SpreadsheetMetadataItemComponent} that only displays a link that when clicked opens a {@link SpreadsheetMetadataPanelComponent}.
+ * A {@link SpreadsheetMetadataPanelComponentItem} that only displays a link that when clicked opens a {@link SpreadsheetMetadataPanelComponent}.
  */
-final class SpreadsheetMetadataItemComponentSpreadsheetPattern<T extends SpreadsheetPattern> extends SpreadsheetMetadataItemComponent<T> {
+final class SpreadsheetMetadataPanelComponentItemSpreadsheetPatternItem<T extends SpreadsheetPattern> extends SpreadsheetMetadataPanelComponentItem<T> {
 
-    static <T extends SpreadsheetPattern> SpreadsheetMetadataItemComponentSpreadsheetPattern<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                                     final SpreadsheetPatternKind patternKind,
-                                                                                                     final SpreadsheetMetadataPanelComponentContext context) {
+    static <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItemSpreadsheetPatternItem<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                                              final SpreadsheetPatternKind patternKind,
+                                                                                                              final SpreadsheetMetadataPanelComponentContext context) {
         checkPropertyName(propertyName);
         Objects.requireNonNull(patternKind, "patternKind");
         checkContext(context);
 
-        return new SpreadsheetMetadataItemComponentSpreadsheetPattern<>(
+        return new SpreadsheetMetadataPanelComponentItemSpreadsheetPatternItem<>(
                 propertyName,
                 patternKind,
                 context
         );
     }
 
-    private SpreadsheetMetadataItemComponentSpreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                               final SpreadsheetPatternKind patternKind,
-                                                               final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataPanelComponentItemSpreadsheetPatternItem(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                        final SpreadsheetPatternKind patternKind,
+                                                                        final SpreadsheetMetadataPanelComponentContext context) {
         super(
                 propertyName,
                 context

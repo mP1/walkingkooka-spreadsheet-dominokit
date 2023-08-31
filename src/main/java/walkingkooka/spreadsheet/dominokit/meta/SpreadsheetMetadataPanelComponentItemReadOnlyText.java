@@ -29,28 +29,28 @@ import java.util.Objects;
 import java.util.function.Function;
 
 /**
- * A {@link SpreadsheetMetadataItemComponent} that only displays the current property value, formatting it to text
+ * A {@link SpreadsheetMetadataPanelComponentItem} that only displays the current property value, formatting it to text
  * using the provided {@link Function} formatter.
  */
-final class SpreadsheetMetadataItemComponentReadOnlyText<T> extends SpreadsheetMetadataItemComponent<T> {
+final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends SpreadsheetMetadataPanelComponentItem<T> {
 
-    static <T> SpreadsheetMetadataItemComponentReadOnlyText<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                    final Function<T, String> formatter,
-                                                                    final SpreadsheetMetadataPanelComponentContext context) {
+    static <T> SpreadsheetMetadataPanelComponentItemReadOnlyText<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                         final Function<T, String> formatter,
+                                                                         final SpreadsheetMetadataPanelComponentContext context) {
         checkPropertyName(propertyName);
         Objects.requireNonNull(formatter, "formatter");
         checkContext(context);
 
-        return new SpreadsheetMetadataItemComponentReadOnlyText<>(
+        return new SpreadsheetMetadataPanelComponentItemReadOnlyText<>(
                 propertyName,
                 formatter,
                 context
         );
     }
 
-    private SpreadsheetMetadataItemComponentReadOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                         final Function<T, String> formatter,
-                                                         final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataPanelComponentItemReadOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                              final Function<T, String> formatter,
+                                                              final SpreadsheetMetadataPanelComponentContext context) {
         super(
                 propertyName,
                 context
