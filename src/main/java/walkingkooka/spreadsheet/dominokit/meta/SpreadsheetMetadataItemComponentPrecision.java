@@ -69,7 +69,7 @@ final class SpreadsheetMetadataItemComponentPrecision extends SpreadsheetMetadat
         for (final int value : Lists.of(0, 32, 64, 128)) {
             final Anchor anchor = token
                     .setSave(String.valueOf(value))
-                    .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value + "-link")
+                    .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value)
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
                     .setTextContent(0 == value ? "Unlimited" : String.valueOf(value));
