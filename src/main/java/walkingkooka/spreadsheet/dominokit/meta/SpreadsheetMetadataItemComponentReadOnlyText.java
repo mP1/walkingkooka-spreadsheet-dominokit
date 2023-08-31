@@ -65,7 +65,7 @@ final class SpreadsheetMetadataItemComponentReadOnlyText<T> extends SpreadsheetM
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
-        final String text = metadata.getIgnoringDefaults(propertyName)
+        final String text = metadata.get(propertyName)
                 .map(this.formatter)
                 .orElse("");
         context.debug(this.getClass().getSimpleName() + ".refresh " + propertyName + "=" + CharSequences.quoteAndEscape(text));
