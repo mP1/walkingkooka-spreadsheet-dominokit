@@ -61,7 +61,9 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
 
     private Anchor(final AnchorElement element) {
         super(element);
-        element.element().style.set("margin", "5px");
+        element.setMargin("5px");
+        element.element()
+                .style.set("text-wrap", "nowrap");
     }
 
     // disabled.........................................................................................................
