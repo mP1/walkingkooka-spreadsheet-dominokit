@@ -79,6 +79,10 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
             list.appendChild(anchor);
         }
 
+        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        list.appendChild(defaultValueAnchor);
+        this.defaultValueAnchor = defaultValueAnchor;
+
         this.list = list;
         this.valueToAnchors = valueToAnchors;
     }
@@ -122,9 +126,13 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
                     )
             );
         }
+
+        this.refreshDefaultValue(this.defaultValueAnchor);
     }
 
     private final Map<Integer, Anchor> valueToAnchors;
+
+    private final Anchor defaultValueAnchor;
 
     // isElement........................................................................................................
 
