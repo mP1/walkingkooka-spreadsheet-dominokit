@@ -26,7 +26,53 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public final class SpreadsheetCellStyleSelectHistoryTokenTest extends SpreadsheetCellStyleHistoryTokenTestCase<SpreadsheetCellStyleSelectHistoryToken<Color>> {
+
+    // setSave.........................................................................................................
+
+    @Test
+    public void testSetSaveStyle() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
+        final String value = "#123456";
+        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, viewportSelection, propertyName);
+
+        this.setSaveAndCheck(
+                historyToken,
+                value,
+                HistoryToken.cellStyleSave(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        propertyName,
+                        Optional.of(Color.parse(value))
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveStyleWithEmptyText() {
+        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
+        final String value = "";
+        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, viewportSelection, propertyName);
+
+        this.setSaveAndCheck(
+                historyToken,
+                value,
+                HistoryToken.cellStyleSave(
+                        ID,
+                        NAME,
+                        viewportSelection,
+                        propertyName,
+                        Optional.empty()
+                )
+        );
+    }
+
+    // urlFragment.....................................................................................................
 
     @Test
     public void testUrlFragmentCellAll() {

@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRowHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
 
     final static SpreadsheetRowReference ROW = SpreadsheetSelection.parseRow("1");
@@ -213,6 +215,20 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
                 )
         );
     }
+
+    // setSave..........................................................................................................
+
+    @Test
+    public final void testSetSave() {
+        final T historyToken = this.createHistoryToken();
+
+        assertSame(
+                historyToken.setSave("=1"),
+                historyToken
+        );
+    }
+
+    // urlFragment......................................................................................................
 
     final void urlFragmentAndCheck(final SpreadsheetRowReference reference,
                                    final String expected) {
