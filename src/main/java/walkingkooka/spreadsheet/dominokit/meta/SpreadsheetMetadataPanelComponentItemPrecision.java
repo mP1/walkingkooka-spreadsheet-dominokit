@@ -95,7 +95,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
     public void refresh(final AppContext context) {
         this.integerBox.setValue(
                 context.spreadsheetMetadata()
-                        .get(this.propertyName)
+                        .getIgnoringDefaults(this.propertyName)
                         .orElse(null)
         );
 
