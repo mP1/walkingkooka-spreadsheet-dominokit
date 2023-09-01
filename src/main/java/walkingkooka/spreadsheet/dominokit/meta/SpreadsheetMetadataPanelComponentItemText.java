@@ -17,9 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.HTMLUListElement;
+import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.TextBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
@@ -45,7 +47,15 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
                 context
         );
 
+        final UListElement list = this.uListElement();
+        this.list = list;
+
         this.textBox = this.textBox();
+        list.appendChild(this.textBox);
+
+        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        list.appendChild(defaultValueAnchor);
+        this.defaultValueAnchor = defaultValueAnchor;
     }
 
     // ComponentRefreshable.............................................................................................
@@ -57,14 +67,20 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
                         .getIgnoringDefaults(this.propertyName)
                         .orElse(null)
         );
+
+        this.refreshDefaultValue(this.defaultValueAnchor);
     }
+
+    private final TextBox textBox;
+
+    private final Anchor defaultValueAnchor;
 
     // isElement........................................................................................................
 
     @Override
-    public HTMLFieldSetElement element() {
-        return this.textBox.element();
+    public HTMLUListElement element() {
+        return this.list.element();
     }
 
-    private final TextBox textBox;
+    private final UListElement list;
 }
