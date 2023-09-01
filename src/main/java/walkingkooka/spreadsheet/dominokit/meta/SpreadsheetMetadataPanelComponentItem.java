@@ -30,6 +30,7 @@ import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
+import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -38,6 +39,7 @@ import walkingkooka.text.CharSequences;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -151,6 +153,35 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     }
 
     // DOM factory methods..............................................................................................
+
+    /**
+     * Creates an {@link Anchor}, which will need to be refreshed.
+     */
+    final Anchor defaultValueAnchor() {
+        final SpreadsheetMetadataPanelComponentContext context = this.context;
+        return context.historyToken()
+                .setSave("")
+                .link(SpreadsheetMetadataPanelComponent.id(this.propertyName) + "-default")
+                .setTabIndex(0)
+                .addPushHistoryToken(context)
+                .setTextContent("default");
+    }
+
+    /**
+     * Updates the anchor link and the text with default and the current default value in parens.
+     */
+    final void refreshDefaultValue(final Anchor anchor) {
+        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
+        final SpreadsheetMetadataPanelComponentContext context = this.context;
+
+        anchor.setHistoryToken(
+                Optional.of(
+                        context.historyToken()
+                                .setMetadataPropertyName(propertyName)
+                                .setSave("")
+                )
+        );
+    }
 
     /**
      * Factory that creates an {@link IntegerBox} and fires save when the value changes or ENTER is typed.

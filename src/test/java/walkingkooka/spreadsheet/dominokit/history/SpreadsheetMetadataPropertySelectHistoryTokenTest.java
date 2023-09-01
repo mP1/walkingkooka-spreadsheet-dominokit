@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.convert.Converters;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -219,7 +220,50 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     // setSave..........................................................................................................
 
     @Test
-    public void testSetSave() {
+    public void testSetSaveDateTimeOffset() {
+        final SpreadsheetMetadataPropertyName<Long> propertyName = SpreadsheetMetadataPropertyName.DATETIME_OFFSET;
+        final Long value = Converters.EXCEL_1904_DATE_SYSTEM_OFFSET;
+
+        this.setSaveAndCheck(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        propertyName
+                ),
+                value.toString(),
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        propertyName,
+                        Optional.of(
+                                value
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveDateTimeOffsetEmpty() {
+        final SpreadsheetMetadataPropertyName<Long> propertyName = SpreadsheetMetadataPropertyName.DATETIME_OFFSET;
+
+        this.setSaveAndCheck(
+                SpreadsheetMetadataPropertySelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        propertyName
+                ),
+                "",
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        propertyName,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveExpressionNumberKind() {
         final ExpressionNumberKind kind = ExpressionNumberKind.DOUBLE;
 
         this.setSaveAndCheck(
@@ -237,7 +281,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     }
 
     @Test
-    public void testSetSaveEmpty() {
+    public void testSetSaveExpressionNumberKindEmpty() {
         this.setSaveAndCheck(
                 this.createHistoryToken(),
                 "",
