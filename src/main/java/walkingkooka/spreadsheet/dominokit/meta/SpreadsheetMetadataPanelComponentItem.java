@@ -181,6 +181,13 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                                 .setSave("")
                 )
         );
+
+        // if value absent must be using default so disable
+        anchor.setDisabled(
+                false == context.spreadsheetMetadata()
+                        .getIgnoringDefaults(propertyName)
+                        .isPresent()
+        );
     }
 
     /**
