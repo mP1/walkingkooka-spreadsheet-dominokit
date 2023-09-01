@@ -124,11 +124,17 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             list.appendChild(anchor);
         }
 
+        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        list.appendChild(defaultValueAnchor);
+        this.defaultValueAnchor = defaultValueAnchor;
+
         this.list = list;
         this.valueToAnchors = valueToAnchors;
     }
 
     private final DateBox dateBox;
+
+    private final Anchor defaultValueAnchor;
 
     // ComponentRefreshable.............................................................................................
 
@@ -170,6 +176,8 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
                     )
             );
         }
+
+        this.refreshDefaultValue(this.defaultValueAnchor);
     }
 
     private final Map<Long, Anchor> valueToAnchors;
