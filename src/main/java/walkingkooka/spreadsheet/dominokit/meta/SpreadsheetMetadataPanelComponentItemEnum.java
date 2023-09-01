@@ -80,6 +80,10 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
             this.list.appendChild(anchor);
         }
 
+        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        this.list.appendChild(defaultValueAnchor);
+        this.defaultValueAnchor = defaultValueAnchor;
+
         this.valueToAnchors = valueToAnchors;
     }
 
@@ -114,10 +118,14 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
                     )
             );
         }
+
+        this.refreshDefaultValue(this.defaultValueAnchor);
     }
 
 
     private final Map<T, Anchor> valueToAnchors;
+
+    private final Anchor defaultValueAnchor;
 
     // isElement........................................................................................................
 
