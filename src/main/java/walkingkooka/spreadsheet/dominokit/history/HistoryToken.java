@@ -979,9 +979,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * if possible creates a save.
+     * if possible creates a save, otherwise returns this.
      */
     public final HistoryToken setSave(final String text) {
+        Objects.requireNonNull(text, "text");
+
         return this.setIfSpreadsheetNameHistoryToken0(
                 SpreadsheetNameHistoryToken::setSave0,
                 text

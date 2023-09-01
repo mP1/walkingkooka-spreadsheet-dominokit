@@ -97,17 +97,15 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
 
-        this.checkEquals(
+        this.setSaveAndCheck(
+                this.createHistoryToken(),
+                cell.toString(),
                 HistoryToken.labelMappingSave(
                         token.id(),
                         token.name(),
                         labelName.get()
                                 .mapping(cell)
-                ),
-                this.createHistoryToken()
-                        .setSave(
-                                cell.toString()
-                        )
+                )
         );
     }
 
@@ -117,16 +115,15 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
         final SpreadsheetCellRange cells = SpreadsheetSelection.parseCellRange("C3:D4");
 
-        this.checkEquals(
+        this.setSaveAndCheck(
+                this.createHistoryToken(),
+                cells.toString(),
                 HistoryToken.labelMappingSave(
                         token.id(),
                         token.name(),
-                        labelName.get().mapping(cells)
-                ),
-                this.createHistoryToken()
-                        .setSave(
-                                cells.toString()
-                        )
+                        labelName.get()
+                                .mapping(cells)
+                )
         );
     }
 

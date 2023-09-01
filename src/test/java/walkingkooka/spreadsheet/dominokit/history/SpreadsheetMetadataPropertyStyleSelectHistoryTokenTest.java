@@ -26,7 +26,47 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extends SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color>, Color> {
+
+    // setSave..........................................................................................................
+
+    @Test
+    public void testSetSaveStyle() {
+        final SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> historyToken = this.createHistoryToken();
+        final String value = "#123456";
+
+        this.setSaveAndCheck(
+                historyToken,
+                value,
+                HistoryToken.metadataPropertyStyleSave(
+                        ID,
+                        NAME,
+                        STYLE_PROPERTY_NAME,
+                        Optional.of(Color.parse(value))
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveStyleWithEmptyText() {
+        final SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> historyToken = this.createHistoryToken();
+        final String value = "";
+
+        this.setSaveAndCheck(
+                historyToken,
+                value,
+                HistoryToken.metadataPropertyStyleSave(
+                        ID,
+                        NAME,
+                        STYLE_PROPERTY_NAME,
+                        Optional.empty()
+                )
+        );
+    }
+
+    // urlFragment......................................................................................................
 
     @Test
     public void testUrlFragmentColor() {
