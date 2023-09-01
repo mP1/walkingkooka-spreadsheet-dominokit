@@ -216,6 +216,40 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         );
     }
 
+    // setSave..........................................................................................................
+
+    @Test
+    public void testSetSave() {
+        final ExpressionNumberKind kind = ExpressionNumberKind.DOUBLE;
+
+        this.setSaveAndCheck(
+                this.createHistoryToken(),
+                kind.name(),
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        EXPRESSION_NUMBER_KIND,
+                        Optional.of(
+                                kind
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveEmpty() {
+        this.setSaveAndCheck(
+                this.createHistoryToken(),
+                "",
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        EXPRESSION_NUMBER_KIND,
+                        Optional.empty()
+                )
+        );
+    }
+
     // helper...........................................................................................................
 
     @Override
