@@ -17,9 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.HTMLUListElement;
+import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
@@ -51,11 +53,19 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
                 context
         );
 
+
+        this.list = this.uListElement();
+
         this.integerBox = this.integerBox()
                 .setPattern("#")
                 .setMinValue(min)
                 .setMaxValue(max)
                 .setStep(1);
+        this.list.appendChild(this.integerBox);
+
+        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        this.list.appendChild(defaultValueAnchor);
+        this.defaultValueAnchor = defaultValueAnchor;
     }
 
     // ComponentRefreshable.............................................................................................
@@ -67,14 +77,20 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
                         .getIgnoringDefaults(this.propertyName)
                         .orElse(null)
         );
+
+        this.refreshDefaultValue(this.defaultValueAnchor);
     }
+
+    private final IntegerBox integerBox;
+
+    private final Anchor defaultValueAnchor;
 
     // isElement........................................................................................................
 
     @Override
-    public HTMLFieldSetElement element() {
-        return this.integerBox.element();
+    public HTMLUListElement element() {
+        return this.list.element();
     }
 
-    private final IntegerBox integerBox;
+    private final UListElement list;
 }
