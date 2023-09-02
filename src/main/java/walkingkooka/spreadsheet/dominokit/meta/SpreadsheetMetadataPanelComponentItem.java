@@ -22,6 +22,7 @@ import elemental2.dom.Event;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.elements.LIElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
@@ -190,6 +191,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         );
     }
 
+    final static String TEXT_BOX_WIDTH = "170px";
+
     /**
      * Factory that creates an {@link IntegerBox} and fires save when the value changes or ENTER is typed.
      */
@@ -229,12 +232,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                         )
         );
 
-        // clear the margin-bottom: 16px
-        integerBox.element()
-                .style
-                .setProperty("margin-bottom", "0");
-
-        return integerBox;
+        return integerBox.setWidth(TEXT_BOX_WIDTH)
+                .setMarginBottom("0");
     }
 
     private void saveIntegerValue(final IntegerBox integerBox) {
@@ -281,10 +280,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         );
 
         // clear the margin-bottom: 16px
-        textBox.element()
-                .style
-                .setProperty("margin-bottom", "0");
-        return textBox;
+        return textBox.setWidth(TEXT_BOX_WIDTH)
+                .setMarginBottom("0");
     }
 
     private void saveText(final TextBox textBox) {
@@ -312,7 +309,22 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
 
     final UListElement uListElement() {
         final UListElement element = ElementsFactory.elements.ul();
-        element.style().setPaddingLeft("0");
+        element.style()
+                .setCssProperty("list-style-type", "none")
+                .setDisplay("flex")
+                .setCssProperty("flex-wrap", "wrap")
+                .setCssProperty("justify-content", "flex-start")
+                .setCssProperty("align-items", "center")
+                .setMargin("0px")
+                .setPaddingLeft("0");
+        return element;
+    }
+
+    final LIElement liElement() {
+        final LIElement element = ElementsFactory.elements.li();
+        element.style()
+                .setDisplay("flex")
+                .setPadding("0px");
         return element;
     }
 

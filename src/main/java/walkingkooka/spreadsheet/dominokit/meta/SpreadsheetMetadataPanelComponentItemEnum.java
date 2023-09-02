@@ -77,11 +77,19 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
 
             valueToAnchors.put(value, anchor);
 
-            this.list.appendChild(anchor);
+            this.list.appendChild(
+                    liElement()
+                            .appendChild(anchor)
+            );
         }
 
         final Anchor defaultValueAnchor = this.defaultValueAnchor();
-        this.list.appendChild(defaultValueAnchor);
+        this.list.appendChild(
+                liElement()
+                        .appendChild(
+                                defaultValueAnchor
+                        )
+        );
         this.defaultValueAnchor = defaultValueAnchor;
 
         this.valueToAnchors = valueToAnchors;

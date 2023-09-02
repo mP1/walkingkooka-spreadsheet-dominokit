@@ -51,10 +51,20 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
         this.list = list;
 
         this.textBox = this.textBox();
-        list.appendChild(this.textBox);
+        list.appendChild(
+                this.liElement()
+                        .appendChild(
+                                this.textBox
+                        )
+        );
 
         final Anchor defaultValueAnchor = this.defaultValueAnchor();
-        list.appendChild(defaultValueAnchor);
+        list.appendChild(
+                this.liElement()
+                        .appendChild(
+                                defaultValueAnchor
+                        )
+        );
         this.defaultValueAnchor = defaultValueAnchor;
     }
 

@@ -133,11 +133,16 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
                     ElementsFactory.elements.tr()
                             .appendChild(
                                     ElementsFactory.elements.td()
+                                            .setCssProperty("text-wrap", "nowrap")
+                                            .setPaddingTop("5px")
+                                            .setPaddingBottom("5px")
                                             .setTextContent(
                                                     label(item.propertyName)
                                             )
                             ).appendChild(
                                     ElementsFactory.elements.td()
+                                            .setPaddingTop("5px")
+                                            .setPaddingBottom("5px")
                                             .appendChild(item)
                             )
             );
