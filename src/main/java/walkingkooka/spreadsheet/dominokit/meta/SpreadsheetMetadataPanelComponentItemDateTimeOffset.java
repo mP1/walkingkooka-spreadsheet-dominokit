@@ -102,9 +102,13 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
                                 )
                 );
 
-        list.appendChild(dateBox);
+        list.appendChild(
+                liElement()
+                        .appendChild(dateBox)
+        );
 
-        this.dateBox = dateBox;
+        this.dateBox = dateBox.setWidth("200px")
+                .setMarginBottom("0");
 
         // build links for 1900 | 1904
         final HistoryToken token = context.historyToken()
@@ -121,11 +125,21 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
             valueToAnchors.put(value, anchor);
 
-            list.appendChild(anchor);
+            list.appendChild(
+                    liElement()
+                            .appendChild(
+                                    anchor
+                            )
+            );
         }
 
         final Anchor defaultValueAnchor = this.defaultValueAnchor();
-        list.appendChild(defaultValueAnchor);
+        list.appendChild(
+                liElement()
+                        .appendChild(
+                                defaultValueAnchor
+                        )
+        );
         this.defaultValueAnchor = defaultValueAnchor;
 
         this.list = list;

@@ -59,7 +59,10 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
                 .setStep(1);
         this.integerBox = integerBox;
 
-        list.appendChild(integerBox);
+        list.appendChild(
+                liElement()
+                        .appendChild(integerBox)
+        );
 
         // build links for 0 | 32 | 64 | 128
         final HistoryToken token = context.historyToken()
@@ -76,11 +79,17 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
             valueToAnchors.put(value, anchor);
 
-            list.appendChild(anchor);
+            list.appendChild(
+                    liElement()
+                            .appendChild(anchor)
+            );
         }
 
         final Anchor defaultValueAnchor = this.defaultValueAnchor();
-        list.appendChild(defaultValueAnchor);
+        list.appendChild(
+                liElement()
+                        .appendChild(defaultValueAnchor)
+        );
         this.defaultValueAnchor = defaultValueAnchor;
 
         this.list = list;

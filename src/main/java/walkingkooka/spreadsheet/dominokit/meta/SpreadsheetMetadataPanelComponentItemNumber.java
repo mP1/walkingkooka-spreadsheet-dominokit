@@ -61,10 +61,16 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
                 .setMinValue(min)
                 .setMaxValue(max)
                 .setStep(1);
-        this.list.appendChild(this.integerBox);
+        this.list.appendChild(
+                liElement()
+                        .appendChild(this.integerBox)
+        );
 
         final Anchor defaultValueAnchor = this.defaultValueAnchor();
-        this.list.appendChild(defaultValueAnchor);
+        this.list.appendChild(
+                liElement()
+                        .appendChild(defaultValueAnchor)
+        );
         this.defaultValueAnchor = defaultValueAnchor;
     }
 

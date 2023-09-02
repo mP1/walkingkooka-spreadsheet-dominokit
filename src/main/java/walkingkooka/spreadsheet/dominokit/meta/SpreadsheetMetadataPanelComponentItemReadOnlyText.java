@@ -56,6 +56,10 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
                 context
         );
         this.formatter = formatter;
+
+        this.element = ElementsFactory.elements.div()
+                .setPaddingTop("5px")
+                .setPaddingBottom("5px");
     }
 
     // ComponentRefreshable.............................................................................................
@@ -85,5 +89,5 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         return this.element.element();
     }
 
-    private final DivElement element = ElementsFactory.elements.div();
+    private final DivElement element;
 }
