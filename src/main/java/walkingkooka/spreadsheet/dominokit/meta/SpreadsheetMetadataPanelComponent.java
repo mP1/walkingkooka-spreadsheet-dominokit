@@ -470,9 +470,19 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
 
     @Override
     public void refresh(final AppContext context) {
-        context.debug("SpreadsheetMetadataPanelComponent.refresh");
+        // Before refreshing verify a loaded Metadata with LOCALE and other properties are present otherwise
+        // rendering the panel will fail complaining LOCALE Is absent.
+        //
+        // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1018
+        if (context.spreadsheetMetadata()
+                .get(SpreadsheetMetadataPropertyName.LOCALE)
+                .isPresent()) {
+            context.debug(this.getClass().getSimpleName() + ".refresh");
 
-        this.items.forEach(i -> i.refresh(context));
+            this.items.forEach(i -> i.refresh(context));
+        } else {
+            context.debug(this.getClass().getSimpleName() + ".refresh metadata missing " + SpreadsheetMetadataPropertyName.LOCALE + " skip until loaded.");
+        }
     }
 
     private final List<SpreadsheetMetadataPanelComponentItem<?>> items;
