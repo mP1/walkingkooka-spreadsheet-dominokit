@@ -42,6 +42,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Set;
 
 /**
@@ -78,6 +79,9 @@ public final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, 
 
         this.columnWidths.clear();
         this.rowHeights.clear();
+
+        this.maxColumn = OptionalInt.empty();
+        this.maxRow = OptionalInt.empty();
 
         this.windows = SpreadsheetViewportWindows.EMPTY;
     }
@@ -196,6 +200,16 @@ public final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, 
                 labelToNonLabel,
                 window
         );
+
+        final OptionalInt maxColumn = delta.maxColumn();
+        if (maxColumn.isPresent()) {
+            this.maxColumn = maxColumn;
+        }
+
+        final OptionalInt maxRow = delta.maxRow();
+        if (maxRow.isPresent()) {
+            this.maxRow = maxRow;
+        }
     }
 
     Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
@@ -319,6 +333,18 @@ public final class SpreadsheetViewportCache implements SpreadsheetDeltaWatcher, 
      */
     // VisibleForTesting
     final Map<SpreadsheetRowReference, Length<?>> rowHeights = Maps.sorted();
+
+    public OptionalInt maxColumn() {
+        return this.maxColumn;
+    }
+
+    private OptionalInt maxColumn = OptionalInt.empty();
+
+    public OptionalInt maxRow() {
+        return this.maxRow;
+    }
+
+    private OptionalInt maxRow = OptionalInt.empty();
 
     /**
      * The viewport window.
