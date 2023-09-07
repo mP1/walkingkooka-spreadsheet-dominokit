@@ -33,7 +33,7 @@ import java.util.Optional;
 
 public final class SpreadsheetLabelMappingFetcher implements Fetcher {
 
-    public static SpreadsheetLabelMappingFetcher with(final SpreadsheetLabelMappingWatcher watcher,
+    public static SpreadsheetLabelMappingFetcher with(final SpreadsheetLabelMappingFetcherWatcher watcher,
                                                       final AppContext context) {
         Objects.requireNonNull(watcher, "watcher");
         Objects.requireNonNull(context, "context");
@@ -44,7 +44,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
         );
     }
 
-    private SpreadsheetLabelMappingFetcher(final SpreadsheetLabelMappingWatcher watcher,
+    private SpreadsheetLabelMappingFetcher(final SpreadsheetLabelMappingFetcherWatcher watcher,
                                            final AppContext context) {
         this.watcher = watcher;
         this.context = context;
@@ -148,7 +148,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
 
     }
 
-    private final SpreadsheetLabelMappingWatcher watcher;
+    private final SpreadsheetLabelMappingFetcherWatcher watcher;
 
     @Override
     public AppContext context() {

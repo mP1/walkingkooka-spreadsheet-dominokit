@@ -17,18 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
-public final class SpreadsheetLabelMappingWatchersEventTest implements ClassTesting<SpreadsheetLabelMappingWatchersEvent> {
+import java.util.Optional;
 
-    @Override
-    public Class<SpreadsheetLabelMappingWatchersEvent> type() {
-        return SpreadsheetLabelMappingWatchersEvent.class;
-    }
+/**
+ * A watcher that receives all {@link SpreadsheetLabelMapping} response events.
+ */
+public interface SpreadsheetLabelMappingFetcherWatcher {
 
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
+    void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
+                                   final AppContext context);
 }

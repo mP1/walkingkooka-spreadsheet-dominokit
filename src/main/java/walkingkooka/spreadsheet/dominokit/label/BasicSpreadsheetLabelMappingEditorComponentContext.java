@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
@@ -44,7 +44,7 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
     }
 
     @Override
-    public void addLabelMappingWatcher(final SpreadsheetLabelMappingWatcher watcher) {
+    public void addLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         this.context.addSpreadsheetLabelMappingWatcher(watcher);
     }
 

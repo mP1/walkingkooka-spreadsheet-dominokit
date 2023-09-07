@@ -60,7 +60,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -90,7 +90,7 @@ import java.util.function.Predicate;
  */
 public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher,
-        SpreadsheetLabelMappingWatcher,
+        SpreadsheetLabelMappingFetcherWatcher,
         SpreadsheetMetadataWatcher,
         ComponentLifecycle {
 
@@ -818,7 +818,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.render(context);
     }
 
-    // SpreadsheetLabelMappingWatcher...................................................................................
+    // SpreadsheetLabelMappingFetcherWatcher............................................................................
 
     /**
      * Any label mapping change should refresh the viewport cells.

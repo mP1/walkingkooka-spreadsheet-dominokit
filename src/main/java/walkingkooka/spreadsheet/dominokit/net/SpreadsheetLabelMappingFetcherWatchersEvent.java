@@ -24,23 +24,23 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
- * The event payload used by {@link SpreadsheetLabelMappingWatchers}.
+ * The event payload used by {@link SpreadsheetLabelMappingFetcherWatchers}.
  */
-final class SpreadsheetLabelMappingWatchersEvent implements Consumer<SpreadsheetLabelMappingWatcher> {
+final class SpreadsheetLabelMappingFetcherWatchersEvent implements Consumer<SpreadsheetLabelMappingFetcherWatcher> {
 
-    static SpreadsheetLabelMappingWatchersEvent with(final Optional<SpreadsheetLabelMapping> mapping,
-                                                     final AppContext context) {
-        return new SpreadsheetLabelMappingWatchersEvent(mapping, context);
+    static SpreadsheetLabelMappingFetcherWatchersEvent with(final Optional<SpreadsheetLabelMapping> mapping,
+                                                            final AppContext context) {
+        return new SpreadsheetLabelMappingFetcherWatchersEvent(mapping, context);
     }
 
-    private SpreadsheetLabelMappingWatchersEvent(final Optional<SpreadsheetLabelMapping> mapping,
-                                                 final AppContext context) {
+    private SpreadsheetLabelMappingFetcherWatchersEvent(final Optional<SpreadsheetLabelMapping> mapping,
+                                                        final AppContext context) {
         this.mapping = mapping;
         this.context = context;
     }
 
     @Override
-    public void accept(final SpreadsheetLabelMappingWatcher watcher) {
+    public void accept(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         try {
             watcher.onSpreadsheetLabelMapping(
                     this.mapping,
@@ -48,7 +48,7 @@ final class SpreadsheetLabelMappingWatchersEvent implements Consumer<Spreadsheet
             );
         } catch (final Exception cause) {
             this.context.error(
-                    "SpreadsheetLabelMappingWatchersEvent.accept exception: " + cause.getMessage(),
+                    "SpreadsheetLabelMappingFetcherWatchersEvent.accept exception: " + cause.getMessage(),
                     cause
             );
         }

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.label;
 import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
@@ -40,9 +40,9 @@ public interface SpreadsheetLabelMappingEditorComponentContext extends
     void loadLabel(final SpreadsheetLabelName name);
 
     /**
-     * Adds the given {@link SpreadsheetLabelMappingWatcher}.
+     * Adds the given {@link SpreadsheetLabelMappingFetcherWatcher}.
      */
-    void addLabelMappingWatcher(final SpreadsheetLabelMappingWatcher watcher);
+    void addLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher);
 
     /**
      * The original or loaded {@link SpreadsheetLabelName}. Used by UNDO to reload the label name text box.

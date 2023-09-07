@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingWatchersTest implements ClassTesting<SpreadsheetLabelMappingWatchers> {
+public final class SpreadsheetLabelMappingFetcherWatchersTest implements ClassTesting<SpreadsheetLabelMappingFetcherWatchers> {
 
     @Test
     public void testAddThenFire() {
@@ -39,16 +39,16 @@ public final class SpreadsheetLabelMappingWatchersTest implements ClassTesting<S
         );
         final AppContext appContext = new FakeAppContext();
 
-        final SpreadsheetLabelMappingWatchers watchers = SpreadsheetLabelMappingWatchers.empty();
+        final SpreadsheetLabelMappingFetcherWatchers watchers = SpreadsheetLabelMappingFetcherWatchers.empty();
         watchers.add(
-                new SpreadsheetLabelMappingWatcher() {
+                new SpreadsheetLabelMappingFetcherWatcher() {
                     @Override
                     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                                           final AppContext context) {
-                        SpreadsheetLabelMappingWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
-                        SpreadsheetLabelMappingWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetLabelMappingWatchersTest.this.fired++;
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onSpreadsheetLabelMapping(spreadsheetLabelMapping, appContext);
@@ -66,16 +66,16 @@ public final class SpreadsheetLabelMappingWatchersTest implements ClassTesting<S
         );
         final AppContext appContext = new FakeAppContext();
 
-        final SpreadsheetLabelMappingWatchers watchers = SpreadsheetLabelMappingWatchers.empty();
+        final SpreadsheetLabelMappingFetcherWatchers watchers = SpreadsheetLabelMappingFetcherWatchers.empty();
         watchers.addOnce(
-                new SpreadsheetLabelMappingWatcher() {
+                new SpreadsheetLabelMappingFetcherWatcher() {
                     @Override
                     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                                           final AppContext context) {
-                        SpreadsheetLabelMappingWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
-                        SpreadsheetLabelMappingWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetLabelMappingWatchersTest.this.fired++;
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onSpreadsheetLabelMapping(spreadsheetLabelMapping, appContext);
@@ -93,8 +93,8 @@ public final class SpreadsheetLabelMappingWatchersTest implements ClassTesting<S
     // ClassTesting....................................................................................................
 
     @Override
-    public Class<SpreadsheetLabelMappingWatchers> type() {
-        return SpreadsheetLabelMappingWatchers.class;
+    public Class<SpreadsheetLabelMappingFetcherWatchers> type() {
+        return SpreadsheetLabelMappingFetcherWatchers.class;
     }
 
     @Override
