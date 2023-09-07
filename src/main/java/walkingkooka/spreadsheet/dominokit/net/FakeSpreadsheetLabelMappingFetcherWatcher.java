@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
 import java.util.Optional;
 
-public class FakeSpreadsheetLabelMappingWatcher implements SpreadsheetLabelMappingFetcherWatcher {
+public class FakeSpreadsheetLabelMappingFetcherWatcher implements SpreadsheetLabelMappingFetcherWatcher {
     @Override
     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
