@@ -21,26 +21,26 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.watch.Watchers;
 
-public final class SpreadsheetDeltaWatchers implements SpreadsheetDeltaWatcher {
+public final class SpreadsheetDeltaFetcherWatchers implements SpreadsheetDeltaFetcherWatcher {
 
-    public static SpreadsheetDeltaWatchers empty() {
-        return new SpreadsheetDeltaWatchers();
+    public static SpreadsheetDeltaFetcherWatchers empty() {
+        return new SpreadsheetDeltaFetcherWatchers();
     }
 
     /**
-     * Adds a new {@link SpreadsheetDeltaWatcher} which will receive all events until removed using the returned {@link Runnable}.
+     * Adds a new {@link SpreadsheetDeltaFetcherWatcher} which will receive all events until removed using the returned {@link Runnable}.
      */
-    public Runnable add(final SpreadsheetDeltaWatcher watcher) {
+    public Runnable add(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.watchers.add(
                 (e) -> e.accept(watcher)
         );
     }
 
     /**
-     * Adds a {@link SpreadsheetDeltaWatcher} which will be removed after the first event is fired. This is unlike
-     * {@link #add(SpreadsheetDeltaWatcher)} will continue to receive all events until the watcher is removed.
+     * Adds a {@link SpreadsheetDeltaFetcherWatcher} which will be removed after the first event is fired. This is unlike
+     * {@link #add(SpreadsheetDeltaFetcherWatcher)} will continue to receive all events until the watcher is removed.
      */
-    public Runnable addOnce(final SpreadsheetDeltaWatcher watcher) {
+    public Runnable addOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.watchers.addOnce(
                 (e) -> e.accept(watcher)
         );
@@ -50,14 +50,14 @@ public final class SpreadsheetDeltaWatchers implements SpreadsheetDeltaWatcher {
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
         this.watchers.accept(
-                SpreadsheetDeltaWatchersEvent.with(
+                SpreadsheetDeltaFetcherWatchersEvent.with(
                         delta,
                         context
                 )
         );
     }
 
-    private final Watchers<SpreadsheetDeltaWatchersEvent> watchers = Watchers.create();
+    private final Watchers<SpreadsheetDeltaFetcherWatchersEvent> watchers = Watchers.create();
 
     @Override
     public String toString() {

@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.layout.FlexLayout;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -45,7 +45,7 @@ import java.util.Optional;
  */
 public final class SpreadsheetViewportToolbarComponent implements ComponentLifecycle,
         IsElement<HTMLDivElement>,
-        SpreadsheetDeltaWatcher {
+        SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetViewportToolbarComponent with(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -108,7 +108,7 @@ public final class SpreadsheetViewportToolbarComponent implements ComponentLifec
      */
     private final List<SpreadsheetViewportToolbarComponentItem> components;
 
-    // SpreadsheetDeltaWatcher..........................................................................................
+    // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,

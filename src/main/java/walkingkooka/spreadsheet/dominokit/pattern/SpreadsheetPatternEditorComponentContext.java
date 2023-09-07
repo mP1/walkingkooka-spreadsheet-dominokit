@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -64,9 +64,9 @@ public interface SpreadsheetPatternEditorComponentContext extends CanGiveFocus,
     SpreadsheetFormatterContext spreadsheetFormatterContext();
 
     /**
-     * Adds a {@link SpreadsheetDeltaWatcher}.
+     * Adds a {@link SpreadsheetDeltaFetcherWatcher}.
      */
-    Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher);
+    Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.

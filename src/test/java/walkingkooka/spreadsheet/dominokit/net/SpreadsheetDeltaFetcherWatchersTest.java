@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
-public final class SpreadsheetDeltaWatchersTest implements ClassTesting<SpreadsheetDeltaWatchers> {
+public final class SpreadsheetDeltaFetcherWatchersTest implements ClassTesting<SpreadsheetDeltaFetcherWatchers> {
 
     @Test
     public void testAddThenFire() {
@@ -33,16 +33,16 @@ public final class SpreadsheetDeltaWatchersTest implements ClassTesting<Spreadsh
         final SpreadsheetDelta spreadsheetDelta = SpreadsheetDelta.EMPTY;
         final AppContext appContext = new FakeAppContext();
 
-        final SpreadsheetDeltaWatchers watchers = SpreadsheetDeltaWatchers.empty();
+        final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
         watchers.add(
-                new SpreadsheetDeltaWatcher() {
+                new SpreadsheetDeltaFetcherWatcher() {
                     @Override
                     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                                    final AppContext context) {
-                        SpreadsheetDeltaWatchersTest.this.checkEquals(spreadsheetDelta, delta);
-                        SpreadsheetDeltaWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(spreadsheetDelta, delta);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetDeltaWatchersTest.this.fired++;
+                        SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
@@ -57,16 +57,16 @@ public final class SpreadsheetDeltaWatchersTest implements ClassTesting<Spreadsh
         final SpreadsheetDelta spreadsheetDelta = SpreadsheetDelta.EMPTY;
         final AppContext appContext = new FakeAppContext();
 
-        final SpreadsheetDeltaWatchers watchers = SpreadsheetDeltaWatchers.empty();
+        final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
         watchers.addOnce(
-                new SpreadsheetDeltaWatcher() {
+                new SpreadsheetDeltaFetcherWatcher() {
                     @Override
                     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                                    final AppContext context) {
-                        SpreadsheetDeltaWatchersTest.this.checkEquals(spreadsheetDelta, delta);
-                        SpreadsheetDeltaWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(spreadsheetDelta, delta);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetDeltaWatchersTest.this.fired++;
+                        SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
@@ -84,8 +84,8 @@ public final class SpreadsheetDeltaWatchersTest implements ClassTesting<Spreadsh
     // ClassTesting....................................................................................................
 
     @Override
-    public Class<SpreadsheetDeltaWatchers> type() {
-        return SpreadsheetDeltaWatchers.class;
+    public Class<SpreadsheetDeltaFetcherWatchers> type() {
+        return SpreadsheetDeltaFetcherWatchers.class;
     }
 
     @Override

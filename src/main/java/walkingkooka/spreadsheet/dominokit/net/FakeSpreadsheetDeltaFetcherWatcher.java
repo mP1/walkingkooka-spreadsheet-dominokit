@@ -17,18 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
-public final class SpreadsheetDeltaWatchersEventTest implements ClassTesting<SpreadsheetDeltaWatchersEvent> {
-
+public class FakeSpreadsheetDeltaFetcherWatcher implements SpreadsheetDeltaFetcherWatcher {
     @Override
-    public Class<SpreadsheetDeltaWatchersEvent> type() {
-        return SpreadsheetDeltaWatchersEvent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        throw new UnsupportedOperationException();
     }
 }

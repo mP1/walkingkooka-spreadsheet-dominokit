@@ -54,8 +54,8 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatchers;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatchers;
@@ -98,7 +98,7 @@ import java.util.Optional;
 @LocaleAware
 public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         SpreadsheetMetadataFetcherWatcher,
-        SpreadsheetDeltaWatcher,
+        SpreadsheetDeltaFetcherWatcher,
         UncaughtExceptionHandler {
 
     public App() {
@@ -124,7 +124,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
         this.addSpreadsheetMetadataWatcher(this);
 
         // delta
-        this.spreadsheetDeltaWatchers = SpreadsheetDeltaWatchers.empty();
+        this.spreadsheetDeltaWatchers = SpreadsheetDeltaFetcherWatchers.empty();
         this.spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
                 this.spreadsheetDeltaWatchers,
                 this
@@ -292,19 +292,19 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaWatcher watcher) {
+    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.spreadsheetDeltaWatchers.add(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaWatcher watcher) {
+    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.spreadsheetDeltaWatchers.addOnce(watcher);
     }
 
     /**
-     * A collection of listeners for {@link SpreadsheetDeltaWatcher}
+     * A collection of listeners for {@link SpreadsheetDeltaFetcherWatcher}
      */
-    private final SpreadsheetDeltaWatchers spreadsheetDeltaWatchers;
+    private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaWatchers;
 
     /**
      * If a viewport selection is present then copy the received selection even if its now gone.

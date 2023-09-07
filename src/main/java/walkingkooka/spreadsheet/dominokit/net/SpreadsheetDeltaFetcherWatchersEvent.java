@@ -23,21 +23,21 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import java.util.function.Consumer;
 
 /**
- * The event payload used by {@link SpreadsheetDeltaWatchers}.
+ * The event payload used by {@link SpreadsheetDeltaFetcherWatchers}.
  */
-final class SpreadsheetDeltaWatchersEvent implements Consumer<SpreadsheetDeltaWatcher> {
+final class SpreadsheetDeltaFetcherWatchersEvent implements Consumer<SpreadsheetDeltaFetcherWatcher> {
 
-    static SpreadsheetDeltaWatchersEvent with(final SpreadsheetDelta delta, final AppContext context) {
-        return new SpreadsheetDeltaWatchersEvent(delta, context);
+    static SpreadsheetDeltaFetcherWatchersEvent with(final SpreadsheetDelta delta, final AppContext context) {
+        return new SpreadsheetDeltaFetcherWatchersEvent(delta, context);
     }
 
-    private SpreadsheetDeltaWatchersEvent(final SpreadsheetDelta delta, final AppContext context) {
+    private SpreadsheetDeltaFetcherWatchersEvent(final SpreadsheetDelta delta, final AppContext context) {
         this.delta = delta;
         this.context = context;
     }
 
     @Override
-    public void accept(final SpreadsheetDeltaWatcher watcher) {
+    public void accept(final SpreadsheetDeltaFetcherWatcher watcher) {
         try {
             watcher.onSpreadsheetDelta(
                     this.delta,
@@ -45,7 +45,7 @@ final class SpreadsheetDeltaWatchersEvent implements Consumer<SpreadsheetDeltaWa
             );
         } catch (final Exception cause) {
             this.context.error(
-                    "SpreadsheetDeltaWatchersEvent.accept exception: " + cause.getMessage(),
+                    "SpreadsheetDeltaFetcherWatchersEvent.accept exception: " + cause.getMessage(),
                     cause
             );
         }
