@@ -446,7 +446,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 new FakeAppContext() {
                     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
                         return SpreadsheetMetadataFetcher.with(
-                                new FakeSpreadsheetMetadataWatcher(),
+                                new FakeSpreadsheetMetadataFetcherWatcher(),
                                 new FakeAppContext()
                         );
                     }
@@ -505,7 +505,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                     @Override
                     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
                         return SpreadsheetMetadataFetcher.with(
-                                new FakeSpreadsheetMetadataWatcher(),
+                                new FakeSpreadsheetMetadataFetcherWatcher(),
                                 new FakeAppContext()
                         );
                     }

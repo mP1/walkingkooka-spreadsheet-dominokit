@@ -61,7 +61,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -91,7 +91,7 @@ import java.util.function.Predicate;
 public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElement>,
         SpreadsheetDeltaWatcher,
         SpreadsheetLabelMappingFetcherWatcher,
-        SpreadsheetMetadataWatcher,
+        SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle {
 
     public static SpreadsheetViewportComponent empty(final AppContext context) {

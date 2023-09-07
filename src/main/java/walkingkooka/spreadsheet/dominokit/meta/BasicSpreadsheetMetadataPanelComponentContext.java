@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -55,10 +55,10 @@ final class BasicSpreadsheetMetadataPanelComponentContext implements Spreadsheet
         return this.context.spreadsheetMetadata();
     }
 
-    // SpreadsheetMetadataWatcher.......................................................................................
+    // SpreadsheetMetadataFetcherWatcher.......................................................................................
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.context.addSpreadsheetMetadataWatcher(watcher);
     }
 

@@ -31,7 +31,7 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
     @Test
     public void testUrlWithNullFails() {
         final SpreadsheetMetadataFetcher fetcher = SpreadsheetMetadataFetcher.with(
-                new FakeSpreadsheetMetadataWatcher(),
+                new FakeSpreadsheetMetadataFetcherWatcher(),
                 new FakeAppContext()
         );
 
@@ -44,7 +44,7 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
     @Test
     public void testUrl() {
         final SpreadsheetMetadataFetcher fetcher = SpreadsheetMetadataFetcher.with(
-                new FakeSpreadsheetMetadataWatcher(),
+                new FakeSpreadsheetMetadataFetcherWatcher(),
                 new FakeAppContext()
         );
 

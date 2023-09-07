@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import walkingkooka.locale.HasLocale;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
@@ -36,7 +36,7 @@ public interface SpreadsheetMetadataPanelComponentContext extends CloseableHisto
         HasSpreadsheetMetadata,
         LoggingContext {
 
-    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
+    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
     /**
      * Helper useful for formatting create and last modified timestamps.

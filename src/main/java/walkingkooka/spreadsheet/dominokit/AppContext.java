@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -66,9 +66,9 @@ public interface AppContext extends CanGiveFocus,
 
     // metadata..........................................................................................................
 
-    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher);
+    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
-    Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataWatcher watcher);
+    Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher);
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 

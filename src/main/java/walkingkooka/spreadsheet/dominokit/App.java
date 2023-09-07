@@ -60,8 +60,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatchers;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponent;
 import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.AppRightDrawerOpenableComponent;
@@ -97,7 +97,7 @@ import java.util.Optional;
 
 @LocaleAware
 public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
-        SpreadsheetMetadataWatcher,
+        SpreadsheetMetadataFetcherWatcher,
         SpreadsheetDeltaWatcher,
         UncaughtExceptionHandler {
 
@@ -116,7 +116,7 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
 
         // metadata
         this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
-        this.metadataWatchers = SpreadsheetMetadataWatchers.empty();
+        this.metadataWatchers = SpreadsheetMetadataFetcherWatchers.empty();
         this.spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(
                 this.metadataWatchers,
                 this
@@ -363,19 +363,19 @@ public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
     private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.metadataWatchers.add(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.metadataWatchers.add(watcher);
     }
 
     /**
-     * A collection of listeners for {@link SpreadsheetMetadataWatcher}
+     * A collection of listeners for {@link SpreadsheetMetadataFetcherWatcher}
      */
-    private final SpreadsheetMetadataWatchers metadataWatchers;
+    private final SpreadsheetMetadataFetcherWatchers metadataWatchers;
 
     /**
      * Update the spreadsheet-id, spreadsheet-name and viewport selection from the given {@link SpreadsheetMetadata}.

@@ -17,13 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-public class FakeSpreadsheetMetadataWatcher implements SpreadsheetMetadataWatcher {
+public final class SpreadsheetMetadataFetcherWatchersEventTest implements ClassTesting<SpreadsheetMetadataFetcherWatchersEvent> {
+
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
-        throw new UnsupportedOperationException();
+    public Class<SpreadsheetMetadataFetcherWatchersEvent> type() {
+        return SpreadsheetMetadataFetcherWatchersEvent.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -31,7 +31,7 @@ import java.util.Objects;
 
 public final class SpreadsheetMetadataFetcher implements Fetcher {
 
-    public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataWatcher watcher,
+    public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataFetcherWatcher watcher,
                                                   final AppContext context) {
         Objects.requireNonNull(watcher, "watcher");
         Objects.requireNonNull(context, "context");
@@ -42,7 +42,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
         );
     }
 
-    private SpreadsheetMetadataFetcher(final SpreadsheetMetadataWatcher watcher,
+    private SpreadsheetMetadataFetcher(final SpreadsheetMetadataFetcherWatcher watcher,
                                        final AppContext context) {
         this.watcher = watcher;
         this.context = context;
@@ -138,7 +138,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
 
     }
 
-    private final SpreadsheetMetadataWatcher watcher;
+    private final SpreadsheetMetadataFetcherWatcher watcher;
 
     @Override
     public AppContext context() {
