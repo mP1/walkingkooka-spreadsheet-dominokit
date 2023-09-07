@@ -23,26 +23,26 @@ import walkingkooka.watch.Watchers;
 
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingWatchers implements SpreadsheetLabelMappingWatcher {
+public final class SpreadsheetLabelMappingFetcherWatchers implements SpreadsheetLabelMappingFetcherWatcher {
 
-    public static SpreadsheetLabelMappingWatchers empty() {
-        return new SpreadsheetLabelMappingWatchers();
+    public static SpreadsheetLabelMappingFetcherWatchers empty() {
+        return new SpreadsheetLabelMappingFetcherWatchers();
     }
 
     /**
-     * Adds a new {@link SpreadsheetLabelMappingWatcher} which will receive all events until removed using the returned {@link Runnable}.
+     * Adds a new {@link SpreadsheetLabelMappingFetcherWatcher} which will receive all events until removed using the returned {@link Runnable}.
      */
-    public Runnable add(final SpreadsheetLabelMappingWatcher watcher) {
+    public Runnable add(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         return this.watchers.add(
                 (e) -> e.accept(watcher)
         );
     }
 
     /**
-     * Adds a {@link SpreadsheetLabelMappingWatcher} which will be removed after the first event is fired. This is unlike
-     * {@link #add(SpreadsheetLabelMappingWatcher)} will continue to receive all events until the watcher is removed.
+     * Adds a {@link SpreadsheetLabelMappingFetcherWatcher} which will be removed after the first event is fired. This is unlike
+     * {@link #add(SpreadsheetLabelMappingFetcherWatcher)} will continue to receive all events until the watcher is removed.
      */
-    public Runnable addOnce(final SpreadsheetLabelMappingWatcher watcher) {
+    public Runnable addOnce(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         return this.watchers.addOnce(
                 (e) -> e.accept(watcher)
         );
@@ -52,14 +52,14 @@ public final class SpreadsheetLabelMappingWatchers implements SpreadsheetLabelMa
     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
         this.watchers.accept(
-                SpreadsheetLabelMappingWatchersEvent.with(
+                SpreadsheetLabelMappingFetcherWatchersEvent.with(
                         mapping,
                         context
                 )
         );
     }
 
-    private final Watchers<SpreadsheetLabelMappingWatchersEvent> watchers = Watchers.create();
+    private final Watchers<SpreadsheetLabelMappingFetcherWatchersEvent> watchers = Watchers.create();
 
     @Override
     public String toString() {

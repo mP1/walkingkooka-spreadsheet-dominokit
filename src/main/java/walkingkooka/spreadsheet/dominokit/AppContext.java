@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -58,9 +58,9 @@ public interface AppContext extends CanGiveFocus,
 
     // labelMapping............................................................................................................
 
-    Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingWatcher watcher);
+    Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher);
 
-    Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingWatcher watcher);
+    Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher);
 
     SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher();
 
