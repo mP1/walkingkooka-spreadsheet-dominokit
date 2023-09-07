@@ -132,7 +132,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     private final static UrlParameterName WINDOW = UrlParameterName.with("window");
 
-    public static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaWatcher watcher,
+    public static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaFetcherWatcher watcher,
                                                final AppContext context) {
         Objects.requireNonNull(watcher, "watcher");
         Objects.requireNonNull(context, "context");
@@ -143,7 +143,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    private SpreadsheetDeltaFetcher(final SpreadsheetDeltaWatcher watcher,
+    private SpreadsheetDeltaFetcher(final SpreadsheetDeltaFetcherWatcher watcher,
                                     final AppContext context) {
         this.watcher = watcher;
         this.context = context;
@@ -291,7 +291,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     }
 
-    private final SpreadsheetDeltaWatcher watcher;
+    private final SpreadsheetDeltaFetcherWatcher watcher;
 
     @Override
     public AppContext context() {

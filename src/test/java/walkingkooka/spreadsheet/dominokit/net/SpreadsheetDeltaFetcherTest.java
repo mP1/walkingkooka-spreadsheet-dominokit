@@ -442,7 +442,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                           final SpreadsheetSelection selection,
                           final Optional<UrlPath> path) {
         final SpreadsheetDeltaFetcher fetcher = SpreadsheetDeltaFetcher.with(
-                new FakeSpreadsheetDeltaWatcher(),
+                new FakeSpreadsheetDeltaFetcherWatcher(),
                 new FakeAppContext() {
                     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
                         return SpreadsheetMetadataFetcher.with(
@@ -500,7 +500,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                              final Optional<UrlPath> path,
                              final RelativeUrl url) {
         final SpreadsheetDeltaFetcher fetcher = SpreadsheetDeltaFetcher.with(
-                new FakeSpreadsheetDeltaWatcher(),
+                new FakeSpreadsheetDeltaFetcherWatcher(),
                 new FakeAppContext() {
                     @Override
                     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
