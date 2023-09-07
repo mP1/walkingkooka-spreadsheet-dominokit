@@ -25,7 +25,7 @@ import java.util.Optional;
 /**
  * A watcher that receives all {@link SpreadsheetLabelMapping} response events.
  */
-public interface SpreadsheetLabelMappingFetcherWatcher {
+public interface SpreadsheetLabelMappingFetcherWatcher extends FetcherWatcher {
 
     void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                    final AppContext context);

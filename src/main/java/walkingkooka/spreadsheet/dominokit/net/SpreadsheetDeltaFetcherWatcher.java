@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 /**
  * A watcher that receives all {@link SpreadsheetDelta} response events.
  */
-public interface SpreadsheetDeltaFetcherWatcher {
+public interface SpreadsheetDeltaFetcherWatcher extends FetcherWatcher {
 
     void onSpreadsheetDelta(final SpreadsheetDelta delta,
                             final AppContext context);
