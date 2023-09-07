@@ -19,33 +19,18 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
-import walkingkooka.watch.Watchers;
 
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingFetcherWatchers implements SpreadsheetLabelMappingFetcherWatcher {
+public final class SpreadsheetLabelMappingFetcherWatchers extends FetcherWatchers<SpreadsheetLabelMappingFetcherWatcher>
+        implements SpreadsheetLabelMappingFetcherWatcher{
 
     public static SpreadsheetLabelMappingFetcherWatchers empty() {
         return new SpreadsheetLabelMappingFetcherWatchers();
     }
 
-    /**
-     * Adds a new {@link SpreadsheetLabelMappingFetcherWatcher} which will receive all events until removed using the returned {@link Runnable}.
-     */
-    public Runnable add(final SpreadsheetLabelMappingFetcherWatcher watcher) {
-        return this.watchers.add(
-                (e) -> e.accept(watcher)
-        );
-    }
-
-    /**
-     * Adds a {@link SpreadsheetLabelMappingFetcherWatcher} which will be removed after the first event is fired. This is unlike
-     * {@link #add(SpreadsheetLabelMappingFetcherWatcher)} will continue to receive all events until the watcher is removed.
-     */
-    public Runnable addOnce(final SpreadsheetLabelMappingFetcherWatcher watcher) {
-        return this.watchers.addOnce(
-                (e) -> e.accept(watcher)
-        );
+    private SpreadsheetLabelMappingFetcherWatchers() {
+        super();
     }
 
     @Override
@@ -57,12 +42,5 @@ public final class SpreadsheetLabelMappingFetcherWatchers implements Spreadsheet
                         context
                 )
         );
-    }
-
-    private final Watchers<SpreadsheetLabelMappingFetcherWatchersEvent> watchers = Watchers.create();
-
-    @Override
-    public String toString() {
-        return this.watchers.toString();
     }
 }

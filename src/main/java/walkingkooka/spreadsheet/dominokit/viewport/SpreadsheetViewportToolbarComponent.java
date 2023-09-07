@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.layout.FlexLayout;
+import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -45,6 +46,7 @@ import java.util.Optional;
  */
 public final class SpreadsheetViewportToolbarComponent implements ComponentLifecycle,
         IsElement<HTMLDivElement>,
+        NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetViewportToolbarComponent with(final AppContext context) {

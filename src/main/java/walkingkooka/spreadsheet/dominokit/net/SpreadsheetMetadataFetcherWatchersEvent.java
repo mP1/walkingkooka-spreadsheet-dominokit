@@ -20,12 +20,10 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-import java.util.function.Consumer;
-
 /**
  * The event payload used by {@link SpreadsheetMetadataFetcherWatchers}.
  */
-final class SpreadsheetMetadataFetcherWatchersEvent implements Consumer<SpreadsheetMetadataFetcherWatcher> {
+final class SpreadsheetMetadataFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetMetadataFetcherWatcher> {
 
     static SpreadsheetMetadataFetcherWatchersEvent with(final SpreadsheetMetadata metadata,
                                                         final AppContext context) {
@@ -34,8 +32,8 @@ final class SpreadsheetMetadataFetcherWatchersEvent implements Consumer<Spreadsh
 
     private SpreadsheetMetadataFetcherWatchersEvent(final SpreadsheetMetadata metadata,
                                                     final AppContext context) {
+        super(context);
         this.metadata = metadata;
-        this.context = context;
     }
 
     @Override
@@ -54,8 +52,6 @@ final class SpreadsheetMetadataFetcherWatchersEvent implements Consumer<Spreadsh
     }
 
     private final SpreadsheetMetadata metadata;
-
-    private final AppContext context;
 
     @Override
     public String toString() {

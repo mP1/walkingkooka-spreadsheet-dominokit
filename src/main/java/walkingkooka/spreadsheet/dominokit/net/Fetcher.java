@@ -115,6 +115,12 @@ public interface Fetcher {
                 bodyJson
         );
 
+        this.onBegin(
+                method,
+                url,
+                body
+        );
+
         DomGlobal.fetch(
                         url.value(),
                         requestInit
@@ -159,6 +165,13 @@ public interface Fetcher {
                     return null;
                 });
     }
+
+    /**
+     * Called just before a fetch begins.
+     */
+    void onBegin(final HttpMethod method,
+                 final Url url,
+                 final Optional<String> body);
 
     /**
      * Opportunity for sub classes to log any fetches.

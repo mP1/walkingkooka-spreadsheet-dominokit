@@ -23,6 +23,7 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
@@ -264,6 +265,18 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     @Override
+    public void onBegin(final HttpMethod method,
+                        final Url url,
+                        final Optional<String> body) {
+        this.watcher.onBegin(
+                method,
+                url,
+                body,
+                this.context
+        );
+    }
+
+    @Override
     public void fetchLog(final Object... values) {
         this.context.debug(values);
     }
@@ -283,12 +296,20 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public void onFailure(final HttpStatus status,
                           final Headers headers,
                           final String body) {
-
+        this.watcher.onFailure(
+                status,
+                headers,
+                body,
+                this.context
+        );
     }
 
     @Override
     public void onError(final Object cause) {
-
+        this.watcher.onError(
+                cause,
+                this.context
+        );
     }
 
     private final SpreadsheetDeltaFetcherWatcher watcher;

@@ -18,41 +18,42 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 /**
- * The event payload used by {@link SpreadsheetDeltaFetcherWatchers}.
+ * The event payload used by {@link FetcherWatcher#onError(Object, AppContext)}.
  */
-final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetDeltaFetcherWatcher> {
+final class ErrorFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static SpreadsheetDeltaFetcherWatchersEvent with(final SpreadsheetDelta delta, final AppContext context) {
-        return new SpreadsheetDeltaFetcherWatchersEvent(delta, context);
+    static ErrorFetcherWatchersEvent with(final Object cause,
+                                          final AppContext context) {
+        return new ErrorFetcherWatchersEvent(cause, context);
     }
 
-    private SpreadsheetDeltaFetcherWatchersEvent(final SpreadsheetDelta delta, final AppContext context) {
+    private ErrorFetcherWatchersEvent(final Object cause,
+                                      final AppContext context) {
         super(context);
-        this.delta = delta;
+        this.cause = cause;
     }
 
     @Override
-    public void accept(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public void accept(final W watcher) {
         try {
-            watcher.onSpreadsheetDelta(
-                    this.delta,
+            watcher.onError(
+                    this.cause,
                     this.context
             );
         } catch (final Exception cause) {
             this.context.error(
-                    "SpreadsheetDeltaFetcherWatchersEvent.accept exception: " + cause.getMessage(),
+                    this.getClass().getSimpleName() + ".accept exception: " + cause.getMessage(),
                     cause
             );
         }
     }
 
-    private final SpreadsheetDelta delta;
+    private final Object cause;
 
     @Override
     public String toString() {
-        return this.delta + " " + this.context;
+        return this.cause + " " + this.context;
     }
 }

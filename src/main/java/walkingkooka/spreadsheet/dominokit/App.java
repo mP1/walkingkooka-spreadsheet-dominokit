@@ -53,6 +53,7 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
+import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
@@ -96,7 +97,10 @@ import java.math.MathContext;
 import java.util.Optional;
 
 @LocaleAware
-public class App implements EntryPoint, AppContext, HistoryTokenWatcher,
+public class App implements EntryPoint,
+        AppContext,
+        HistoryTokenWatcher,
+        NopFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         UncaughtExceptionHandler {

@@ -22,6 +22,7 @@ import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -122,6 +123,18 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     }
 
     @Override
+    public void onBegin(final HttpMethod method,
+                        final Url url,
+                        final Optional<String> body) {
+        this.watcher.onBegin(
+                method,
+                url,
+                body,
+                this.context
+        );
+    }
+
+    @Override
     public void onSuccess(final String body) {
         this.watcher.onSpreadsheetLabelMapping(
                 Optional.ofNullable(
@@ -140,12 +153,20 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     public void onFailure(final HttpStatus status,
                           final Headers headers,
                           final String body) {
-
+        this.watcher.onFailure(
+                status,
+                headers,
+                body,
+                this.context
+        );
     }
 
     @Override
     public void onError(final Object cause) {
-
+        this.watcher.onError(
+                cause,
+                this.context
+        );
     }
 
     private final SpreadsheetLabelMappingFetcherWatcher watcher;

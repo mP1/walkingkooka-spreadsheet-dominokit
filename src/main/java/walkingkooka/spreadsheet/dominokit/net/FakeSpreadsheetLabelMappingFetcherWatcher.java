@@ -17,15 +17,42 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import elemental2.dom.Headers;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
 import java.util.Optional;
 
 public class FakeSpreadsheetLabelMappingFetcherWatcher implements SpreadsheetLabelMappingFetcherWatcher {
+
+    @Override
+    public void onBegin(final HttpMethod method,
+                        final Url url,
+                        final Optional<String> body,
+                        final AppContext context) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void onFailure(final HttpStatus status,
+                          final Headers headers,
+                          final String body,
+                          final AppContext context) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void onError(final Object cause,
+                        final AppContext context) {
         throw new UnsupportedOperationException();
     }
 }
