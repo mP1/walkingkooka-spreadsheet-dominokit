@@ -50,7 +50,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
@@ -74,7 +74,7 @@ import java.util.stream.Collectors;
  */
 public final class SpreadsheetPatternEditorComponent implements ComponentLifecycle,
         SpreadsheetDeltaWatcher,
-        SpreadsheetMetadataWatcher {
+        SpreadsheetMetadataFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetPatternEditorComponent}.
@@ -797,7 +797,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         this.refreshIfOpen(context);
     }
 
-    // SpreadsheetMetadataWatcher..........................................................................................
+    // SpreadsheetMetadataFetcherWatcher..........................................................................................
 
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,

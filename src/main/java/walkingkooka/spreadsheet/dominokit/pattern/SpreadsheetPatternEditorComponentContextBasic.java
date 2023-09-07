@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -119,7 +119,7 @@ abstract class SpreadsheetPatternEditorComponentContextBasic implements Spreadsh
     }
 
     @Override
-    public final Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+    public final Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.context.addSpreadsheetMetadataWatcher(watcher);
     }
 

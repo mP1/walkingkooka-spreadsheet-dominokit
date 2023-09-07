@@ -24,23 +24,23 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public final class SpreadsheetMetadataWatchersTest implements ClassTesting<SpreadsheetMetadataWatchers> {
+public final class SpreadsheetMetadataFetcherWatchersTest implements ClassTesting<SpreadsheetMetadataFetcherWatchers> {
 
     @Test
     public void testAddThenFire() {
         final SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
         final AppContext appContext = new FakeAppContext();
 
-        final SpreadsheetMetadataWatchers watchers = SpreadsheetMetadataWatchers.empty();
+        final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(
-                new SpreadsheetMetadataWatcher() {
+                new SpreadsheetMetadataFetcherWatcher() {
                     @Override
                     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                                       final AppContext context) {
-                        SpreadsheetMetadataWatchersTest.this.checkEquals(spreadsheetMetadata, metadata);
-                        SpreadsheetMetadataWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(spreadsheetMetadata, metadata);
+                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetMetadataWatchersTest.this.fired = true;
+                        SpreadsheetMetadataFetcherWatchersTest.this.fired = true;
                     }
                 });
         watchers.onSpreadsheetMetadata(spreadsheetMetadata, appContext);
@@ -53,8 +53,8 @@ public final class SpreadsheetMetadataWatchersTest implements ClassTesting<Sprea
     // ClassTesting....................................................................................................
 
     @Override
-    public Class<SpreadsheetMetadataWatchers> type() {
-        return SpreadsheetMetadataWatchers.class;
+    public Class<SpreadsheetMetadataFetcherWatchers> type() {
+        return SpreadsheetMetadataFetcherWatchers.class;
     }
 
     @Override

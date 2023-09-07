@@ -21,22 +21,22 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.watch.Watchers;
 
-public final class SpreadsheetMetadataWatchers implements SpreadsheetMetadataWatcher {
+public final class SpreadsheetMetadataFetcherWatchers implements SpreadsheetMetadataFetcherWatcher {
 
-    public static SpreadsheetMetadataWatchers empty() {
-        return new SpreadsheetMetadataWatchers();
+    public static SpreadsheetMetadataFetcherWatchers empty() {
+        return new SpreadsheetMetadataFetcherWatchers();
     }
 
     /**
-     * Adds a new {@link SpreadsheetMetadataWatcher} which will receive all events until removed using the returned {@link Runnable}.
+     * Adds a new {@link SpreadsheetMetadataFetcherWatcher} which will receive all events until removed using the returned {@link Runnable}.
      */
-    public Runnable add(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable add(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.watchers.add(
                 (e) -> e.accept(watcher)
         );
     }
 
-    public Runnable addOnce(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable addOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.watchers.addOnce(
                 (e) -> e.accept(watcher)
         );
@@ -46,14 +46,14 @@ public final class SpreadsheetMetadataWatchers implements SpreadsheetMetadataWat
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
         this.watchers.accept(
-                SpreadsheetMetadataWatchersEvent.with(
+                SpreadsheetMetadataFetcherWatchersEvent.with(
                         metadata,
                         context
                 )
         );
     }
 
-    private final Watchers<SpreadsheetMetadataWatchersEvent> watchers = Watchers.create();
+    private final Watchers<SpreadsheetMetadataFetcherWatchersEvent> watchers = Watchers.create();
 
     @Override
     public String toString() {

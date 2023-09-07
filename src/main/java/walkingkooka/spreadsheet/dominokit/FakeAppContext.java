@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -68,12 +68,12 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataWatcher watcher) {
+    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

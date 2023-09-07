@@ -23,23 +23,23 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import java.util.function.Consumer;
 
 /**
- * The event payload used by {@link SpreadsheetMetadataWatchers}.
+ * The event payload used by {@link SpreadsheetMetadataFetcherWatchers}.
  */
-final class SpreadsheetMetadataWatchersEvent implements Consumer<SpreadsheetMetadataWatcher> {
+final class SpreadsheetMetadataFetcherWatchersEvent implements Consumer<SpreadsheetMetadataFetcherWatcher> {
 
-    static SpreadsheetMetadataWatchersEvent with(final SpreadsheetMetadata metadata,
-                                                 final AppContext context) {
-        return new SpreadsheetMetadataWatchersEvent(metadata, context);
+    static SpreadsheetMetadataFetcherWatchersEvent with(final SpreadsheetMetadata metadata,
+                                                        final AppContext context) {
+        return new SpreadsheetMetadataFetcherWatchersEvent(metadata, context);
     }
 
-    private SpreadsheetMetadataWatchersEvent(final SpreadsheetMetadata metadata,
-                                             final AppContext context) {
+    private SpreadsheetMetadataFetcherWatchersEvent(final SpreadsheetMetadata metadata,
+                                                    final AppContext context) {
         this.metadata = metadata;
         this.context = context;
     }
 
     @Override
-    public void accept(final SpreadsheetMetadataWatcher watcher) {
+    public void accept(final SpreadsheetMetadataFetcherWatcher watcher) {
         try {
             watcher.onSpreadsheetMetadata(
                     this.metadata,
@@ -47,7 +47,7 @@ final class SpreadsheetMetadataWatchersEvent implements Consumer<SpreadsheetMeta
             );
         } catch (final Exception cause) {
             this.context.error(
-                    "SpreadsheetMetadataWatchersEvent.accept exception: " + cause.getMessage(),
+                    "SpreadsheetMetadataFetcherWatchersEvent.accept exception: " + cause.getMessage(),
                     cause
             );
         }
