@@ -17,14 +17,19 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import elemental2.dom.Headers;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
+import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
-public final class SpreadsheetDeltaFetcherWatchersTest implements ClassTesting<SpreadsheetDeltaFetcherWatchers> {
+import java.util.Optional;
+
+public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTestCase<SpreadsheetDeltaFetcherWatchers> {
 
     @Test
     public void testAddThenFire() {
@@ -35,7 +40,7 @@ public final class SpreadsheetDeltaFetcherWatchersTest implements ClassTesting<S
 
         final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
         watchers.add(
-                new SpreadsheetDeltaFetcherWatcher() {
+                new FakeSpreadsheetDeltaFetcherWatcher() {
                     @Override
                     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                                    final AppContext context) {
@@ -59,7 +64,7 @@ public final class SpreadsheetDeltaFetcherWatchersTest implements ClassTesting<S
 
         final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
         watchers.addOnce(
-                new SpreadsheetDeltaFetcherWatcher() {
+                new FakeSpreadsheetDeltaFetcherWatcher() {
                     @Override
                     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                                    final AppContext context) {
@@ -79,6 +84,107 @@ public final class SpreadsheetDeltaFetcherWatchersTest implements ClassTesting<S
         this.checkEquals(1, this.fired);
     }
 
+    @Test
+    public void testFireBegin() {
+        this.fired = 0;
+
+        final HttpMethod method = HttpMethod.with("CustomHttpMethod");
+        final Url url = Url.parseAbsolute("https://example/");
+        final Optional<String> body = Optional.of("Body123");
+        final AppContext appContext = new FakeAppContext();
+
+        final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
+        watchers.add(
+                new FakeSpreadsheetDeltaFetcherWatcher() {
+
+                    @Override
+                    public void onBegin(final HttpMethod m,
+                                        final Url u,
+                                        final Optional<String> b,
+                                        final AppContext context) {
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(method, m);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(u, u);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(b, b);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
+
+                        SpreadsheetDeltaFetcherWatchersTest.this.fired++;
+                    }
+                });
+        watchers.onBegin(method, url, body, appContext);
+        this.checkEquals(1, this.fired);
+
+        watchers.onBegin(method, url, body, appContext);
+        this.checkEquals(2, this.fired);
+
+        watchers.onBegin(method, url, body, appContext);
+        this.checkEquals(3, this.fired);
+    }
+
+    @Test
+    public void testFireError() {
+        this.fired = 0;
+
+        final Object cause = "cause-123";
+        final AppContext appContext = new FakeAppContext();
+
+        final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
+        watchers.add(
+                new FakeSpreadsheetDeltaFetcherWatcher() {
+                    @Override
+                    public void onError(final Object c,
+                                        final AppContext context) {
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(cause, c);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
+
+                        SpreadsheetDeltaFetcherWatchersTest.this.fired++;
+                    }
+                });
+        watchers.onError(cause, appContext);
+        this.checkEquals(1, this.fired);
+
+        watchers.onError(cause, appContext);
+        this.checkEquals(2, this.fired);
+
+        watchers.onError(cause, appContext);
+        this.checkEquals(3, this.fired);
+    }
+
+    @Test
+    public void testFireFailure() {
+        this.fired = 0;
+
+        final HttpStatus status = HttpStatusCode.withCode(123).setMessage("status message 456");
+        final Headers headers = null;
+        final String body = "Body-failure-789";
+        final AppContext appContext = new FakeAppContext();
+
+        final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
+        watchers.add(
+                new FakeSpreadsheetDeltaFetcherWatcher() {
+
+                    @Override
+                    public void onFailure(final HttpStatus s,
+                                          final Headers h,
+                                          final String b,
+                                          final AppContext context) {
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(status, s);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(headers, h);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(body, b);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
+
+                        SpreadsheetDeltaFetcherWatchersTest.this.fired++;
+                    }
+                });
+        watchers.onFailure(status, headers, body, appContext);
+        this.checkEquals(1, this.fired);
+
+        watchers.onFailure(status, headers, body, appContext);
+        this.checkEquals(2, this.fired);
+
+        watchers.onFailure(status, headers, body, appContext);
+        this.checkEquals(3, this.fired);
+    }
+
     private int fired = 0;
 
     // ClassTesting....................................................................................................
@@ -86,10 +192,5 @@ public final class SpreadsheetDeltaFetcherWatchersTest implements ClassTesting<S
     @Override
     public Class<SpreadsheetDeltaFetcherWatchers> type() {
         return SpreadsheetDeltaFetcherWatchers.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

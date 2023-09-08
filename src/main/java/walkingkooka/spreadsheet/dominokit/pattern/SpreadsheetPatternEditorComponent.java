@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -73,6 +74,7 @@ import java.util.stream.Collectors;
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
 public final class SpreadsheetPatternEditorComponent implements ComponentLifecycle,
+        NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 

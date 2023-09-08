@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -49,7 +50,9 @@ import java.util.Set;
  * A cache of the cells and labels for a viewport. This is mostly used during the rendering phase to provide content
  * for the cells in the spreadsheet viewport TABLE.
  */
-public final class SpreadsheetViewportCache implements SpreadsheetDeltaFetcherWatcher, SpreadsheetMetadataFetcherWatcher {
+public final class SpreadsheetViewportCache implements NopFetcherWatcher,
+        SpreadsheetDeltaFetcherWatcher,
+        SpreadsheetMetadataFetcherWatcher {
 
     /**
      * Creates a new cache with no cells or labels present.

@@ -1,0 +1,99 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.net;
+
+import elemental2.dom.Headers;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.watch.Watchers;
+
+import java.util.Optional;
+
+abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatcher {
+
+    FetcherWatchers() {
+        super();
+    }
+
+    /**
+     * Adds a new {@link SpreadsheetMetadataFetcherWatcher} which will receive all events until removed using the returned {@link Runnable}.
+     */
+    public final Runnable add(final W watcher) {
+        return this.watchers.add(
+                (e) -> e.accept(watcher)
+        );
+    }
+
+    public final Runnable addOnce(final W watcher) {
+        return this.watchers.addOnce(
+                (e) -> e.accept(watcher)
+        );
+    }
+
+    // FetcherWatcher..................................................................................................
+
+    @Override
+    public final void onBegin(final HttpMethod method,
+                              final Url url,
+                              final Optional<String> body,
+                              final AppContext context) {
+        this.watchers.accept(
+                FetcherWatchersEvent.begin(
+                        method,
+                        url,
+                        body,
+                        context
+                )
+        );
+    }
+
+    @Override
+    public final void onFailure(final HttpStatus status,
+                                final Headers headers,
+                                final String body,
+                                final AppContext context) {
+        this.watchers.accept(
+                FetcherWatchersEvent.failure(
+                        status,
+                        headers,
+                        body,
+                        context
+                )
+        );
+    }
+
+    @Override
+    public final void onError(final Object cause,
+                              final AppContext context) {
+        this.watchers.accept(
+                FetcherWatchersEvent.error(
+                        cause,
+                        context
+                )
+        );
+    }
+
+    final Watchers<FetcherWatchersEvent> watchers = Watchers.create();
+
+    @Override
+    public final String toString() {
+        return this.watchers.toString();
+    }
+}

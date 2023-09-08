@@ -19,27 +19,16 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.watch.Watchers;
 
-public final class SpreadsheetMetadataFetcherWatchers implements SpreadsheetMetadataFetcherWatcher {
+public final class SpreadsheetMetadataFetcherWatchers extends FetcherWatchers<SpreadsheetMetadataFetcherWatcher>
+        implements SpreadsheetMetadataFetcherWatcher{
 
     public static SpreadsheetMetadataFetcherWatchers empty() {
         return new SpreadsheetMetadataFetcherWatchers();
     }
 
-    /**
-     * Adds a new {@link SpreadsheetMetadataFetcherWatcher} which will receive all events until removed using the returned {@link Runnable}.
-     */
-    public Runnable add(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.watchers.add(
-                (e) -> e.accept(watcher)
-        );
-    }
-
-    public Runnable addOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.watchers.addOnce(
-                (e) -> e.accept(watcher)
-        );
+    private SpreadsheetMetadataFetcherWatchers() {
+        super();
     }
 
     @Override
@@ -51,12 +40,5 @@ public final class SpreadsheetMetadataFetcherWatchers implements SpreadsheetMeta
                         context
                 )
         );
-    }
-
-    private final Watchers<SpreadsheetMetadataFetcherWatchersEvent> watchers = Watchers.create();
-
-    @Override
-    public String toString() {
-        return this.watchers.toString();
     }
 }

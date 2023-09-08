@@ -21,12 +21,11 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
 import java.util.Optional;
-import java.util.function.Consumer;
 
 /**
  * The event payload used by {@link SpreadsheetLabelMappingFetcherWatchers}.
  */
-final class SpreadsheetLabelMappingFetcherWatchersEvent implements Consumer<SpreadsheetLabelMappingFetcherWatcher> {
+final class SpreadsheetLabelMappingFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetLabelMappingFetcherWatcher> {
 
     static SpreadsheetLabelMappingFetcherWatchersEvent with(final Optional<SpreadsheetLabelMapping> mapping,
                                                             final AppContext context) {
@@ -35,8 +34,8 @@ final class SpreadsheetLabelMappingFetcherWatchersEvent implements Consumer<Spre
 
     private SpreadsheetLabelMappingFetcherWatchersEvent(final Optional<SpreadsheetLabelMapping> mapping,
                                                         final AppContext context) {
+        super(context);
         this.mapping = mapping;
-        this.context = context;
     }
 
     @Override
@@ -55,8 +54,6 @@ final class SpreadsheetLabelMappingFetcherWatchersEvent implements Consumer<Spre
     }
 
     private final Optional<SpreadsheetLabelMapping> mapping;
-
-    private final AppContext context;
 
     @Override
     public String toString() {

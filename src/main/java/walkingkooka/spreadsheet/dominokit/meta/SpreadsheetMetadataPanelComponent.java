@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponentContexts;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
@@ -62,6 +63,7 @@ import java.util.function.Function;
  */
 public final class SpreadsheetMetadataPanelComponent implements ComponentLifecycle,
         IsElement<HTMLTableElement>,
+        NopFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 
     public static SpreadsheetMetadataPanelComponent with(final OpenableComponent drawer,

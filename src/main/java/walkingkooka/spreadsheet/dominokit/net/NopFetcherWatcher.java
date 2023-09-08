@@ -25,18 +25,24 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Optional;
 
-public interface FetcherWatcher {
+public interface NopFetcherWatcher extends FetcherWatcher {
 
-    void onBegin(final HttpMethod method,
-                 final Url url,
-                 final Optional<String> body,
-                 final AppContext context);
+    default void onBegin(final HttpMethod method,
+                         final Url url,
+                         final Optional<String> body,
+                         final AppContext context) {
+        // nop
+    }
 
-    void onFailure(final HttpStatus status,
-                   final Headers headers,
-                   final String body,
-                   final AppContext context);
+    default void onFailure(final HttpStatus status,
+                           final Headers headers,
+                           final String body,
+                           final AppContext context) {
+        // nop
+    }
 
-    void onError(final Object cause,
-                 final AppContext context);
+    default void onError(final Object cause,
+                         final AppContext context) {
+        // nop
+    }
 }
