@@ -209,8 +209,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * is rendered again!
      */
     private void render(final AppContext context) {
-        context.debug("SpreadsheetViewportComponent.render BEGIN");
-
         final HistoryToken historyToken = context.historyToken();
         final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
         this.setViewportSelection(
@@ -291,8 +289,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     context
             );
         }
-
-        context.debug("SpreadsheetViewportComponent.render END");
     }
 
     /**
@@ -806,9 +802,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     @Override
     public void refresh(final AppContext context) {
+        context.debug("SpreadsheetViewportComponent.refresh BEGIN");
+
         this.render(
                 context
         );
+
+        context.debug("SpreadsheetViewportComponent.refresh END");
     }
 
     @Override
@@ -823,7 +823,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                    final AppContext context) {
         Objects.requireNonNull(delta, "delta");
 
-        this.render(context);
+        this.refresh(context);
     }
 
     // SpreadsheetLabelMappingFetcherWatcher............................................................................
@@ -865,7 +865,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             );
         }
 
-        this.render(context);
+        this.refresh(context);
     }
 
     /**
