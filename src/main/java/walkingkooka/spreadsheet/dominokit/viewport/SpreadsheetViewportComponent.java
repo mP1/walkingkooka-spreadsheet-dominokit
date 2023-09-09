@@ -163,8 +163,84 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                         ).element()
                         ).element()
         );
+        this.addKeyDownEventListener(
+                tableElement.element()
+        );
 
         return tableElement;
+    }
+
+    // key down.........................................................................................................
+
+    /**
+     * Registers a keydown event handler on the given {@link Element}.
+     */
+    private void addKeyDownEventListener(final Element element) {
+        element.addEventListener(
+                EventType.keydown.getName(),
+                (event) -> onKeyDownEvent(
+                        Js.cast(event)
+                )
+        );
+    }
+
+    /**
+     * Generic key event handler that handles any key events for cell/column OR row.
+     */
+    private void onKeyDownEvent(final KeyboardEvent event) {
+        event.preventDefault();
+
+        final boolean shifted = event.shiftKey;
+        final AppContext context = this.context;
+
+        SpreadsheetViewportSelectionNavigation navigation = null;
+        switch (Key.fromEvent(event)) {
+            case ArrowLeft:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
+                        SpreadsheetViewportSelectionNavigation.LEFT;
+                break;
+            case ArrowUp:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_UP :
+                        SpreadsheetViewportSelectionNavigation.UP;
+                break;
+            case ArrowRight:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
+                        SpreadsheetViewportSelectionNavigation.RIGHT;
+                break;
+            case ArrowDown:
+                navigation = shifted ?
+                        SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
+                        SpreadsheetViewportSelectionNavigation.DOWN;
+                break;
+            case Enter:
+                // if cell then edit formula
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .setFormula()
+                );
+                break;
+            case Escape:
+                // clear any selection
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .setViewportSelection(
+                                        Optional.empty()
+                                )
+                );
+                break;
+            default:
+                // ignore other keys
+                break;
+        }
+
+        if (null != navigation) {
+            this.loadViewportCells(
+                    Lists.of(navigation)
+            );
+        }
     }
 
     /**
@@ -380,7 +456,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
 
         final HTMLTableCellElement element = th.element();
-        this.addKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
                 column
@@ -472,7 +547,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
 
         final HTMLTableCellElement element = td.element();
-        this.addKeyDownEventListener(element);
         this.addContextMenuEventListener(
                 element,
                 row
@@ -536,7 +610,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                         cellReference, context
                 )
         );
-        this.addKeyDownEventListener(element);
+
         this.addContextMenuEventListener(
                 element,
                 cellReference
@@ -614,79 +688,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             } else {
                 context.debug("SpreadsheetViewportComponent " + selection + " element not found!");
             }
-        }
-    }
-
-    // key down.........................................................................................................
-
-    /**
-     * Registers a keydown event handler on the given {@link Element}.
-     */
-    private void addKeyDownEventListener(final Element element) {
-        element.addEventListener(
-                EventType.keydown.getName(),
-                (event) -> onKeyDownEvent(
-                        Js.cast(event)
-                )
-        );
-    }
-
-    /**
-     * Generic key event handler that handles any key events for cell/column OR row.
-     */
-    private void onKeyDownEvent(final KeyboardEvent event) {
-        event.preventDefault();
-
-        final boolean shifted = event.shiftKey;
-        final AppContext context = this.context;
-
-        SpreadsheetViewportSelectionNavigation navigation = null;
-        switch (Key.fromEvent(event)) {
-            case ArrowLeft:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
-                        SpreadsheetViewportSelectionNavigation.LEFT;
-                break;
-            case ArrowUp:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_UP :
-                        SpreadsheetViewportSelectionNavigation.UP;
-                break;
-            case ArrowRight:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
-                        SpreadsheetViewportSelectionNavigation.RIGHT;
-                break;
-            case ArrowDown:
-                navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
-                        SpreadsheetViewportSelectionNavigation.DOWN;
-                break;
-            case Enter:
-                // if cell then edit formula
-                context.pushHistoryToken(
-                        context.historyToken()
-                                .setFormula()
-                );
-                break;
-            case Escape:
-                // clear any selection
-                context.pushHistoryToken(
-                        context.historyToken()
-                                .setViewportSelection(
-                                        Optional.empty()
-                                )
-                );
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
-
-        if (null != navigation) {
-            this.loadViewportCells(
-                    Lists.of(navigation)
-            );
         }
     }
 
