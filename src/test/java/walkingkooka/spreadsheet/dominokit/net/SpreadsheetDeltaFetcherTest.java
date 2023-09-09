@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
@@ -140,7 +141,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.parseColumn("ABC")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                         .setNavigation(
-                                Optional.of(
+                                Lists.of(
                                         SpreadsheetViewportSelectionNavigation.LEFT
                                 )
                         ),
@@ -155,7 +156,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.parseColumn("Z")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                         .setNavigation(
-                                Optional.of(
+                                Lists.of(
                                         SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT
                                 )
                         ),

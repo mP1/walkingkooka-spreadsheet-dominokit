@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 import walkingkooka.text.CaseKind;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -93,11 +94,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             );
         }
 
-        final Optional<SpreadsheetViewportSelectionNavigation> navigation = viewportSelection.navigation();
-        if (navigation.isPresent()) {
+        final List<SpreadsheetViewportSelectionNavigation> navigation = viewportSelection.navigation();
+        if (false == navigation.isEmpty()) {
             result = result.addParameter(
                     SELECTION_NAVIGATION,
-                    navigation.get().kebabText()
+                    SpreadsheetViewportSelection.SEPARATOR.toSeparatedString(
+                            navigation,
+                            SpreadsheetViewportSelectionNavigation::kebabText
+                    )
             );
         }
 
@@ -184,7 +188,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             final int width,
             final int height,
             final Optional<SpreadsheetViewportSelection> viewportSelection,
-            final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
+            final List<SpreadsheetViewportSelectionNavigation> navigation) {
         Objects.requireNonNull(navigation, "navigation");
         if (width <= 0) {
             throw new IllegalArgumentException("Invalid width " + width + " <= 0");

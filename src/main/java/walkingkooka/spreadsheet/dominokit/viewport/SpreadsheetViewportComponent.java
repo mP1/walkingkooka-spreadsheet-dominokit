@@ -41,6 +41,7 @@ import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.Separator;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -80,6 +81,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -683,7 +685,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         if (null != navigation) {
             this.loadViewportCells(
-                    Optional.of(navigation)
+                    Lists.of(navigation)
             );
         }
     }
@@ -829,7 +831,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
         this.loadViewportCells(
-                Optional.empty() // navigation
+                Lists.empty() // navigation
         );
     }
 
@@ -896,7 +898,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
             } else {
                 this.loadViewportCells(
-                        Optional.empty()
+                        Lists.empty()
                 );
             }
         }
@@ -905,7 +907,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * Loads all the cells to fill the viewport. Assumes that a metadata with id is present.
      */
-    private void loadViewportCells(final Optional<SpreadsheetViewportSelectionNavigation> navigation) {
+    private void loadViewportCells(final List<SpreadsheetViewportSelectionNavigation> navigation) {
         Objects.requireNonNull(navigation, "navigation");
 
         final AppContext context = this.context;
