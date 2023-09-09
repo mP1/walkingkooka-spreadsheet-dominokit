@@ -168,10 +168,72 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         final HTMLTableElement element = tableElement.element();
 
+        this.addClickEventListener(element);
         this.addKeyDownEventListener(element);
         this.addContextMenuEventListener(element);
 
         return tableElement;
+    }
+
+    // click ...........................................................................................................
+
+    /**
+     * Registers a click event handler on the given {@link Element table} and computes the selected {@link SpreadsheetCellReference}.
+     */
+    private void addClickEventListener(final Element element) {
+        element.addEventListener(
+                EventType.click.getName(),
+                (event) -> onClickEvent(
+                        Js.cast(event)
+                )
+        );
+    }
+
+    private void onClickEvent(final Event event) {
+        event.preventDefault();
+
+        final EventTarget eventTarget = event.target;
+        if (eventTarget instanceof Element) {
+            Element element = Js.cast(eventTarget);
+
+            for (; ; ) {
+                if (null == element || element.tagName.equalsIgnoreCase("TABLE")) {
+                    break;
+                }
+
+                final String id = element.id;
+                if (null == id) {
+                    element = element.parentElement;
+                    continue;
+                }
+
+                parseId(id)
+                        .ifPresent(
+                                selection -> {
+                                    if (selection.isCellReference()) {
+                                        final AppContext context = this.context;
+
+                                        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+                                        final Optional<SpreadsheetName> spreadsheetName = metadata.name();
+                                        final Optional<SpreadsheetId> spreadsheetId = metadata.id();
+
+                                        if (spreadsheetId.isPresent() && spreadsheetName.isPresent()) {
+                                            context.pushHistoryToken(
+                                                    HistoryToken.cell(
+                                                            spreadsheetId.get(),
+                                                            spreadsheetName.get(),
+                                                            selection.setDefaultAnchor()
+
+                                                    )
+                                            );
+                                        }
+                                    }
+                                    ;
+                                }
+                        );
+                break;
+            }
+        }
     }
 
     // key down.........................................................................................................
@@ -709,12 +771,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         }
 
         final HTMLTableCellElement element = td.element();
-        element.addEventListener(
-                EventType.click.getName(),
-                (e) -> this.selectCell(
-                        cellReference, context
-                )
-        );
 
         if (maybeError.isPresent()) {
             Tooltip.create(
@@ -724,27 +780,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         }
 
         return element;
-    }
-
-    /**
-     * Grab the id and name from {@link SpreadsheetMetadata} and push a new token including the selected cell.
-     */
-    private void selectCell(final SpreadsheetCellReference cell,
-                            final AppContext context) {
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-        final Optional<SpreadsheetName> name = metadata.name();
-        final Optional<SpreadsheetId> id = metadata.id();
-
-        if (id.isPresent() && name.isPresent()) {
-            context.pushHistoryToken(
-                    HistoryToken.cell(
-                            id.get(),
-                            name.get(),
-                            cell.setDefaultAnchor()
-
-                    )
-            );
-        }
     }
 
     private void giveViewportSelectionFocus(final SpreadsheetViewportSelection viewportSelection,
