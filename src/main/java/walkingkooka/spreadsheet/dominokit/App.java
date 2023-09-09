@@ -490,9 +490,9 @@ public class App implements EntryPoint,
     }
 
     private void onHistoryTokenChange(final HistoryToken token) {
-        this.debug("App.onHistoryTokenChange token change " + token + " begin");
-
         final HistoryToken previousToken = this.previousToken;
+        this.debug("App.onHistoryTokenChange BEGIN from " + previousToken + " to " + token);
+
         this.previousToken = token;
 
         if (false == token.equals(previousToken)) {
@@ -501,8 +501,6 @@ public class App implements EntryPoint,
                 this.pushHistoryToken(previousToken);
 
             } else {
-                this.debug("App.onHistoryTokenChange from " + previousToken + " to " + token);
-
                 this.historyWatchers.onHistoryTokenChange(
                         previousToken,
                         this
@@ -510,7 +508,7 @@ public class App implements EntryPoint,
             }
         }
 
-        this.debug("App.onHistoryTokenChange token change " + token + " end");
+        this.debug("App.onHistoryTokenChange END from " + previousToken + " to " + token);
     }
 
     // AppContext history...............................................................................................
