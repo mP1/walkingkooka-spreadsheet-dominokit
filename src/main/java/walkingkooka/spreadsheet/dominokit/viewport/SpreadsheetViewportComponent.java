@@ -666,8 +666,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
-        TextStyle style = context.spreadsheetMetadata()
-                .effectiveStyle();
+        TextStyle style = context.viewportCellStyle(
+                this.isSelected(cellReference)
+        );
         TextNode content = null;
 
         // if an error is present add a tooltip below the cell with the error message.
@@ -686,10 +687,12 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     .error();
         }
 
-        style = style.merge(
-                context.viewportCellStyle(this.isSelected(cellReference))
-                        .set(TextStylePropertyName.WIDTH, cache.columnWidth(cellReference.column()))
-                        .set(TextStylePropertyName.HEIGHT, cache.rowHeight(cellReference.row()))
+        style = style.set(
+                TextStylePropertyName.WIDTH,
+                cache.columnWidth(cellReference.column())
+        ).set(
+                TextStylePropertyName.HEIGHT,
+                cache.rowHeight(cellReference.row())
         );
 
         final TDElement td = ElementsFactory.elements.td()

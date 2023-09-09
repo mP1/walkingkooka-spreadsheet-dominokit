@@ -390,6 +390,10 @@ public class App implements EntryPoint,
         final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
         this.spreadsheetMetadata = metadata;
 
+        final TextStyle cellStyle = metadata.effectiveStyle();
+        this.cellSelectedStyle = cellStyle.merge(CELL_SELECTED_STYLE);
+        this.cellUnselectedStyle = cellStyle.merge(CELL_UNSELECTED_STYLE);
+
         // update the global JsonNodeUnmarshallContext.
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 metadata.expressionNumberKind(),
@@ -628,9 +632,12 @@ public class App implements EntryPoint,
     @Override
     public TextStyle viewportCellStyle(final boolean selected) {
         return selected ?
-                CELL_SELECTED_STYLE :
-                CELL_UNSELECTED_STYLE;
+                this.cellSelectedStyle :
+                this.cellUnselectedStyle;
     }
+
+    private TextStyle cellSelectedStyle;
+    private TextStyle cellUnselectedStyle;
 
     private final static Color BORDER_COLOR = Color.BLACK;
     private final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
