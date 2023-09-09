@@ -209,6 +209,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * is rendered again!
      */
     private void render(final AppContext context) {
+        context.debug("SpreadsheetViewportComponent.render BEGIN");
+
         final HistoryToken historyToken = context.historyToken();
         final Optional<SpreadsheetViewportSelection> maybeViewportSelection = historyToken.viewportSelectionOrEmpty();
         this.setViewportSelection(
@@ -289,6 +291,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     context
             );
         }
+
+        context.debug("SpreadsheetViewportComponent.render END");
     }
 
     /**
