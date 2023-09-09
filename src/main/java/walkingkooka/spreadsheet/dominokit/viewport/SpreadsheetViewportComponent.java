@@ -20,8 +20,10 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
+import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLTableCellElement;
+import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
 import elemental2.dom.KeyboardEvent;
@@ -163,9 +165,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                         ).element()
                         ).element()
         );
-        this.addKeyDownEventListener(
-                tableElement.element()
-        );
+
+        final HTMLTableElement element = tableElement.element();
+
+        this.addKeyDownEventListener(element);
+        this.addContextMenuEventListener(element);
 
         return tableElement;
     }
@@ -240,6 +244,114 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             this.loadViewportCells(
                     Lists.of(navigation)
             );
+        }
+    }
+
+    // context menu.....................................................................................................
+
+    private void addContextMenuEventListener(final Element element) {
+        element.addEventListener(
+                EventType.contextmenu.getName(),
+                (event) -> this.onContextMenu(event)
+        );
+    }
+
+    /**
+     * First tries to find the outer parent element be it a column/row or cell trying to find an id and then extracting the
+     * selection from the id. Once this is found, the context menu is updated with the {@link SpreadsheetSelection}.
+     */
+    private void onContextMenu(final Event event) {
+        event.preventDefault();
+
+        final EventTarget eventTarget = event.target;
+        if (eventTarget instanceof Element) {
+            Element element = Js.cast(eventTarget);
+
+            for (; ; ) {
+                if (null == element || element.tagName.equalsIgnoreCase("TABLE")) {
+                    break;
+                }
+
+                final String id = element.id;
+                if (null == id) {
+                    element = element.parentElement;
+                    continue;
+                }
+
+                parseId(id).ifPresent(
+                        selection -> {
+                            final AppContext context = this.context;
+
+                            context.pushHistoryToken(
+                                    context.historyToken()
+                                            .setMenu(
+                                                    Optional.of(selection)
+                                            )
+                            );
+                        }
+                );
+                break;
+            }
+        }
+    }
+
+    /**
+     * Renders a drop down menu.
+     */
+    private void renderContextMenu(final SpreadsheetViewportSelectionHistoryToken historyToken,
+                                   final AppContext context) {
+        // show context setMenu1
+        final SpreadsheetViewportSelection viewportSelection = historyToken.viewportSelection();
+        final Optional<Element> maybeElement = this.findElement(
+                viewportSelection.selection()
+                        .focused(viewportSelection.anchor()),
+                context
+        );
+
+        context.debug("SpreadsheetViewportComponent.renderContextMenu " + viewportSelection);
+
+        if (maybeElement.isPresent()) {
+            final DominoElement<?> element = new DominoElement<>(maybeElement.get());
+
+            // CLEAR
+            // DELETE
+            // -------
+            // FREEZE
+            // UNFREEZE
+
+            final Menu<Void> menu = Menu.<Void>create()
+                    .setContextMenu(true)
+                    .setDropDirection(new MouseBestFitDirection())
+                    .setTargetElement(element)
+                    .appendChild(
+                            context.menuItem(
+                                    "Clear",
+                                    Optional.of(
+                                            historyToken.setClear()
+                                    )
+                            )
+                    ).appendChild(
+                            context.menuItem(
+                                    "Delete",
+                                    Optional.of(
+                                            historyToken.setDelete()
+                                    )
+                            )
+                    ).appendChild(new Separator())
+                    .appendChild(
+                            context.menuItem(
+                                    "Freeze",
+                                    historyToken.freezeOrEmpty()
+                            )
+                    ).appendChild(
+                            context.menuItem(
+                                    "Unfreeze",
+                                    historyToken.unfreezeOrEmpty()
+                            )
+                    );
+
+            element.setDropMenu(menu);
+            menu.open(true); // true = focus
         }
     }
 
@@ -455,12 +567,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                         ).element()
         );
 
-        final HTMLTableCellElement element = th.element();
-        this.addContextMenuEventListener(
-                element,
-                column
-        );
-        return element;
+        return th.element();
     }
 
     private final static Length<?> COLUMN_HEIGHT = Length.pixel(25.0);
@@ -546,12 +653,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                         ).element()
         );
 
-        final HTMLTableCellElement element = td.element();
-        this.addContextMenuEventListener(
-                element,
-                row
-        );
-        return element;
+        return td.element();
     }
 
     private final static Length<?> ROW_WIDTH = Length.pixel(80.0);
@@ -609,11 +711,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 (e) -> this.selectCell(
                         cellReference, context
                 )
-        );
-
-        this.addContextMenuEventListener(
-                element,
-                cellReference
         );
 
         if (maybeError.isPresent()) {
@@ -688,94 +785,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             } else {
                 context.debug("SpreadsheetViewportComponent " + selection + " element not found!");
             }
-        }
-    }
-
-    // context menu.....................................................................................................
-
-    private void addContextMenuEventListener(final Element element,
-                                             final SpreadsheetSelection selection) {
-        element.addEventListener(
-                EventType.contextmenu.getName(),
-                (event) -> this.onContextMenu(event, selection)
-        );
-    }
-
-    /**
-     * Pushes the selection and menu history token. When the {@link HistoryToken#onHistoryTokenChange(HistoryToken, AppContext)}
-     * is executed a context menu will be shown with items.
-     */
-    private void onContextMenu(final Event event,
-                               final SpreadsheetSelection selection) {
-        event.preventDefault();
-
-        final AppContext context = this.context;
-
-        context.pushHistoryToken(
-                context.historyToken()
-                        .setMenu(
-                                Optional.of(selection)
-                        )
-        );
-    }
-
-    /**
-     * Renders a drop down menu.
-     */
-    private void renderContextMenu(final SpreadsheetViewportSelectionHistoryToken historyToken,
-                                   final AppContext context) {
-        // show context setMenu1
-        final SpreadsheetViewportSelection viewportSelection = historyToken.viewportSelection();
-        final Optional<Element> maybeElement = this.findElement(
-                viewportSelection.selection()
-                        .focused(viewportSelection.anchor()),
-                context
-        );
-
-        context.debug("SpreadsheetViewportComponent.renderContextMenu " + viewportSelection);
-
-        if (maybeElement.isPresent()) {
-            final DominoElement<?> element = new DominoElement<>(maybeElement.get());
-
-            // CLEAR
-            // DELETE
-            // -------
-            // FREEZE
-            // UNFREEZE
-
-            final Menu<Void> menu = Menu.<Void>create()
-                    .setContextMenu(true)
-                    .setDropDirection(new MouseBestFitDirection())
-                    .setTargetElement(element)
-                    .appendChild(
-                            context.menuItem(
-                                    "Clear",
-                                    Optional.of(
-                                            historyToken.setClear()
-                                    )
-                            )
-                    ).appendChild(
-                            context.menuItem(
-                                    "Delete",
-                                    Optional.of(
-                                            historyToken.setDelete()
-                                    )
-                            )
-                    ).appendChild(new Separator())
-                    .appendChild(
-                            context.menuItem(
-                                    "Freeze",
-                                    historyToken.freezeOrEmpty()
-                            )
-                    ).appendChild(
-                            context.menuItem(
-                                    "Unfreeze",
-                                    historyToken.unfreezeOrEmpty()
-                            )
-                    );
-
-            element.setDropMenu(menu);
-            menu.open(true); // true = focus
         }
     }
 
