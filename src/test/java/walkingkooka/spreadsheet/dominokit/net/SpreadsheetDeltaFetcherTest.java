@@ -140,7 +140,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseColumn("ABC")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
-                        .setNavigation(
+                        .setNavigations(
                                 Lists.of(
                                         SpreadsheetViewportSelectionNavigation.LEFT
                                 )
@@ -155,7 +155,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseColumn("Z")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
-                        .setNavigation(
+                        .setNavigations(
                                 Lists.of(
                                         SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT
                                 )

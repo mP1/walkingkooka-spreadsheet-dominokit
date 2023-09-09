@@ -94,12 +94,12 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             );
         }
 
-        final List<SpreadsheetViewportSelectionNavigation> navigation = viewportSelection.navigation();
-        if (false == navigation.isEmpty()) {
+        final List<SpreadsheetViewportSelectionNavigation> navigations = viewportSelection.navigations();
+        if (false == navigations.isEmpty()) {
             result = result.addParameter(
                     SELECTION_NAVIGATION,
                     SpreadsheetViewportSelection.SEPARATOR.toSeparatedString(
-                            navigation,
+                            navigations,
                             SpreadsheetViewportSelectionNavigation::kebabText
                     )
             );
@@ -188,8 +188,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             final int width,
             final int height,
             final Optional<SpreadsheetViewportSelection> viewportSelection,
-            final List<SpreadsheetViewportSelectionNavigation> navigation) {
-        Objects.requireNonNull(navigation, "navigation");
+            final List<SpreadsheetViewportSelectionNavigation> navigations) {
+        Objects.requireNonNull(navigations, "navigation");
         if (width <= 0) {
             throw new IllegalArgumentException("Invalid width " + width + " <= 0");
         }
@@ -211,7 +211,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         if (viewportSelection.isPresent()) {
             queryString = appendViewportSelection(
                     viewportSelection.get()
-                            .setNavigation(navigation),
+                            .setNavigations(navigations),
                     queryString
             );
         }
