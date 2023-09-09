@@ -627,61 +627,66 @@ public class App implements EntryPoint,
 
     @Override
     public TextStyle viewportCellStyle(final boolean selected) {
-        return CELL_STYLE.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                selected ? CELL_SELECTED : CELL_UNSELECTED
-        );
+        return selected ?
+                CELL_SELECTED_STYLE :
+                CELL_UNSELECTED_STYLE;
     }
 
     private final static Color BORDER_COLOR = Color.BLACK;
     private final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
     private final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
 
-    /**
-     * THe default style for the TD holding the formatted cell.
-     */
-    private final static TextStyle CELL_STYLE = TextStyle.EMPTY
-            .setMargin(
-                    Length.none()
-            ).setBorder(
-                    BORDER_COLOR,
-                    BORDER_STYLE,
-                    BORDER_LENGTH
+    private final static TextStyle CELL_SELECTED_STYLE;
+    private final static TextStyle CELL_UNSELECTED_STYLE;
 
-            ).setPadding(
-                    Length.none()
-            ).set(
-                    TextStylePropertyName.TEXT_ALIGN,
-                    TextAlign.LEFT
-            ).set(
-                    TextStylePropertyName.VERTICAL_ALIGN,
-                    VerticalAlign.TOP
-            ).set(
-                    TextStylePropertyName.FONT_FAMILY,
-                    FontFamily.with("MS Sans Serif")
-            ).set(
-                    TextStylePropertyName.FONT_SIZE,
-                    FontSize.with(11)
-            ).set(
-                    TextStylePropertyName.FONT_STYLE,
-                    FontStyle.NORMAL
-            ).set(
-                    TextStylePropertyName.FONT_WEIGHT,
-                    FontWeight.NORMAL
-            ).set(
-                    TextStylePropertyName.FONT_VARIANT,
-                    FontVariant.NORMAL
-            ).set(
-                    TextStylePropertyName.HYPHENS,
-                    Hyphens.NONE
-            ).set(
-                    TextStylePropertyName.WORD_BREAK,
-                    WordBreak.NORMAL
-            ); // overflow-wrap ?
+    static {
+        final TextStyle style = TextStyle.EMPTY
+                .setMargin(
+                        Length.none()
+                ).setBorder(
+                        BORDER_COLOR,
+                        BORDER_STYLE,
+                        BORDER_LENGTH
 
-    // TODO get these from theme
-    private final static Color CELL_SELECTED = Color.parse("#ccc");
-    private final static Color CELL_UNSELECTED = Color.parse("#fff");
+                ).setPadding(
+                        Length.none()
+                ).set(
+                        TextStylePropertyName.TEXT_ALIGN,
+                        TextAlign.LEFT
+                ).set(
+                        TextStylePropertyName.VERTICAL_ALIGN,
+                        VerticalAlign.TOP
+                ).set(
+                        TextStylePropertyName.FONT_FAMILY,
+                        FontFamily.with("MS Sans Serif")
+                ).set(
+                        TextStylePropertyName.FONT_SIZE,
+                        FontSize.with(11)
+                ).set(
+                        TextStylePropertyName.FONT_STYLE,
+                        FontStyle.NORMAL
+                ).set(
+                        TextStylePropertyName.FONT_WEIGHT,
+                        FontWeight.NORMAL
+                ).set(
+                        TextStylePropertyName.FONT_VARIANT,
+                        FontVariant.NORMAL
+                ).set(
+                        TextStylePropertyName.HYPHENS,
+                        Hyphens.NONE
+                ).set(
+                        TextStylePropertyName.WORD_BREAK,
+                        WordBreak.NORMAL
+                );
+        CELL_SELECTED_STYLE = style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                Color.parse("#ccc")
+        );
+        CELL_UNSELECTED_STYLE = style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                Color.parse("#fff")
+        );
+    }
 
     @Override
     public TextStyle viewportColumnHeaderStyle(final boolean selected) {
@@ -694,36 +699,44 @@ public class App implements EntryPoint,
     }
 
     private TextStyle viewportColumnRowHeaderStyle(final boolean selected) {
-        return COLUMN_ROW_STYLE.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                selected ? COLUMN_ROW_SELECTED : COLUMN_ROW_UNSELECTED
-        );
+        return selected ?
+                COLUMN_ROW_HEADER_SELECTED_STYLE :
+                COLUMN_ROW_HEADER_UNSELECTED_STYLE;
     }
 
-    private final static TextStyle COLUMN_ROW_STYLE = TextStyle.EMPTY
-            .setMargin(
-                    Length.none()
-            ).setBorder(
-                    BORDER_COLOR,
-                    BORDER_STYLE,
-                    BORDER_LENGTH
+    private final static TextStyle COLUMN_ROW_HEADER_SELECTED_STYLE;
+    private final static TextStyle COLUMN_ROW_HEADER_UNSELECTED_STYLE;
 
-            ).setPadding(
-                    Length.none()
-            ).set(
-                    TextStylePropertyName.TEXT_ALIGN,
-                    TextAlign.CENTER
-            ).set(
-                    TextStylePropertyName.VERTICAL_ALIGN,
-                    VerticalAlign.MIDDLE
-            ).set(
-                    TextStylePropertyName.FONT_WEIGHT,
-                    FontWeight.NORMAL
-            );
+    static {
+        final TextStyle style = TextStyle.EMPTY
+                .setMargin(
+                        Length.none()
+                ).setBorder(
+                        BORDER_COLOR,
+                        BORDER_STYLE,
+                        BORDER_LENGTH
 
-    // TODO get these from theme
-    private final static Color COLUMN_ROW_SELECTED = Color.parse("#555");
-    private final static Color COLUMN_ROW_UNSELECTED = Color.parse("#aaa");
+                ).setPadding(
+                        Length.none()
+                ).set(
+                        TextStylePropertyName.TEXT_ALIGN,
+                        TextAlign.CENTER
+                ).set(
+                        TextStylePropertyName.VERTICAL_ALIGN,
+                        VerticalAlign.MIDDLE
+                ).set(
+                        TextStylePropertyName.FONT_WEIGHT,
+                        FontWeight.NORMAL
+                );
+        COLUMN_ROW_HEADER_SELECTED_STYLE = style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                Color.parse("#555")
+        );
+        COLUMN_ROW_HEADER_UNSELECTED_STYLE = style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                Color.parse("#aaa")
+        );
+    }
 
     // focus............................................................................................................
 
