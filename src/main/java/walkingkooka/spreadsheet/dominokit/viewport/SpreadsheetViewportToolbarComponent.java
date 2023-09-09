@@ -159,7 +159,7 @@ public final class SpreadsheetViewportToolbarComponent implements ComponentLifec
 
     @Override
     public void refresh(final AppContext context) {
-        context.debug("SpreadsheetViewportToolbarComponent.refresh");
+        context.debug("SpreadsheetViewportToolbarComponent.refresh BEGIN");
 
         final SpreadsheetViewportSelectionHistoryToken historyToken = context.historyToken()
                 .cast(SpreadsheetViewportSelectionHistoryToken.class);
@@ -179,6 +179,8 @@ public final class SpreadsheetViewportToolbarComponent implements ComponentLifec
                 );
             }
         }
+
+        context.debug("SpreadsheetViewportToolbarComponent.refresh END");
     }
 
     /**
