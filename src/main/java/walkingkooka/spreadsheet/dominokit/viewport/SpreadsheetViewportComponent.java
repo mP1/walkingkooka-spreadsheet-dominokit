@@ -875,7 +875,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             );
         }
 
-        this.refresh(context);
+        // the returned metadata isnt any different from the current metadata skip rendering again.
+        if (this.reload) {
+            this.refresh(context);
+        }
     }
 
     /**
