@@ -962,8 +962,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * Loads all the cells to fill the viewport. Assumes that a metadata with id is present.
      */
-    private void loadViewportCells(final List<SpreadsheetViewportSelectionNavigation> navigation) {
-        Objects.requireNonNull(navigation, "navigation");
+    private void loadViewportCells(final List<SpreadsheetViewportSelectionNavigation> navigations) {
+        Objects.requireNonNull(navigations, "navigations");
 
         final AppContext context = this.context;
 
@@ -979,7 +979,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                         this.width,
                         this.height,
                         metadata.get(SpreadsheetMetadataPropertyName.SELECTION), // viewportSelection
-                        navigation
+                        navigations
                 );
     }
 
