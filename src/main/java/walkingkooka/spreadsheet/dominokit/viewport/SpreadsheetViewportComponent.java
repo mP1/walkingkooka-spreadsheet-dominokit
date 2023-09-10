@@ -990,6 +990,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     /**
      * Tests if the given {@link SpreadsheetSelection} typically a cell, column or row is matched by the {@link SpreadsheetMetadataPropertyName#SELECTION}.
+     * This is used during rendering of the viewport headers or cells if the item should be selected.
      */
     private boolean isSelected(final SpreadsheetSelection selection) {
         return this.selection.test(selection);
