@@ -26,6 +26,7 @@ import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
+import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
@@ -45,6 +46,9 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
@@ -62,7 +66,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -94,7 +97,6 @@ import java.util.function.Predicate;
  * A component that displays a table holding the cells and headers for the columns and rows.
  */
 public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElement>,
-        NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetLabelMappingFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
@@ -303,8 +305,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         }
 
         if (null != navigation) {
-            this.loadViewportCells(
-                    Lists.of(navigation)
+            this.onNavigation(
+                    navigation,
+                    context
             );
         }
     }
@@ -433,13 +436,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                   final int height) {
         final boolean reload = width > this.width || height > this.height;
 
-        this.context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
+        final AppContext context = this.context;
+        context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
 
         this.width = width;
         this.height = height;
 
         this.reload = reload;
-        this.loadViewportCellsIfNecessary();
+        this.loadViewportCellsIfNecessary(context);
     }
 
     /**
@@ -864,6 +868,45 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         // nop
     }
 
+    // FetcherWatcher...................................................................................................
+
+    @Override
+    public void onBegin(final HttpMethod method,
+                        final Url url,
+                        final Optional<String> body,
+                        final AppContext context) {
+        this.outstandingFetches++;
+    }
+
+    @Override
+    public void onFailure(final HttpStatus status,
+                          final Headers headers,
+                          final String body,
+                          final AppContext context) {
+        this.onFetchFinish(context);
+    }
+
+    @Override
+    public void onError(final Object cause,
+                        final AppContext context) {
+        this.onFetchFinish(context);
+    }
+
+    /**
+     * This is unconditionally called when a fetch to the server has completed, successfully, as a failure or error.
+     */
+    private void onFetchFinish(final AppContext context) {
+        this.outstandingFetches--;
+        if (this.outstandingFetches <= 0) {
+            this.loadViewportCellsIfNecessary(context);
+        }
+    }
+
+    /**
+     * This incremented at the start of each fetch and decremented when they finish.
+     */
+    private int outstandingFetches;
+
     // delta............................................................................................................
 
     @Override
@@ -872,6 +915,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         Objects.requireNonNull(delta, "delta");
 
         this.refresh(context);
+        this.onFetchFinish(context);
     }
 
     // SpreadsheetLabelMappingFetcherWatcher............................................................................
@@ -882,9 +926,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     @Override
     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
-        this.loadViewportCells(
-                Lists.empty() // navigation
-        );
+        this.reload = true; // force a viewport reload.
+        this.onFetchFinish(context);
     }
 
     // metadata.........................................................................................................
@@ -900,7 +943,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         this.metadata = metadata;
 
-        this.loadViewportCellsIfNecessary();
+        this.loadViewportCellsIfNecessary(context);
 
         final Optional<SpreadsheetId> spreadsheetId = metadata.id();
         if (spreadsheetId.isPresent()) {
@@ -917,6 +960,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         if (this.reload) {
             this.refresh(context);
         }
+        this.onFetchFinish(context);
     }
 
     /**
@@ -946,42 +990,83 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 Predicates.never();
     }
 
-    private void loadViewportCellsIfNecessary() {
-        if (this.reload && this.width > 0 && this.height > 0) {
-            final AppContext context = this.context;
+    /**
+     * Tests if various requirements are ready and the viewport should be loaded again.
+     */
+    private void loadViewportCellsIfNecessary(final AppContext context) {
+        final boolean reload = this.reload;
+        final int width = this.width;
+        final int height = this.height;
+        final int outstandingFetches = this.outstandingFetches;
+
+        if (reload && width > 0 && height > 0 && outstandingFetches <= 0) {
             if (context.spreadsheetMetadata().isEmpty()) {
                 context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
             } else {
-                this.loadViewportCells(
-                        Lists.empty()
-                );
+                this.loadViewportCells(context);
             }
+        } else {
+            context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " outstandingFetches: " + outstandingFetches);
         }
     }
 
     /**
-     * Loads all the cells to fill the viewport. Assumes that a metadata with id is present.
+     * Unconditionally Loads all the cells to fill the viewport using the {@link #navigations} buffer. Assumes that a metadata with id is present.
      */
-    private void loadViewportCells(final List<SpreadsheetViewportSelectionNavigation> navigations) {
-        Objects.requireNonNull(navigations, "navigations");
+    private void loadViewportCells(final AppContext context) {
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final SpreadsheetId id = metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
+        final SpreadsheetCellReference home = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1);
+        final int width = this.width;
+        final int height = this.height;
+        final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
+        final List<SpreadsheetViewportSelectionNavigation> navigations = this.navigations;
 
-        final AppContext context = this.context;
+        context.debug(
+                "SpreadsheetViewportComponent.loadViewportCells id: " + id + " home: " + home + " width: " + width + " height: " + height + " navigations buffer: " +
+                        SpreadsheetViewportSelection.SEPARATOR.toSeparatedString(
+                                navigations,
+                                SpreadsheetViewportSelectionNavigation::kebabText
+                        )
+        );
+
+        context.spreadsheetDeltaFetcher()
+                .loadCells(
+                        id, // id
+                        home, // home
+                        width,
+                        height,
+                        viewportSelection, // viewportSelection
+                        navigations
+                );
 
         context.viewportCache()
                 .clear(); // clear all cached data.
         this.reload = false;
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-
-        context.spreadsheetDeltaFetcher()
-                .loadCells(
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID), // id
-                        metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1), // home
-                        this.width,
-                        this.height,
-                        metadata.get(SpreadsheetMetadataPropertyName.SELECTION), // viewportSelection
-                        navigations
-                );
+        navigations.clear();
     }
+
+    /**
+     * Accepts and adds the given {@link SpreadsheetViewportSelectionNavigation} to the buffer and if possible
+     * sends it to the server for actioning.
+     */
+    private void onNavigation(final SpreadsheetViewportSelectionNavigation navigation,
+                              final AppContext context) {
+        Objects.requireNonNull(navigation, "navigation");
+        Objects.requireNonNull(context, "context");
+
+        this.navigations.add(navigation);
+        this.reload = true;
+        this.loadViewportCellsIfNecessary(context);
+
+    }
+
+    /**
+     * A buffer which fills up with {@link SpreadsheetViewportSelectionNavigation} entries such as keyboard cursor key movements
+     * or clicking the horizontal or vertical scrollbars. This is useful so multiple navigation actions are batched
+     * when outstanding fetches are in flight so they are sent once, rather than sending a fetch for each.
+     */
+    private final List<SpreadsheetViewportSelectionNavigation> navigations = Lists.array();
 
     /**
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
