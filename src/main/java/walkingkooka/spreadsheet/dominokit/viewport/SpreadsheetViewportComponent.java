@@ -265,23 +265,23 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         switch (Key.fromEvent(event)) {
             case ArrowLeft:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_LEFT :
-                        SpreadsheetViewportSelectionNavigation.LEFT;
+                        SpreadsheetViewportSelectionNavigation.extendLeft() :
+                        SpreadsheetViewportSelectionNavigation.left();
                 break;
             case ArrowUp:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_UP :
-                        SpreadsheetViewportSelectionNavigation.UP;
+                        SpreadsheetViewportSelectionNavigation.extendUp() :
+                        SpreadsheetViewportSelectionNavigation.up();
                 break;
             case ArrowRight:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT :
-                        SpreadsheetViewportSelectionNavigation.RIGHT;
+                        SpreadsheetViewportSelectionNavigation.extendRight() :
+                        SpreadsheetViewportSelectionNavigation.right();
                 break;
             case ArrowDown:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.EXTEND_DOWN :
-                        SpreadsheetViewportSelectionNavigation.DOWN;
+                        SpreadsheetViewportSelectionNavigation.extendDown() :
+                        SpreadsheetViewportSelectionNavigation.down();
                 break;
             case Enter:
                 // if cell then edit formula
@@ -1026,7 +1026,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "SpreadsheetViewportComponent.loadViewportCells id: " + id + " home: " + home + " width: " + width + " height: " + height + " navigations buffer: " +
                         SpreadsheetViewportSelection.SEPARATOR.toSeparatedString(
                                 navigations,
-                                SpreadsheetViewportSelectionNavigation::kebabText
+                                SpreadsheetViewportSelectionNavigation::text
                         )
         );
 

@@ -100,7 +100,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                     SELECTION_NAVIGATION,
                     SpreadsheetViewportSelection.SEPARATOR.toSeparatedString(
                             navigations,
-                            SpreadsheetViewportSelectionNavigation::kebabText
+                            SpreadsheetViewportSelectionNavigation::text
                     )
             );
         }

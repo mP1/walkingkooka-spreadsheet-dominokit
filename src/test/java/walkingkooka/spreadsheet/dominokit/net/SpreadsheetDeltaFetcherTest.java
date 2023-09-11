@@ -142,7 +142,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                         .setNavigations(
                                 Lists.of(
-                                        SpreadsheetViewportSelectionNavigation.LEFT
+                                        SpreadsheetViewportSelectionNavigation.left()
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
@@ -157,7 +157,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                         .setNavigations(
                                 Lists.of(
-                                        SpreadsheetViewportSelectionNavigation.EXTEND_RIGHT
+                                        SpreadsheetViewportSelectionNavigation.extendRight()
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
