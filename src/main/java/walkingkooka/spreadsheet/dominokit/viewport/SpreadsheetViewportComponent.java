@@ -265,23 +265,23 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         switch (Key.fromEvent(event)) {
             case ArrowLeft:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.extendLeft() :
-                        SpreadsheetViewportSelectionNavigation.left();
+                        SpreadsheetViewportSelectionNavigation.extendLeftColumn() :
+                        SpreadsheetViewportSelectionNavigation.leftColumn();
                 break;
             case ArrowUp:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.extendUp() :
-                        SpreadsheetViewportSelectionNavigation.up();
+                        SpreadsheetViewportSelectionNavigation.extendUpRow() :
+                        SpreadsheetViewportSelectionNavigation.upRow();
                 break;
             case ArrowRight:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.extendRight() :
-                        SpreadsheetViewportSelectionNavigation.right();
+                        SpreadsheetViewportSelectionNavigation.extendRightColumn() :
+                        SpreadsheetViewportSelectionNavigation.rightColumn();
                 break;
             case ArrowDown:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.extendDown() :
-                        SpreadsheetViewportSelectionNavigation.down();
+                        SpreadsheetViewportSelectionNavigation.extendDownRow() :
+                        SpreadsheetViewportSelectionNavigation.downRow();
                 break;
             case Enter:
                 // if cell then edit formula

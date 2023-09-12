@@ -22,7 +22,6 @@ import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
-import org.dominokit.domino.ui.dialogs.DialogType;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.icons.lib.Icons;
@@ -108,7 +107,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
      */
     private Dialog dialogCreate() {
         final Dialog dialog = Dialog.create()
-                .setType(DialogType.DEFAULT) // large
+                //.setType(DialogType.DEFAULT) // large
                 .setAutoClose(true)
                 .setModal(true)
                 .setStretchWidth(DialogSize.LARGE)
@@ -124,9 +123,9 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
-                        .appendChild(this.saveButton)
+                        .appendChild(this.saveButton())
                         .appendChild(this.undoButton())
-                        .appendChild(this.deleteButton)
+                        .appendChild(this.deleteButton())
                         .appendChild(this.closeButton())
         );
 
