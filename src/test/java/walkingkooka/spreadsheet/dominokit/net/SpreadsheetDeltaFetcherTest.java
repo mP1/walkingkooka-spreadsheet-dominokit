@@ -136,13 +136,13 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportSelectionColumnAndNavigationLeft() {
+    public void testAppendViewportSelectionColumnAndNavigationLeftColumn() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseColumn("ABC")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                         .setNavigations(
                                 Lists.of(
-                                        SpreadsheetViewportSelectionNavigation.left()
+                                        SpreadsheetViewportSelectionNavigation.leftColumn()
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
@@ -151,13 +151,13 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportSelectionColumnAndNavigationExtendRight() {
+    public void testAppendViewportSelectionColumnAndNavigationExtendRightColumn() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseColumn("Z")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
                         .setNavigations(
                                 Lists.of(
-                                        SpreadsheetViewportSelectionNavigation.extendRight()
+                                        SpreadsheetViewportSelectionNavigation.extendRightColumn()
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
