@@ -146,7 +146,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&selection=ABC&selectionType=column&selectionNavigation=left")
+                UrlQueryString.parse("a=1&selection=ABC&selectionType=column&selectionNavigation=left+column")
         );
     }
 
@@ -161,7 +161,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&selection=Z&selectionType=column&selectionNavigation=extend-right")
+                UrlQueryString.parse("a=1&selection=Z&selectionType=column&selectionNavigation=extend-right+column")
         );
     }
 
