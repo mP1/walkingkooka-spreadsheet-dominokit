@@ -435,7 +435,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private final static String VIEWPORT_ID_PREFIX = VIEWPORT_ID + "-";
 
-    // viewport table...................................................................................................
+    // misc.............................................................................................................
 
     public void setWidthAndHeight(final int width,
                                   final int height) {
