@@ -430,6 +430,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private final static String VIEWPORT_ID = "viewport";
 
+    /**
+     * Prefix for any component within a viewport
+     */
+    private final static String VIEWPORT_ID_PREFIX = VIEWPORT_ID + "-";
+
     // viewport table...................................................................................................
 
     public void setWidthAndHeight(final int width,
@@ -594,7 +599,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 .element();
     }
 
-    private final static String VIEWPORT_SELECT_ALL_CELLS = "viewport-select-all-cells";
+    private final static String VIEWPORT_SELECT_ALL_CELLS = VIEWPORT_ID_PREFIX + "select-all-cells";
 
     /**
      * Creates a TH with the column in UPPER CASE with column width.
@@ -1174,9 +1179,4 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         return Optional.ofNullable(selection);
     }
-
-    /**
-     * Prefix for any component within a viewport
-     */
-    private final static String VIEWPORT_ID_PREFIX = VIEWPORT_ID + "-";
 }
