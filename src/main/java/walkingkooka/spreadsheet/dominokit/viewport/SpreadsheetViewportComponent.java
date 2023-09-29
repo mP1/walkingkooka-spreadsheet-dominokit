@@ -111,8 +111,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private SpreadsheetViewportComponent(final AppContext context) {
         this.context = context;
 
-        this.tableElement = this.createTable();
-        this.root = this.createRoot();
+        this.tableElement = this.table();
+        this.root = this.root();
 
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
@@ -121,7 +121,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     // root.............................................................................................................
 
-    private DivElement createRoot() {
+    private DivElement root() {
         final DivElement root = ElementsFactory.elements.div();
         root.style("border: none; margin: 0px; padding: none; width:100%");
 
@@ -151,7 +151,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * Creates an empty table with minimal styling including some placeholder text.
      */
-    private TableElement createTable() {
+    private TableElement table() {
         final TableElement tableElement = ElementsFactory.elements.table();
         tableElement.setId(VIEWPORT_ID);
         tableElement.style("width: 100%; height: 100%;");
