@@ -492,7 +492,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         tableElement.element()
                 .style.set(
                         "height",
-                        (this.height - FORMULA_TEXTBOX_HEIGHT) + "px"
+                        (this.height - this.formulaComponent.element().offsetHeight) + "px"
                 );
 
         final SpreadsheetViewportCache cache = context.viewportCache();
@@ -560,11 +560,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             );
         }
     }
-
-    /**
-     * The height of the formula textbox.
-     */
-    private final static int FORMULA_TEXTBOX_HEIGHT = 26;
 
     /**
      * Creates a THEAD holding a TR with the SELECT ALL and COLUMN headers.
