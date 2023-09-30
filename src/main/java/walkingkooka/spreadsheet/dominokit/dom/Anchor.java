@@ -24,6 +24,7 @@ import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.AnchorElement;
+import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -177,6 +178,18 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
     @Override
     public Anchor setTextContent(final String text) {
         this.setTextContent0(text);
+        return this;
+    }
+
+    // tooltip..........................................................................................................
+
+    @Override
+    public Anchor setTooltip(final String text,
+                             final DropDirection dropDirection) {
+        this.setTooltip0(
+                text,
+                dropDirection
+        );
         return this;
     }
 

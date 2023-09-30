@@ -22,6 +22,8 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.BaseElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.menu.direction.DropDirection;
+import org.dominokit.domino.ui.popover.Tooltip;
 
 import java.util.Objects;
 
@@ -88,6 +90,23 @@ public abstract class Element<D extends BaseElement<E, D>, E extends elemental2.
 
     final void setTextContent0(final String text) {
         this.element().textContent = text;
+    }
+
+    // tooltip..........................................................................................................
+
+    public final Tooltip tooltip() {
+        return this.element.getTooltip();
+    }
+
+    public abstract Element<D, E> setTooltip(final String text,
+                                             final DropDirection dropDirection);
+
+    final void setTooltip0(final String text,
+                           final DropDirection dropDirection) {
+        this.element.setTooltip(
+                text,
+                dropDirection
+        );
     }
 
     // Events...........................................................................................................
