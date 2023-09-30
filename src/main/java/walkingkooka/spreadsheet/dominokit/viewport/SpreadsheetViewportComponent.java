@@ -123,7 +123,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     private DivElement root() {
         final DivElement root = ElementsFactory.elements.div();
-        root.style("border: none; margin: 0px; padding: none; width:100%");
+
+        // overflow:hidden required to prevent scrollbars...
+        root.style("width:100%; border: none; margin: 0px; padding: none; overflow: hidden");
 
         root.appendChild(SpreadsheetFormulaComponent.with(this.context));
         root.appendChild(this.tableElement);
@@ -590,10 +592,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 .style(
                         context.viewportAllStyle(false)
                                 .set(
-                                        TextStylePropertyName.WIDTH,
+                                        TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH
                                 ).set(
-                                        TextStylePropertyName.HEIGHT,
+                                        TextStylePropertyName.MIN_HEIGHT,
                                         COLUMN_HEIGHT
                                 ).css() + "box-sizing: border-box;")
                 .element();
@@ -611,11 +613,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 .style(
                         context.viewportColumnHeaderStyle(this.isSelected(column))
                                 .set(
-                                        TextStylePropertyName.WIDTH,
+                                        TextStylePropertyName.MIN_WIDTH,
                                         context.viewportCache()
                                                 .columnWidth(column)
                                 ).set(
-                                        TextStylePropertyName.HEIGHT,
+                                        TextStylePropertyName.MIN_HEIGHT,
                                         COLUMN_HEIGHT
                                 )
                                 .css() + "box-sizing: border-box;"
@@ -697,10 +699,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 .style(
                         context.viewportRowHeaderStyle(this.isSelected(row))
                                 .set(
-                                        TextStylePropertyName.WIDTH,
+                                        TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH
                                 ).set(
-                                        TextStylePropertyName.HEIGHT,
+                                        TextStylePropertyName.MIN_HEIGHT,
                                         context.viewportCache()
                                                 .rowHeight(row)
                                 )
@@ -764,6 +766,15 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         ).set(
                 TextStylePropertyName.HEIGHT,
                 cache.rowHeight(cellReference.row())
+        );
+
+        // copy width/height to MIN to prevent table squashing cells to fit.
+        style = style.set(
+                TextStylePropertyName.MIN_WIDTH,
+                style.getOrFail(TextStylePropertyName.WIDTH)
+        ).set(
+                TextStylePropertyName.MIN_HEIGHT,
+                style.getOrFail(TextStylePropertyName.HEIGHT)
         );
 
         final TDElement td = ElementsFactory.elements.td()
