@@ -84,7 +84,14 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
                         .orElse(null)
         );
 
-        this.refreshDefaultValue(this.defaultValueAnchor);
+        this.refreshDefaultValue(
+                this.defaultValueAnchor,
+                context.spreadsheetMetadata()
+                        .defaults()
+                        .get(propertyName)
+                        .map(Object::toString)
+                        .orElse("")
+        );
     }
 
     private final IntegerBox integerBox;
