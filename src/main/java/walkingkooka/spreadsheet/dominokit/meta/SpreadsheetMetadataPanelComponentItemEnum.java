@@ -73,7 +73,7 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
                     .link(SpreadsheetMetadataPanelComponent.id(propertyName) + "-" + CaseKind.kebabEnumName(value))
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
-                    .setTextContent(CaseKind.SNAKE.change(value.name(), CaseKind.TITLE));
+                    .setTextContent(this.format(value));
 
             valueToAnchors.put(value, anchor);
 
@@ -127,13 +127,27 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
             );
         }
 
-        this.refreshDefaultValue(this.defaultValueAnchor);
+        this.refreshDefaultValue(
+                this.defaultValueAnchor,
+                context.spreadsheetMetadata()
+                        .defaults()
+                        .get(propertyName)
+                        .map(this::format)
+                        .orElse("")
+        );
     }
 
 
     private final Map<T, Anchor> valueToAnchors;
 
     private final Anchor defaultValueAnchor;
+
+    private String format(final Enum<?> value) {
+        return CaseKind.SNAKE.change(
+                value.name(),
+                CaseKind.TITLE
+        );
+    }
 
     // isElement........................................................................................................
 

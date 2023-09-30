@@ -28,10 +28,13 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.icons.lib.Icons;
+import org.dominokit.domino.ui.menu.direction.DropDirection;
+import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.dom.Anchor;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -155,6 +158,13 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
 
     // DOM factory methods..............................................................................................
 
+    final Tooltip tooltip(final Anchor anchor) {
+        return Tooltip.create(
+                anchor,
+                ""
+        ).setPosition(DropDirection.BOTTOM_MIDDLE);
+    }
+
     /**
      * Creates an {@link Anchor}, which will need to be refreshed.
      */
@@ -171,7 +181,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     /**
      * Updates the anchor link and the text with default and the current default value in parens.
      */
-    final void refreshDefaultValue(final Anchor anchor) {
+    final void refreshDefaultValue(final Anchor anchor,
+                                   final String newTooltip) {
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
         final SpreadsheetMetadataPanelComponentContext context = this.context;
 
@@ -188,6 +199,11 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                 false == context.spreadsheetMetadata()
                         .getIgnoringDefaults(propertyName)
                         .isPresent()
+        );
+
+        anchor.setTooltip(
+                newTooltip,
+                DropDirection.BOTTOM_MIDDLE
         );
     }
 

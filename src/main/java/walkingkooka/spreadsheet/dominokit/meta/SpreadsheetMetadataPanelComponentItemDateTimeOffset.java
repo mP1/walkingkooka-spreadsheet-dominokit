@@ -121,7 +121,9 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
                     .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value)
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
-                    .setTextContent(_1900 == value ? "1900" : "1904");
+                    .setTextContent(
+                            formatValue(value)
+                    );
 
             valueToAnchors.put(value, anchor);
 
@@ -191,7 +193,14 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             );
         }
 
-        this.refreshDefaultValue(this.defaultValueAnchor);
+        this.refreshDefaultValue(
+                this.defaultValueAnchor,
+                context.spreadsheetMetadata()
+                        .defaults()
+                        .get(this.propertyName)
+                        .map(this::formatValue)
+                        .orElse("")
+        );
     }
 
     private final Map<Long, Anchor> valueToAnchors;
@@ -204,6 +213,10 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     }
 
     private final UListElement list;
+
+    private String formatValue(final long value) {
+        return _1900 == value ? "1900" : "1904";
+    }
 
     // Long <-> Date....................................................................................................
 
