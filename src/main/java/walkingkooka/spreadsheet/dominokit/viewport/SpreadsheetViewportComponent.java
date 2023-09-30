@@ -22,6 +22,7 @@ import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
@@ -30,6 +31,7 @@ import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.elements.TBodyElement;
 import org.dominokit.domino.ui.elements.TDElement;
@@ -37,6 +39,8 @@ import org.dominokit.domino.ui.elements.THElement;
 import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
@@ -112,7 +116,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.context = context;
 
         this.formulaComponent = this.formulaComponent();
+
         this.tableElement = this.table();
+
+        this.horizontalScrollbarThumb = this.horizontalScrollbarThumb();
+        this.verticalScrollbarThumb = this.verticalScrollbarThumb();
+
+        this.tableContainer = this.tableContainer();
+
         this.root = this.root();
 
         context.addHistoryTokenWatcher(this);
@@ -129,7 +140,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         root.style("width:100%; border: none; margin: 0px; padding: none; overflow: hidden");
 
         root.appendChild(this.formulaComponent);
-        root.appendChild(this.tableElement);
+        root.appendChild(this.tableContainer);
 
         return root;
     }
@@ -156,6 +167,20 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     }
 
     private final SpreadsheetFormulaComponent formulaComponent;
+
+    // table container..................................................................................................
+
+    private DivElement tableContainer() {
+        final DivElement container = ElementsFactory.elements.div();
+        container.style("position: relative; top: 0; left 0px; border: none; margin: 0px; padding: none; width:100%;");
+        container.appendChild(this.tableElement);
+        container.appendChild(this.horizontalScrollbarContainer());
+        container.appendChild(this.verticalScrollbarContainer());
+
+        return container;
+    }
+
+    private final DivElement tableContainer;
 
     // table............................................................................................................
 
@@ -446,6 +471,126 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private final static String VIEWPORT_ID_PREFIX = VIEWPORT_ID + "-";
 
+    // horizontal-scrollbar..............................................................................................
+
+    private DivElement horizontalScrollbarContainer() {
+        final DivElement container = ElementsFactory.elements.div();
+        container.style("position: absolute; left: 0px; bottom: 0px; display: flex; flex-direction: row; flex-wrap: nowrap; height: 32px; width: calc(100% - 32px); margin: 0; border-width: 2px; border-color: black; border-style: solid; padding: 2px;");
+
+        container.appendChild(this.horizontalScrollbar());
+        container.appendChild(this.horizontalScrollbarLeft());
+        container.appendChild(this.horizontalScrollbarRight());
+
+        return container;
+    }
+
+    private DivElement horizontalScrollbar() {
+        return this.scrollbar(
+                "h-scrollbar",
+                this.horizontalScrollbarThumb
+        );
+    }
+
+    private DivElement horizontalScrollbarThumb() {
+        final DivElement thumb = ElementsFactory.elements.div();
+        thumb.id(VIEWPORT_ID_PREFIX + "h-scrollbar-thumb");
+        thumb.style("height:32px; width: 100%;");
+        return thumb;
+    }
+
+    private DivElement horizontalScrollbarThumb;
+
+    private HTMLElement horizontalScrollbarLeft() {
+        return scrollbarArrow(
+                "h-scrollbar-left",
+                Icons.arrow_left(),
+                "bottom"
+        );
+    }
+
+    private HTMLElement horizontalScrollbarRight() {
+        return scrollbarArrow(
+                "h-scrollbar-right",
+                Icons.arrow_right(),
+                "bottom"
+        );
+    }
+
+    // vertical-scrollbar..............................................................................................
+
+    private DivElement verticalScrollbarContainer() {
+        final DivElement container = ElementsFactory.elements.div();
+        container.style("position: absolute; right: 0px; top: 0px; display: flex; flex-direction: column; flex-wrap: nowrap; width: 32px; height: calc(100% - 32px); margin: 0; border-width: 2px; border-color: black; border-style: solid; padding: 2px;");
+
+        container.appendChild(this.verticalScrollbar());
+        container.appendChild(this.verticalScrollbarUp());
+        container.appendChild(this.verticalScrollbarDown());
+
+        return container;
+    }
+
+    private DivElement verticalScrollbar() {
+        return this.scrollbar(
+                "v-scrollbar",
+                this.verticalScrollbarThumb
+        );
+    }
+
+    private DivElement verticalScrollbarThumb() {
+        final DivElement thumb = ElementsFactory.elements.div();
+        thumb.id(VIEWPORT_ID_PREFIX + "v-scrollbar-thumb");
+        thumb.style("height:25px; width: 32px;");
+        return thumb;
+    }
+
+    private DivElement verticalScrollbarThumb;
+
+    private HTMLElement verticalScrollbarUp() {
+        return scrollbarArrow(
+                "v-scrollbar-up",
+                Icons.arrow_up(),
+                "right"
+        );
+    }
+
+    private HTMLElement verticalScrollbarDown() {
+        return scrollbarArrow(
+                "v-scrollbar-down",
+                Icons.arrow_down(),
+                "right"
+        );
+    }
+
+    private DivElement scrollbar(final String idSuffix,
+                                 final DivElement thumb) {
+        final DivElement scrollbar = ElementsFactory.elements.div();
+        scrollbar.id(VIEWPORT_ID_PREFIX + idSuffix);
+        scrollbar.style("flex-grow: 1;");
+
+        scrollbar.appendChild(thumb);
+
+        return scrollbar;
+    }
+
+    private HTMLElement scrollbarArrow(final String idSuffix,
+                                       final MdiIcon icon,
+                                       final String upOrRight) {
+        final Button button = Button.create(icon)
+                .circle();
+
+        final HTMLElement element = button.element();
+        element.id = VIEWPORT_ID_PREFIX + idSuffix;
+        element.tabIndex = 0;
+
+        element.style.set(upOrRight, "24px");
+
+        // required otherwise horiz buttons are too small.
+        element.style.set("width", "50px");
+        element.style.set("height", "50px");
+
+        return element;
+    }
+
     // misc.............................................................................................................
 
     public void setWidthAndHeight(final int width,
@@ -460,10 +605,18 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         this.reload = reload;
 
+        final String tableHeight = (this.height - this.formulaComponent.element().offsetHeight) + "px";
+
+        this.tableContainer.element()
+                .style.set(
+                        "height",
+                        tableHeight
+                );
+
         this.tableElement.element()
                 .style.set(
                         "height",
-                        (this.height - this.formulaComponent.element().offsetHeight) + "px"
+                        tableHeight
                 );
 
         this.loadViewportCellsIfNecessary(context);
