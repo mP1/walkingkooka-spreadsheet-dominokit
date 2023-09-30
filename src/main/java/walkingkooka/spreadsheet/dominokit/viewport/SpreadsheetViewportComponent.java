@@ -111,6 +111,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private SpreadsheetViewportComponent(final AppContext context) {
         this.context = context;
 
+        this.formulaComponent = this.formulaComponent();
         this.tableElement = this.table();
         this.root = this.root();
 
@@ -127,7 +128,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         // overflow:hidden required to prevent scrollbars...
         root.style("width:100%; border: none; margin: 0px; padding: none; overflow: hidden");
 
-        root.appendChild(SpreadsheetFormulaComponent.with(this.context));
+        root.appendChild(this.formulaComponent);
         root.appendChild(this.tableElement);
 
         return root;
@@ -147,6 +148,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     public HTMLDivElement element() {
         return this.root.element();
     }
+
+    // formulaComponent.................................................................................................
+
+    private SpreadsheetFormulaComponent formulaComponent() {
+        return SpreadsheetFormulaComponent.with(this.context);
+    }
+
+    private final SpreadsheetFormulaComponent formulaComponent;
 
     // table............................................................................................................
 
@@ -1011,8 +1020,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private void loadViewportCellsIfNecessary(final AppContext context) {
         final boolean reload = this.reload;
+
         final int width = this.width;
         final int height = this.height;
+
         final int outstandingFetches = this.outstandingFetches;
 
         if (reload && width > 0 && height > 0 && outstandingFetches <= 0) {
@@ -1030,11 +1041,17 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Unconditionally Loads all the cells to fill the viewport using the {@link #navigations} buffer. Assumes that a metadata with id is present.
      */
     private void loadViewportCells(final AppContext context) {
+        final int formulaOffsetHeight = this.formulaComponent.element()
+                .offsetHeight;
+
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+
         final SpreadsheetId id = metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
         final SpreadsheetCellReference home = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1);
+
         final int width = this.width;
-        final int height = this.height;
+        final int height = this.height - formulaOffsetHeight;
+
         final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
         final List<SpreadsheetViewportSelectionNavigation> navigations = this.navigations;
 
