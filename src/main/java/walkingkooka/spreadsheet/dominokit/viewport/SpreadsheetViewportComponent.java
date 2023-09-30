@@ -459,6 +459,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.height = height;
 
         this.reload = reload;
+
+        this.tableElement.element()
+                .style.set(
+                        "height",
+                        (this.height - this.formulaComponent.element().offsetHeight) + "px"
+                );
+
         this.loadViewportCellsIfNecessary(context);
     }
 
@@ -488,12 +495,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         final TableElement tableElement = this.tableElement;
 
         tableElement.clearElement();
-
-        tableElement.element()
-                .style.set(
-                        "height",
-                        (this.height - this.formulaComponent.element().offsetHeight) + "px"
-                );
 
         final SpreadsheetViewportCache cache = context.viewportCache();
         // "window": "A1:B12,WI1:WW12"
