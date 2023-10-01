@@ -605,7 +605,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         this.reload = reload;
 
-        final String tableHeight = (this.height - this.formulaComponent.element().offsetHeight) + "px";
+        final String tableHeight = viewportTableHeight() + "px";
 
         this.tableContainer.element()
                 .style.set(
@@ -620,6 +620,15 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 );
 
         this.loadViewportCellsIfNecessary(context);
+    }
+
+    private int viewportTableWidth() {
+        return this.width;
+    }
+
+    private int viewportTableHeight() {
+        return this.height - this.formulaComponent.element()
+                .offsetHeight;
     }
 
     /**
@@ -1190,16 +1199,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Unconditionally Loads all the cells to fill the viewport using the {@link #navigations} buffer. Assumes that a metadata with id is present.
      */
     private void loadViewportCells(final AppContext context) {
-        final int formulaOffsetHeight = this.formulaComponent.element()
-                .offsetHeight;
-
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         final SpreadsheetId id = metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
         final SpreadsheetCellReference home = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1);
 
-        final int width = this.width;
-        final int height = this.height - formulaOffsetHeight;
+        final int width = this.viewportTableWidth();
+        final int height = this.viewportTableHeight();
 
         final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
         final List<SpreadsheetViewportSelectionNavigation> navigations = this.navigations;
