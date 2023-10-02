@@ -626,9 +626,19 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return this.width;
     }
 
+    private int viewportTableCellsWidth() {
+        return this.viewportTableWidth() -
+                (int) ROW_WIDTH.pixelValue();
+    }
+
     private int viewportTableHeight() {
         return this.height - this.formulaComponent.element()
                 .offsetHeight;
+    }
+
+    private int viewportTableCellsHeight() {
+        return this.viewportTableHeight() -
+                (int) COLUMN_HEIGHT.pixelValue();
     }
 
     /**
@@ -1224,11 +1234,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         final SpreadsheetId id = metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
         final SpreadsheetCellReference home = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1);
 
-        final int width = this.viewportTableWidth()
-                - (int) ROW_WIDTH.pixelValue();
-
-        final int height = this.viewportTableHeight()
-                - (int) COLUMN_HEIGHT.pixelValue();
+        final int width = this.viewportTableCellsWidth();
+        final int height = this.viewportTableCellsHeight();
 
         final Optional<SpreadsheetViewportSelection> viewportSelection = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
         final List<SpreadsheetViewportSelectionNavigation> navigations = this.navigations;
