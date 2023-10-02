@@ -96,6 +96,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * A component that displays a table holding the cells and headers for the columns and rows.
@@ -504,7 +505,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return scrollbarArrow(
                 "h-scrollbar-left",
                 Icons.arrow_left(),
-                "bottom"
+                "bottom",
+                () -> SpreadsheetViewportSelectionNavigation.leftPixel(
+                        this.viewportTableCellsWidth() - 1
+                )
         );
     }
 
@@ -512,7 +516,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return scrollbarArrow(
                 "h-scrollbar-right",
                 Icons.arrow_right(),
-                "bottom"
+                "bottom",
+                () -> SpreadsheetViewportSelectionNavigation.rightPixel(
+                        this.viewportTableCellsWidth() - 1
+                )
         );
     }
 
@@ -549,7 +556,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return scrollbarArrow(
                 "v-scrollbar-up",
                 Icons.arrow_up(),
-                "right"
+                "right",
+                () -> SpreadsheetViewportSelectionNavigation.upPixel(
+                        this.viewportTableCellsHeight() - 1
+                )
         );
     }
 
@@ -557,7 +567,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return scrollbarArrow(
                 "v-scrollbar-down",
                 Icons.arrow_down(),
-                "right"
+                "right",
+                () -> SpreadsheetViewportSelectionNavigation.downPixel(
+                        this.viewportTableCellsHeight() - 1
+                )
         );
     }
 
@@ -574,7 +587,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     private HTMLElement scrollbarArrow(final String idSuffix,
                                        final MdiIcon icon,
-                                       final String upOrRight) {
+                                       final String upOrRight,
+                                       final Supplier<SpreadsheetViewportSelectionNavigation> navigation) {
         final Button button = Button.create(icon)
                 .circle();
 
@@ -587,6 +601,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         // required otherwise horiz buttons are too small.
         element.style.set("width", "50px");
         element.style.set("height", "50px");
+
+        button.addClickListener(
+                (e) -> this.onNavigation(
+                        navigation.get(),
+                        this.context
+                )
+        );
 
         return element;
     }
