@@ -762,7 +762,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                         TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH
                                 ).set(
+                                        TextStylePropertyName.WIDTH,
+                                        ROW_WIDTH
+                                ).set(
                                         TextStylePropertyName.MIN_HEIGHT,
+                                        COLUMN_HEIGHT
+                                ).set(
+                                        TextStylePropertyName.HEIGHT,
                                         COLUMN_HEIGHT
                                 ).css() + "box-sizing: border-box;")
                 .element();
@@ -775,19 +781,26 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private HTMLTableCellElement renderColumnHeader(final SpreadsheetColumnReference column,
                                                     final AppContext context) {
+        final Length<?> width = context.viewportCache()
+                .columnWidth(column);
+
         final THElement th = ElementsFactory.elements.th()
                 .id(id(column))
                 .style(
                         context.viewportColumnHeaderStyle(this.isSelected(column))
                                 .set(
                                         TextStylePropertyName.MIN_WIDTH,
-                                        context.viewportCache()
-                                                .columnWidth(column)
+                                        width
+                                ).set(
+                                        TextStylePropertyName.WIDTH,
+                                        width
                                 ).set(
                                         TextStylePropertyName.MIN_HEIGHT,
                                         COLUMN_HEIGHT
-                                )
-                                .css() + "box-sizing: border-box;"
+                                ).set(
+                                        TextStylePropertyName.HEIGHT,
+                                        COLUMN_HEIGHT
+                                ).css() + "box-sizing: border-box;"
                 );
 
         th.appendChild(
@@ -810,7 +823,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return th.element();
     }
 
-    private final static Length<?> COLUMN_HEIGHT = Length.pixel(25.0);
+    private final static Length<?> COLUMN_HEIGHT = Length.pixel(30.0);
 
     /**
      * Factory that creates a TABLE CELL for the column header, including a link to select that column when clicked.
@@ -861,6 +874,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     private HTMLTableCellElement renderRowHeader(final SpreadsheetRowReference row,
                                                  final AppContext context) {
+        final Length<?> height = context.viewportCache()
+                .rowHeight(row);
+
         final TDElement td = ElementsFactory.elements.td()
                 .id(id(row))
                 .style(
@@ -869,11 +885,15 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                         TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH
                                 ).set(
+                                        TextStylePropertyName.WIDTH,
+                                        ROW_WIDTH
+                                ).set(
                                         TextStylePropertyName.MIN_HEIGHT,
-                                        context.viewportCache()
-                                                .rowHeight(row)
-                                )
-                                .css() + "box-sizing: border-box;"
+                                        height
+                                ).set(
+                                        TextStylePropertyName.HEIGHT,
+                                        height
+                                ).css() + "box-sizing: border-box;"
                 );
 
         td.appendChild(
