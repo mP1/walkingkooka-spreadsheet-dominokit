@@ -43,7 +43,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalDouble;
+import java.util.OptionalInt;
 import java.util.Set;
 
 /**
@@ -83,8 +83,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         this.columnWidths.clear();
         this.rowHeights.clear();
 
-        this.totalWidth = OptionalDouble.empty();
-        this.totalHeight = OptionalDouble.empty();
+        this.columnCount = OptionalInt.empty();
+        this.rowCount = OptionalInt.empty();
 
         this.windows = SpreadsheetViewportWindows.EMPTY;
     }
@@ -204,14 +204,14 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 window
         );
 
-        final OptionalDouble totalWidth = delta.totalWidth();
-        if (totalWidth.isPresent()) {
-            this.totalWidth = totalWidth;
+        final OptionalInt columnCount = delta.columnCount();
+        if (columnCount.isPresent()) {
+            this.columnCount = columnCount;
         }
 
-        final OptionalDouble totalHeight = delta.totalHeight();
-        if (totalHeight.isPresent()) {
-            this.totalHeight = totalHeight;
+        final OptionalInt rowCount = delta.rowCount();
+        if (rowCount.isPresent()) {
+            this.rowCount = rowCount;
         }
     }
 
@@ -337,17 +337,17 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     // VisibleForTesting
     final Map<SpreadsheetRowReference, Length<?>> rowHeights = Maps.sorted();
 
-    public OptionalDouble totalWidth() {
-        return this.totalWidth;
+    public OptionalInt columnCount() {
+        return this.columnCount;
     }
 
-    private OptionalDouble totalWidth = OptionalDouble.empty();
+    private OptionalInt columnCount = OptionalInt.empty();
 
-    public OptionalDouble totalHeight() {
-        return this.totalHeight;
+    public OptionalInt rowCount() {
+        return this.rowCount;
     }
 
-    private OptionalDouble totalHeight = OptionalDouble.empty();
+    private OptionalInt rowCount = OptionalInt.empty();
 
     /**
      * The viewport window.
