@@ -475,7 +475,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     private DivElement horizontalScrollbarContainer() {
         final DivElement container = ElementsFactory.elements.div();
-        container.style("position: absolute; left: 0px; bottom: 0px; display: flex; flex-direction: row; flex-wrap: nowrap; height: 32px; width: calc(100% - 32px); margin: 0; border-width: 2px; border-color: black; border-style: solid; padding: 2px;");
+        container.style("position: absolute; left: 0px; bottom: 0px; display: flex; flex-direction: row; flex-wrap: nowrap; height: " + SCROLLBAR_LENGTH + "px; width: calc(100% - " + SCROLLBAR_LENGTH + "px); margin: 0; border-width: 2px; border-color: black; border-style: solid; padding: 2px;");
 
         container.appendChild(this.horizontalScrollbar());
         container.appendChild(this.horizontalScrollbarLeft());
@@ -494,7 +494,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private DivElement horizontalScrollbarThumb() {
         final DivElement thumb = ElementsFactory.elements.div();
         thumb.id(VIEWPORT_ID_PREFIX + "h-scrollbar-thumb");
-        thumb.style("height:32px; width: 100%;");
+        thumb.style("height:" + SCROLLBAR_LENGTH + "px; width: 100%;");
         return thumb;
     }
 
@@ -522,7 +522,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     private DivElement verticalScrollbarContainer() {
         final DivElement container = ElementsFactory.elements.div();
-        container.style("position: absolute; right: 0px; top: 0px; display: flex; flex-direction: column; flex-wrap: nowrap; width: 32px; height: calc(100% - 32px); margin: 0; border-width: 2px; border-color: black; border-style: solid; padding: 2px;");
+        container.style("position: absolute; right: 0px; top: 0px; display: flex; flex-direction: column; flex-wrap: nowrap; width: " + SCROLLBAR_LENGTH + "px; height: calc(100% - " + SCROLLBAR_LENGTH + "px); margin: 0; border-width: 2px; border-color: black; border-style: solid; padding: 2px;");
 
         container.appendChild(this.verticalScrollbar());
         container.appendChild(this.verticalScrollbarUp());
@@ -541,7 +541,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private DivElement verticalScrollbarThumb() {
         final DivElement thumb = ElementsFactory.elements.div();
         thumb.id(VIEWPORT_ID_PREFIX + "v-scrollbar-thumb");
-        thumb.style("height:25px; width: 32px;");
+        thumb.style("height:25px; width: " + SCROLLBAR_LENGTH + "px;");
         return thumb;
     }
 
@@ -652,6 +652,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return this.viewportTableHeight() -
                 (int) COLUMN_HEIGHT.pixelValue();
     }
+
+    private final static int SCROLLBAR_LENGTH = 32;
 
     /**
      * The width allocated to the widget.
