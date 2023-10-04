@@ -653,6 +653,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 (int) COLUMN_HEIGHT.pixelValue();
     }
 
+    private int scrollbarWidth() {
+        return this.width - SCROLLBAR_LENGTH;
+    }
+
+    private int scrollbarHeight() {
+        return this.height - SCROLLBAR_LENGTH;
+    }
+
     private final static int SCROLLBAR_LENGTH = 32;
 
     /**
