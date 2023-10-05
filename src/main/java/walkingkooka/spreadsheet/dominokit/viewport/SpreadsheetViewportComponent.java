@@ -29,6 +29,7 @@ import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
 import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
+import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.button.Button;
@@ -95,6 +96,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -121,7 +123,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.tableElement = this.table();
 
         this.horizontalScrollbarThumb = this.horizontalScrollbarThumb();
+        this.horizontalScrollbar = this.horizontalScrollbar();
+
         this.verticalScrollbarThumb = this.verticalScrollbarThumb();
+        this.verticalScrollbar = this.verticalScrollbar();
 
         this.tableContainer = this.tableContainer();
 
@@ -176,11 +181,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         container.style("position: relative; top: 0; left 0px; border: none; margin: 0px; padding: none; width:100%;");
         container.appendChild(this.tableElement);
 
-        container.appendChild(this.horizontalScrollbar());
+        container.appendChild(this.horizontalScrollbar);
         container.appendChild(this.horizontalScrollbarLeft());
         container.appendChild(this.horizontalScrollbarRight());
 
-        container.appendChild(this.verticalScrollbar());
+        container.appendChild(this.verticalScrollbar);
         container.appendChild(this.verticalScrollbarUp());
         container.appendChild(this.verticalScrollbarDown());
 
@@ -484,27 +489,77 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return this.scrollbar(
                 "h-scrollbar",
                 "left: 0px; bottom: 0px; width: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px);height:" + SCROLLBAR_LENGTH + "px; flex-flow: row; border-radius: 0 10px 10px 0;",
-                this.horizontalScrollbarThumb
+                this.horizontalScrollbarThumb,
+                this::horizontalScrollbarOnClick
         );
     }
+
+    private DivElement horizontalScrollbar;
 
     private DivElement verticalScrollbar() {
         return this.scrollbar(
                 "v-scrollbar",
                 "top: 0px; right: 0px; height: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px); width: " + SCROLLBAR_LENGTH + "px; flex-flow: column; border-radius: 0 0 10px 10px;",
-                this.verticalScrollbarThumb
+                this.verticalScrollbarThumb,
+                this::verticalScrollbarOnClick
         );
     }
 
+    private DivElement verticalScrollbar;
+
     private DivElement scrollbar(final String idSuffix,
                                  final String cssText,
-                                 final DivElement thumb) {
+                                 final DivElement thumb,
+                                 final Consumer<MouseEvent> click) {
         final DivElement scrollbar = ElementsFactory.elements.div();
 
         scrollbar.id(VIEWPORT_ID_PREFIX + idSuffix);
         scrollbar.style("position: absolute; display: flex;" + cssText + "border-width: 2px;border-color: black;border-style: solid;padding: 2px;background-color: #aaa;");
 
-        return scrollbar.appendChild(thumb);
+        return scrollbar.appendChild(thumb)
+                .addClickListener(
+                        e -> click.accept((MouseEvent) e)
+                );
+    }
+
+    private void horizontalScrollbarOnClick(final MouseEvent event) {
+        event.preventDefault();
+
+        final int width = this.horizontalScrollbar.element()
+                .offsetWidth;
+
+        final double clientX = event.clientX;
+        final double leftClientX = this.horizontalScrollbarThumbLeft * width * 0.01;
+        final SpreadsheetViewportSelectionNavigation navigation = clientX < leftClientX ?
+                SpreadsheetViewportSelectionNavigation.leftPixel(width) :
+                SpreadsheetViewportSelectionNavigation.rightPixel(width);
+
+        this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientX: " + clientX + "< " + leftClientX + " " + navigation);
+
+        this.onNavigation(
+                navigation,
+                this.context
+        );
+    }
+
+    private void verticalScrollbarOnClick(final MouseEvent event) {
+        event.preventDefault();
+
+        final int height = this.horizontalScrollbar.element()
+                .offsetHeight;
+
+        final double clientY = event.clientY;
+        final double topClientY = this.verticalScrollbarThumbTop * height * 0.01;
+        final SpreadsheetViewportSelectionNavigation navigation = clientY < topClientY ?
+                SpreadsheetViewportSelectionNavigation.upPixel(height) :
+                SpreadsheetViewportSelectionNavigation.downPixel(height);
+
+        this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientY: " + clientY + "< " +  topClientY + " " + navigation);
+
+        this.onNavigation(
+                navigation,
+                this.context
+        );
     }
 
     private DivElement horizontalScrollbarThumb() {
@@ -651,12 +706,28 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                             vHeight + "%"
                     );
 
+            this.horizontalScrollbarThumbLeft = hLeft;
+            this.verticalScrollbarThumbTop = vTop;
+
             context.debug("SpreadsheetViewportComponent.renderScrollbars " + last + " left: " + left + " top: " + top + " hLeft: " + hLeft + " hWidth: " + hWidth + " vTop: " + vTop + " vHeight: " + vHeight);
         } else {
             horizontalScrollbarThumb.setDisplay("hidden");
             verticalScrollbarThumb.setDisplay("hidden");
+
+            this.horizontalScrollbarThumbLeft = Integer.MAX_VALUE;
+            this.verticalScrollbarThumbTop = Integer.MAX_VALUE;
         }
     }
+
+    /**
+     * The css position left percentage for the horizontal scrollbar thumb. This will be used to determine whether clicks on the horizontal scrollbar are before or after the thumb.
+     */
+    private float horizontalScrollbarThumbLeft;
+
+    /**
+     * The css position top percentage for the vertical scrollbar thumb. This will be used to determine whether clicks on the vertical scrollbar are before or after the thumb.
+     */
+    private float verticalScrollbarThumbTop;
 
     // misc.............................................................................................................
 
