@@ -56,8 +56,8 @@ final class SpreadsheetViewportComponentThumbnails {
                 rowCount
         );
 
-        final float horizontalMultiplier = 1 / right;
-        final float verticalMultiplier = 1 / bottom;
+        final float horizontalMultiplier = 100 / right;
+        final float verticalMultiplier = 100 / bottom;
 
         return with(
                 left * horizontalMultiplier,// left

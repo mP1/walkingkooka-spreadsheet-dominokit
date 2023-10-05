@@ -33,9 +33,9 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                 0, //rowCount
                 SpreadsheetViewportComponentThumbnails.with(
                         0, // left
-                        1, // width
+                        100, // width
                         0, // top
-                        1 // height
+                        100 // height
                 )
         );
     }
@@ -48,9 +48,9 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                 20, //rowCount
                 SpreadsheetViewportComponentThumbnails.with(
                         0, // left
-                        0.5f, // width
+                        50, // width
                         0, // top
-                        0.5f // height
+                        50 // height
                 )
         );
     }
@@ -63,9 +63,9 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                 20, //rowCount
                 SpreadsheetViewportComponentThumbnails.with(
                         0, // left
-                        1, // width
+                        100, // width
                         0, // top
-                        0.5f // height
+                        50 // height
                 )
         );
     }
@@ -77,10 +77,10 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                 12, // columnCount
                 12, //rowCount
                 SpreadsheetViewportComponentThumbnails.with(
-                        0.25f, // left
-                        0.5f, // width
+                        25, // left
+                        50, // width
                         0, // top
-                        1 // height
+                        100 // height
                 )
         );
     }
@@ -93,9 +93,9 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                 12, //rowCount
                 SpreadsheetViewportComponentThumbnails.with(
                         0, // left
-                        1, // width
-                        0.25f, // top
-                        0.5f // height
+                        100, // width
+                        25, // top
+                        50 // height
                 )
         );
     }
@@ -107,10 +107,10 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                 12, // columnCount
                 12, //rowCount
                 SpreadsheetViewportComponentThumbnails.with(
-                        0.5f, // left
-                        0.5f, // width
+                        50, // left
+                        50, // width
                         0, // top
-                        1 // height
+                        100 // height
                 )
         );
     }
@@ -123,9 +123,9 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                 12, //rowCount
                 SpreadsheetViewportComponentThumbnails.with(
                         0, // left
-                        1, // width
-                        0.5f, // top
-                        0.5f // height
+                        100, // width
+                        50, // top
+                        50 // height
                 )
         );
     }
