@@ -67,7 +67,10 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
                 .addEventListener(
                         EventType.focus.getName(),
                         this::onFocus
-                );
+                ).parent()
+                .setBorder("0")
+                .setCssProperty("border-radius", 0);
+
         textBox.apply(
                 self ->
                         self.appendChild(
