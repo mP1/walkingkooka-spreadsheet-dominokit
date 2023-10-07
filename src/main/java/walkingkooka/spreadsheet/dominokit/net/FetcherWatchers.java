@@ -90,7 +90,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
         );
     }
 
-    final Watchers<FetcherWatchersEvent> watchers = Watchers.create();
+    final Watchers<FetcherWatchersEvent<W>> watchers = Watchers.create();
 
     @Override
     public final String toString() {

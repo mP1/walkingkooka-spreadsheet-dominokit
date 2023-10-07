@@ -26,11 +26,11 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
  */
 final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static FailureFetcherWatchersEvent with(final HttpStatus status,
-                                            final Headers headers,
-                                            final String body,
-                                            final AppContext context) {
-        return new FailureFetcherWatchersEvent(
+    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> with(final HttpStatus status,
+                                                                          final Headers headers,
+                                                                          final String body,
+                                                                          final AppContext context) {
+        return new FailureFetcherWatchersEvent<>(
                 status,
                 headers,
                 body,

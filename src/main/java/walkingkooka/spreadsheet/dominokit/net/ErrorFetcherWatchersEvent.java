@@ -24,9 +24,9 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
  */
 final class ErrorFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static ErrorFetcherWatchersEvent with(final Object cause,
-                                          final AppContext context) {
-        return new ErrorFetcherWatchersEvent(cause, context);
+    static <W extends FetcherWatcher> ErrorFetcherWatchersEvent<W> with(final Object cause,
+                                                                        final AppContext context) {
+        return new ErrorFetcherWatchersEvent<>(cause, context);
     }
 
     private ErrorFetcherWatchersEvent(final Object cause,

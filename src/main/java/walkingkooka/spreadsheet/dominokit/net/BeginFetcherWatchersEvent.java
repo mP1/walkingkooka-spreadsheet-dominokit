@@ -28,11 +28,11 @@ import java.util.Optional;
  */
 final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static BeginFetcherWatchersEvent with(final HttpMethod method,
-                                          final Url url,
-                                          final Optional<String> body,
-                                          final AppContext context) {
-        return new BeginFetcherWatchersEvent(
+    static <W extends FetcherWatcher> BeginFetcherWatchersEvent<W> with(final HttpMethod method,
+                                                                        final Url url,
+                                                                        final Optional<String> body,
+                                                                        final AppContext context) {
+        return new BeginFetcherWatchersEvent<>(
                 method,
                 url,
                 body,
