@@ -364,7 +364,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private void addContextMenuEventListener(final Element element) {
         element.addEventListener(
                 EventType.contextmenu.getName(),
-                (event) -> this.onContextMenu(event)
+                this::onContextMenu
         );
     }
 

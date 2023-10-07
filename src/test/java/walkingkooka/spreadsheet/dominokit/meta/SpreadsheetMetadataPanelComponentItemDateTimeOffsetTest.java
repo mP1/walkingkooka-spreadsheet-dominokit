@@ -112,7 +112,7 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
                 SpreadsheetMetadataPanelComponentItemDateTimeOffset.toDate(
                         SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(date)
                 ),
-                () -> date.toString()
+                date::toString
         );
     }
 

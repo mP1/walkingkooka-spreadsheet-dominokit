@@ -485,7 +485,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                                             anchor.historyToken()
                                                     .map(t -> t.cast(HasSpreadsheetPattern.class)
                                                             .pattern()
-                                                            .map(p -> p.text())
+                                                            .map(SpreadsheetPattern::text)
                                                             .orElse("")
                                                     ).orElse("")
                                     );
