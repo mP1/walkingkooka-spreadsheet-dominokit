@@ -159,8 +159,6 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderContextTest
         }
     }
 
-    ;
-
     @Override
     public Class<SpreadsheetPatternEditorComponentSampleRowProviderContext> type() {
         return SpreadsheetPatternEditorComponentSampleRowProviderContext.class;
