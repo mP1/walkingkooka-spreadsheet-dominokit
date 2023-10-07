@@ -77,7 +77,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
         final SpreadsheetName name = this.name();
 
         return patternKind.isPresent() ?
-                new SpreadsheetMetadataPropertySelectHistoryToken(
+                new SpreadsheetMetadataPropertySelectHistoryToken<>(
                         id,
                         name,
                         patternKind.get()

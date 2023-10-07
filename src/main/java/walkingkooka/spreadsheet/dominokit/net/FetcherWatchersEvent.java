@@ -28,10 +28,10 @@ import java.util.function.Consumer;
 
 abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consumer<W> {
 
-    static BeginFetcherWatchersEvent begin(final HttpMethod method,
-                                          final Url url,
-                                          final Optional<String> body,
-                                          final AppContext context) {
+    static <W extends FetcherWatcher> BeginFetcherWatchersEvent<W> begin(final HttpMethod method,
+                                                                         final Url url,
+                                                                         final Optional<String> body,
+                                                                         final AppContext context) {
         return BeginFetcherWatchersEvent.with(
                 method,
                 url,
@@ -40,15 +40,15 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
         );
     }
 
-    static ErrorFetcherWatchersEvent error(final Object cause,
-                                           final AppContext context) {
+    static <W extends FetcherWatcher> ErrorFetcherWatchersEvent<W> error(final Object cause,
+                                                                         final AppContext context) {
         return ErrorFetcherWatchersEvent.with(cause, context);
     }
 
-    static FailureFetcherWatchersEvent failure(final HttpStatus status,
-                                            final Headers headers,
-                                            final String body,
-                                            final AppContext context) {
+    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> failure(final HttpStatus status,
+                                                                             final Headers headers,
+                                                                             final String body,
+                                                                             final AppContext context) {
         return FailureFetcherWatchersEvent.with(
                 status,
                 headers,
