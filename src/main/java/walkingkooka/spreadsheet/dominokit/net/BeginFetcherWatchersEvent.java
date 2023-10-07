@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import elemental2.dom.Headers;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Optional;
