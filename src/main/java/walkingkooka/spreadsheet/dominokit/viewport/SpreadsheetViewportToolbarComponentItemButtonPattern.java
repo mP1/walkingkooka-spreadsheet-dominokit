@@ -140,7 +140,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
     void onToolbarRefreshEnd(final int cellPresentCount,
                              final AppContext context) {
         final Map<SpreadsheetPatternKind, Integer> patternKindToCount = this.patternKindToCount;
-        final boolean selected = patternKindToCount.size() > 0;
+        final boolean selected = false == patternKindToCount.isEmpty();
 
         this.setButtonSelected(
                 selected,
