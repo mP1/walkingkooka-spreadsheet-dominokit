@@ -278,7 +278,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                             );
                                         }
                                     }
-                                    ;
                                 }
                         );
                 break;
