@@ -494,7 +494,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
     }
 
-    private DivElement horizontalScrollbar;
+    private final DivElement horizontalScrollbar;
 
     private DivElement verticalScrollbar() {
         return this.scrollbar(
@@ -505,7 +505,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
     }
 
-    private DivElement verticalScrollbar;
+    private final DivElement verticalScrollbar;
 
     private DivElement scrollbar(final String idSuffix,
                                  final String cssText,
@@ -570,7 +570,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
     }
 
-    private DivElement horizontalScrollbarThumb;
+    private final DivElement horizontalScrollbarThumb;
 
     private DivElement verticalScrollbarThumb() {
         return scrollbarThumb(
@@ -580,7 +580,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
     }
 
-    private DivElement verticalScrollbarThumb;
+    private final DivElement verticalScrollbarThumb;
 
     private DivElement scrollbarThumb(final String idSuffix,
                                       final String width,
