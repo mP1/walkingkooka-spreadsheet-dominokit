@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -92,7 +92,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
-        final SpreadsheetViewportSelection menuViewportSelection = this.setMenu2ViewportSelection(selection);
+        final SpreadsheetViewport menuViewportSelection = this.setMenu2ViewportSelection(selection);
         final SpreadsheetSelection menuSelection = menuViewportSelection.selection();
 
         if (menuSelection.isCellReference() || menuSelection.isCellRange() || menuSelection.isLabelName()) {
@@ -124,7 +124,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return token;
     }
 
-    abstract SpreadsheetViewportSelection setMenu2ViewportSelection(final SpreadsheetSelection selection);
+    abstract SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection);
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.

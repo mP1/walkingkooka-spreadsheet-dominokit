@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -77,7 +77,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override //
-    final SpreadsheetViewportSelection setMenu2ViewportSelection(final SpreadsheetSelection selection) {
+    final SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
     }
 

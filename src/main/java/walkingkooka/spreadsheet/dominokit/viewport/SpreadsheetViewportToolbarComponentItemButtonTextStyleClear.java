@@ -71,7 +71,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonTextStyleClear extends 
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .viewportSelectionHistoryTokenOrEmpty()
+                .viewportHistoryTokenOrEmpty()
                 .map(
                         t -> t.setStyle(PROPERTY)
                                 .setSave("")
@@ -85,7 +85,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonTextStyleClear extends 
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .viewportSelectionHistoryTokenOrEmpty()
+                .viewportHistoryTokenOrEmpty()
                 .map(
                         t -> t.setStyle(PROPERTY)
                 ).ifPresent(context::pushHistoryToken);

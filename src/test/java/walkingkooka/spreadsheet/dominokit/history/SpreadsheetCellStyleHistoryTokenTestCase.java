@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends SpreadsheetCellStyleHistoryToken<Color>> extends SpreadsheetCellHistoryTokenTestCase<T> {
@@ -38,17 +38,17 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
     @Override
     T createHistoryToken(final SpreadsheetId id,
                          final SpreadsheetName name,
-                         final SpreadsheetViewportSelection viewportSelection) {
+                         final SpreadsheetViewport viewport) {
         return this.createHistoryToken(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 PROPERTY_NAME
         );
     }
 
     abstract T createHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name,
-                                  final SpreadsheetViewportSelection viewportSelection,
+                                  final SpreadsheetViewport viewport,
                                   final TextStylePropertyName<Color> propertyName);
 }

@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyValueException;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -85,11 +85,11 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
     @Override
     SpreadsheetCellFreezeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name,
-                                                         final SpreadsheetViewportSelection viewportSelection) {
+                                                         final SpreadsheetViewport viewport) {
         return SpreadsheetCellFreezeHistoryToken.with(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 

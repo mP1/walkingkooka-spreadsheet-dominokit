@@ -125,7 +125,7 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
         final AppContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
 
-        context.debug("SpreadsheetFormulaComponent.onFocus " + historyToken.viewportSelectionOrEmpty());
+        context.debug("SpreadsheetFormulaComponent.onFocus " + historyToken.viewportOrEmpty());
 
         context.pushHistoryToken(
                 historyToken.setFormula()
@@ -173,7 +173,7 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
         this.textBox.setDisabled(false);
 
         final SpreadsheetSelection selection = context.historyToken()
-                .viewportSelectionOrEmpty()
+                .viewportOrEmpty()
                 .get()
                 .selection();
 
@@ -189,7 +189,7 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
 
         if(token instanceof SpreadsheetCellHistoryToken) {
             final SpreadsheetCellHistoryToken cellHistoryToken = (SpreadsheetCellHistoryToken) token;
-            final SpreadsheetSelection selection = cellHistoryToken.viewportSelection().selection();
+            final SpreadsheetSelection selection = cellHistoryToken.viewport().selection();
             if(false == selection.equals(this.selection)) {
                 this.reload(
                         selection,

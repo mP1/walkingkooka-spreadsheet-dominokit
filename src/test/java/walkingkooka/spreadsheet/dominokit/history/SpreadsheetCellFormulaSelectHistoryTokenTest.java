@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends SpreadsheetCellFormulaHistoryTokenTestCase<SpreadsheetCellFormulaSelectHistoryToken> {
@@ -30,16 +30,16 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
 
     @Test
     public void testSetSave() {
-        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
         final String formulaText = "=1";
-        final HistoryToken historyToken = HistoryToken.formula(ID, NAME, viewportSelection);
+        final HistoryToken historyToken = HistoryToken.formula(ID, NAME, viewport);
 
         this.checkEquals(
                 historyToken.setSave(formulaText),
                 HistoryToken.formulaSave(
                         ID,
                         NAME,
-                        viewportSelection,
+                        viewport,
                         SpreadsheetFormula.EMPTY.setText(formulaText)
                 )
         );
@@ -71,11 +71,11 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
     @Override
     SpreadsheetCellFormulaSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,
-                                                                final SpreadsheetViewportSelection viewportSelection) {
+                                                                final SpreadsheetViewport viewport) {
         return SpreadsheetCellFormulaSelectHistoryToken.with(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 

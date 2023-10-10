@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public final class SpreadsheetColumnDeleteHistoryTokenTest extends SpreadsheetColumnHistoryTokenTestCase<SpreadsheetColumnDeleteHistoryToken> {
@@ -50,11 +50,11 @@ public final class SpreadsheetColumnDeleteHistoryTokenTest extends SpreadsheetCo
     @Override
     SpreadsheetColumnDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final SpreadsheetViewportSelection viewportSelection) {
+                                                           final SpreadsheetViewport viewport) {
         return SpreadsheetColumnDeleteHistoryToken.with(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 

@@ -21,27 +21,27 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnClearHistoryToken with(final SpreadsheetId id,
                                                    final SpreadsheetName name,
-                                                   final SpreadsheetViewportSelection viewportSelection) {
+                                                   final SpreadsheetViewport viewport) {
         return new SpreadsheetColumnClearHistoryToken(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 
     private SpreadsheetColumnClearHistoryToken(final SpreadsheetId id,
                                                final SpreadsheetName name,
-                                               final SpreadsheetViewportSelection viewportSelection) {
+                                               final SpreadsheetViewport viewport) {
         super(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 
@@ -56,13 +56,13 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
         return with(
                 id,
                 name,
-                this.viewportSelection()
+                this.viewport()
         );
     }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        this.deltaClearSelectionAndPushViewportSelectionHistoryToken(context);
+        this.deltaClearSelectionAndPushViewportHistoryToken(context);
     }
 }

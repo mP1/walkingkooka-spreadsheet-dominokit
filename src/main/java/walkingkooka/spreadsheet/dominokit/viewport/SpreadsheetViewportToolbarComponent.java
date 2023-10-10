@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportHistoryToken;
 import walkingkooka.spreadsheet.dominokit.layout.FlexLayout;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -161,12 +161,12 @@ public final class SpreadsheetViewportToolbarComponent implements ComponentLifec
     public void refresh(final AppContext context) {
         context.debug("SpreadsheetViewportToolbarComponent.refresh BEGIN");
 
-        final SpreadsheetViewportSelectionHistoryToken historyToken = context.historyToken()
-                .cast(SpreadsheetViewportSelectionHistoryToken.class);
+        final SpreadsheetViewportHistoryToken historyToken = context.historyToken()
+                .cast(SpreadsheetViewportHistoryToken.class);
 
         final Optional<SpreadsheetSelection> maybeSelection = context.viewportCache()
                 .nonLabelSelection(
-                        historyToken.viewportSelection()
+                        historyToken.viewport()
                                 .selection()
                 );
 

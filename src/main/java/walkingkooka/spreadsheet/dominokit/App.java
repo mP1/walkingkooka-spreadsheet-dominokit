@@ -73,7 +73,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -320,14 +320,14 @@ public class App implements EntryPoint,
 
         // if a selection is already present copy from the metadata
         if (historyToken instanceof SpreadsheetSelectionHistoryToken) {
-            final HistoryToken withViewportSelection = historyToken.setViewportSelection(
-                    delta.viewportSelection()
+            final HistoryToken withViewport = historyToken.setViewport(
+                    delta.viewport()
             );
 
-            if (false == historyToken.equals(withViewportSelection)) {
-                context.debug("App.onSpreadsheetDelta selection active, updating " + withViewportSelection, delta);
+            if (false == historyToken.equals(withViewport)) {
+                context.debug("App.onSpreadsheetDelta selection active, updating " + withViewport, delta);
                 context.pushHistoryToken(
-                        withViewportSelection
+                        withViewport
                 );
             }
         }
@@ -408,17 +408,17 @@ public class App implements EntryPoint,
             final SpreadsheetName name = maybeName.get();
 
             final HistoryToken historyToken = context.historyToken();
-            final HistoryToken idNameViewportSelectionHistoryToken = historyToken
+            final HistoryToken idNameViewportHistoryToken = historyToken
                     .setIdAndName(
                             id,
                             name
-                    ).setViewportSelection(
+                    ).setViewport(
                             metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
                     );
 
-            if (false == historyToken.equals(idNameViewportSelectionHistoryToken)) {
-                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/viewportSelection " + idNameViewportSelectionHistoryToken, metadata);
-                context.pushHistoryToken(idNameViewportSelectionHistoryToken);
+            if (false == historyToken.equals(idNameViewportHistoryToken)) {
+                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/viewport " + idNameViewportHistoryToken, metadata);
+                context.pushHistoryToken(idNameViewportHistoryToken);
             } else {
                 // must have loaded a new spreadsheet, need to fire history token
                 //
@@ -556,18 +556,18 @@ public class App implements EntryPoint,
         // if the viewport selection changed update metadata
         final HistoryToken historyToken = context.historyToken();
         if (historyToken instanceof SpreadsheetIdHistoryToken) {
-            final Optional<SpreadsheetViewportSelection> viewportSelection = historyToken.viewportSelectionOrEmpty();
-            final Optional<SpreadsheetViewportSelection> previousViewportSelection = previous.viewportSelectionOrEmpty();
-            if (false == viewportSelection.equals(previousViewportSelection)) {
+            final Optional<SpreadsheetViewport> viewport = historyToken.viewportOrEmpty();
+            final Optional<SpreadsheetViewport> previousViewport = previous.viewportOrEmpty();
+            if (false == viewport.equals(previousViewport)) {
 
-                context.debug("App.onHistoryTokenChange viewportSelection changed from " + previousViewportSelection.orElse(null) + " TO " + viewportSelection.orElse(null) + " will update Metadata");
+                context.debug("App.onHistoryTokenChange viewport changed from " + previousViewport.orElse(null) + " TO " + viewport.orElse(null) + " will update Metadata");
 
                 final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
                 context.spreadsheetMetadataFetcher()
                         .patchMetadata(
                                 spreadsheetIdHistoryToken.id(),
                                 SpreadsheetMetadataPropertyName.SELECTION.patch(
-                                        viewportSelection.orElse(null)
+                                        viewport.orElse(null)
                                 )
                         );
             }

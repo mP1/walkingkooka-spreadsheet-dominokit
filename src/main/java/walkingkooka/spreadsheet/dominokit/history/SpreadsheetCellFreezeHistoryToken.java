@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
 
@@ -33,24 +33,24 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
 
     static SpreadsheetCellFreezeHistoryToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name,
-                                                  final SpreadsheetViewportSelection viewportSelection) {
+                                                  final SpreadsheetViewport viewport) {
         return new SpreadsheetCellFreezeHistoryToken(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 
     private SpreadsheetCellFreezeHistoryToken(final SpreadsheetId id,
                                               final SpreadsheetName name,
-                                              final SpreadsheetViewportSelection viewportSelection) {
+                                              final SpreadsheetViewport viewport) {
         super(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
 
-        final SpreadsheetSelection selection = viewportSelection.selection();
+        final SpreadsheetSelection selection = viewport.selection();
 
         if(false == selection.isLabelName()) {
             SpreadsheetMetadata.EMPTY.set(
@@ -79,7 +79,7 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
         return with(
                 id,
                 name,
-                this.viewportSelection()
+                this.viewport()
         );
     }
 
@@ -96,9 +96,9 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final SpreadsheetSelection selection = this.viewportSelection()
+        final SpreadsheetSelection selection = this.viewport()
                 .selection();
-        this.patchMetadataAndPushViewportSelectionHistoryToken(
+        this.patchMetadataAndPushViewportHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
                 selection.toColumnRange(),
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,

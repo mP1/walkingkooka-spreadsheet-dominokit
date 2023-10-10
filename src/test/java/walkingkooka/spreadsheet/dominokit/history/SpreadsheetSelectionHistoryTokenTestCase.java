@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
 
@@ -30,31 +30,31 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         super();
     }
 
-    // setViewportSelection.............................................................................................
+    // setViewport.............................................................................................
 
     @Test
-    public final void testSetViewportSelectionWithDifferentCell() {
-        this.setViewportSelectionCellAndCheck(
+    public final void testSetViewportWithDifferentCell() {
+        this.setViewportCellAndCheck(
                 SpreadsheetSelection.parseCell("Z99")
         );
     }
 
     @Test
-    public final void testSetViewportSelectionWithDifferentCellRange() {
-        this.setViewportSelectionCellAndCheck(
+    public final void testSetViewportWithDifferentCellRange() {
+        this.setViewportCellAndCheck(
                 SpreadsheetSelection.parseCellRange("B2:C3")
         );
     }
 
     @Test
-    public final void testSetViewportSelectionWithDifferentLabel() {
-        this.setViewportSelectionCellAndCheck(
+    public final void testSetViewportWithDifferentLabel() {
+        this.setViewportCellAndCheck(
                 SpreadsheetSelection.labelName("Label123")
         );
     }
 
-    private void setViewportSelectionCellAndCheck(final SpreadsheetExpressionReference selection) {
-        this.setViewportSelectionAndCheck(
+    private void setViewportCellAndCheck(final SpreadsheetExpressionReference selection) {
+        this.setViewportAndCheck(
                 selection,
                 HistoryToken.cell(
                         ID,
@@ -65,21 +65,21 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testSetViewportSelectionWithDifferentColumn() {
-        this.setViewportSelectionColumnAndCheck(
+    public final void testSetViewportWithDifferentColumn() {
+        this.setViewportColumnAndCheck(
                 SpreadsheetSelection.parseColumn("Z")
         );
     }
 
     @Test
-    public final void testSetViewportSelectionWithDifferentColumnRange() {
-        this.setViewportSelectionColumnAndCheck(
+    public final void testSetViewportWithDifferentColumnRange() {
+        this.setViewportColumnAndCheck(
                 SpreadsheetSelection.parseColumnRange("B:C")
         );
     }
 
-    private void setViewportSelectionColumnAndCheck(final SpreadsheetSelection selection) {
-        this.setViewportSelectionAndCheck(
+    private void setViewportColumnAndCheck(final SpreadsheetSelection selection) {
+        this.setViewportAndCheck(
                 selection,
                 HistoryToken.column(
                         ID,
@@ -90,21 +90,21 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testSetViewportSelectionWithDifferentRow() {
-        this.setViewportSelectionRowAndCheck(
+    public final void testSetViewportWithDifferentRow() {
+        this.setViewportRowAndCheck(
                 SpreadsheetSelection.parseRow("99")
         );
     }
 
     @Test
-    public final void testSetViewportSelectionWithDifferentRowRange() {
-        this.setViewportSelectionRowAndCheck(
+    public final void testSetViewportWithDifferentRowRange() {
+        this.setViewportRowAndCheck(
                 SpreadsheetSelection.parseRowRange("2:3")
         );
     }
 
-    private void setViewportSelectionRowAndCheck(final SpreadsheetSelection selection) {
-        this.setViewportSelectionAndCheck(
+    private void setViewportRowAndCheck(final SpreadsheetSelection selection) {
+        this.setViewportAndCheck(
                 selection,
                 HistoryToken.row(
                         ID,
@@ -114,26 +114,26 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         );
     }
 
-    private void setViewportSelectionAndCheck(final SpreadsheetSelection selection,
+    private void setViewportAndCheck(final SpreadsheetSelection selection,
                                               final HistoryToken expected) {
-        this.setViewportSelectionAndCheck(
+        this.setViewportAndCheck(
                 this.createHistoryToken(),
                 selection.setDefaultAnchor(),
                 expected
         );
     }
 
-    final void setViewportSelectionAndCheck(final T token,
-                                            final SpreadsheetViewportSelection viewportSelection,
+    final void setViewportAndCheck(final T token,
+                                   final SpreadsheetViewport viewport,
                                             final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                token.setViewportSelection(
+                token.setViewport(
                         Optional.of(
-                                viewportSelection
+                                viewport
                         )
                 ),
-                () -> token + " setViewportSelection " + viewportSelection
+                () -> token + " setViewport " + viewport
         );
     }
 
