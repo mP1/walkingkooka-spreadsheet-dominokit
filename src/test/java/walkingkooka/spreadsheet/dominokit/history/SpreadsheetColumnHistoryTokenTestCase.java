@@ -23,16 +23,16 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
-public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends SpreadsheetColumnHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
+public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends SpreadsheetColumnHistoryToken> extends SpreadsheetViewportHistoryTokenTestCase<T> {
 
     final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("A");
 
     final static SpreadsheetColumnReferenceRange COLUMN_RANGE = SpreadsheetSelection.parseColumnRange("B:C");
 
-    final static SpreadsheetViewportSelection VIEWPORT_SELECTION = COLUMN.setDefaultAnchor();
+    final static SpreadsheetViewport VIEWPORT_SELECTION = COLUMN.setDefaultAnchor();
 
     SpreadsheetColumnHistoryTokenTestCase() {
         super();
@@ -82,53 +82,53 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
 
     @Test
     public final void testFreezeOrEmptyColumn() {
-        final SpreadsheetViewportSelection viewportSelection = COLUMN.setDefaultAnchor();
+        final SpreadsheetViewport viewport = COLUMN.setDefaultAnchor();
 
         this.freezeOrEmptyAndCheck(
-                viewportSelection,
+                viewport,
                 HistoryToken.columnFreeze(
                         ID,
                         NAME,
-                        viewportSelection
+                        viewport
                 )
         );
     }
 
     @Test
     public final void testFreezeOrEmptyColumnRange() {
-        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseColumnRange("A:B")
+        final SpreadsheetViewport viewport = SpreadsheetSelection.parseColumnRange("A:B")
                 .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
 
         this.freezeOrEmptyAndCheck(
-                viewportSelection,
+                viewport,
                 HistoryToken.columnFreeze(
                         ID,
                         NAME,
-                        viewportSelection
+                        viewport
                 )
         );
     }
 
-    // setViewportSelection.............................................................................................
+    // setViewport.............................................................................................
 
     @Test
-    public final void testSetViewportSelectionWithSameColumn() {
-        this.setViewportSelectionAndCheck(
+    public final void testSetViewportWithSameColumn() {
+        this.setViewportAndCheck(
                 COLUMN.setDefaultAnchor()
         );
     }
 
     @Test
-    public final void testSetViewportSelectionWithSameColumnRange() {
-        this.setViewportSelectionAndCheck(
+    public final void testSetViewportWithSameColumnRange() {
+        this.setViewportAndCheck(
                 SpreadsheetSelection.parseColumnRange("A:B")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
         );
     }
 
     @Test
-    public final void testSetViewportSelectionWithSameColumnRange2() {
-        this.setViewportSelectionAndCheck(
+    public final void testSetViewportWithSameColumnRange2() {
+        this.setViewportAndCheck(
                 SpreadsheetSelection.parseColumnRange("A:C")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.LEFT)
         );
@@ -178,16 +178,16 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
 
     @Test
     public final void testColumnRangeMenuWithColumnInside() {
-        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseColumnRange("A:C")
+        final SpreadsheetViewport viewport = SpreadsheetSelection.parseColumnRange("A:C")
                 .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
 
         this.setMenuAndCheck(
-                this.createHistoryToken(viewportSelection),
+                this.createHistoryToken(viewport),
                 SpreadsheetSelection.parseColumn("B"),
                 HistoryToken.columnMenu(
                         ID,
                         NAME,
-                        viewportSelection
+                        viewport
                 )
         );
     }

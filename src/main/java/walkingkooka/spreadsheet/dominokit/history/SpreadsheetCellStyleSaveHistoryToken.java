@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -34,13 +34,13 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
     static <T> SpreadsheetCellStyleSaveHistoryToken<T> with(final SpreadsheetId id,
                                                             final SpreadsheetName name,
-                                                            final SpreadsheetViewportSelection viewportSelection,
+                                                            final SpreadsheetViewport viewport,
                                                             final TextStylePropertyName<T> propertyName,
                                                             final Optional<T> propertyValue) {
         return new SpreadsheetCellStyleSaveHistoryToken<>(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 propertyName,
                 propertyValue
         );
@@ -48,13 +48,13 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
     private SpreadsheetCellStyleSaveHistoryToken(final SpreadsheetId id,
                                                  final SpreadsheetName name,
-                                                 final SpreadsheetViewportSelection viewportSelection,
+                                                 final SpreadsheetViewport viewport,
                                                  final TextStylePropertyName<T> propertyName,
                                                  final Optional<T> propertyValue) {
         super(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 propertyName
         );
         this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
@@ -77,7 +77,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
         return with(
                 id,
                 name,
-                this.viewportSelection(),
+                this.viewport(),
                 this.propertyName(),
                 this.propertyValue()
         );
@@ -100,16 +100,16 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
 
-        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+        final SpreadsheetViewport viewport = this.viewport();
 
         fetcher.patch(
                 fetcher.url(
                         this.id(),
-                        viewportSelection.selection(),
+                        viewport.selection(),
                         Optional.empty() // no extra path
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
-                                viewportSelection,
+                        SpreadsheetDeltaFetcher.appendViewportAndWindow(
+                                viewport,
                                 context.viewportCache()
                                         .windows(),
                                 UrlQueryString.EMPTY

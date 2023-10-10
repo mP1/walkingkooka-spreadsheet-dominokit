@@ -22,27 +22,27 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetCellFormulaHistoryToken {
 
     static SpreadsheetCellFormulaSelectHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
-                                                         final SpreadsheetViewportSelection viewportSelection) {
+                                                         final SpreadsheetViewport viewport) {
         return new SpreadsheetCellFormulaSelectHistoryToken(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 
     private SpreadsheetCellFormulaSelectHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
-                                                     final SpreadsheetViewportSelection viewportSelection) {
+                                                     final SpreadsheetViewport viewport) {
         super(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 
@@ -62,7 +62,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
         return with(
                 id,
                 name,
-                this.viewportSelection()
+                this.viewport()
         );
     }
 
@@ -71,7 +71,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
         return formulaSave(
                 this.id(),
                 this.name(),
-                this.viewportSelection(),
+                this.viewport(),
                 SpreadsheetFormula.EMPTY.setText(formulaText)
         );
     }

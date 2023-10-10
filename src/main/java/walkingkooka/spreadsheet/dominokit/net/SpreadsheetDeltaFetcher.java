@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 import walkingkooka.text.CaseKind;
@@ -51,13 +51,13 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      * selectionType=cell
      * </pre>
      */
-    public static UrlQueryString appendViewportSelectionAndWindow(final SpreadsheetViewportSelection viewportSelection,
-                                                                  final SpreadsheetViewportWindows window,
-                                                                  final UrlQueryString queryString) {
+    public static UrlQueryString appendViewportAndWindow(final SpreadsheetViewport viewport,
+                                                         final SpreadsheetViewportWindows window,
+                                                         final UrlQueryString queryString) {
         return appendWindow(
                 window,
                 appendViewportSelection(
-                        viewportSelection,
+                        viewport,
                         queryString
                 )
         );
@@ -71,12 +71,12 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      * selectionType=cell
      * </pre>
      */
-    public static UrlQueryString appendViewportSelection(final SpreadsheetViewportSelection viewportSelection,
+    public static UrlQueryString appendViewportSelection(final SpreadsheetViewport viewport,
                                                          final UrlQueryString queryString) {
-        Objects.requireNonNull(viewportSelection, "viewportSelection");
+        Objects.requireNonNull(viewport, "viewport");
         Objects.requireNonNull(queryString, "queryString");
 
-        final SpreadsheetSelection selection = viewportSelection.selection();
+        final SpreadsheetSelection selection = viewport.selection();
 
         UrlQueryString result = queryString.addParameter(
                 SELECTION,
@@ -86,19 +86,19 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 selection.selectionTypeName()
         );
 
-        final SpreadsheetViewportSelectionAnchor anchor = viewportSelection.anchor();
+        final SpreadsheetViewportSelectionAnchor anchor = viewport.anchor();
         if (SpreadsheetViewportSelectionAnchor.NONE != anchor) {
             result = result.addParameter(
                     SELECTION_ANCHOR,
-                    viewportSelection.anchor().kebabText()
+                    viewport.anchor().kebabText()
             );
         }
 
-        final List<SpreadsheetViewportSelectionNavigation> navigations = viewportSelection.navigations();
+        final List<SpreadsheetViewportSelectionNavigation> navigations = viewport.navigations();
         if (false == navigations.isEmpty()) {
             result = result.addParameter(
                     SELECTION_NAVIGATION,
-                    SpreadsheetViewportSelection.SEPARATOR.toSeparatedString(
+                    SpreadsheetViewport.SEPARATOR.toSeparatedString(
                             navigations,
                             SpreadsheetViewportSelectionNavigation::text
                     )
@@ -155,14 +155,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     /**
-     * DELETEs the given {@link SpreadsheetViewportSelection} such as a cell/column/row.
+     * DELETEs the given {@link SpreadsheetViewport} such as a cell/column/row.
      */
     public void deleteDelta(final SpreadsheetId id,
-                            final SpreadsheetViewportSelection viewportSelection) {
+                            final SpreadsheetViewport viewport) {
         Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(viewportSelection, "viewportSelection");
+        Objects.requireNonNull(viewport, "viewport");
 
-        final SpreadsheetSelection selection = viewportSelection.selection();
+        final SpreadsheetSelection selection = viewport.selection();
 
         this.delete(
                 this.url(
@@ -187,7 +187,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             final SpreadsheetCellReference home,
             final int width,
             final int height,
-            final Optional<SpreadsheetViewportSelection> viewportSelection,
+            final Optional<SpreadsheetViewport> viewport,
             final List<SpreadsheetViewportSelectionNavigation> navigations) {
         Objects.requireNonNull(navigations, "navigation");
         if (width <= 0) {
@@ -208,9 +208,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 .addParameter(HEIGHT, String.valueOf(height))
                 .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
 
-        if (viewportSelection.isPresent()) {
+        if (viewport.isPresent()) {
             queryString = appendViewportSelection(
-                    viewportSelection.get()
+                    viewport.get()
                             .setNavigations(navigations),
                     queryString
             );

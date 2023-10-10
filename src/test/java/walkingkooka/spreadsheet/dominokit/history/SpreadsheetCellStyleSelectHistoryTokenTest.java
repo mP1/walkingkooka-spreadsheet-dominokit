@@ -22,7 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -34,10 +34,10 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
 
     @Test
     public void testSetSaveStyle() {
-        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "#123456";
-        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, viewportSelection, propertyName);
+        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, viewport, propertyName);
 
         this.setSaveAndCheck(
                 historyToken,
@@ -45,7 +45,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 HistoryToken.cellStyleSave(
                         ID,
                         NAME,
-                        viewportSelection,
+                        viewport,
                         propertyName,
                         Optional.of(Color.parse(value))
                 )
@@ -54,10 +54,10 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
 
     @Test
     public void testSetSaveStyleWithEmptyText() {
-        final SpreadsheetViewportSelection viewportSelection = CELL.setDefaultAnchor();
+        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "";
-        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, viewportSelection, propertyName);
+        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, viewport, propertyName);
 
         this.setSaveAndCheck(
                 historyToken,
@@ -65,7 +65,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 HistoryToken.cellStyleSave(
                         ID,
                         NAME,
-                        viewportSelection,
+                        viewport,
                         propertyName,
                         Optional.empty()
                 )
@@ -143,12 +143,12 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     @Override
     SpreadsheetCellStyleSelectHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                      final SpreadsheetName name,
-                                                                     final SpreadsheetViewportSelection viewportSelection,
+                                                                     final SpreadsheetViewport viewport,
                                                                      final TextStylePropertyName<Color> propertyName) {
         return SpreadsheetCellStyleSelectHistoryToken.with(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 PROPERTY_NAME
         );
     }

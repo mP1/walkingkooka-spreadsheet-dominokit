@@ -23,18 +23,18 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRowHistoryToken> extends SpreadsheetViewportSelectionHistoryTokenTestCase<T> {
+public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRowHistoryToken> extends SpreadsheetViewportHistoryTokenTestCase<T> {
 
     final static SpreadsheetRowReference ROW = SpreadsheetSelection.parseRow("1");
 
     final static SpreadsheetRowReferenceRange ROW_RANGE = SpreadsheetSelection.parseRowRange("2:3");
 
-    private final static SpreadsheetViewportSelection VIEWPORT_SELECTION = ROW.setDefaultAnchor();
+    private final static SpreadsheetViewport VIEWPORT_SELECTION = ROW.setDefaultAnchor();
 
     SpreadsheetRowHistoryTokenTestCase() {
         super();
@@ -84,53 +84,53 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
 
     @Test
     public final void testFreezeOrEmptyRow() {
-        final SpreadsheetViewportSelection viewportSelection = ROW.setDefaultAnchor();
+        final SpreadsheetViewport viewport = ROW.setDefaultAnchor();
 
         this.freezeOrEmptyAndCheck(
-                viewportSelection,
+                viewport,
                 HistoryToken.rowFreeze(
                         ID,
                         NAME,
-                        viewportSelection
+                        viewport
                 )
         );
     }
 
     @Test
     public final void testFreezeOrEmptyRowRange() {
-        final SpreadsheetViewportSelection viewportSelection = SpreadsheetSelection.parseRowRange("1:2")
+        final SpreadsheetViewport viewport = SpreadsheetSelection.parseRowRange("1:2")
                 .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
 
         this.freezeOrEmptyAndCheck(
-                viewportSelection,
+                viewport,
                 HistoryToken.rowFreeze(
                         ID,
                         NAME,
-                        viewportSelection
+                        viewport
                 )
         );
     }
 
-    // setViewportSelection.............................................................................................
+    // setViewport.............................................................................................
 
     @Test
-    public final void testSetViewportSelectionWithSameColumn() {
-        this.setViewportSelectionAndCheck(
+    public final void testSetViewportWithSameColumn() {
+        this.setViewportAndCheck(
                 ROW.setDefaultAnchor()
         );
     }
 
     @Test
-    public final void testSetViewportSelectionWithSameColumnRange() {
-        this.setViewportSelectionAndCheck(
+    public final void testSetViewportWithSameColumnRange() {
+        this.setViewportAndCheck(
                 SpreadsheetSelection.parseRowRange("1:2")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.TOP)
         );
     }
 
     @Test
-    public final void testSetViewportSelectionWithSameColumnRange2() {
-        this.setViewportSelectionAndCheck(
+    public final void testSetViewportWithSameColumnRange2() {
+        this.setViewportAndCheck(
                 SpreadsheetSelection.parseRowRange("1:3")
                         .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
         );

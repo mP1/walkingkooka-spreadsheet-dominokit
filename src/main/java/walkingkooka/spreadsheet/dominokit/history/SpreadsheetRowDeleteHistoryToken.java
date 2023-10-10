@@ -21,27 +21,27 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowDeleteHistoryToken with(final SpreadsheetId id,
                                                  final SpreadsheetName name,
-                                                 final SpreadsheetViewportSelection viewportSelection) {
+                                                 final SpreadsheetViewport viewport) {
         return new SpreadsheetRowDeleteHistoryToken(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 
     private SpreadsheetRowDeleteHistoryToken(final SpreadsheetId id,
                                              final SpreadsheetName name,
-                                             final SpreadsheetViewportSelection viewportSelection) {
+                                             final SpreadsheetViewport viewport) {
         super(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 
@@ -56,7 +56,7 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
         return with(
                 id,
                 name,
-                this.viewportSelection()
+                this.viewport()
         );
     }
 
@@ -66,7 +66,7 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
         context.spreadsheetDeltaFetcher()
                 .deleteDelta(
                         this.id(),
-                        this.viewportSelection()
+                        this.viewport()
                 );
     }
 }

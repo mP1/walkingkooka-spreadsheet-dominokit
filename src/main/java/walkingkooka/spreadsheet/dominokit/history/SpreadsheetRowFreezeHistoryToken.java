@@ -23,33 +23,33 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 public class SpreadsheetRowFreezeHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowFreezeHistoryToken with(final SpreadsheetId id,
                                                  final SpreadsheetName name,
-                                                 final SpreadsheetViewportSelection viewportSelection) {
+                                                 final SpreadsheetViewport viewport) {
         return new SpreadsheetRowFreezeHistoryToken(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 
     private SpreadsheetRowFreezeHistoryToken(final SpreadsheetId id,
                                              final SpreadsheetName name,
-                                             final SpreadsheetViewportSelection viewportSelection) {
+                                             final SpreadsheetViewport viewport) {
         super(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
 
         // validate selection
         SpreadsheetMetadata.EMPTY.set(
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                viewportSelection.selection().toRowRange()
+                viewport.selection().toRowRange()
         );
     }
 
@@ -64,16 +64,16 @@ public class SpreadsheetRowFreezeHistoryToken extends SpreadsheetRowHistoryToken
         return with(
                 id,
                 name,
-                this.viewportSelection()
+                this.viewport()
         );
     }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        this.patchMetadataAndPushViewportSelectionHistoryToken(
+        this.patchMetadataAndPushViewportHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                this.viewportSelection()
+                this.viewport()
                         .selection()
                         .toRowRange(),
                 context

@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitor;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 import java.util.function.Function;
@@ -37,12 +37,12 @@ import java.util.function.Function;
 final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
 
     static HistoryToken selectionToken(final SpreadsheetHistoryToken token,
-                                       final SpreadsheetViewportSelection viewportSelection) {
+                                       final SpreadsheetViewport viewport) {
         final HistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new HistoryTokenSelectionSpreadsheetSelectionVisitor(
                 token,
-                viewportSelection.anchor()
+                viewport.anchor()
         );
-        visitor.accept(viewportSelection.selection());
+        visitor.accept(viewport.selection());
         return visitor.selectionToken;
     }
 

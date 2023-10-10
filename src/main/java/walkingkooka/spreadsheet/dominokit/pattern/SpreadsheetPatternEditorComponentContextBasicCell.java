@@ -67,7 +67,7 @@ final class SpreadsheetPatternEditorComponentContextBasicCell extends Spreadshee
         final Optional<SpreadsheetCell> maybeCell = this.context.viewportCell(
                 this.historyToken()
                         .cast(SpreadsheetCellPatternSelectHistoryToken.class)
-                        .viewportSelection()
+                        .viewport()
                         .selection()
         );
         if (maybeCell.isPresent()) {

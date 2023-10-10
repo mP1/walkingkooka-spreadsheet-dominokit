@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends SpreadsheetCellFormulaHistoryTokenTestCase<SpreadsheetCellFormulaSaveHistoryToken> {
@@ -52,11 +52,11 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
     @Override
     SpreadsheetCellFormulaSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,
-                                                              final SpreadsheetViewportSelection viewportSelection) {
+                                                              final SpreadsheetViewport viewport) {
         return SpreadsheetCellFormulaSaveHistoryToken.with(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 FORMULA
         );
     }

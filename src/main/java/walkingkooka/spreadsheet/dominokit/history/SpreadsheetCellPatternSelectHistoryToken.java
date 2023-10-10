@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
 
@@ -30,24 +30,24 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
 
     static SpreadsheetCellPatternSelectHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
-                                                         final SpreadsheetViewportSelection viewportSelection,
+                                                         final SpreadsheetViewport viewport,
                                                          final SpreadsheetPatternKind patternKind) {
         return new SpreadsheetCellPatternSelectHistoryToken(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 patternKind
         );
     }
 
     private SpreadsheetCellPatternSelectHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
-                                                     final SpreadsheetViewportSelection viewportSelection,
+                                                     final SpreadsheetViewport viewport,
                                                      final SpreadsheetPatternKind patternKind) {
         super(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 Optional.of(patternKind)
         );
     }
@@ -63,7 +63,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
         return with(
                 id,
                 name,
-                this.viewportSelection(),
+                this.viewport(),
                 this.patternKind()
                         .get()
         );
@@ -79,19 +79,19 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     private HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
-        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+        final SpreadsheetViewport viewport = this.viewport();
 
         return patternKind.isPresent() ?
                 new SpreadsheetCellPatternSelectHistoryToken(
                         id,
                         name,
-                        viewportSelection,
+                        viewport,
                         patternKind.get()
                 ) :
                 cell(
                         id,
                         name,
-                        viewportSelection
+                        viewport
                 );
     }
 
@@ -104,7 +104,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
         return cellPatternSave(
                 this.id(),
                 this.name(),
-                this.viewportSelection(),
+                this.viewport(),
                 patternKind,
                 Optional.ofNullable(
                         pattern.isEmpty() ?

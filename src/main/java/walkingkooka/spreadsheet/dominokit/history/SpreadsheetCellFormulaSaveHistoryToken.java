@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -35,24 +35,24 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
     static SpreadsheetCellFormulaSaveHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
-                                                       final SpreadsheetViewportSelection viewportSelection,
+                                                       final SpreadsheetViewport viewport,
                                                        final SpreadsheetFormula formula) {
         return new SpreadsheetCellFormulaSaveHistoryToken(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 formula
         );
     }
 
     private SpreadsheetCellFormulaSaveHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
-                                                   final SpreadsheetViewportSelection viewportSelection,
+                                                   final SpreadsheetViewport viewport,
                                                    final SpreadsheetFormula formula) {
         super(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
 
         this.formula = Objects.requireNonNull(formula, "formula");
@@ -82,7 +82,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         return with(
                 id,
                 name,
-                this.viewportSelection(),
+                this.viewport(),
                 this.formula()
         );
     }
@@ -103,17 +103,17 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         // PATCH cell with new formula
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
 
-        final SpreadsheetViewportSelection viewportSelection = this.viewportSelection();
+        final SpreadsheetViewport viewport = this.viewport();
 
         fetcher.patch(
                 fetcher.url(
                         this.id(),
-                        this.viewportSelection()
+                        this.viewport()
                                 .selection(),
                         Optional.empty() // no extra path
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
-                                viewportSelection,
+                        SpreadsheetDeltaFetcher.appendViewportAndWindow(
+                                viewport,
                                 context.viewportCache()
                                         .windows(),
                                 UrlQueryString.EMPTY
@@ -122,7 +122,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                 fetcher.toJson(
                         SpreadsheetDelta.EMPTY.setCells(
                                 Sets.of(
-                                        viewportSelection.selection()
+                                        viewport.selection()
                                                 .toCell()
                                                 .setFormula(this.formula())
                                 )

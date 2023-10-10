@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 import walkingkooka.test.Testing;
@@ -197,16 +197,16 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
-    private void appendViewportSelectionAndCheck(final SpreadsheetViewportSelection viewportSelection,
+    private void appendViewportSelectionAndCheck(final SpreadsheetViewport viewport,
                                                  final UrlQueryString initial,
                                                  final UrlQueryString expected) {
         this.checkEquals(
                 expected,
                 SpreadsheetDeltaFetcher.appendViewportSelection(
-                        viewportSelection,
+                        viewport,
                         initial
                 ),
-                () -> initial + " appendViewportSelection " + viewportSelection
+                () -> initial + " appendViewportSelection " + viewport
         );
     }
 
@@ -401,7 +401,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                           final UrlQueryString expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetDeltaFetcher.appendViewportSelectionAndWindow(
+                SpreadsheetDeltaFetcher.appendViewportAndWindow(
                         selection.setAnchor(anchor),
                         window,
                         initial

@@ -20,43 +20,43 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends SpreadsheetViewportSelectionHistoryToken> extends SpreadsheetSelectionHistoryTokenTestCase<T> {
+public abstract class SpreadsheetViewportHistoryTokenTestCase<T extends SpreadsheetViewportHistoryToken> extends SpreadsheetSelectionHistoryTokenTestCase<T> {
 
-    SpreadsheetViewportSelectionHistoryTokenTestCase() {
+    SpreadsheetViewportHistoryTokenTestCase() {
         super();
     }
 
     // freezeOrEmpty....................................................................................................
 
-    final void freezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection) {
+    final void freezeOrEmptyAndCheck(final SpreadsheetViewport viewport) {
         this.freezeOrEmptyAndCheck(
-                viewportSelection,
+                viewport,
                 Optional.empty()
         );
     }
 
-    final void freezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection,
+    final void freezeOrEmptyAndCheck(final SpreadsheetViewport viewport,
                                      final HistoryToken expected) {
         this.freezeOrEmptyAndCheck(
-                viewportSelection,
+                viewport,
                 Optional.of(
                         expected
                 )
         );
     }
 
-    final void freezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection,
+    final void freezeOrEmptyAndCheck(final SpreadsheetViewport viewport,
                                      final Optional<HistoryToken> expected) {
-        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
                 ID,
                 NAME,
-                viewportSelection
+                viewport
         );
 
         this.checkEquals(
@@ -66,17 +66,17 @@ public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends
         );
     }
 
-    // setViewportSelection.............................................................................................
+    // setViewport.............................................................................................
 
-    final void setViewportSelectionAndCheck(final SpreadsheetViewportSelection viewportSelection) {
-        final T token = this.createHistoryToken(viewportSelection);
+    final void setViewportAndCheck(final SpreadsheetViewport viewport) {
+        final T token = this.createHistoryToken(viewport);
 
-        this.setViewportSelectionAndCheck(
+        this.setViewportAndCheck(
                 token,
-                viewportSelection,
-                token.setViewportSelection(
+                viewport,
+                token.setViewport(
                         Optional.of(
-                                viewportSelection
+                                viewport
                         )
                 )
         );
@@ -84,29 +84,29 @@ public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends
 
     // unfreezeOrEmpty..................................................................................................
 
-    final void unfreezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection) {
+    final void unfreezeOrEmptyAndCheck(final SpreadsheetViewport viewport) {
         this.unfreezeOrEmptyAndCheck(
-                viewportSelection,
+                viewport,
                 Optional.empty()
         );
     }
 
-    final void unfreezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection,
+    final void unfreezeOrEmptyAndCheck(final SpreadsheetViewport viewport,
                                        final HistoryToken expected) {
         this.unfreezeOrEmptyAndCheck(
-                viewportSelection,
+                viewport,
                 Optional.of(
                         expected
                 )
         );
     }
 
-    final void unfreezeOrEmptyAndCheck(final SpreadsheetViewportSelection viewportSelection,
+    final void unfreezeOrEmptyAndCheck(final SpreadsheetViewport viewport,
                                        final Optional<HistoryToken> expected) {
-        final SpreadsheetViewportSelectionHistoryToken historyToken = HistoryToken.viewportSelection(
+        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
                 ID,
                 NAME,
-                viewportSelection
+                viewport
         );
 
         this.checkEquals(
@@ -116,54 +116,54 @@ public abstract class SpreadsheetViewportSelectionHistoryTokenTestCase<T extends
         );
     }
 
-    // viewportSelectionOrEmpty.........................................................................................
+    // viewportOrEmpty.........................................................................................
 
     @Test
-    public void testViewportSelectionOrEmpty() {
+    public void testViewportOrEmpty() {
         final T token = this.createHistoryToken();
         this.checkEquals(
-                Optional.of(token.viewportSelection()),
-                token.viewportSelection()
+                Optional.of(token.viewport()),
+                token.viewport()
         );
     }
 
-    final void createHistoryTokenFails(final SpreadsheetViewportSelection viewportSelection,
+    final void createHistoryTokenFails(final SpreadsheetViewport viewport,
                                        final String expected) {
         final IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
                 () -> this.createHistoryToken(
-                        viewportSelection
+                        viewport
                 )
         );
 
         this.checkEquals(
                 expected,
                 thrown.getMessage(),
-                () -> "" + viewportSelection
+                () -> "" + viewport
         );
     }
 
-    final void urlFragmentAndCheck(final SpreadsheetViewportSelection viewportSelection,
+    final void urlFragmentAndCheck(final SpreadsheetViewport viewport,
                                    final String expected) {
         this.urlFragmentAndCheck(
                 this.createHistoryToken(
                         ID,
                         NAME,
-                        viewportSelection
+                        viewport
                 ),
                 expected
         );
     }
 
-    final T createHistoryToken(final SpreadsheetViewportSelection viewportSelection) {
+    final T createHistoryToken(final SpreadsheetViewport viewport) {
         return this.createHistoryToken(
                 ID,
                 NAME,
-                viewportSelection
+                viewport
         );
     }
 
     abstract T createHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name,
-                                  final SpreadsheetViewportSelection viewportSelection);
+                                  final SpreadsheetViewport viewport);
 }

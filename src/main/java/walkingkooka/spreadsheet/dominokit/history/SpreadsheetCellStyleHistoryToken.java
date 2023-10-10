@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -31,12 +31,12 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     SpreadsheetCellStyleHistoryToken(final SpreadsheetId id,
                                      final SpreadsheetName name,
-                                     final SpreadsheetViewportSelection viewportSelection,
+                                     final SpreadsheetViewport viewport,
                                      final TextStylePropertyName<T> propertyName) {
         super(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
 
         this.propertyName = Objects.requireNonNull(propertyName, "propertyName");

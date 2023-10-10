@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 
 public final class SpreadsheetColumnMenuHistoryTokenTest extends SpreadsheetColumnHistoryTokenTestCase<SpreadsheetColumnMenuHistoryToken> {
@@ -43,11 +43,11 @@ public final class SpreadsheetColumnMenuHistoryTokenTest extends SpreadsheetColu
     @Override
     SpreadsheetColumnMenuHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name,
-                                                         final SpreadsheetViewportSelection viewportSelection) {
+                                                         final SpreadsheetViewport viewport) {
         return SpreadsheetColumnMenuHistoryToken.with(
                 id,
                 name,
-                viewportSelection
+                viewport
         );
     }
 

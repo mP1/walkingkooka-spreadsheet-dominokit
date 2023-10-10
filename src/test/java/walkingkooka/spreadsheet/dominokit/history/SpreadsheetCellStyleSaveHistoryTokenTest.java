@@ -23,7 +23,7 @@ import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.Length;
@@ -162,12 +162,12 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     @Override
     SpreadsheetCellStyleSaveHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
-                                                                   final SpreadsheetViewportSelection viewportSelection,
+                                                                   final SpreadsheetViewport viewport,
                                                                    final TextStylePropertyName<Color> propertyName) {
         return SpreadsheetCellStyleSaveHistoryToken.with(
                 id,
                 name,
-                viewportSelection,
+                viewport,
                 propertyName,
                 Optional.of(PROPERTY_VALUE)
         );
