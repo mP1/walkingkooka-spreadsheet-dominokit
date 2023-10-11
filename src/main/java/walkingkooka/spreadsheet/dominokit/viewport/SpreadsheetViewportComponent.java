@@ -84,7 +84,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -308,27 +308,27 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         final boolean shifted = event.shiftKey;
         final AppContext context = this.context;
 
-        SpreadsheetViewportSelectionNavigation navigation = null;
+        SpreadsheetViewportNavigation navigation = null;
         switch (Key.fromEvent(event)) {
             case ArrowLeft:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.extendLeftColumn() :
-                        SpreadsheetViewportSelectionNavigation.leftColumn();
+                        SpreadsheetViewportNavigation.extendLeftColumn() :
+                        SpreadsheetViewportNavigation.leftColumn();
                 break;
             case ArrowUp:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.extendUpRow() :
-                        SpreadsheetViewportSelectionNavigation.upRow();
+                        SpreadsheetViewportNavigation.extendUpRow() :
+                        SpreadsheetViewportNavigation.upRow();
                 break;
             case ArrowRight:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.extendRightColumn() :
-                        SpreadsheetViewportSelectionNavigation.rightColumn();
+                        SpreadsheetViewportNavigation.extendRightColumn() :
+                        SpreadsheetViewportNavigation.rightColumn();
                 break;
             case ArrowDown:
                 navigation = shifted ?
-                        SpreadsheetViewportSelectionNavigation.extendDownRow() :
-                        SpreadsheetViewportSelectionNavigation.downRow();
+                        SpreadsheetViewportNavigation.extendDownRow() :
+                        SpreadsheetViewportNavigation.downRow();
                 break;
             case Enter:
                 // if cell then edit formula
@@ -529,9 +529,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         final double clientX = event.clientX;
         final double leftClientX = this.horizontalScrollbarThumbLeft * width * 0.01;
-        final SpreadsheetViewportSelectionNavigation navigation = clientX < leftClientX ?
-                SpreadsheetViewportSelectionNavigation.leftPixel(width) :
-                SpreadsheetViewportSelectionNavigation.rightPixel(width);
+        final SpreadsheetViewportNavigation navigation = clientX < leftClientX ?
+                SpreadsheetViewportNavigation.leftPixel(width) :
+                SpreadsheetViewportNavigation.rightPixel(width);
 
         this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientX: " + clientX + "< " + leftClientX + " " + navigation);
 
@@ -549,9 +549,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         final double clientY = event.clientY;
         final double topClientY = this.verticalScrollbarThumbTop * height * 0.01;
-        final SpreadsheetViewportSelectionNavigation navigation = clientY < topClientY ?
-                SpreadsheetViewportSelectionNavigation.upPixel(height) :
-                SpreadsheetViewportSelectionNavigation.downPixel(height);
+        final SpreadsheetViewportNavigation navigation = clientY < topClientY ?
+                SpreadsheetViewportNavigation.upPixel(height) :
+                SpreadsheetViewportNavigation.downPixel(height);
 
         this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientY: " + clientY + "< " +  topClientY + " " + navigation);
 
@@ -595,7 +595,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "h-scrollbar-left",
                 Icons.arrow_left(),
                 "right: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 8) + "px; bottom: -10px;",
-                SpreadsheetViewportSelectionNavigation.leftColumn()
+                SpreadsheetViewportNavigation.leftColumn()
         );
     }
 
@@ -604,7 +604,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "v-scrollbar-up",
                 Icons.arrow_up(),
                 "bottom: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 3) + "px; right: -16px;",
-                SpreadsheetViewportSelectionNavigation.upRow()
+                SpreadsheetViewportNavigation.upRow()
         );
     }
 
@@ -613,7 +613,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "h-scrollbar-right",
                 Icons.arrow_right(),
                 "right: " + (SCROLLBAR_LENGTH - 8) + "px; bottom: -10px;",
-                SpreadsheetViewportSelectionNavigation.rightColumn()
+                SpreadsheetViewportNavigation.rightColumn()
         );
     }
 
@@ -622,14 +622,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "v-scrollbar-down",
                 Icons.arrow_down(),
                 "bottom: " + (SCROLLBAR_LENGTH - 3) + "px; right: -16px;",
-                SpreadsheetViewportSelectionNavigation.downRow()
+                SpreadsheetViewportNavigation.downRow()
         );
     }
 
     private HTMLElement scrollbarArrow(final String idSuffix,
                                        final MdiIcon icon,
                                        final String css,
-                                       final SpreadsheetViewportSelectionNavigation navigation) {
+                                       final SpreadsheetViewportNavigation navigation) {
         final Button button = Button.create(icon)
                 .circle();
 
@@ -1383,13 +1383,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         final int height = this.viewportTableCellsHeight();
 
         final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
-        final List<SpreadsheetViewportSelectionNavigation> navigations = this.navigations;
+        final List<SpreadsheetViewportNavigation> navigations = this.navigations;
 
         context.debug(
                 "SpreadsheetViewportComponent.loadViewportCells id: " + id + " home: " + home + " width: " + width + " height: " + height + " navigations buffer: " +
                         SpreadsheetViewport.SEPARATOR.toSeparatedString(
                                 navigations,
-                                SpreadsheetViewportSelectionNavigation::text
+                                SpreadsheetViewportNavigation::text
                         )
         );
 
@@ -1410,10 +1410,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     }
 
     /**
-     * Accepts and adds the given {@link SpreadsheetViewportSelectionNavigation} to the buffer and if possible
+     * Accepts and adds the given {@link SpreadsheetViewportNavigation} to the buffer and if possible
      * sends it to the server for actioning.
      */
-    private void onNavigation(final SpreadsheetViewportSelectionNavigation navigation,
+    private void onNavigation(final SpreadsheetViewportNavigation navigation,
                               final AppContext context) {
         Objects.requireNonNull(navigation, "navigation");
         Objects.requireNonNull(context, "context");
@@ -1425,11 +1425,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     }
 
     /**
-     * A buffer which fills up with {@link SpreadsheetViewportSelectionNavigation} entries such as keyboard cursor key movements
+     * A buffer which fills up with {@link SpreadsheetViewportNavigation} entries such as keyboard cursor key movements
      * or clicking the horizontal or vertical scrollbars. This is useful so multiple navigation actions are batched
      * when outstanding fetches are in flight so they are sent once, rather than sending a fetch for each.
      */
-    private final List<SpreadsheetViewportSelectionNavigation> navigations = Lists.array();
+    private final List<SpreadsheetViewportNavigation> navigations = Lists.array();
 
     /**
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.

@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.test.Testing;
 
 import java.util.Optional;
@@ -142,7 +142,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         .setAnchor(SpreadsheetViewportAnchor.NONE)
                         .setNavigations(
                                 Lists.of(
-                                        SpreadsheetViewportSelectionNavigation.leftColumn()
+                                        SpreadsheetViewportNavigation.leftColumn()
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
@@ -157,7 +157,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         .setAnchor(SpreadsheetViewportAnchor.NONE)
                         .setNavigations(
                                 Lists.of(
-                                        SpreadsheetViewportSelectionNavigation.extendRightColumn()
+                                        SpreadsheetViewportNavigation.extendRightColumn()
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
