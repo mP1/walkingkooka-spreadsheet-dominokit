@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
@@ -36,7 +36,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
+                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
                 "/123/SpreadsheetName456/cell/B2:C3/top-left"
         );
     }
@@ -63,7 +63,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     public void testFreezeOrEmptyCellRangeInvalid() {
         this.freezeOrEmptyAndCheck(
                 SpreadsheetSelection.parseCellRange("C3:D4")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
         );
     }
 
@@ -102,7 +102,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     public void testUnfreezeOrEmptyCellRangeInvalid() {
         this.unfreezeOrEmptyAndCheck(
                 SpreadsheetSelection.parseCellRange("C3:D4")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
         );
     }
 

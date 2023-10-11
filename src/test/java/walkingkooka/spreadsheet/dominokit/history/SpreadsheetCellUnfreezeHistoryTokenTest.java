@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyValueException;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -62,7 +62,7 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.parseCellRange("A1:B2").setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
+                SpreadsheetSelection.parseCellRange("A1:B2").setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
                 "/123/SpreadsheetName456/cell/A1:B2/top-left/unfreeze"
         );
     }

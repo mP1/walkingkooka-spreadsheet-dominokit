@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetColumnMenuHistoryTokenTest extends SpreadsheetColumnHistoryTokenTestCase<SpreadsheetColumnMenuHistoryToken> {
 
@@ -35,7 +35,7 @@ public final class SpreadsheetColumnMenuHistoryTokenTest extends SpreadsheetColu
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
-                COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
+                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT),
                 "/123/SpreadsheetName456/column/B:C/right/menu"
         );
     }

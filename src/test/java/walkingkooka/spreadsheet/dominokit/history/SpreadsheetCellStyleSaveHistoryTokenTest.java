@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -71,7 +71,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
+                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
                 "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color/save/#123456"
         );
     }

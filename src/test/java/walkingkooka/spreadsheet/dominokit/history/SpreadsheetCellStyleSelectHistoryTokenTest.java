@@ -23,7 +23,7 @@ import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -95,7 +95,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT),
+                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
                 "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color"
         );
     }

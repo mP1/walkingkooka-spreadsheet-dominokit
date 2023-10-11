@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyValueException;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -40,7 +40,7 @@ public final class SpreadsheetRowFreezeHistoryTokenTest extends SpreadsheetRowHi
     @Test
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.parseRowRange("1:2").setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
+                SpreadsheetSelection.parseRowRange("1:2").setAnchor(SpreadsheetViewportAnchor.BOTTOM),
                 "/123/SpreadsheetName456/row/1:2/bottom/freeze"
         );
     }
@@ -50,7 +50,7 @@ public final class SpreadsheetRowFreezeHistoryTokenTest extends SpreadsheetRowHi
         assertThrows(
                 SpreadsheetMetadataPropertyValueException.class,
                 () -> this.createHistoryToken(
-                        SpreadsheetSelection.parseRowRange("2:3").setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                        SpreadsheetSelection.parseRowRange("2:3").setAnchor(SpreadsheetViewportAnchor.BOTTOM)
                 )
         );
     }

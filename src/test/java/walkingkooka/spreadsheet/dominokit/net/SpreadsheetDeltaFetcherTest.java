@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 import walkingkooka.test.Testing;
 
@@ -66,7 +66,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionCell() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseCell("B2"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "selection=B2&selectionType=cell"
         );
     }
@@ -75,7 +75,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionCellRange() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseCellRange("B2:B3"),
-                SpreadsheetViewportSelectionAnchor.TOP_RIGHT,
+                SpreadsheetViewportAnchor.TOP_RIGHT,
                 "selection=B2:B3&selectionType=cell-range&selectionAnchor=top-right"
         );
     }
@@ -84,7 +84,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionColumn() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseColumn("B"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "selection=B&selectionType=column"
         );
     }
@@ -93,7 +93,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionColumnRange() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseColumnRange("B:C"),
-                SpreadsheetViewportSelectionAnchor.LEFT,
+                SpreadsheetViewportAnchor.LEFT,
                 "selection=B:C&selectionType=column-range&selectionAnchor=left"
         );
     }
@@ -102,7 +102,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionRow() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseRow("2"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "selection=2&selectionType=row"
         );
     }
@@ -111,7 +111,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionRowRange() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseRowRange("2:3"),
-                SpreadsheetViewportSelectionAnchor.TOP,
+                SpreadsheetViewportAnchor.TOP,
                 "selection=2:3&selectionType=row-range&selectionAnchor=top"
         );
     }
@@ -120,7 +120,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionLabel() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.labelName("Label123"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "selection=Label123&selectionType=label"
         );
     }
@@ -129,7 +129,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionLabel2() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.labelName("Label123"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 UrlQueryString.parse("a=1"),
                 UrlQueryString.parse("a=1&selection=Label123&selectionType=label")
         );
@@ -139,7 +139,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionColumnAndNavigationLeftColumn() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseColumn("ABC")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        .setAnchor(SpreadsheetViewportAnchor.NONE)
                         .setNavigations(
                                 Lists.of(
                                         SpreadsheetViewportSelectionNavigation.leftColumn()
@@ -154,7 +154,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionColumnAndNavigationExtendRightColumn() {
         this.appendViewportSelectionAndCheck(
                 SpreadsheetSelection.parseColumn("Z")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.NONE)
+                        .setAnchor(SpreadsheetViewportAnchor.NONE)
                         .setNavigations(
                                 Lists.of(
                                         SpreadsheetViewportSelectionNavigation.extendRightColumn()
@@ -166,7 +166,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendViewportSelectionAndCheck(final SpreadsheetSelection selection,
-                                                 final SpreadsheetViewportSelectionAnchor anchor,
+                                                 final SpreadsheetViewportAnchor anchor,
                                                  final String expected) {
         this.appendViewportSelectionAndCheck(
                 selection,
@@ -176,7 +176,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendViewportSelectionAndCheck(final SpreadsheetSelection selection,
-                                                 final SpreadsheetViewportSelectionAnchor anchor,
+                                                 final SpreadsheetViewportAnchor anchor,
                                                  final UrlQueryString expected) {
         this.appendViewportSelectionAndCheck(
                 selection,
@@ -187,7 +187,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendViewportSelectionAndCheck(final SpreadsheetSelection selection,
-                                                 final SpreadsheetViewportSelectionAnchor anchor,
+                                                 final SpreadsheetViewportAnchor anchor,
                                                  final UrlQueryString initial,
                                                  final UrlQueryString expected) {
         this.appendViewportSelectionAndCheck(
@@ -290,7 +290,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionAndWindowCell() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseCell("B2"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "A1:C3",
                 "selection=B2&selectionType=cell&window=A1:C3"
         );
@@ -300,7 +300,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionAndWindowCellRange() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseCellRange("B2:B3"),
-                SpreadsheetViewportSelectionAnchor.TOP_LEFT,
+                SpreadsheetViewportAnchor.TOP_LEFT,
                 "A1:C3",
                 "selection=B2:B3&selectionType=cell-range&selectionAnchor=top-left&window=A1:C3"
         );
@@ -310,7 +310,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionAndWindowColumn() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseColumn("B"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "A1:C3",
                 "selection=B&selectionType=column&window=A1:C3"
         );
@@ -320,7 +320,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionAndWindowColumnRange() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseColumnRange("B:C"),
-                SpreadsheetViewportSelectionAnchor.LEFT,
+                SpreadsheetViewportAnchor.LEFT,
                 "A1:C3",
                 "selection=B:C&selectionType=column-range&selectionAnchor=left&window=A1:C3"
         );
@@ -330,7 +330,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionAndWindowRow() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseRow("2"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "A1:C3",
                 "selection=2&selectionType=row&window=A1:C3"
         );
@@ -340,7 +340,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionAndWindowRowRange() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.parseRowRange("2:3"),
-                SpreadsheetViewportSelectionAnchor.TOP,
+                SpreadsheetViewportAnchor.TOP,
                 "A1:C3",
                 "selection=2:3&selectionType=row-range&selectionAnchor=top&window=A1:C3"
         );
@@ -350,7 +350,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionAndWindowLabel() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.labelName("Label123"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "A1:C3",
                 "selection=Label123&selectionType=label&window=A1:C3"
         );
@@ -360,7 +360,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     public void testAppendViewportSelectionAndWindowLabel2() {
         this.appendSelectionAndWindow(
                 SpreadsheetSelection.labelName("Label123"),
-                SpreadsheetViewportSelectionAnchor.NONE,
+                SpreadsheetViewportAnchor.NONE,
                 "A1:C3",
                 "a1",
                 "a1&selection=Label123&selectionType=label&window=A1:C3"
@@ -368,7 +368,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendSelectionAndWindow(final SpreadsheetSelection selection,
-                                          final SpreadsheetViewportSelectionAnchor anchor,
+                                          final SpreadsheetViewportAnchor anchor,
                                           final String window,
                                           final String expected) {
         this.appendSelectionAndWindow(
@@ -381,7 +381,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendSelectionAndWindow(final SpreadsheetSelection selection,
-                                          final SpreadsheetViewportSelectionAnchor anchor,
+                                          final SpreadsheetViewportAnchor anchor,
                                           final String window,
                                           final String initial,
                                           final String expected) {
@@ -395,7 +395,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void appendSelectionAndWindow(final SpreadsheetSelection selection,
-                                          final SpreadsheetViewportSelectionAnchor anchor,
+                                          final SpreadsheetViewportAnchor anchor,
                                           final SpreadsheetViewportWindows window,
                                           final UrlQueryString initial,
                                           final UrlQueryString expected) {

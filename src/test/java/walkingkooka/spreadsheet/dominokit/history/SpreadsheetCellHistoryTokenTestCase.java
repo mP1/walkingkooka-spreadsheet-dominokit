@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends SpreadsheetViewportHistoryTokenTestCase<T> {
 
@@ -93,7 +93,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     @Test
     public final void testFreezeOrEmptyCellRange() {
         final SpreadsheetViewport viewport = SpreadsheetSelection.parseCellRange("A1:B2")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.freezeOrEmptyAndCheck(
                 viewport,
@@ -134,7 +134,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     public final void testSetViewportWithSameCellRange() {
         this.setViewportAndCheck(
                 SpreadsheetSelection.parseCellRange("A1:B2")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
         );
     }
 
@@ -142,14 +142,14 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     public final void testSetViewportWithSameCellRange2() {
         this.setViewportAndCheck(
                 SpreadsheetSelection.parseCellRange("A1:C3")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT)
+                        .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
         );
     }
 
     @Test
     public final void testSetViewportWithSameLabel() {
         this.setViewportAndCheck(
-                LABEL.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
         );
     }
 
@@ -192,7 +192,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     @Test
     public final void testSetMenuCellRangeMenuWithCellInside() {
         final SpreadsheetViewport viewport = SpreadsheetSelection.parseCellRange("A1:C3")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.setMenuAndCheck(
                 this.createHistoryToken(viewport),

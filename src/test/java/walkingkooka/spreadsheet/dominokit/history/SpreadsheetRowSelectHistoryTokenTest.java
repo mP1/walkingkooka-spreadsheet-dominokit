@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHistoryTokenTestCase<SpreadsheetRowSelectHistoryToken> {
 
@@ -37,7 +37,7 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     @Test
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
-                ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
                 "/123/SpreadsheetName456/row/2:3/bottom"
         );
     }
@@ -56,7 +56,7 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     public void testFreezeOrEmptyRowRangeInvalid() {
         this.freezeOrEmptyAndCheck(
                 SpreadsheetSelection.parseRowRange("3:4")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
     }
 
@@ -81,7 +81,7 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     public void testUnfreezeOrEmptyRowRangeInvalid() {
         this.unfreezeOrEmptyAndCheck(
                 SpreadsheetSelection.parseRowRange("3:4")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
     }
 
