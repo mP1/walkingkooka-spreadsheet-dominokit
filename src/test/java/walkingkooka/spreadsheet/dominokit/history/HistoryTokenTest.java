@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -90,7 +90,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM),
+                historyToken.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
                 historyToken
         );
     }
@@ -101,12 +101,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.LEFT)
-                ).setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT),
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT)
+                ).setAnchor(SpreadsheetViewportAnchor.RIGHT),
                 HistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
                 )
         );
     }
@@ -415,7 +415,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuCellRangeWithoutSelection() {
-        final SpreadsheetViewport range = CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT);
+        final SpreadsheetViewport range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
         this.setMenuAndCheck(
                 HistoryToken.cell(
@@ -433,7 +433,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuCellRangeWithoutSelection2() {
-        final SpreadsheetViewport range = CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+        final SpreadsheetViewport range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.setMenuAndCheck(
                 HistoryToken.cell(
@@ -487,7 +487,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuColumnRangeWithoutSelection() {
-        final SpreadsheetViewport range = COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.LEFT);
+        final SpreadsheetViewport range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT);
 
         this.setMenuAndCheck(
                 HistoryToken.column(
@@ -505,7 +505,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuColumnRangeWithoutSelection2() {
-        final SpreadsheetViewport range = COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+        final SpreadsheetViewport range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.setMenuAndCheck(
                 HistoryToken.column(
@@ -541,7 +541,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuRowRangeWithoutSelection() {
-        final SpreadsheetViewport range = ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP);
+        final SpreadsheetViewport range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP);
 
         this.setMenuAndCheck(
                 HistoryToken.row(
@@ -559,7 +559,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuRowRangeWithoutSelection2() {
-        final SpreadsheetViewport range = ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
+        final SpreadsheetViewport range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.setMenuAndCheck(
                 HistoryToken.row(
@@ -624,7 +624,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
                 ),
                 CELL,
                 HistoryToken.cellMenu(
@@ -674,7 +674,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetMenuWithCellRangeSelectAndInsideCellSelection() {
         final SpreadsheetViewport range = SpreadsheetSelection.parseCellRange("A1:C3")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.setMenuAndCheck(
                 HistoryToken.cell(
@@ -734,7 +734,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.row(
                         ID,
                         NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
                 ),
                 COLUMN,
                 HistoryToken.columnMenu(
@@ -784,7 +784,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetMenuWithColumnRangeSelectAndInsideColumnSelection() {
         final SpreadsheetViewport range = SpreadsheetSelection.parseColumnRange("A:C")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+                .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.setMenuAndCheck(
                 HistoryToken.column(
@@ -894,7 +894,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetMenuWithRowRangeSelectAndInsideRowSelection() {
         final SpreadsheetViewport range = SpreadsheetSelection.parseRowRange("1:3")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.setMenuAndCheck(
                 HistoryToken.row(
@@ -1196,7 +1196,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportCellRange() {
-        final SpreadsheetViewport cell = CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+        final SpreadsheetViewport cell = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
                 ID,
@@ -1216,7 +1216,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportLabel() {
-        final SpreadsheetViewport cell = LABEL.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT);
+        final SpreadsheetViewport cell = LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
                 ID,
@@ -1256,7 +1256,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportColumnRange() {
-        final SpreadsheetViewport column = COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+        final SpreadsheetViewport column = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
                 ID,
@@ -1296,7 +1296,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportRowRange() {
-        final SpreadsheetViewport row = ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
+        final SpreadsheetViewport row = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
                 ID,
@@ -1341,7 +1341,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.cell(
                         ID,
                         NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
                 )
         );
     }
@@ -1623,7 +1623,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.cell(
                         ID,
                         NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
                 )
         );
     }
@@ -1635,7 +1635,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.cell(
                         ID,
                         NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_LEFT)
+                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
                 )
         );
     }
@@ -1647,7 +1647,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.cell(
                         ID,
                         NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_RIGHT)
+                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
                 )
         );
     }
@@ -1659,7 +1659,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.cell(
                         ID,
                         NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
                 )
         );
     }
@@ -1876,7 +1876,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.cellClear(
                         ID,
                         NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM_RIGHT)
+                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
                 )
         );
     }
@@ -1888,7 +1888,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.cellClear(
                         ID,
                         NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP_RIGHT)
+                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
                 )
         );
     }
@@ -2123,7 +2123,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
                 )
         );
     }
@@ -2135,7 +2135,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.LEFT)
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT)
                 )
         );
     }
@@ -2147,7 +2147,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
                 )
         );
     }
@@ -2159,7 +2159,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.column(
                         ID,
                         NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
                 )
         );
     }
@@ -2233,7 +2233,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         SpreadsheetSelection.parseColumnRange("AA:BB")
-                                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                                .setAnchor(SpreadsheetViewportAnchor.RIGHT)
                 )
         );
     }
@@ -2246,7 +2246,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         SpreadsheetSelection.parseColumnRange("A:B")
-                                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                                .setAnchor(SpreadsheetViewportAnchor.RIGHT)
                 )
         );
     }
@@ -2393,7 +2393,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.row(
                         ID,
                         NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
                 )
         );
     }
@@ -2405,7 +2405,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.row(
                         ID,
                         NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.TOP)
+                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP)
                 )
         );
     }
@@ -2417,7 +2417,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.row(
                         ID,
                         NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
                 )
         );
     }
@@ -2429,7 +2429,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.row(
                         ID,
                         NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
                 )
         );
     }

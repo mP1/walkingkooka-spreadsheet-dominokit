@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -137,8 +137,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             if (maybePossibleAnchor.isPresent()) {
                 final String possibleAnchor = maybePossibleAnchor.get();
 
-                for (final SpreadsheetViewportSelectionAnchor possible : SpreadsheetViewportSelectionAnchor.values()) {
-                    if (SpreadsheetViewportSelectionAnchor.NONE == possible) {
+                for (final SpreadsheetViewportAnchor possible : SpreadsheetViewportAnchor.values()) {
+                    if (SpreadsheetViewportAnchor.NONE == possible) {
                         continue;
                     }
                     if (possible.kebabText().equals(possibleAnchor)) {

@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends SpreadsheetColumnHistoryToken> extends SpreadsheetViewportHistoryTokenTestCase<T> {
 
@@ -97,7 +97,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testFreezeOrEmptyColumnRange() {
         final SpreadsheetViewport viewport = SpreadsheetSelection.parseColumnRange("A:B")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+                .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.freezeOrEmptyAndCheck(
                 viewport,
@@ -122,7 +122,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     public final void testSetViewportWithSameColumnRange() {
         this.setViewportAndCheck(
                 SpreadsheetSelection.parseColumnRange("A:B")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT)
+                        .setAnchor(SpreadsheetViewportAnchor.RIGHT)
         );
     }
 
@@ -130,7 +130,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     public final void testSetViewportWithSameColumnRange2() {
         this.setViewportAndCheck(
                 SpreadsheetSelection.parseColumnRange("A:C")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.LEFT)
+                        .setAnchor(SpreadsheetViewportAnchor.LEFT)
         );
     }
 
@@ -179,7 +179,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testColumnRangeMenuWithColumnInside() {
         final SpreadsheetViewport viewport = SpreadsheetSelection.parseColumnRange("A:C")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.RIGHT);
+                .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.setMenuAndCheck(
                 this.createHistoryToken(viewport),

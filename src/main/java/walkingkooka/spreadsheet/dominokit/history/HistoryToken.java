@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
@@ -706,9 +706,9 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
+     * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
      */
-    public final HistoryToken setAnchor(final SpreadsheetViewportSelectionAnchor anchor) {
+    public final HistoryToken setAnchor(final SpreadsheetViewportAnchor anchor) {
         Objects.requireNonNull(anchor, "anchor");
         HistoryToken token = this;
 
@@ -732,7 +732,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
+     * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
      */
     public final HistoryToken setCell(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
@@ -760,7 +760,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
+     * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
      */
     public final HistoryToken setColumn(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
@@ -960,7 +960,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * Sets or replaces the current {@link SpreadsheetViewportSelectionAnchor} otherwise returns this.
+     * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
      */
     public final HistoryToken setRow(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");

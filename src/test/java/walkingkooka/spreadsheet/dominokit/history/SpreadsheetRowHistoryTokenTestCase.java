@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
@@ -99,7 +99,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     @Test
     public final void testFreezeOrEmptyRowRange() {
         final SpreadsheetViewport viewport = SpreadsheetSelection.parseRowRange("1:2")
-                .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM);
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.freezeOrEmptyAndCheck(
                 viewport,
@@ -124,7 +124,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     public final void testSetViewportWithSameColumnRange() {
         this.setViewportAndCheck(
                 SpreadsheetSelection.parseRowRange("1:2")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.TOP)
+                        .setAnchor(SpreadsheetViewportAnchor.TOP)
         );
     }
 
@@ -132,7 +132,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     public final void testSetViewportWithSameColumnRange2() {
         this.setViewportAndCheck(
                 SpreadsheetSelection.parseRowRange("1:3")
-                        .setAnchor(SpreadsheetViewportSelectionAnchor.BOTTOM)
+                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
     }
 

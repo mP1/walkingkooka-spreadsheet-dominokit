@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportSelectionNavigation;
 import walkingkooka.text.CaseKind;
 
@@ -86,8 +86,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 selection.selectionTypeName()
         );
 
-        final SpreadsheetViewportSelectionAnchor anchor = viewport.anchor();
-        if (SpreadsheetViewportSelectionAnchor.NONE != anchor) {
+        final SpreadsheetViewportAnchor anchor = viewport.anchor();
+        if (SpreadsheetViewportAnchor.NONE != anchor) {
             result = result.addParameter(
                     SELECTION_ANCHOR,
                     viewport.anchor().kebabText()
