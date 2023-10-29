@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import java.util.Optional;
@@ -51,7 +51,7 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
                 SpreadsheetCellPatternSelectHistoryToken.with(
                         ID,
                         NAME,
-                        VIEWPORT_SELECTION,
+                        SELECTION,
                         different
                 )
         );
@@ -67,7 +67,7 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
                 SpreadsheetCellPatternSelectHistoryToken.with(
                         ID,
                         NAME,
-                        VIEWPORT_SELECTION,
+                        SELECTION,
                         different
                 )
         );
@@ -81,7 +81,7 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
                 SpreadsheetCellPatternToolbarHistoryToken.with(
                         ID,
                         NAME,
-                        VIEWPORT_SELECTION
+                        SELECTION
                 )
         );
     }
@@ -123,11 +123,11 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
     @Override
     SpreadsheetCellPatternToolbarHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                  final SpreadsheetName name,
-                                                                 final SpreadsheetViewport viewport) {
+                                                                 final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellPatternToolbarHistoryToken.with(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 

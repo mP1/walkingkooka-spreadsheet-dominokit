@@ -23,8 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -92,28 +92,28 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
-        final SpreadsheetViewport menuViewportSelection = this.setMenu2ViewportSelection(selection);
-        final SpreadsheetSelection menuSelection = menuViewportSelection.selection();
+        final AnchoredSpreadsheetSelection anchored = this.setMenuSelection(selection);
+        final SpreadsheetSelection menuSelection = anchored.selection();
 
         if (menuSelection.isCellReference() || menuSelection.isCellRange() || menuSelection.isLabelName()) {
             token = cellMenu(
                     id,
                     name,
-                    this.setMenu2ViewportSelection(selection)
+                    this.setMenuSelection(selection)
             );
         } else {
             if (menuSelection.isColumnReference() || menuSelection.isColumnReferenceRange()) {
                 token = columnMenu(
                         id,
                         name,
-                        menuViewportSelection
+                        anchored
                 );
             } else {
                 if (menuSelection.isRowReference() || menuSelection.isRowReferenceRange()) {
                     token = rowMenu(
                             id,
                             name,
-                            menuViewportSelection
+                            anchored
                     );
                 } else {
                     throw new IllegalArgumentException("Expected cell, column or row but got " + menuSelection);
@@ -124,7 +124,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return token;
     }
 
-    abstract SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection);
+    abstract AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection);
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.

@@ -21,31 +21,31 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportHistoryToken {
+abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSelectionHistoryToken {
 
     SpreadsheetRowHistoryToken(final SpreadsheetId id,
                                final SpreadsheetName name,
-                               final SpreadsheetViewport viewport) {
+                               final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
 
-        final SpreadsheetSelection selection = viewport.selection();
-        if (false == selection.isRowReference() && false == selection.isRowReferenceRange()) {
-            throw new IllegalArgumentException("Got " + selection + " expected row or row-range");
+        final SpreadsheetSelection spreadsheetSelection = selection.selection();
+        if (false == spreadsheetSelection.isRowReference() && false == spreadsheetSelection.isRowReferenceRange()) {
+            throw new IllegalArgumentException("Got " + spreadsheetSelection + " expected row or row-range");
         }
     }
 
     @Override //
-    final UrlFragment viewportUrlFragment() {
+    final UrlFragment anchoredSelectionUrlFragment() {
         return this.rowUrlFragment();
     }
 
@@ -56,7 +56,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportHist
         return rowClear(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -65,7 +65,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportHist
         return rowDelete(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -79,7 +79,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportHist
         return rowFreeze(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -88,19 +88,18 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportHist
         return rowMenu(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
     @Override //
-    final SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection) {
-        final SpreadsheetViewport viewport = this.viewport();
+    final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
+        final AnchoredSpreadsheetSelection anchored = this.selection();
 
         return selection.isRowReference() &&
-                viewport
-                        .selection()
+                anchored.selection()
                         .testRow(selection.toRow()) ?
-                viewport :
+                anchored :
                 selection.setDefaultAnchor();
     }
 
@@ -124,7 +123,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetViewportHist
         return rowUnfreeze(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 }

@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
@@ -35,13 +36,13 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
     static SpreadsheetCellPatternSaveHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
-                                                       final SpreadsheetViewport viewport,
+                                                       final AnchoredSpreadsheetSelection selection,
                                                        final SpreadsheetPatternKind patternKind,
                                                        final Optional<SpreadsheetPattern> pattern) {
         return new SpreadsheetCellPatternSaveHistoryToken(
                 id,
                 name,
-                viewport,
+                selection,
                 patternKind,
                 pattern
         );
@@ -49,13 +50,13 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
     private SpreadsheetCellPatternSaveHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
-                                                   final SpreadsheetViewport viewport,
+                                                   final AnchoredSpreadsheetSelection selection,
                                                    final SpreadsheetPatternKind patternKind,
                                                    final Optional<SpreadsheetPattern> pattern) {
         super(
                 id,
                 name,
-                viewport,
+                selection,
                 Optional.of(patternKind)
         );
 
@@ -72,7 +73,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         return with(
                 id,
                 name,
-                this.viewport(),
+                this.selection(),
                 this.patternKind()
                         .get(),
                 this.pattern()
@@ -98,7 +99,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         return cellPattern(
                 this.id(),
                 this.name(),
-                this.viewport(),
+                this.selection(),
                 patternKind.get()
         );
     }
@@ -123,16 +124,16 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
         final Optional<SpreadsheetPattern> pattern = this.pattern();
-        final SpreadsheetViewport viewport = this.viewport();
+        final AnchoredSpreadsheetSelection selection = this.selection();
 
         fetcher.patch(
                 fetcher.url(
                         this.id(),
-                        viewport.selection(),
+                        selection.selection(),
                         Optional.empty() // no extra path
                 ).setQuery(
                         SpreadsheetDeltaFetcher.appendViewportAndWindow(
-                                viewport,
+                                context.viewport(SpreadsheetViewport.NO_SELECTION),
                                 context.viewportCache()
                                         .windows(),
                                 UrlQueryString.EMPTY

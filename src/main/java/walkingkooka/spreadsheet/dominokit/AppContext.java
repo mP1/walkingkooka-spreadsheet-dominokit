@@ -34,7 +34,9 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
@@ -99,6 +101,11 @@ public interface AppContext extends CanGiveFocus,
     TextStyle selectedIconStyle();
 
     // viewport.........................................................................................................
+
+    /**
+     * Creates a {@link SpreadsheetViewport} with the provided {@link AnchoredSpreadsheetSelection}.
+     */
+    SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> selection);
 
     /**
      * A cache for the viewport cache.

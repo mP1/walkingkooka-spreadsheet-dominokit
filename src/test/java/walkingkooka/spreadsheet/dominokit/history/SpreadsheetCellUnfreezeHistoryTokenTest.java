@@ -21,8 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyValueException;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -85,11 +85,11 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
     @Override
     SpreadsheetCellUnfreezeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final SpreadsheetViewport viewport) {
+                                                           final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellUnfreezeHistoryToken.with(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 

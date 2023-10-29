@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import java.util.Optional;
@@ -92,11 +92,11 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     @Override
     SpreadsheetCellPatternSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,
-                                                              final SpreadsheetViewport viewport) {
+                                                              final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellPatternSaveHistoryToken.with(
                 id,
                 name,
-                viewport,
+                selection,
                 PATTERN.kind(),
                 Optional.of(PATTERN)
         );

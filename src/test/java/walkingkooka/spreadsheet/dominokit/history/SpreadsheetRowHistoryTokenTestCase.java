@@ -20,21 +20,21 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRowHistoryToken> extends SpreadsheetViewportHistoryTokenTestCase<T> {
+public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRowHistoryToken> extends AnchoredSpreadsheetSelectionHistoryTokenTestCase<T> {
 
     final static SpreadsheetRowReference ROW = SpreadsheetSelection.parseRow("1");
 
     final static SpreadsheetRowReferenceRange ROW_RANGE = SpreadsheetSelection.parseRowRange("2:3");
 
-    private final static SpreadsheetViewport VIEWPORT_SELECTION = ROW.setDefaultAnchor();
+    private final static AnchoredSpreadsheetSelection SELECTION = ROW.setDefaultAnchor();
 
     SpreadsheetRowHistoryTokenTestCase() {
         super();
@@ -84,29 +84,29 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
 
     @Test
     public final void testFreezeOrEmptyRow() {
-        final SpreadsheetViewport viewport = ROW.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection selection = ROW.setDefaultAnchor();
 
         this.freezeOrEmptyAndCheck(
-                viewport,
+                selection,
                 HistoryToken.rowFreeze(
                         ID,
                         NAME,
-                        viewport
+                        selection
                 )
         );
     }
 
     @Test
     public final void testFreezeOrEmptyRowRange() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.parseRowRange("1:2")
+        final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseRowRange("1:2")
                 .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.freezeOrEmptyAndCheck(
-                viewport,
+                selection,
                 HistoryToken.rowFreeze(
                         ID,
                         NAME,
-                        viewport
+                        selection
                 )
         );
     }
@@ -114,23 +114,23 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     // setViewport.............................................................................................
 
     @Test
-    public final void testSetViewportWithSameColumn() {
-        this.setViewportAndCheck(
+    public final void testSetSelectionWithSameColumn() {
+        this.setSelectionAndCheck(
                 ROW.setDefaultAnchor()
         );
     }
 
     @Test
-    public final void testSetViewportWithSameColumnRange() {
-        this.setViewportAndCheck(
+    public final void testSetSelectionWithSameColumnRange() {
+        this.setSelectionAndCheck(
                 SpreadsheetSelection.parseRowRange("1:2")
                         .setAnchor(SpreadsheetViewportAnchor.TOP)
         );
     }
 
     @Test
-    public final void testSetViewportWithSameColumnRange2() {
-        this.setViewportAndCheck(
+    public final void testSetSelectionWithSameColumnRange2() {
+        this.setSelectionAndCheck(
                 SpreadsheetSelection.parseRowRange("1:3")
                         .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
@@ -255,7 +255,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         return this.createHistoryToken(
                 id,
                 name,
-                VIEWPORT_SELECTION
+                SELECTION
         );
     }
 }

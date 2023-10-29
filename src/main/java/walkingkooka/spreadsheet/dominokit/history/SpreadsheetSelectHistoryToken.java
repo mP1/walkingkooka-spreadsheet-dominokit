@@ -23,8 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
@@ -241,7 +241,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection) {
+    AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
     }
 

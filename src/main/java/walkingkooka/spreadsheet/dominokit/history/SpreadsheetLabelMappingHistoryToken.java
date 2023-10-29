@@ -22,9 +22,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -77,7 +77,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override //
-    final SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection) {
+    final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
     }
 

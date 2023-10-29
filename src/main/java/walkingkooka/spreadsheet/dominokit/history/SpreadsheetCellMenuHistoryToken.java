@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -30,21 +30,21 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
 
     static SpreadsheetCellMenuHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final SpreadsheetViewport viewport) {
+                                                final AnchoredSpreadsheetSelection selection) {
         return new SpreadsheetCellMenuHistoryToken(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
     private SpreadsheetCellMenuHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
-                                            final SpreadsheetViewport viewport) {
+                                            final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
@@ -64,7 +64,7 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
         return with(
                 id,
                 name,
-                this.viewport()
+                this.selection()
         );
     }
 

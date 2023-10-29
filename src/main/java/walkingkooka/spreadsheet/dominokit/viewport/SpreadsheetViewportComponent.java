@@ -59,10 +59,12 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
+import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
@@ -70,13 +72,13 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetViewportHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -341,7 +343,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 // clear any selection
                 context.pushHistoryToken(
                         context.historyToken()
-                                .setViewport(
+                                .setSelection(
                                         Optional.empty()
                                 )
                 );
@@ -410,17 +412,17 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     /**
      * Renders a drop down menu.
      */
-    private void renderContextMenu(final SpreadsheetViewportHistoryToken historyToken,
+    private void renderContextMenu(final AnchoredSpreadsheetSelectionHistoryToken historyToken,
                                    final AppContext context) {
         // show context setMenu1
-        final SpreadsheetViewport viewport = historyToken.viewport();
+        final AnchoredSpreadsheetSelection selection = historyToken.selection();
         final Optional<Element> maybeElement = this.findElement(
-                viewport.selection()
-                        .focused(viewport.anchor()),
+                selection.selection()
+                        .focused(selection.anchor()),
                 context
         );
 
-        context.debug("SpreadsheetViewportComponent.renderContextMenu " + viewport);
+        context.debug("SpreadsheetViewportComponent.renderContextMenu " + selection);
 
         if (maybeElement.isPresent()) {
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
@@ -751,6 +753,19 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.loadViewportCellsIfNecessary(context);
     }
 
+    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> selection,
+                                        final AppContext context) {
+        final SpreadsheetCellReference home = context.spreadsheetMetadata()
+                .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
+                .rectangle()
+                .home();
+        return home.viewportRectangle(
+                        this.viewportTableCellsWidth(),
+                        this.viewportTableCellsHeight()
+                ).viewport()
+                .setSelection(selection);
+    }
+
     private int viewportWidth() {
         return this.width;
     }
@@ -802,10 +817,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private void render(final AppContext context) {
         final HistoryToken historyToken = context.historyToken();
-        final Optional<SpreadsheetViewport> maybeViewport = historyToken.viewportOrEmpty();
-        this.setViewport(
-                maybeViewport
-        );
+        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = historyToken.selectionOrEmpty();
+        this.setSelection(maybeAnchored);
 
         final TableElement tableElement = this.tableElement;
 
@@ -861,8 +874,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
                 historyToken instanceof SpreadsheetRowSelectHistoryToken) {
             this.giveViewportSelectionFocus(
-                    historyToken.cast(SpreadsheetViewportHistoryToken.class)
-                            .viewport(),
+                    historyToken.cast(AnchoredSpreadsheetSelectionHistoryToken.class)
+                            .selection(),
                     context
             );
         }
@@ -871,7 +884,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
                 historyToken instanceof SpreadsheetRowMenuHistoryToken) {
             this.renderContextMenu(
-                    historyToken.cast(SpreadsheetViewportHistoryToken.class),
+                    historyToken.cast(AnchoredSpreadsheetSelectionHistoryToken.class),
                     context
             );
         }
@@ -960,7 +973,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         th.appendChild(
                 context.historyToken()
-                        .setViewport(
+                        .setSelection(
                                 Optional.of(
                                         column.setDefaultAnchor()
                                 )
@@ -1053,7 +1066,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         td.appendChild(
                 context.historyToken()
-                        .setViewport(
+                        .setSelection(
                                 Optional.of(
                                         row.setDefaultAnchor()
                                 )
@@ -1144,19 +1157,19 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         return element;
     }
 
-    private void giveViewportSelectionFocus(final SpreadsheetViewport viewport,
+    private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final AppContext context) {
         final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.viewportCache()
                 .nonLabelSelection(
-                        viewport.selection()
+                        selection.selection()
                 );
         if (maybeNonLabelSelection.isPresent()) {
             final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
-            final SpreadsheetSelection selection = nonLabelSelection.focused(
-                    viewport.anchor()
+            final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
+                    selection.anchor()
             );
             final Optional<Element> maybeElement = this.findElement(
-                    selection,
+                    spreadsheetSelection,
                     context
             );
             if (maybeElement.isPresent()) {
@@ -1175,15 +1188,15 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
                 if (give) {
                     // for column/row the anchor and not the TH/TD should receive focus.
-                    if (selection.isColumnReference() || selection.isRowReference()) {
+                    if (spreadsheetSelection.isColumnReference() || spreadsheetSelection.isRowReference()) {
                         element = element.firstElementChild;
                     }
 
-                    context.debug("SpreadsheetViewportComponent " + selection + " focus element " + element);
+                    context.debug("SpreadsheetViewportComponent " + spreadsheetSelection + " focus element " + element);
                     element.focus();
                 }
             } else {
-                context.debug("SpreadsheetViewportComponent " + selection + " element not found!");
+                context.debug("SpreadsheetViewportComponent " + spreadsheetSelection + " element not found!");
             }
         }
     }
@@ -1326,18 +1339,18 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      */
     private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
 
-    private void setViewport(final Optional<SpreadsheetViewport> maybeViewport) {
+    private void setSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
         final AppContext context = this.context;
         context.debug(
-                "SpreadsheetViewportComponent.setViewport " + maybeViewport.orElse(null)
+                "SpreadsheetViewportComponent.setSelection " + selection.orElse(null)
         );
 
         Predicate<SpreadsheetSelection> predicate = null;
 
-        if (maybeViewport.isPresent()) {
+        if (selection.isPresent()) {
             // special case for label
             final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
-                    .nonLabelSelection(maybeViewport.get().selection());
+                    .nonLabelSelection(selection.get().selection());
             if (maybeNotLabel.isPresent()) {
                 predicate = maybeNotLabel.get();
             }
@@ -1374,33 +1387,28 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
      * Unconditionally Loads all the cells to fill the viewport using the {@link #navigations} buffer. Assumes that a metadata with id is present.
      */
     private void loadViewportCells(final AppContext context) {
+        final List<SpreadsheetViewportNavigation> navigations = this.navigations;
+
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         final SpreadsheetId id = metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
-        final SpreadsheetCellReference home = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_CELL).orElse(SpreadsheetCellReference.A1);
 
-        final int width = this.viewportTableCellsWidth();
-        final int height = this.viewportTableCellsHeight();
+        SpreadsheetViewport viewport = metadata.getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT);
+        final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
+        viewport = viewport.setRectangle(
+                rectangle.setWidth(
+                        this.viewportTableCellsWidth()
+                ).setHeight(
+                        this.viewportTableCellsHeight()
+                )
+        ).setNavigations(navigations);
 
-        final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.SELECTION);
-        final List<SpreadsheetViewportNavigation> navigations = this.navigations;
-
-        context.debug(
-                "SpreadsheetViewportComponent.loadViewportCells id: " + id + " home: " + home + " width: " + width + " height: " + height + " navigations buffer: " +
-                        SpreadsheetViewport.SEPARATOR.toSeparatedString(
-                                navigations,
-                                SpreadsheetViewportNavigation::text
-                        )
-        );
+        context.debug("SpreadsheetViewportComponent.loadViewportCells id: " + id + " viewport: " + viewport);
 
         context.spreadsheetDeltaFetcher()
                 .loadCells(
-                        id, // id
-                        home, // home
-                        width,
-                        height,
-                        viewport, // viewport
-                        navigations
+                        id,
+                        viewport
                 );
 
         context.viewportCache()
@@ -1437,7 +1445,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private boolean reload = false;
 
     /**
-     * Tests if the given {@link SpreadsheetSelection} typically a cell, column or row is matched by the {@link SpreadsheetMetadataPropertyName#SELECTION}.
+     * Tests if the given {@link SpreadsheetSelection} typically a cell, column or row is matched by the {@link SpreadsheetMetadataPropertyName#VIEWPORT}.
      * This is used during rendering of the viewport headers or cells if the item should be selected.
      */
     private boolean isSelected(final SpreadsheetSelection selection) {

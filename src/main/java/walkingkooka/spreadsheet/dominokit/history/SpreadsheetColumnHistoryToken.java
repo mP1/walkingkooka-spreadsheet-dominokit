@@ -21,31 +21,31 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportHistoryToken {
+abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetSelectionHistoryToken {
 
     SpreadsheetColumnHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name,
-                                  final SpreadsheetViewport viewport) {
+                                  final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
 
-        final SpreadsheetSelection selection = viewport.selection();
-        if (false == selection.isColumnReference() && false == selection.isColumnReferenceRange()) {
-            throw new IllegalArgumentException("Got " + selection + " expected column or column-range");
+        final SpreadsheetSelection spreadsheetSelection = selection.selection();
+        if (false == spreadsheetSelection.isColumnReference() && false == spreadsheetSelection.isColumnReferenceRange()) {
+            throw new IllegalArgumentException("Got " + spreadsheetSelection + " expected column or column-range");
         }
     }
 
     @Override //
-    final UrlFragment viewportUrlFragment() {
+    final UrlFragment anchoredSelectionUrlFragment() {
         return this.columnUrlFragment();
     }
 
@@ -56,7 +56,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportH
         return columnClear(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -65,7 +65,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportH
         return columnDelete(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -79,7 +79,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportH
         return columnFreeze(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -88,19 +88,19 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportH
         return columnMenu(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
     @Override //
-    final SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection) {
-        final SpreadsheetViewport viewport = this.viewport();
+    final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
+        final AnchoredSpreadsheetSelection anchored = this.selection();
 
         return selection.isColumnReference() &&
-                viewport
+                anchored
                         .selection()
                         .testColumn(selection.toColumn()) ?
-                viewport :
+                anchored :
                 selection.setDefaultAnchor();
     }
 
@@ -124,7 +124,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetViewportH
         return columnUnfreeze(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 }

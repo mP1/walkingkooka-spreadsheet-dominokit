@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -33,21 +33,21 @@ public final class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsheet
 
     static SpreadsheetCellPatternToolbarHistoryToken with(final SpreadsheetId id,
                                                           final SpreadsheetName name,
-                                                          final SpreadsheetViewport viewport) {
+                                                          final AnchoredSpreadsheetSelection selection) {
         return new SpreadsheetCellPatternToolbarHistoryToken(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
     private SpreadsheetCellPatternToolbarHistoryToken(final SpreadsheetId id,
                                                       final SpreadsheetName name,
-                                                      final SpreadsheetViewport viewport) {
+                                                      final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport,
+                selection,
                 Optional.empty()
         );
     }
@@ -63,7 +63,7 @@ public final class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsheet
         return with(
                 id,
                 name,
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -77,19 +77,19 @@ public final class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsheet
     private HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
-        final SpreadsheetViewport viewport = this.viewport();
+        final AnchoredSpreadsheetSelection selection = this.selection();
 
         return patternKind.isPresent() ?
                 cellPattern(
                         id,
                         name,
-                        viewport,
+                        selection,
                         patternKind.get()
                 ) :
                 cell(
                         id,
                         name,
-                        viewport
+                        selection
                 );
     }
 
@@ -102,7 +102,7 @@ public final class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsheet
         return cellPatternSave(
                 this.id(),
                 this.name(),
-                this.viewport(),
+                this.selection(),
                 patternKind,
                 Optional.ofNullable(
                         pattern.isEmpty() ?

@@ -21,27 +21,27 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnMenuHistoryToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name,
-                                                  final SpreadsheetViewport viewport) {
+                                                  final AnchoredSpreadsheetSelection selection) {
         return new SpreadsheetColumnMenuHistoryToken(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
     private SpreadsheetColumnMenuHistoryToken(final SpreadsheetId id,
                                               final SpreadsheetName name,
-                                              final SpreadsheetViewport viewport) {
+                                              final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
@@ -56,7 +56,7 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
         return with(
                 id,
                 name,
-                this.viewport()
+                this.selection()
         );
     }
 

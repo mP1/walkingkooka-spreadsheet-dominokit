@@ -72,7 +72,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .viewportHistoryTokenOrEmpty()
+                .selectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setPatternKind(
                                 Optional.of(
@@ -86,7 +86,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .viewportHistoryTokenOrEmpty()
+                .selectionHistoryTokenOrEmpty()
                 .map(t -> t.setPatternKind(Optional.empty()))
                 .ifPresent(context::pushHistoryToken);
     }

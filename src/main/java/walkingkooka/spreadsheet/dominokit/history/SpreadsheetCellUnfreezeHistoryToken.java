@@ -24,8 +24,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
 
@@ -33,32 +33,32 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
 
     static SpreadsheetCellUnfreezeHistoryToken with(final SpreadsheetId id,
                                                     final SpreadsheetName name,
-                                                    final SpreadsheetViewport viewport) {
+                                                    final AnchoredSpreadsheetSelection selection) {
         return new SpreadsheetCellUnfreezeHistoryToken(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
     private SpreadsheetCellUnfreezeHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final SpreadsheetViewport viewport) {
+                                                final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
 
-        final SpreadsheetSelection selection = viewport.selection();
+        final SpreadsheetSelection spreadsheetSelection = selection.selection();
 
-        if(false == selection.isLabelName()) {
+        if (false == spreadsheetSelection.isLabelName()) {
             SpreadsheetMetadata.EMPTY.set(
                     SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                    selection.toColumnRange()
+                    spreadsheetSelection.toColumnRange()
             ).set(
                     SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                    selection.toRowRange()
+                    spreadsheetSelection.toRowRange()
             );
         }
     }
@@ -79,7 +79,7 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
         return with(
                 id,
                 name,
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -96,7 +96,7 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        this.patchMetadataAndPushViewportHistoryToken(
+        this.patchMetadataAndPushSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
                 null,
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,
