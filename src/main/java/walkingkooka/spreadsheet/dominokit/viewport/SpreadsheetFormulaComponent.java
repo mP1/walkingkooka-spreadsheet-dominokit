@@ -31,8 +31,11 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 
@@ -43,7 +46,9 @@ import java.util.Optional;
  * Provides a text box which supports editing of a formula belonging to a cell.
  */
 public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSetElement>,
-        ComponentLifecycle {
+        ComponentLifecycle,
+        NopFetcherWatcher,
+        SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetFormulaComponent with(final AppContext context) {
         return new SpreadsheetFormulaComponent(
@@ -86,6 +91,7 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
         this.context = context;
 
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetDeltaWatcher(this);
     }
 
     private void onKeyDownEvent(final KeyboardEvent event) {
@@ -140,6 +146,11 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
         this.textBox.clear();
     }
 
+    private void setText(final String text) {
+        this.context.debug("SpreadsheetFormulaComponent.setText " + CharSequences.quoteAndEscape(text));
+        this.textBox.setValue(text);
+    }
+
     private final TextBox textBox;
 
     private final AppContext context;
@@ -187,26 +198,30 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
     public void refresh(final AppContext context) {
         final HistoryToken token = context.historyToken();
 
-        if(token instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cellHistoryToken = (SpreadsheetCellHistoryToken) token;
-            final SpreadsheetSelection selection = cellHistoryToken.selection().selection();
-            if(false == selection.equals(this.selection)) {
+        if (token instanceof SpreadsheetCellHistoryToken) {
+            if (token instanceof SpreadsheetCellFormulaHistoryToken) {
+                context.debug("SpreadsheetFormulaComponent.refresh giving focus");
+                this.textBox.focus();
+            } else {
+                final SpreadsheetCellHistoryToken cellHistoryToken = (SpreadsheetCellHistoryToken) token;
+                final SpreadsheetSelection selection = cellHistoryToken.selection().selection();
+
                 this.reload(
                         selection,
                         context
                 );
                 this.selection = selection;
             }
-
-            if(token instanceof SpreadsheetCellFormulaSelectHistoryToken) {
-                context.debug("SpreadsheetFormulaComponent.refresh giving focus");
-                this.textBox.focus();
-            }
+        } else {
+            context.debug("SpreadsheetFormulaComponent.refresh not cell historyToken clearing text");
+            this.setText("");
         }
     }
 
     private void reload(final SpreadsheetSelection selection,
                         final AppContext context) {
+        context.debug("SpreadsheetFormulaComponent.reload");
+
         String text = "";
 
         final SpreadsheetViewportCache cache = context.viewportCache();
@@ -224,8 +239,7 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
             // TODO show error somewhere in formula ?
         }
 
-        context.debug("SpreadsheetFormulaComponent.reload " + selection + " with " + CharSequences.quoteAndEscape(text));
-        this.textBox.setValue(text);
+        this.setText(text);
         this.undoText = text;
     }
 
@@ -237,4 +251,12 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
     }
 
     private SpreadsheetSelection selection;
+
+    // SpreadsheetDeltaWatcher..........................................................................................
+
+    @Override
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        this.refresh(context);
+    }
 }
