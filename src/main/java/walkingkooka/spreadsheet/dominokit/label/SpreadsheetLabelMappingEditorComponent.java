@@ -246,7 +246,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     }
 
     /**
-     * When clicked the SAVE button invokes {@link SpreadsheetLabelMappingEditorComponentContext#save(SpreadsheetLabelMapping)}.
+     * When clicked the SAVE button invokes {@link SpreadsheetLabelMappingEditorComponentContext#save(Object)}}.
      */
     private Button saveButton() {
         return this.button(
