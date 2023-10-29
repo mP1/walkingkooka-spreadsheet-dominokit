@@ -1405,16 +1405,16 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         context.debug("SpreadsheetViewportComponent.loadViewportCells id: " + id + " viewport: " + viewport);
 
+        context.viewportCache()
+                .clear(); // clear all cached data.
+        this.reload = false;
+        navigations.clear();
+
         context.spreadsheetDeltaFetcher()
                 .loadCells(
                         id,
                         viewport
                 );
-
-        context.viewportCache()
-                .clear(); // clear all cached data.
-        this.reload = false;
-        navigations.clear();
     }
 
     /**
