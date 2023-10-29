@@ -212,13 +212,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 UrlQueryString.EMPTY
         );
 
-        this.context.debug("SpreadsheetDeltaFetcher.loadCells " + Url.parseRelative(
-                "/api/spreadsheet/" +
-                        id +
-                        "/cell/*/" +
-                        CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
-        ).setQuery(queryString) + " qs=" + queryString + " v=" + viewport);
-
         this.get(
                 Url.parseRelative(
                         "/api/spreadsheet/" +
