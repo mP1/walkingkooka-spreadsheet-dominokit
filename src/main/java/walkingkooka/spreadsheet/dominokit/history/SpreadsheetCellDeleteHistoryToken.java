@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -30,21 +30,21 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
 
     static SpreadsheetCellDeleteHistoryToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name,
-                                                  final SpreadsheetViewport viewport) {
+                                                  final AnchoredSpreadsheetSelection selection) {
         return new SpreadsheetCellDeleteHistoryToken(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
     private SpreadsheetCellDeleteHistoryToken(final SpreadsheetId id,
                                               final SpreadsheetName name,
-                                              final SpreadsheetViewport viewport) {
+                                              final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
@@ -64,7 +64,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
         return with(
                 id,
                 name,
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -84,7 +84,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
         context.spreadsheetDeltaFetcher()
                 .deleteDelta(
                         this.id(),
-                        this.viewport()
+                        this.selection().selection()
                 );
     }
 }

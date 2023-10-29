@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
 
@@ -54,7 +54,7 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     }
 
     private void setViewportCellAndCheck(final SpreadsheetExpressionReference selection) {
-        this.setViewportAndCheck(
+        this.setSelectionAndCheck(
                 selection,
                 HistoryToken.cell(
                         ID,
@@ -79,7 +79,7 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     }
 
     private void setViewportColumnAndCheck(final SpreadsheetSelection selection) {
-        this.setViewportAndCheck(
+        this.setSelectionAndCheck(
                 selection,
                 HistoryToken.column(
                         ID,
@@ -104,7 +104,7 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     }
 
     private void setViewportRowAndCheck(final SpreadsheetSelection selection) {
-        this.setViewportAndCheck(
+        this.setSelectionAndCheck(
                 selection,
                 HistoryToken.row(
                         ID,
@@ -114,26 +114,26 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         );
     }
 
-    private void setViewportAndCheck(final SpreadsheetSelection selection,
-                                              final HistoryToken expected) {
-        this.setViewportAndCheck(
+    private void setSelectionAndCheck(final SpreadsheetSelection selection,
+                                      final HistoryToken expected) {
+        this.setSelectionAndCheck(
                 this.createHistoryToken(),
                 selection.setDefaultAnchor(),
                 expected
         );
     }
 
-    final void setViewportAndCheck(final T token,
-                                   final SpreadsheetViewport viewport,
-                                            final HistoryToken expected) {
+    final void setSelectionAndCheck(final T token,
+                                    final AnchoredSpreadsheetSelection selection,
+                                    final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                token.setViewport(
+                token.setSelection(
                         Optional.of(
-                                viewport
+                                selection
                         )
                 ),
-                () -> token + " setViewport " + viewport
+                () -> token + " setSelection " + selection
         );
     }
 

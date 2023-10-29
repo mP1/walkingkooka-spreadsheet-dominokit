@@ -27,40 +27,41 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Objects;
 import java.util.Optional;
 
-public abstract class SpreadsheetViewportHistoryToken extends SpreadsheetSelectionHistoryToken {
+public abstract class AnchoredSpreadsheetSelectionHistoryToken extends SpreadsheetSelectionHistoryToken {
 
-    SpreadsheetViewportHistoryToken(final SpreadsheetId id,
+    AnchoredSpreadsheetSelectionHistoryToken(final SpreadsheetId id,
                                              final SpreadsheetName name,
-                                    final SpreadsheetViewport viewport) {
+                                             final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name
         );
-        this.viewport = Objects.requireNonNull(viewport, "viewport");
+        this.selection = Objects.requireNonNull(selection, "selection");
     }
 
-    public final SpreadsheetViewport viewport() {
-        return this.viewport;
+    public final AnchoredSpreadsheetSelection selection() {
+        return this.selection;
     }
 
-    private final SpreadsheetViewport viewport;
+    private final AnchoredSpreadsheetSelection selection;
 
     @Override //
     final UrlFragment selectionUrlFragment() {
-        return this.viewport.urlFragment()
-                .append(this.viewportUrlFragment());
+        return this.selection.urlFragment()
+                .append(this.anchoredSelectionUrlFragment());
     }
 
-    abstract UrlFragment viewportUrlFragment();
+    abstract UrlFragment anchoredSelectionUrlFragment();
 
     final void deltaClearSelectionAndPushViewportHistoryToken(final AppContext context) {
         this.deltaClearSelection(context);
-        this.pushViewportHistoryToken(context);
+        this.pushSelectionHistoryToken(context);
     }
 
     /**
@@ -68,19 +69,19 @@ public abstract class SpreadsheetViewportHistoryToken extends SpreadsheetSelecti
      */
     final void deltaClearSelection(final AppContext context) {
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-        final SpreadsheetViewport viewport = this.viewport();
+        final AnchoredSpreadsheetSelection selection = this.selection();
 
         // clear row
         fetcher.postDelta(
                 fetcher.url(
                         this.id(),
-                        viewport.selection(),
+                        selection.selection(),
                         Optional.of(
                                 UrlPath.parse("/clear")
                         )
                 ).setQuery(
                         SpreadsheetDeltaFetcher.appendViewportAndWindow(
-                                viewport,
+                                context.viewport(SpreadsheetViewport.NO_SELECTION),
                                 context.viewportCache()
                                         .windows(),
                                 UrlQueryString.EMPTY
@@ -89,14 +90,14 @@ public abstract class SpreadsheetViewportHistoryToken extends SpreadsheetSelecti
                 SpreadsheetDelta.EMPTY
         );
 
-        pushViewportHistoryToken(context);
+        pushSelectionHistoryToken(context);
     }
 
-    final <T1, T2> void patchMetadataAndPushViewportHistoryToken(final SpreadsheetMetadataPropertyName<T1> propertyName1,
-                                                                 final T1 propertyValue1,
-                                                                 final SpreadsheetMetadataPropertyName<T2> propertyName2,
-                                                                 final T2 propertyValue2,
-                                                                 final AppContext context) {
+    final <T1, T2> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T1> propertyName1,
+                                                                  final T1 propertyValue1,
+                                                                  final SpreadsheetMetadataPropertyName<T2> propertyName2,
+                                                                  final T2 propertyValue2,
+                                                                  final AppContext context) {
         this.patchMetadata(
                 propertyName1,
                 propertyValue1,
@@ -105,7 +106,7 @@ public abstract class SpreadsheetViewportHistoryToken extends SpreadsheetSelecti
                 context
         );
 
-        this.pushViewportHistoryToken(context);
+        this.pushSelectionHistoryToken(context);
     }
 
     final <T1, T2> void patchMetadata(final SpreadsheetMetadataPropertyName<T1> propertyName1,
@@ -127,16 +128,16 @@ public abstract class SpreadsheetViewportHistoryToken extends SpreadsheetSelecti
                 );
     }
 
-    final <T> void patchMetadataAndPushViewportHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                            final T propertyValue,
-                                                            final AppContext context) {
+    final <T> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                             final T propertyValue,
+                                                             final AppContext context) {
         this.patchMetadata(
                 propertyName,
                 propertyValue,
                 context
         );
 
-        this.pushViewportHistoryToken(context);
+        this.pushSelectionHistoryToken(context);
     }
 
     final <T> void patchMetadata(final SpreadsheetMetadataPropertyName<T> propertyName,
@@ -151,8 +152,8 @@ public abstract class SpreadsheetViewportHistoryToken extends SpreadsheetSelecti
                 );
     }
 
-    final void pushViewportHistoryToken(final AppContext context) {
-        this.viewportHistoryTokenOrEmpty()
+    final void pushSelectionHistoryToken(final AppContext context) {
+        this.selectionHistoryTokenOrEmpty()
                 .ifPresent(context::pushHistoryToken);
     }
 }

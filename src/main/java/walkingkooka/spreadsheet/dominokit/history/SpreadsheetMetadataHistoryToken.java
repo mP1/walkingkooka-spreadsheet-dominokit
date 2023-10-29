@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.text.cursor.TextCursor;
 
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
@@ -94,7 +94,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     }
 
     @Override //
-    final SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection) {
+    final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
     }
 

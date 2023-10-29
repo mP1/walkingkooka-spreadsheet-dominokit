@@ -20,15 +20,15 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
-public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends SpreadsheetViewportHistoryTokenTestCase<T> {
+public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends AnchoredSpreadsheetSelectionHistoryTokenTestCase<T> {
 
     final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
@@ -36,7 +36,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
     final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
-    final static SpreadsheetViewport VIEWPORT_SELECTION = CELL.setDefaultAnchor();
+    final static AnchoredSpreadsheetSelection SELECTION = CELL.setDefaultAnchor();
 
     SpreadsheetCellHistoryTokenTestCase() {
         super();
@@ -78,29 +78,29 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
     @Test
     public final void testFreezeOrEmptyCell() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
 
         this.freezeOrEmptyAndCheck(
-                viewport,
+                selection,
                 HistoryToken.cellFreeze(
                         ID,
                         NAME,
-                        viewport
+                        selection
                 )
         );
     }
 
     @Test
     public final void testFreezeOrEmptyCellRange() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.parseCellRange("A1:B2")
+        final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("A1:B2")
                 .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.freezeOrEmptyAndCheck(
-                viewport,
+                selection,
                 HistoryToken.cellFreeze(
                         ID,
                         NAME,
-                        viewport
+                        selection
                 )
         );
     }
@@ -115,7 +115,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 HistoryToken.formula(
                         ID,
                         NAME,
-                        VIEWPORT_SELECTION
+                        SELECTION
                 ),
                 token.setFormula()
         );
@@ -124,31 +124,31 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     // setViewport.............................................................................................
 
     @Test
-    public final void testSetViewportWithSameCell() {
-        this.setViewportAndCheck(
+    public final void testSetSelectionWithSameCell() {
+        this.setSelectionAndCheck(
                 CELL.setDefaultAnchor()
         );
     }
 
     @Test
-    public final void testSetViewportWithSameCellRange() {
-        this.setViewportAndCheck(
+    public final void testSetSelectionWithSameCellRange() {
+        this.setSelectionAndCheck(
                 SpreadsheetSelection.parseCellRange("A1:B2")
                         .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
         );
     }
 
     @Test
-    public final void testSetViewportWithSameCellRange2() {
-        this.setViewportAndCheck(
+    public final void testSetSelectionWithSameCellRange2() {
+        this.setSelectionAndCheck(
                 SpreadsheetSelection.parseCellRange("A1:C3")
                         .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
         );
     }
 
     @Test
-    public final void testSetViewportWithSameLabel() {
-        this.setViewportAndCheck(
+    public final void testSetSelectionWithSameLabel() {
+        this.setSelectionAndCheck(
                 LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
         );
     }
@@ -191,16 +191,16 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
     @Test
     public final void testSetMenuCellRangeMenuWithCellInside() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.parseCellRange("A1:C3")
+        final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("A1:C3")
                 .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.setMenuAndCheck(
-                this.createHistoryToken(viewport),
+                this.createHistoryToken(selection),
                 SpreadsheetSelection.parseCell("B2"),
                 HistoryToken.cellMenu(
                         ID,
                         NAME,
-                        viewport
+                        selection
                 )
         );
     }

@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -33,12 +33,12 @@ abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCell
 
     SpreadsheetCellPatternHistoryToken(final SpreadsheetId id,
                                        final SpreadsheetName name,
-                                       final SpreadsheetViewport viewport,
+                                       final AnchoredSpreadsheetSelection selection,
                                        final Optional<SpreadsheetPatternKind> patternKind) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
 
         this.patternKind = Objects.requireNonNull(patternKind, "patternKind");

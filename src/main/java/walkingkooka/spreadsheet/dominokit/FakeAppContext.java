@@ -28,7 +28,9 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
@@ -129,6 +131,11 @@ public class FakeAppContext implements AppContext {
     }
 
     // viewport.........................................................................................................
+
+    @Override
+    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> selection) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public SpreadsheetViewportCache viewportCache() {

@@ -72,6 +72,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbarCom
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -320,15 +321,17 @@ public class App implements EntryPoint,
 
         // if a selection is already present copy from the metadata
         if (historyToken instanceof SpreadsheetSelectionHistoryToken) {
-            final HistoryToken withViewport = historyToken.setViewport(
-                    delta.viewport()
-            );
-
-            if (false == historyToken.equals(withViewport)) {
-                context.debug("App.onSpreadsheetDelta selection active, updating " + withViewport, delta);
-                context.pushHistoryToken(
-                        withViewport
+            final Optional<SpreadsheetViewport> viewport = delta.viewport();
+            if (viewport.isPresent()) {
+                final HistoryToken withSelection = historyToken.setSelection(
+                        viewport.get()
+                                .selection()
                 );
+
+                if (false == historyToken.equals(withSelection)) {
+                    context.debug("App.onSpreadsheetDelta selection active, updating " + withSelection, delta);
+                    context.pushHistoryToken(withSelection);
+                }
             }
         }
     }
@@ -408,17 +411,19 @@ public class App implements EntryPoint,
             final SpreadsheetName name = maybeName.get();
 
             final HistoryToken historyToken = context.historyToken();
-            final HistoryToken idNameViewportHistoryToken = historyToken
+            final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
+
+            final HistoryToken idNameSelectionHistoryToken = historyToken
                     .setIdAndName(
                             id,
                             name
-                    ).setViewport(
-                            metadata.get(SpreadsheetMetadataPropertyName.SELECTION)
+                    ).setSelection(
+                            viewport.flatMap(v -> v.selection())
                     );
 
-            if (false == historyToken.equals(idNameViewportHistoryToken)) {
-                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/viewport " + idNameViewportHistoryToken, metadata);
-                context.pushHistoryToken(idNameViewportHistoryToken);
+            if (false == historyToken.equals(idNameSelectionHistoryToken)) {
+                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/selection " + idNameSelectionHistoryToken, metadata);
+                context.pushHistoryToken(idNameSelectionHistoryToken);
             } else {
                 // must have loaded a new spreadsheet, need to fire history token
                 //
@@ -553,21 +558,25 @@ public class App implements EntryPoint,
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
 
-        // if the viewport selection changed update metadata
+        // if the selection changed update metadata
         final HistoryToken historyToken = context.historyToken();
         if (historyToken instanceof SpreadsheetIdHistoryToken) {
-            final Optional<SpreadsheetViewport> viewport = historyToken.viewportOrEmpty();
-            final Optional<SpreadsheetViewport> previousViewport = previous.viewportOrEmpty();
-            if (false == viewport.equals(previousViewport)) {
+            final Optional<AnchoredSpreadsheetSelection> selection = historyToken.selectionOrEmpty();
+            final Optional<AnchoredSpreadsheetSelection> previousSelection = previous.selectionOrEmpty();
+            if (false == selection.equals(previousSelection)) {
 
-                context.debug("App.onHistoryTokenChange viewport changed from " + previousViewport.orElse(null) + " TO " + viewport.orElse(null) + " will update Metadata");
+                context.debug("App.onHistoryTokenChange selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
 
                 final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
                 context.spreadsheetMetadataFetcher()
                         .patchMetadata(
                                 spreadsheetIdHistoryToken.id(),
-                                SpreadsheetMetadataPropertyName.SELECTION.patch(
-                                        viewport.orElse(null)
+                                SpreadsheetMetadataPropertyName.VIEWPORT.patch(
+                                        selection.map(
+                                                s -> context.viewport(
+                                                        Optional.of(s)
+                                                )
+                                        ).orElse(null)
                                 )
                         );
             }
@@ -601,6 +610,14 @@ public class App implements EntryPoint,
             );
 
     // Viewport.........................................................................................................
+
+    @Override
+    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> selection) {
+        return this.viewportComponent.viewport(
+                selection,
+                this
+        );
+    }
 
     /**
      * Cache for the contents of the viewport.

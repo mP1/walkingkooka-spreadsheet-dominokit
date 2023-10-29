@@ -22,27 +22,27 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetCellFormulaHistoryToken {
 
     static SpreadsheetCellFormulaSelectHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
-                                                         final SpreadsheetViewport viewport) {
+                                                         final AnchoredSpreadsheetSelection selection) {
         return new SpreadsheetCellFormulaSelectHistoryToken(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
     private SpreadsheetCellFormulaSelectHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
-                                                     final SpreadsheetViewport viewport) {
+                                                     final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
@@ -62,7 +62,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
         return with(
                 id,
                 name,
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -71,7 +71,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
         return formulaSave(
                 this.id(),
                 this.name(),
-                this.viewport(),
+                this.selection(),
                 SpreadsheetFormula.EMPTY.setText(formulaText)
         );
     }

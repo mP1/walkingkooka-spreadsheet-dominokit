@@ -41,10 +41,10 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     // appendSelection..................................................................................................
 
     @Test
-    public void testAppendViewportSelectionWithNullSelectionFails() {
+    public void testAppendViewportWithNullSelectionFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendViewportSelection(
+                () -> SpreadsheetDeltaFetcher.appendViewport(
                         null,
                         UrlQueryString.EMPTY
                 )
@@ -52,161 +52,233 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportSelectionWithNullQueryStringFails() {
+    public void testAppendViewportWithNullQueryStringFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendViewportSelection(
-                        SpreadsheetSelection.ALL_CELLS.setDefaultAnchor(),
+                () -> SpreadsheetDeltaFetcher.appendViewport(
+                        SpreadsheetSelection.A1
+                                .viewportRectangle(100, 200)
+                                .viewport(),
                         null
                 )
         );
     }
 
     @Test
-    public void testAppendViewportSelectionCell() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.parseCell("B2"),
-                SpreadsheetViewportAnchor.NONE,
-                "selection=B2&selectionType=cell"
+    public void testAppendViewportCell() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.parseCell("B2")
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseCell("B2")
+                                                .setDefaultAnchor()
+                                )
+                        ),
+                "home=B2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=B2&selectionType=cell"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionCellRange() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.parseCellRange("B2:B3"),
-                SpreadsheetViewportAnchor.TOP_RIGHT,
-                "selection=B2:B3&selectionType=cell-range&selectionAnchor=top-right"
+    public void testAppendViewportCellRange() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseCellRange("B2:B3")
+                                                .setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
+                                )
+                        ),
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=B2%3AB3&selectionType=cell-range&selectionAnchor=top-right"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionColumn() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.parseColumn("B"),
-                SpreadsheetViewportAnchor.NONE,
-                "selection=B&selectionType=column"
+    public void testAppendViewportColumn() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
+                                )
+                        ),
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=B&selectionType=column"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionColumnRange() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.parseColumnRange("B:C"),
-                SpreadsheetViewportAnchor.LEFT,
-                "selection=B:C&selectionType=column-range&selectionAnchor=left"
+    public void testAppendViewportColumnRange() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportAnchor.LEFT)
+                                )
+                        ),
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=B%3AC&selectionType=column-range&selectionAnchor=left"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionRow() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.parseRow("2"),
-                SpreadsheetViewportAnchor.NONE,
-                "selection=2&selectionType=row"
+    public void testAppendViewportRow() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseRow("2")
+                                                .setDefaultAnchor()
+                                )
+                        ),
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=2&selectionType=row"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionRowRange() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.parseRowRange("2:3"),
-                SpreadsheetViewportAnchor.TOP,
-                "selection=2:3&selectionType=row-range&selectionAnchor=top"
+    public void testAppendViewportRowRange() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseRowRange("2:3")
+                                                .setAnchor(SpreadsheetViewportAnchor.TOP)
+                                )
+                        ),
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=2%3A3&selectionType=row-range&selectionAnchor=top"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionLabel() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.labelName("Label123"),
-                SpreadsheetViewportAnchor.NONE,
-                "selection=Label123&selectionType=label"
+    public void testAppendViewportLabel() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.labelName("Label123").setDefaultAnchor()
+                                )
+                        ),
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Label123&selectionType=label"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionLabel2() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.labelName("Label123"),
-                SpreadsheetViewportAnchor.NONE,
+    public void testAppendViewportLabel2() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.labelName("Label123")
+                                                .setDefaultAnchor()
+                                )
+                        ),
                 UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&selection=Label123&selectionType=label")
+                UrlQueryString.parse("a=1&home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Label123&selectionType=label")
         );
     }
 
     @Test
-    public void testAppendViewportSelectionColumnAndNavigationLeftColumn() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.parseColumn("ABC")
-                        .setAnchor(SpreadsheetViewportAnchor.NONE)
-                        .setNavigations(
+    public void testAppendViewportColumnAndNavigationLeftColumn() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.parseCell("A2")
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseColumn("ABC")
+                                                .setDefaultAnchor()
+                                )
+                        ).setNavigations(
                                 Lists.of(
                                         SpreadsheetViewportNavigation.leftColumn()
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&selection=ABC&selectionType=column&selectionNavigation=left+column")
+                UrlQueryString.parse("a=1&home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&selectionNavigation=left+column")
         );
     }
 
     @Test
-    public void testAppendViewportSelectionColumnAndNavigationExtendRightColumn() {
-        this.appendViewportSelectionAndCheck(
-                SpreadsheetSelection.parseColumn("Z")
-                        .setAnchor(SpreadsheetViewportAnchor.NONE)
-                        .setNavigations(
+    public void testAppendViewportColumnAndNavigationExtendRightColumn() {
+        this.appendViewportAndCheck(
+                SpreadsheetSelection.parseCell("A2")
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseColumn("Z")
+                                                .setDefaultAnchor()
+                                )
+                        ).setNavigations(
                                 Lists.of(
                                         SpreadsheetViewportNavigation.extendRightColumn()
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&selection=Z&selectionType=column&selectionNavigation=extend-right+column")
+                UrlQueryString.parse("a=1&home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&selectionNavigation=extend-right+column")
         );
     }
 
-    private void appendViewportSelectionAndCheck(final SpreadsheetSelection selection,
-                                                 final SpreadsheetViewportAnchor anchor,
-                                                 final String expected) {
-        this.appendViewportSelectionAndCheck(
-                selection,
-                anchor,
+    private void appendViewportAndCheck(final SpreadsheetViewport viewport,
+                                        final String expected) {
+        this.appendViewportAndCheck(
+                viewport,
                 UrlQueryString.parse(expected)
         );
     }
 
-    private void appendViewportSelectionAndCheck(final SpreadsheetSelection selection,
-                                                 final SpreadsheetViewportAnchor anchor,
-                                                 final UrlQueryString expected) {
-        this.appendViewportSelectionAndCheck(
-                selection,
-                anchor,
+    private void appendViewportAndCheck(final SpreadsheetViewport viewport,
+                                        final UrlQueryString expected) {
+        this.appendViewportAndCheck(
+                viewport,
                 UrlQueryString.EMPTY,
                 expected
         );
     }
 
-    private void appendViewportSelectionAndCheck(final SpreadsheetSelection selection,
-                                                 final SpreadsheetViewportAnchor anchor,
-                                                 final UrlQueryString initial,
-                                                 final UrlQueryString expected) {
-        this.appendViewportSelectionAndCheck(
-                selection.setAnchor(anchor),
-                initial,
-                expected
-        );
-    }
-
-    private void appendViewportSelectionAndCheck(final SpreadsheetViewport viewport,
-                                                 final UrlQueryString initial,
-                                                 final UrlQueryString expected) {
+    private void appendViewportAndCheck(final SpreadsheetViewport viewport,
+                                        final UrlQueryString initial,
+                                        final UrlQueryString expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetDeltaFetcher.appendViewportSelection(
+                SpreadsheetDeltaFetcher.appendViewport(
                         viewport,
                         initial
                 ),
-                () -> initial + " appendViewportSelection " + viewport
+                () -> initial + " appendViewport " + viewport
         );
     }
 
@@ -284,129 +356,165 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
-    // appendSelectionAndWindow.........................................................................................
+    // appendViewportAndWindowAndCheck.........................................................................................
 
     @Test
-    public void testAppendViewportSelectionAndWindowCell() {
-        this.appendSelectionAndWindow(
-                SpreadsheetSelection.parseCell("B2"),
-                SpreadsheetViewportAnchor.NONE,
+    public void testAppendViewportAndWindowCell() {
+        this.appendViewportAndWindowAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(111, 222)
+                        .viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseCell("B2")
+                                                .setDefaultAnchor()
+                                )
+                        ),
                 "A1:C3",
-                "selection=B2&selectionType=cell&window=A1:C3"
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=B2&selectionType=cell&window=A1%3AC3"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionAndWindowCellRange() {
-        this.appendSelectionAndWindow(
-                SpreadsheetSelection.parseCellRange("B2:B3"),
-                SpreadsheetViewportAnchor.TOP_LEFT,
+    public void testAppendViewportAndWindowCellRange() {
+        this.appendViewportAndWindowAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(111, 222)
+                        .viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseCellRange("B2:B3")
+                                                .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
+                                )
+                        )
+                ,
                 "A1:C3",
-                "selection=B2:B3&selectionType=cell-range&selectionAnchor=top-left&window=A1:C3"
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=B2%3AB3&selectionType=cell-range&selectionAnchor=top-left&window=A1%3AC3"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionAndWindowColumn() {
-        this.appendSelectionAndWindow(
-                SpreadsheetSelection.parseColumn("B"),
-                SpreadsheetViewportAnchor.NONE,
+    public void testAppendViewportAndWindowColumn() {
+        this.appendViewportAndWindowAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(111, 222)
+                        .viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseColumn("B")
+                                                .setDefaultAnchor()
+                                )
+                        )
+                ,
                 "A1:C3",
-                "selection=B&selectionType=column&window=A1:C3"
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=B&selectionType=column&window=A1%3AC3"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionAndWindowColumnRange() {
-        this.appendSelectionAndWindow(
-                SpreadsheetSelection.parseColumnRange("B:C"),
-                SpreadsheetViewportAnchor.LEFT,
+    public void testAppendViewportAndWindowColumnRange() {
+        this.appendViewportAndWindowAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(111, 222)
+                        .viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseColumnRange("B:C")
+                                                .setAnchor(SpreadsheetViewportAnchor.LEFT)
+                                )
+                        ),
                 "A1:C3",
-                "selection=B:C&selectionType=column-range&selectionAnchor=left&window=A1:C3"
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=B%3AC&selectionType=column-range&selectionAnchor=left&window=A1%3AC3"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionAndWindowRow() {
-        this.appendSelectionAndWindow(
-                SpreadsheetSelection.parseRow("2"),
-                SpreadsheetViewportAnchor.NONE,
+    public void testAppendViewportAndWindowRow() {
+        this.appendViewportAndWindowAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(111, 222)
+                        .viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseRow("2")
+                                                .setDefaultAnchor()
+                                )
+                        ),
                 "A1:C3",
-                "selection=2&selectionType=row&window=A1:C3"
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=2&selectionType=row&window=A1%3AC3"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionAndWindowRowRange() {
-        this.appendSelectionAndWindow(
-                SpreadsheetSelection.parseRowRange("2:3"),
-                SpreadsheetViewportAnchor.TOP,
+    public void testAppendViewportAndWindowRowRange() {
+        this.appendViewportAndWindowAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(111, 222)
+                        .viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.parseRowRange("2:3")
+                                                .setAnchor(SpreadsheetViewportAnchor.TOP)
+                                )
+                        ),
                 "A1:C3",
-                "selection=2:3&selectionType=row-range&selectionAnchor=top&window=A1:C3"
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=2%3A3&selectionType=row-range&selectionAnchor=top&window=A1%3AC3"
         );
     }
 
     @Test
-    public void testAppendViewportSelectionAndWindowLabel() {
-        this.appendSelectionAndWindow(
-                SpreadsheetSelection.labelName("Label123"),
-                SpreadsheetViewportAnchor.NONE,
-                "A1:C3",
-                "selection=Label123&selectionType=label&window=A1:C3"
-        );
-    }
-
-    @Test
-    public void testAppendViewportSelectionAndWindowLabel2() {
-        this.appendSelectionAndWindow(
-                SpreadsheetSelection.labelName("Label123"),
-                SpreadsheetViewportAnchor.NONE,
+    public void testAppendViewportAndWindowLabel() {
+        this.appendViewportAndWindowAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(111, 222)
+                        .viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.labelName("Label123")
+                                                .setDefaultAnchor()
+                                )
+                        ),
                 "A1:C3",
                 "a1",
-                "a1&selection=Label123&selectionType=label&window=A1:C3"
+                "a1&home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Label123&selectionType=label&window=A1%3AC3"
         );
     }
 
-    private void appendSelectionAndWindow(final SpreadsheetSelection selection,
-                                          final SpreadsheetViewportAnchor anchor,
-                                          final String window,
-                                          final String expected) {
-        this.appendSelectionAndWindow(
-                selection,
-                anchor,
-                window,
+    private void appendViewportAndWindowAndCheck(final SpreadsheetViewport viewport,
+                                                 final String windows,
+                                                 final String expected) {
+        this.appendViewportAndWindowAndCheck(
+                viewport,
+                windows,
                 "",
                 expected
         );
     }
 
-    private void appendSelectionAndWindow(final SpreadsheetSelection selection,
-                                          final SpreadsheetViewportAnchor anchor,
-                                          final String window,
-                                          final String initial,
-                                          final String expected) {
-        this.appendSelectionAndWindow(
-                selection,
-                anchor,
-                SpreadsheetViewportWindows.parse(window),
+    private void appendViewportAndWindowAndCheck(final SpreadsheetViewport viewport,
+                                                 final String windows,
+                                                 final String initial,
+                                                 final String expected) {
+        this.appendViewportAndWindowAndCheck(
+                viewport,
+                SpreadsheetViewportWindows.parse(windows),
                 UrlQueryString.parse(initial),
                 UrlQueryString.parse(expected)
         );
     }
 
-    private void appendSelectionAndWindow(final SpreadsheetSelection selection,
-                                          final SpreadsheetViewportAnchor anchor,
-                                          final SpreadsheetViewportWindows window,
-                                          final UrlQueryString initial,
-                                          final UrlQueryString expected) {
+    private void appendViewportAndWindowAndCheck(final SpreadsheetViewport viewport,
+                                                 final SpreadsheetViewportWindows windows,
+                                                 final UrlQueryString initial,
+                                                 final UrlQueryString expected) {
         this.checkEquals(
                 expected,
                 SpreadsheetDeltaFetcher.appendViewportAndWindow(
-                        selection.setAnchor(anchor),
-                        window,
+                        viewport,
+                        windows,
                         initial
                 ),
-                () -> initial + " appendSelectionAndWindow " + selection + " " + anchor + " " + window
+                () -> initial + " appendViewportAndWindow " + viewport + " " + windows
         );
     }
 

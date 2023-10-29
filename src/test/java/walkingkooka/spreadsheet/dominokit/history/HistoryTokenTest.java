@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -36,7 +37,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -159,45 +159,45 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetClearCell() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
+        final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, selection);
 
         this.checkEquals(
                 historyToken.setClear(),
                 HistoryToken.cellClear(
                         ID,
                         NAME,
-                        viewport
+                        selection
                 )
         );
     }
 
     @Test
     public void testSetClearColumn() {
-        final SpreadsheetViewport viewport = COLUMN.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
+        final AnchoredSpreadsheetSelection selection = COLUMN.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.column(ID, NAME, selection);
 
         this.checkEquals(
                 historyToken.setClear(),
                 HistoryToken.columnClear(
                         ID,
                         NAME,
-                        viewport
+                        selection
                 )
         );
     }
 
     @Test
     public void testSetClearRow() {
-        final SpreadsheetViewport viewport = ROW.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
+        final AnchoredSpreadsheetSelection selection = ROW.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.row(ID, NAME, selection);
 
         this.checkEquals(
                 historyToken.setClear(),
                 HistoryToken.rowClear(
                         ID,
                         NAME,
-                        viewport
+                        selection
                 )
         );
     }
@@ -250,7 +250,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetDeleteCell() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
@@ -265,7 +265,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetDeleteColumn() {
-        final SpreadsheetViewport viewport = COLUMN.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
         this.checkEquals(
@@ -280,7 +280,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetDeleteRow() {
-        final SpreadsheetViewport viewport = ROW.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
         this.checkEquals(
@@ -307,7 +307,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetFreezeCell() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.A1.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.A1.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
@@ -322,7 +322,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetFreezeColumn() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.parseColumn("A")
+        final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseColumn("A")
                 .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
@@ -338,7 +338,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetFreezeRow() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.parseRow("1")
+        final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
                 .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
@@ -397,7 +397,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuCellWithoutSelection() {
-        final SpreadsheetViewport cell = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection cell = CELL.setDefaultAnchor();
 
         this.setMenuAndCheck(
                 HistoryToken.cell(
@@ -415,7 +415,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuCellRangeWithoutSelection() {
-        final SpreadsheetViewport range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+        final AnchoredSpreadsheetSelection range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
         this.setMenuAndCheck(
                 HistoryToken.cell(
@@ -433,7 +433,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuCellRangeWithoutSelection2() {
-        final SpreadsheetViewport range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
+        final AnchoredSpreadsheetSelection range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.setMenuAndCheck(
                 HistoryToken.cell(
@@ -451,7 +451,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuLabelWithoutSelection() {
-        final SpreadsheetViewport cell = LABEL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection cell = LABEL.setDefaultAnchor();
 
         this.setMenuAndCheck(
                 HistoryToken.cell(
@@ -469,7 +469,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuColumnWithoutSelection() {
-        final SpreadsheetViewport column = COLUMN.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection column = COLUMN.setDefaultAnchor();
 
         this.setMenuAndCheck(
                 HistoryToken.column(
@@ -487,7 +487,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuColumnRangeWithoutSelection() {
-        final SpreadsheetViewport range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT);
+        final AnchoredSpreadsheetSelection range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT);
 
         this.setMenuAndCheck(
                 HistoryToken.column(
@@ -505,7 +505,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuColumnRangeWithoutSelection2() {
-        final SpreadsheetViewport range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
+        final AnchoredSpreadsheetSelection range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.setMenuAndCheck(
                 HistoryToken.column(
@@ -523,7 +523,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuRowWithoutSelection() {
-        final SpreadsheetViewport row = ROW.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection row = ROW.setDefaultAnchor();
 
         this.setMenuAndCheck(
                 HistoryToken.row(
@@ -541,7 +541,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuRowRangeWithoutSelection() {
-        final SpreadsheetViewport range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP);
+        final AnchoredSpreadsheetSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP);
 
         this.setMenuAndCheck(
                 HistoryToken.row(
@@ -559,7 +559,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuRowRangeWithoutSelection2() {
-        final SpreadsheetViewport range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
+        final AnchoredSpreadsheetSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.setMenuAndCheck(
                 HistoryToken.row(
@@ -673,7 +673,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuWithCellRangeSelectAndInsideCellSelection() {
-        final SpreadsheetViewport range = SpreadsheetSelection.parseCellRange("A1:C3")
+        final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseCellRange("A1:C3")
                 .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.setMenuAndCheck(
@@ -783,7 +783,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuWithColumnRangeSelectAndInsideColumnSelection() {
-        final SpreadsheetViewport range = SpreadsheetSelection.parseColumnRange("A:C")
+        final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseColumnRange("A:C")
                 .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.setMenuAndCheck(
@@ -893,7 +893,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMenuWithRowRangeSelectAndInsideRowSelection() {
-        final SpreadsheetViewport range = SpreadsheetSelection.parseRowRange("1:3")
+        final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseRowRange("1:3")
                 .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.setMenuAndCheck(
@@ -967,7 +967,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetPatternCell() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
@@ -986,7 +986,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetPatternCell2() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
@@ -1005,7 +1005,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetPatternColumn() {
-        final SpreadsheetViewport viewport = COLUMN.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
@@ -1019,7 +1019,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetPatternRow() {
-        final SpreadsheetViewport viewport = ROW.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
@@ -1057,7 +1057,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetStyleCell() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
@@ -1074,7 +1074,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetStyleCell2() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.OUTLINE_COLOR;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
@@ -1091,7 +1091,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetStyleColumn() {
-        final SpreadsheetViewport viewport = COLUMN.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
@@ -1103,7 +1103,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetStyleRow() {
-        final SpreadsheetViewport viewport = ROW.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
@@ -1127,7 +1127,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetUnfreezeCell() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.A1.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.A1.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
@@ -1142,7 +1142,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetUnfreezeColumn() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.parseColumn("A")
+        final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseColumn("A")
                 .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
@@ -1158,7 +1158,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetUnfreezeRow() {
-        final SpreadsheetViewport viewport = SpreadsheetSelection.parseRow("1")
+        final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
                 .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
@@ -1176,9 +1176,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportCell() {
-        final SpreadsheetViewport cell = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection cell = CELL.setDefaultAnchor();
 
-        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
+        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 cell
@@ -1196,9 +1196,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportCellRange() {
-        final SpreadsheetViewport cell = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
+        final AnchoredSpreadsheetSelection cell = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
-        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
+        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 cell
@@ -1216,9 +1216,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportLabel() {
-        final SpreadsheetViewport cell = LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
+        final AnchoredSpreadsheetSelection cell = LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
-        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
+        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 cell
@@ -1236,9 +1236,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportColumn() {
-        final SpreadsheetViewport column = COLUMN.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection column = COLUMN.setDefaultAnchor();
 
-        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
+        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 column
@@ -1256,9 +1256,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportColumnRange() {
-        final SpreadsheetViewport column = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
+        final AnchoredSpreadsheetSelection column = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
-        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
+        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 column
@@ -1276,9 +1276,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportRow() {
-        final SpreadsheetViewport row = ROW.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection row = ROW.setDefaultAnchor();
 
-        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
+        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 row
@@ -1296,9 +1296,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportRowRange() {
-        final SpreadsheetViewport row = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
+        final AnchoredSpreadsheetSelection row = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
-        final SpreadsheetViewportHistoryToken historyToken = HistoryToken.viewport(
+        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 row
@@ -1314,7 +1314,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // viewportHistoryTokenOrEmpty....................................................................................
+    // selectionHistoryTokenOrEmpty....................................................................................
 
     @Test
     public void testViewportHistoryTokenNot() {
@@ -1359,7 +1359,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportHistoryTokenWhenCellClear() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
 
         this.viewportHistoryTokenAndCheck(
                 HistoryToken.cellClear(
@@ -1377,7 +1377,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportHistoryTokenWhenCellFormulaSave() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
 
         this.viewportHistoryTokenAndCheck(
                 HistoryToken.formulaSave(
@@ -1407,7 +1407,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportHistoryTokenWhenColumnClear() {
-        final SpreadsheetViewport viewport = COLUMN.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
 
         this.viewportHistoryTokenAndCheck(
                 HistoryToken.columnClear(
@@ -1447,7 +1447,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testViewportHistoryTokenWhenRowClear() {
-        final SpreadsheetViewport viewport = ROW.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
 
         this.viewportHistoryTokenAndCheck(
                 HistoryToken.rowClear(
@@ -1477,9 +1477,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private void viewportHistoryTokenAndCheck(final HistoryToken token) {
         assertSame(
                 token,
-                token.viewportHistoryTokenOrEmpty()
+                token.selectionHistoryTokenOrEmpty()
                         .orElse(null),
-                () -> token + " viewportHistoryTokenOrEmpty"
+                () -> token + " selectionHistoryTokenOrEmpty"
         );
     }
 
@@ -1495,8 +1495,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                                                        final Optional<HistoryToken> expected) {
         this.checkEquals(
                 expected,
-                token.viewportHistoryTokenOrEmpty(),
-                () -> token + " viewportHistoryTokenOrEmpty"
+                token.selectionHistoryTokenOrEmpty(),
+                () -> token + " selectionHistoryTokenOrEmpty"
         );
     }
 

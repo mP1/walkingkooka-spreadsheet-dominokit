@@ -23,33 +23,34 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnUnfreezeHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,
-                                                      final SpreadsheetViewport viewport) {
+                                                      final AnchoredSpreadsheetSelection selection) {
         return new SpreadsheetColumnUnfreezeHistoryToken(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 
     private SpreadsheetColumnUnfreezeHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name,
-                                                  final SpreadsheetViewport viewport) {
+                                                  final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
 
         // validate selection
         SpreadsheetMetadata.EMPTY.set(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                viewport.selection().toColumnRange()
+                selection.selection()
+                        .toColumnRange()
         );
     }
 
@@ -64,14 +65,14 @@ public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHist
         return with(
                 id,
                 name,
-                this.viewport()
+                this.selection()
         );
     }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        this.patchMetadataAndPushViewportHistoryToken(
+        this.patchMetadataAndPushSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
                 null,
                 context

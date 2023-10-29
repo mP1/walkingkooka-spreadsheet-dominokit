@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -30,24 +30,24 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
 
     static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId id,
                                                               final SpreadsheetName name,
-                                                              final SpreadsheetViewport viewport,
+                                                              final AnchoredSpreadsheetSelection selection,
                                                               final TextStylePropertyName<T> propertyName) {
         return new SpreadsheetCellStyleSelectHistoryToken<>(
                 id,
                 name,
-                viewport,
+                selection,
                 propertyName
         );
     }
 
     private SpreadsheetCellStyleSelectHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
-                                                   final SpreadsheetViewport viewport,
+                                                   final AnchoredSpreadsheetSelection selection,
                                                    final TextStylePropertyName<T> propertyName) {
         super(
                 id,
                 name,
-                viewport,
+                selection,
                 propertyName
         );
     }
@@ -63,7 +63,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
         return with(
                 id,
                 name,
-                this.viewport(),
+                this.selection(),
                 this.propertyName()
         );
     }
@@ -75,7 +75,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
         return cellStyleSave(
                 this.id(),
                 this.name(),
-                this.viewport(),
+                this.selection(),
                 propertyName,
                 Optional.ofNullable(
                         value.isEmpty() ?

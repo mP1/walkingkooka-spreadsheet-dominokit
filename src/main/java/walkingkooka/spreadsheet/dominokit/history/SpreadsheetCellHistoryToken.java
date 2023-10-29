@@ -20,29 +20,29 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportHistoryToken {
+abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSelectionHistoryToken {
 
     SpreadsheetCellHistoryToken(final SpreadsheetId id,
                                 final SpreadsheetName name,
-                                final SpreadsheetViewport viewport) {
+                                final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
-                viewport
+                selection
         );
 
-        final SpreadsheetSelection selection = viewport.selection();
-        if (false == (selection.isCellReference() || selection.isCellRange() || selection.isLabelName())) {
-            throw new IllegalArgumentException("Got " + selection + " expected cell, cell-range or label");
+        final SpreadsheetSelection spreadsheetSelection = selection.selection();
+        if (false == (spreadsheetSelection.isCellReference() || spreadsheetSelection.isCellRange() || spreadsheetSelection.isLabelName())) {
+            throw new IllegalArgumentException("Got " + spreadsheetSelection + " expected cell, cell-range or label");
         }
     }
 
     @Override //
-    final UrlFragment viewportUrlFragment() {
+    final UrlFragment anchoredSelectionUrlFragment() {
         return this.cellUrlFragment();
     }
 
@@ -53,7 +53,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportHis
         return cellClear(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -62,7 +62,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportHis
         return cellDelete(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -70,7 +70,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportHis
         return formula(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -79,7 +79,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportHis
         return cellFreeze(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
@@ -88,19 +88,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportHis
         return cellMenu(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 
     @Override //
-    final SpreadsheetViewport setMenu2ViewportSelection(final SpreadsheetSelection selection) {
-        final SpreadsheetViewport viewport = this.viewport();
+    final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
+        final AnchoredSpreadsheetSelection anchored = this.selection();
 
         return selection.isCellReference() &&
-                viewport
-                        .selection()
+                anchored.selection()
                         .testCell(selection.toCell()) ?
-                viewport :
+                anchored :
                 selection.setDefaultAnchor();
     }
 
@@ -109,7 +108,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportHis
         return cellStyle(
                 this.id(),
                 this.name(),
-                this.viewport(),
+                this.selection(),
                 propertyName
         );
     }
@@ -119,7 +118,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetViewportHis
         return cellUnfreeze(
                 this.id(),
                 this.name(),
-                this.viewport()
+                this.selection()
         );
     }
 }

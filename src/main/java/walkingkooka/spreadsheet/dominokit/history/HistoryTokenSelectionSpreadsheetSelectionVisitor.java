@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -26,7 +27,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitor;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import java.util.function.Function;
@@ -37,12 +37,12 @@ import java.util.function.Function;
 final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
 
     static HistoryToken selectionToken(final SpreadsheetHistoryToken token,
-                                       final SpreadsheetViewport viewport) {
+                                       final AnchoredSpreadsheetSelection selection) {
         final HistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new HistoryTokenSelectionSpreadsheetSelectionVisitor(
                 token,
-                viewport.anchor()
+                selection.anchor()
         );
-        visitor.accept(viewport.selection());
+        visitor.accept(selection.selection());
         return visitor.selectionToken;
     }
 

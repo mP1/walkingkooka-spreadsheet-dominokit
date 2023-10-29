@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends SpreadsheetCellFormulaHistoryTokenTestCase<SpreadsheetCellFormulaSelectHistoryToken> {
@@ -30,16 +30,16 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
 
     @Test
     public void testSetSave() {
-        final SpreadsheetViewport viewport = CELL.setDefaultAnchor();
+        final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
-        final HistoryToken historyToken = HistoryToken.formula(ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.formula(ID, NAME, selection);
 
         this.checkEquals(
                 historyToken.setSave(formulaText),
                 HistoryToken.formulaSave(
                         ID,
                         NAME,
-                        viewport,
+                        selection,
                         SpreadsheetFormula.EMPTY.setText(formulaText)
                 )
         );
@@ -71,11 +71,11 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
     @Override
     SpreadsheetCellFormulaSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,
-                                                                final SpreadsheetViewport viewport) {
+                                                                final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellFormulaSelectHistoryToken.with(
                 id,
                 name,
-                viewport
+                selection
         );
     }
 

@@ -26,11 +26,12 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -56,7 +57,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                                          final UrlQueryString queryString) {
         return appendWindow(
                 window,
-                appendViewportSelection(
+                appendViewport(
                         viewport,
                         queryString
                 )
@@ -71,42 +72,62 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      * selectionType=cell
      * </pre>
      */
-    public static UrlQueryString appendViewportSelection(final SpreadsheetViewport viewport,
-                                                         final UrlQueryString queryString) {
+    public static UrlQueryString appendViewport(final SpreadsheetViewport viewport,
+                                                final UrlQueryString queryString) {
         Objects.requireNonNull(viewport, "viewport");
         Objects.requireNonNull(queryString, "queryString");
 
-        final SpreadsheetSelection selection = viewport.selection();
+        final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
 
-        UrlQueryString result = queryString.addParameter(
-                SELECTION,
-                selection.toString()
-        ).addParameter(
-                SELECTION_TYPE,
-                selection.selectionTypeName()
-        );
+        UrlQueryString result = queryString
+                .addParameter(HOME, rectangle.home().toString())
+                .addParameter(WIDTH, String.valueOf(rectangle.width()))
+                .addParameter(HEIGHT, String.valueOf(rectangle.height()))
+                .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
 
-        final SpreadsheetViewportAnchor anchor = viewport.anchor();
-        if (SpreadsheetViewportAnchor.NONE != anchor) {
+        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = viewport.selection();
+        if (maybeAnchored.isPresent()) {
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = maybeAnchored.get();
+            final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+
             result = result.addParameter(
-                    SELECTION_ANCHOR,
-                    viewport.anchor().kebabText()
+                    SELECTION,
+                    selection.toString()
+            ).addParameter(
+                    SELECTION_TYPE,
+                    selection.selectionTypeName()
             );
-        }
 
-        final List<SpreadsheetViewportNavigation> navigations = viewport.navigations();
-        if (false == navigations.isEmpty()) {
-            result = result.addParameter(
-                    SELECTION_NAVIGATION,
-                    SpreadsheetViewport.SEPARATOR.toSeparatedString(
-                            navigations,
-                            SpreadsheetViewportNavigation::text
-                    )
-            );
+            final SpreadsheetViewportAnchor anchor = anchoredSpreadsheetSelection.anchor();
+            if (SpreadsheetViewportAnchor.NONE != anchor) {
+                result = result.addParameter(
+                        SELECTION_ANCHOR,
+                        anchor.kebabText()
+                );
+            }
+
+            final List<SpreadsheetViewportNavigation> navigations = viewport.navigations();
+            if (false == navigations.isEmpty()) {
+                result = result.addParameter(
+                        SELECTION_NAVIGATION,
+                        SpreadsheetViewport.SEPARATOR.toSeparatedString(
+                                navigations,
+                                SpreadsheetViewportNavigation::text
+                        )
+                );
+            }
         }
 
         return result;
     }
+
+    private final static UrlParameterName HOME = UrlParameterName.with("home");
+
+    private final static UrlParameterName WIDTH = UrlParameterName.with("width");
+
+    private final static UrlParameterName HEIGHT = UrlParameterName.with("height");
+
+    private final static UrlParameterName INCLUDE_FROZEN_COLUMNS_ROWS = UrlParameterName.with("includeFrozenColumnsRows");
 
     private final static UrlParameterName SELECTION = UrlParameterName.with("selection");
 
@@ -158,11 +179,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      * DELETEs the given {@link SpreadsheetViewport} such as a cell/column/row.
      */
     public void deleteDelta(final SpreadsheetId id,
-                            final SpreadsheetViewport viewport) {
+                            final SpreadsheetSelection selection) {
         Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(viewport, "viewport");
-
-        final SpreadsheetSelection selection = viewport.selection();
+        Objects.requireNonNull(selection, "selection");
 
         this.delete(
                 this.url(
@@ -182,39 +201,23 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     /**
      * Loads the cells to fill the given rectangular area typically a viewport.
      */
-    public void loadCells(
-            final SpreadsheetId id,
-            final SpreadsheetCellReference home,
-            final int width,
-            final int height,
-            final Optional<SpreadsheetViewport> viewport,
-            final List<SpreadsheetViewportNavigation> navigations) {
-        Objects.requireNonNull(navigations, "navigation");
-        if (width <= 0) {
-            throw new IllegalArgumentException("Invalid width " + width + " <= 0");
-        }
-        if (height <= 0) {
-            throw new IllegalArgumentException("Invalid height " + height + " <= 0");
-        }
-
-        this.context.debug("SpreadsheetDeltaFetcher.loadCells " + home + " " + width + "x" + height);
+    public void loadCells(final SpreadsheetId id,
+                          final SpreadsheetViewport viewport) {
+        this.context.debug("SpreadsheetDeltaFetcher.loadCells " + viewport);
 
         // load cells for the new window...
-        //http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+        // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+        final UrlQueryString queryString = appendViewport(
+                viewport,
+                UrlQueryString.EMPTY
+        );
 
-        UrlQueryString queryString = UrlQueryString.EMPTY
-                .addParameter(HOME, home.toString())
-                .addParameter(WIDTH, String.valueOf(width))
-                .addParameter(HEIGHT, String.valueOf(height))
-                .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
-
-        if (viewport.isPresent()) {
-            queryString = appendViewportSelection(
-                    viewport.get()
-                            .setNavigations(navigations),
-                    queryString
-            );
-        }
+        this.context.debug("SpreadsheetDeltaFetcher.loadCells " + Url.parseRelative(
+                "/api/spreadsheet/" +
+                        id +
+                        "/cell/*/" +
+                        CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
+        ).setQuery(queryString) + " qs=" + queryString + " v=" + viewport);
 
         this.get(
                 Url.parseRelative(
@@ -225,11 +228,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ).setQuery(queryString)
         );
     }
-
-    private final static UrlParameterName HOME = UrlParameterName.with("home");
-    private final static UrlParameterName WIDTH = UrlParameterName.with("width");
-    private final static UrlParameterName HEIGHT = UrlParameterName.with("height");
-    private final static UrlParameterName INCLUDE_FROZEN_COLUMNS_ROWS = UrlParameterName.with("includeFrozenColumnsRows");
 
     public void patchDelta(final Url url,
                            final SpreadsheetDelta delta) {
