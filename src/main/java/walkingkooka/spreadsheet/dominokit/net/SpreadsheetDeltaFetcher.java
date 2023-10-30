@@ -109,7 +109,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             final List<SpreadsheetViewportNavigation> navigations = viewport.navigations();
             if (false == navigations.isEmpty()) {
                 result = result.addParameter(
-                        SELECTION_NAVIGATION,
+                        NAVIGATION,
                         SpreadsheetViewport.SEPARATOR.toSeparatedString(
                                 navigations,
                                 SpreadsheetViewportNavigation::text
@@ -138,7 +138,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     /**
      * Holds a direction resulting from entering an arrow key etc.
      */
-    private final static UrlParameterName SELECTION_NAVIGATION = UrlParameterName.with("selectionNavigation");
+    private final static UrlParameterName NAVIGATION = UrlParameterName.with("navigation");
 
     /**
      * Appends the given window to the given {@link UrlQueryString}

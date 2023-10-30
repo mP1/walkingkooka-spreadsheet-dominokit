@@ -225,7 +225,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&selectionNavigation=left+column")
+                UrlQueryString.parse("a=1&home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&navigation=left+column")
         );
     }
 
@@ -248,7 +248,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 )
                         ),
                 UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&selectionNavigation=extend-right+column")
+                UrlQueryString.parse("a=1&home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&navigation=extend-right+column")
         );
     }
 
