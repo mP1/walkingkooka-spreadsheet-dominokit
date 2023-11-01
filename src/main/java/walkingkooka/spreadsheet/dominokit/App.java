@@ -132,9 +132,6 @@ public class App implements EntryPoint,
                 this.spreadsheetDeltaWatchers,
                 this
         );
-        this.addSpreadsheetDeltaWatcher(
-                SpreadsheetDeltaFetcherWatchers.historyTokenSelection()
-        );
 
         // labelMapping
         this.spreadsheetLabelMappingFetcherWatchers = SpreadsheetLabelMappingFetcherWatchers.empty();
