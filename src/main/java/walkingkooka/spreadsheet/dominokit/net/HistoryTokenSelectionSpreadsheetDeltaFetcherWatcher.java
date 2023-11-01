@@ -54,7 +54,7 @@ final class HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher implements Sprea
                 );
 
                 if (false == historyToken.equals(withSelection)) {
-                    context.debug("App.onSpreadsheetDelta selection active, updating " + withSelection, delta);
+                    context.debug("HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta selection active, updating " + withSelection, delta);
                     context.pushHistoryToken(withSelection);
                 }
             }
