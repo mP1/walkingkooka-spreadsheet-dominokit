@@ -34,7 +34,7 @@ public final class SpreadsheetMetadataFetcherWatchers extends FetcherWatchers<Sp
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        this.watchers.accept(
+        this.fire(
                 SpreadsheetMetadataFetcherWatchersEvent.with(
                         metadata,
                         context
