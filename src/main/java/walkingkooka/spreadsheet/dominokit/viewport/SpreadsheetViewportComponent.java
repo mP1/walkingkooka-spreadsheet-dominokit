@@ -73,6 +73,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -1410,6 +1411,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.reload = false;
         navigations.clear();
 
+        context.addSpreadsheetDeltaWatcherOnce(
+                SpreadsheetDeltaFetcherWatchers.historyTokenSelection()
+        );
         context.spreadsheetDeltaFetcher()
                 .loadCells(
                         id,
