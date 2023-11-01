@@ -18,12 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.watch.Watchers;
 
+import java.util.List;
 import java.util.Optional;
 
 abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatcher {
@@ -42,9 +44,9 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     }
 
     public final Runnable addOnce(final W watcher) {
-        return this.watchers.addOnce(
-                (e) -> e.accept(watcher)
-        );
+        final Runnable remover = this.add(watcher);
+        this.onceRemovers.add(remover);
+        return remover;
     }
 
     // FetcherWatcher..................................................................................................
@@ -54,7 +56,8 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
                               final Url url,
                               final Optional<String> body,
                               final AppContext context) {
-        this.fire(
+        // cant use fire because it removes one shot watchers...
+        this.watchers.accept(
                 FetcherWatchersEvent.begin(
                         method,
                         url,
@@ -91,10 +94,20 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     }
 
     final void fire(final FetcherWatchersEvent<W> event) {
-        this.watchers.accept(event);
+        try {
+            this.watchers.accept(event);
+        } finally {
+            this.onceRemovers.forEach(Runnable::run);
+            this.onceRemovers.clear();
+        }
     }
-
     private final Watchers<FetcherWatchersEvent<W>> watchers = Watchers.create();
+
+    /**
+     * Cant use Watchers#addOnce because that will remove the watcher during #onBegin
+     * meaning events afterward will never be received because watcher is gone by then.
+     */
+    private final List<Runnable> onceRemovers = Lists.copyOnWrite();
 
     @Override
     public final String toString() {
