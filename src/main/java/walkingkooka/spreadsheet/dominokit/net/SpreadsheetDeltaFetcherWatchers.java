@@ -27,6 +27,13 @@ public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<Sprea
         return new SpreadsheetDeltaFetcherWatchers();
     }
 
+    /**
+     * {@see HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher}
+     */
+    public static SpreadsheetDeltaFetcherWatcher historyTokenSelection() {
+        return HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher.INSTANCE;
+    }
+
     private SpreadsheetDeltaFetcherWatchers() {
         super();
     }

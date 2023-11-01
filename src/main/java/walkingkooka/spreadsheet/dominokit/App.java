@@ -45,7 +45,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingEditorComponentContexts;
@@ -103,7 +102,6 @@ public class App implements EntryPoint,
         HistoryTokenWatcher,
         NopFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher,
         UncaughtExceptionHandler {
 
     public App() {
@@ -134,7 +132,9 @@ public class App implements EntryPoint,
                 this.spreadsheetDeltaWatchers,
                 this
         );
-        this.addSpreadsheetDeltaWatcher(this);
+        this.addSpreadsheetDeltaWatcher(
+                SpreadsheetDeltaFetcherWatchers.historyTokenSelection()
+        );
 
         // labelMapping
         this.spreadsheetLabelMappingFetcherWatchers = SpreadsheetLabelMappingFetcherWatchers.empty();
@@ -310,31 +310,6 @@ public class App implements EntryPoint,
      * A collection of listeners for {@link SpreadsheetDeltaFetcherWatcher}
      */
     private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaWatchers;
-
-    /**
-     * If a viewport selection is present then copy the received selection even if its now gone.
-     */
-    @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
-                                   final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
-
-        // if a selection is already present copy from the metadata
-        if (historyToken instanceof SpreadsheetSelectionHistoryToken) {
-            final Optional<SpreadsheetViewport> viewport = delta.viewport();
-            if (viewport.isPresent()) {
-                final HistoryToken withSelection = historyToken.setSelection(
-                        viewport.get()
-                                .selection()
-                );
-
-                if (false == historyToken.equals(withSelection)) {
-                    context.debug("App.onSpreadsheetDelta selection active, updating " + withSelection, delta);
-                    context.pushHistoryToken(withSelection);
-                }
-            }
-        }
-    }
 
     // SpreadsheetLabelMapping..........................................................................................
 
