@@ -41,7 +41,7 @@ public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<Sprea
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.watchers.accept(
+        this.fire(
                 SpreadsheetDeltaFetcherWatchersEvent.with(
                         delta,
                         context

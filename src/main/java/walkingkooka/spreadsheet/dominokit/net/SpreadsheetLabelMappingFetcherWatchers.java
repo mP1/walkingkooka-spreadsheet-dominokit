@@ -36,7 +36,7 @@ public final class SpreadsheetLabelMappingFetcherWatchers extends FetcherWatcher
     @Override
     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
-        this.watchers.accept(
+        this.fire(
                 SpreadsheetLabelMappingFetcherWatchersEvent.with(
                         mapping,
                         context

@@ -54,7 +54,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
                               final Url url,
                               final Optional<String> body,
                               final AppContext context) {
-        this.watchers.accept(
+        this.fire(
                 FetcherWatchersEvent.begin(
                         method,
                         url,
@@ -69,7 +69,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
                                 final Headers headers,
                                 final String body,
                                 final AppContext context) {
-        this.watchers.accept(
+        this.fire(
                 FetcherWatchersEvent.failure(
                         status,
                         headers,
@@ -82,7 +82,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     @Override
     public final void onError(final Object cause,
                               final AppContext context) {
-        this.watchers.accept(
+        this.fire(
                 FetcherWatchersEvent.error(
                         cause,
                         context
@@ -90,7 +90,11 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
         );
     }
 
-    final Watchers<FetcherWatchersEvent<W>> watchers = Watchers.create();
+    final void fire(final FetcherWatchersEvent<W> event) {
+        this.watchers.accept(event);
+    }
+
+    private final Watchers<FetcherWatchersEvent<W>> watchers = Watchers.create();
 
     @Override
     public final String toString() {
