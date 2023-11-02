@@ -1514,7 +1514,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     static Optional<SpreadsheetSelection> parseId(final String id) {
         SpreadsheetSelection selection = null;
 
-        if (id.startsWith(VIEWPORT_ID_PREFIX)) {
+        if (null != id && id.startsWith(VIEWPORT_ID_PREFIX)) {
             // viewport-cell-A1 -> cell-A1
             final String selectionTypeAndSelection = id.substring(VIEWPORT_ID_PREFIX.length());
             final int dash = selectionTypeAndSelection.indexOf('-');

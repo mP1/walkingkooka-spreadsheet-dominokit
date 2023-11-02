@@ -65,8 +65,18 @@ public final class SpreadsheetViewportComponentTest implements ClassTesting<Spre
     // parseId.........................................................................................................
 
     @Override
+    public void testParseStringNullFails() {
+        throw new UnsupportedOperationException(); // shouldnt be invoked
+    }
+
+    @Override
     public void testParseStringEmptyFails() {
         throw new UnsupportedOperationException(); // shouldnt be invoked
+    }
+
+    @Test
+    public void testParseIdWithNull() {
+        this.parseStringAndCheck(null);
     }
 
     @Test
