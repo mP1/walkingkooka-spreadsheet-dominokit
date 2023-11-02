@@ -387,25 +387,23 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     break;
                 }
 
-                final String id = element.id;
-                if (null == id) {
-                    element = element.parentElement;
-                    continue;
+                final Optional<SpreadsheetSelection> maybeSelection = parseId(element.id);
+                if (maybeSelection.isPresent()) {
+                    final SpreadsheetSelection selection = maybeSelection.get();
+
+                    final AppContext context = this.context;
+
+                    context.pushHistoryToken(
+                            context.historyToken()
+                                    .setMenu(
+                                            Optional.of(selection)
+                                    )
+                    );
+                    break;
                 }
 
-                parseId(id).ifPresent(
-                        selection -> {
-                            final AppContext context = this.context;
-
-                            context.pushHistoryToken(
-                                    context.historyToken()
-                                            .setMenu(
-                                                    Optional.of(selection)
-                                            )
-                            );
-                        }
-                );
-                break;
+                // try again
+                element = element.parentElement;
             }
         }
     }
