@@ -254,36 +254,32 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     break;
                 }
 
-                final String id = element.id;
-                if (null == id) {
-                    element = element.parentElement;
-                    continue;
+                final Optional<SpreadsheetSelection> maybeSelection = parseId(element.id);
+                if (maybeSelection.isPresent()) {
+                    final SpreadsheetSelection selection = maybeSelection.get();
+                    if (selection.isCellReference()) {
+                        final AppContext context = this.context;
+
+                        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+                        final Optional<SpreadsheetName> spreadsheetName = metadata.name();
+                        final Optional<SpreadsheetId> spreadsheetId = metadata.id();
+
+                        if (spreadsheetId.isPresent() && spreadsheetName.isPresent()) {
+                            context.pushHistoryToken(
+                                    HistoryToken.cell(
+                                            spreadsheetId.get(),
+                                            spreadsheetName.get(),
+                                            selection.setDefaultAnchor()
+
+                                    )
+                            );
+                        }
+
+                        break;
+                    }
                 }
 
-                parseId(id)
-                        .ifPresent(
-                                selection -> {
-                                    if (selection.isCellReference()) {
-                                        final AppContext context = this.context;
-
-                                        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-                                        final Optional<SpreadsheetName> spreadsheetName = metadata.name();
-                                        final Optional<SpreadsheetId> spreadsheetId = metadata.id();
-
-                                        if (spreadsheetId.isPresent() && spreadsheetName.isPresent()) {
-                                            context.pushHistoryToken(
-                                                    HistoryToken.cell(
-                                                            spreadsheetId.get(),
-                                                            spreadsheetName.get(),
-                                                            selection.setDefaultAnchor()
-
-                                                    )
-                                            );
-                                        }
-                                    }
-                                }
-                        );
-                break;
+                element = element.parentElement;
             }
         }
     }
