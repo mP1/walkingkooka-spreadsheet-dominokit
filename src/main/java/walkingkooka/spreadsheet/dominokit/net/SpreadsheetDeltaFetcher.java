@@ -105,17 +105,17 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         anchor.kebabText()
                 );
             }
+        }
 
-            final List<SpreadsheetViewportNavigation> navigations = viewport.navigations();
-            if (false == navigations.isEmpty()) {
-                result = result.addParameter(
-                        NAVIGATION,
-                        SpreadsheetViewport.SEPARATOR.toSeparatedString(
-                                navigations,
-                                SpreadsheetViewportNavigation::text
-                        )
-                );
-            }
+        final List<SpreadsheetViewportNavigation> navigations = viewport.navigations();
+        if (false == navigations.isEmpty()) {
+            result = result.addParameter(
+                    NAVIGATION,
+                    SpreadsheetViewport.SEPARATOR.toSeparatedString(
+                            navigations,
+                            SpreadsheetViewportNavigation::text
+                    )
+            );
         }
 
         return result;

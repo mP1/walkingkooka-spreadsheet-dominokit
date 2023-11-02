@@ -102,6 +102,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * A component that displays a table holding the cells and headers for the columns and rows.
@@ -592,7 +593,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "h-scrollbar-left",
                 Icons.arrow_left(),
                 "right: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 8) + "px; bottom: -10px;",
-                SpreadsheetViewportNavigation.leftColumn()
+                () -> SpreadsheetViewportNavigation.leftPixel(this.viewportTableCellsWidth() - 1)
         );
     }
 
@@ -601,7 +602,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "v-scrollbar-up",
                 Icons.arrow_up(),
                 "bottom: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 3) + "px; right: -16px;",
-                SpreadsheetViewportNavigation.upRow()
+                () -> SpreadsheetViewportNavigation.upPixel(this.viewportTableCellsHeight() - 1)
         );
     }
 
@@ -610,7 +611,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "h-scrollbar-right",
                 Icons.arrow_right(),
                 "right: " + (SCROLLBAR_LENGTH - 8) + "px; bottom: -10px;",
-                SpreadsheetViewportNavigation.rightColumn()
+                () -> SpreadsheetViewportNavigation.rightPixel(this.viewportTableCellsWidth() - 1)
         );
     }
 
@@ -619,14 +620,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 "v-scrollbar-down",
                 Icons.arrow_down(),
                 "bottom: " + (SCROLLBAR_LENGTH - 3) + "px; right: -16px;",
-                SpreadsheetViewportNavigation.downRow()
+                () -> SpreadsheetViewportNavigation.downPixel(this.viewportTableCellsHeight() - 1)
         );
     }
 
     private HTMLElement scrollbarArrow(final String idSuffix,
                                        final MdiIcon icon,
                                        final String css,
-                                       final SpreadsheetViewportNavigation navigation) {
+                                       final Supplier<SpreadsheetViewportNavigation> navigation) {
         final Button button = Button.create(icon)
                 .circle();
 
@@ -638,7 +639,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         button.addClickListener(
                 (e) -> this.onNavigation(
-                        navigation,
+                        navigation.get(),
                         this.context
                 )
         );
