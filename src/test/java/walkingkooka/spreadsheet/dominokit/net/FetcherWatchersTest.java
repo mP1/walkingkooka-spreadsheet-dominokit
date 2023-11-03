@@ -188,6 +188,104 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
     }
 
+    @Test
+    public void testAddOnceAndFirePriority() {
+        final TestFetcherWatchers2 watchers = new TestFetcherWatchers2();
+
+        final AppContext context = new FakeAppContext();
+
+        final StringBuilder b = new StringBuilder();
+
+        final TestFetcherWatcher2 watcher = new TestFetcherWatcher2("A", b);
+        watchers.add(watcher);
+
+        final TestFetcherWatcher2 onceWatcher = new TestFetcherWatcher2("B", b);
+        watchers.addOnce(onceWatcher);
+
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onSuccess(context);
+
+        this.checkEquals("B.onBeginA.onBeginB.onSuccessA.onSuccess", b.toString());
+
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onSuccess(context);
+
+        this.checkEquals("B.onBeginA.onBeginB.onSuccessA.onSuccessA.onBeginA.onSuccess", b.toString());
+    }
+
+    static final class TestFetcherWatchers2 extends FetcherWatchers<TestFetcherWatcher2> {
+
+        public void onSuccess(final AppContext context) {
+            this.fire(
+                    new TestSuccessFetcherWatcherEvent2(
+                            context
+                    )
+            );
+        }
+    }
+
+    static final class TestFetcherWatcher2 implements FetcherWatcher {
+
+        TestFetcherWatcher2(final String prefix,
+                            final StringBuilder b) {
+            this.prefix = prefix;
+            this.b = b;
+        }
+
+        private final String prefix;
+        private final StringBuilder b;
+
+        @Override
+        public void onBegin(final HttpMethod method,
+                            final Url url,
+                            final Optional<String> body,
+                            final AppContext context) {
+            this.b.append(this.prefix + ".onBegin");
+        }
+
+        public void onSuccess(final AppContext context) {
+            this.b.append(this.prefix + ".onSuccess");
+        }
+
+        @Override
+        public void onFailure(final HttpStatus status,
+                              final Headers headers,
+                              final String body,
+                              final AppContext context) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void onError(final Object cause,
+                            final AppContext context) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public String toString() {
+            return this.b.toString();
+        }
+    }
+
+    static final class TestSuccessFetcherWatcherEvent2 extends FetcherWatchersEvent<TestFetcherWatcher2> {
+
+        TestSuccessFetcherWatcherEvent2(final AppContext context) {
+            super(context);
+        }
+
+        @Override
+        public void accept(final TestFetcherWatcher2 watcher) {
+            watcher.onSuccess(
+                    this.context
+            );
+        }
+
+        @Override
+        public String toString() {
+            return "TestFetcherWatcherEvent2";
+        }
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override
