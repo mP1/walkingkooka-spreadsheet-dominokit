@@ -218,11 +218,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 ROW_1,
                 ROW_2
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -283,11 +278,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 ROW_1,
                 ROW_2
         );
-
-        this.checkWindow(
-                cache,
-                WINDOW
-        );
     }
 
     @Test
@@ -317,11 +307,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL1.mapping(A1),
                 LABEL1.mapping(A2)
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -361,11 +346,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         Sets.of(LABEL1)
                 )
         );
-
-        this.checkWindow(
-                cache,
-                windows
-        );
     }
 
     @Test
@@ -401,11 +381,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 A1,
                 A1
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -445,11 +420,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 COLUMN_A.setHidden(false),
                 COLUMN_B.setHidden(false)
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -487,11 +457,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 COLUMN_A.setHidden(false),
                 COLUMN_B.setHidden(true)
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -528,11 +493,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 COLUMN_B
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -567,11 +527,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1B
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
 
         this.checkNonLabelSelection(
@@ -615,11 +570,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL_MAPPINGA1A,
                 LABEL_MAPPINGA1B
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -665,11 +615,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL_MAPPINGA1A
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -702,11 +647,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 )
                         ),
                 CONTEXT
-        );
-
-        this.checkWindow(
-                cache,
-                WINDOW
         );
 
         // A1_CELL and LABEL_MAPPINGA1A not lost
@@ -757,11 +697,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL_MAPPINGA1A
         );
-
-        this.checkWindow(
-                cache,
-                WINDOW
-        );
     }
 
     @Test
@@ -807,11 +742,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 LABEL_MAPPINGA1A,
                 LABEL_MAPPINGB3
         );
-
-        this.checkWindow(
-                cache,
-                WINDOW
-        );
     }
 
 
@@ -851,11 +781,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 ROW_1.setHidden(false),
                 ROW_2.setHidden(false)
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -893,11 +818,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 ROW_1.setHidden(false),
                 ROW_2.setHidden(true)
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -933,11 +853,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         this.checkRows(
                 cache,
                 ROW_2
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -1194,11 +1109,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL999
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -1237,11 +1147,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 A2,
                 A2
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -1313,11 +1218,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 nonLabel,
                 nonLabel
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -1353,11 +1253,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL3,
                 B3
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -1407,11 +1302,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL2,
                 A1
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -1472,11 +1362,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 B3,
                 B3
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -1525,12 +1410,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL3,
                 B3
-        );
-
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -1588,11 +1467,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 LABEL3,
                 b3b4
         );
-
-        this.checkWindow(
-                cache,
-                ""
-        );
     }
 
     @Test
@@ -1641,11 +1515,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL999,
                 B3
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -1719,11 +1588,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 LABEL999,
                 B3
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -1807,11 +1671,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 third,
                 B3
-        );
-
-        this.checkWindow(
-                cache,
-                ""
         );
     }
 
@@ -2008,23 +1867,6 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 expected,
                 cache.rowHeight(row),
                 () -> "rowHeight of " + row + " from " + cache
-        );
-    }
-
-    private void checkWindow(final SpreadsheetViewportCache cache,
-                             final String expected) {
-        this.checkWindow(
-                cache,
-                SpreadsheetViewportWindows.parse(expected)
-        );
-    }
-
-    private void checkWindow(final SpreadsheetViewportCache cache,
-                             final SpreadsheetViewportWindows expected) {
-        this.checkEquals(
-                expected,
-                cache.windows(),
-                "windows"
         );
     }
 

@@ -122,30 +122,6 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
         final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
 
-        final SpreadsheetViewportWindows previousWindow = this.windows;
-        SpreadsheetViewportWindows window = delta.window();
-        if (window.isEmpty()) {
-            window = previousWindow;
-        } else {
-            if (false == previousWindow.equals(window)) {
-                // no window clear caches
-                cells.clear();
-
-                cellToLabels.clear();
-                labelToNonLabel.clear();
-
-                columns.clear();
-                rows.clear();
-
-                columnWidths.clear();
-                rowHeights.clear();
-
-                this.windows = window;
-
-                context.debug("SpreadsheetViewportCache.onSpreadsheetDelta window: " + window + " was " + previousWindow);
-            }
-        }
-
         for (final SpreadsheetCellReference cell : delta.deletedCells()) {
             cells.remove(cell);
             cellToLabels.remove(cell);
@@ -201,7 +177,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 delta.labels(),
                 cellToLabels,
                 labelToNonLabel,
-                window
+                this.windows
         );
 
         final OptionalInt columnCount = delta.columnCount();
@@ -348,6 +324,31 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     private OptionalInt rowCount = OptionalInt.empty();
+
+    /**
+     * Sets a new {@link SpreadsheetViewportWindows}.
+     */
+    public void setWindows(final SpreadsheetViewportWindows windows) {
+        Objects.requireNonNull(windows, "windows");
+
+        if (windows.isEmpty()) {
+            if (false == this.windows.equals(windows)) {
+                // no window clear caches
+                cells.clear();
+
+                cellToLabels.clear();
+                labelToNonLabel.clear();
+
+                columns.clear();
+                rows.clear();
+
+                columnWidths.clear();
+                rowHeights.clear();
+            }
+        }
+
+        this.windows = windows;
+    }
 
     /**
      * The viewport window.

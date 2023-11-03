@@ -1221,7 +1221,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
     @Override
     public void refresh(final AppContext context) {
-        context.debug("SpreadsheetViewportComponent.refresh BEGIN");
+        context.debug("SpreadsheetViewportComponent.refresh BEGIN window: " + context.viewportCache().windows());
 
         this.render(
                 context
