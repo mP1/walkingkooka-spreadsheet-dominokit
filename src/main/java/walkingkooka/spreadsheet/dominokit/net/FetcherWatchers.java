@@ -38,15 +38,29 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
      * Adds a new {@link SpreadsheetMetadataFetcherWatcher} which will receive all events until removed using the returned {@link Runnable}.
      */
     public final Runnable add(final W watcher) {
-        return this.watchers.add(
-                (e) -> e.accept(watcher)
+        return this.addWatcher(
+                watcher,
+                this.watchers
         );
     }
 
+    /**
+     * Added once {@link FetcherWatcher} are fired before any long term watchers added with {@link #add(FetcherWatcher)}.
+     */
     public final Runnable addOnce(final W watcher) {
-        final Runnable remover = this.add(watcher);
+        final Runnable remover = this.addWatcher(
+                watcher,
+                this.onceWatchers
+        );
         this.onceRemovers.add(remover);
         return remover;
+    }
+
+    private Runnable addWatcher(final W watcher,
+                                final Watchers<FetcherWatchersEvent<W>> watchers) {
+        return watchers.add(
+                (e) -> e.accept(watcher)
+        );
     }
 
     // FetcherWatcher..................................................................................................
@@ -57,14 +71,14 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
                               final Optional<String> body,
                               final AppContext context) {
         // cant use fire because it removes one shot watchers...
-        this.watchers.accept(
-                FetcherWatchersEvent.begin(
-                        method,
-                        url,
-                        body,
-                        context
-                )
+        final FetcherWatchersEvent<W> event = FetcherWatchersEvent.begin(
+                method,
+                url,
+                body,
+                context
         );
+        this.onceWatchers.accept(event);
+        this.watchers.accept(event);
     }
 
     @Override
@@ -95,6 +109,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
 
     final void fire(final FetcherWatchersEvent<W> event) {
         try {
+            this.onceWatchers.accept(event);
             this.watchers.accept(event);
         } finally {
             this.onceRemovers.forEach(Runnable::run);
@@ -102,6 +117,8 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
         }
     }
     private final Watchers<FetcherWatchersEvent<W>> watchers = Watchers.create();
+
+    private final Watchers<FetcherWatchersEvent<W>> onceWatchers = Watchers.create();
 
     /**
      * Cant use Watchers#addOnce because that will remove the watcher during #onBegin
