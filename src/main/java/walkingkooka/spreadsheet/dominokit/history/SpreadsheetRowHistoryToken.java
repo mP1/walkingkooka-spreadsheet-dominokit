@@ -84,6 +84,11 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
     }
 
     @Override //
+    final HistoryToken setInsertAfter0(final int count) {
+        return this;
+    }
+
+    @Override //
     final HistoryToken setInsertBefore0(final int count) {
         return this;
     }

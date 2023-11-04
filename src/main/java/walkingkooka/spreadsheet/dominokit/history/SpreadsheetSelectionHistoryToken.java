@@ -59,6 +59,11 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             case "freeze":
                 result = this.setFreeze();
                 break;
+            case "insertAfter":
+                result = this.setInsertAfter(
+                        this.parseCount(cursor)
+                );
+                break;
             case "insertBefore":
                 result = this.setInsertBefore(
                         this.parseCount(cursor)
