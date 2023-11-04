@@ -195,6 +195,51 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
+    public void insertBeforeColumn(final SpreadsheetId id,
+                                   final SpreadsheetSelection selection,
+                                   final int count,
+                                   final Optional<SpreadsheetViewport> viewport) {
+        checkId(id);
+        checkColumnOrColumnRange(selection);
+        checkViewport(viewport);
+
+        this.context.debug("SpreadsheetDeltaFetcher.insertBeforeColumn " + id + ", " + selection + ", " + count);
+
+        // http://localhost:3000/api/spreadsheet/1/column/ABC?after=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+        this.insertColumnOrRow(
+                id,
+                selection,
+                "before",
+                count,
+                viewport
+        );
+    }
+
+    private void insertColumnOrRow(final SpreadsheetId id,
+                                   final SpreadsheetSelection selection,
+                                   final String afterOrBefore,
+                                   final int count,
+                                   final Optional<SpreadsheetViewport> viewport) {
+        final UrlQueryString after = UrlQueryString.parse(afterOrBefore + "=" + count);
+
+        final UrlQueryString queryString = viewport.isPresent() ?
+                appendViewport(
+                        viewport.get(),
+                        after
+                ) :
+                after;
+
+        this.post(
+                Url.parseRelative(
+                        "/api/spreadsheet/" +
+                                id +
+                                "/" + selection.cellColumnOrRowText() + "/" +
+                                selection
+                ).setQuery(queryString),
+                ""
+        );
+    }
+
     /**
      * Loads the cells to fill the given rectangular area typically a viewport.
      */
@@ -272,6 +317,20 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     private static SpreadsheetSelection checkSelection(final SpreadsheetSelection selection) {
         return Objects.requireNonNull(selection, "selection");
+    }
+
+    private static SpreadsheetSelection checkColumnOrColumnRange(final SpreadsheetSelection selection) {
+        checkSelection(selection);
+
+        if (false == selection.isColumnReference() && false == selection.isColumnReferenceRange()) {
+            throw new IllegalArgumentException("Expected column or column range but got " + selection);
+        }
+
+        return selection;
+    }
+
+    private Optional<SpreadsheetViewport> checkViewport(final Optional<SpreadsheetViewport> viewport) {
+        return Objects.requireNonNull(viewport, "viewport");
     }
 
     private static SpreadsheetViewport checkViewport(final SpreadsheetViewport viewport) {
