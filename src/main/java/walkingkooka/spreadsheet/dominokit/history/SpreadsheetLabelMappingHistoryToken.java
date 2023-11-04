@@ -72,6 +72,11 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override //
+    final HistoryToken setInsertAfter0(final int count) {
+        return this;
+    }
+
+    @Override //
     final HistoryToken setInsertBefore0(final int count) {
         return this;
     }

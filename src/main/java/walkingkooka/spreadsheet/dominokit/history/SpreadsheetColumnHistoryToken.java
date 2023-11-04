@@ -84,6 +84,16 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
     }
 
     @Override //
+    final HistoryToken setInsertAfter0(final int count) {
+        return columnInsertAfter(
+                this.id(),
+                this.name(),
+                this.selection(),
+                count
+        );
+    }
+    
+    @Override //
     final HistoryToken setInsertBefore0(final int count) {
         return columnInsertBefore(
                 this.id(),

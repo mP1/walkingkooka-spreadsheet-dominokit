@@ -74,6 +74,12 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract HistoryToken setFreeze0();
 
     /**
+     * Creates a insert after {@link SpreadsheetNameHistoryToken}.
+     * This only works for column and rows.
+     */
+    abstract HistoryToken setInsertAfter0(final int count);
+
+    /**
      * Creates a insert before {@link SpreadsheetNameHistoryToken}.
      * This only works for column and rows.
      */
