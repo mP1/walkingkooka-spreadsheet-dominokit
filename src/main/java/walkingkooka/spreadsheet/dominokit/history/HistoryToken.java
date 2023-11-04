@@ -520,6 +520,21 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * {@see SpreadsheetRowInsertBeforeHistoryToken}
+     */
+    public static SpreadsheetRowInsertBeforeHistoryToken rowInsertBefore(final SpreadsheetId id,
+                                                                         final SpreadsheetName name,
+                                                                         final AnchoredSpreadsheetSelection selection,
+                                                                         final int count) {
+        return SpreadsheetRowInsertBeforeHistoryToken.with(
+                id,
+                name,
+                selection,
+                count
+        );
+    }
+
+    /**
      * {@see SpreadsheetRowMenuHistoryToken}
      */
     public static SpreadsheetRowMenuHistoryToken rowMenu(final SpreadsheetId id,
