@@ -85,7 +85,12 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
 
     @Override //
     final HistoryToken setInsertAfter0(final int count) {
-        return this;
+        return rowInsertAfter(
+                this.id(),
+                this.name(),
+                this.selection(),
+                count
+        );
     }
 
     @Override //
