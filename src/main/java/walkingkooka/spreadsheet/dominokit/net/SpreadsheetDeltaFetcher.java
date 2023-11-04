@@ -200,6 +200,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      */
     public void loadCells(final SpreadsheetId id,
                           final SpreadsheetViewport viewport) {
+        checkId(id);
+        checkViewport(viewport);
+
         this.context.debug("SpreadsheetDeltaFetcher.loadCells " + viewport);
 
         // load cells for the new window...
@@ -269,6 +272,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     private static SpreadsheetSelection checkSelection(final SpreadsheetSelection selection) {
         return Objects.requireNonNull(selection, "selection");
+    }
+
+    private static SpreadsheetViewport checkViewport(final SpreadsheetViewport viewport) {
+        return Objects.requireNonNull(viewport, "viewport");
     }
 
     @Override
