@@ -238,18 +238,21 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
                            final Optional<UrlPath> path) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(selection, "selection");
-        Objects.requireNonNull(path, "path");
-
         UrlPath urlPath = this.context.spreadsheetMetadataFetcher()
                 .url(id)
                 .path();
-        Objects.requireNonNull(selection, "selection");
-        Objects.requireNonNull(path, "path");
 
-        urlPath = urlPath.append(UrlPath.parse(selection.cellColumnOrRowText()))
-                .append(UrlPath.parse(selection.toString()));
+        checkSelection(selection);
+
+        urlPath = urlPath.append(
+                UrlPath.parse(
+                        selection.cellColumnOrRowText()
+                )
+        ).append(
+                UrlPath.parse(selection.toString())
+        );
+
+        Objects.requireNonNull(path, "path");
 
         if (path.isPresent()) {
             urlPath = urlPath.append(path.get());
@@ -258,6 +261,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         return urlPath.addQueryString(
                 UrlQueryString.EMPTY
         );
+    }
+
+    private static SpreadsheetId checkId(final SpreadsheetId id) {
+        return Objects.requireNonNull(id, "id");
+    }
+
+    private static SpreadsheetSelection checkSelection(final SpreadsheetSelection selection) {
+        return Objects.requireNonNull(selection, "selection");
     }
 
     @Override
