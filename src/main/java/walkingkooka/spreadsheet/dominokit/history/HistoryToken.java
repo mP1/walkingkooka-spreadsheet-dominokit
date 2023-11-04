@@ -291,6 +291,21 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * {@see SpreadsheetColumnInsertBeforeHistoryToken}
+     */
+    public static SpreadsheetColumnInsertBeforeHistoryToken columnInsertBefore(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final AnchoredSpreadsheetSelection selection,
+                                                                               final int count) {
+        return SpreadsheetColumnInsertBeforeHistoryToken.with(
+                id,
+                name,
+                selection,
+                count
+        );
+    }
+
+    /**
      * {@see SpreadsheetColumnMenuHistoryToken}
      */
     public static SpreadsheetColumnMenuHistoryToken columnMenu(final SpreadsheetId id,
@@ -799,6 +814,15 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setFreeze() {
         return this.setIfSpreadsheetNameHistoryToken(
                 SpreadsheetNameHistoryToken::setFreeze0
+        );
+    }
+
+    /**
+     * if possible creates a freeze.
+     */
+    public final HistoryToken setInsertBefore(final int count) {
+        return this.setIfSpreadsheetNameHistoryToken(
+                (nht) -> nht.setInsertBefore0(count)
         );
     }
 

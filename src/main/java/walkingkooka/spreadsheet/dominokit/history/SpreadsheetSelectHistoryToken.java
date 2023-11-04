@@ -226,6 +226,11 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return this;
     }
 
+    @Override //
+    HistoryToken setInsertBefore0(final int count) {
+        return this;
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {
