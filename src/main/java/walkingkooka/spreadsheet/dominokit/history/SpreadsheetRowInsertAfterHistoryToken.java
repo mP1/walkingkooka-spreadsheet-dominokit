@@ -75,7 +75,7 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.selection();
 
         context.spreadsheetDeltaFetcher()
-                .insertBeforeColumn(
+                .insertAfterRow(
                         this.id(),
                         anchoredSpreadsheetSelection
                                 .selection(),
