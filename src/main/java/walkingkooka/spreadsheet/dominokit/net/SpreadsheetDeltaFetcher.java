@@ -195,6 +195,26 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
+    public void insertAfterColumn(final SpreadsheetId id,
+                                  final SpreadsheetSelection selection,
+                                  final int count,
+                                  final Optional<SpreadsheetViewport> viewport) {
+        checkId(id);
+        checkColumnOrColumnRange(selection);
+        checkViewport(viewport);
+
+        this.context.debug("SpreadsheetDeltaFetcher.insertAfterColumn " + id + ", " + selection + ", " + count);
+
+        // http://localhost:3000/api/spreadsheet/1/column/ABC?after=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+        this.insertColumnOrRow(
+                id,
+                selection,
+                "after",
+                count,
+                viewport
+        );
+    }
+    
     public void insertBeforeColumn(final SpreadsheetId id,
                                    final SpreadsheetSelection selection,
                                    final int count,
