@@ -203,7 +203,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         checkId(id);
         checkViewport(viewport);
 
-        this.context.debug("SpreadsheetDeltaFetcher.loadCells " + viewport);
+        this.context.debug("SpreadsheetDeltaFetcher.loadCells " + id + " " + viewport);
 
         // load cells for the new window...
         // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
