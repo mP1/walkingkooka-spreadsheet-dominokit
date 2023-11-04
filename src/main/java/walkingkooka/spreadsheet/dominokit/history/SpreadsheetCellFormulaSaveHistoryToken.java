@@ -106,7 +106,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
         final AnchoredSpreadsheetSelection selection = this.selection();
 
-        fetcher.patch(
+        fetcher.patchDelta(
                 fetcher.url(
                         this.id(),
                         this.selection()
@@ -120,13 +120,11 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                                 UrlQueryString.EMPTY
                         )
                 ),
-                fetcher.toJson(
-                        SpreadsheetDelta.EMPTY.setCells(
-                                Sets.of(
-                                        selection.selection()
-                                                .toCell()
-                                                .setFormula(this.formula())
-                                )
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                selection.selection()
+                                        .toCell()
+                                        .setFormula(this.formula())
                         )
                 )
         );
