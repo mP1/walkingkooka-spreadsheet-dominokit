@@ -235,6 +235,46 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
+    public void insertAfterRow(final SpreadsheetId id,
+                               final SpreadsheetSelection selection,
+                               final int count,
+                               final Optional<SpreadsheetViewport> viewport) {
+        checkId(id);
+        checkRowOrRowRange(selection);
+        checkViewport(viewport);
+
+        this.context.debug("SpreadsheetDeltaFetcher.insertAfterRow " + id + ", " + selection + ", " + count);
+
+        // http://localhost:3000/api/spreadsheet/1/row/ABC?after=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
+        this.insertColumnOrRow(
+                id,
+                selection,
+                "after",
+                count,
+                viewport
+        );
+    }
+
+    public void insertBeforeRow(final SpreadsheetId id,
+                                final SpreadsheetSelection selection,
+                                final int count,
+                                final Optional<SpreadsheetViewport> viewport) {
+        checkId(id);
+        checkRowOrRowRange(selection);
+        checkViewport(viewport);
+
+        this.context.debug("SpreadsheetDeltaFetcher.insertBeforeRow " + id + ", " + selection + ", " + count);
+
+        // http://localhost:3000/api/spreadsheet/1/row/ABC?after=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
+        this.insertColumnOrRow(
+                id,
+                selection,
+                "before",
+                count,
+                viewport
+        );
+    }
+
     private void insertColumnOrRow(final SpreadsheetId id,
                                    final SpreadsheetSelection selection,
                                    final String afterOrBefore,
@@ -344,6 +384,16 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         if (false == selection.isColumnReference() && false == selection.isColumnReferenceRange()) {
             throw new IllegalArgumentException("Expected column or column range but got " + selection);
+        }
+
+        return selection;
+    }
+
+    private static SpreadsheetSelection checkRowOrRowRange(final SpreadsheetSelection selection) {
+        checkSelection(selection);
+
+        if (false == selection.isRowReference() && false == selection.isRowReferenceRange()) {
+            throw new IllegalArgumentException("Expected row or row range but got " + selection);
         }
 
         return selection;
