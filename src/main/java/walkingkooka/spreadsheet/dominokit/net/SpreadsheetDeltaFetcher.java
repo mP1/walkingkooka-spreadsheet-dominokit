@@ -180,9 +180,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      */
     public void deleteDelta(final SpreadsheetId id,
                             final SpreadsheetSelection selection) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(selection, "selection");
-
         this.delete(
                 this.url(
                         id,
@@ -241,6 +238,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
                            final Optional<UrlPath> path) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(selection, "selection");
+        Objects.requireNonNull(path, "path");
+
         UrlPath urlPath = this.context.spreadsheetMetadataFetcher()
                 .url(id)
                 .path();
