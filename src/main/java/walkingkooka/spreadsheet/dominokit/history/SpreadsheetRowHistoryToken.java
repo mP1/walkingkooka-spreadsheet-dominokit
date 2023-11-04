@@ -95,7 +95,12 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
 
     @Override //
     final HistoryToken setInsertBefore0(final int count) {
-        return this;
+        return rowInsertBefore(
+                this.id(),
+                this.name(),
+                this.selection(),
+                count
+        );
     }
 
     @Override //
