@@ -59,6 +59,11 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             case "freeze":
                 result = this.setFreeze();
                 break;
+            case "insertBefore":
+                result = this.setInsertBefore(
+                        this.parseCount(cursor)
+                );
+                break;
             case "menu":
                 result = this.setMenu(Optional.empty());
                 break;
@@ -81,5 +86,13 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         }
 
         return result;
+    }
+
+    private int parseCount(final TextCursor cursor) {
+        final Optional<String> count = parseComponent(cursor);
+        if (false == count.isPresent()) {
+            throw new IllegalArgumentException("Missing count");
+        }
+        return Integer.parseInt(count.get());
     }
 }
