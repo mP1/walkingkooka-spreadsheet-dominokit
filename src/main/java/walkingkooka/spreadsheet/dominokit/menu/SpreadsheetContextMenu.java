@@ -60,10 +60,7 @@ public class SpreadsheetContextMenu {
         CharSequences.failIfNullOrEmpty(text, "text");
         Objects.requireNonNull(historyToken, "historyToken");
 
-        if (this.addSeparator) {
-            this.menu.appendChild(new Separator());
-            this.addSeparator = false;
-        }
+        this.addSeparatorIfNecessary();
 
         this.menu.appendChild(
                 this.context.menuItem(
@@ -72,6 +69,13 @@ public class SpreadsheetContextMenu {
                 )
         );
         return this;
+    }
+
+    private void addSeparatorIfNecessary() {
+        if (this.addSeparator) {
+            this.menu.appendChild(new Separator());
+            this.addSeparator = false;
+        }
     }
 
     /**
