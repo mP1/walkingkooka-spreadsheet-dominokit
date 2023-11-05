@@ -45,13 +45,6 @@ public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<Sprea
         return PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.INSTANCE;
     }
 
-    /**
-     * {@see PushHistoryTokenSelectionSpreadsheetDeltaFetcherWatcher}
-     */
-    public static SpreadsheetDeltaFetcherWatcher pushHistoryTokenSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
-        return PushHistoryTokenSelectionSpreadsheetDeltaFetcherWatcher.with(selection);
-    }
-
     private SpreadsheetDeltaFetcherWatchers() {
         super();
     }
