@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -56,6 +57,14 @@ public class SpreadsheetContextMenu {
 
     public SpreadsheetContextMenu item(final String text,
                                        final Optional<HistoryToken> historyToken) {
+        CharSequences.failIfNullOrEmpty(text, "text");
+        Objects.requireNonNull(historyToken, "historyToken");
+
+        if (this.addSeparator) {
+            this.menu.appendChild(new Separator());
+            this.addSeparator = false;
+        }
+
         this.menu.appendChild(
                 this.context.menuItem(
                         text,
@@ -65,10 +74,15 @@ public class SpreadsheetContextMenu {
         return this;
     }
 
+    /**
+     * Adds a separator before the next item is added.
+     */
     public SpreadsheetContextMenu separator() {
-        this.menu.appendChild(new Separator());
+        this.addSeparator = true;
         return this;
     }
+
+    private boolean addSeparator;
 
     /**
      * Gives focus to the menu
