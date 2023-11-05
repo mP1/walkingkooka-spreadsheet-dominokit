@@ -125,4 +125,9 @@ public class SpreadsheetContextMenu {
     private final Menu<Void> menu;
 
     private final AppContext context;
+
+    @Override
+    public String toString() {
+        return this.menu.toString();
+    }
 }
