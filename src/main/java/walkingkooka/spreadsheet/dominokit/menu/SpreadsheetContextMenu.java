@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.menu;
 
 import org.dominokit.domino.ui.menu.Menu;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.Separator;
@@ -56,9 +57,29 @@ public class SpreadsheetContextMenu {
         this.context = context;
     }
 
+    /**
+     * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
+     */
+    public SpreadsheetContextMenu subMenu(final String text) {
+        checkText(text);
+
+        this.addSeparatorIfNecessary();
+
+        final Menu<Void> subMenu = Menu.create();
+
+        this.menu.appendChild(
+                MenuItem.<Void>create(text)
+                        .setMenu(subMenu)
+        );
+        return new SpreadsheetContextMenu(
+                subMenu,
+                this.context
+        );
+    }
+
     public SpreadsheetContextMenu item(final String text,
                                        final Optional<HistoryToken> historyToken) {
-        CharSequences.failIfNullOrEmpty(text, "text");
+        checkText(text);
         Objects.requireNonNull(historyToken, "historyToken");
 
         this.addSeparatorIfNecessary();
@@ -70,6 +91,10 @@ public class SpreadsheetContextMenu {
                 )
         );
         return this;
+    }
+
+    private String checkText(final String text) {
+        return CharSequences.failIfNullOrEmpty(text, "text");
     }
 
     private void addSeparatorIfNecessary() {
