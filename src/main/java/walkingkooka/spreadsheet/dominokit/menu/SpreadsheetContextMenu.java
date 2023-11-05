@@ -38,21 +38,22 @@ public class SpreadsheetContextMenu {
         Objects.requireNonNull(element, "element");
         Objects.requireNonNull(context, "context");
 
+        final Menu<Void> menu = Menu.<Void>create()
+                .setContextMenu(true)
+                .setDropDirection(new MouseBestFitDirection())
+                .setTargetElement(element);
+        element.setDropMenu(menu);
+
         return new SpreadsheetContextMenu(
-                element,
+                menu,
                 context
         );
     }
 
-    public SpreadsheetContextMenu(final DominoElement<?> element,
+    public SpreadsheetContextMenu(final Menu<Void> menu,
                                   final AppContext context) {
-        this.menu = Menu.<Void>create()
-                .setContextMenu(true)
-                .setDropDirection(new MouseBestFitDirection())
-                .setTargetElement(element);
+        this.menu = menu;
         this.context = context;
-
-        element.setDropMenu(this.menu);
     }
 
     public SpreadsheetContextMenu item(final String text,
