@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class HistoryTokenSelectionSpreadsheetDeltaFetcherWatcherTest implements ClassTesting<HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher> {
+public final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcherTest implements ClassTesting<PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher> {
 
     @Override
-    public Class<HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher> type() {
-        return HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher.class;
+    public Class<PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher> type() {
+        return PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.class;
     }
 
     @Override

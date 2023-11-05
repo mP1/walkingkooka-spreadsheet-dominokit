@@ -30,15 +30,15 @@ import java.util.Optional;
 /**
  * If a viewport selection is present then copy the received selection even if its now gone.
  */
-final class HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher implements SpreadsheetDeltaFetcherWatcher,
+final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher implements SpreadsheetDeltaFetcherWatcher,
         NopFetcherWatcher {
 
     /**
      * Singleton
      */
-    static HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher INSTANCE = new HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher();
+    static PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher INSTANCE = new PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher();
 
-    private HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher() {
+    private PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher() {
     }
 
     @Override
@@ -56,7 +56,7 @@ final class HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher implements Sprea
                 );
 
                 if (false == historyToken.equals(withSelection)) {
-                    context.debug("HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta selection active, updating " + withSelection, delta);
+                    context.debug("PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta selection active, updating " + withSelection, delta);
                     context.pushHistoryToken(withSelection);
                 }
             }
@@ -67,7 +67,7 @@ final class HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher implements Sprea
         final SpreadsheetViewportWindows window = delta.window();
 
         if (false == previousWindow.equals(window)) {
-            context.debug("HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta window changed from " + previousWindow + " to " + window);
+            context.debug("PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta window changed from " + previousWindow + " to " + window);
 
             viewportCache.setWindows(window);
         }
