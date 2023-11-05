@@ -42,13 +42,10 @@ import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.icons.lib.Icons;
-import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
-import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
@@ -72,6 +69,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.menu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
@@ -428,40 +426,31 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             // -------
             // FREEZE
             // UNFREEZE
+            final SpreadsheetContextMenu menu = SpreadsheetContextMenu.empty(
+                    element,
+                    context
+            );
+            menu.item(
+                    "Clear",
+                    Optional.of(
+                            historyToken.setClear()
+                    )
+            ).item(
+                    "Delete",
+                    Optional.of(
+                            historyToken.setDelete()
+                    )
+            ).separator();
 
-            final Menu<Void> menu = Menu.<Void>create()
-                    .setContextMenu(true)
-                    .setDropDirection(new MouseBestFitDirection())
-                    .setTargetElement(element)
-                    .appendChild(
-                            context.menuItem(
-                                    "Clear",
-                                    Optional.of(
-                                            historyToken.setClear()
-                                    )
-                            )
-                    ).appendChild(
-                            context.menuItem(
-                                    "Delete",
-                                    Optional.of(
-                                            historyToken.setDelete()
-                                    )
-                            )
-                    ).appendChild(new Separator())
-                    .appendChild(
-                            context.menuItem(
-                                    "Freeze",
-                                    historyToken.freezeOrEmpty()
-                            )
-                    ).appendChild(
-                            context.menuItem(
-                                    "Unfreeze",
-                                    historyToken.unfreezeOrEmpty()
-                            )
-                    );
+            menu.item(
+                    "Freeze",
+                    historyToken.freezeOrEmpty()
+            ).item(
+                    "Unfreeze",
+                    historyToken.unfreezeOrEmpty()
+            );
 
-            element.setDropMenu(menu);
-            menu.open(true); // true = focus
+            menu.focus();
         }
     }
 
