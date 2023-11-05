@@ -19,6 +19,9 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+
+import java.util.Optional;
 
 public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<SpreadsheetDeltaFetcherWatcher>
         implements SpreadsheetDeltaFetcherWatcher{
@@ -32,6 +35,13 @@ public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<Sprea
      */
     public static SpreadsheetDeltaFetcherWatcher historyTokenSelection() {
         return HistoryTokenSelectionSpreadsheetDeltaFetcherWatcher.INSTANCE;
+    }
+
+    /**
+     * {@see PushHistoryTokenSelectionSpreadsheetDeltaFetcherWatcher}
+     */
+    public static SpreadsheetDeltaFetcherWatcher pushHistoryTokenSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
+        return PushHistoryTokenSelectionSpreadsheetDeltaFetcherWatcher.with(selection);
     }
 
     private SpreadsheetDeltaFetcherWatchers() {
