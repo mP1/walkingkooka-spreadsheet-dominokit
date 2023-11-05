@@ -23,6 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+import java.util.Optional;
+
 public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowDeleteHistoryToken with(final SpreadsheetId id,
@@ -63,6 +65,10 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
+        context.pushHistoryToken(
+                context.historyToken()
+                        .setSelection(Optional.empty())
+        );
         context.spreadsheetDeltaFetcher()
                 .deleteDelta(
                         this.id(),
