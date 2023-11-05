@@ -18,16 +18,24 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
 public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<SpreadsheetDeltaFetcherWatcher>
-        implements SpreadsheetDeltaFetcherWatcher{
+        implements SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetDeltaFetcherWatchers empty() {
         return new SpreadsheetDeltaFetcherWatchers();
+    }
+
+    /**
+     * {@see PushHistoryTokenSpreadsheetDeltaFetcherWatcher}
+     */
+    public static SpreadsheetDeltaFetcherWatcher pushHistoryToken(final HistoryToken historyToken) {
+        return PushHistoryTokenSpreadsheetDeltaFetcherWatcher.with(historyToken);
     }
 
     /**
