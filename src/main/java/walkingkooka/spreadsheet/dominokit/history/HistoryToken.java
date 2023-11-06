@@ -1130,6 +1130,15 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Returns an instance with the selection cleared or removed if necessary
+     */
+    public final HistoryToken clearSelection() {
+        return this.setSelection(
+                Optional.empty()
+        );
+    }
+
+    /**
      * Factory that creates a {@link HistoryToken} changing the {@link AnchoredSpreadsheetSelection} component and clearing any action.
      */
     public final HistoryToken setSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
