@@ -63,8 +63,11 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.menu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -860,7 +863,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                             .selection(),
                     context
             );
+        }
 
+        if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
+                historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
+                historyToken instanceof SpreadsheetRowMenuHistoryToken) {
             this.renderContextMenu(
                     historyToken.cast(AnchoredSpreadsheetSelectionHistoryToken.class),
                     context
