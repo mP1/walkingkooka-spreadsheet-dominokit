@@ -382,6 +382,23 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // clearSelection...................................................................................................
+
+    @Test
+    public void testClearSelection() {
+        this.checkEquals(
+                HistoryToken.spreadsheetSelect(
+                        ID,
+                        NAME
+                ),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                ).clearSelection()
+        );
+    }
+
     // setMenu..........................................................................................................
 
     @Test
