@@ -1128,6 +1128,10 @@ public abstract class HistoryToken implements HasUrlFragment {
                     this.cast(SpreadsheetNameHistoryToken.class),
                     value
             );
+
+            if (token.equals(this)) {
+                token = this;
+            }
         }
 
         return token;
