@@ -49,6 +49,13 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         );
     }
 
+    // clearAction......................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test

@@ -140,6 +140,13 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         }
     }
 
+    // clearAction......................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     @Override
     SpreadsheetCellStyleSelectHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                      final SpreadsheetName name,

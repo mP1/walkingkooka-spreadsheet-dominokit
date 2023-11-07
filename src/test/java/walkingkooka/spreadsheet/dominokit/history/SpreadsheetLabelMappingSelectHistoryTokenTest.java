@@ -75,6 +75,13 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         );
     }
 
+    // clearAction.....................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     @Test
     public void testSetDelete() {
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();

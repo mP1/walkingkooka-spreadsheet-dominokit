@@ -159,6 +159,21 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    // clearAction......................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.cellStyle(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        PROPERTY_NAME
+                )
+        );
+    }
+
     @Override
     SpreadsheetCellStyleSaveHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                    final SpreadsheetName name,

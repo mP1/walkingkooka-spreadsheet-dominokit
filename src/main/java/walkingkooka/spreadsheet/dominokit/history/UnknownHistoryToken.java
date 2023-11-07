@@ -51,6 +51,11 @@ public final class UnknownHistoryToken extends HistoryToken {
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this;
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return this; // should not happen
     }

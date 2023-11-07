@@ -30,6 +30,11 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
     }
 
     @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
+    @Test
     public void testSetIdName() {
         this.setIdAndNameAndCheck(
                 ID,

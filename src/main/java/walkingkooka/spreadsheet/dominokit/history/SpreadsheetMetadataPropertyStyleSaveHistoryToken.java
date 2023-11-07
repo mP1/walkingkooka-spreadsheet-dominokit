@@ -69,6 +69,15 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         );
     }
 
+    @Override
+    public HistoryToken clearAction() {
+        return HistoryToken.metadataPropertyStyle(
+                this.id(),
+                this.name(),
+                this.stylePropertyName()
+        );
+    }
+
     // new id/name but still metadata+style+property+value
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,

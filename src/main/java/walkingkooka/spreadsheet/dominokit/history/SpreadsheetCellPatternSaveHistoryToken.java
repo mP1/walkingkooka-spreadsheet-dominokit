@@ -68,6 +68,16 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return HistoryToken.cellPattern(
+                this.id(),
+                this.name(),
+                this.selection(),
+                this.patternKind().get()
+        );
+    }
+
+    @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {
         return with(

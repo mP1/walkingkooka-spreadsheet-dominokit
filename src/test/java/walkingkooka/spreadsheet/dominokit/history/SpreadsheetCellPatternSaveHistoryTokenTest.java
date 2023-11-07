@@ -89,6 +89,21 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
         );
     }
 
+    // clearAction......................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        PATTERN.kind()
+                )
+        );
+    }
+
     @Override
     SpreadsheetCellPatternSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,

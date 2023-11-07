@@ -149,6 +149,13 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         );
     }
 
+    // clearAction.....................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     // setPatternKind...................................................................................................
 
     @Test

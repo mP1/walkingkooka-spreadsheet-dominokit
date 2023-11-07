@@ -69,6 +69,11 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this.selectionSelect();
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return this.setFormula0();
     }

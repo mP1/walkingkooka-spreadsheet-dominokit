@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
+import java.util.Optional;
+
 public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingDeleteHistoryToken> {
 
     @Test
@@ -29,6 +31,18 @@ public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends Spreads
         this.urlFragmentAndCheck(
                 LABEL,
                 "/123/SpreadsheetName456/label/Label123/delete"
+        );
+    }
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.labelMapping(
+                        ID,
+                        NAME,
+                        Optional.of(LABEL)
+                )
         );
     }
 

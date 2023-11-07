@@ -72,6 +72,15 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
         );
     }
 
+    @Override
+    public HistoryToken clearAction() {
+        return HistoryToken.metadataPropertySelect(
+                this.id(),
+                this.name(),
+                this.propertyName()
+        );
+    }
+
     // new id/name but still metadata+property+value select
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,

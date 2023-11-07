@@ -54,6 +54,11 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
         return SELECT;
     }
 
+    @Override
+    public HistoryToken clearAction() {
+        return this;
+    }
+
     // new id/name but still metadata+property select
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,

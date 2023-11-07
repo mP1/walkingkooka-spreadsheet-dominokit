@@ -213,6 +213,20 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
         );
     }
 
+    // clearAction.....................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        EXPRESSION_NUMBER_KIND
+                )
+        );
+    }
+
     @Override
     SpreadsheetMetadataPropertySaveHistoryToken<ExpressionNumberKind> createHistoryToken(final SpreadsheetId id,
                                                                                          final SpreadsheetName name) {

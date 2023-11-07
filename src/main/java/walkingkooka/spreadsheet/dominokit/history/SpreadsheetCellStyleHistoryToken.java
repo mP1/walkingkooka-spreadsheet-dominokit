@@ -57,6 +57,11 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
     abstract UrlFragment styleUrlFragment();
 
     @Override
+    public final HistoryToken clearAction() {
+        return this.setStyle(this.propertyName());
+    }
+
+    @Override
     public final HistoryToken setFormula() {
         return this.setFormula0();
     }

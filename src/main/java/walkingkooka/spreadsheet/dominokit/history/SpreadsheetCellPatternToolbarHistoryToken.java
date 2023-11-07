@@ -58,6 +58,11 @@ public final class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsheet
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this;
+    }
+
+    @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {
         return with(

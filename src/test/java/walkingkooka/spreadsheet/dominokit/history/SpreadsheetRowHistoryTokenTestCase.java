@@ -80,6 +80,20 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // clearAction......................................................................................................
+
+    @Test
+    public final void testClearAction() {
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        SELECTION
+                )
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test
