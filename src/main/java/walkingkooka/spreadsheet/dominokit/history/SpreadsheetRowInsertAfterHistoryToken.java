@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -73,12 +74,12 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.selection();
+        final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
         context.spreadsheetDeltaFetcher()
-                .insertAfterRow(
+                .insertAfterColumn(
                         this.id(),
-                        anchoredSpreadsheetSelection
-                                .selection(),
+                        selection,
                         this.count(),
                         Optional.of(
                                 context.viewport(
@@ -86,5 +87,9 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
                                 )
                         )
                 );
+
+        context.pushHistoryToken(
+                this.clearAction()
+        );
     }
 }

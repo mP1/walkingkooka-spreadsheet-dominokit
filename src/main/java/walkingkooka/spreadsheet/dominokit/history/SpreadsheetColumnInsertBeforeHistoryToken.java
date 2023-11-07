@@ -17,11 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.gwtproject.editor.shaded.afu.org.checkerframework.checker.oigj.qual.O;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -73,18 +75,26 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.selection();
+        final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+        final int count = this.count();
 
         context.spreadsheetDeltaFetcher()
                 .insertBeforeColumn(
                         this.id(),
-                        anchoredSpreadsheetSelection
-                                .selection(),
-                        this.count(),
+                        selection,
+                        count,
                         Optional.of(
                                 context.viewport(
                                         Optional.of(anchoredSpreadsheetSelection)
                                 )
                         )
                 );
+
+        context.pushHistoryToken(
+                this.clearAction()
+                        .setColumn(
+                                selection.addSaturated(count)
+                        )
+        );
     }
 }

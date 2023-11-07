@@ -409,14 +409,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private void renderContextMenu(final AnchoredSpreadsheetSelectionHistoryToken historyToken,
                                    final AppContext context) {
         // show context setMenu1
-        final AnchoredSpreadsheetSelection selection = historyToken.selection();
+        final AnchoredSpreadsheetSelection anchored = historyToken.selection();
+        final SpreadsheetSelection selection = anchored.selection();
         final Optional<Element> maybeElement = this.findElement(
-                selection.selection()
-                        .focused(selection.anchor()),
+                selection.focused(anchored.anchor()),
                 context
         );
 
-        context.debug("SpreadsheetViewportComponent.renderContextMenu " + selection);
+        context.debug("SpreadsheetViewportComponent.renderContextMenu " + anchored);
 
         if (maybeElement.isPresent()) {
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
@@ -442,6 +442,44 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     )
             ).separator();
 
+            // INSERT COLUMN
+            if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
+                final SpreadsheetSelection columnOrColumnRange = selection.toColumnOrColumnRange();
+                final HistoryToken columnHistoryToken = historyToken.setColumn(columnOrColumnRange);
+                this.insertSubMenu(
+                        menu.subMenu("Insert before column"),
+                        columnOrColumnRange,
+                        columnHistoryToken::setInsertBefore,
+                        context
+                );
+                this.insertSubMenu(
+                        menu.subMenu("Insert after column"),
+                        columnOrColumnRange,
+                        columnHistoryToken::setInsertAfter,
+                        context
+                );
+                menu.separator();
+            }
+
+            // INSERT ROWS
+            if (selection.isRowReference() | selection.isRowReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
+                final SpreadsheetSelection rowOrRowRange = selection.toRowOrRowRange();
+                final HistoryToken rowHistoryToken = historyToken.setRow(rowOrRowRange);
+                this.insertSubMenu(
+                        menu.subMenu("Insert before row"),
+                        rowOrRowRange,
+                        rowHistoryToken::setInsertBefore,
+                        context
+                );
+                this.insertSubMenu(
+                        menu.subMenu("Insert after row"),
+                        rowOrRowRange,
+                        rowHistoryToken::setInsertAfter,
+                        context
+                );
+                menu.separator();
+            }
+
             menu.item(
                     "Freeze",
                     historyToken.freezeOrEmpty()
@@ -451,6 +489,20 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             );
 
             menu.focus();
+        }
+    }
+
+    private void insertSubMenu(final SpreadsheetContextMenu menu,
+                               final SpreadsheetSelection columnOrRow,
+                               final Function<Integer, HistoryToken> setCount,
+                               final AppContext context) {
+        for (int i = 1; i <= 3; i++) {
+            menu.item(
+                    String.valueOf(i),
+                    Optional.of(
+                            setCount.apply(i)
+                    )
+            );
         }
     }
 

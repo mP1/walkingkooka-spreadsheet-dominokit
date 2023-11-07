@@ -205,7 +205,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         this.context.debug("SpreadsheetDeltaFetcher.insertAfterColumn " + id + ", " + selection + ", " + count);
 
-        // http://localhost:3000/api/spreadsheet/1/column/ABC?after=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+        // http://localhost:3000/api/spreadsheet/1/column/ABC/after?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.insertColumnOrRow(
                 id,
                 selection,
@@ -225,7 +225,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         this.context.debug("SpreadsheetDeltaFetcher.insertBeforeColumn " + id + ", " + selection + ", " + count);
 
-        // http://localhost:3000/api/spreadsheet/1/column/ABC?after=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+        // http://localhost:3000/api/spreadsheet/1/column/ABC/before?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.insertColumnOrRow(
                 id,
                 selection,
@@ -245,7 +245,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         this.context.debug("SpreadsheetDeltaFetcher.insertAfterRow " + id + ", " + selection + ", " + count);
 
-        // http://localhost:3000/api/spreadsheet/1/row/ABC?after=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
+        // http://localhost:3000/api/spreadsheet/1/row/ABC/after?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
         this.insertColumnOrRow(
                 id,
                 selection,
@@ -265,7 +265,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         this.context.debug("SpreadsheetDeltaFetcher.insertBeforeRow " + id + ", " + selection + ", " + count);
 
-        // http://localhost:3000/api/spreadsheet/1/row/ABC?after=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
+        // http://localhost:3000/api/spreadsheet/1/row/ABC/before?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
         this.insertColumnOrRow(
                 id,
                 selection,
@@ -280,7 +280,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                    final String afterOrBefore,
                                    final int count,
                                    final Optional<SpreadsheetViewport> viewport) {
-        final UrlQueryString after = UrlQueryString.parse(afterOrBefore + "=" + count);
+        final UrlQueryString after = UrlQueryString.parse("count=" + count);
 
         final UrlQueryString queryString = viewport.isPresent() ?
                 appendViewport(
@@ -293,8 +293,12 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 Url.parseRelative(
                         "/api/spreadsheet/" +
                                 id +
-                                "/" + selection.cellColumnOrRowText() + "/" +
-                                selection
+                                "/" +
+                                selection.cellColumnOrRowText() +
+                                "/" +
+                                selection +
+                                "/" +
+                                afterOrBefore
                 ).setQuery(queryString),
                 ""
         );
