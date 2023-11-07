@@ -1032,7 +1032,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setPatternKind(final Optional<SpreadsheetPatternKind> kind) {
         Objects.requireNonNull(kind, "kind");
 
-        return this.setIfSpreadsheetNameHistoryToken0(
+        return this.setIfSpreadsheetNameHistoryTokenWithValue(
                 SpreadsheetNameHistoryToken::setPatternKind0,
                 kind
         );
@@ -1063,7 +1063,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setSave(final String text) {
         Objects.requireNonNull(text, "text");
 
-        return this.setIfSpreadsheetNameHistoryToken0(
+        return this.setIfSpreadsheetNameHistoryTokenWithValue(
                 SpreadsheetNameHistoryToken::setSave0,
                 text
         );
@@ -1073,7 +1073,7 @@ public abstract class HistoryToken implements HasUrlFragment {
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
     public final HistoryToken setStyle(final TextStylePropertyName<?> propertyName) {
-        return this.setIfSpreadsheetNameHistoryToken0(
+        return this.setIfSpreadsheetNameHistoryTokenWithValue(
                 SpreadsheetNameHistoryToken::setStyle0,
                 propertyName
         );
@@ -1119,8 +1119,8 @@ public abstract class HistoryToken implements HasUrlFragment {
         return token;
     }
 
-    private <T> HistoryToken setIfSpreadsheetNameHistoryToken0(final BiFunction<SpreadsheetNameHistoryToken, T, HistoryToken> setter,
-                                                               final T value) {
+    private <T> HistoryToken setIfSpreadsheetNameHistoryTokenWithValue(final BiFunction<SpreadsheetNameHistoryToken, T, HistoryToken> setter,
+                                                                       final T value) {
         HistoryToken token = this;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
