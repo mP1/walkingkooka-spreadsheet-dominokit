@@ -78,6 +78,20 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // clearAction......................................................................................................
+
+    @Test
+    public final void testClearAction() {
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        SELECTION
+                )
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test

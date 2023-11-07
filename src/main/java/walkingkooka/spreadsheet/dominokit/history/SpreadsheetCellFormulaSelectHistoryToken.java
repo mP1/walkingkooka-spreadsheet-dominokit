@@ -52,6 +52,11 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this;
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return this;
     }

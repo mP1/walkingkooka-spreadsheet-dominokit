@@ -124,6 +124,13 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // clearAction.....................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     // helpers..........................................................................................................
 
     @Override

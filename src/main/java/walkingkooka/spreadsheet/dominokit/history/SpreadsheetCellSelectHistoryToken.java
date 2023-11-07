@@ -54,6 +54,11 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this.selectionSelect();
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return setFormula0();
     }

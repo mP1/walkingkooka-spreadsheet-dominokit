@@ -50,6 +50,11 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this;
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return this; // should not happen
     }

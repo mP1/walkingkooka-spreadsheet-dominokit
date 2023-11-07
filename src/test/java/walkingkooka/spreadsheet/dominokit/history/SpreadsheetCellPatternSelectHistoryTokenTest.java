@@ -32,6 +32,13 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
 
     private final static SpreadsheetPatternKind KIND = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
 
+    // clearAction......................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     // setPatternKind......................................................................................................
 
     @Test

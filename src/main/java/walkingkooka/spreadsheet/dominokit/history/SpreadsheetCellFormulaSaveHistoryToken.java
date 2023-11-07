@@ -73,6 +73,11 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this.setFormula();
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return setFormula0();
     }

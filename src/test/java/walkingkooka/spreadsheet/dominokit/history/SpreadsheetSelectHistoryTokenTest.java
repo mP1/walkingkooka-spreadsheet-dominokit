@@ -28,6 +28,13 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         this.urlFragmentAndCheck("/123/SpreadsheetName456");
     }
 
+    // clearAction.....................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     // setMenu1(Selection)..................................................................................................
 
     @Test

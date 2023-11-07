@@ -767,6 +767,14 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Removes an action.
+     * <br>
+     * cell/menu -> cell
+     * cell -> cell
+     */
+    public abstract HistoryToken clearAction();
+
+    /**
      * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
      */
     public final HistoryToken setAnchor(final SpreadsheetViewportAnchor anchor) {

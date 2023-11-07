@@ -30,6 +30,13 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternToolbarHistoryToken> {
 
+    // clearAction......................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     // setPatternKind......................................................................................................
 
     @Test

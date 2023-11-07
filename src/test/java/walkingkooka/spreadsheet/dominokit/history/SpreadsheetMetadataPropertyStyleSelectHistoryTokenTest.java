@@ -132,6 +132,13 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         );
     }
 
+    // clearAction.....................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
     @Override
     SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                                  final SpreadsheetName name,

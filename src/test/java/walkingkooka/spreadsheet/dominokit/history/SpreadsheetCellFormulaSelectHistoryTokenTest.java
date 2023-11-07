@@ -68,6 +68,14 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
         );
     }
 
+    // clearAction......................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
+
     @Override
     SpreadsheetCellFormulaSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,

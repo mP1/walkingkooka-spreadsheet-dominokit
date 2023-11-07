@@ -46,6 +46,20 @@ public final class SpreadsheetCellClearHistoryTokenTest extends SpreadsheetCellH
         );
     }
 
+    // clearAction......................................................................................................
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
     // setMenu1(Selection)..................................................................................................
 
     @Test

@@ -68,6 +68,11 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this;
+    }
+
+    @Override
     HistoryToken setDelete0() {
         final Optional<SpreadsheetLabelName> labelName = this.labelName;
         return labelName.isPresent() ?

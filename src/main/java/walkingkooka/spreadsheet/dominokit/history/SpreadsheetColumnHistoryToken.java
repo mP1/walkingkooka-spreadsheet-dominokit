@@ -51,6 +51,11 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
 
     abstract UrlFragment columnUrlFragment();
 
+    @Override
+    public final HistoryToken clearAction() {
+        return this.selectionSelect();
+    }
+
     @Override //
     final HistoryToken setClear0() {
         return columnClear(

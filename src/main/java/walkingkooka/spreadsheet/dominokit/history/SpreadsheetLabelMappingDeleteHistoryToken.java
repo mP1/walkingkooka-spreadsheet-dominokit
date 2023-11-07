@@ -67,6 +67,11 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this.labelMappingSelect();
+    }
+
+    @Override
     HistoryToken setDelete0() {
         return this;
     }

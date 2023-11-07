@@ -29,6 +29,11 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     }
 
     @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
+    @Test
     public void testSetIdNameDifferentId() {
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 

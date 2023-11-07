@@ -44,6 +44,25 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         super();
     }
 
+    // clearAction......................................................................................................
+
+    final void clearActionAndCheck() {
+        final HistoryToken token = this.createHistoryToken();
+
+        assertSame(
+                token,
+                token.clearAction()
+        );
+    }
+
+    final void clearActionAndCheck(final HistoryToken token,
+                                   final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.clearAction(),
+                () -> token + " clearAction"
+        );
+    }
 
     // setIdAndName.....................................................................................................
 

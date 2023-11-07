@@ -59,6 +59,17 @@ public abstract class AnchoredSpreadsheetSelectionHistoryToken extends Spreadshe
 
     abstract UrlFragment anchoredSelectionUrlFragment();
 
+    final HistoryToken selectionSelect() {
+        final HistoryToken selection = HistoryToken.selection(
+                this.id(),
+                this.name(),
+                this.selection()
+        );
+        return this.equals(selection) ?
+                this :
+                selection;
+    }
+
     final void deltaClearSelectionAndPushViewportHistoryToken(final AppContext context) {
         this.deltaClearSelection(context);
         this.pushSelectionHistoryToken(context);

@@ -207,6 +207,11 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
+    public HistoryToken clearAction() {
+        return this;
+    }
+
+    @Override
     HistoryToken setClear0() {
         return this;
     }

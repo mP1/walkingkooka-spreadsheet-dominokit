@@ -51,6 +51,10 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
 
     abstract UrlFragment rowUrlFragment();
 
+    @Override
+    public final HistoryToken clearAction() {
+        return this.selectionSelect();
+    }
     @Override //
     final HistoryToken setClear0() {
         return rowClear(

@@ -23,6 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
+
 public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingSaveHistoryToken> {
 
     @Test
@@ -42,6 +44,18 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
                         LABEL.mapping(SpreadsheetSelection.parseCellRange("B2:C3"))
                 ),
                 "/123/SpreadsheetName456/label/Label123/save/B2:C3"
+        );
+    }
+
+    @Test
+    public void testClearAction() {
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.labelMapping(
+                        ID,
+                        NAME,
+                        Optional.of(LABEL)
+                )
         );
     }
 

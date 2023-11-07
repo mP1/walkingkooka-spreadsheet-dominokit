@@ -25,6 +25,11 @@ import java.util.Optional;
 public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownHistoryToken> {
 
     @Test
+    public void testClearAction() {
+        this.clearActionAndCheck();
+    }
+
+    @Test
     public void testIdName() {
         this.setIdAndNameAndCheck(
                 ID,
