@@ -89,7 +89,7 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
                 );
 
         context.pushHistoryToken(
-                this.clearAction()
+                previous.clearAction()
         );
     }
 }

@@ -89,7 +89,7 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
                 );
 
         context.pushHistoryToken(
-                this.clearAction()
+                previous.clearAction()
         );
     }
 }
