@@ -78,7 +78,7 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
         final int count = this.count();
 
         context.spreadsheetDeltaFetcher()
-                .insertBeforeColumn(
+                .insertBeforeRow(
                         this.id(),
                         selection,
                         count,
@@ -88,11 +88,17 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
                                 )
                         )
                 );
-
         context.pushHistoryToken(
-                this.clearAction()
-                        .setRow(
-                                selection.addSaturated(count)
+                previous.clearAction()
+                        .setSelection(
+                                previous.selectionOrEmpty()
+                                        .map(
+                                                a -> a.selection()
+                                                        .addSaturated(
+                                                                0,
+                                                                count
+                                                        ).setAnchor(a.anchor())
+                                        )
                         )
         );
     }

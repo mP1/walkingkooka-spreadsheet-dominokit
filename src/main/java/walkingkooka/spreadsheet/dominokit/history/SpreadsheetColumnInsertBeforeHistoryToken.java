@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.gwtproject.editor.shaded.afu.org.checkerframework.checker.oigj.qual.O;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -89,11 +88,17 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
                                 )
                         )
                 );
-
         context.pushHistoryToken(
-                this.clearAction()
-                        .setColumn(
-                                selection.addSaturated(count)
+                previous.clearAction()
+                        .setSelection(
+                                previous.selectionOrEmpty()
+                                        .map(
+                                                a -> a.selection()
+                                                        .addSaturated(
+                                                                count,
+                                                                0
+                                                        ).setAnchor(a.anchor())
+                                        )
                         )
         );
     }
