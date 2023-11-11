@@ -15,21 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.dom;
+package walkingkooka.spreadsheet.dominokit.component;
 
-import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class ElementTest implements ClassTesting<Element<?, ?>> {
+/**
+ * Abstraction that provides a few methods to open/close or show/hide a component.
+ */
+public interface OpenableComponent {
 
-    @Override
-    public Class<Element<?, ?>> type() {
-        return Cast.to(Element.class);
-    }
+    /**
+     * Used to test if this component is open or visible.
+     */
+    boolean isOpen();
 
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
+    /**
+     * The widget should open or show.
+     */
+    void open(final AppContext context);
+
+    /**
+     * The widget should close or hide.
+     */
+    void close(final AppContext context);
 }

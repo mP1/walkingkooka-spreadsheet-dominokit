@@ -15,11 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.component;
 
 import org.dominokit.domino.ui.layout.AppLayout;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.OpenableComponent;
 
 import java.util.Objects;
 

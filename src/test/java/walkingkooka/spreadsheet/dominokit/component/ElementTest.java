@@ -15,16 +15,17 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.dom;
+package walkingkooka.spreadsheet.dominokit.component;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class AnchorTest implements ClassTesting<Anchor> {
+public final class ElementTest implements ClassTesting<Element<?, ?>> {
 
     @Override
-    public Class<Anchor> type() {
-        return Anchor.class;
+    public Class<Element<?, ?>> type() {
+        return Cast.to(Element.class);
     }
 
     @Override
