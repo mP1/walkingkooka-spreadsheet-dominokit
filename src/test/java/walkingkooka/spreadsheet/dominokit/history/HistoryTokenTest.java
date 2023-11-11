@@ -967,6 +967,39 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setPattern........................................................................................................
+
+    @Test
+    public void testSetPatternWithNotSpreadsheetNameHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setPattern(SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetPatternCell() {
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
+        final SpreadsheetPattern pattern = SpreadsheetPattern.parseTextFormatPattern("@@@");
+        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
+
+        this.checkEquals(
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        viewport,
+                        pattern.kind(),
+                        Optional.of(
+                                pattern
+                        )
+                ),
+                historyToken.setPattern(pattern),
+                () -> historyToken + " setPattern " + pattern
+        );
+    }
+
     // setPatternKind..........................................................................................................
 
     @Test
