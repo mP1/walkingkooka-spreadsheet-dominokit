@@ -70,8 +70,7 @@ final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormat extends
                         context.defaultFormat(value)
                                 .toTextNode(),
                         context.format(
-                                SpreadsheetPattern.parseTextFormatPattern("@")
-                                        .formatter(),
+                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.formatter(),
                                 value
                         ).toTextNode()
                 )
@@ -79,7 +78,7 @@ final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormat extends
     }
 
     private final static Optional<SpreadsheetPattern> DEFAULT_TEXT_FORMAT_PATTERN = Optional.of(
-            SpreadsheetPattern.parseTextFormatPattern("@")
+            SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
     );
 
     @Override
