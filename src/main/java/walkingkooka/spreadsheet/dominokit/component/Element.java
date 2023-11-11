@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.dom;
+package walkingkooka.spreadsheet.dominokit.component;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.Node;

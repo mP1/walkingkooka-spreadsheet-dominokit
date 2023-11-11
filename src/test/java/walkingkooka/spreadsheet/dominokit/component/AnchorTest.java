@@ -15,25 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.component;
 
-/**
- * Abstraction that provides a few methods to open/close or show/hide a component.
- */
-public interface OpenableComponent {
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-    /**
-     * Used to test if this component is open or visible.
-     */
-    boolean isOpen();
+public final class AnchorTest implements ClassTesting<Anchor> {
 
-    /**
-     * The widget should open or show.
-     */
-    void open(final AppContext context);
+    @Override
+    public Class<Anchor> type() {
+        return Anchor.class;
+    }
 
-    /**
-     * The widget should close or hide.
-     */
-    void close(final AppContext context);
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
 }

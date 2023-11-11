@@ -15,12 +15,17 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.dom;
+package walkingkooka.spreadsheet.dominokit.component;
 
-public interface CanGiveFocus {
+import walkingkooka.spreadsheet.dominokit.AppContext;
+
+/**
+ * A component that includes a refresh method.
+ */
+public interface ComponentRefreshable {
 
     /**
-     * Schedules a focus give action.
+     * The widget should refresh its visible appearance and state.
      */
-    void giveFocus(final Runnable focus);
+    void refresh(final AppContext context);
 }

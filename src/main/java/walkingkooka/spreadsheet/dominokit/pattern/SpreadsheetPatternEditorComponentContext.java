@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dom.CanGiveFocus;
+import walkingkooka.spreadsheet.dominokit.CanGiveFocus;
+import walkingkooka.spreadsheet.dominokit.component.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;

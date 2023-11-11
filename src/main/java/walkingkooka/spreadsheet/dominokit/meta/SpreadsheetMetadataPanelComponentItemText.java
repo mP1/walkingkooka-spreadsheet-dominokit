@@ -21,7 +21,7 @@ import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.TextBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dom.Anchor;
+import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
