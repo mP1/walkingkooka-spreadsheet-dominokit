@@ -1240,7 +1240,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     // UI...............................................................................................................
 
     /**
-     * Creates a link with the given text and id.
+     * Creates a link with the given id.
      */
     public final Anchor link(final String id) {
         return Anchor.empty()
