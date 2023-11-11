@@ -1035,6 +1035,21 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * if possible creates a {@link HistoryToken} with the {@link SpreadsheetPattern}.
+     */
+    public final HistoryToken setPattern(final SpreadsheetPattern pattern) {
+        Objects.requireNonNull(pattern, "pattern");
+
+        return this.setIfSpreadsheetNameHistoryToken(
+                (n) -> n.setPatternKind(
+                        Optional.of(pattern.kind())
+                ).setSave(
+                        pattern.text()
+                )
+        );
+    }
+
+    /**
      * if possible creates a {@link HistoryToken} with the {@link SpreadsheetPatternKind}.
      */
     public final HistoryToken setPatternKind(final Optional<SpreadsheetPatternKind> kind) {
