@@ -707,7 +707,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     }
 
     /**
-     * When clicked the SAVE button invokes {@link SpreadsheetPatternEditorComponentContext#save(String)}.
+     * When clicked the SAVE button invokes {@link SpreadsheetPatternEditorComponentContext#save(Object)}.
      */
     private Button saveButton() {
         return this.button(
