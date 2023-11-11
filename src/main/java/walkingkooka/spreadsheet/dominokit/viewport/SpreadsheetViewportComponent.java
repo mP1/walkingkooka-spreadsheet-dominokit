@@ -440,38 +440,32 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             // INSERT COLUMN
             if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
-                final SpreadsheetSelection columnOrColumnRange = selection.toColumnOrColumnRange();
-                final HistoryToken columnHistoryToken = historyToken.setColumn(columnOrColumnRange);
+                final HistoryToken columnHistoryToken = historyToken.setColumn(
+                        selection.toColumnOrColumnRange()
+                );
                 this.insertSubMenu(
                         menu.subMenu("Insert before column"),
-                        columnOrColumnRange,
-                        columnHistoryToken::setInsertBefore,
-                        context
+                        columnHistoryToken::setInsertBefore
                 );
                 this.insertSubMenu(
                         menu.subMenu("Insert after column"),
-                        columnOrColumnRange,
-                        columnHistoryToken::setInsertAfter,
-                        context
+                        columnHistoryToken::setInsertAfter
                 );
                 menu.separator();
             }
 
             // INSERT ROWS
             if (selection.isRowReference() | selection.isRowReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
-                final SpreadsheetSelection rowOrRowRange = selection.toRowOrRowRange();
-                final HistoryToken rowHistoryToken = historyToken.setRow(rowOrRowRange);
+                final HistoryToken rowHistoryToken = historyToken.setRow(
+                        selection.toRowOrRowRange()
+                );
                 this.insertSubMenu(
                         menu.subMenu("Insert before row"),
-                        rowOrRowRange,
-                        rowHistoryToken::setInsertBefore,
-                        context
+                        rowHistoryToken::setInsertBefore
                 );
                 this.insertSubMenu(
                         menu.subMenu("Insert after row"),
-                        rowOrRowRange,
-                        rowHistoryToken::setInsertAfter,
-                        context
+                        rowHistoryToken::setInsertAfter
                 );
                 menu.separator();
             }
@@ -489,9 +483,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     }
 
     private void insertSubMenu(final SpreadsheetContextMenu menu,
-                               final SpreadsheetSelection columnOrRow,
-                               final Function<Integer, HistoryToken> setCount,
-                               final AppContext context) {
+                               final Function<Integer, HistoryToken> setCount) {
         for (int i = 1; i <= 3; i++) {
             menu.item(
                     String.valueOf(i),
