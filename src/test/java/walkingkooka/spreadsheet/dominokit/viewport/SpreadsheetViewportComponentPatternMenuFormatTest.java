@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetViewportComponentFormatPatternMenuTest implements ClassTesting<SpreadsheetViewportComponentFormatPatternMenu> {
+public final class SpreadsheetViewportComponentPatternMenuFormatTest implements ClassTesting<SpreadsheetViewportComponentPatternMenuFormat> {
 
     @Override
-    public Class<SpreadsheetViewportComponentFormatPatternMenu> type() {
-        return SpreadsheetViewportComponentFormatPatternMenu.class;
+    public Class<SpreadsheetViewportComponentPatternMenuFormat> type() {
+        return SpreadsheetViewportComponentPatternMenuFormat.class;
     }
 
     @Override
