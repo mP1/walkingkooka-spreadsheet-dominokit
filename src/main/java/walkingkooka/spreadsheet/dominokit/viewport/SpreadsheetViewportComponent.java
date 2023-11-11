@@ -421,6 +421,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         if (maybeElement.isPresent()) {
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
 
+            // FORMAT
+            // -----
             // CLEAR
             // DELETE
             // -------
@@ -430,6 +432,14 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     element,
                     context
             );
+
+            menu.separator();
+
+            SpreadsheetViewportComponentFormatPatternMenu.with(
+                    historyToken,
+                    context.spreadsheetMetadata().getOrFail(SpreadsheetMetadataPropertyName.LOCALE)
+            ).build(menu.subMenu("Format"));
+
             menu.item(
                     "Clear",
                     historyToken.setClear()
