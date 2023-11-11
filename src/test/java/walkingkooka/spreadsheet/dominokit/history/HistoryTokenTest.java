@@ -970,7 +970,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setPatternKind..........................................................................................................
 
     @Test
-    public void testSetPatternWithNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testSetPatternKiindWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
@@ -983,7 +983,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetPatternCell() {
+    public void testSetPatternKiindCell() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
@@ -1002,7 +1002,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetPatternCell2() {
+    public void testSetPatternKiindCell2() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
@@ -1021,7 +1021,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetPatternColumn() {
+    public void testSetPatternKiindColumn() {
         final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
@@ -1035,7 +1035,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetPatternRow() {
+    public void testSetPatternKiindRow() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
