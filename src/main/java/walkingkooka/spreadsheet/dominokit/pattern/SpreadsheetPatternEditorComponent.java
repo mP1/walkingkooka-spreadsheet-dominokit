@@ -302,7 +302,11 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                         columnConfig(
                                 "pattern-text",
                                 TextAlign.CENTER,
-                                d -> this.patternAnchor(d.patternText())
+                                d -> this.patternAnchor(
+                                        d.pattern()
+                                                .map(SpreadsheetPattern::text)
+                                                .orElse("")
+                                )
                         )
                 ).addColumn(
                         columnConfig(
