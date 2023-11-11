@@ -432,14 +432,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             );
             menu.item(
                     "Clear",
-                    Optional.of(
-                            historyToken.setClear()
-                    )
+                    historyToken.setClear()
             ).item(
                     "Delete",
-                    Optional.of(
-                            historyToken.setDelete()
-                    )
+                    historyToken.setDelete()
             ).separator();
 
             // INSERT COLUMN
@@ -499,9 +495,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         for (int i = 1; i <= 3; i++) {
             menu.item(
                     String.valueOf(i),
-                    Optional.of(
-                            setCount.apply(i)
-                    )
+                    setCount.apply(i)
             );
         }
     }
