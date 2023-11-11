@@ -19,17 +19,13 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.component.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateTimeFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetTimeFormatPattern;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.function.Function;
@@ -37,18 +33,10 @@ import java.util.function.Function;
 /**
  * Builds the context menu for format patterns.
  */
-final class SpreadsheetViewportComponentFormatPatternMenu {
+abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPattern> {
 
-    static SpreadsheetViewportComponentFormatPatternMenu with(final HistoryToken historyToken,
-                                                              final Locale locale) {
-        return new SpreadsheetViewportComponentFormatPatternMenu(
-                historyToken,
-                locale
-        );
-    }
-
-    private SpreadsheetViewportComponentFormatPatternMenu(final HistoryToken historyToken,
-                                                          final Locale locale) {
+    SpreadsheetViewportComponentPatternMenu(final HistoryToken historyToken,
+                                            final Locale locale) {
         this.historyToken = historyToken.clearAction();
         this.locale = locale;
     }
@@ -63,9 +51,12 @@ final class SpreadsheetViewportComponentFormatPatternMenu {
         this.number(
                 menu.subMenu("Number")
         );
-        this.text(
-                menu.subMenu("Text")
-        );
+
+        if (this.isFormat()) {
+            this.text(
+                    menu.subMenu("Text")
+            );
+        }
         this.time(
                 menu.subMenu("Time")
         );
@@ -94,25 +85,25 @@ final class SpreadsheetViewportComponentFormatPatternMenu {
         );
         this.edit(
                 menu,
-                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                this.editDatePatternKind()
         );
     }
 
     private void dateMenuItem(final String label,
                               final int style,
                               final SpreadsheetContextMenu menu) {
-        final SpreadsheetDateFormatPattern pattern = SpreadsheetPattern.dateParsePattern(
-                (SimpleDateFormat) DateFormat.getDateInstance(
-                        style,
-                        this.locale
-                )
-        ).toFormat();
+        final P pattern = this.datePattern(style);
 
         menu.item(
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
     }
+
+    abstract P datePattern(final int style);
+
+
+    abstract SpreadsheetPatternKind editDatePatternKind();
 
     private void dateTime(final SpreadsheetContextMenu menu) {
         this.dateTimeMenuItem(
@@ -137,20 +128,14 @@ final class SpreadsheetViewportComponentFormatPatternMenu {
         );
         this.edit(
                 menu,
-                SpreadsheetPatternKind.TIME_FORMAT_PATTERN
+                this.editDateTimePatternKind()
         );
     }
 
     private void dateTimeMenuItem(final String label,
                                   final int style,
                                   final SpreadsheetContextMenu menu) {
-        final SpreadsheetDateTimeFormatPattern pattern = SpreadsheetPattern.dateTimeParsePattern(
-                (SimpleDateFormat) DateFormat.getDateTimeInstance(
-                        style,
-                        style,
-                        this.locale
-                )
-        ).toFormat();
+        final P pattern = this.datePattern(style);
 
         menu.item(
                 label + " " + pattern,
@@ -158,10 +143,16 @@ final class SpreadsheetViewportComponentFormatPatternMenu {
         );
     }
 
+    abstract SpreadsheetPattern dateTimePattern(final int style);
+
+    abstract SpreadsheetPatternKind editDateTimePatternKind();
+
     private void number(final SpreadsheetContextMenu menu) {
-        this.numberMenuItemGeneral(
-                menu
-        );
+        if (this.isFormat()) {
+            this.numberMenuItemGeneral(
+                    menu
+            );
+        }
         this.numberMenuItem(
                 "Number",
                 DecimalFormat::getInstance,
@@ -184,7 +175,7 @@ final class SpreadsheetViewportComponentFormatPatternMenu {
         );
         this.edit(
                 menu,
-                SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN
+                this.editNumberPatternKind()
         );
     }
 
@@ -195,28 +186,25 @@ final class SpreadsheetViewportComponentFormatPatternMenu {
                 "General",
                 SpreadsheetPattern.numberFormatPattern(
                         GENERAL.toFormat()
-                        .value()
-                ),
-                menu
-        );
-    }
-
-    private void numberMenuItem(final String label,
-                                final Function<Locale, NumberFormat> decimalFormat,
-                                final SpreadsheetContextMenu menu) {
-        this.numberMenuItem(
-            label,
-                SpreadsheetPattern.numberFormatPattern(
-                        SpreadsheetPattern.decimalFormat(
-                                        (DecimalFormat) decimalFormat.apply(
-                                                this.locale
-                                        )
-                                ).toFormat()
                                 .value()
                 ),
                 menu
         );
     }
+
+    abstract SpreadsheetPatternKind editNumberPatternKind();
+
+    private void numberMenuItem(final String label,
+                                final Function<Locale, NumberFormat> decimalFormat,
+                                final SpreadsheetContextMenu menu) {
+        this.numberMenuItem(
+                label,
+                this.numberPattern(decimalFormat),
+                menu
+        );
+    }
+
+    abstract P numberPattern(final Function<Locale, NumberFormat> decimalFormat);
 
     private void numberMenuItem(final String label,
                                 final SpreadsheetPattern pattern,
@@ -264,25 +252,24 @@ final class SpreadsheetViewportComponentFormatPatternMenu {
         );
         this.edit(
                 menu,
-                SpreadsheetPatternKind.TIME_FORMAT_PATTERN
+                this.editTimePatternKind()
         );
     }
 
     private void timeMenuItem(final String label,
                               final int style,
                               final SpreadsheetContextMenu menu) {
-        final SpreadsheetTimeFormatPattern pattern = SpreadsheetPattern.timeParsePattern(
-                (SimpleDateFormat) DateFormat.getTimeInstance(
-                        style,
-                        this.locale
-                )
-        ).toFormat();
+        final P pattern = this.timePattern(style);
 
         menu.item(
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
     }
+
+    abstract SpreadsheetPatternKind editTimePatternKind();
+
+    abstract P timePattern(final int style);
 
     private void edit(final SpreadsheetContextMenu menu,
                       final SpreadsheetPatternKind kind) {
@@ -294,6 +281,13 @@ final class SpreadsheetViewportComponentFormatPatternMenu {
         );
     }
 
-    private final HistoryToken historyToken;
-    private final Locale locale;
+    abstract boolean isFormat();
+
+    final HistoryToken historyToken;
+    final Locale locale;
+
+    @Override
+    public final String toString() {
+        return this.historyToken + " " + this.locale;
+    }
 }

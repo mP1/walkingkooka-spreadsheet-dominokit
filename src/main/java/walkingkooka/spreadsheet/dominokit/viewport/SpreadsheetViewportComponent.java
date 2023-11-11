@@ -93,6 +93,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -422,6 +423,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
 
             // FORMAT
+            // PARSE
             // -----
             // CLEAR
             // DELETE
@@ -433,12 +435,20 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     context
             );
 
-            menu.separator();
+            final Locale locale = context.spreadsheetMetadata()
+                    .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
 
-            SpreadsheetViewportComponentFormatPatternMenu.with(
+            SpreadsheetViewportComponentPatternMenuFormat.with(
                     historyToken,
-                    context.spreadsheetMetadata().getOrFail(SpreadsheetMetadataPropertyName.LOCALE)
+                    locale
             ).build(menu.subMenu("Format"));
+
+            SpreadsheetViewportComponentPatternMenuParse.with(
+                    historyToken,
+                    locale
+            ).build(menu.subMenu("Parse"));
+
+            menu.separator();
 
             menu.item(
                     "Clear",
