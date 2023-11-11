@@ -21,9 +21,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.util.Locale;
+import java.util.Optional;
 
 public final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormatTest extends SpreadsheetPatternEditorComponentSampleRowProviderTestCase<SpreadsheetPatternEditorComponentSampleRowProviderTextFormat> {
 
@@ -63,7 +65,9 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormatT
                 CONTEXT,
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Edit Pattern",
-                        "@@",
+                        Optional.of(
+                                SpreadsheetPattern.parseTextFormatPattern("@@")
+                        ),
                         SpreadsheetText.EMPTY.setText(text)
                                 .toTextNode(),
                         SpreadsheetText.EMPTY.setText(text + text)
@@ -71,7 +75,9 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormatT
                 ),
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Default text format",
-                        "@",
+                        Optional.of(
+                                SpreadsheetPattern.parseTextFormatPattern("@")
+                        ),
                         SpreadsheetText.EMPTY.setText(text)
                                 .toTextNode(),
                         SpreadsheetText.EMPTY.setText(text)
@@ -89,14 +95,16 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormatT
                 CONTEXT,
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Edit Pattern",
-                        "\"Unclosed",
+                        Optional.empty(), // no pattern
                         SpreadsheetText.EMPTY.setText(text)
                                 .toTextNode(),
                         SpreadsheetText.EMPTY.toTextNode()
                 ),
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Default text format",
-                        "@",
+                        Optional.of(
+                                SpreadsheetPattern.parseTextFormatPattern("@")
+                        ),
                         SpreadsheetText.EMPTY.setText(text)
                                 .toTextNode(),
                         SpreadsheetText.EMPTY.setText(text)

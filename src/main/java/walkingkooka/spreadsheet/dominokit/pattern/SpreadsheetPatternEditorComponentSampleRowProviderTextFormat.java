@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetTextFormatPattern;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetPatternEditorComponentSampleRowProvider} for {@link SpreadsheetTextFormatPattern}.
@@ -48,7 +49,10 @@ final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormat extends
         return Lists.of(
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
-                        patternText,
+                        tryParsePatternText(
+                                patternText,
+                                SpreadsheetPattern::parseTextFormatPattern
+                        ),
                         context.defaultFormat(value)
                                 .toTextNode(),
                         context.format(
@@ -62,7 +66,7 @@ final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormat extends
                 ),
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "Default text format",
-                        "@",
+                        DEFAULT_TEXT_FORMAT_PATTERN,
                         context.defaultFormat(value)
                                 .toTextNode(),
                         context.format(
@@ -73,6 +77,10 @@ final class SpreadsheetPatternEditorComponentSampleRowProviderTextFormat extends
                 )
         );
     }
+
+    private final static Optional<SpreadsheetPattern> DEFAULT_TEXT_FORMAT_PATTERN = Optional.of(
+            SpreadsheetPattern.parseTextFormatPattern("@")
+    );
 
     @Override
     public String toString() {

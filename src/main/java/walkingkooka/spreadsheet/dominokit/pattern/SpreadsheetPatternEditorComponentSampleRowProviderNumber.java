@@ -187,7 +187,7 @@ abstract class SpreadsheetPatternEditorComponentSampleRowProviderNumber extends 
 
         return SpreadsheetPatternEditorComponentSampleRow.with(
                 label,
-                patternText,
+                pattern,
                 textNode(
                         defaultFormattedPositive,
                         defaultFormattedNegative,

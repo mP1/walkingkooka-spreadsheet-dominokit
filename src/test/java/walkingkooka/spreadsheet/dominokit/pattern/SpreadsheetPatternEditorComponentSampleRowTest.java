@@ -23,7 +23,10 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.tree.text.TextNode;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -33,7 +36,9 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
 
     private final static String LABEL = "Label123";
 
-    private final static String PATTERN_TEXT = "@";
+    private final static Optional<SpreadsheetPattern> PATTERN = Optional.of(
+            SpreadsheetPattern.parseTextFormatPattern("@")
+    );
 
     private final static TextNode DEFAULT_FORMATTED_VALUE = SpreadsheetText.with("default formatted value")
             .toTextNode();
@@ -47,7 +52,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
     public void testWithNullLabelFails() {
         this.withFails(
                 null,
-                PATTERN_TEXT,
+                PATTERN,
                 DEFAULT_FORMATTED_VALUE,
                 PATTERN_FORMATTED_VALUE
         );
@@ -59,7 +64,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
                 IllegalArgumentException.class,
                 () -> SpreadsheetPatternEditorComponentSampleRow.with(
                         "",
-                        PATTERN_TEXT,
+                        PATTERN,
                         DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 )
@@ -67,7 +72,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
     }
 
     @Test
-    public void testWithNullPatternTextFails() {
+    public void testWithNullPatternFails() {
         this.withFails(
                 LABEL,
                 null,
@@ -80,7 +85,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
     public void testWithNullDefaultFormattedValueFails() {
         this.withFails(
                 LABEL,
-                PATTERN_TEXT,
+                PATTERN,
                 null,
                 PATTERN_FORMATTED_VALUE
         );
@@ -90,21 +95,21 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
     public void testWithNullPatternFormattedValueFails() {
         this.withFails(
                 LABEL,
-                PATTERN_TEXT,
+                PATTERN,
                 DEFAULT_FORMATTED_VALUE,
                 null
         );
     }
 
     private void withFails(final String label,
-                           final String patternText,
+                           final Optional<SpreadsheetPattern> pattern,
                            final TextNode defaultFormattedValue,
                            final TextNode patternFormattedValue) {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetPatternEditorComponentSampleRow.with(
                         label,
-                        patternText,
+                        pattern,
                         defaultFormattedValue,
                         patternFormattedValue
                 )
@@ -117,7 +122,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
         this.checkNotEquals(
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         "different",
-                        PATTERN_TEXT,
+                        PATTERN,
                         DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 )
@@ -125,11 +130,13 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
     }
 
     @Test
-    public void testEqualsDifferentPatternText() {
+    public void testEqualsDifferentPattern() {
         this.checkNotEquals(
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
-                        "different",
+                        Optional.of(
+                                SpreadsheetPattern.parseTextFormatPattern("\"different\"")
+                        ),
                         DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 )
@@ -141,7 +148,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
         this.checkNotEquals(
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
-                        PATTERN_TEXT,
+                        PATTERN,
                         SpreadsheetText.with("different")
                                 .toTextNode(),
                         PATTERN_FORMATTED_VALUE
@@ -154,7 +161,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
         this.checkNotEquals(
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
-                        PATTERN_TEXT,
+                        PATTERN,
                         DEFAULT_FORMATTED_VALUE,
                         SpreadsheetText.with("different").toTextNode()
                 )
@@ -165,7 +172,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
     public SpreadsheetPatternEditorComponentSampleRow createObject() {
         return SpreadsheetPatternEditorComponentSampleRow.with(
                 LABEL,
-                PATTERN_TEXT,
+                PATTERN,
                 DEFAULT_FORMATTED_VALUE,
                 PATTERN_FORMATTED_VALUE
         );
@@ -178,7 +185,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
         this.toStringAndCheck(
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
-                        PATTERN_TEXT,
+                        PATTERN,
                         DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 ),
@@ -187,11 +194,11 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
     }
 
     @Test
-    public void testToStringEmptyPatternText() {
+    public void testToStringEmptyPattern() {
         this.toStringAndCheck(
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
-                        "",
+                        Optional.empty(),
                         DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 ),
@@ -204,7 +211,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowTest implements Cla
         this.toStringAndCheck(
                 SpreadsheetPatternEditorComponentSampleRow.with(
                         LABEL,
-                        "",
+                        Optional.empty(),
                         SpreadsheetText.EMPTY
                                 .toTextNode(),
                         SpreadsheetText.EMPTY.toTextNode()

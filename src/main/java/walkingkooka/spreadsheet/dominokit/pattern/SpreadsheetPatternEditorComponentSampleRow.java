@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.pattern;
 
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Represents a row of data for the sample table that appears within a {@link SpreadsheetPatternEditorComponent}.
@@ -31,23 +33,23 @@ final class SpreadsheetPatternEditorComponentSampleRow {
      * Factory that creates a new {@link SpreadsheetPatternEditorComponentSampleRow}.
      */
     static SpreadsheetPatternEditorComponentSampleRow with(final String label,
-                                                           final String patternText,
+                                                           final Optional<SpreadsheetPattern> pattern,
                                                            final TextNode defaultFormattedValue,
                                                            final TextNode patternFormattedValue) {
         return new SpreadsheetPatternEditorComponentSampleRow(
                 CharSequences.failIfNullOrEmpty(label, "label"),
-                Objects.requireNonNull(patternText, "patternText"),
+                Objects.requireNonNull(pattern, "pattern"),
                 Objects.requireNonNull(defaultFormattedValue, "defaultFormattedValue"),
                 Objects.requireNonNull(patternFormattedValue, "patternFormattedValue")
         );
     }
 
     private SpreadsheetPatternEditorComponentSampleRow(final String label,
-                                                       final String patternText,
+                                                       final Optional<SpreadsheetPattern> pattern,
                                                        final TextNode defaultFormattedValue,
                                                        final TextNode patternFormattedValue) {
         this.label = label;
-        this.patternText = patternText;
+        this.pattern = pattern;
         this.defaultFormattedValue = defaultFormattedValue;
         this.patternFormattedValue = patternFormattedValue;
     }
@@ -64,11 +66,11 @@ final class SpreadsheetPatternEditorComponentSampleRow {
     /**
      * The pattern text that appears in the 2nd column.
      */
-    String patternText() {
-        return this.patternText;
+    Optional<SpreadsheetPattern> pattern() {
+        return this.pattern;
     }
 
-    private final String patternText;
+    private final Optional<SpreadsheetPattern> pattern;
 
     /**
      * The value default formatted.
@@ -80,7 +82,7 @@ final class SpreadsheetPatternEditorComponentSampleRow {
     private final TextNode defaultFormattedValue;
 
     /**
-     * The value formatted using the {@link #patternText()}.
+     * The value formatted using the {@link #pattern()}.
      */
     TextNode patternFormattedValue() {
         return this.patternFormattedValue;
@@ -95,7 +97,7 @@ final class SpreadsheetPatternEditorComponentSampleRow {
     public int hashCode() {
         return Objects.hash(
                 this.label,
-                this.patternText,
+                this.pattern,
                 this.defaultFormattedValue,
                 this.patternFormattedValue
         );
@@ -108,7 +110,7 @@ final class SpreadsheetPatternEditorComponentSampleRow {
 
     private boolean equals0(final SpreadsheetPatternEditorComponentSampleRow other) {
         return this.label.equals(other.label) &&
-                this.patternText.equals(other.patternText) &&
+                this.pattern.equals(other.pattern) &&
                 this.defaultFormattedValue.equals(other.defaultFormattedValue) &&
                 this.patternFormattedValue.equals(other.patternFormattedValue);
     }
@@ -132,10 +134,12 @@ final class SpreadsheetPatternEditorComponentSampleRow {
         }
 
         {
-            final String patternText = this.patternText;
-            if (false == patternText.isEmpty()) {
-                b.append(patternText)
-                        .append(' ');
+            final Optional<SpreadsheetPattern> pattern = this.pattern;
+            if (false == pattern.isEmpty()) {
+                b.append(
+                        pattern.get()
+                                .text()
+                ).append(' ');
             }
             b.append("| ");
         }
