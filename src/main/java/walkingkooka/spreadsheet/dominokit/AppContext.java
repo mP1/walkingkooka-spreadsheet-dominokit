@@ -148,6 +148,10 @@ public interface AppContext extends CanGiveFocus,
                             historyToken.get()
                     )
             );
+            // need to kill margin other menu items with links wont line up with text-only menu items.
+            anchor.element()
+                    .style
+                    .setProperty("margin-left", "0");
         }
         return menu;
     }
