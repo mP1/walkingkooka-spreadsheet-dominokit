@@ -78,6 +78,14 @@ public class SpreadsheetContextMenu {
     }
 
     public SpreadsheetContextMenu item(final String text,
+                                       final HistoryToken historyToken) {
+        return this.item(
+                text,
+                Optional.of(historyToken)
+        );
+    }
+
+    public SpreadsheetContextMenu item(final String text,
                                        final Optional<HistoryToken> historyToken) {
         checkText(text);
         Objects.requireNonNull(historyToken, "historyToken");
