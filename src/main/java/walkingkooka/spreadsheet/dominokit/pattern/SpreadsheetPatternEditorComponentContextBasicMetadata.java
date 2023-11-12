@@ -50,7 +50,7 @@ final class SpreadsheetPatternEditorComponentContextBasicMetadata extends Spread
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return SpreadsheetPatternEditorComponentContexts.isMetadata(token);
+        return token.isMetadataPattern();
     }
 
     // SpreadsheetPatternEditorComponentContext.........................................................................
