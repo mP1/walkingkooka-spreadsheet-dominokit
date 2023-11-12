@@ -35,7 +35,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySav
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.pattern.SpreadsheetPatternEditorComponentContexts;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateTimeFormatPattern;
@@ -456,7 +455,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataHistoryToken &&
-                false == SpreadsheetPatternEditorComponentContexts.isMetadata(token); // hide if SpreadsheetPatternEditorComponent is open.
+                false == token.isMetadataPattern(); // hide if SpreadsheetPatternEditorComponent is open.
     }
 
     @Override

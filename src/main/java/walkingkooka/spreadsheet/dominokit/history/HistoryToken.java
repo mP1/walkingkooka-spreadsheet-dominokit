@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.component.Anchor;
+import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -935,6 +936,16 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return token;
+    }
+
+    /**
+     * Returns true for any metadata pattern {@link HistoryToken}.
+     */
+    public final boolean isMetadataPattern() {
+        return this instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
+                this.cast(HasSpreadsheetPatternKind.class)
+                        .patternKind()
+                        .isPresent();
     }
 
     /**

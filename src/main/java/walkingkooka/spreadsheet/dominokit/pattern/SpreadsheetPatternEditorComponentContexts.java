@@ -19,10 +19,6 @@ package walkingkooka.spreadsheet.dominokit.pattern;
 
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
-import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class SpreadsheetPatternEditorComponentContexts implements PublicStaticHelper {
 
@@ -38,16 +34,6 @@ public final class SpreadsheetPatternEditorComponentContexts implements PublicSt
      */
     public static SpreadsheetPatternEditorComponentContext metadata(final AppContext context) {
         return SpreadsheetPatternEditorComponentContextBasicMetadata.with(context);
-    }
-
-    /**
-     * Helper that returns true for a {@link HistoryToken} for a {@link SpreadsheetMetadataPropertyName#isPattern()}.
-     */
-    public static boolean isMetadata(final HistoryToken token) {
-        return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-                token.cast(HasSpreadsheetPatternKind.class)
-                        .patternKind()
-                        .isPresent();
     }
 
     /**
