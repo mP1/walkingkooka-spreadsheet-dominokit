@@ -20,52 +20,34 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
-import java.util.Optional;
+/**
+ * This {@link HistoryToken} is used to represent the selection of the toolbar format-pattern icon.
+ */
+public final class SpreadsheetCellPatternToolbarParseHistoryToken extends SpreadsheetCellPatternToolbarHistoryToken {
 
-public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistoryToken {
-
-    static SpreadsheetCellMenuHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection selection) {
-        return new SpreadsheetCellMenuHistoryToken(
+    static SpreadsheetCellPatternToolbarParseHistoryToken with(final SpreadsheetId id,
+                                                               final SpreadsheetName name,
+                                                               final AnchoredSpreadsheetSelection selection) {
+        return new SpreadsheetCellPatternToolbarParseHistoryToken(
                 id,
                 name,
                 selection
         );
     }
 
-    private SpreadsheetCellMenuHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name,
-                                            final AnchoredSpreadsheetSelection selection) {
+    private SpreadsheetCellPatternToolbarParseHistoryToken(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
                 selection
         );
-    }
-
-    @Override
-    UrlFragment cellUrlFragment() {
-        return MENU;
-    }
-
-    @Override
-    public HistoryToken clearAction() {
-        return this.selectionSelect();
-    }
-
-    @Override
-    public HistoryToken setFormatPattern() {
-        return this;
-    }
-
-    @Override
-    public HistoryToken setFormula() {
-        return setFormula0();
     }
 
     @Override
@@ -79,23 +61,18 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override
-    public HistoryToken setParsePattern() {
-        return this;
+    UrlFragment cellUrlFragment() {
+        return SpreadsheetUrlFragments.PARSE_PATTERN;
     }
 
     @Override
-    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
-    }
-
-    @Override
-    HistoryToken setSave0(final String value) {
-        return this;
+    boolean isCompatible(final SpreadsheetPatternKind kind) {
+        return kind.isParsePattern();
     }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // SpreadsheetViewportComponent will open a cell menu
+        // give focus to viewport icon
     }
 }

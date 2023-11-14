@@ -70,14 +70,14 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/pattern/date-format/save/yyyy-mm-dd");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/format-pattern/date/save/yyyy-mm-dd");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/pattern/date-format/save/yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/format-pattern/date/save/yyyy-mm-dd"
         );
     }
 
@@ -85,7 +85,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/pattern/date-format/save/yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/Label123/format-pattern/date/save/yyyy-mm-dd"
         );
     }
 

@@ -71,6 +71,11 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override
+    public final HistoryToken setFormatPattern() {
+        return this;
+    }
+
+    @Override
     public final HistoryToken setFormula() {
         return this;
     }
@@ -98,6 +103,11 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     @Override //
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
+    }
+
+    @Override
+    public final HistoryToken setParsePattern() {
+        return this;
     }
 
     @Override //

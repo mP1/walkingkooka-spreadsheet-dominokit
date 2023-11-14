@@ -59,6 +59,11 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
     }
 
     @Override
+    public HistoryToken setFormatPattern() {
+        return this;
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return setFormula0();
     }
@@ -71,6 +76,11 @@ public final class SpreadsheetCellClearHistoryToken extends SpreadsheetCellHisto
                 name,
                 this.selection()
         );
+    }
+
+    @Override
+    public HistoryToken setParsePattern() {
+        return this;
     }
 
     @Override

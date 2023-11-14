@@ -108,7 +108,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                         SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
                         Optional.empty()
                 ),
-                "/123/SpreadsheetName456/metadata/pattern/date-format/save/"
+                "/123/SpreadsheetName456/metadata/date-format-pattern/save/"
         );
     }
 
@@ -123,7 +123,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                                 SpreadsheetPattern.parseDateFormatPattern("yymmdd")
                         )
                 ),
-                "/123/SpreadsheetName456/metadata/pattern/date-format/save/yymmdd"
+                "/123/SpreadsheetName456/metadata/date-format-pattern/save/yymmdd"
         );
     }
 
@@ -145,7 +145,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseDateFormatPattern() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/pattern/date-format/save/yymmdd",
+                "/123/SpreadsheetName456/metadata/date-format-pattern/save/yymmdd",
                 SpreadsheetMetadataPropertySaveHistoryToken.with(
                         ID,
                         NAME,

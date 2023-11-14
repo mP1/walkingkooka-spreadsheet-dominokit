@@ -28,7 +28,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternToolbarHistoryToken> {
+public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternToolbarFormatHistoryToken> {
 
     // clearAction......................................................................................................
 
@@ -41,7 +41,7 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
 
     @Test
     public void testSetPatternKindSame() {
-        final SpreadsheetCellPatternToolbarHistoryToken historyToken = this.createHistoryToken();
+        final SpreadsheetCellPatternToolbarFormatHistoryToken historyToken = this.createHistoryToken();
         assertSame(
                 historyToken,
                 historyToken.setPatternKind(Optional.empty())
@@ -85,7 +85,7 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
         this.setPatternKindAndCheck(
                 this.createHistoryToken(),
                 Optional.empty(),
-                SpreadsheetCellPatternToolbarHistoryToken.with(
+                SpreadsheetCellPatternToolbarFormatHistoryToken.with(
                         ID,
                         NAME,
                         SELECTION
@@ -94,7 +94,7 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
     }
 
     private void setPatternKindAndCheck(
-            final SpreadsheetCellPatternToolbarHistoryToken historyToken,
+            final SpreadsheetCellPatternToolbarFormatHistoryToken historyToken,
             final Optional<SpreadsheetPatternKind> kind,
             final HistoryToken expected) {
         this.checkEquals(
@@ -108,14 +108,14 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/pattern");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/format-pattern");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/pattern"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/format-pattern"
         );
     }
 
@@ -123,15 +123,15 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/pattern"
+                "/123/SpreadsheetName456/cell/Label123/format-pattern"
         );
     }
 
     @Override
-    SpreadsheetCellPatternToolbarHistoryToken createHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellPatternToolbarFormatHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                  final SpreadsheetName name,
                                                                  final AnchoredSpreadsheetSelection selection) {
-        return SpreadsheetCellPatternToolbarHistoryToken.with(
+        return SpreadsheetCellPatternToolbarFormatHistoryToken.with(
                 id,
                 name,
                 selection
@@ -139,7 +139,7 @@ public final class SpreadsheetCellPatternToolbarHistoryTokenTest extends Spreads
     }
 
     @Override
-    public Class<SpreadsheetCellPatternToolbarHistoryToken> type() {
-        return SpreadsheetCellPatternToolbarHistoryToken.class;
+    public Class<SpreadsheetCellPatternToolbarFormatHistoryToken> type() {
+        return SpreadsheetCellPatternToolbarFormatHistoryToken.class;
     }
 }

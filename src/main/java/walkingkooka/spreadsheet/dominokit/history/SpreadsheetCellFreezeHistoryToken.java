@@ -74,6 +74,11 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
+    public HistoryToken setFormatPattern() {
+        return this;
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return setFormula0();
     }
@@ -86,6 +91,11 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
                 name,
                 this.selection()
         );
+    }
+
+    @Override
+    public HistoryToken setParsePattern() {
+        return this;
     }
 
     @Override

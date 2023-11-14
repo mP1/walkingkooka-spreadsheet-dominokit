@@ -75,6 +75,11 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
     }
 
     @Override
+    public final HistoryToken setFormatPattern() {
+        return this;
+    }
+
+    @Override
     public final HistoryToken setFormula() {
         return this;
     }
@@ -127,6 +132,11 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
                         .testColumn(selection.toColumn()) ?
                 anchored :
                 selection.setDefaultAnchor();
+    }
+
+    @Override
+    public final HistoryToken setParsePattern() {
+        return this;
     }
 
     @Override //

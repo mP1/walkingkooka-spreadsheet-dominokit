@@ -97,11 +97,19 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
     private final Optional<SpreadsheetPattern> pattern;
 
+    // /cell/A1/format-pattern/text/save/@@
+    //
+    // /cell/A1/parse-pattern/date/save
     @Override
-    UrlFragment patternUrlFragment() {
-        return this.saveUrlFragment(
-                this.pattern()
-        );
+    UrlFragment cellUrlFragment() {
+        return this.patternKind()
+                .get()
+                .urlFragment()
+                .append(
+                        this.saveUrlFragment(
+                                this.pattern()
+                        )
+                );
     }
 
     @Override
@@ -127,9 +135,9 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
         // clear the save from the history token.
         context.pushHistoryToken(
-                this.setPatternKind(
+                previous.setPatternKind(
                         Optional.of(kind)
-                )
+                ).clearAction()
         );
 
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
