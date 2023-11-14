@@ -1087,6 +1087,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Tries to clear any present {@link SpreadsheetPatternKind}.
+     */
+    public final HistoryToken clearPatternKind() {
+        return this.setPatternKind(Optional.empty());
+    }
+
+    /**
      * if possible creates a {@link HistoryToken} with the {@link SpreadsheetPatternKind}.
      */
     public final HistoryToken setPatternKind(final Optional<SpreadsheetPatternKind> kind) {

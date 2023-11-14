@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.icons.lib.Icons;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
@@ -87,7 +88,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
 
         context.historyToken()
                 .selectionHistoryTokenOrEmpty()
-                .map(t -> t.setPatternKind(Optional.empty()))
+                .map(HistoryToken::clearPatternKind)
                 .ifPresent(context::pushHistoryToken);
     }
 
