@@ -25,34 +25,26 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A button component that may exist withing a toolbar, which actives the pattern editor.
+ * A button component that may exist withing a toolbar, which actives the pattern editor by pushing a new {@link HistoryToken}.
  */
-final class SpreadsheetViewportToolbarComponentItemButtonPattern extends SpreadsheetViewportToolbarComponentItemButton {
+abstract class SpreadsheetViewportToolbarComponentItemButtonPattern<T extends SpreadsheetPattern> extends SpreadsheetViewportToolbarComponentItemButton {
 
-    static SpreadsheetViewportToolbarComponentItemButtonPattern with(final HistoryTokenContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetViewportToolbarComponentItemButtonPattern(
-                context
-        );
-    }
-
-    private SpreadsheetViewportToolbarComponentItemButtonPattern(final HistoryTokenContext context) {
+    SpreadsheetViewportToolbarComponentItemButtonPattern(final String id,
+                                                         final String tooltip,
+                                                         final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportToolbarComponent.pattern(),
+                id,
                 Icons.format_text(),
-                "Pattern edit",
+                tooltip,
                 context
         );
         this.button.addEventListener(
@@ -67,7 +59,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
     }
 
     /**
-     * When clicked perform a save on the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} and push that.
+     * When clicked perform a save on the {@link HistoryToken} and push that.
      */
     private void onClick(final Event event) {
         final HistoryTokenContext context = this.context;
@@ -92,20 +84,20 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
                 .ifPresent(context::pushHistoryToken);
     }
 
-    @Override
-    void onToolbarRefreshBegin() {
+    @Override final void onToolbarRefreshBegin() {
         this.patternKindToCount.clear();
     }
 
+
     /**
-     * Increment the counters for any present {@link SpreadsheetFormatPattern} and {@link SpreadsheetParsePattern}
+     * Increment the counters for any present {@link SpreadsheetPattern}.
      */
-    @Override
-    void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                      final AppContext context) {
+    @Override //
+    final void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
+                                            final AppContext context) {
         final Map<SpreadsheetPatternKind, Integer> patternKindToCount = this.patternKindToCount;
 
-        final Optional<SpreadsheetFormatPattern> maybeFormatPattern = cell.formatPattern();
+        final Optional<T> maybeFormatPattern = this.pattern(cell);
         if (maybeFormatPattern.isPresent()) {
             final SpreadsheetPatternKind formatPatternKind = maybeFormatPattern.get()
                     .kind();
@@ -118,28 +110,20 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
                     count++
             );
         }
-
-        final Optional<SpreadsheetParsePattern> maybeParsePattern = cell.parsePattern();
-        if (maybeParsePattern.isPresent()) {
-            final SpreadsheetPatternKind parsePatternKind = maybeParsePattern.get()
-                    .kind();
-            Integer count = patternKindToCount.get(parsePatternKind);
-            if (null == count) {
-                count = 0;
-            }
-            patternKindToCount.put(
-                    parsePatternKind,
-                    count++
-            );
-        }
     }
+
+    /**
+     * Extracts a pattern from the cell.
+     */
+    abstract Optional<T> pattern(final SpreadsheetCell cell);
+
 
     /**
      * Counts the number of cells with non empty {@link TextStyle}.
      */
-    @Override
-    void onToolbarRefreshEnd(final int cellPresentCount,
-                             final AppContext context) {
+    @Override //
+    final void onToolbarRefreshEnd(final int cellPresentCount,
+                                   final AppContext context) {
         final Map<SpreadsheetPatternKind, Integer> patternKindToCount = this.patternKindToCount;
         final boolean selected = false == patternKindToCount.isEmpty();
 
@@ -148,11 +132,11 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
                 context
         );
 
-        context.debug("SpreadsheetViewportToolbarComponentItemButtonPattern.onToolbarRefreshEnd selected: " + selected + " patternToKindCount: " + patternKindToCount);
+        context.debug(this.getClass().getSimpleName() + ".onToolbarRefreshEnd selected: " + selected + " patternToKindCount: " + patternKindToCount);
     }
 
-    private SpreadsheetPatternKind spreadsheetPatternKind() {
-        SpreadsheetPatternKind kind = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN;
+    final SpreadsheetPatternKind spreadsheetPatternKind() {
+        SpreadsheetPatternKind kind = this.defaultSpreadsheetPatternKind();
         int count = 0;
 
         for (final Entry<SpreadsheetPatternKind, Integer> kindAndCount : this.patternKindToCount.entrySet()) {
@@ -166,5 +150,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonPattern extends Spreads
         return kind;
     }
 
-    private final Map<SpreadsheetPatternKind, Integer> patternKindToCount = Maps.sorted();
+    abstract SpreadsheetPatternKind defaultSpreadsheetPatternKind();
+
+    final Map<SpreadsheetPatternKind, Integer> patternKindToCount = Maps.sorted();
 }

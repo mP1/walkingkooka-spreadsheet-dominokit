@@ -51,6 +51,13 @@ abstract class SpreadsheetViewportToolbarComponentItem implements IsElement<HTML
         );
     }
 
+    /**
+     * {@link SpreadsheetViewportToolbarComponentItemButtonPatternFormat}
+     */
+    static SpreadsheetViewportToolbarComponentItem formatPattern(final HistoryTokenContext context) {
+        return SpreadsheetViewportToolbarComponentItemButtonPatternFormat.with(context);
+    }
+
     static SpreadsheetViewportToolbarComponentItem italics(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.FONT_STYLE,
@@ -62,10 +69,10 @@ abstract class SpreadsheetViewportToolbarComponentItem implements IsElement<HTML
     }
 
     /**
-     * {@link SpreadsheetViewportToolbarComponentItemButtonPattern}
+     * {@link SpreadsheetViewportToolbarComponentItemButtonPatternParse}
      */
-    static SpreadsheetViewportToolbarComponentItem pattern(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonPattern.with(context);
+    static SpreadsheetViewportToolbarComponentItem parsePattern(final HistoryTokenContext context) {
+        return SpreadsheetViewportToolbarComponentItemButtonPatternParse.with(context);
     }
 
     static SpreadsheetViewportToolbarComponentItem strikeThru(final HistoryTokenContext context) {

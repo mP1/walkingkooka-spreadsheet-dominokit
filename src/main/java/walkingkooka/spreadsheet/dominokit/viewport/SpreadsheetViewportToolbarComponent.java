@@ -101,7 +101,8 @@ public final class SpreadsheetViewportToolbarComponent implements ComponentLifec
                 SpreadsheetViewportToolbarComponentItem.verticalAlignMiddle(context),
                 SpreadsheetViewportToolbarComponentItem.verticalAlignBottom(context),
                 SpreadsheetViewportToolbarComponentItem.clear(context),
-                SpreadsheetViewportToolbarComponentItem.pattern(context)
+                SpreadsheetViewportToolbarComponentItem.formatPattern(context),
+                SpreadsheetViewportToolbarComponentItem.parsePattern(context)
         );
     }
 
@@ -238,8 +239,12 @@ public final class SpreadsheetViewportToolbarComponent implements ComponentLifec
                 ).orElse("");
     }
 
-    public static String pattern() {
-        return VIEWPORT_TOOLBAR_ID_PREFIX + "-pattern";
+    public static String formatPattern() {
+        return VIEWPORT_TOOLBAR_ID_PREFIX + "-format-pattern";
+    }
+
+    public static String parsePattern() {
+        return VIEWPORT_TOOLBAR_ID_PREFIX + "-parse-pattern";
     }
 
     final static String VIEWPORT_TOOLBAR_ID_PREFIX = "viewport-toolbar-";
