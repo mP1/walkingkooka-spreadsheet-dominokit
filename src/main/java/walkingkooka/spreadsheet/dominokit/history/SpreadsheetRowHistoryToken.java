@@ -74,6 +74,11 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
     }
 
     @Override
+    public final HistoryToken setFormatPattern() {
+        return this;
+    }
+
+    @Override
     public final HistoryToken setFormula() {
         return this;
     }
@@ -125,6 +130,11 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
                         .testRow(selection.toRow()) ?
                 anchored :
                 selection.setDefaultAnchor();
+    }
+
+    @Override
+    public final HistoryToken setParsePattern() {
+        return this;
     }
 
     @Override //

@@ -59,6 +59,15 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
+    public HistoryToken setFormatPattern() {
+        return cellFormatPatternToolbar(
+                this.id(),
+                this.name(),
+                this.selection()
+        );
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return setFormula0();
     }
@@ -69,6 +78,15 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         return with(
                 id,
                 name,
+                this.selection()
+        );
+    }
+
+    @Override
+    public HistoryToken setParsePattern() {
+        return cellParsePatternToolbar(
+                this.id(),
+                this.name(),
                 this.selection()
         );
     }
@@ -86,11 +104,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                         selection,
                         patternKind.get()
                 ) :
-                cellPatternToolbar(
-                        id,
-                        name,
-                        selection
-                );
+                this;
     }
 
     @Override

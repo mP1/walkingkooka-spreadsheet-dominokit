@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -45,23 +43,21 @@ abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCell
     }
 
     @Override
+    public final HistoryToken setFormatPattern() {
+        return this;
+    }
+
+    @Override
+    public final HistoryToken setParsePattern() {
+        return this;
+    }
+
+    @Override
     public final Optional<SpreadsheetPatternKind> patternKind() {
         return this.patternKind;
     }
 
     private final Optional<SpreadsheetPatternKind> patternKind;
-
-    @Override
-    UrlFragment cellUrlFragment() {
-        return this.patternKind()
-                .map(k -> k.urlFragment().append(this.patternUrlFragment()))
-                .orElse(SpreadsheetUrlFragments.PATTERN);
-    }
-
-    /**
-     * Sub-classes append the action and its related parameters.
-     */
-    abstract UrlFragment patternUrlFragment();
 
     @Override
     public final HistoryToken setFormula() {

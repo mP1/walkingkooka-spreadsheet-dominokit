@@ -182,12 +182,25 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * {@see SpreadsheetCellPatternToolbarHistoryToken}
+     * {@see SpreadsheetCellPatternToolbarFormatHistoryToken}
      */
-    public static SpreadsheetCellPatternToolbarHistoryToken cellPatternToolbar(final SpreadsheetId id,
-                                                                               final SpreadsheetName name,
-                                                                               final AnchoredSpreadsheetSelection selection) {
-        return SpreadsheetCellPatternToolbarHistoryToken.with(
+    public static SpreadsheetCellPatternToolbarHistoryToken cellFormatPatternToolbar(final SpreadsheetId id,
+                                                                                     final SpreadsheetName name,
+                                                                                     final AnchoredSpreadsheetSelection selection) {
+        return SpreadsheetCellPatternToolbarFormatHistoryToken.with(
+                id,
+                name,
+                selection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellPatternToolbarParseHistoryToken}
+     */
+    public static SpreadsheetCellPatternToolbarHistoryToken cellParsePatternToolbar(final SpreadsheetId id,
+                                                                                    final SpreadsheetName name,
+                                                                                    final AnchoredSpreadsheetSelection selection) {
+        return SpreadsheetCellPatternToolbarParseHistoryToken.with(
                 id,
                 name,
                 selection
@@ -750,11 +763,24 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
         if (this instanceof SpreadsheetCellPatternSelectHistoryToken) {
             final SpreadsheetCellPatternSelectHistoryToken patternSelect = (SpreadsheetCellPatternSelectHistoryToken) this;
-            closed = cellPatternToolbar(
-                    patternSelect.id(),
-                    patternSelect.name(),
-                    patternSelect.selection()
-            );
+
+            final SpreadsheetId id = patternSelect.id();
+            final SpreadsheetName name = patternSelect.name();
+            final AnchoredSpreadsheetSelection selection = patternSelect.selection();
+
+            closed = patternSelect.patternKind()
+                    .get()
+                    .isFormatPattern() ?
+                    cellFormatPatternToolbar(
+                            id,
+                            name,
+                            selection
+                    ) :
+                    cellParsePatternToolbar(
+                            id,
+                            name,
+                            selection
+                    );
         }
         if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
             final SpreadsheetMetadataPropertyHistoryToken<?> metadata = (SpreadsheetMetadataPropertyHistoryToken<?>) this;

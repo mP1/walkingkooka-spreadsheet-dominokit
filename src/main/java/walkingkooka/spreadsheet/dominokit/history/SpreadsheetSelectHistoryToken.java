@@ -177,9 +177,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
             try {
                 switch (next) {
-                    case "pattern":
-                        result = this.parsePattern(cursor);
-                        break;
                     case "style":
                         result = this.parseStyle(cursor);
                         break;
@@ -222,6 +219,11 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
+    public HistoryToken setFormatPattern() {
+        return this;
+    }
+
+    @Override
     public HistoryToken setFormula() {
         return this;
     }
@@ -258,6 +260,11 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     @Override //
     AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
+    }
+
+    @Override
+    public HistoryToken setParsePattern() {
+        return this;
     }
 
     // factory for /spreadsheet-id/spreadsheet-name/metadata/pattern/*

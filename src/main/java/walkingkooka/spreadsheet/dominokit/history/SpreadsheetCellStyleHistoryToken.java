@@ -62,8 +62,18 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
     }
 
     @Override
+    public final HistoryToken setFormatPattern() {
+        return this;
+    }
+
+    @Override
     public final HistoryToken setFormula() {
         return this.setFormula0();
+    }
+
+    @Override
+    public final HistoryToken setParsePattern() {
+        return this;
     }
 
     @Override //

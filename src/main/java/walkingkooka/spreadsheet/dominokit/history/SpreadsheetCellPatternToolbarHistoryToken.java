@@ -17,33 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
-/**
- * This {@link HistoryToken} is used to represent the selection of the toolbar pattern icon.
- */
-public final class SpreadsheetCellPatternToolbarHistoryToken extends SpreadsheetCellPatternHistoryToken {
+public abstract class SpreadsheetCellPatternToolbarHistoryToken extends SpreadsheetCellPatternHistoryToken {
 
-    static SpreadsheetCellPatternToolbarHistoryToken with(final SpreadsheetId id,
-                                                          final SpreadsheetName name,
-                                                          final AnchoredSpreadsheetSelection selection) {
-        return new SpreadsheetCellPatternToolbarHistoryToken(
-                id,
-                name,
-                selection
-        );
-    }
-
-    private SpreadsheetCellPatternToolbarHistoryToken(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
-                                                      final AnchoredSpreadsheetSelection selection) {
+    SpreadsheetCellPatternToolbarHistoryToken(final SpreadsheetId id,
+                                              final SpreadsheetName name,
+                                              final AnchoredSpreadsheetSelection selection) {
         super(
                 id,
                 name,
@@ -53,73 +38,35 @@ public final class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsheet
     }
 
     @Override
-    UrlFragment patternUrlFragment() {
-        return UrlFragment.EMPTY;
-    }
-
-    @Override
-    public HistoryToken clearAction() {
+    public final HistoryToken clearAction() {
         return this;
     }
 
-    @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
-        return with(
-                id,
-                name,
-                this.selection()
-        );
-    }
-
-    @Override
-    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this.patternKind().equals(patternKind) ?
+    @Override //
+    final HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+        return false == patternKind.isPresent() ?
                 this :
-                this.replacePatternKind(patternKind);
-    }
-
-    private HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        final SpreadsheetId id = this.id();
-        final SpreadsheetName name = this.name();
-        final AnchoredSpreadsheetSelection selection = this.selection();
-
-        return patternKind.isPresent() ?
-                cellPattern(
-                        id,
-                        name,
-                        selection,
+                this.replacePatternKind(
                         patternKind.get()
-                ) :
-                cell(
-                        id,
-                        name,
-                        selection
                 );
     }
 
-    @Override
-    HistoryToken setSave0(final String pattern) {
-        final SpreadsheetPatternKind patternKind = this.patternKind()
-                .get();
-
-
-        return cellPatternSave(
-                this.id(),
-                this.name(),
-                this.selection(),
-                patternKind,
-                Optional.ofNullable(
-                        pattern.isEmpty() ?
-                                null :
-                                patternKind.parse(pattern)
-                )
-        );
+    private HistoryToken replacePatternKind(final SpreadsheetPatternKind patternKind) {
+        return this.isCompatible(patternKind) ?
+                cellPattern(
+                        this.id(),
+                        this.name(),
+                        this.selection(),
+                        patternKind
+                ) :
+                this;
     }
 
-    @Override
-    void onHistoryTokenChange0(final HistoryToken previous,
-                               final AppContext context) {
-        // give focus to viewport icon
+    abstract boolean isCompatible(final SpreadsheetPatternKind kind);
+
+    // ignore save value and return this.
+    @Override //
+    final HistoryToken setSave0(final String value) {
+        return this;
     }
 }

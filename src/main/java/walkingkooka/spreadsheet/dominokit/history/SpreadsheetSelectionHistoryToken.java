@@ -53,6 +53,9 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             case "delete":
                 result = this.setDelete();
                 break;
+            case "format-pattern":
+                result = this.parseFormatPattern(cursor);
+                break;
             case "formula":
                 result = this.setFormula();
                 break;
@@ -72,8 +75,8 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             case "menu":
                 result = this.setMenu(Optional.empty());
                 break;
-            case "pattern":
-                result = this.parsePattern(cursor);
+            case "parse-pattern":
+                result = this.parseParsePattern(cursor);
                 break;
             case "save":
                 result = this.parseSave(cursor);

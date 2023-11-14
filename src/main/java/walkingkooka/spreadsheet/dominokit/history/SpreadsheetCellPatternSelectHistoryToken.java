@@ -53,8 +53,10 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    UrlFragment patternUrlFragment() {
-        return SELECT;
+    UrlFragment cellUrlFragment() {
+        return this.patternKind()
+                .get()
+                .urlFragment();
     }
 
     @Override

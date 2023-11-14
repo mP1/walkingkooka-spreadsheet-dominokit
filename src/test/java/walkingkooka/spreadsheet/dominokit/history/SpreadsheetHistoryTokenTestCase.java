@@ -48,7 +48,8 @@ public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHisto
                              final SpreadsheetHistoryToken token) {
         this.checkEquals(
                 token,
-                HistoryToken.parse(fragment)
+                HistoryToken.parse(fragment),
+                () -> "parse " + fragment
         );
     }
 }

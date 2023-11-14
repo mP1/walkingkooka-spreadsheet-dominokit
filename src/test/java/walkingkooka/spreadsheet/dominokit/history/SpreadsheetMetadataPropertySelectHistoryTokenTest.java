@@ -84,7 +84,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                         NAME,
                         SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
                 ),
-                "/123/SpreadsheetName456/metadata/pattern/date-format"
+                "/123/SpreadsheetName456/metadata/date-format-pattern"
         );
     }
 
@@ -105,7 +105,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     @Test
     public void testParseDateFormatPattern() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/pattern/date-format",
+                "/123/SpreadsheetName456/metadata/date-format-pattern",
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,

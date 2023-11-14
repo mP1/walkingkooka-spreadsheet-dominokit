@@ -20,9 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
+
+import java.util.Optional;
 
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
@@ -34,7 +37,8 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         );
     }
 
-    @Override final UrlFragment spreadsheetUrlFragment() {
+    @Override //
+    final UrlFragment spreadsheetUrlFragment() {
         return METADATA.append(
                 this.metadataUrlFragment()
         );
@@ -47,12 +51,10 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     @Override //
     final HistoryToken parse0(final String component,
                               final TextCursor cursor) {
-        HistoryToken result;
+        final HistoryToken result;
 
+        Switch:
         switch (component) {
-            case "pattern":
-                result = this.parsePattern(cursor);
-                break;
             case "save":
                 result = this.parseSave(cursor);
                 break;
@@ -60,6 +62,15 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
                 result = this.parseStyle(cursor);
                 break;
             default:
+                for (final SpreadsheetPatternKind kind : SpreadsheetPatternKind.values()) {
+                    if (kind.urlFragment().value().equals(component)) {
+                        result = this.setPatternKind(
+                                Optional.of(kind)
+                        );
+                        break Switch;
+                    }
+                }
+
                 cursor.end();
                 result = this; // ignore
                 break;
@@ -80,6 +91,11 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
     @Override
     public final HistoryToken setFormula() {
+        return this;
+    }
+
+    @Override
+    public final HistoryToken setFormatPattern() {
         return this;
     }
 
@@ -106,6 +122,11 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     @Override //
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
+    }
+
+    @Override
+    public final HistoryToken setParsePattern() {
+        return this;
     }
 
     @Override //
