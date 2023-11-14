@@ -965,13 +965,25 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * Returns true for any metadata pattern {@link HistoryToken}.
+     * Returns true for any metadata format pattern {@link HistoryToken}.
      */
-    public final boolean isMetadataPattern() {
+    public final boolean isMetadataFormatPattern() {
+        return this.isMetadataPattern(SpreadsheetPatternKind::isFormatPattern);
+    }
+
+    /**
+     * Returns true for any metadata parse pattern {@link HistoryToken}.
+     */
+    public final boolean isMetadataParsePattern() {
+        return this.isMetadataPattern(SpreadsheetPatternKind::isParsePattern);
+    }
+
+    private boolean isMetadataPattern(final Function<SpreadsheetPatternKind, Boolean> kind) {
         return this instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
                 this.cast(HasSpreadsheetPatternKind.class)
                         .patternKind()
-                        .isPresent();
+                        .map(kind)
+                        .orElse(false);
     }
 
     /**
