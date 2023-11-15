@@ -23,17 +23,31 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetPatternEditorComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see SpreadsheetPatternEditorComponentContextBasicCell}
+     * {@see SpreadsheetPatternEditorComponentContextBasicCellFormat}
      */
-    public static SpreadsheetPatternEditorComponentContext cell(final AppContext context) {
-        return SpreadsheetPatternEditorComponentContextBasicCell.with(context);
+    public static SpreadsheetPatternEditorComponentContext cellFormat(final AppContext context) {
+        return SpreadsheetPatternEditorComponentContextBasicCellFormat.with(context);
     }
 
     /**
-     * {@see SpreadsheetPatternEditorComponentContextBasicMetadata}
+     * {@see SpreadsheetPatternEditorComponentContextBasicCellParse}
      */
-    public static SpreadsheetPatternEditorComponentContext metadata(final AppContext context) {
-        return SpreadsheetPatternEditorComponentContextBasicMetadata.with(context);
+    public static SpreadsheetPatternEditorComponentContext cellParse(final AppContext context) {
+        return SpreadsheetPatternEditorComponentContextBasicCellParse.with(context);
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorComponentContextBasicMetadataFormat}
+     */
+    public static SpreadsheetPatternEditorComponentContext metadataFormat(final AppContext context) {
+        return SpreadsheetPatternEditorComponentContextBasicMetadataFormat.with(context);
+    }
+
+    /**
+     * {@see SpreadsheetPatternEditorComponentContextBasicMetadataParse}
+     */
+    public static SpreadsheetPatternEditorComponentContext metadataParse(final AppContext context) {
+        return SpreadsheetPatternEditorComponentContextBasicMetadataParse.with(context);
     }
 
     /**

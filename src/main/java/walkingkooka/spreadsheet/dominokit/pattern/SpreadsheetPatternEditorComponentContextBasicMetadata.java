@@ -24,34 +24,20 @@ import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
-import java.util.Objects;
-
 /**
  * A {@link SpreadsheetPatternEditorComponentContext} for editing patterns for the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
  */
-final class SpreadsheetPatternEditorComponentContextBasicMetadata extends SpreadsheetPatternEditorComponentContextBasic {
+abstract class SpreadsheetPatternEditorComponentContextBasicMetadata extends SpreadsheetPatternEditorComponentContextBasic {
 
-    static SpreadsheetPatternEditorComponentContextBasicMetadata with(final AppContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetPatternEditorComponentContextBasicMetadata(context);
-    }
-
-    private SpreadsheetPatternEditorComponentContextBasicMetadata(final AppContext context) {
+    SpreadsheetPatternEditorComponentContextBasicMetadata(final AppContext context) {
         super(context);
     }
 
     // ComponentLifecycleMatcher........................................................................................
 
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
+    public final boolean shouldIgnore(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySaveHistoryToken;
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        return token.isMetadataFormatPattern() ||
-                token.isMetadataParsePattern();
     }
 
     // SpreadsheetPatternEditorComponentContext.........................................................................
@@ -60,7 +46,7 @@ final class SpreadsheetPatternEditorComponentContextBasicMetadata extends Spread
      * Returns the pattern text for the selected {@link SpreadsheetPatternKind} from the current {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}
      */
     @Override
-    public String loaded() {
+    public final String loaded() {
         return this.context.spreadsheetMetadata()
                 .getIgnoringDefaults(
                         this.historyToken()

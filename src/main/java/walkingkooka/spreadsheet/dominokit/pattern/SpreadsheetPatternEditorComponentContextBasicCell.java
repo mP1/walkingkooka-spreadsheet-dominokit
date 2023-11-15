@@ -25,34 +25,22 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHi
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
  * A {@link SpreadsheetPatternEditorComponentContext} for editing patterns for a cell.
  */
-final class SpreadsheetPatternEditorComponentContextBasicCell extends SpreadsheetPatternEditorComponentContextBasic {
+abstract class SpreadsheetPatternEditorComponentContextBasicCell extends SpreadsheetPatternEditorComponentContextBasic {
 
-    static SpreadsheetPatternEditorComponentContextBasicCell with(final AppContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetPatternEditorComponentContextBasicCell(context);
-    }
-
-    private SpreadsheetPatternEditorComponentContextBasicCell(final AppContext context) {
+    SpreadsheetPatternEditorComponentContextBasicCell(final AppContext context) {
         super(context);
     }
 
     // ComponentLifecycleMatcher........................................................................................
 
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
+    public final boolean shouldIgnore(final HistoryToken token) {
         return token instanceof SpreadsheetCellPatternSaveHistoryToken;
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellPatternSelectHistoryToken;
     }
 
     // SpreadsheetPatternEditorComponentContext.........................................................................
@@ -61,7 +49,7 @@ final class SpreadsheetPatternEditorComponentContextBasicCell extends Spreadshee
      * Returns the pattern text for the current {@link #patternKind()}.
      */
     @Override
-    public String loaded() {
+    public final String loaded() {
         String loaded = ""; // if cell is absent or missing this property use a default of empty pattern.
 
         final Optional<SpreadsheetCell> maybeCell = this.context.viewportCell(

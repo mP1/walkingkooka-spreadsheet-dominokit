@@ -157,11 +157,19 @@ public class App implements EntryPoint,
         SpreadsheetLabelMappingEditorComponent.with(
                 SpreadsheetLabelMappingEditorComponentContexts.basic(this)
         );
-        SpreadsheetPatternEditorComponent.with(
-                SpreadsheetPatternEditorComponentContexts.cell(this)
+
+        SpreadsheetPatternEditorComponent.format(
+                SpreadsheetPatternEditorComponentContexts.cellFormat(this)
         );
-        SpreadsheetPatternEditorComponent.with(
-                SpreadsheetPatternEditorComponentContexts.metadata(this)
+        SpreadsheetPatternEditorComponent.parse(
+                SpreadsheetPatternEditorComponentContexts.cellParse(this)
+        );
+
+        SpreadsheetPatternEditorComponent.format(
+                SpreadsheetPatternEditorComponentContexts.metadataFormat(this)
+        );
+        SpreadsheetPatternEditorComponent.parse(
+                SpreadsheetPatternEditorComponentContexts.metadataParse(this)
         );
 
         this.layout = this.prepareLayout();
