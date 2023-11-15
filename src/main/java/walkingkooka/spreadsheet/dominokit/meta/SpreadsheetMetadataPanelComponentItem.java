@@ -36,7 +36,6 @@ import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.dominokit.component.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
 
@@ -116,11 +115,9 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      * {@see SpreadsheetMetadataPanelComponentItemReadOnlyText}
      */
     static <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                                                        final SpreadsheetPatternKind patternKind,
                                                                                                                         final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemSpreadsheetPattern.with(
                 propertyName,
-                patternKind,
                 context
         );
     }

@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateTimeParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetTextFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetTimeFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetTimeParsePattern;
@@ -302,64 +301,55 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateFormatPattern> dateFormatPattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
-                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateParsePattern> dateParsePattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN,
-                SpreadsheetPatternKind.DATE_PARSE_PATTERN
+                SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateTimeFormatPattern> dateTimeFormatPattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.DATETIME_FORMAT_PATTERN,
-                SpreadsheetPatternKind.DATE_TIME_FORMAT_PATTERN
+                SpreadsheetMetadataPropertyName.DATETIME_FORMAT_PATTERN
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateTimeParsePattern> dateTimeParsePattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN,
-                SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN
+                SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetNumberFormatPattern> numberFormatPattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.NUMBER_FORMAT_PATTERN,
-                SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN
+                SpreadsheetMetadataPropertyName.NUMBER_FORMAT_PATTERN
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetNumberParsePattern> numberParsePattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN,
-                SpreadsheetPatternKind.NUMBER_PARSE_PATTERN
+                SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetTextFormatPattern> textFormatPattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN,
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN
+                SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetTimeFormatPattern> timeFormatPattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.TIME_FORMAT_PATTERN,
-                SpreadsheetPatternKind.TIME_FORMAT_PATTERN
+                SpreadsheetMetadataPropertyName.TIME_FORMAT_PATTERN
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetTimeParsePattern> timeParsePattern() {
         return spreadsheetPattern(
-                SpreadsheetMetadataPropertyName.TIME_PARSE_PATTERN,
-                SpreadsheetPatternKind.TIME_PARSE_PATTERN
+                SpreadsheetMetadataPropertyName.TIME_PARSE_PATTERN
         );
     }
 
@@ -404,11 +394,9 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     /**
      * Factory that creates a link that opens the pattern editor dialog
      */
-    private <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItem<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                                       final SpreadsheetPatternKind patternKind) {
+    private <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItem<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName) {
         return SpreadsheetMetadataPanelComponentItem.spreadsheetPattern(
                 propertyName,
-                patternKind,
                 this.context
         );
     }
