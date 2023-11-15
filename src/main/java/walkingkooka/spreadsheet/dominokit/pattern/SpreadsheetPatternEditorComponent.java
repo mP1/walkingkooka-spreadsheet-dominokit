@@ -63,7 +63,6 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -73,21 +72,26 @@ import java.util.stream.Collectors;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public final class SpreadsheetPatternEditorComponent implements ComponentLifecycle,
+public abstract class SpreadsheetPatternEditorComponent implements ComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 
     /**
-     * Creates a new {@link SpreadsheetPatternEditorComponent}.
+     * Creates a new {@link SpreadsheetPatternEditorComponentFormat}.
      */
-    public static SpreadsheetPatternEditorComponent with(final SpreadsheetPatternEditorComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetPatternEditorComponent(context);
+    public static SpreadsheetPatternEditorComponent format(final SpreadsheetPatternEditorComponentContext context) {
+        return SpreadsheetPatternEditorComponentFormat.with(context);
     }
 
-    private SpreadsheetPatternEditorComponent(final SpreadsheetPatternEditorComponentContext context) {
+    /**
+     * Creates a new {@link SpreadsheetPatternEditorComponentParse}.
+     */
+    public static SpreadsheetPatternEditorComponent parse(final SpreadsheetPatternEditorComponentContext context) {
+        return SpreadsheetPatternEditorComponentParse.with(context);
+    }
+
+    SpreadsheetPatternEditorComponent(final SpreadsheetPatternEditorComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
@@ -195,13 +199,13 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     private Tab[] patternKindTabs() {
         final SpreadsheetPatternEditorComponentContext context = this.context;
 
-        final SpreadsheetPatternKind[] kinds = SpreadsheetPatternKind.values();
+        final SpreadsheetPatternKind[] kinds = this.spreadsheetPatternKinds();
         final Tab[] tabs = new Tab[kinds.length];
 
         int i = 0;
         for (final SpreadsheetPatternKind kind : kinds) {
             final Tab tab = Tab.create(
-                    patternKindText(kind)
+                    tabTitle(kind)
             );
 
             Anchor.with(
@@ -225,9 +229,11 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
      * SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
      * </pre>
      */
-    static String patternKindText(final SpreadsheetPatternKind kind) {
+    static String tabTitle(final SpreadsheetPatternKind kind) {
         return CaseKind.SNAKE.change(
-                kind.name().replace("PATTERN", ""),
+                kind.name()
+                        .replace("FORMAT_PATTERN", "")
+                        .replace("PARSE_PATTERN", ""),
                 CaseKind.TITLE
         ).trim();
     }
@@ -259,7 +265,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
         int i = 0;
         final Tab[] tabs = this.patternKindTabs;
-        for (final SpreadsheetPatternKind possible : SpreadsheetPatternKind.values()) {
+        for (final SpreadsheetPatternKind possible : this.spreadsheetPatternKinds()) {
             final Tab tab = tabs[i++];
             final Anchor anchor = Anchor.with(
                     (HTMLAnchorElement)
@@ -404,13 +410,13 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
         // pattern will be null when pattern is empty
         if (null == pattern) {
-            context.debug("SpreadsheetPatternEditorComponent.componentChipsRebuild no chips");
+            context.debug(this.getClass().getSimpleName() + ".componentChipsRebuild no chips");
         } else {
             pattern.components(
                     (kind, tokenPatternText) -> componentChipPatterns.add(tokenPatternText)
             );
 
-            context.debug("SpreadsheetPatternEditorComponent.componentChipsRebuild " + componentChipPatterns.size() + " chips ", componentChipPatterns);
+            context.debug(this.getClass().getSimpleName() + ".componentChipsRebuild " + componentChipPatterns.size() + " chips ", componentChipPatterns);
 
             if (false == errorPattern.isEmpty()) {
                 componentChipPatterns.add(errorPattern);
@@ -437,7 +443,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     private Consumer<Chip> componentChipOnRemove(final int index) {
         return (chip) -> {
             final String removed = this.componentChipPatterns.remove(index);
-            this.context.debug("SpreadsheetPatternEditorComponent.componentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
+            this.context.debug(this.getClass().getSimpleName() + ".componentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
             this.setPatternText(
                     this.componentChipPatterns.stream().collect(Collectors.joining())
             );
@@ -459,7 +465,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
      */
     private void appendLinksRebuild() {
         final SpreadsheetPatternEditorComponentContext context = this.context;
-        context.debug("SpreadsheetPatternEditorComponent.appendLinksRebuild");
+        context.debug(this.getClass().getSimpleName() + ".appendLinksRebuild");
 
         final Card parent = this.appendParent.clearElement();
         final List<SpreadsheetPatternEditorComponentAppendLink> appendLinks = this.appendLinks;
@@ -520,7 +526,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         final HistoryToken historyToken = context.historyToken();
 
         final List<SpreadsheetPatternEditorComponentAppendLink> patternAppendLinks = this.appendLinks;
-        context.debug("SpreadsheetPatternEditorComponent.appendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
+        context.debug(this.getClass().getSimpleName() + ".appendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
 
         for (final SpreadsheetPatternEditorComponentAppendLink link : patternAppendLinks) {
             String savePatternText = null;
@@ -564,7 +570,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                 }
             }
 
-            context.debug("SpreadsheetPatternEditorComponent.appendLinksHrefRefresh: " + link.pattern + "=" + save);
+            context.debug(this.getClass().getSimpleName() + ".appendLinksHrefRefresh: " + link.pattern + "=" + save);
             link.anchor.setHistoryToken(
                     Optional.ofNullable(save)
             );
@@ -619,7 +625,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         final SpreadsheetPatternKind patternKind = context.patternKind();
         final TextBox patternTextBox = this.patternTextBox;
 
-        context.debug("SpreadsheetPatternEditorComponent.onPatternTextBox " + CharSequences.quoteAndEscape(patternText));
+        context.debug(this.getClass().getSimpleName() + ".onPatternTextBox " + CharSequences.quoteAndEscape(patternText));
 
         SpreadsheetPattern pattern = null;
         String errorMessage = null;
@@ -630,7 +636,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
         while (last > 0) {
             final String tryingPatternText = patternText.substring(0, last);
-            context.debug("SpreadsheetPatternEditorComponent.onPatternTextBox trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
+            context.debug(this.getClass().getSimpleName() + ".onPatternTextBox trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
 
             // try parsing...
             try {
@@ -644,11 +650,11 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
                 }
 
                 last--;
-                context.debug("SpreadsheetPatternEditorComponent.onPatternTextBox parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
+                context.debug(this.getClass().getSimpleName() + ".onPatternTextBox parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
             }
         }
 
-        context.debug("SpreadsheetPatternEditorComponent.onPatternTextBox " + CharSequences.quoteAndEscape(patternText) + " errorMessage: " + errorMessage + " pattern: " + pattern);
+        context.debug(this.getClass().getSimpleName() + ".onPatternTextBox " + CharSequences.quoteAndEscape(patternText) + " errorMessage: " + errorMessage + " pattern: " + pattern);
 
         // clear or update the errors
         patternTextBox.setHelperText(
@@ -706,7 +712,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
     private void onCloseButtonClick(final Event event) {
         final SpreadsheetPatternEditorComponentContext context = this.context;
-        context.debug("SpreadsheetPatternEditorComponent.onCloseButtonClick");
+        context.debug(this.getClass().getSimpleName() + ".onCloseButtonClick");
         context.close();
     }
 
@@ -727,7 +733,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
 
         try {
             final SpreadsheetPattern pattern = context.patternKind().parse(patternText);
-            context.debug("SpreadsheetPatternEditorComponent.onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
+            context.debug(this.getClass().getSimpleName() + ".onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
             context.save(pattern);
         } catch (final Exception cause) {
             this.context.error(cause.getMessage());
@@ -752,7 +758,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         final SpreadsheetPatternEditorComponentContext context = this.context;
 
         final String patternText = context.loaded();
-        context.debug("SpreadsheetPatternEditorComponent.onUndoButtonClick " + CharSequences.quoteAndEscape(patternText));
+        context.debug(this.getClass().getSimpleName() + ".onUndoButtonClick " + CharSequences.quoteAndEscape(patternText));
 
         this.setPatternText(patternText);
     }
@@ -771,7 +777,7 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
     private void onRemoveButtonClick(final Event event) {
         final SpreadsheetPatternEditorComponentContext context = this.context;
 
-        context.debug("SpreadsheetPatternEditorComponent.onRemoveButtonClick");
+        context.debug(this.getClass().getSimpleName() + ".onRemoveButtonClick");
         context.delete();
     }
 
@@ -866,6 +872,8 @@ public final class SpreadsheetPatternEditorComponent implements ComponentLifecyc
         this.appendLinksRebuild();
         this.setPatternText(componentContext.loaded());
     }
+
+    abstract SpreadsheetPatternKind[] spreadsheetPatternKinds();
 
     // Date/Time format
     // Text format
