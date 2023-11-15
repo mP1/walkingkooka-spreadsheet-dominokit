@@ -853,6 +853,13 @@ public abstract class HistoryToken implements HasUrlFragment {
         return this.isCellPattern(SpreadsheetPatternKind::isFormatPattern);
     }
 
+    /**
+     * Returns true for any cell parse pattern {@link HistoryToken}.
+     */
+    public final boolean isCellParsePattern() {
+        return this.isCellPattern(SpreadsheetPatternKind::isParsePattern);
+    }
+
     private boolean isCellPattern(final Function<SpreadsheetPatternKind, Boolean> kind) {
         return this instanceof SpreadsheetCellPatternHistoryToken &&
                 this.cast(HasSpreadsheetPatternKind.class)

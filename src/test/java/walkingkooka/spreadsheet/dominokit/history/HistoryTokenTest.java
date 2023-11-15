@@ -230,6 +230,91 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // isCellParsePattern..............................................................................................
+
+    @Test
+    public void testIsCellParsePattern() {
+        this.isCellParsePatternAndCheck(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                ),
+                false
+        );
+    }
+
+    @Test
+    public void testIsCellParsePatternWhenCell() {
+        this.isCellParsePatternAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                ),
+                false
+        );
+    }
+
+    @Test
+    public void testIsCellParsePatternWhenCellFormatPattern() {
+        this.isCellParsePatternAndCheck(
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                ),
+                false
+        );
+    }
+
+    @Test
+    public void testIsCellParsePatternWhenCellParsePattern() {
+        this.isCellParsePatternAndCheck(
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        SpreadsheetPatternKind.DATE_PARSE_PATTERN
+                ),
+                true
+        );
+    }
+
+    @Test
+    public void testIsCellParsePatternWhenMetadataFormatPattern() {
+        this.isCellParsePatternAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+                ),
+                false
+        );
+    }
+
+    @Test
+    public void testIsCellParsePatternWhenMetadataParsePattern() {
+        this.isCellParsePatternAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN
+                ),
+                false
+        );
+    }
+
+    private void isCellParsePatternAndCheck(final HistoryToken token,
+                                            final boolean expected) {
+        this.checkEquals(
+                expected,
+                token.isCellParsePattern(),
+                () -> token.toString()
+        );
+    }
+
     // setClear..........................................................................................................
 
     @Test
