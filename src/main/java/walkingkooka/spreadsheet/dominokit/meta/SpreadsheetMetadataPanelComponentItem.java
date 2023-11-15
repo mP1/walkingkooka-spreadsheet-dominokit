@@ -115,10 +115,10 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     /**
      * {@see SpreadsheetMetadataPanelComponentItemReadOnlyText}
      */
-    static <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItemSpreadsheetPatternItem<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                                                            final SpreadsheetPatternKind patternKind,
-                                                                                                                            final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataPanelComponentItemSpreadsheetPatternItem.with(
+    static <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                                                        final SpreadsheetPatternKind patternKind,
+                                                                                                                        final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemSpreadsheetPattern.with(
                 propertyName,
                 patternKind,
                 context
