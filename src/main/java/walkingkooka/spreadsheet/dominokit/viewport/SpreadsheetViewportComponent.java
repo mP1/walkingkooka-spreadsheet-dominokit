@@ -422,6 +422,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         if (maybeElement.isPresent()) {
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
 
+            // CLEAR STYLE
+            // ----
             // FORMAT
             // PARSE
             // -----
@@ -434,6 +436,12 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     element,
                     context
             );
+
+            menu.item(
+                    "Clear style",
+                    historyToken.setStyle(TextStylePropertyName.ALL)
+                            .setSave("")
+            ).separator();
 
             final Locale locale = context.spreadsheetMetadata()
                     .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
