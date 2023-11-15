@@ -338,7 +338,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetNumberParsePattern> numberParsePattern() {
         return spreadsheetPattern(
                 SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN,
-                SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN
+                SpreadsheetPatternKind.NUMBER_PARSE_PATTERN
         );
     }
 
