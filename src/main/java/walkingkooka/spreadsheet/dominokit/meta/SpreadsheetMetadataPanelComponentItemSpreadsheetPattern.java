@@ -22,11 +22,9 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -35,27 +33,22 @@ import java.util.Optional;
 final class SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T extends SpreadsheetPattern> extends SpreadsheetMetadataPanelComponentItem<T> {
 
     static <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                                                          final SpreadsheetPatternKind patternKind,
                                                                                                           final SpreadsheetMetadataPanelComponentContext context) {
         checkPropertyName(propertyName);
-        Objects.requireNonNull(patternKind, "patternKind");
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<>(
                 propertyName,
-                patternKind,
                 context
         );
     }
 
     private SpreadsheetMetadataPanelComponentItemSpreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                    final SpreadsheetPatternKind patternKind,
                                                                     final SpreadsheetMetadataPanelComponentContext context) {
         super(
                 propertyName,
                 context
         );
-        this.patternKind = patternKind;
         this.anchor = Anchor.empty()
                 .setId(SpreadsheetMetadataPanelComponent.id(propertyName));
     }
@@ -64,16 +57,16 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T extends Sp
 
     @Override
     public void refresh(final AppContext context) {
+        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
+
         final String pattern = context.spreadsheetMetadata()
-                .getIgnoringDefaults(this.propertyName)
+                .getIgnoringDefaults(propertyName)
                 .map(SpreadsheetPattern::text)
                 .orElse("edit");
 
         final HistoryToken historyToken = context.historyToken()
                 .setPatternKind(
-                        Optional.of(
-                                this.patternKind
-                        )
+                        propertyName.patternKind()
                 );
         context.debug(this.getClass().getSimpleName() + ".refresh " + historyToken + " " + CharSequences.quoteAndEscape(pattern));
 
@@ -82,11 +75,6 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T extends Sp
         ).setTextContent(pattern)
                 .setDisabled(false);
     }
-
-    /**
-     * The {@link SpreadsheetPatternKind} for the property
-     */
-    private final SpreadsheetPatternKind patternKind;
 
     // isElement........................................................................................................
 
