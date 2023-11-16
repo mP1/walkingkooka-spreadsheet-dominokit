@@ -115,7 +115,6 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
                     Optional.of(
                             token.setSave(
                                     valueAndAnchor.getKey()
-                                            .name()
                             )
                     )
             );

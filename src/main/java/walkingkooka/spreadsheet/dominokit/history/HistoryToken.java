@@ -1169,6 +1169,35 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a save, otherwise returns this.
      */
+    public final HistoryToken setSave(final Object value) {
+        Objects.requireNonNull(value, "value");
+
+        final HistoryToken result;
+
+        if (value instanceof String) {
+            result = this.setSave((String) value);
+        } else {
+            if (value instanceof HasText) {
+                result = this.setSave(
+                        (HasText) value
+                );
+            } else {
+                if (value instanceof Enum) {
+                    result = this.setSave(
+                            (Enum<?>) value
+                    );
+                } else {
+                    result = this.setSave(value.toString());
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * if possible creates a save, otherwise returns this.
+     */
     public final HistoryToken setSave(final String text) {
         Objects.requireNonNull(text, "text");
 
