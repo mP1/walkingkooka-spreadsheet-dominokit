@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.component;
 
 import org.dominokit.domino.ui.icons.Icon;
+import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.menu.MenuItem;
@@ -66,15 +67,46 @@ public class SpreadsheetContextMenu {
      * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
      */
     public SpreadsheetContextMenu subMenu(final String text) {
+        return this.subMenu(
+                text,
+                Optional.empty()
+        );
+    }
+
+    /**
+     * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
+     */
+    public SpreadsheetContextMenu subMenu(final String text,
+                                          final MdiIcon icon) {
+        return this.subMenu(
+                text,
+                Optional.of(icon)
+        );
+    }
+
+    /**
+     * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
+     */
+    public SpreadsheetContextMenu subMenu(final String text,
+                                          final Optional<MdiIcon> icon) {
         checkText(text);
 
         this.addSeparatorIfNecessary();
 
         final Menu<Void> subMenu = Menu.create();
 
+        AbstractMenuItem<Void> menuItem = MenuItem.<Void>create(text);
+        if (icon.isPresent()) {
+            menuItem = menuItem.appendChild(
+                    PrefixAddOn.of(
+                            icon.get()
+                                    .addCss(dui_font_size_5)
+                    )
+            );
+        }
+
         this.menu.appendChild(
-                MenuItem.<Void>create(text)
-                        .setMenu(subMenu)
+                menuItem.setMenu(subMenu)
         );
         return new SpreadsheetContextMenu(
                 subMenu,
