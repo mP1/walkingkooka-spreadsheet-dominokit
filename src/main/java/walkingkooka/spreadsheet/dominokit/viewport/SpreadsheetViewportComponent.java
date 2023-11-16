@@ -87,6 +87,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -422,6 +423,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         if (maybeElement.isPresent()) {
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
 
+            // ALIGNMENT
             // CLEAR STYLE
             // ----
             // FORMAT
@@ -436,6 +438,30 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     element,
                     context
             );
+
+            // TODO add icons, TODO add tick if already selected
+            menu.subMenu("Alignment")
+                    .item(
+                            "Left",
+                            historyToken.setStyle(
+                                    TextStylePropertyName.TEXT_ALIGN
+                            ).setSave(save(TextAlign.LEFT))
+                    ).item(
+                            "Center",
+                            historyToken.setStyle(
+                                    TextStylePropertyName.TEXT_ALIGN
+                            ).setSave(save(TextAlign.CENTER))
+                    ).item(
+                            "Right",
+                            historyToken.setStyle(
+                                    TextStylePropertyName.TEXT_ALIGN
+                            ).setSave(save(TextAlign.RIGHT))
+                    ).item(
+                            "Justify",
+                            historyToken.setStyle(
+                                    TextStylePropertyName.TEXT_ALIGN
+                            ).setSave(save(TextAlign.JUSTIFY))
+                    );
 
             menu.item(
                     "Clear style",
@@ -1598,5 +1624,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         }
 
         return Optional.ofNullable(selection);
+    }
+
+    // HistoryToken helpers.............................................................................................
+
+    private static String save(final Object value) {
+        return null == value ?
+                "" :
+                value.toString();
     }
 }
