@@ -24,13 +24,13 @@ import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.component.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
@@ -84,7 +84,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         return NavBar.create() //
                 .appendChild(
                         PostfixAddOn.of(
-                                Icons.close()
+                                SpreadsheetIcons.close()
                                         .clickable()
                                         .addClickListener(this::onDialogClose)
                         )
@@ -150,7 +150,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         textBox.apply(
                 self -> self.appendChild(
                         PostfixAddOn.of(
-                                Icons.close_circle()
+                                SpreadsheetIcons.close()
                                         .clickable()
                                         .addClickListener(event -> this.setLabelName(""))
                         )
@@ -195,7 +195,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         textBox.apply(
                 self -> self.appendChild(
                         PostfixAddOn.of(
-                                Icons.close_circle()
+                                SpreadsheetIcons.close()
                                         .clickable()
                                         .addClickListener(event -> this.setReference(""))
                         )
