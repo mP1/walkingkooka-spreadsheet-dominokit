@@ -91,6 +91,7 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Collection;
 import java.util.List;
@@ -472,7 +473,30 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     SpreadsheetIcons.clearStyle(),
                     historyToken.setStyle(TextStylePropertyName.ALL)
                             .clearSave()
-            ).separator();
+            );
+
+            menu.subMenu("Vertical Alignment")
+                    .item(
+                            "Top",
+                            SpreadsheetIcons.verticalAlignTop(),
+                            historyToken.setStyle(
+                                    TextStylePropertyName.VERTICAL_ALIGN
+                            ).setSave(VerticalAlign.TOP)
+                    ).item(
+                            "Middle",
+                            SpreadsheetIcons.verticalAlignMiddle(),
+                            historyToken.setStyle(
+                                    TextStylePropertyName.VERTICAL_ALIGN
+                            ).setSave(VerticalAlign.MIDDLE)
+                    ).item(
+                            "Bottom",
+                            SpreadsheetIcons.verticalAlignBottom(),
+                            historyToken.setStyle(
+                                    TextStylePropertyName.VERTICAL_ALIGN
+                            ).setSave(VerticalAlign.BOTTOM)
+                    );
+
+            menu.separator();
 
             final Locale locale = context.spreadsheetMetadata()
                     .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
