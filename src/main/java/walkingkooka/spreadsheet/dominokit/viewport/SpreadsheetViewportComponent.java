@@ -504,12 +504,22 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             SpreadsheetViewportComponentPatternMenuFormat.with(
                     historyToken,
                     locale
-            ).build(menu.subMenu("Format"));
+            ).build(
+                    menu.subMenu(
+                            "Format",
+                            SpreadsheetIcons.formatPattern()
+                    )
+            );
 
             SpreadsheetViewportComponentPatternMenuParse.with(
                     historyToken,
                     locale
-            ).build(menu.subMenu("Parse"));
+            ).build(
+                    menu.subMenu(
+                            "Parse",
+                            SpreadsheetIcons.parsePattern()
+                    )
+            );
 
             menu.separator();
 
