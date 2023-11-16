@@ -469,6 +469,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             menu.item(
                     "Clear style",
+                    SpreadsheetIcons.clearStyle(),
                     historyToken.setStyle(TextStylePropertyName.ALL)
                             .clearSave()
             ).separator();
