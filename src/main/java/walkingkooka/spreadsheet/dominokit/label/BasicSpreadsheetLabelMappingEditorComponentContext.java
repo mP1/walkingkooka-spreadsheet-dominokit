@@ -99,7 +99,6 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
                                 )
                         ).setSave(
                                 mapping.reference()
-                                        .text()
                         )
         );
     }

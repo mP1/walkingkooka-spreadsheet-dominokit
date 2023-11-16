@@ -71,9 +71,7 @@ abstract class SpreadsheetPatternEditorComponentContextBasic implements Spreadsh
     public final void save(final SpreadsheetPattern pattern) {
         this.pushHistoryToken(
                 this.historyToken()
-                        .setSave(
-                                pattern.text()
-                        )
+                        .setSave(pattern)
         );
     }
 
