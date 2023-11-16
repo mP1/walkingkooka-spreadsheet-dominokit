@@ -223,7 +223,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         final T token = this.createHistoryToken();
         assertThrows(
                 NullPointerException.class,
-                () -> token.setSave(null)
+                () -> token.setSave((String) null)
         );
     }
 

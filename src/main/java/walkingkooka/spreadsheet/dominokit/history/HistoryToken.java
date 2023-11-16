@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.HasText;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.text.cursor.TextCursors;
@@ -1174,6 +1175,18 @@ public abstract class HistoryToken implements HasUrlFragment {
         return this.setIfSpreadsheetNameHistoryTokenWithValue(
                 SpreadsheetNameHistoryToken::setSave0,
                 text
+        );
+    }
+
+
+    /**
+     * Overload that accepts a value with {@link walkingkooka.text.HasText} such as {@link SpreadsheetPattern}.
+     */
+    public final HistoryToken setSave(final HasText text) {
+        Objects.requireNonNull(text, "text");
+
+        return this.setSave(
+                text.text()
         );
     }
 
