@@ -86,8 +86,11 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
+import walkingkooka.tree.text.FontStyle;
+import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -467,6 +470,34 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.JUSTIFY)
                     );
+
+            menu.item(
+                    "Bold",
+                    SpreadsheetIcons.bold(),
+                    historyToken.setStyle(TextStylePropertyName.FONT_WEIGHT)
+                            .setSave(FontWeight.BOLD)
+            );
+
+            menu.item(
+                    "Italics",
+                    SpreadsheetIcons.italics(),
+                    historyToken.setStyle(TextStylePropertyName.FONT_STYLE)
+                            .setSave(FontStyle.ITALIC)
+            );
+
+            menu.item(
+                    "Strike-thru",
+                    SpreadsheetIcons.strikethrough(),
+                    historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
+                            .setSave(TextDecorationLine.LINE_THROUGH)
+            );
+
+            menu.item(
+                    "Underline",
+                    SpreadsheetIcons.underline(),
+                    historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
+                            .setSave(TextDecorationLine.UNDERLINE)
+            );
 
             menu.item(
                     "Clear style",
