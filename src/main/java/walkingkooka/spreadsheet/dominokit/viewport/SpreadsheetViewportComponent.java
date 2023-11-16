@@ -499,13 +499,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                             .setSave(TextDecorationLine.UNDERLINE)
             );
 
-            menu.item(
-                    "Clear style",
-                    SpreadsheetIcons.clearStyle(),
-                    historyToken.setStyle(TextStylePropertyName.ALL)
-                            .clearSave()
-            );
-
             menu.subMenu("Vertical Alignment")
                     .item(
                             "Top",
@@ -526,6 +519,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                     TextStylePropertyName.VERTICAL_ALIGN
                             ).setSave(VerticalAlign.BOTTOM)
                     );
+
+            menu.item(
+                    "Clear style",
+                    SpreadsheetIcons.clearStyle(),
+                    historyToken.setStyle(TextStylePropertyName.ALL)
+                            .clearSave()
+            );
 
             menu.separator();
 
