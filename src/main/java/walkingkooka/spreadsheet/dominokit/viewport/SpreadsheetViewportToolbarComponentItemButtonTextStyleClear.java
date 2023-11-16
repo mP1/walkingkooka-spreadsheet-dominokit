@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.icons.lib.Icons;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -49,7 +49,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonTextStyleClear extends 
                         PROPERTY,
                         Optional.empty()
                 ),
-                Icons.format_clear(),
+                SpreadsheetIcons.clearStyle(),
                 "Clear styling",
                 context
         );

@@ -17,20 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import elemental2.dom.Event;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.icons.lib.Icons;
-import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.tree.text.TextStyle;
 
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -50,6 +42,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonPatternFormat extends S
     private SpreadsheetViewportToolbarComponentItemButtonPatternFormat(final HistoryTokenContext context) {
         super(
                 SpreadsheetViewportToolbarComponent.formatPattern(),
+                SpreadsheetIcons.parsePattern(),
                 "Format pattern(s)",
                 context
         );

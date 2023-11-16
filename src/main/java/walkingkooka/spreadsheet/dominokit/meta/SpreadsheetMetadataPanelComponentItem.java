@@ -27,11 +27,11 @@ import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.dominokit.component.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
@@ -237,7 +237,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                 self ->
                         self.appendChild(
                                 PostfixAddOn.of(
-                                        Icons.close_circle()
+                                        SpreadsheetIcons.close()
                                                 .clickable()
                                                 .addClickListener((e) -> self.clear())
                                 )
@@ -284,7 +284,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                 self ->
                         self.appendChild(
                                 PostfixAddOn.of(
-                                        Icons.close_circle()
+                                        SpreadsheetIcons.close()
                                                 .clickable()
                                                 .addClickListener((e) -> self.clear())
                                 )

@@ -41,7 +41,6 @@ import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.DominoElement;
@@ -58,6 +57,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.component.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.component.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -443,25 +443,25 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             menu.subMenu("Alignment")
                     .item(
                             "Left",
-                            Icons.format_align_left(),
+                            SpreadsheetIcons.alignLeft(),
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.LEFT)
                     ).item(
                             "Center",
-                            Icons.format_align_center(),
+                            SpreadsheetIcons.alignCenter(),
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.CENTER)
                     ).item(
                             "Right",
-                            Icons.format_align_right(),
+                            SpreadsheetIcons.alignRight(),
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.RIGHT)
                     ).item(
                             "Justify",
-                            Icons.format_align_justify(),
+                            SpreadsheetIcons.alignJustify(),
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.JUSTIFY)
@@ -676,7 +676,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private HTMLElement horizontalScrollbarLeft() {
         return scrollbarArrow(
                 "h-scrollbar-left",
-                Icons.arrow_left(),
+                SpreadsheetIcons.arrowLeft(),
                 "right: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 8) + "px; bottom: -10px;",
                 () -> SpreadsheetViewportNavigation.leftPixel(this.viewportTableCellsWidth() - 1)
         );
@@ -685,7 +685,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private HTMLElement verticalScrollbarUp() {
         return scrollbarArrow(
                 "v-scrollbar-up",
-                Icons.arrow_up(),
+                SpreadsheetIcons.arrowUp(),
                 "bottom: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 3) + "px; right: -16px;",
                 () -> SpreadsheetViewportNavigation.upPixel(this.viewportTableCellsHeight() - 1)
         );
@@ -694,7 +694,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private HTMLElement horizontalScrollbarRight() {
         return scrollbarArrow(
                 "h-scrollbar-right",
-                Icons.arrow_right(),
+                SpreadsheetIcons.arrowUp(),
                 "right: " + (SCROLLBAR_LENGTH - 8) + "px; bottom: -10px;",
                 () -> SpreadsheetViewportNavigation.rightPixel(this.viewportTableCellsWidth() - 1)
         );
@@ -703,7 +703,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private HTMLElement verticalScrollbarDown() {
         return scrollbarArrow(
                 "v-scrollbar-down",
-                Icons.arrow_down(),
+                SpreadsheetIcons.arrowDown(),
                 "bottom: " + (SCROLLBAR_LENGTH - 3) + "px; right: -16px;",
                 () -> SpreadsheetViewportNavigation.downPixel(this.viewportTableCellsHeight() - 1)
         );

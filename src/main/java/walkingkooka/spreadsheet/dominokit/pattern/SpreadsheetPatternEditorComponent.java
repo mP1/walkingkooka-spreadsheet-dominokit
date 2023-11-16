@@ -34,7 +34,6 @@ import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.dialogs.DialogType;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
@@ -45,6 +44,7 @@ import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.dominokit.component.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -125,7 +125,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
         return NavBar.create() //
                 .appendChild(
                         PostfixAddOn.of(
-                                Icons.close()
+                                SpreadsheetIcons.close()
                                         .clickable()
                                         .addClickListener(this::onDialogClose)
                         )
@@ -602,8 +602,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
         textBox.apply(
                 self -> self.appendChild(
                         PostfixAddOn.of(
-                                Icons.close_circle()
-                                        .clickable()
+                                SpreadsheetIcons.close().clickable()
                                         .addClickListener(event -> this.setPatternText(""))
                         )
                 )
