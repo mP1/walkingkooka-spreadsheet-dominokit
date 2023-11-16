@@ -17,10 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.component;
 
+import org.dominokit.domino.ui.icons.Icon;
+import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
 import org.dominokit.domino.ui.utils.DominoElement;
+import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -28,6 +31,8 @@ import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
+
+import static org.dominokit.domino.ui.style.SpacingCss.dui_font_size_5;
 
 /**
  * Abstraction for building a context menu.
@@ -86,18 +91,67 @@ public class SpreadsheetContextMenu {
     }
 
     public SpreadsheetContextMenu item(final String text,
+                                       final Icon icon,
+                                       final HistoryToken historyToken) {
+        return this.item(
+                text,
+                Optional.of(icon),
+                historyToken
+        );
+    }
+
+    public SpreadsheetContextMenu item(final String text,
+                                       final Optional<Icon> icon,
+                                       final HistoryToken historyToken) {
+        return this.item(
+                text,
+                icon,
+                Optional.of(historyToken)
+        );
+    }
+
+    public SpreadsheetContextMenu item(final String text,
+                                       final Optional<HistoryToken> historyToken) {
+        return this.item(
+                text,
+                Optional.empty(), // no icon
+                historyToken
+        );
+    }
+
+    public SpreadsheetContextMenu item(final String text,
+                                       final Icon icon,
+                                       final Optional<HistoryToken> historyToken) {
+        return this.item(
+                text,
+                Optional.of(icon),
+                historyToken
+        );
+    }
+
+    public SpreadsheetContextMenu item(final String text,
+                                       final Optional<Icon> icon,
                                        final Optional<HistoryToken> historyToken) {
         checkText(text);
         Objects.requireNonNull(historyToken, "historyToken");
 
         this.addSeparatorIfNecessary();
 
-        this.menu.appendChild(
-                this.context.menuItem(
-                        text,
-                        historyToken
-                )
+        AbstractMenuItem<Void> menuItem = this.context.menuItem(
+                text,
+                historyToken
         );
+        if (icon.isPresent()) {
+            menuItem = menuItem.appendChild(
+                    PrefixAddOn.of(
+                            icon.get()
+                                    .addCss(dui_font_size_5)
+                    )
+            );
+        }
+
+        this.menu.appendChild(menuItem);
+
         return this;
     }
 
