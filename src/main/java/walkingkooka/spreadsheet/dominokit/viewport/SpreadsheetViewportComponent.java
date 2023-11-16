@@ -445,22 +445,22 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                             "Left",
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
-                            ).setSave(save(TextAlign.LEFT))
+                            ).setSave(TextAlign.LEFT)
                     ).item(
                             "Center",
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
-                            ).setSave(save(TextAlign.CENTER))
+                            ).setSave(TextAlign.CENTER)
                     ).item(
                             "Right",
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
-                            ).setSave(save(TextAlign.RIGHT))
+                            ).setSave(TextAlign.RIGHT)
                     ).item(
                             "Justify",
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
-                            ).setSave(save(TextAlign.JUSTIFY))
+                            ).setSave(TextAlign.JUSTIFY)
                     );
 
             menu.item(
@@ -1624,13 +1624,5 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         }
 
         return Optional.ofNullable(selection);
-    }
-
-    // HistoryToken helpers.............................................................................................
-
-    private static String save(final Object value) {
-        return null == value ?
-                "" :
-                value.toString();
     }
 }

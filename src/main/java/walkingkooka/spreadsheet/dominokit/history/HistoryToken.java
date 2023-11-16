@@ -1191,6 +1191,17 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Overload that accepts a value with {@link walkingkooka.text.HasText} such as {@link SpreadsheetPattern}.
+     */
+    public final HistoryToken setSave(final Enum<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this.setSave(
+                value.name()
+        );
+    }
+
+    /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
     public final HistoryToken setStyle(final TextStylePropertyName<?> propertyName) {
