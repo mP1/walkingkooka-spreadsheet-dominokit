@@ -71,7 +71,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
         for (final int value : Lists.of(0, 32, 64, 128)) {
             final Anchor anchor = token
-                    .setSave(String.valueOf(value))
+                    .setSave(value)
                     .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value)
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
@@ -123,9 +123,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
             anchor.setHistoryToken(
                     Optional.of(
-                            token.setSave(
-                                    String.valueOf(value)
-                            )
+                            token.setSave(value)
                     )
             );
             anchor.setDisabled(
