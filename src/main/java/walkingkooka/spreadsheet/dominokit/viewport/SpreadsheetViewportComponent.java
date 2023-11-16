@@ -466,7 +466,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             menu.item(
                     "Clear style",
                     historyToken.setStyle(TextStylePropertyName.ALL)
-                            .setSave("")
+                            .clearSave()
             ).separator();
 
             final Locale locale = context.spreadsheetMetadata()

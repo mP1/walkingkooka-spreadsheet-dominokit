@@ -167,7 +167,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     final Anchor defaultValueAnchor() {
         final SpreadsheetMetadataPanelComponentContext context = this.context;
         return context.historyToken()
-                .setSave("")
+                .clearSave()
                 .link(SpreadsheetMetadataPanelComponent.id(this.propertyName) + "-default")
                 .setTabIndex(0)
                 .addPushHistoryToken(context)
@@ -186,7 +186,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                 Optional.of(
                         context.historyToken()
                                 .setMetadataPropertyName(propertyName)
-                                .setSave("")
+                                .clearSave()
                 )
         );
 

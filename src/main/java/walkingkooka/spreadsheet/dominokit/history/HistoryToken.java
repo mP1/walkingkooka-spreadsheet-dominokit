@@ -1159,6 +1159,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Saves an empty {@link String} which is equivalent to deleting the property.
+     */
+    public final HistoryToken clearSave() {
+        return this.setSave("");
+    }
+
+    /**
      * if possible creates a save, otherwise returns this.
      */
     public final HistoryToken setSave(final String text) {

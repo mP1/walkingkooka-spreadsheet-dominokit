@@ -71,7 +71,7 @@ abstract class SpreadsheetViewportToolbarComponentItemButtonPattern<T extends Sp
                                 Optional.of(
                                         this.spreadsheetPatternKind()
                                 )
-                        ).setSave("")
+                        ).clearSave()
                 ).ifPresent(context::pushHistoryToken);
     }
 
