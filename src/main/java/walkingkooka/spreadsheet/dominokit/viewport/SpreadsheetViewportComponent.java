@@ -439,25 +439,29 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     context
             );
 
-            // TODO add icons, TODO add tick if already selected
+            // TODO add tick if already selected
             menu.subMenu("Alignment")
                     .item(
                             "Left",
+                            Icons.format_align_left(),
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.LEFT)
                     ).item(
                             "Center",
+                            Icons.format_align_center(),
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.CENTER)
                     ).item(
                             "Right",
+                            Icons.format_align_right(),
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.RIGHT)
                     ).item(
                             "Justify",
+                            Icons.format_align_justify(),
                             historyToken.setStyle(
                                     TextStylePropertyName.TEXT_ALIGN
                             ).setSave(TextAlign.JUSTIFY)
