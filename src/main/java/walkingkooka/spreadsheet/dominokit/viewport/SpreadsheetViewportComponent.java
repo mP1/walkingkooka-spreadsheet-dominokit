@@ -448,26 +448,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             renderContextMenuStyle(historyToken, menu);
 
-            menu.subMenu("Vertical Alignment")
-                    .item(
-                            "Top",
-                            SpreadsheetIcons.verticalAlignTop(),
-                            historyToken.setStyle(
-                                    TextStylePropertyName.VERTICAL_ALIGN
-                            ).setSave(VerticalAlign.TOP)
-                    ).item(
-                            "Middle",
-                            SpreadsheetIcons.verticalAlignMiddle(),
-                            historyToken.setStyle(
-                                    TextStylePropertyName.VERTICAL_ALIGN
-                            ).setSave(VerticalAlign.MIDDLE)
-                    ).item(
-                            "Bottom",
-                            SpreadsheetIcons.verticalAlignBottom(),
-                            historyToken.setStyle(
-                                    TextStylePropertyName.VERTICAL_ALIGN
-                            ).setSave(VerticalAlign.BOTTOM)
-                    );
+            renderContextMenuVerticalAlignment(historyToken, menu);
 
             menu.item(
                     "Clear style",
@@ -578,6 +559,30 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                         historyToken.setStyle(
                                 TextStylePropertyName.TEXT_ALIGN
                         ).setSave(TextAlign.JUSTIFY)
+                );
+    }
+
+    private static void renderContextMenuVerticalAlignment(final HistoryToken historyToken,
+                                                           final SpreadsheetContextMenu menu) {
+        menu.subMenu("Vertical Alignment")
+                .item(
+                        "Top",
+                        SpreadsheetIcons.verticalAlignTop(),
+                        historyToken.setStyle(
+                                TextStylePropertyName.VERTICAL_ALIGN
+                        ).setSave(VerticalAlign.TOP)
+                ).item(
+                        "Middle",
+                        SpreadsheetIcons.verticalAlignMiddle(),
+                        historyToken.setStyle(
+                                TextStylePropertyName.VERTICAL_ALIGN
+                        ).setSave(VerticalAlign.MIDDLE)
+                ).item(
+                        "Bottom",
+                        SpreadsheetIcons.verticalAlignBottom(),
+                        historyToken.setStyle(
+                                TextStylePropertyName.VERTICAL_ALIGN
+                        ).setSave(VerticalAlign.BOTTOM)
                 );
     }
 
