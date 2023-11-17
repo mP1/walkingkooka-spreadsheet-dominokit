@@ -578,26 +578,30 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 menu.separator();
             }
 
-            // INSERT ROWS
-            if (selection.isRowReference() | selection.isRowReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
-                final HistoryToken rowHistoryToken = historyToken.setRow(
-                        selection.toRowOrRowRange()
-                );
-                this.insertSubMenu(
-                        menu.subMenu("Insert before row"),
-                        rowHistoryToken::setInsertBefore
-                );
-                this.insertSubMenu(
-                        menu.subMenu("Insert after row"),
-                        rowHistoryToken::setInsertAfter
-                );
-                menu.separator();
-            }
-
+            renderContextMenuInsertRows(historyToken, selection, menu);
             renderContextMenuFreezeUnfreeze(historyToken, menu);
 
 
             menu.focus();
+        }
+    }
+
+    private void renderContextMenuInsertRows(final HistoryToken historyToken,
+                                             final SpreadsheetSelection selection,
+                                             final SpreadsheetContextMenu menu) {
+        if (selection.isRowReference() | selection.isRowReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
+            final HistoryToken rowHistoryToken = historyToken.setRow(
+                    selection.toRowOrRowRange()
+            );
+            this.insertSubMenu(
+                    menu.subMenu("Insert before row"),
+                    rowHistoryToken::setInsertBefore
+            );
+            this.insertSubMenu(
+                    menu.subMenu("Insert after row"),
+                    rowHistoryToken::setInsertAfter
+            );
+            menu.separator();
         }
     }
 
