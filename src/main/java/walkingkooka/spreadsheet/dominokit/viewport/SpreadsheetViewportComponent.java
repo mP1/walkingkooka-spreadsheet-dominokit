@@ -445,29 +445,24 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             // TODO add tick if already selected
             renderContextMenuAlignment(historyToken, menu);
-
             renderContextMenuStyle(historyToken, menu);
-
             renderContextMenuVerticalAlignment(historyToken, menu);
-
             renderContextMenuClearStyle(historyToken, menu);
 
             menu.separator();
+            {
+                final Locale locale = context.spreadsheetMetadata()
+                        .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
 
-            final Locale locale = context.spreadsheetMetadata()
-                    .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
-
-            renderContextMenuFormat(historyToken, locale, menu);
-
-            renderContextMenuParse(historyToken, locale, menu);
-
+                renderContextMenuFormat(historyToken, locale, menu);
+                renderContextMenuParse(historyToken, locale, menu);
+            }
             menu.separator();
 
             renderContextMenuClearDelete(historyToken, menu);
             renderContextMenuInsertColumns(historyToken, selection, menu);
             renderContextMenuInsertRows(historyToken, selection, menu);
             renderContextMenuFreezeUnfreeze(historyToken, menu);
-
 
             menu.focus();
         }
@@ -487,7 +482,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
     }
 
-    private static void renderContextMenuFormat(AnchoredSpreadsheetSelectionHistoryToken historyToken, Locale locale, SpreadsheetContextMenu menu) {
+    private static void renderContextMenuFormat(final HistoryToken historyToken,
+                                                final Locale locale,
+                                                final SpreadsheetContextMenu menu) {
         SpreadsheetViewportComponentPatternMenuFormat.with(
                 historyToken,
                 locale
@@ -499,7 +496,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
     }
 
-    private static void renderContextMenuClearStyle(AnchoredSpreadsheetSelectionHistoryToken historyToken, SpreadsheetContextMenu menu) {
+    private static void renderContextMenuClearStyle(final HistoryToken historyToken,
+                                                    final SpreadsheetContextMenu menu) {
         menu.item(
                 "Clear style",
                 SpreadsheetIcons.clearStyle(),
@@ -604,7 +602,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 );
     }
 
-    private void renderContextMenuInsertColumns(AnchoredSpreadsheetSelectionHistoryToken historyToken, SpreadsheetSelection selection, SpreadsheetContextMenu menu) {
+    private void renderContextMenuInsertColumns(final HistoryToken historyToken,
+                                                final SpreadsheetSelection selection,
+                                                final SpreadsheetContextMenu menu) {
         if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
             final HistoryToken columnHistoryToken = historyToken.setColumn(
                     selection.toColumnOrColumnRange()
