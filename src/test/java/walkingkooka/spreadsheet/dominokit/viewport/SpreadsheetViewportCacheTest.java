@@ -970,6 +970,69 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    // labelMappings....................................................................................................
+
+    @Test
+    public void testOnSpreadsheetDeltaLabelMappings() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkLabelMappings(
+                cache,
+                LABEL_MAPPINGA1A,
+                LABEL_MAPPINGA1B,
+                LABEL_MAPPINGB3
+        );
+    }
+
+    @Test
+    public void testOnSpreadsheetDeltaLabelMappingsReplaces() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkLabelMappings(
+                cache,
+                LABEL_MAPPINGA1A
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkLabelMappings(
+                cache,
+                LABEL_MAPPINGA1B,
+                LABEL_MAPPINGB3
+        );
+    }
+
     // rowHeight......................................................................................................
 
     @Test
@@ -1786,6 +1849,23 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 expected,
                 cache.columnWidth(column),
                 () -> "columnWidth of " + column + " from " + cache
+        );
+    }
+
+    private void checkLabelMappings(final SpreadsheetViewportCache cache,
+                                    final SpreadsheetLabelMapping... mappings) {
+        this.checkLabelMappings(
+                cache,
+                Sets.of(mappings)
+        );
+    }
+
+    private void checkLabelMappings(final SpreadsheetViewportCache cache,
+                                    final Set<SpreadsheetLabelMapping> mappings) {
+        this.checkEquals(
+                mappings,
+                cache.labelMappings(),
+                () -> "cache: " + cache
         );
     }
 
