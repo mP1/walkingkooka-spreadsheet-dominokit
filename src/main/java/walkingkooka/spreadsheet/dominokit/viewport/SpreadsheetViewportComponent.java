@@ -594,16 +594,24 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 menu.separator();
             }
 
-            menu.item(
-                    "Freeze",
-                    historyToken.freezeOrEmpty()
-            ).item(
-                    "Unfreeze",
-                    historyToken.unfreezeOrEmpty()
-            );
+            renderContextMenuFreezeUnfreeze(historyToken, menu);
+
 
             menu.focus();
         }
+    }
+
+    private static void renderContextMenuFreezeUnfreeze(final HistoryToken historyToken,
+                                                        final SpreadsheetContextMenu menu) {
+        menu.item(
+                "Freeze",
+                historyToken.freezeOrEmpty()
+        ).item(
+                "Unfreeze",
+                historyToken.unfreezeOrEmpty()
+        );
+
+        menu.separator();
     }
 
     private void insertSubMenu(final SpreadsheetContextMenu menu,
