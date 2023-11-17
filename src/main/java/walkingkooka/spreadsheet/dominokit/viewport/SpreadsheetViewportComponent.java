@@ -450,12 +450,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             renderContextMenuVerticalAlignment(historyToken, menu);
 
-            menu.item(
-                    "Clear style",
-                    SpreadsheetIcons.clearStyle(),
-                    historyToken.setStyle(TextStylePropertyName.ALL)
-                            .clearSave()
-            );
+            renderContextMenuClearStyle(historyToken, menu);
 
             menu.separator();
 
@@ -492,6 +487,15 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             menu.focus();
         }
+    }
+
+    private static void renderContextMenuClearStyle(AnchoredSpreadsheetSelectionHistoryToken historyToken, SpreadsheetContextMenu menu) {
+        menu.item(
+                "Clear style",
+                SpreadsheetIcons.clearStyle(),
+                historyToken.setStyle(TextStylePropertyName.ALL)
+                        .clearSave()
+        );
     }
 
     private static void renderContextMenuClearDelete(final HistoryToken historyToken,
