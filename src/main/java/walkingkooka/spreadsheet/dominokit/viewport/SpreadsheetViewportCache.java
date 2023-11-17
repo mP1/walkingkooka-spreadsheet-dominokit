@@ -224,6 +224,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     private Set<SpreadsheetLabelMapping> labelMappings = Sets.empty();
 
+    /**
+     * Returns all the {@link SpreadsheetLabelName} for the given {@link SpreadsheetCell}.
+     */
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
         return this.cellToLabels.getOrDefault(
                 cell,
