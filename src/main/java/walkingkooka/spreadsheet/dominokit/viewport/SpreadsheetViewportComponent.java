@@ -444,32 +444,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             );
 
             // TODO add tick if already selected
-            menu.subMenu("Alignment")
-                    .item(
-                            "Left",
-                            SpreadsheetIcons.alignLeft(),
-                            historyToken.setStyle(
-                                    TextStylePropertyName.TEXT_ALIGN
-                            ).setSave(TextAlign.LEFT)
-                    ).item(
-                            "Center",
-                            SpreadsheetIcons.alignCenter(),
-                            historyToken.setStyle(
-                                    TextStylePropertyName.TEXT_ALIGN
-                            ).setSave(TextAlign.CENTER)
-                    ).item(
-                            "Right",
-                            SpreadsheetIcons.alignRight(),
-                            historyToken.setStyle(
-                                    TextStylePropertyName.TEXT_ALIGN
-                            ).setSave(TextAlign.RIGHT)
-                    ).item(
-                            "Justify",
-                            SpreadsheetIcons.alignJustify(),
-                            historyToken.setStyle(
-                                    TextStylePropertyName.TEXT_ALIGN
-                            ).setSave(TextAlign.JUSTIFY)
-                    );
+            renderContextMenuAlignment(historyToken, menu);
 
             menu.item(
                     "Bold",
@@ -569,6 +544,36 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             menu.focus();
         }
+    }
+
+    private static void renderContextMenuAlignment(final HistoryToken historyToken,
+                                                   final SpreadsheetContextMenu menu) {
+        menu.subMenu("Alignment")
+                .item(
+                        "Left",
+                        SpreadsheetIcons.alignLeft(),
+                        historyToken.setStyle(
+                                TextStylePropertyName.TEXT_ALIGN
+                        ).setSave(TextAlign.LEFT)
+                ).item(
+                        "Center",
+                        SpreadsheetIcons.alignCenter(),
+                        historyToken.setStyle(
+                                TextStylePropertyName.TEXT_ALIGN
+                        ).setSave(TextAlign.CENTER)
+                ).item(
+                        "Right",
+                        SpreadsheetIcons.alignRight(),
+                        historyToken.setStyle(
+                                TextStylePropertyName.TEXT_ALIGN
+                        ).setSave(TextAlign.RIGHT)
+                ).item(
+                        "Justify",
+                        SpreadsheetIcons.alignJustify(),
+                        historyToken.setStyle(
+                                TextStylePropertyName.TEXT_ALIGN
+                        ).setSave(TextAlign.JUSTIFY)
+                );
     }
 
     private void renderContextMenuInsertColumns(AnchoredSpreadsheetSelectionHistoryToken historyToken, SpreadsheetSelection selection, SpreadsheetContextMenu menu) {
