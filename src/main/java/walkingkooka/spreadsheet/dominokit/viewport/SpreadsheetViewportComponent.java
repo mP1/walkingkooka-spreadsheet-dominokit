@@ -459,15 +459,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             renderContextMenuFormat(historyToken, locale, menu);
 
-            SpreadsheetViewportComponentPatternMenuParse.with(
-                    historyToken,
-                    locale
-            ).build(
-                    menu.subMenu(
-                            "Parse",
-                            SpreadsheetIcons.parsePattern()
-                    )
-            );
+            renderContextMenuParse(historyToken, locale, menu);
 
             menu.separator();
 
@@ -479,6 +471,20 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             menu.focus();
         }
+    }
+
+    private static void renderContextMenuParse(final HistoryToken historyToken,
+                                               final Locale locale,
+                                               final SpreadsheetContextMenu menu) {
+        SpreadsheetViewportComponentPatternMenuParse.with(
+                historyToken,
+                locale
+        ).build(
+                menu.subMenu(
+                        "Parse",
+                        SpreadsheetIcons.parsePattern()
+                )
+        );
     }
 
     private static void renderContextMenuFormat(AnchoredSpreadsheetSelectionHistoryToken historyToken, Locale locale, SpreadsheetContextMenu menu) {
