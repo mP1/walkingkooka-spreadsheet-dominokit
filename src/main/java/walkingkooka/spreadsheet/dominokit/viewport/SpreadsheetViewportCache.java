@@ -74,6 +74,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public void clear() {
         this.cells.clear();
 
+        this.labelMappings.clear();
         this.cellToLabels.clear();
         this.labelToNonLabel.clear();
 
@@ -173,6 +174,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             );
         }
 
+        this.labelMappings = delta.labels();
+
         SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
                 delta.labels(),
                 cellToLabels,
@@ -211,6 +214,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         }
         return width;
     }
+
+    /**
+     * Returns all {@link SpreadsheetLabelMapping} within the active window.
+     */
+    public Set<SpreadsheetLabelMapping> labelMappings() {
+        return this.labelMappings;
+    }
+
+    private Set<SpreadsheetLabelMapping> labelMappings = Sets.empty();
 
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
         return this.cellToLabels.getOrDefault(
@@ -334,16 +346,17 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         if (windows.isEmpty()) {
             if (false == this.windows.equals(windows)) {
                 // no window clear caches
-                cells.clear();
+                this.cells.clear();
 
-                cellToLabels.clear();
-                labelToNonLabel.clear();
+                this.labelMappings.clear();
+                this.cellToLabels.clear();
+                this.labelToNonLabel.clear();
 
-                columns.clear();
-                rows.clear();
+                this.columns.clear();
+                this.rows.clear();
 
-                columnWidths.clear();
-                rowHeights.clear();
+                this.columnWidths.clear();
+                this.rowHeights.clear();
             }
         }
 
@@ -369,6 +382,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 .value(this.columns)
                 .value(this.columnWidths)
                 .value(this.cellToLabels)
+                .value(this.labelMappings)
                 .value(this.rows)
                 .value(this.rowHeights)
                 .value(this.windows)
