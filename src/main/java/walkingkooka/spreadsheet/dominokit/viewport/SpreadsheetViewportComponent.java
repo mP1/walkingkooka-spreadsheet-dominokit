@@ -484,14 +484,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             menu.separator();
 
-            menu.item(
-                    "Clear",
-                    historyToken.setClear()
-            ).item(
-                    "Delete",
-                    historyToken.setDelete()
-            ).separator();
-
+            renderContextMenuClearDelete(historyToken, menu);
             renderContextMenuInsertColumns(historyToken, selection, menu);
             renderContextMenuInsertRows(historyToken, selection, menu);
             renderContextMenuFreezeUnfreeze(historyToken, menu);
@@ -499,6 +492,17 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             menu.focus();
         }
+    }
+
+    private static void renderContextMenuClearDelete(final HistoryToken historyToken,
+                                                     final SpreadsheetContextMenu menu) {
+        menu.item(
+                "Clear",
+                historyToken.setClear()
+        ).item(
+                "Delete",
+                historyToken.setDelete()
+        ).separator();
     }
 
     private static void renderContextMenuStyle(final HistoryToken historyToken,
