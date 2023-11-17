@@ -1737,6 +1737,148 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    // labelMappings...................................................................................................
+
+    @Test
+    public void testLabelMappingsEmpty() {
+        this.labelMappingsAndCheck(
+                SpreadsheetViewportCache.empty(),
+                SpreadsheetSelection.A1
+        );
+    }
+
+    @Test
+    public void testLabelMappingsOutside() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                LABEL_MAPPINGA1A
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.labelMappingsAndCheck(
+                cache,
+                SpreadsheetSelection.parseCell("Z99")
+        );
+    }
+
+    @Test
+    public void testLabelMappingsCell() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                LABEL_MAPPINGA1A,
+                                LABEL_MAPPINGA1B
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.labelMappingsAndCheck(
+                cache,
+                SpreadsheetSelection.A1,
+                LABEL_MAPPINGA1A,
+                LABEL_MAPPINGA1B
+        );
+    }
+
+    @Test
+    public void testLabelMappingsCellRange() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                LABEL_MAPPINGA1A,
+                                LABEL_MAPPINGA1B,
+                                LABEL_MAPPINGB3
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.labelMappingsAndCheck(
+                cache,
+                SpreadsheetSelection.parseCellRange("A1:B2"),
+                LABEL_MAPPINGA1A,
+                LABEL_MAPPINGA1B
+        );
+    }
+
+    @Test
+    public void testLabelMappingsCellRange2() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                LABEL_MAPPINGB3
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.labelMappingsAndCheck(
+                cache,
+                SpreadsheetSelection.parseCellRange("B2:C4"),
+                LABEL_MAPPINGB3
+        );
+    }
+
+    @Test
+    public void testLabelMappingsLabel() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        final SpreadsheetLabelMapping labelToLabel = LABEL999.mapping(
+                LABEL_MAPPINGA1A.label()
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                LABEL_MAPPINGA1A,
+                                LABEL_MAPPINGA1B,
+                                labelToLabel
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.labelMappingsAndCheck(
+                cache,
+                LABEL999,
+                LABEL_MAPPINGA1A,
+                LABEL_MAPPINGA1B,
+                labelToLabel
+        );
+    }
+
+    private void labelMappingsAndCheck(final SpreadsheetViewportCache cache,
+                                       final SpreadsheetSelection selection,
+                                       final SpreadsheetLabelMapping... mappings) {
+        this.labelMappingsAndCheck(
+                cache,
+                selection,
+                Sets.of(mappings)
+        );
+    }
+
+    private void labelMappingsAndCheck(final SpreadsheetViewportCache cache,
+                                       final SpreadsheetSelection selection,
+                                       final Set<SpreadsheetLabelMapping> mappings) {
+        this.checkEquals(
+                mappings,
+                cache.labelMappings(selection),
+                () -> cache + " labelMappings " + selection
+        );
+    }
+
     private void checkCells(final SpreadsheetViewportCache cache,
                             final SpreadsheetCell... expected) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> expectedMaps = Maps.ordered();

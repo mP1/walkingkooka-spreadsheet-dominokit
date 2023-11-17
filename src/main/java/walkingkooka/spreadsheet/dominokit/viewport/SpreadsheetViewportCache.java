@@ -45,6 +45,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * A cache of the cells and labels for a viewport. This is mostly used during the rendering phase to provide content
@@ -224,14 +225,34 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     private Set<SpreadsheetLabelMapping> labelMappings = Sets.empty();
 
-    /**
-     * Returns all the {@link SpreadsheetLabelName} for the given {@link SpreadsheetCell}.
-     */
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
         return this.cellToLabels.getOrDefault(
                 cell,
                 Sets.empty()
         );
+    }
+
+    /**
+     * Returns all {@link SpreadsheetLabelMapping} for the given {@link SpreadsheetSelection}.
+     * <br>
+     * This will be useful for creating a context menu item holding all the labels for current selection.
+     */
+    public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
+        return this.nonLabelSelection(selection)
+                .map(this::labelMappings0)
+                .orElse(Sets.empty());
+    }
+
+    private Set<SpreadsheetLabelMapping> labelMappings0(final SpreadsheetSelection selection) {
+        return this.labelMappings()
+                .stream()
+                .filter(
+                        m -> this.nonLabelSelection(
+                                        m.reference()
+                                ).map(s -> s.test(selection))
+                                .orElse(false)
+                )
+                .collect(Collectors.toCollection(Sets::sorted));
     }
 
     /**
