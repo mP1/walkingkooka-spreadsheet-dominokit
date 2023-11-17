@@ -446,33 +446,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             // TODO add tick if already selected
             renderContextMenuAlignment(historyToken, menu);
 
-            menu.item(
-                    "Bold",
-                    SpreadsheetIcons.bold(),
-                    historyToken.setStyle(TextStylePropertyName.FONT_WEIGHT)
-                            .setSave(FontWeight.BOLD)
-            );
-
-            menu.item(
-                    "Italics",
-                    SpreadsheetIcons.italics(),
-                    historyToken.setStyle(TextStylePropertyName.FONT_STYLE)
-                            .setSave(FontStyle.ITALIC)
-            );
-
-            menu.item(
-                    "Strike-thru",
-                    SpreadsheetIcons.strikethrough(),
-                    historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
-                            .setSave(TextDecorationLine.LINE_THROUGH)
-            );
-
-            menu.item(
-                    "Underline",
-                    SpreadsheetIcons.underline(),
-                    historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
-                            .setSave(TextDecorationLine.UNDERLINE)
-            );
+            renderContextMenuStyle(historyToken, menu);
 
             menu.subMenu("Vertical Alignment")
                     .item(
@@ -544,6 +518,37 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             menu.focus();
         }
+    }
+
+    private static void renderContextMenuStyle(final HistoryToken historyToken,
+                                               final SpreadsheetContextMenu menu) {
+        menu.item(
+                "Bold",
+                SpreadsheetIcons.bold(),
+                historyToken.setStyle(TextStylePropertyName.FONT_WEIGHT)
+                        .setSave(FontWeight.BOLD)
+        );
+
+        menu.item(
+                "Italics",
+                SpreadsheetIcons.italics(),
+                historyToken.setStyle(TextStylePropertyName.FONT_STYLE)
+                        .setSave(FontStyle.ITALIC)
+        );
+
+        menu.item(
+                "Strike-thru",
+                SpreadsheetIcons.strikethrough(),
+                historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
+                        .setSave(TextDecorationLine.LINE_THROUGH)
+        );
+
+        menu.item(
+                "Underline",
+                SpreadsheetIcons.underline(),
+                historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
+                        .setSave(TextDecorationLine.UNDERLINE)
+        );
     }
 
     private static void renderContextMenuAlignment(final HistoryToken historyToken,
