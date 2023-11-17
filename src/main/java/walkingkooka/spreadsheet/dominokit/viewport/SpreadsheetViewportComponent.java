@@ -562,27 +562,29 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                     historyToken.setDelete()
             ).separator();
 
-            // INSERT COLUMN
-            if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
-                final HistoryToken columnHistoryToken = historyToken.setColumn(
-                        selection.toColumnOrColumnRange()
-                );
-                this.insertSubMenu(
-                        menu.subMenu("Insert before column"),
-                        columnHistoryToken::setInsertBefore
-                );
-                this.insertSubMenu(
-                        menu.subMenu("Insert after column"),
-                        columnHistoryToken::setInsertAfter
-                );
-                menu.separator();
-            }
-
+            renderContextMenuInsertColumns(historyToken, selection, menu);
             renderContextMenuInsertRows(historyToken, selection, menu);
             renderContextMenuFreezeUnfreeze(historyToken, menu);
 
 
             menu.focus();
+        }
+    }
+
+    private void renderContextMenuInsertColumns(AnchoredSpreadsheetSelectionHistoryToken historyToken, SpreadsheetSelection selection, SpreadsheetContextMenu menu) {
+        if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
+            final HistoryToken columnHistoryToken = historyToken.setColumn(
+                    selection.toColumnOrColumnRange()
+            );
+            this.insertSubMenu(
+                    menu.subMenu("Insert before column"),
+                    columnHistoryToken::setInsertBefore
+            );
+            this.insertSubMenu(
+                    menu.subMenu("Insert after column"),
+                    columnHistoryToken::setInsertAfter
+            );
+            menu.separator();
         }
     }
 
