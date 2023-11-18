@@ -82,6 +82,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
@@ -464,6 +465,9 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             renderContextMenuInsertRows(historyToken, selection, menu);
             renderContextMenuFreezeUnfreeze(historyToken, menu);
 
+            menu.separator();
+            renderContextMenuLabel(historyToken, selection, menu, context);
+
             menu.focus();
         }
     }
@@ -651,6 +655,30 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
 
         menu.separator();
+    }
+
+    private static void renderContextMenuLabel(final HistoryToken historyToken,
+                                               final SpreadsheetSelection selection,
+                                               final SpreadsheetContextMenu menu,
+                                               final AppContext context) {
+        SpreadsheetContextMenu sub = menu.subMenu("Labels");
+
+        // create items for each label
+        for (final SpreadsheetLabelMapping mapping : context.viewportCache().labelMappings(selection)) {
+            final SpreadsheetLabelName label = mapping.label();
+
+            sub = sub.item(
+                    label + " (" + mapping.reference() + ")",
+                    historyToken.setLabelName(
+                            Optional.of(label)
+                    )
+            );
+        }
+
+        sub.item(
+                "Create...",
+                historyToken.setLabelName(Optional.empty())
+        );
     }
 
     private void insertSubMenu(final SpreadsheetContextMenu menu,
