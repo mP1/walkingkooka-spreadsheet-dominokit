@@ -877,7 +877,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private HTMLElement horizontalScrollbarRight() {
         return scrollbarArrow(
                 "h-scrollbar-right",
-                SpreadsheetIcons.arrowUp(),
+                SpreadsheetIcons.arrowRight(),
                 "right: " + (SCROLLBAR_LENGTH - 8) + "px; bottom: -10px;",
                 () -> SpreadsheetViewportNavigation.rightPixel(this.viewportTableCellsWidth() - 1)
         );
