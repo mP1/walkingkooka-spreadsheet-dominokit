@@ -75,6 +75,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_italic();
     }
 
+    public static MdiIcon palette() {
+        return Icons.palette();
+    }
+
     public static MdiIcon parsePattern() {
         return Icons.format_text();
     }
