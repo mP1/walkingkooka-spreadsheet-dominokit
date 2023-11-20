@@ -430,6 +430,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
 
             // ALIGNMENT
+            // BACKGROUND COLOR
             // CLEAR STYLE
             // ----
             // FORMAT
@@ -448,6 +449,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             // TODO add tick if already selected
             renderContextMenuAlignment(historyToken, menu);
             renderContextMenuColor(historyToken, menu, context);
+            renderContextMenuBackgroundColor(historyToken, menu, context);
             renderContextMenuStyle(historyToken, menu);
             renderContextMenuVerticalAlignment(historyToken, menu);
             renderContextMenuClearStyle(historyToken, menu);
@@ -508,6 +510,20 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         final SpreadsheetContextMenu sub = menu.subMenu("Color");
 
         final HistoryToken saveColor = historyToken.setStyle(TextStylePropertyName.COLOR);
+        final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(saveColor);
+        colors.refreshAll(
+                saveColor,
+                context.spreadsheetMetadata()
+        );
+        sub.item(colors);
+    }
+
+    private static void renderContextMenuBackgroundColor(final HistoryToken historyToken,
+                                                         final SpreadsheetContextMenu menu,
+                                                         final AppContext context) {
+        final SpreadsheetContextMenu sub = menu.subMenu("Background color");
+
+        final HistoryToken saveColor = historyToken.setStyle(TextStylePropertyName.BACKGROUND_COLOR);
         final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(saveColor);
         colors.refreshAll(
                 saveColor,
