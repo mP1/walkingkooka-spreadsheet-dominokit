@@ -430,7 +430,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
 
             // ALIGNMENT
+            // COLOR
             // BACKGROUND COLOR
+            // BOLD
+            // ITALICS
+            // STRIKE THRU
+            // UNDERLINE
+            // VERTICAL ALIGNMENT
             // CLEAR STYLE
             // ----
             // FORMAT
@@ -441,6 +447,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             // -------
             // FREEZE
             // UNFREEZE
+            // -------
+            // LABELS
             final SpreadsheetContextMenu menu = SpreadsheetContextMenu.empty(
                     element,
                     context
