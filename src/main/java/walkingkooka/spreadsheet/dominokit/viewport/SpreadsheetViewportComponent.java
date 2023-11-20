@@ -515,7 +515,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private static void renderContextMenuColor(final HistoryToken historyToken,
                                                final SpreadsheetContextMenu menu,
                                                final AppContext context) {
-        final SpreadsheetContextMenu sub = menu.subMenu("Color");
+        final SpreadsheetContextMenu sub = menu.subMenu(
+                "Color",
+                SpreadsheetIcons.palette()
+        );
 
         final HistoryToken saveColor = historyToken.setStyle(TextStylePropertyName.COLOR);
         final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(saveColor);
@@ -529,7 +532,10 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private static void renderContextMenuBackgroundColor(final HistoryToken historyToken,
                                                          final SpreadsheetContextMenu menu,
                                                          final AppContext context) {
-        final SpreadsheetContextMenu sub = menu.subMenu("Background color");
+        final SpreadsheetContextMenu sub = menu.subMenu(
+                "Background color",
+                SpreadsheetIcons.palette()
+        );
 
         final HistoryToken saveColor = historyToken.setStyle(TextStylePropertyName.BACKGROUND_COLOR);
         final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(saveColor);
