@@ -515,34 +515,39 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private static void renderContextMenuColor(final HistoryToken historyToken,
                                                final SpreadsheetContextMenu menu,
                                                final AppContext context) {
-        final SpreadsheetContextMenu sub = menu.subMenu(
+        renderContextMenuColorItem(
                 "Color",
-                SpreadsheetIcons.palette()
+                historyToken.setStyle(TextStylePropertyName.COLOR),
+                menu,
+                context
         );
-
-        final HistoryToken saveColor = historyToken.setStyle(TextStylePropertyName.COLOR);
-        final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(saveColor);
-        colors.refreshAll(
-                saveColor,
-                context.spreadsheetMetadata()
-        );
-        sub.item(colors);
     }
 
     private static void renderContextMenuBackgroundColor(final HistoryToken historyToken,
                                                          final SpreadsheetContextMenu menu,
                                                          final AppContext context) {
-        final SpreadsheetContextMenu sub = menu.subMenu(
+        renderContextMenuColorItem(
                 "Background color",
+                historyToken.setStyle(TextStylePropertyName.BACKGROUND_COLOR),
+                menu,
+                context
+        );
+    }
+
+    private static void renderContextMenuColorItem(final String text,
+                                                   final HistoryToken historyToken,
+                                                   final SpreadsheetContextMenu menu,
+                                                   final AppContext context) {
+        final SpreadsheetContextMenu sub = menu.subMenu(
+                text,
                 SpreadsheetIcons.palette()
         );
 
-        final HistoryToken saveColor = historyToken.setStyle(TextStylePropertyName.BACKGROUND_COLOR);
-        final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(saveColor);
+        final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(historyToken);
         colors.element().className = "dui dui-menu-item";
 
         colors.refreshAll(
-                saveColor,
+                historyToken,
                 context.spreadsheetMetadata()
         );
         sub.item(colors);
