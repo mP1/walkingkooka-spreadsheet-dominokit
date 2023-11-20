@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.component;
 
+import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
@@ -184,6 +185,20 @@ public class SpreadsheetContextMenu {
 
         this.menu.appendChild(menuItem);
 
+        return this;
+    }
+
+    /**
+     * Adds a {@link IsElement} which is responsible for providing the content of the menu item.
+     */
+    public SpreadsheetContextMenu item(final IsElement<?> component) {
+        Objects.requireNonNull(component, "component");
+
+        this.addSeparatorIfNecessary();
+
+        this.menu.appendChild(
+                component.element()
+        );
         return this;
     }
 
