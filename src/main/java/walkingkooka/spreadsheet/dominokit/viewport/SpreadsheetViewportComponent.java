@@ -533,6 +533,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         final HistoryToken saveColor = historyToken.setStyle(TextStylePropertyName.BACKGROUND_COLOR);
         final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(saveColor);
+        colors.element().className = "dui dui-menu-item";
+
         colors.refreshAll(
                 saveColor,
                 context.spreadsheetMetadata()

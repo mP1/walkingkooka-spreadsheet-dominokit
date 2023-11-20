@@ -37,8 +37,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-import static org.dominokit.domino.ui.style.SpacingCss.dui_font_size_5;
-
 /**
  * A component that creates a grid and fills each cell with the current color value taken from {@link SpreadsheetMetadata}.
  * If a {@link SpreadsheetColorName} exists that will be used otherwise a name is formed by combining the "color-" and the color number.
@@ -77,7 +75,6 @@ public final class SpreadsheetColorPickerComponent implements SpreadsheetMetadat
             for(int x = 0; x < COLUMNS; x++) {
                 final TDElement td = ElementsFactory.elements.td();
                 td.style("width: 64px; height: 32px; border-color: black; border-width: 2px; border-style: solid; text-align: center;");
-                td.addCss(dui_font_size_5);
                 tr.appendChild(td);
 
                 final Anchor anchor = Anchor.empty();
