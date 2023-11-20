@@ -26,25 +26,17 @@ public class SpreadsheetIcons {
         return Icons.format_align_left();
     }
 
-    ;
-
     public final static MdiIcon alignCenter() {
         return Icons.format_align_center();
     }
-
-    ;
 
     public final static MdiIcon alignRight() {
         return Icons.format_align_right();
     }
 
-    ;
-
     public final static MdiIcon alignJustify() {
         return Icons.format_align_justify();
     }
-
-    ;
 
     public final static MdiIcon arrowLeft() {
         return Icons.arrow_left();
@@ -54,43 +46,29 @@ public class SpreadsheetIcons {
         return Icons.arrow_right();
     }
 
-    ;
-
     public final static MdiIcon arrowUp() {
         return Icons.arrow_up();
     }
-
-    ;
 
     public final static MdiIcon arrowDown() {
         return Icons.arrow_down();
     }
 
-    ;
-
     public final static MdiIcon bold() {
         return Icons.format_bold();
     }
-
-    ;
 
     public final static MdiIcon clearStyle() {
         return Icons.format_clear();
     }
 
-    ;
-
     public final static MdiIcon close() {
         return Icons.close_circle();
     }
 
-    ;
-
     public final static MdiIcon formatPattern() {
         return Icons.format_text();
     }
-
-    ;
 
     public final static MdiIcon italics() {
         return Icons.format_italic();
