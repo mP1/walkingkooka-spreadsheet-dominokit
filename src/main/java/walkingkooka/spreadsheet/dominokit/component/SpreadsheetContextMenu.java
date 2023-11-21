@@ -228,7 +228,16 @@ public class SpreadsheetContextMenu {
      */
     public SpreadsheetContextMenu focus() {
         this.menu.open(true);
+        this.context.addHistoryTokenWatcherOnce(
+                (final HistoryToken previous,
+                 final AppContext context) ->
+                        SpreadsheetContextMenu.this.close()
+        );
         return this;
+    }
+
+    public void close() {
+        this.menu.close();
     }
 
     private final Menu<Void> menu;
