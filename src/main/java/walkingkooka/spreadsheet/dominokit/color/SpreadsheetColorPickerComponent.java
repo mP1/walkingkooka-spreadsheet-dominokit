@@ -90,6 +90,23 @@ public final class SpreadsheetColorPickerComponent implements SpreadsheetMetadat
             }
         }
 
+        // add a row with a single cell with a link CLEAR
+        final TableRowElement tr = ElementsFactory.elements.tr();
+        tbody.appendChild(tr);
+
+        final TDElement td = ElementsFactory.elements.td();
+        td.setAttribute("colspan", COLUMNS);
+        td.style("width: 100%; height: 32px; text-align: center;");
+        tr.appendChild(td);
+
+        final Anchor anchor = Anchor.empty();
+        anchor.setId(ID + "-color-clear-link");
+        anchor.setTextContent("Clear");
+        this.clearAnchor = anchor;
+
+        td.appendChild(anchor);
+
+
         final TableElement tableElement = ElementsFactory.elements.table();
         tableElement.setId(ID);
         tableElement.appendChild(tbody);
@@ -132,6 +149,12 @@ public final class SpreadsheetColorPickerComponent implements SpreadsheetMetadat
                 );
             }
         }
+
+        this.clearAnchor.setHistoryToken(
+                Optional.of(
+                        token.clearSave()
+                )
+        );
     }
 
     // IsElement.......................................................................................................
@@ -146,6 +169,8 @@ public final class SpreadsheetColorPickerComponent implements SpreadsheetMetadat
     private final TDElement[] cells;
 
     private final Anchor[] anchors;
+
+    private final Anchor clearAnchor;
 
     // SpreadsheetMetadataWatcher.......................................................................................
 
