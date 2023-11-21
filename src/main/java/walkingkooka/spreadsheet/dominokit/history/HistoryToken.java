@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -1397,7 +1398,7 @@ public abstract class HistoryToken implements HasUrlFragment {
      */
     public final Anchor link(final String id) {
         return Anchor.empty()
-                .setId(id + "-link")
+                .setId(id + SpreadsheetIds.LINK)
                 .setHistoryToken(
                         Optional.of(this)
                 );

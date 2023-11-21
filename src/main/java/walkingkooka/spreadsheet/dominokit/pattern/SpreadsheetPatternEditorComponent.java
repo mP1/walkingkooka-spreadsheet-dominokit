@@ -45,6 +45,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.dominokit.component.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -788,7 +789,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                           final EventListener listener) {
         final Button button = new Button(text);
 
-        button.id(ID_PREFIX + text.toLowerCase() + "-Button");
+        button.id(ID_PREFIX + text.toLowerCase() + SpreadsheetIds.BUTTON);
         button.addCss("dui-" + type.getStyle());
         button.elevate(Elevation.LEVEL_1);
 

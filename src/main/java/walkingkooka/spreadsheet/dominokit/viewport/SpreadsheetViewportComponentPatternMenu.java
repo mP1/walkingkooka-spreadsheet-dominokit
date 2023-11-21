@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.component.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -115,7 +116,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.datePattern(style);
 
         menu.item(
-                this.idPrefix() + "date-" + id + "-Menu",
+                this.idPrefix() + "date-" + id + SpreadsheetIds.MENU_ITEM,
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
@@ -164,7 +165,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.datePattern(style);
 
         menu.item(
-                this.idPrefix() + "datetime-" + id + "-Menu",
+                this.idPrefix() + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
@@ -245,7 +246,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
                                 final SpreadsheetPattern pattern,
                                 final SpreadsheetContextMenu menu) {
         menu.item(
-                this.idPrefix() + "number-" + id + "-Menu",
+                this.idPrefix() + "number-" + id + SpreadsheetIds.MENU_ITEM,
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
@@ -253,7 +254,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     private void text(final SpreadsheetContextMenu menu) {
         menu.item(
-                this.idPrefix() + "text-default-Menu",
+                this.idPrefix() + "text-default" + SpreadsheetIds.MENU_ITEM,
                 "Default " + SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN,
                 this.historyToken.setPattern(
                         SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
@@ -304,7 +305,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.timePattern(style);
 
         menu.item(
-                this.idPrefix() + "time-" + id + "-Menu",
+                this.idPrefix() + "time-" + id + SpreadsheetIds.MENU_ITEM,
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
@@ -317,7 +318,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
     private void edit(final SpreadsheetContextMenu menu,
                       final SpreadsheetPatternKind kind) {
         menu.item(
-                this.idPrefix() + "edit-Menu",
+                this.idPrefix() + "edit" + SpreadsheetIds.MENU_ITEM,
                 "Edit...",
                 this.historyToken.setPatternKind(
                         Optional.of(kind)

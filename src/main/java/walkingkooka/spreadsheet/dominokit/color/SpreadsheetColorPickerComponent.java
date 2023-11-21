@@ -26,6 +26,7 @@ import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
@@ -78,7 +79,7 @@ public final class SpreadsheetColorPickerComponent implements SpreadsheetMetadat
                 tr.appendChild(td);
 
                 final Anchor anchor = Anchor.empty();
-                anchor.setId(ID + "-color-" + (i+1) + "-link");
+                anchor.setId(ID + "-color-" + (i + 1) + SpreadsheetIds.LINK);
 
                 td.appendChild(anchor);
 
@@ -100,7 +101,7 @@ public final class SpreadsheetColorPickerComponent implements SpreadsheetMetadat
         tr.appendChild(td);
 
         final Anchor anchor = Anchor.empty();
-        anchor.setId(ID + "-color-clear-link");
+        anchor.setId(ID + "-color-clear" + SpreadsheetIds.LINK);
         anchor.setTextContent("Clear");
         this.clearAnchor = anchor;
 
