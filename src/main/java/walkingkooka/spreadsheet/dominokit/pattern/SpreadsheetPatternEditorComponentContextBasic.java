@@ -81,6 +81,11 @@ abstract class SpreadsheetPatternEditorComponentContextBasic implements Spreadsh
     }
 
     @Override
+    public final Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+        return this.context.addHistoryTokenWatcherOnce(watcher);
+    }
+
+    @Override
     public final HistoryToken historyToken() {
         return this.context.historyToken();
     }

@@ -29,6 +29,13 @@ public interface HistoryTokenContext extends Context {
      */
     Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher);
 
+
+    /**
+     * Adds a new {@link HistoryTokenWatcher} the returned {@link Runnable} may be invoked to remove the watcher,
+     * and will also be removed on the next {@link HistoryToken} event.
+     */
+    Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher);
+
     /**
      * Returns the current history token.
      */

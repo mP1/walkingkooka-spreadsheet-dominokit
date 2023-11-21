@@ -70,6 +70,11 @@ final class BasicSpreadsheetMetadataPanelComponentContext implements Spreadsheet
     }
 
     @Override
+    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+        return this.context.addHistoryTokenWatcherOnce(watcher);
+    }
+
+    @Override
     public HistoryToken historyToken() {
         return this.context.historyToken();
     }
