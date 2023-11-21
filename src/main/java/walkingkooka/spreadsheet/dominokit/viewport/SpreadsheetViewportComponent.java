@@ -58,6 +58,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.color.SpreadsheetColorPickerComponent;
 import walkingkooka.spreadsheet.dominokit.component.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.component.SpreadsheetContextMenu;
@@ -544,7 +545,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                                    final SpreadsheetContextMenu menu,
                                                    final AppContext context) {
         final SpreadsheetContextMenu sub = menu.subMenu(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + id + "-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + id + SpreadsheetIds.MENU_ITEM,
                 text,
                 SpreadsheetIcons.palette()
         );
@@ -562,7 +563,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private static void renderContextMenuClearStyle(final HistoryToken historyToken,
                                                     final SpreadsheetContextMenu menu) {
         menu.item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "clear-style-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "clear-style" + SpreadsheetIds.MENU_ITEM,
                 "Clear style",
                 SpreadsheetIcons.clearStyle(),
                 historyToken.setStyle(TextStylePropertyName.ALL)
@@ -573,11 +574,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private static void renderContextMenuClearDelete(final HistoryToken historyToken,
                                                      final SpreadsheetContextMenu menu) {
         menu.item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "clear-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "clear" + SpreadsheetIds.MENU_ITEM,
                 "Clear",
                 historyToken.setClear()
         ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "delete-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "delete" + SpreadsheetIds.MENU_ITEM,
                 "Delete",
                 historyToken.setDelete()
         ).separator();
@@ -586,7 +587,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private static void renderContextMenuStyle(final HistoryToken historyToken,
                                                final SpreadsheetContextMenu menu) {
         menu.item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "bold-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "bold" + SpreadsheetIds.MENU_ITEM,
                 "Bold",
                 SpreadsheetIcons.bold(),
                 historyToken.setStyle(TextStylePropertyName.FONT_WEIGHT)
@@ -594,7 +595,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
 
         menu.item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "italics-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "italics" + SpreadsheetIds.MENU_ITEM,
                 "Italics",
                 SpreadsheetIcons.italics(),
                 historyToken.setStyle(TextStylePropertyName.FONT_STYLE)
@@ -602,7 +603,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
 
         menu.item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "strike-thru-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "strike-thru" + SpreadsheetIds.MENU_ITEM,
                 "Strike-thru",
                 SpreadsheetIcons.strikethrough(),
                 historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
@@ -610,7 +611,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         );
 
         menu.item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "underline-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "underline" + SpreadsheetIds.MENU_ITEM,
                 "Underline",
                 SpreadsheetIcons.underline(),
                 historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
@@ -624,28 +625,28 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 VIEWPORT_CONTEXT_MENU_ID_PREFIX + "alignment",
                 "Alignment"
         ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "left-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "left" + SpreadsheetIds.MENU_ITEM,
                         "Left",
                         SpreadsheetIcons.alignLeft(),
                         historyToken.setStyle(
                                 TextStylePropertyName.TEXT_ALIGN
                         ).setSave(TextAlign.LEFT)
                 ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "center-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "center" + SpreadsheetIds.MENU_ITEM,
                         "Center",
                         SpreadsheetIcons.alignCenter(),
                         historyToken.setStyle(
                                 TextStylePropertyName.TEXT_ALIGN
                         ).setSave(TextAlign.CENTER)
                 ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "right-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "right" + SpreadsheetIds.MENU_ITEM,
                         "Right",
                         SpreadsheetIcons.alignRight(),
                         historyToken.setStyle(
                                 TextStylePropertyName.TEXT_ALIGN
                         ).setSave(TextAlign.RIGHT)
                 ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "justify-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "justify" + SpreadsheetIds.MENU_ITEM,
                         "Justify",
                         SpreadsheetIcons.alignJustify(),
                         historyToken.setStyle(
@@ -660,21 +661,21 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 VIEWPORT_CONTEXT_MENU_ID_PREFIX + "vertical-alignment",
                 "Vertical Alignment"
         ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "top-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "top" + SpreadsheetIds.MENU_ITEM,
                         "Top",
                         SpreadsheetIcons.verticalAlignTop(),
                         historyToken.setStyle(
                                 TextStylePropertyName.VERTICAL_ALIGN
                         ).setSave(VerticalAlign.TOP)
                 ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "middle-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "middle" + SpreadsheetIds.MENU_ITEM,
                         "Middle",
                         SpreadsheetIcons.verticalAlignMiddle(),
                         historyToken.setStyle(
                                 TextStylePropertyName.VERTICAL_ALIGN
                         ).setSave(VerticalAlign.MIDDLE)
                 ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "bottom-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "bottom" + SpreadsheetIds.MENU_ITEM,
                         "Bottom",
                         SpreadsheetIcons.verticalAlignBottom(),
                         historyToken.setStyle(
@@ -740,11 +741,11 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     private static void renderContextMenuFreezeUnfreeze(final HistoryToken historyToken,
                                                         final SpreadsheetContextMenu menu) {
         menu.item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "freeze-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "freeze" + SpreadsheetIds.MENU_ITEM,
                 "Freeze",
                 historyToken.freezeOrEmpty()
         ).item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "unfreeze-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "unfreeze" + SpreadsheetIds.MENU_ITEM,
                 "Unfreeze",
                 historyToken.unfreezeOrEmpty()
         );
@@ -757,7 +758,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                                final SpreadsheetContextMenu menu,
                                                final AppContext context) {
         SpreadsheetContextMenu sub = menu.subMenu(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "label-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "label" + SpreadsheetIds.MENU_ITEM,
                 "Labels"
         );
 
@@ -768,7 +769,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
             final SpreadsheetLabelName label = mapping.label();
 
             sub = sub.item(
-                    VIEWPORT_CONTEXT_MENU_ID_PREFIX + "label-" + i + "-Menu",
+                    VIEWPORT_CONTEXT_MENU_ID_PREFIX + "label-" + i + SpreadsheetIds.MENU_ITEM,
                     label + " (" + mapping.reference() + ")",
                     historyToken.setLabelName(
                             Optional.of(label)
@@ -779,7 +780,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         }
 
         sub.item(
-                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "label-create-Menu",
+                VIEWPORT_CONTEXT_MENU_ID_PREFIX + "label-create" + SpreadsheetIds.MENU_ITEM,
                 "Create...",
                 historyToken.setLabelName(Optional.empty())
         );
@@ -790,7 +791,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                final Function<Integer, HistoryToken> setCount) {
         for (int i = 1; i <= 3; i++) {
             menu.item(
-                    idPrefix + "-" + i + "-Menu",
+                    idPrefix + "-" + i + SpreadsheetIds.MENU_ITEM,
                     String.valueOf(i),
                     setCount.apply(i)
             );

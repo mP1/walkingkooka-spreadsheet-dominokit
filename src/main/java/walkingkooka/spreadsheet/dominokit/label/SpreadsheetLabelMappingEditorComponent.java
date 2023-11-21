@@ -31,6 +31,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.component.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
@@ -330,7 +331,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
                           final EventListener listener) {
         final Button button = new Button(text);
 
-        button.id(ID_PREFIX + text.toLowerCase() + "-Button");
+        button.id(ID_PREFIX + text.toLowerCase() + SpreadsheetIds.BUTTON);
         button.addCss("dui-" + type.getStyle());
         button.elevate(Elevation.LEVEL_1);
 
