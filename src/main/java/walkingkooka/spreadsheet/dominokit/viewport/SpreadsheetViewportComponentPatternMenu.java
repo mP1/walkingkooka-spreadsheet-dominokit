@@ -43,42 +43,61 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     void build(final SpreadsheetContextMenu menu) {
         this.date(
-                menu.subMenu("Date")
+                menu.subMenu(
+                        this.idPrefix() + "date",
+                        "Date"
+                )
         );
         this.dateTime(
-                menu.subMenu("Date Time")
+                menu.subMenu(
+                        this.idPrefix() + "datetime",
+                        "Date Time"
+                )
         );
         this.number(
-                menu.subMenu("Number")
+                menu.subMenu(
+                        this.idPrefix() + "number",
+                        "Number"
+                )
         );
 
         if (this.isFormat()) {
             this.text(
-                    menu.subMenu("Text")
+                    menu.subMenu(
+                            this.idPrefix() + "text",
+                            "Text"
+                    )
             );
         }
         this.time(
-                menu.subMenu("Time")
+                menu.subMenu(
+                        this.idPrefix() + "time",
+                        "Time"
+                )
         );
     }
 
     private void date(final SpreadsheetContextMenu menu) {
         this.dateMenuItem(
+                "short",
                 "Short",
                 DateFormat.SHORT,
                 menu
         );
         this.dateMenuItem(
+                "medium",
                 "Medium",
                 DateFormat.MEDIUM,
                 menu
         );
         this.dateMenuItem(
+                "long",
                 "Long",
                 DateFormat.LONG,
                 menu
         );
         this.dateMenuItem(
+                "full",
                 "Full",
                 DateFormat.FULL,
                 menu
@@ -89,12 +108,14 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         );
     }
 
-    private void dateMenuItem(final String label,
+    private void dateMenuItem(final String id,
+                              final String label,
                               final int style,
                               final SpreadsheetContextMenu menu) {
         final P pattern = this.datePattern(style);
 
         menu.item(
+                this.idPrefix() + "date-" + id + "-Menu",
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
@@ -107,21 +128,25 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     private void dateTime(final SpreadsheetContextMenu menu) {
         this.dateTimeMenuItem(
+                "short",
                 "Short",
                 DateFormat.SHORT,
                 menu
         );
         this.dateTimeMenuItem(
+                "medium",
                 "Medium",
                 DateFormat.MEDIUM,
                 menu
         );
         this.dateTimeMenuItem(
+                "long",
                 "Long",
                 DateFormat.LONG,
                 menu
         );
         this.dateTimeMenuItem(
+                "full",
                 "Full",
                 DateFormat.FULL,
                 menu
@@ -132,12 +157,14 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         );
     }
 
-    private void dateTimeMenuItem(final String label,
+    private void dateTimeMenuItem(final String id,
+                                  final String label,
                                   final int style,
                                   final SpreadsheetContextMenu menu) {
         final P pattern = this.datePattern(style);
 
         menu.item(
+                this.idPrefix() + "datetime-" + id + "-Menu",
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
@@ -154,21 +181,25 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
             );
         }
         this.numberMenuItem(
+                "number",
                 "Number",
                 DecimalFormat::getInstance,
                 menu
         );
         this.numberMenuItem(
+                "integer",
                 "Integer",
                 DecimalFormat::getIntegerInstance,
                 menu
         );
         this.numberMenuItem(
+                "percent",
                 "Percent",
                 DecimalFormat::getPercentInstance,
                 menu
         );
         this.numberMenuItem(
+                "currency",
                 "Currency",
                 DecimalFormat::getCurrencyInstance,
                 menu
@@ -183,6 +214,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     private void numberMenuItemGeneral(final SpreadsheetContextMenu menu) {
         this.numberMenuItem(
+                "general",
                 "General",
                 SpreadsheetPattern.numberFormatPattern(
                         GENERAL.toFormat()
@@ -194,10 +226,12 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     abstract SpreadsheetPatternKind editNumberPatternKind();
 
-    private void numberMenuItem(final String label,
+    private void numberMenuItem(final String id,
+                                final String label,
                                 final Function<Locale, NumberFormat> decimalFormat,
                                 final SpreadsheetContextMenu menu) {
         this.numberMenuItem(
+                id,
                 label,
                 this.numberPattern(decimalFormat),
                 menu
@@ -206,10 +240,12 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     abstract P numberPattern(final Function<Locale, NumberFormat> decimalFormat);
 
-    private void numberMenuItem(final String label,
+    private void numberMenuItem(final String id,
+                                final String label,
                                 final SpreadsheetPattern pattern,
                                 final SpreadsheetContextMenu menu) {
         menu.item(
+                this.idPrefix() + "number-" + id + "-Menu",
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
@@ -217,6 +253,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     private void text(final SpreadsheetContextMenu menu) {
         menu.item(
+                this.idPrefix() + "text-default-Menu",
                 "Default " + SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN,
                 this.historyToken.setPattern(
                         SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
@@ -231,21 +268,25 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     private void time(final SpreadsheetContextMenu menu) {
         this.timeMenuItem(
+                "short",
                 "Short",
                 DateFormat.SHORT,
                 menu
         );
         this.timeMenuItem(
+                "medium",
                 "Medium",
                 DateFormat.MEDIUM,
                 menu
         );
         this.timeMenuItem(
+                "long",
                 "Long",
                 DateFormat.LONG,
                 menu
         );
         this.timeMenuItem(
+                "full",
                 "Full",
                 DateFormat.FULL,
                 menu
@@ -256,12 +297,14 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         );
     }
 
-    private void timeMenuItem(final String label,
+    private void timeMenuItem(final String id,
+                              final String label,
                               final int style,
                               final SpreadsheetContextMenu menu) {
         final P pattern = this.timePattern(style);
 
         menu.item(
+                this.idPrefix() + "time-" + id + "-Menu",
                 label + " " + pattern,
                 this.historyToken.setPattern(pattern)
         );
@@ -274,6 +317,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
     private void edit(final SpreadsheetContextMenu menu,
                       final SpreadsheetPatternKind kind) {
         menu.item(
+                this.idPrefix() + "edit-Menu",
                 "Edit...",
                 this.historyToken.setPatternKind(
                         Optional.of(kind)
@@ -282,6 +326,15 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
     }
 
     abstract boolean isFormat();
+
+    private String idPrefix() {
+        return this.isFormat() ?
+                FORMAT_ID :
+                PARSE_ID;
+    }
+
+    private final static String FORMAT_ID = SpreadsheetViewportComponent.VIEWPORT_CONTEXT_MENU_ID_PREFIX + "-format-";
+    private final static String PARSE_ID = SpreadsheetViewportComponent.VIEWPORT_CONTEXT_MENU_ID_PREFIX + "-parse-";
 
     final HistoryToken historyToken;
     final Locale locale;

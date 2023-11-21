@@ -67,8 +67,10 @@ public class SpreadsheetContextMenu {
     /**
      * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
      */
-    public SpreadsheetContextMenu subMenu(final String text) {
+    public SpreadsheetContextMenu subMenu(final String id,
+                                          final String text) {
         return this.subMenu(
+                id,
                 text,
                 Optional.empty()
         );
@@ -77,9 +79,11 @@ public class SpreadsheetContextMenu {
     /**
      * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
      */
-    public SpreadsheetContextMenu subMenu(final String text,
+    public SpreadsheetContextMenu subMenu(final String id,
+                                          final String text,
                                           final MdiIcon icon) {
         return this.subMenu(
+                id,
                 text,
                 Optional.of(icon)
         );
@@ -88,15 +92,18 @@ public class SpreadsheetContextMenu {
     /**
      * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
      */
-    public SpreadsheetContextMenu subMenu(final String text,
+    public SpreadsheetContextMenu subMenu(final String id,
+                                          final String text,
                                           final Optional<MdiIcon> icon) {
+        CharSequences.failIfNullOrEmpty(id, "id");
         checkText(text);
 
         this.addSeparatorIfNecessary();
 
         final Menu<Void> subMenu = Menu.create();
 
-        AbstractMenuItem<Void> menuItem = MenuItem.<Void>create(text);
+        AbstractMenuItem<Void> menuItem = MenuItem.<Void>create(text)
+                .setId(id);
         if (icon.isPresent()) {
             menuItem = menuItem.appendChild(
                     PrefixAddOn.of(
@@ -115,62 +122,75 @@ public class SpreadsheetContextMenu {
         );
     }
 
-    public SpreadsheetContextMenu item(final String text,
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
                                        final HistoryToken historyToken) {
         return this.item(
+                id,
                 text,
                 Optional.of(historyToken)
         );
     }
 
-    public SpreadsheetContextMenu item(final String text,
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
                                        final Icon icon,
                                        final HistoryToken historyToken) {
         return this.item(
+                id,
                 text,
                 Optional.of(icon),
                 historyToken
         );
     }
 
-    public SpreadsheetContextMenu item(final String text,
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
                                        final Optional<Icon> icon,
                                        final HistoryToken historyToken) {
         return this.item(
+                id,
                 text,
                 icon,
                 Optional.of(historyToken)
         );
     }
 
-    public SpreadsheetContextMenu item(final String text,
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
                                        final Optional<HistoryToken> historyToken) {
         return this.item(
+                id,
                 text,
                 Optional.empty(), // no icon
                 historyToken
         );
     }
 
-    public SpreadsheetContextMenu item(final String text,
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
                                        final Icon icon,
                                        final Optional<HistoryToken> historyToken) {
         return this.item(
+                id,
                 text,
                 Optional.of(icon),
                 historyToken
         );
     }
 
-    public SpreadsheetContextMenu item(final String text,
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
                                        final Optional<Icon> icon,
                                        final Optional<HistoryToken> historyToken) {
+        CharSequences.failIfNullOrEmpty(id, "id");
         checkText(text);
         Objects.requireNonNull(historyToken, "historyToken");
 
         this.addSeparatorIfNecessary();
 
         AbstractMenuItem<Void> menuItem = this.context.menuItem(
+                id,
                 text,
                 historyToken
         );

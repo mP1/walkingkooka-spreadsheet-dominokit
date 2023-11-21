@@ -129,11 +129,13 @@ public interface AppContext extends CanGiveFocus,
      * Creates an ANCHOR with the given text and if a {@link HistoryToken} is passed, it will be pushed that if this
      * menu item clicked or selected with ENTER.
      */
-    default AbstractMenuItem<Void> menuItem(final String text,
+    default AbstractMenuItem<Void> menuItem(final String id,
+                                            final String text,
                                             final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
         final Anchor anchor = Anchor.empty()
+                .setId(id)
                 .setHistoryToken(historyToken)
                 .setTextContent(text);
 
