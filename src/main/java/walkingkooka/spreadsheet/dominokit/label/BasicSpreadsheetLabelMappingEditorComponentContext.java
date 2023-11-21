@@ -66,6 +66,11 @@ final class BasicSpreadsheetLabelMappingEditorComponentContext implements Spread
     }
 
     @Override
+    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+        return this.context.addHistoryTokenWatcherOnce(watcher);
+    }
+
+    @Override
     public SpreadsheetLabelMappingHistoryToken historyToken() {
         return this.context.historyToken()
                 .cast(SpreadsheetLabelMappingHistoryToken.class);

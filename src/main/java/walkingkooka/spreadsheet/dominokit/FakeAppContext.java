@@ -109,6 +109,11 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
+    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public HistoryToken historyToken() {
         throw new UnsupportedOperationException();
     }

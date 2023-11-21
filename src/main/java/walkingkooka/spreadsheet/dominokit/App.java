@@ -532,6 +532,11 @@ public class App implements EntryPoint,
         return this.historyWatchers.add(watcher);
     }
 
+    @Override
+    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+        return this.historyWatchers.addOnce(watcher);
+    }
+
     private final HistoryTokenWatchers historyWatchers;
 
     @Override
