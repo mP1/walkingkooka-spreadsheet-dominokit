@@ -273,7 +273,8 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                             tab.getTab()
                                     .element()
                                     .firstElementChild
-            );
+            ).setId(spreadsheetPatternKindId(possible));
+
             final boolean match = kind.equals(possible);
             anchor.setDisabled(match);
 
@@ -310,6 +311,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                                 "pattern-text",
                                 TextAlign.CENTER,
                                 d -> this.patternAnchor(
+                                        d.label(),
                                         d.pattern()
                                                 .map(SpreadsheetPattern::text)
                                                 .orElse("")
@@ -356,7 +358,8 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
      * Creates an anchor which will appear in the pattern column, which when clicked updates the pattern text box.
      * The history token is not updated.
      */
-    private HTMLAnchorElement patternAnchor(final String patternText) {
+    private HTMLAnchorElement patternAnchor(final String label,
+                                            final String patternText) {
         return Anchor.empty()
                 .setHref(
                         Url.EMPTY_RELATIVE_URL.setFragment(
@@ -365,7 +368,11 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                                         .urlFragment()
                         )
                 ).setTextContent(patternText)
-                .addClickAndKeydownEnterListener(
+                .setId(
+                        ID_PREFIX +
+                                label.toLowerCase() +
+                                SpreadsheetIds.LINK
+                ).addClickAndKeydownEnterListener(
                         e ->
                         {
                             e.preventDefault();
@@ -424,12 +431,18 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
             }
 
             // now build the chips
+            final SpreadsheetPatternKind kind = this.context.patternKind();
             int i = 0;
+
             for (final String componentChipPattern : componentChipPatterns) {
                 final int ii = i;
                 parent.appendChild(
                         Chip.create(componentChipPattern)
-                                .setRemovable(true)
+                                .setId(
+                                        ID_PREFIX +
+                                                i +
+                                                SpreadsheetIds.CHIP
+                                ).setRemovable(true)
                                 .addOnRemoveListener(this.componentChipOnRemove(ii))
                 );
 
@@ -488,7 +501,12 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                 default:
                     for (final String pattern : formatParserTokenKind.patterns()) {
                         final Anchor anchor = Anchor.empty()
-                                .setTextContent(pattern);
+                                .setId(
+                                        ID_PREFIX +
+                                                "append-" +
+                                                pattern +
+                                                SpreadsheetIds.LINK
+                                ).setTextContent(pattern);
                         anchor.addClickAndKeydownEnterListener(
                                 (e) -> {
                                     e.preventDefault();
@@ -597,7 +615,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
     private TextBox patternTextBox() {
         final TextBox textBox = new TextBox();
 
-        textBox.id(ID_PREFIX + "pattern-TextBox");
+        textBox.id(ID_PREFIX + "TextBox");
         textBox.element().spellcheck = false;
         textBox.element().type = "text";
         textBox.apply(

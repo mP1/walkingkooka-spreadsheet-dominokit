@@ -23,6 +23,8 @@ public final class SpreadsheetIds implements PublicStaticHelper {
 
     public final static String BUTTON = "-Button";
 
+    public final static String CHIP = "-Chip";
+
     public final static String LINK = "-Link";
 
     public final static String MENU_ITEM = "-MenuItem";
