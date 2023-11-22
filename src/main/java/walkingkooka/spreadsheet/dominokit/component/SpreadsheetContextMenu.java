@@ -61,8 +61,19 @@ public class SpreadsheetContextMenu {
         );
     }
 
-    public SpreadsheetContextMenu(final Menu<Void> menu,
-                                  final HistoryTokenContext context) {
+    public static SpreadsheetContextMenu menu(final Menu<Void> menu,
+                                              final HistoryTokenContext context) {
+        Objects.requireNonNull(menu, "menu");
+        Objects.requireNonNull(context, "context");
+
+        return new SpreadsheetContextMenu(
+                menu,
+                context
+        );
+    }
+
+    private SpreadsheetContextMenu(final Menu<Void> menu,
+                                   final HistoryTokenContext context) {
         this.menu = menu;
         this.context = context;
     }
