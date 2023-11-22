@@ -31,6 +31,7 @@ import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -44,7 +45,7 @@ import static org.dominokit.domino.ui.style.SpacingCss.dui_font_size_5;
 public class SpreadsheetContextMenu {
 
     public static SpreadsheetContextMenu empty(final DominoElement<?> element,
-                                               final AppContext context) {
+                                               final HistoryTokenContext context) {
         Objects.requireNonNull(element, "element");
         Objects.requireNonNull(context, "context");
 
@@ -61,7 +62,7 @@ public class SpreadsheetContextMenu {
     }
 
     public SpreadsheetContextMenu(final Menu<Void> menu,
-                                  final AppContext context) {
+                                  final HistoryTokenContext context) {
         this.menu = menu;
         this.context = context;
     }
@@ -342,7 +343,7 @@ public class SpreadsheetContextMenu {
 
     private final Menu<Void> menu;
 
-    private final AppContext context;
+    private final HistoryTokenContext context;
 
     @Override
     public String toString() {
