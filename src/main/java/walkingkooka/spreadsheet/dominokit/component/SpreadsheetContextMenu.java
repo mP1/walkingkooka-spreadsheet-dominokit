@@ -179,6 +179,7 @@ public class SpreadsheetContextMenu {
                 id,
                 text,
                 icon,
+                Optional.empty(), // badge
                 Optional.of(historyToken)
         );
     }
@@ -190,6 +191,7 @@ public class SpreadsheetContextMenu {
                 id,
                 text,
                 Optional.empty(), // no icon
+                Optional.empty(), // no badge
                 historyToken
         );
     }
@@ -201,7 +203,49 @@ public class SpreadsheetContextMenu {
         return this.item(
                 id,
                 text,
+                icon,
+                Optional.empty(), // badge
+                historyToken
+        );
+    }
+
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
+                                       final Icon icon,
+                                       final Badge badge,
+                                       final Optional<HistoryToken> historyToken) {
+        return this.item(
+                id,
+                text,
                 Optional.of(icon),
+                Optional.of(badge),
+                historyToken
+        );
+    }
+
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
+                                       final Icon icon,
+                                       final Optional<Badge> badge,
+                                       final Optional<HistoryToken> historyToken) {
+        return this.item(
+                id,
+                text,
+                Optional.of(icon),
+                badge,
+                historyToken
+        );
+    }
+
+    public SpreadsheetContextMenu item(final String id,
+                                       final String text,
+                                       final Badge badge,
+                                       final Optional<HistoryToken> historyToken) {
+        return this.item(
+                id,
+                text,
+                Optional.empty(), // icon
+                Optional.of(badge),
                 historyToken
         );
     }
@@ -209,6 +253,7 @@ public class SpreadsheetContextMenu {
     public SpreadsheetContextMenu item(final String id,
                                        final String text,
                                        final Optional<Icon> icon,
+                                       final Optional<Badge> badge,
                                        final Optional<HistoryToken> historyToken) {
         CharSequences.failIfNullOrEmpty(id, "id");
         checkText(text);
@@ -226,6 +271,14 @@ public class SpreadsheetContextMenu {
                     PrefixAddOn.of(
                             icon.get()
                                     .addCss(dui_font_size_5)
+                    )
+            );
+        }
+
+        if (badge.isPresent()) {
+            menuItem.appendChild(
+                    PostfixAddOn.of(
+                            badge.get()
                     )
             );
         }
