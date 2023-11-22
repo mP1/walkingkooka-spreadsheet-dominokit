@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.component;
 
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
@@ -25,6 +26,7 @@ import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
 import org.dominokit.domino.ui.utils.DominoElement;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -72,7 +74,8 @@ public class SpreadsheetContextMenu {
         return this.subMenu(
                 id,
                 text,
-                Optional.empty()
+                Optional.empty(), // icon
+                Optional.empty() // badge
         );
     }
 
@@ -85,7 +88,8 @@ public class SpreadsheetContextMenu {
         return this.subMenu(
                 id,
                 text,
-                Optional.of(icon)
+                Optional.of(icon),
+                Optional.empty()
         );
     }
 
@@ -94,7 +98,22 @@ public class SpreadsheetContextMenu {
      */
     public SpreadsheetContextMenu subMenu(final String id,
                                           final String text,
-                                          final Optional<MdiIcon> icon) {
+                                          final Badge badge) {
+        return this.subMenu(
+                id,
+                text,
+                Optional.empty(),
+                Optional.of(badge)
+        );
+    }
+
+    /**
+     * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
+     */
+    public SpreadsheetContextMenu subMenu(final String id,
+                                          final String text,
+                                          final Optional<MdiIcon> icon,
+                                          final Optional<Badge> badge) {
         CharSequences.failIfNullOrEmpty(id, "id");
         checkText(text);
 
@@ -109,6 +128,14 @@ public class SpreadsheetContextMenu {
                     PrefixAddOn.of(
                             icon.get()
                                     .addCss(dui_font_size_5)
+                    )
+            );
+        }
+
+        if (badge.isPresent()) {
+            menuItem.appendChild(
+                    PostfixAddOn.of(
+                            badge.get()
                     )
             );
         }
