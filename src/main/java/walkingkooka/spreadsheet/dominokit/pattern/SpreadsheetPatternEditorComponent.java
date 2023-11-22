@@ -35,6 +35,7 @@ import org.dominokit.domino.ui.dialogs.DialogType;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.layout.NavBar;
+import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.tabs.Tab;
@@ -48,6 +49,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.component.Anchor;
 import walkingkooka.spreadsheet.dominokit.component.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.component.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
@@ -65,9 +67,11 @@ import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
@@ -104,7 +108,8 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
         this.patternTextBox = this.patternTextBox();
 
         this.componentParent = Card.create();
-        this.componentChipPatterns = Lists.array();
+        this.componentChipPatternKinds = Lists.array();
+        this.componentChipPatternTexts = Lists.array();
 
         this.appendParent = Card.create();
         this.appendLinks = Lists.array();
@@ -407,44 +412,76 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
     /**
      * This is called anytime the pattern text is changed.
      */
-    private void componentChipsRebuild(
-            final SpreadsheetPattern pattern,
-            final String errorPattern) {
+    private void componentChipsRebuild(final SpreadsheetPattern pattern,
+                                       final String errorPattern) {
         final Card parent = this.componentParent.clearElement();
         final SpreadsheetPatternEditorComponentContext context = this.context;
 
-        final List<String> componentChipPatterns = this.componentChipPatterns;
-        componentChipPatterns.clear();
+        final List<SpreadsheetFormatParserTokenKind> componentChipPatternKinds = this.componentChipPatternKinds;
+        componentChipPatternKinds.clear();
+
+        final List<String> componentChipPatternTexts = this.componentChipPatternTexts;
+        componentChipPatternTexts.clear();
 
         // pattern will be null when pattern is empty
         if (null == pattern) {
             context.debug(this.getClass().getSimpleName() + ".componentChipsRebuild no chips");
         } else {
             pattern.components(
-                    (kind, tokenPatternText) -> componentChipPatterns.add(tokenPatternText)
+                    (kind, tokenPatternText) -> {
+                        componentChipPatternKinds.add(kind);
+                        componentChipPatternTexts.add(tokenPatternText);
+                    }
             );
 
-            context.debug(this.getClass().getSimpleName() + ".componentChipsRebuild " + componentChipPatterns.size() + " chips ", componentChipPatterns);
+            context.debug(this.getClass().getSimpleName() + ".componentChipsRebuild " + componentChipPatternTexts.size() + " chips ", componentChipPatternTexts);
 
             if (false == errorPattern.isEmpty()) {
-                componentChipPatterns.add(errorPattern);
+                componentChipPatternTexts.add(errorPattern);
             }
 
             // now build the chips
-            final SpreadsheetPatternKind kind = this.context.patternKind();
             int i = 0;
 
-            for (final String componentChipPattern : componentChipPatterns) {
-                final int ii = i;
-                parent.appendChild(
-                        Chip.create(componentChipPattern)
-                                .setId(
-                                        ID_PREFIX +
-                                                i +
-                                                SpreadsheetIds.CHIP
-                                ).setRemovable(true)
-                                .addOnRemoveListener(this.componentChipOnRemove(ii))
-                );
+            for (final String componentChipPatternText : componentChipPatternTexts) {
+                final Chip chip = Chip.create(componentChipPatternText)
+                        .setId(
+                                ID_PREFIX +
+                                        i +
+                                        SpreadsheetIds.CHIP
+                        ).setRemovable(true)
+                        .addOnRemoveListener(this.componentChipOnRemove(i));
+
+                final Set<String> alternatives = componentChipPatternKinds.get(i)
+                        .alternatives(componentChipPatternText);
+
+                if (false == alternatives.isEmpty()) {
+                    final HistoryToken historyToken = context.historyToken();
+                    final Menu<Void> menu = Menu.create();
+                    SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.menu(
+                            menu,
+                            context
+                    );
+
+                    final int ii = i;
+                    int j = 0;
+                    for (final String alternative : alternatives) {
+
+                        final String newPattern = IntStream.range(0, componentChipPatternTexts.size())
+                                .mapToObj(k -> ii == k ? alternative : componentChipPatternTexts.get(k))
+                                .collect(Collectors.joining());
+
+                        contextMenu.item(
+                                ID_PREFIX + "alternative-" + j,
+                                alternative,
+                                historyToken.setSave(newPattern)
+                        );
+                        j++;
+                    }
+
+                    chip.setDropMenu(menu);
+                }
+                parent.appendChild(chip);
 
                 i++;
             }
@@ -456,10 +493,10 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
      */
     private Consumer<Chip> componentChipOnRemove(final int index) {
         return (chip) -> {
-            final String removed = this.componentChipPatterns.remove(index);
+            final String removed = this.componentChipPatternTexts.remove(index);
             this.context.debug(this.getClass().getSimpleName() + ".componentChipOnRemove removed " + CharSequences.quoteAndEscape(removed));
             this.setPatternText(
-                    this.componentChipPatterns.stream().collect(Collectors.joining())
+                    this.componentChipPatternTexts.stream().collect(Collectors.joining())
             );
         };
     }
@@ -469,7 +506,9 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
      */
     private final Card componentParent;
 
-    private final List<String> componentChipPatterns;
+    private final List<SpreadsheetFormatParserTokenKind> componentChipPatternKinds;
+
+    private final List<String> componentChipPatternTexts;
 
     // appendLinks......................................................................................................
 
