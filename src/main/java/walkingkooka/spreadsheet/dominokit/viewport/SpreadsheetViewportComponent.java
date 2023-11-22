@@ -32,6 +32,7 @@ import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.elements.TBodyElement;
@@ -110,6 +111,9 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+
+import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
+import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
 
 /**
  * A component that displays a table holding the cells and headers for the columns and rows.
@@ -757,15 +761,23 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                                                final SpreadsheetSelection selection,
                                                final SpreadsheetContextMenu menu,
                                                final AppContext context) {
+        final Set<SpreadsheetLabelMapping> labelMappings = context.viewportCache().labelMappings(selection);
+
         SpreadsheetContextMenu sub = menu.subMenu(
                 VIEWPORT_CONTEXT_MENU_ID_PREFIX + "label" + SpreadsheetIds.MENU_ITEM,
-                "Labels"
+                "Labels",
+                Badge.create(
+                        String.valueOf(labelMappings.size())
+                ).addCss(
+                        dui_bg_orange,
+                        dui_rounded_full
+                )
         );
 
         int i = 0;
 
         // create items for each label
-        for (final SpreadsheetLabelMapping mapping : context.viewportCache().labelMappings(selection)) {
+        for (final SpreadsheetLabelMapping mapping : labelMappings) {
             final SpreadsheetLabelName label = mapping.label();
 
             sub = sub.item(
