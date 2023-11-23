@@ -15,25 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history;
+package walkingkooka.spreadsheet.dominokit.ui;
+
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
- * A {@link CloseableHistoryTokenContext} that contains a basic operations required by an editing dialog ui with basic default implementations.
+ * Abstraction that provides a few methods to open/close or show/hide a ui.
  */
-public interface CrudHistoryTokenContext<T> extends CloseableHistoryTokenContext {
+public interface OpenableComponent {
 
     /**
-     * Deletes the current value.
+     * Used to test if this ui is open or visible.
      */
-    default void delete() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .setDelete()
-        );
-    }
+    boolean isOpen();
 
     /**
-     * Saves the given value.
+     * The widget should open or show.
      */
-    void save(final T value);
+    void open(final AppContext context);
+
+    /**
+     * The widget should close or hide.
+     */
+    void close(final AppContext context);
 }

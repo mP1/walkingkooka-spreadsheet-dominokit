@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import walkingkooka.Context;
-import walkingkooka.spreadsheet.dominokit.component.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 
 import java.util.Objects;
 import java.util.Optional;

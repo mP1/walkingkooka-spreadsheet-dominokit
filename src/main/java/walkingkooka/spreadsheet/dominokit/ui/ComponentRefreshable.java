@@ -15,25 +15,17 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history;
+package walkingkooka.spreadsheet.dominokit.ui;
+
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
- * A {@link CloseableHistoryTokenContext} that contains a basic operations required by an editing dialog ui with basic default implementations.
+ * A ui that includes a refresh method.
  */
-public interface CrudHistoryTokenContext<T> extends CloseableHistoryTokenContext {
+public interface ComponentRefreshable {
 
     /**
-     * Deletes the current value.
+     * The widget should refresh its visible appearance and state.
      */
-    default void delete() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .setDelete()
-        );
-    }
-
-    /**
-     * Saves the given value.
-     */
-    void save(final T value);
+    void refresh(final AppContext context);
 }
