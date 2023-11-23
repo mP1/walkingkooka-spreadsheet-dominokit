@@ -15,25 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history;
+package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
-/**
- * A {@link CloseableHistoryTokenContext} that contains a basic operations required by an editing dialog ui with basic default implementations.
- */
-public interface CrudHistoryTokenContext<T> extends CloseableHistoryTokenContext {
+public final class SpreadsheetViewportToolbarComponentItemTest extends SpreadsheetViewportToolbarComponentItemTestCase<SpreadsheetViewportToolbarComponentItem> {
 
-    /**
-     * Deletes the current value.
-     */
-    default void delete() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .setDelete()
-        );
+
+    @Override
+    public Class<SpreadsheetViewportToolbarComponentItem> type() {
+        return SpreadsheetViewportToolbarComponentItem.class;
     }
-
-    /**
-     * Saves the given value.
-     */
-    void save(final T value);
 }

@@ -15,25 +15,24 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history;
+package walkingkooka.spreadsheet.dominokit.ui.meta;
 
-/**
- * A {@link CloseableHistoryTokenContext} that contains a basic operations required by an editing dialog ui with basic default implementations.
- */
-public interface CrudHistoryTokenContext<T> extends CloseableHistoryTokenContext {
+import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+
+public final class SpreadsheetMetadataPanelComponentContexts implements PublicStaticHelper {
 
     /**
-     * Deletes the current value.
+     * {@see BasicSpreadsheetMetadataPanelComponentContext}.
      */
-    default void delete() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .setDelete()
-        );
+    public static SpreadsheetMetadataPanelComponentContext basic(final AppContext context) {
+        return BasicSpreadsheetMetadataPanelComponentContext.with(context);
     }
 
     /**
-     * Saves the given value.
+     * Stop creation
      */
-    void save(final T value);
+    private SpreadsheetMetadataPanelComponentContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

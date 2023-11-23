@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIds;
-import walkingkooka.spreadsheet.dominokit.component.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -685,7 +685,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * Consumes a path component within the {@link TextCursor}.
+     * Consumes a path ui within the {@link TextCursor}.
      */
     static Optional<String> parseComponent(final TextCursor cursor) {
         return COMPONENT.parse(cursor, CONTEXT)
@@ -705,7 +705,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * A {@link Parser} that consumes a path component within an {@link UrlFragment}.
+     * A {@link Parser} that consumes a path ui within an {@link UrlFragment}.
      */
     private final static Parser<ParserContext> COMPONENT = Parsers.stringInitialAndPartCharPredicate(
             CharPredicates.is('/'),
@@ -1309,7 +1309,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * Factory that creates a {@link HistoryToken} changing the {@link AnchoredSpreadsheetSelection} component and clearing any action.
+     * Factory that creates a {@link HistoryToken} changing the {@link AnchoredSpreadsheetSelection} ui and clearing any action.
      */
     public final HistoryToken setSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
         Objects.requireNonNull(selection, "selection");

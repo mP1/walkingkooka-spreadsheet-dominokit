@@ -15,25 +15,22 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history;
+package walkingkooka.spreadsheet.dominokit.ui;
+
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 /**
- * A {@link CloseableHistoryTokenContext} that contains a basic operations required by an editing dialog ui with basic default implementations.
+ * This interface captures methods that match {@link HistoryToken} without the other lifecycle callbacks.
  */
-public interface CrudHistoryTokenContext<T> extends CloseableHistoryTokenContext {
+public interface ComponentLifecycleMatcher {
 
     /**
-     * Deletes the current value.
+     * Tests if this ui should ignore this {@link HistoryToken} and not change open/close state.
      */
-    default void delete() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .setDelete()
-        );
-    }
+    boolean shouldIgnore(final HistoryToken token);
 
     /**
-     * Saves the given value.
+     * Tests if this ui should be open for the given {@link HistoryToken}
      */
-    void save(final T value);
+    boolean isMatch(final HistoryToken token);
 }
