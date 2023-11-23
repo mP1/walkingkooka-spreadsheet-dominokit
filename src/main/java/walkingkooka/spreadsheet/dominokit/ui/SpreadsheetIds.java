@@ -29,6 +29,10 @@ public final class SpreadsheetIds implements PublicStaticHelper {
 
     public final static String MENU_ITEM = "-MenuItem";
 
+    public final static String OPTION = "-Option";
+
+    public final static String SELECT = "-Select";
+
     private SpreadsheetIds() {
         throw new UnsupportedOperationException();
     }
