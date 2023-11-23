@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.meta;
+package walkingkooka.spreadsheet.dominokit.component.meta;
 
 import elemental2.dom.Element;
 import elemental2.dom.Event;

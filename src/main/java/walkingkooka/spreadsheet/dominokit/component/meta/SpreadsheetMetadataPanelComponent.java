@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.meta;
+package walkingkooka.spreadsheet.dominokit.component.meta;
 
 import elemental2.dom.HTMLTableElement;
 import org.dominokit.domino.ui.IsElement;
