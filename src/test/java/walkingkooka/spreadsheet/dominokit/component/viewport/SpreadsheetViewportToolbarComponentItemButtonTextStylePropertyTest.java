@@ -15,19 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.viewport;
+package walkingkooka.spreadsheet.dominokit.component.viewport;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.Cast;
 
-public abstract class SpreadsheetViewportToolbarComponentItemTestCase<T extends SpreadsheetViewportToolbarComponentItem> implements ClassTesting<T> {
-
-    SpreadsheetViewportToolbarComponentItemTestCase() {
-        super();
-    }
-
+public final class SpreadsheetViewportToolbarComponentItemButtonTextStylePropertyTest extends SpreadsheetViewportToolbarComponentItemTestCase<SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<?>> {
     @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<?>> type() {
+        return Cast.to(SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.class);
     }
 }
