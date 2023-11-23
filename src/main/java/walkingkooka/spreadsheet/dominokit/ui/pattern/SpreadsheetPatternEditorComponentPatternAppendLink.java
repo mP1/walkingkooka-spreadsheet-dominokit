@@ -21,21 +21,21 @@ import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.text.CharSequences;
 
-final class SpreadsheetPatternEditorComponentAppendLink {
+final class SpreadsheetPatternEditorComponentPatternAppendLink {
 
-    static SpreadsheetPatternEditorComponentAppendLink with(final SpreadsheetFormatParserTokenKind kind,
-                                                            final String pattern,
-                                                            final Anchor anchor) {
-        return new SpreadsheetPatternEditorComponentAppendLink(
+    static SpreadsheetPatternEditorComponentPatternAppendLink with(final SpreadsheetFormatParserTokenKind kind,
+                                                                   final String pattern,
+                                                                   final Anchor anchor) {
+        return new SpreadsheetPatternEditorComponentPatternAppendLink(
                 kind,
                 pattern,
                 anchor
         );
     }
 
-    private SpreadsheetPatternEditorComponentAppendLink(final SpreadsheetFormatParserTokenKind kind,
-                                                        final String pattern,
-                                                        final Anchor anchor) {
+    private SpreadsheetPatternEditorComponentPatternAppendLink(final SpreadsheetFormatParserTokenKind kind,
+                                                               final String pattern,
+                                                               final Anchor anchor) {
         this.kind = kind;
         this.pattern = pattern;
         this.anchor = anchor;

@@ -112,7 +112,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
         this.patternComponentTexts = Lists.array();
 
         this.appendParent = Card.create();
-        this.appendLinks = Lists.array();
+        this.patternAppendLinks = Lists.array();
 
         final LocalListDataStore<SpreadsheetPatternEditorComponentSampleRow> localListDataStore = new LocalListDataStore<>();
         this.sampleDataTable = new DataTable<>(
@@ -510,19 +510,19 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
 
     private final List<String> patternComponentTexts;
 
-    // appendLinks......................................................................................................
+    // patternAppendLinks......................................................................................................
 
     /**
      * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
-    private void appendLinksRebuild() {
+    private void patternAppendLinksRebuild() {
         final SpreadsheetPatternEditorComponentContext context = this.context;
-        context.debug(this.getClass().getSimpleName() + ".appendLinksRebuild");
+        context.debug(this.getClass().getSimpleName() + ".patternAppendLinksRebuild");
 
         final Card parent = this.appendParent.clearElement();
-        final List<SpreadsheetPatternEditorComponentAppendLink> appendLinks = this.appendLinks;
-        appendLinks.clear();
+        final List<SpreadsheetPatternEditorComponentPatternAppendLink> patternAppendLinks = this.patternAppendLinks;
+        patternAppendLinks.clear();
 
         for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
 
@@ -559,8 +559,8 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                                     );
                                 }
                         );
-                        appendLinks.add(
-                                SpreadsheetPatternEditorComponentAppendLink.with(
+                        patternAppendLinks.add(
+                                SpreadsheetPatternEditorComponentPatternAppendLink.with(
                                         formatParserTokenKind,
                                         pattern,
                                         anchor
@@ -577,16 +577,16 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
      * This should be invoked each time the pattern text is updated, and will update the HREF for each append link.
      * The updated href is not strictly needed and is merely cosmetic.
      */
-    private void appendLinksHrefRefresh(final String patternText,
+    private void patternAppendLinksHrefRefresh(final String patternText,
                                         final SpreadsheetPattern pattern) {
         final SpreadsheetPatternEditorComponentContext context = this.context;
 
         final HistoryToken historyToken = context.historyToken();
 
-        final List<SpreadsheetPatternEditorComponentAppendLink> patternAppendLinks = this.appendLinks;
-        context.debug(this.getClass().getSimpleName() + ".appendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
+        final List<SpreadsheetPatternEditorComponentPatternAppendLink> patternAppendLinks = this.patternAppendLinks;
+        context.debug(this.getClass().getSimpleName() + ".patternAppendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
 
-        for (final SpreadsheetPatternEditorComponentAppendLink link : patternAppendLinks) {
+        for (final SpreadsheetPatternEditorComponentPatternAppendLink link : patternAppendLinks) {
             String savePatternText = null;
 
             if (patternText.isEmpty()) {
@@ -628,7 +628,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                 }
             }
 
-            context.debug(this.getClass().getSimpleName() + ".appendLinksHrefRefresh: " + link.pattern + "=" + save);
+            context.debug(this.getClass().getSimpleName() + ".patternAppendLinksHrefRefresh: " + link.pattern + "=" + save);
             link.anchor.setHistoryToken(
                     Optional.ofNullable(save)
             );
@@ -644,7 +644,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
      * This is kept to support updates o the ANCHOR link as the {@link #patternTextBox} changes.
      */
-    private final List<SpreadsheetPatternEditorComponentAppendLink> appendLinks;
+    private final List<SpreadsheetPatternEditorComponentPatternAppendLink> patternAppendLinks;
 
     // patternTextBox...................................................................................................
 
@@ -725,7 +725,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                 errorPattern
         );
 
-        this.appendLinksHrefRefresh(
+        this.patternAppendLinksHrefRefresh(
                 patternText,
                 CharSequences.nullToEmpty(
                         errorMessage
@@ -926,7 +926,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                 )
         );
         this.patternKindTabsRefresh();
-        this.appendLinksRebuild();
+        this.patternAppendLinksRebuild();
         this.setPatternText(componentContext.loaded());
     }
 
