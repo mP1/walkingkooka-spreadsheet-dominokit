@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.viewport;
+package walkingkooka.spreadsheet.dominokit.component.viewport;
 
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;

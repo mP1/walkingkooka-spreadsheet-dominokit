@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.viewport;
+package walkingkooka.spreadsheet.dominokit.component.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;

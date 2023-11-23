@@ -46,6 +46,9 @@ import walkingkooka.spreadsheet.dominokit.component.meta.SpreadsheetMetadataPane
 import walkingkooka.spreadsheet.dominokit.component.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.component.pattern.SpreadsheetPatternEditorComponent;
 import walkingkooka.spreadsheet.dominokit.component.pattern.SpreadsheetPatternEditorComponentContexts;
+import walkingkooka.spreadsheet.dominokit.component.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.dominokit.component.viewport.SpreadsheetViewportComponent;
+import walkingkooka.spreadsheet.dominokit.component.viewport.SpreadsheetViewportToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -65,9 +68,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatc
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportToolbarComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;

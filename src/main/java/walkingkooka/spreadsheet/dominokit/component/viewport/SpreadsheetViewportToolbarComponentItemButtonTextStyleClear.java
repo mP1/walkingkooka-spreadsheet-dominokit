@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.viewport;
+package walkingkooka.spreadsheet.dominokit.component.viewport;
 
 import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.spreadsheet.SpreadsheetCell;

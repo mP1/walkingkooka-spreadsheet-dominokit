@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.viewport;
+package walkingkooka.spreadsheet.dominokit.component.viewport;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.map.Maps;
