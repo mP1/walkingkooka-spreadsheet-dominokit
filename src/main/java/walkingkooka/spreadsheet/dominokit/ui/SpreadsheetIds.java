@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
