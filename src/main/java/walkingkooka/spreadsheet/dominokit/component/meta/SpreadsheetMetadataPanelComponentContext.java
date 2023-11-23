@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.meta;
+package walkingkooka.spreadsheet.dominokit.component.meta;
 
 import walkingkooka.locale.HasLocale;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
