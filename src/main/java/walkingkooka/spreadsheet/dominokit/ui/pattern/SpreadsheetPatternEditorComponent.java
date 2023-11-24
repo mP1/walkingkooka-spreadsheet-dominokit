@@ -463,12 +463,11 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                             context
                     );
 
-                    final int ii = i;
                     int j = 0;
                     for (final String alternative : alternatives) {
 
                         final String newPattern = IntStream.range(0, patternComponentTexts.size())
-                                .mapToObj(k -> ii == k ? alternative : patternComponentTexts.get(k))
+                                .mapToObj(patternComponentTexts::get)
                                 .collect(Collectors.joining());
 
                         contextMenu.item(
