@@ -472,7 +472,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                                 .mapToObj(k -> ii == k ? alternative : patternComponentTexts.get(k))
                                 .collect(Collectors.joining());
 
-                        contextMenu.item(
+                        contextMenu = contextMenu.item(
                                 ID_PREFIX + "alternative-" + j,
                                 alternative,
                                 historyToken.setSave(newPattern)
