@@ -465,6 +465,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
 
                     final int ii = i;
                     int j = 0;
+                    int selectedItem = -1;
                     for (final String alternative : alternatives) {
 
                         final String newPattern = IntStream.range(0, patternComponentTexts.size())
@@ -476,10 +477,19 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                                 alternative,
                                 historyToken.setSave(newPattern)
                         );
+
+                        if (alternative.equalsIgnoreCase(patternComponentText)) {
+                            selectedItem = j;
+                        }
+
                         j++;
                     }
 
                     chip.setDropMenu(menu);
+                    menu.selectAt(
+                            selectedItem,
+                            true // silent = dont fire selection events
+                    );
                 }
                 parent.appendChild(chip);
 
