@@ -450,7 +450,8 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                                         i +
                                         SpreadsheetIds.CHIP
                         ).setRemovable(true)
-                        .addOnRemoveListener(this.patternComponentOnRemove(i));
+                        .addOnRemoveListener(this.patternComponentOnRemove(i))
+                        .setMarginRight("5px");
 
                 final Set<String> alternatives = patternComponentKinds.get(i)
                         .alternatives();
