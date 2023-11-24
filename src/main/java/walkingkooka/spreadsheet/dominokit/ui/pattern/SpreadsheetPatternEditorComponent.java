@@ -453,7 +453,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
                         .addOnRemoveListener(this.patternComponentOnRemove(i));
 
                 final Set<String> alternatives = patternComponentKinds.get(i)
-                        .alternatives(patternComponentText);
+                        .alternatives();
 
                 if (false == alternatives.isEmpty()) {
                     final HistoryToken historyToken = context.historyToken();
