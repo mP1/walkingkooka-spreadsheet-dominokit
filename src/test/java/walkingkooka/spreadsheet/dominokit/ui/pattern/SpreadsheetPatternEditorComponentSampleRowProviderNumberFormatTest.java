@@ -22,6 +22,7 @@ import walkingkooka.Either;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -81,6 +82,11 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberForma
                 }
 
                 @Override
+                public int generalFormatNumberDigitCount() {
+                    return SpreadsheetFormatterContext.DEFAULT_GENERAL_FORMAT_NUMBER_DIGIT_COUNT;
+                }
+
+                @Override
                 public char groupSeparator() {
                     return 'G';
                 }
@@ -111,7 +117,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberForma
                 patternText,
                 CONTEXT,
                 "Edit Pattern | $#.## | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1234D56\\r\\nAUDN9876D54\\r\\nAUDD\n" +
-                        "General | General | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1234D6\\r\\nN9876D5\\r\\n0\n" +
+                        "General | General | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1234D56\\r\\nN9876D54\\r\\n0\n" +
                         "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
                         "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
                         "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
@@ -127,7 +133,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberForma
                 patternText,
                 CONTEXT,
                 "Edit Pattern | [BLUE] #.000 | 1G234D56\\r\\nN9G876D54\\r\\n0D |  1234D560\\r\\n N9876D540\\r\\n D000\n" +
-                        "General | General | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1234D6\\r\\nN9876D5\\r\\n0\n" +
+                        "General | General | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1234D56\\r\\nN9876D54\\r\\n0\n" +
                         "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
                         "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
                         "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
@@ -141,7 +147,7 @@ public final class SpreadsheetPatternEditorComponentSampleRowProviderNumberForma
                 "\"Unclosed",
                 CONTEXT,
                 "Edit Pattern | | 1G234D56\\r\\nN9G876D54\\r\\n0D |\n" +
-                        "General | General | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1234D6\\r\\nN9876D5\\r\\n0\n" +
+                        "General | General | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1234D56\\r\\nN9876D54\\r\\n0\n" +
                         "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
                         "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
                         "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
