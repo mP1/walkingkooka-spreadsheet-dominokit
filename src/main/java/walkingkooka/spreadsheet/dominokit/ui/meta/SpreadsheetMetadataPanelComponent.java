@@ -110,6 +110,8 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         items.add(this.defaultYear());
         items.add(this.twoDigitYear());
 
+        items.add(this.generalFormatNumberDigitCount());
+
         items.add(this.dateFormatPattern());
         items.add(this.dateParsePattern());
 
@@ -206,6 +208,12 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return this.enumValue(
                 SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND,
                 Lists.of(ExpressionNumberKind.values())
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<?> generalFormatNumberDigitCount() {
+        return SpreadsheetMetadataPanelComponentItem.generalFormatNumberDigitCount(
+                this.context
         );
     }
 

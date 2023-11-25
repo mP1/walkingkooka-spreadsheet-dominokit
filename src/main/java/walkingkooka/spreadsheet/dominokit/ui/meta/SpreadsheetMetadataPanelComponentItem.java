@@ -75,6 +75,15 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     }
 
     /**
+     * {@see SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount}
+     */
+    static SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount generalFormatNumberDigitCount(final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount.with(
+                context
+        );
+    }
+
+    /**
      * {@see SpreadsheetMetadataPanelComponentItemNumber}
      */
     static SpreadsheetMetadataPanelComponentItemNumber number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
