@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -51,6 +52,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -122,6 +124,29 @@ public abstract class HistoryToken implements HasUrlFragment {
                 id,
                 name,
                 selection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellFindHistoryToken}
+     */
+    public static SpreadsheetCellFindHistoryToken cellFind(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final AnchoredSpreadsheetSelection selection,
+                                                           final Optional<SpreadsheetCellRangePath> path,
+                                                           final OptionalInt offset,
+                                                           final OptionalInt max,
+                                                           final Optional<String> valueType,
+                                                           final Optional<String> query) {
+        return SpreadsheetCellFindHistoryToken.with(
+                id,
+                name,
+                selection,
+                path,
+                offset,
+                max,
+                valueType,
+                query
         );
     }
 
@@ -905,6 +930,31 @@ public abstract class HistoryToken implements HasUrlFragment {
         return this.setIfSpreadsheetNameHistoryToken(
                 SpreadsheetNameHistoryToken::setDelete0
         );
+    }
+
+    /**
+     * Creates a {@link SpreadsheetCellFindHistoryToken} with the given parameters.
+     */
+    public final HistoryToken setFind(final Optional<SpreadsheetCellRangePath> path,
+                                      final OptionalInt offset,
+                                      final OptionalInt max,
+                                      final Optional<String> valueType,
+                                      final Optional<String> query) {
+        HistoryToken historyToken = this;
+        if (this instanceof SpreadsheetCellSelectHistoryToken) {
+            final SpreadsheetCellSelectHistoryToken cell = (SpreadsheetCellSelectHistoryToken) this;
+            historyToken = cellFind(
+                    cell.id(),
+                    cell.name(),
+                    cell.selection(),
+                    path,
+                    offset,
+                    max,
+                    valueType,
+                    query
+            );
+        }
+        return historyToken;
     }
 
     /**
