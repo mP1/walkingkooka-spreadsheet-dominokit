@@ -31,6 +31,8 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment DELETE = UrlFragment.SLASH.append(UrlFragment.with("delete"));
 
+    final static UrlFragment FIND = UrlFragment.SLASH.append(UrlFragment.with("find"));
+
     final static UrlFragment FREEZE = UrlFragment.SLASH.append(UrlFragment.with("freeze"));
 
     final static UrlFragment INSERT_AFTER = UrlFragment.SLASH.append(UrlFragment.with("insertAfter"));

@@ -20,9 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.TextCursorSavePoint;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHistoryToken {
 
@@ -52,6 +55,9 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 break;
             case "delete":
                 result = this.setDelete();
+                break;
+            case "find":
+                result = this.parseFind(cursor);
                 break;
             case "format-pattern":
                 result = this.parseFormatPattern(cursor);
@@ -102,5 +108,58 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             throw new IllegalArgumentException("Missing count");
         }
         return Integer.parseInt(count.get());
+    }
+
+    private HistoryToken parseFind(final TextCursor cursor) {
+        final Optional<SpreadsheetCellRangePath> path = parseComponent(cursor)
+                .map(SpreadsheetCellRangePath::valueOf);
+
+        final OptionalInt offset = path.isPresent() ?
+                parseComponent(cursor)
+                        .map(Integer::parseInt)
+                        .map(OptionalInt::of)
+                        .orElseGet(
+                                OptionalInt::empty
+                        ) :
+                OptionalInt.empty();
+
+        final OptionalInt max = offset.isPresent() ?
+                parseComponent(cursor)
+                        .map(Integer::parseInt)
+                        .map(OptionalInt::of)
+                        .orElseGet(
+                                OptionalInt::empty
+                        ) :
+                OptionalInt.empty();
+
+        final Optional<String> valueType = max.isPresent() ?
+                parseComponent(cursor) :
+                Optional.empty();
+
+        final Optional<String> query;
+        if (valueType.isPresent() && false == cursor.isEmpty()) {
+            cursor.next();
+
+            final TextCursorSavePoint save = cursor.save();
+            cursor.end();
+
+            final String queryText = save.textBetween()
+                    .toString();
+            query = queryText.isEmpty() ?
+                    Optional.empty() :
+                    Optional.of(
+                            queryText
+                    );
+        } else {
+            query = Optional.empty();
+        }
+
+        return this.setFind(
+                path,
+                offset,
+                max,
+                valueType,
+                query
+        );
     }
 }
