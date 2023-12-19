@@ -27,33 +27,29 @@ import java.util.Optional;
  */
 public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
-    final static UrlFragment CLEAR = UrlFragment.SLASH.append(UrlFragment.with("clear"));
+    final static UrlFragment CLEAR = UrlFragment.parse("/clear");
 
-    final static UrlFragment DELETE = UrlFragment.SLASH.append(UrlFragment.with("delete"));
+    final static UrlFragment DELETE = UrlFragment.parse("/delete");
 
-    final static UrlFragment FIND = UrlFragment.SLASH.append(UrlFragment.with("find"));
+    final static UrlFragment FIND = UrlFragment.parse("/find");
 
-    final static UrlFragment FREEZE = UrlFragment.SLASH.append(UrlFragment.with("freeze"));
+    final static UrlFragment FREEZE = UrlFragment.parse("/freeze");
 
-    final static UrlFragment INSERT_AFTER = UrlFragment.SLASH.append(UrlFragment.with("insertAfter"));
-    final static UrlFragment INSERT_BEFORE = UrlFragment.SLASH.append(UrlFragment.with("insertBefore"));
+    final static UrlFragment INSERT_AFTER = UrlFragment.parse("/insertAfter");
 
-    final static UrlFragment LABEL = UrlFragment.SLASH.append(UrlFragment.with("label"));
+    final static UrlFragment INSERT_BEFORE = UrlFragment.parse("/insertBefore");
 
-    final static UrlFragment MENU = UrlFragment.SLASH.append(UrlFragment.with("menu"));
+    final static UrlFragment LABEL = UrlFragment.parse("/label");
+
+    final static UrlFragment MENU = UrlFragment.parse("/menu");
 
     final static UrlFragment SELECT = UrlFragment.EMPTY;
 
-    final static UrlFragment SAVE = UrlFragment.SLASH
-            .append(UrlFragment.with("save"))
-            .append(UrlFragment.SLASH);
+    final static UrlFragment SAVE = UrlFragment.parse("/save/");
 
-    final static UrlFragment STYLE = UrlFragment.SLASH
-            .append(UrlFragment.with("style"))
-            .append(UrlFragment.SLASH);
+    final static UrlFragment STYLE = UrlFragment.parse("/style/");
 
-    final static UrlFragment UNFREEZE = UrlFragment.SLASH
-            .append(UrlFragment.with("unfreeze"));
+    final static UrlFragment UNFREEZE = UrlFragment.parse("/unfreeze");
 
 
     SpreadsheetHistoryToken() {
