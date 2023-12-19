@@ -60,31 +60,33 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
      * Creates a {@link UrlFragment} with a save and value.
      */
     final UrlFragment saveUrlFragment(final Object value) {
-        return value instanceof Optional ?
-                this.saveUrlFragmentOptional((Optional<?>) value) :
-                this.saveUrlFragment0(value);
+        return null == value ?
+                this.saveUrlFragment(UrlFragment.EMPTY) :
+                value instanceof HasUrlFragment ?
+                        this.saveUrlFragmentUrlFragment(
+                                ((HasUrlFragment) value)
+                                        .urlFragment()
+                        ) :
+                        value instanceof Optional ?
+                                this.saveUrlFragmentOptional((Optional<?>) value) :
+                                this.saveUrlFragmentNonNull(value);
     }
 
     private UrlFragment saveUrlFragmentOptional(final Optional<?> value) {
-        return this.saveUrlFragment0(value.orElse(null));
+        return this.saveUrlFragment(
+                value.orElse(null)
+        );
     }
 
-    private UrlFragment saveUrlFragment0(final Object value) {
-        final UrlFragment urlFragment;
-
-        if (null == value) {
-            urlFragment = UrlFragment.EMPTY;
-        } else {
-            if (value instanceof HasUrlFragment) {
-                final HasUrlFragment has = (HasUrlFragment) value;
-                urlFragment = has.urlFragment();
-            } else {
-                urlFragment = UrlFragment.with(
+    private UrlFragment saveUrlFragmentNonNull(final Object value) {
+        return this.saveUrlFragmentUrlFragment(
+                UrlFragment.with(
                         String.valueOf(value)
-                );
-            }
-        }
+                )
+        );
+    }
 
+    private UrlFragment saveUrlFragmentUrlFragment(final UrlFragment urlFragment) {
         return SAVE.append(urlFragment);
     }
 }
