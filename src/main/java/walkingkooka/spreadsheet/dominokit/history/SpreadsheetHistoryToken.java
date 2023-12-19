@@ -80,9 +80,7 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
                 urlFragment = has.urlFragment();
             } else {
                 urlFragment = UrlFragment.with(
-                        String.valueOf(
-                                String.valueOf(value)
-                        )
+                        String.valueOf(value)
                 );
             }
         }
