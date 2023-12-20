@@ -30,11 +30,8 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.dialogs.Dialog;
-import org.dominokit.domino.ui.dialogs.DialogSize;
-import org.dominokit.domino.ui.dialogs.DialogType;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
@@ -53,6 +50,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -121,47 +119,17 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
         );
         this.sampleDataTableDataStore = localListDataStore;
 
-        this.dialogNavBar = this.dialogNavBar();
         this.dialog = this.dialogCreate();
     }
-
-    // dialogNavBar.....................................................................................................
-
-    private NavBar dialogNavBar() {
-        return NavBar.create() //
-                .appendChild(
-                        PostfixAddOn.of(
-                                SpreadsheetIcons.close()
-                                        .clickable()
-                                        .addClickListener(this::onDialogClose)
-                        )
-                );
-    }
-
-    private void onDialogClose(final Event event) {
-        this.context.close();
-    }
-
-    /**
-     * Includes the dialog title.
-     */
-    private final NavBar dialogNavBar;
 
     // dialog...........................................................................................................
 
     /**
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
-    private Dialog dialogCreate() {
-        final Dialog dialog = Dialog.create()
-                .setType(DialogType.DEFAULT) // large
-                .setAutoClose(true)
-                .setModal(true)
-                .setStretchWidth(DialogSize.LARGE)
-                .setStretchHeight(DialogSize.LARGE)
-                .withHeader(
-                        (d, header) ->
-                                header.appendChild(this.dialogNavBar)
+    private SpreadsheetDialogComponent dialogCreate() {
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(
+                () -> this.close(null)
                 );
         dialog.id(ID);
 
@@ -192,7 +160,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
         return dialog;
     }
 
-    private final Dialog dialog;
+    private final SpreadsheetDialogComponent dialog;
 
     private final SpreadsheetPatternEditorComponentContext context;
 
@@ -931,7 +899,7 @@ public abstract class SpreadsheetPatternEditorComponent implements ComponentLife
     public void refresh(final AppContext context) {
         final SpreadsheetPatternEditorComponentContext componentContext = this.context;
 
-        this.dialogNavBar.setTitle(
+        this.dialog.setTitle(
                 title(
                         componentContext.patternKind()
                 )
