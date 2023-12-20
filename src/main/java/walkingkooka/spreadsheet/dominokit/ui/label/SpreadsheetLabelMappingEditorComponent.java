@@ -21,10 +21,8 @@ import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.dialogs.Dialog;
-import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
@@ -36,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectH
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -72,51 +71,21 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         this.saveButton = this.saveButton();
         this.deleteButton = this.deleteButton();
 
-        this.dialogNavBar = this.dialogNavBar();
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
         context.addLabelMappingWatcher(this);
     }
 
-    // dialogNavBar.....................................................................................................
-
-    private NavBar dialogNavBar() {
-        return NavBar.create() //
-                .appendChild(
-                        PostfixAddOn.of(
-                                SpreadsheetIcons.close()
-                                        .clickable()
-                                        .addClickListener(this::onDialogClose)
-                        )
-                );
-    }
-
-    private void onDialogClose(final Event event) {
-        this.context.close();
-    }
-
-    /**
-     * Includes the dialog title.
-     */
-    private final NavBar dialogNavBar;
-
     // dialog...........................................................................................................
 
     /**
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
-    private Dialog dialogCreate() {
-        final Dialog dialog = Dialog.create()
-                //.setType(DialogType.DEFAULT) // large
-                .setAutoClose(true)
-                .setModal(true)
-                .setStretchWidth(DialogSize.LARGE)
-                .setStretchHeight(DialogSize.LARGE)
-                .withHeader(
-                        (d, header) ->
-                                header.appendChild(this.dialogNavBar)
-                );
+    private SpreadsheetDialogComponent dialogCreate() {
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(
+                () -> this.context.close()
+        );
         dialog.id(ID);
 
         dialog.appendChild(this.labelNameTextBox);
@@ -133,7 +102,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
         return dialog;
     }
 
-    private final Dialog dialog;
+    private final SpreadsheetDialogComponent dialog;
 
     private final SpreadsheetLabelMappingEditorComponentContext context;
 
@@ -438,7 +407,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
      */
     @Override
     public void refresh(final AppContext context) {
-        this.dialogNavBar.setTitle("Label");
+        this.dialog.setTitle("Label");
 
         final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
                 .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
