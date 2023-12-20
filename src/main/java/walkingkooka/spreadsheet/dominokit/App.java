@@ -63,8 +63,8 @@ import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelMappingCompon
 import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelMappingComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponentContexts;
-import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternEditorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternEditorComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponent;
+import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportToolbarComponent;
@@ -158,18 +158,18 @@ public class App implements EntryPoint,
                 SpreadsheetLabelMappingComponentContexts.basic(this)
         );
 
-        SpreadsheetPatternEditorComponent.format(
-                SpreadsheetPatternEditorComponentContexts.cellFormat(this)
+        SpreadsheetPatternComponent.format(
+                SpreadsheetPatternComponentContexts.cellFormat(this)
         );
-        SpreadsheetPatternEditorComponent.parse(
-                SpreadsheetPatternEditorComponentContexts.cellParse(this)
+        SpreadsheetPatternComponent.parse(
+                SpreadsheetPatternComponentContexts.cellParse(this)
         );
 
-        SpreadsheetPatternEditorComponent.format(
-                SpreadsheetPatternEditorComponentContexts.metadataFormat(this)
+        SpreadsheetPatternComponent.format(
+                SpreadsheetPatternComponentContexts.metadataFormat(this)
         );
-        SpreadsheetPatternEditorComponent.parse(
-                SpreadsheetPatternEditorComponentContexts.metadataParse(this)
+        SpreadsheetPatternComponent.parse(
+                SpreadsheetPatternComponentContexts.metadataParse(this)
         );
 
         this.layout = this.prepareLayout();
