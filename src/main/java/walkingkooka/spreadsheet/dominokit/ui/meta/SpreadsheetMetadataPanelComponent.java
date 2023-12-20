@@ -452,7 +452,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataHistoryToken &&
                 false == token.isMetadataFormatPattern() &&
-                false == token.isMetadataParsePattern(); // hide if SpreadsheetPatternEditorComponent is open.
+                false == token.isMetadataParsePattern(); // hide if SpreadsheetPatternComponent is open.
     }
 
     @Override

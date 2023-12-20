@@ -124,6 +124,6 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // NOP because SpreadsheetPatternEditorComponent implements ComponentLifecycle
+        // NOP because SpreadsheetPatternComponent implements ComponentLifecycle
     }
 }
