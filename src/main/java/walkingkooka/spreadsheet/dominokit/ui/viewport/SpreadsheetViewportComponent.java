@@ -782,7 +782,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
             sub = sub.item(
                     VIEWPORT_CONTEXT_MENU_ID_PREFIX + "label-" + i + SpreadsheetIds.MENU_ITEM,
-                    label + " (" + mapping.reference() + ")",
+                    label + " (" + mapping.target() + ")",
                     historyToken.setLabelName(
                             Optional.of(label)
                     )

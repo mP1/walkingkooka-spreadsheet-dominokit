@@ -532,7 +532,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         this.checkNonLabelSelection(
                 cache,
                 LABEL_MAPPINGA1B.label(),
-                LABEL_MAPPINGA1B.reference()
+                LABEL_MAPPINGA1B.target()
         );
     }
 
@@ -2096,7 +2096,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                    final SpreadsheetLabelMapping... expected) {
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expectedMaps = Maps.ordered();
         for (final SpreadsheetLabelMapping mapping : expected) {
-            final SpreadsheetCellReference cell = (SpreadsheetCellReference) mapping.reference();
+            final SpreadsheetCellReference cell = (SpreadsheetCellReference) mapping.target();
             Set<SpreadsheetLabelName> labels = expectedMaps.get(cell);
             if (null == labels) {
                 labels = Sets.ordered();
