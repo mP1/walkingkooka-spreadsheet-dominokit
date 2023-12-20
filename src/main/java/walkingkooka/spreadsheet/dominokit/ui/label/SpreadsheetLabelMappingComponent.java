@@ -256,7 +256,7 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
     }
 
     /**
-     * Reloads the last saved pattern text.
+     * Reloads both the label and reference text boxes.
      */
     private void onUndoButtonClick(final Event event) {
         final SpreadsheetLabelMappingComponentContext context = this.context;
@@ -395,8 +395,7 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
     }
 
     /**
-     * Closes or hides the {@link Dialog}. THis is necessary when the history token changes and editing a pattern
-     * is no longer true.
+     * Closes or hides the {@link Dialog}.
      */
     @Override
     public void close(final AppContext context) {
