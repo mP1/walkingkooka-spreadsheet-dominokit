@@ -29,7 +29,6 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.menu.Menu;
@@ -48,9 +47,9 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Anchor;
-import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -75,7 +74,7 @@ import java.util.stream.IntStream;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public abstract class SpreadsheetPatternComponent implements ComponentLifecycle,
+public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
@@ -158,6 +157,11 @@ public abstract class SpreadsheetPatternComponent implements ComponentLifecycle,
         );
 
         return dialog;
+    }
+
+    @Override
+    public SpreadsheetDialogComponent dialog() {
+        return this.dialog;
     }
 
     private final SpreadsheetDialogComponent dialog;
@@ -866,14 +870,6 @@ public abstract class SpreadsheetPatternComponent implements ComponentLifecycle,
         return this.context.isMatch(token);
     }
 
-    /**
-     * Returns true if the dialog is open.
-     */
-    @Override
-    public boolean isOpen() {
-        return this.dialog.isOpen();
-    }
-
     @Override
     public void open(final AppContext context) {
         this.dialog.open();
@@ -881,15 +877,6 @@ public abstract class SpreadsheetPatternComponent implements ComponentLifecycle,
         this.context.giveFocus(
                 this.patternTextBox::focus
         );
-    }
-
-    /**
-     * Closes or hides the {@link Dialog}. THis is necessary when the history token changes and editing a pattern
-     * is no longer true.
-     */
-    @Override
-    public void close(final AppContext context) {
-        this.dialog.close();
     }
 
     /**
