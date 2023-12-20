@@ -80,7 +80,7 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, loaded with the pattern textbox and some buttons.
+     * Creates the modal dialog, which includes a few text boxes to edit the label and the target reference.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(
@@ -193,14 +193,14 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
     }
 
     /**
-     * The {@link TextBox} that holds the edited {@link SpreadsheetExpressionReference}.
+     * The {@link TextBox} that holds the target of the label.
      */
     private final TextBox referenceTextBox;
 
     // buttons..........................................................................................................
 
     /**
-     * When clicked the CLOSE button invokes {@link SpreadsheetLabelMappingComponentContext#close}.
+     * When clicked the CLOSE button closes/hides this dialog.
      */
     private Button closeButton() {
         return this.button(
@@ -217,7 +217,7 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
     }
 
     /**
-     * When clicked the SAVE button invokes {@link SpreadsheetLabelMappingComponentContext#save(Object)}}.
+     * When clicked the SAVE button pushes a {@link HistoryToken} which saves the {@link SpreadsheetLabelMapping}.
      */
     private Button saveButton() {
         return this.button(
@@ -245,7 +245,7 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
     private final Button saveButton;
 
     /**
-     * When clicked the undo button invokes {@link #onUndoButtonClick}.
+     * When clicked the undo button reloads the last loaded/saved label and reference textboxes.
      */
     private Button undoButton() {
         return this.button(
