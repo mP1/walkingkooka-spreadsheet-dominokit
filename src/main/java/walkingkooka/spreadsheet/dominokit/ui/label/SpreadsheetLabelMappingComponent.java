@@ -370,20 +370,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     public void open(final AppContext context) {
         this.dialog.open();
 
-        final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
-                .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
-        final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
-        if (maybeLabelName.isPresent()) {
-            final SpreadsheetLabelName labelName = maybeLabelName.get();
-            final String text = labelName.text();
-            this.setLabelName(text);
-            try {
-                this.context.loadLabel(labelName);
-            } catch (final RuntimeException ignore) {
-                this.context.error("Unable to load label " + CharSequences.quoteAndEscape(text));
-            }
-        }
-
+        this.refresh(context);
 
         context.giveFocus(
                 this.labelNameTextBox::focus
@@ -397,11 +384,17 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     public void refresh(final AppContext context) {
         final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
                 .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
-        this.setLabelName(
-                token.labelName()
-                        .map(SpreadsheetLabelName::value)
-                        .orElse("")
-        );
+        final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
+        if (maybeLabelName.isPresent()) {
+            final SpreadsheetLabelName labelName = maybeLabelName.get();
+            final String text = labelName.text();
+            this.setLabelName(text);
+            try {
+                this.context.loadLabel(labelName);
+            } catch (final RuntimeException ignore) {
+                this.context.error("Unable to load label " + CharSequences.quoteAndEscape(text));
+            }
+        }
     }
 
     // SpreadsheetLabelMappingFetcherWatcher...................................................................................
