@@ -27,9 +27,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import java.util.Optional;
 
 /**
- * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingEditorComponent}.
+ * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingComponent}.
  */
-public interface SpreadsheetLabelMappingEditorComponentContext extends
+public interface SpreadsheetLabelMappingComponentContext extends
         CrudHistoryTokenContext<SpreadsheetLabelMapping>,
         HistoryTokenContext,
         LoggingContext {

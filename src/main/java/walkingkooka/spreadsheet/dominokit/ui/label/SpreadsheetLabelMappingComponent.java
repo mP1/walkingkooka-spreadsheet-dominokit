@@ -49,20 +49,20 @@ import java.util.Optional;
 /**
  * A model dialog with several textboxes that allow creation, editing, saving and deletion of a {@link SpreadsheetLabelMapping}.
  */
-public final class SpreadsheetLabelMappingEditorComponent implements ComponentLifecycle,
+public final class SpreadsheetLabelMappingComponent implements ComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetLabelMappingFetcherWatcher {
 
     /**
-     * Creates a new {@link SpreadsheetLabelMappingEditorComponent}.
+     * Creates a new {@link SpreadsheetLabelMappingComponent}.
      */
-    public static SpreadsheetLabelMappingEditorComponent with(final SpreadsheetLabelMappingEditorComponentContext context) {
+    public static SpreadsheetLabelMappingComponent with(final SpreadsheetLabelMappingComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetLabelMappingEditorComponent(context);
+        return new SpreadsheetLabelMappingComponent(context);
     }
 
-    private SpreadsheetLabelMappingEditorComponent(final SpreadsheetLabelMappingEditorComponentContext context) {
+    private SpreadsheetLabelMappingComponent(final SpreadsheetLabelMappingComponentContext context) {
         this.context = context;
 
         this.labelNameTextBox = this.labelNameTextBox();
@@ -104,7 +104,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
 
     private final SpreadsheetDialogComponent dialog;
 
-    private final SpreadsheetLabelMappingEditorComponentContext context;
+    private final SpreadsheetLabelMappingComponentContext context;
 
     // labelNameTextBox...................................................................................................
 
@@ -199,7 +199,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     // buttons..........................................................................................................
 
     /**
-     * When clicked the CLOSE button invokes {@link SpreadsheetLabelMappingEditorComponentContext#close}.
+     * When clicked the CLOSE button invokes {@link SpreadsheetLabelMappingComponentContext#close}.
      */
     private Button closeButton() {
         return this.button(
@@ -210,13 +210,13 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     }
 
     private void onCloseButtonClick(final Event event) {
-        final SpreadsheetLabelMappingEditorComponentContext context = this.context;
-        context.debug("SpreadsheetLabelMappingEditorComponent.onCloseButtonClick");
+        final SpreadsheetLabelMappingComponentContext context = this.context;
+        context.debug("SpreadsheetLabelMappingComponent.onCloseButtonClick");
         context.close();
     }
 
     /**
-     * When clicked the SAVE button invokes {@link SpreadsheetLabelMappingEditorComponentContext#save(Object)}}.
+     * When clicked the SAVE button invokes {@link SpreadsheetLabelMappingComponentContext#save(Object)}}.
      */
     private Button saveButton() {
         return this.button(
@@ -227,10 +227,10 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     }
 
     private void onSaveButtonClick(final Event event) {
-        final SpreadsheetLabelMappingEditorComponentContext context = this.context;
+        final SpreadsheetLabelMappingComponentContext context = this.context;
         final String labelName = this.labelNameTextBox.getValue();
         final String reference = this.referenceTextBox.getValue();
-        context.debug("SpreadsheetLabelMappingEditorComponent.onSaveButtonClick labelName: " + CharSequences.quoteAndEscape(labelName) + " reference: " + CharSequences.quoteAndEscape(reference));
+        context.debug("SpreadsheetLabelMappingComponent.onSaveButtonClick labelName: " + CharSequences.quoteAndEscape(labelName) + " reference: " + CharSequences.quoteAndEscape(reference));
 
         try {
             final SpreadsheetLabelMapping mapping = SpreadsheetSelection.labelName(labelName)
@@ -258,13 +258,13 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
      * Reloads the last saved pattern text.
      */
     private void onUndoButtonClick(final Event event) {
-        final SpreadsheetLabelMappingEditorComponentContext context = this.context;
+        final SpreadsheetLabelMappingComponentContext context = this.context;
 
         final String labelName = context.label()
                 .map(SpreadsheetLabelName::value)
                 .orElse("");
         final String referenceText = this.loadedReferenceText;
-        context.debug("SpreadsheetLabelMappingEditorComponent.onUndoButtonClick " + CharSequences.quoteAndEscape(labelName) + " " + CharSequences.quoteAndEscape(referenceText));
+        context.debug("SpreadsheetLabelMappingComponent.onUndoButtonClick " + CharSequences.quoteAndEscape(labelName) + " " + CharSequences.quoteAndEscape(referenceText));
 
         this.setLabelName(labelName);
         this.setReference(referenceText);
@@ -273,7 +273,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     private String loadedReferenceText;
 
     /**
-     * When clicked the REMOVE button invokes {@link SpreadsheetLabelMappingEditorComponentContext#delete()} ()}.
+     * When clicked the REMOVE button invokes {@link SpreadsheetLabelMappingComponentContext#delete()} ()}.
      */
     private Button deleteButton() {
         return this.button(
@@ -284,9 +284,9 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     }
 
     private void onDeleteButtonClick(final Event event) {
-        final SpreadsheetLabelMappingEditorComponentContext context = this.context;
+        final SpreadsheetLabelMappingComponentContext context = this.context;
 
-        context.debug("SpreadsheetLabelMappingEditorComponent.onDeleteButtonClick");
+        context.debug("SpreadsheetLabelMappingComponent.onDeleteButtonClick");
         context.delete();
     }
 
