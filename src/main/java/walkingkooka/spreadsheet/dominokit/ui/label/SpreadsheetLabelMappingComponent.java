@@ -65,7 +65,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         this.context = context;
 
         this.labelNameTextBox = this.labelNameTextBox();
-        this.referenceTextBox = this.referenceTextBox();
+        this.targetTextBox = this.targetTextBox();
 
         this.saveButton = this.saveButton();
         this.deleteButton = this.deleteButton();
@@ -79,7 +79,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, which includes a few text boxes to edit the label and the target reference.
+     * Creates the modal dialog, which includes a few text boxes to edit the label and the target.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(
@@ -89,7 +89,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         dialog.id(ID);
 
         dialog.appendChild(this.labelNameTextBox);
-        dialog.appendChild(this.referenceTextBox);
+        dialog.appendChild(this.targetTextBox);
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
@@ -142,7 +142,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     private void onLabelNameTextBox(final String text) {
         this.refreshSaveAndDeleteButtons(
                 text,
-                this.referenceTextBox.getValue()
+                this.targetTextBox.getValue()
         );
     }
 
@@ -156,12 +156,12 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
      */
     private final TextBox labelNameTextBox;
 
-    // referenceTextBox...................................................................................................
+    // targetTextBox...................................................................................................
 
     /**
      * Creates the {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference} text box and installs a value change listener.
      */
-    private TextBox referenceTextBox() {
+    private TextBox targetTextBox() {
         final TextBox textBox = TextBox.create("Cell, cell range or Label");
 
         textBox.id(ID_PREFIX + "label-TextBox");
@@ -172,34 +172,34 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
                         PostfixAddOn.of(
                                 SpreadsheetIcons.close()
                                         .clickable()
-                                        .addClickListener(event -> this.setReference(""))
+                                        .addClickListener(event -> this.setTarget(""))
                         )
                 )
         );
 
         textBox.addEventListener(
                 EventType.input,
-                (e) -> this.onReferenceTextBox(this.referenceTextBox.getValue())
+                (e) -> this.onTargetTextBox(this.targetTextBox.getValue())
         );
         return textBox;
     }
 
-    private void onReferenceTextBox(final String text) {
+    private void onTargetTextBox(final String text) {
         this.refreshSaveAndDeleteButtons(
                 this.labelNameTextBox.getValue(),
                 text
         );
     }
 
-    private void setReference(final String text) {
-        this.referenceTextBox.setValue(text);
-        this.onReferenceTextBox(text);
+    private void setTarget(final String text) {
+        this.targetTextBox.setValue(text);
+        this.onTargetTextBox(text);
     }
 
     /**
      * The {@link TextBox} that holds the target of the label.
      */
-    private final TextBox referenceTextBox;
+    private final TextBox targetTextBox;
 
     // buttons..........................................................................................................
 
@@ -234,12 +234,12 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     private void onSaveButtonClick(final Event event) {
         final SpreadsheetLabelMappingComponentContext context = this.context;
         final String labelName = this.labelNameTextBox.getValue();
-        final String reference = this.referenceTextBox.getValue();
-        context.debug("SpreadsheetLabelMappingComponent.onSaveButtonClick labelName: " + CharSequences.quoteAndEscape(labelName) + " reference: " + CharSequences.quoteAndEscape(reference));
+        final String target = this.targetTextBox.getValue();
+        context.debug("SpreadsheetLabelMappingComponent.onSaveButtonClick labelName: " + CharSequences.quoteAndEscape(labelName) + " target: " + CharSequences.quoteAndEscape(target));
 
         try {
             final SpreadsheetLabelMapping mapping = SpreadsheetSelection.labelName(labelName)
-                    .mapping(SpreadsheetExpressionReference.parseCellOrCellRange(reference));
+                    .mapping(SpreadsheetExpressionReference.parseCellOrCellRange(target));
             context.save(mapping);
         } catch (final Exception cause) {
             context.error(cause.getMessage());
@@ -249,7 +249,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     private final Button saveButton;
 
     /**
-     * When clicked the undo button reloads the last loaded/saved label and reference textboxes.
+     * When clicked the undo button reloads the last loaded/saved label and target textboxes.
      */
     private Button undoButton() {
         return this.button(
@@ -260,7 +260,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     }
 
     /**
-     * Reloads both the label and reference text boxes.
+     * Reloads both the label and target text boxes.
      */
     private void onUndoButtonClick(final Event event) {
         final SpreadsheetLabelMappingComponentContext context = this.context;
@@ -268,14 +268,14 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         final String labelName = context.label()
                 .map(SpreadsheetLabelName::value)
                 .orElse("");
-        final String referenceText = this.loadedReferenceText;
-        context.debug("SpreadsheetLabelMappingComponent.onUndoButtonClick " + CharSequences.quoteAndEscape(labelName) + " " + CharSequences.quoteAndEscape(referenceText));
+        final String targetText = this.loadedTargetText;
+        context.debug("SpreadsheetLabelMappingComponent.onUndoButtonClick " + CharSequences.quoteAndEscape(labelName) + " " + CharSequences.quoteAndEscape(targetText));
 
         this.setLabelName(labelName);
-        this.setReference(referenceText);
+        this.setTarget(targetText);
     }
 
-    private String loadedReferenceText;
+    private String loadedTargetText;
 
     /**
      * When clicked the REMOVE button invokes {@link SpreadsheetLabelMappingComponentContext#delete()} ()}.
@@ -321,12 +321,12 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
      * Refreshes or enable/disables the SAVE and DELETE buttons.
      */
     private void refreshSaveAndDeleteButtons(final String labelName,
-                                             final String reference) {
+                                             final String target) {
         boolean deleteDisabled = true;
         boolean saveDisabled = true;
 
         String labelError = "";
-        String referenceError = "";
+        String targetError = "";
 
         try {
             SpreadsheetSelection.labelName(labelName);
@@ -336,18 +336,18 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         }
 
         try {
-            SpreadsheetSelection.parseCellRangeOrLabel(reference);
+            SpreadsheetSelection.parseCellRangeOrLabel(target);
 
             if(false == deleteDisabled) {
                 saveDisabled = false;
             }
-        } catch (final RuntimeException badReference) {
+        } catch (final RuntimeException badTarget) {
             saveDisabled = true;
-            referenceError = badReference.getMessage();
+            targetError = badTarget.getMessage();
         }
 
         this.labelNameTextBox.setHelperText(labelError);
-        this.referenceTextBox.setHelperText(referenceError);
+        this.targetTextBox.setHelperText(targetError);
 
         this.deleteButton.setDisabled(deleteDisabled);
         this.saveButton.setDisabled(saveDisabled);
@@ -401,12 +401,12 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         if(maybeMapping.isPresent()) {
             final SpreadsheetLabelMapping mapping = maybeMapping.get();
 
-            // same label update reference
+            // same label update target
             if (this.labelNameTextBox.getValue().equals(mapping.label().value())) {
-                final String referenceText = mapping.reference()
+                final String targetText = mapping.target()
                         .text();
-                this.setReference(referenceText);
-                this.loadedReferenceText = referenceText;
+                this.setTarget(targetText);
+                this.loadedTargetText = targetText;
             }
         }
     }

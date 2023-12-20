@@ -60,9 +60,9 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
         for (final SpreadsheetLabelMapping mapping : mappings) {
             this.label = mapping.label();
 
-            final SpreadsheetSelection reference = mapping.reference();
-            if (false == reference.isLabelName()) {
-                this.accept(reference);
+            final SpreadsheetSelection target = mapping.target();
+            if (false == target.isLabelName()) {
+                this.accept(target);
             }
         }
 
@@ -71,7 +71,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
 
             for (final SpreadsheetLabelMapping mapping : mappings) {
                 final SpreadsheetLabelName unknownLabel = mapping.label();
-                final SpreadsheetSelection possibleLabel = mapping.reference();
+                final SpreadsheetSelection possibleLabel = mapping.target();
                 if (false == possibleLabel.isLabelName() || done.contains(unknownLabel)) {
                     continue;
                 }

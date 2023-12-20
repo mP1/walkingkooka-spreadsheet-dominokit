@@ -103,7 +103,7 @@ final class BasicSpreadsheetLabelMappingComponentContext implements SpreadsheetL
                                         mapping.label()
                                 )
                         ).setSave(
-                                mapping.reference()
+                                mapping.target()
                         )
         );
     }

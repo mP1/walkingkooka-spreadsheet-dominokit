@@ -248,7 +248,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 .stream()
                 .filter(
                         m -> this.nonLabelSelection(
-                                        m.reference()
+                                        m.target()
                                 ).map(s -> s.test(selection))
                                 .orElse(false)
                 )
