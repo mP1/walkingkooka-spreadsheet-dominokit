@@ -230,7 +230,7 @@ public final class SpreadsheetLabelMappingEditorComponent implements ComponentLi
     // buttons..........................................................................................................
 
     /**
-     * When clicked the CLOSE button invokes {@link #close}.
+     * When clicked the CLOSE button invokes {@link SpreadsheetLabelMappingEditorComponentContext#close}.
      */
     private Button closeButton() {
         return this.button(
