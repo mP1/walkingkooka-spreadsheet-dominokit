@@ -86,6 +86,7 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(
                 () -> this.context.close()
         );
+        dialog.setTitle("Label");
         dialog.id(ID);
 
         dialog.appendChild(this.labelNameTextBox);
@@ -407,8 +408,6 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
      */
     @Override
     public void refresh(final AppContext context) {
-        this.dialog.setTitle("Label");
-
         final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
                 .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
         this.setLabelName(
