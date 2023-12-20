@@ -367,11 +367,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     }
 
     @Override
-    public void open(final AppContext context) {
-        this.dialog.open();
-
-        this.refresh(context);
-
+    public void openGiveFocus(final AppContext context) {
         context.giveFocus(
                 this.labelNameTextBox::focus
         );

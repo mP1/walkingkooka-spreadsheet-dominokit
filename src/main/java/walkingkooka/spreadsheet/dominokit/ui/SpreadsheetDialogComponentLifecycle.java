@@ -40,6 +40,16 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
         return this.dialog().isOpen();
     }
 
+    @Override
+    default void open(final AppContext context) {
+        this.dialog()
+                .open();
+        this.refresh(context);
+        this.openGiveFocus(context);
+    }
+
+    void openGiveFocus(final AppContext context);
+
     /**
      * Closes or hides the {@link Dialog}.
      */
