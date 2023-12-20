@@ -59,8 +59,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.ui.AppRightDrawerOpenableComponent;
-import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelMappingEditorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelMappingEditorComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelMappingComponent;
+import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelMappingComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternEditorComponent;
@@ -154,8 +154,8 @@ public class App implements EntryPoint,
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
 
-        SpreadsheetLabelMappingEditorComponent.with(
-                SpreadsheetLabelMappingEditorComponentContexts.basic(this)
+        SpreadsheetLabelMappingComponent.with(
+                SpreadsheetLabelMappingComponentContexts.basic(this)
         );
 
         SpreadsheetPatternEditorComponent.format(

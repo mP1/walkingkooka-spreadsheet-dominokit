@@ -30,16 +30,16 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A basic implementation of {@link SpreadsheetLabelMappingEditorComponentContext}.
+ * A basic implementation of {@link SpreadsheetLabelMappingComponentContext}.
  */
-final class BasicSpreadsheetLabelMappingEditorComponentContext implements SpreadsheetLabelMappingEditorComponentContext {
+final class BasicSpreadsheetLabelMappingComponentContext implements SpreadsheetLabelMappingComponentContext {
 
-    static BasicSpreadsheetLabelMappingEditorComponentContext with(final AppContext context) {
+    static BasicSpreadsheetLabelMappingComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
-        return new BasicSpreadsheetLabelMappingEditorComponentContext(context);
+        return new BasicSpreadsheetLabelMappingComponentContext(context);
     }
 
-    private BasicSpreadsheetLabelMappingEditorComponentContext(final AppContext context) {
+    private BasicSpreadsheetLabelMappingComponentContext(final AppContext context) {
         this.context = context;
     }
 
