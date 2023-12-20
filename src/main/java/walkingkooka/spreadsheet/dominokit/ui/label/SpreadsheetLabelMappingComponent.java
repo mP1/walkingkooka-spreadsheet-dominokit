@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.label;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.style.Elevation;
@@ -33,8 +32,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -49,7 +48,7 @@ import java.util.Optional;
 /**
  * A model dialog with several textboxes that allow creation, editing, saving and deletion of a {@link SpreadsheetLabelMapping}.
  */
-public final class SpreadsheetLabelMappingComponent implements ComponentLifecycle,
+public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialogComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetLabelMappingFetcherWatcher {
 
@@ -106,6 +105,11 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
     private final SpreadsheetDialogComponent dialog;
 
     private final SpreadsheetLabelMappingComponentContext context;
+
+    @Override
+    public SpreadsheetDialogComponent dialog() {
+        return this.dialog;
+    }
 
     // labelNameTextBox...................................................................................................
 
@@ -362,14 +366,6 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
         return token instanceof SpreadsheetLabelMappingSelectHistoryToken;
     }
 
-    /**
-     * Returns true if the dialog is open.
-     */
-    @Override
-    public boolean isOpen() {
-        return this.dialog.isOpen();
-    }
-
     @Override
     public void open(final AppContext context) {
         this.dialog.open();
@@ -392,14 +388,6 @@ public final class SpreadsheetLabelMappingComponent implements ComponentLifecycl
         context.giveFocus(
                 this.labelNameTextBox::focus
         );
-    }
-
-    /**
-     * Closes or hides the {@link Dialog}.
-     */
-    @Override
-    public void close(final AppContext context) {
-        this.dialog.close();
     }
 
     /**
