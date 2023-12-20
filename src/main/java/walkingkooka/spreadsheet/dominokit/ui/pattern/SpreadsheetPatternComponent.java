@@ -871,10 +871,8 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public void open(final AppContext context) {
-        this.dialog.open();
-        this.refresh(context);
-        this.context.giveFocus(
+    public void openGiveFocus(final AppContext context) {
+        context.giveFocus(
                 this.patternTextBox::focus
         );
     }
