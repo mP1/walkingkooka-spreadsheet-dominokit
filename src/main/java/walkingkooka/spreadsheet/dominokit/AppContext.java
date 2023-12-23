@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
+import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -41,6 +42,7 @@ import walkingkooka.tree.text.TextStyle;
 import java.util.Optional;
 
 public interface AppContext extends CanGiveFocus,
+        HasNow,
         HasSpreadsheetMetadata,
         HistoryTokenContext,
         LoggingContext,

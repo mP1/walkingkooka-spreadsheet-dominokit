@@ -35,6 +35,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextStyle;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class FakeAppContext implements AppContext {
@@ -176,6 +177,13 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
+    // HasNow...........................................................................................................
+
+    @Override
+    public LocalDateTime now() {
         throw new UnsupportedOperationException();
     }
 
