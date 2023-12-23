@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetLabelComponent;
+import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
