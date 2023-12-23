@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.formula;
 
+import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
@@ -25,6 +26,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.icons.lib.Icons;
+import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -42,6 +44,8 @@ import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
+
+import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 
 /**
  * Provides a text box which supports editing of a formula belonging to a cell.
@@ -86,6 +90,13 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
                                                 .addClickListener(this::onClear)
                                 )
                         )
+        );
+
+        textBox.setAutoValidation(true);
+        textBox.addValidator(
+                SpreadsheetFormulaComponentValidator.with(
+                        context
+                )
         );
 
         this.textBox = textBox;
@@ -155,6 +166,20 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
     private final TextBox textBox;
 
     private final AppContext context;
+
+    /**
+     * Calling this method results in this component always having the same height regardless of whether errors are
+     * present or absent. Normally the height of this component is less when no errors are available.
+     */
+    public SpreadsheetFormulaComponent helperTextAlwaysExpanded() {
+        DominoElement<Element> e = elements.elementOf(
+                this.textBox.element()
+                        .firstElementChild
+        );
+        e.setCssProperty("height", "4em");
+
+        return this;
+    }
 
     // IsElement.......................................................................................................
 
@@ -236,11 +261,10 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
                         .formula()
                         .text();
             }
-
-            // TODO show error somewhere in formula ?
         }
 
         this.setText(text);
+        this.textBox.validate();
         this.undoText = text;
     }
 

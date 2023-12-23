@@ -185,7 +185,8 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
     // formulaComponent.................................................................................................
 
     private SpreadsheetFormulaComponent formulaComponent() {
-        return SpreadsheetFormulaComponent.with(this.context);
+        return SpreadsheetFormulaComponent.with(this.context)
+                .helperTextAlwaysExpanded();
     }
 
     private final SpreadsheetFormulaComponent formulaComponent;
