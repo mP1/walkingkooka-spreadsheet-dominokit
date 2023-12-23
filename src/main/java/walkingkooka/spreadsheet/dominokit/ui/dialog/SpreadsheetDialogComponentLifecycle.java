@@ -15,10 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
 import org.dominokit.domino.ui.dialogs.Dialog;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 
 /**
  * A specialized {@link ComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
