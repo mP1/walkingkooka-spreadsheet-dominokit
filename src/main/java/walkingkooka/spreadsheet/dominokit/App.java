@@ -94,6 +94,7 @@ import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
 import java.math.MathContext;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @LocaleAware
@@ -788,6 +789,13 @@ public class App implements EntryPoint,
      * A {@link Runnable} which will give focus to some element. This is used to track and prevent multiple give focus attempts
      */
     private Runnable giveFocus;
+
+    // HasNow...........................................................................................................
+
+    @Override
+    public LocalDateTime now() {
+        return LocalDateTime.now();
+    }
 
     // logging..........................................................................................................
 
