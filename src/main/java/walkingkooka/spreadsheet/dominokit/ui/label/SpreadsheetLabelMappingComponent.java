@@ -164,7 +164,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     private TextBox targetTextBox() {
         final TextBox textBox = TextBox.create("Cell, cell range or Label");
 
-        textBox.id(ID_PREFIX + "label-TextBox");
+        textBox.id(ID_PREFIX + "target-TextBox");
         textBox.element().spellcheck = false;
         textBox.element().type = "text";
         textBox.apply(
