@@ -304,7 +304,7 @@ public class SpreadsheetContextMenu {
      * Adds a {@link IsElement} which is responsible for providing the content of the menu item.
      */
     public SpreadsheetContextMenu item(final IsElement<?> component) {
-        Objects.requireNonNull(component, "ui");
+        Objects.requireNonNull(component, "component");
 
         this.addSeparatorIfNecessary();
 
