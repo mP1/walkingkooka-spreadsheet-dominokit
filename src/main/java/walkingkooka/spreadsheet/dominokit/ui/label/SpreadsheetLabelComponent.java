@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.ui.label;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.IsElement;

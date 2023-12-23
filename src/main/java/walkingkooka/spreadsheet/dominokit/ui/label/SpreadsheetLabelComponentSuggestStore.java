@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.ui.label;
 
 import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
