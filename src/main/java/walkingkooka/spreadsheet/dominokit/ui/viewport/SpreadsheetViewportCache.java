@@ -195,7 +195,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         }
     }
 
-    Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
+    public Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
         return Optional.ofNullable(this.cells.get(cell));
     }
 
