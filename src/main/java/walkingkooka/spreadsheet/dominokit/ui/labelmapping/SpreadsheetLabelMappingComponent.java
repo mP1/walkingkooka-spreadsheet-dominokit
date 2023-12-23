@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.label;
+package walkingkooka.spreadsheet.dominokit.ui.labelmapping;
 
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;

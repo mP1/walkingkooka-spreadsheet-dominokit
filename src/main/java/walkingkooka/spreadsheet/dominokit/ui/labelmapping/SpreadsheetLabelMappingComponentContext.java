@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.label;
+package walkingkooka.spreadsheet.dominokit.ui.labelmapping;
 
 import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
