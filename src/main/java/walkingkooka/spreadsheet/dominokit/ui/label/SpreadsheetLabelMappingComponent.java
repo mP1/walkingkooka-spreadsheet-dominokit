@@ -26,6 +26,7 @@ import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
+import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
@@ -36,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetLabelComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -64,7 +66,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     private SpreadsheetLabelMappingComponent(final SpreadsheetLabelMappingComponentContext context) {
         this.context = context;
 
-        this.labelNameTextBox = this.labelNameTextBox();
+        this.label = label(context);
         this.targetTextBox = this.targetTextBox();
 
         this.saveButton = this.saveButton();
@@ -88,7 +90,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         dialog.setTitle("Label");
         dialog.id(ID);
 
-        dialog.appendChild(this.labelNameTextBox);
+        dialog.appendChild(this.label);
         dialog.appendChild(this.targetTextBox);
 
         dialog.appendChild(
@@ -111,50 +113,32 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         return this.dialog;
     }
 
-    // labelNameTextBox...................................................................................................
+    // SpreadsheetLabelComponent........................................................................................
 
-    /**
-     * Creates the label text box and installs a value change listener.
-     */
-    private TextBox labelNameTextBox() {
-        final TextBox textBox = TextBox.create("Label");
+    private SpreadsheetLabelComponent label(final Context context) {
+        return SpreadsheetLabelComponent.with(
+                "label",
+                context
 
-        textBox.id(ID_PREFIX + "label-TextBox");
-        textBox.element().spellcheck = false;
-        textBox.element().type = "text";
-        textBox.apply(
-                self -> self.appendChild(
-                        PostfixAddOn.of(
-                                SpreadsheetIcons.close()
-                                        .clickable()
-                                        .addClickListener(event -> this.setLabelName(""))
-                        )
-                )
-        );
-
-        textBox.addEventListener(
-                EventType.input,
-                (e) -> this.onLabelNameTextBox(this.labelNameTextBox.getValue())
-        );
-        return textBox;
+        ).addChangeListener(
+                (oldValue, newValue) ->
+                        this.onLabelNameTextBox(newValue)
+        ).setId(ID_PREFIX + "label-TextBox");
     }
 
-    private void onLabelNameTextBox(final String text) {
+    private void onLabelNameTextBox(final Optional<SpreadsheetLabelName> label) {
         this.refreshSaveAndDeleteButtons(
-                text,
+                label,
                 this.targetTextBox.getValue()
         );
     }
 
-    private void setLabelName(final String text) {
-        this.labelNameTextBox.setValue(text);
-        this.onLabelNameTextBox(text);
+    private void setLabelName(final Optional<SpreadsheetLabelName> label) {
+        this.label.setValue(label);
+        this.onLabelNameTextBox(label);
     }
 
-    /**
-     * The {@link TextBox} that holds the edited {@link SpreadsheetLabelName}.
-     */
-    private final TextBox labelNameTextBox;
+    private final SpreadsheetLabelComponent label;
 
     // targetTextBox...................................................................................................
 
@@ -186,7 +170,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
 
     private void onTargetTextBox(final String text) {
         this.refreshSaveAndDeleteButtons(
-                this.labelNameTextBox.getValue(),
+                this.label.value(),
                 text
         );
     }
@@ -233,16 +217,19 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
 
     private void onSaveButtonClick(final Event event) {
         final SpreadsheetLabelMappingComponentContext context = this.context;
-        final String labelName = this.labelNameTextBox.getValue();
+        final Optional<SpreadsheetLabelName> labelName = this.label.value();
         final String target = this.targetTextBox.getValue();
-        context.debug("SpreadsheetLabelMappingComponent.onSaveButtonClick labelName: " + CharSequences.quoteAndEscape(labelName) + " target: " + CharSequences.quoteAndEscape(target));
+        context.debug("SpreadsheetLabelMappingComponent.onSaveButtonClick labelName: " + labelName + " target: " + CharSequences.quoteAndEscape(target));
 
-        try {
-            final SpreadsheetLabelMapping mapping = SpreadsheetSelection.labelName(labelName)
-                    .mapping(SpreadsheetExpressionReference.parseCellOrCellRange(target));
-            context.save(mapping);
-        } catch (final Exception cause) {
-            context.error(cause.getMessage());
+        if (labelName.isPresent()) {
+            try {
+                context.save(
+                        labelName.get()
+                                .mapping(SpreadsheetExpressionReference.parseCellOrCellRange(target))
+                );
+            } catch (final Exception cause) {
+                context.error(cause.getMessage());
+            }
         }
     }
 
@@ -265,13 +252,11 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     private void onUndoButtonClick(final Event event) {
         final SpreadsheetLabelMappingComponentContext context = this.context;
 
-        final String labelName = context.label()
-                .map(SpreadsheetLabelName::value)
-                .orElse("");
+        final Optional<SpreadsheetLabelName> label = context.label();
         final String targetText = this.loadedTargetText;
-        context.debug("SpreadsheetLabelMappingComponent.onUndoButtonClick " + CharSequences.quoteAndEscape(labelName) + " " + CharSequences.quoteAndEscape(targetText));
+        context.debug("SpreadsheetLabelMappingComponent.onUndoButtonClick " + label + " " + CharSequences.quoteAndEscape(targetText));
 
-        this.setLabelName(labelName);
+        this.setLabelName(label);
         this.setTarget(targetText);
     }
 
@@ -320,20 +305,12 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     /**
      * Refreshes or enable/disables the SAVE and DELETE buttons.
      */
-    private void refreshSaveAndDeleteButtons(final String labelName,
+    private void refreshSaveAndDeleteButtons(final Optional<SpreadsheetLabelName> labelName,
                                              final String target) {
         boolean deleteDisabled = true;
         boolean saveDisabled = true;
 
-        String labelError = "";
         String targetError = "";
-
-        try {
-            SpreadsheetSelection.labelName(labelName);
-            deleteDisabled = false;
-        } catch (final RuntimeException fail) {
-            labelError = fail.getMessage();
-        }
 
         try {
             SpreadsheetSelection.parseCellRangeOrLabel(target);
@@ -346,7 +323,6 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
             targetError = badTarget.getMessage();
         }
 
-        this.labelNameTextBox.setHelperText(labelError);
         this.targetTextBox.setHelperText(targetError);
 
         this.deleteButton.setDisabled(deleteDisabled);
@@ -369,7 +345,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     @Override
     public void openGiveFocus(final AppContext context) {
         context.giveFocus(
-                this.labelNameTextBox::focus
+                this.label::focus
         );
     }
 
@@ -382,13 +358,13 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
                 .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
         final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
         if (maybeLabelName.isPresent()) {
-            final SpreadsheetLabelName labelName = maybeLabelName.get();
-            final String text = labelName.text();
-            this.setLabelName(text);
+            this.setLabelName(maybeLabelName);
             try {
-                this.context.loadLabel(labelName);
+                this.context.loadLabel(
+                        maybeLabelName.get()
+                );
             } catch (final RuntimeException ignore) {
-                this.context.error("Unable to load label " + CharSequences.quoteAndEscape(text));
+                this.context.error("Unable to load label " + maybeLabelName);
             }
         }
     }
@@ -402,7 +378,9 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
             final SpreadsheetLabelMapping mapping = maybeMapping.get();
 
             // same label update target
-            if (this.labelNameTextBox.getValue().equals(mapping.label().value())) {
+            if (this.label.value()
+                    .equals(mapping.label())
+            ) {
                 final String targetText = mapping.target()
                         .text();
                 this.setTarget(targetText);
