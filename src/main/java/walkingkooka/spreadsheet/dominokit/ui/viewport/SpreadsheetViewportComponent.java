@@ -77,6 +77,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetColorPickerComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
