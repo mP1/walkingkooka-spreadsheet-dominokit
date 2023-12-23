@@ -21,7 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
@@ -43,6 +45,17 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
 
     private SpreadsheetExpressionReferenceComponent(final String label) {
         final TextBox textBox = new TextBox(label);
+        textBox.apply(
+                self -> self.appendChild(
+                        PostfixAddOn.of(
+                                SpreadsheetIcons.close()
+                                        .clickable()
+                                        .addClickListener(
+                                                event -> textBox.setValue("")
+                                        )
+                        )
+                )
+        );
         textBox.setAutoValidation(true);
         textBox.addValidator(SpreadsheetExpressionReferenceComponentValidator.INSTANCE);
 
