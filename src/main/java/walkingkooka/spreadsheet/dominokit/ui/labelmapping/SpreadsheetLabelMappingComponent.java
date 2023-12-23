@@ -118,20 +118,20 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
 
         ).addChangeListener(
                 (oldValue, newValue) ->
-                        this.onLabelNameTextBox(newValue)
+                        this.onLabel(newValue)
         ).setId(ID_PREFIX + "label-TextBox");
     }
 
-    private void onLabelNameTextBox(final Optional<SpreadsheetLabelName> label) {
+    private void onLabel(final Optional<SpreadsheetLabelName> label) {
         this.refreshSaveAndDeleteButtons(
                 label,
                 this.target.value()
         );
     }
 
-    private void setLabelName(final Optional<SpreadsheetLabelName> label) {
+    private void setLabel(final Optional<SpreadsheetLabelName> label) {
         this.label.setValue(label);
-        this.onLabelNameTextBox(label);
+        this.onLabel(label);
     }
 
     private final SpreadsheetLabelComponent label;
@@ -242,7 +242,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         final Optional<SpreadsheetExpressionReference> target = this.loadedTarget;
         context.debug("SpreadsheetLabelMappingComponent.onUndoButtonClick " + label + " " + target);
 
-        this.setLabelName(label);
+        this.setLabel(label);
         this.setTarget(target);
     }
 
@@ -326,7 +326,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
                 .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
         final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
         if (maybeLabelName.isPresent()) {
-            this.setLabelName(maybeLabelName);
+            this.setLabel(maybeLabelName);
             try {
                 this.context.loadLabel(
                         maybeLabelName.get()
