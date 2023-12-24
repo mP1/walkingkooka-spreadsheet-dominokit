@@ -277,6 +277,13 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
         this.refresh(context);
     }
 
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.textBox.toString();
+    }
+
     private final TextBox textBox;
 
     private final AppContext context;
