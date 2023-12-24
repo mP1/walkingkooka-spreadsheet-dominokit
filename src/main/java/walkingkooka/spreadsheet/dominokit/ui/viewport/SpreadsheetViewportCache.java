@@ -75,7 +75,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public void clear() {
         this.cells.clear();
 
-        this.labelMappings.clear();
+        this.labelMappings = Sets.empty();
         this.cellToLabels.clear();
         this.labelToNonLabel.clear();
 

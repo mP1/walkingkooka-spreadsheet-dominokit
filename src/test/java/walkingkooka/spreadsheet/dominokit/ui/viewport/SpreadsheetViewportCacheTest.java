@@ -131,6 +131,115 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    // clear............................................................................................................
+
+    @Test
+    public void testClear() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        cache.clear();
+    }
+
+    @Test
+    public void testClearOnSpreadsheetMetadata() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        cache.clear();
+
+        final double width = 100;
+        final double height = 200;
+
+        cache.onSpreadsheetMetadata(
+                SpreadsheetMetadata.EMPTY
+                        .set(
+                                SpreadsheetMetadataPropertyName.STYLE,
+                                TextStyle.EMPTY
+                                        .set(TextStylePropertyName.WIDTH, Length.pixel(width))
+                                        .set(TextStylePropertyName.HEIGHT, Length.pixel(height))
+                        ),
+                CONTEXT
+        );
+
+        this.checkEquals(
+                Length.pixel(width),
+                cache.defaultWidth,
+                "defaultWidth"
+        );
+        this.checkEquals(
+                Length.pixel(height),
+                cache.defaultHeight,
+                "defaultHeight"
+        );
+    }
+
+    @Test
+    public void testClearOnSpreadsheetDelta() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.clear();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1_CELL,
+                                        A2_CELL,
+                                        A3_CELL
+                                )
+                        ).setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3
+                                )
+                        ).setRows(
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                A1_CELL,
+                A2_CELL,
+                A3_CELL
+        );
+
+        this.checkColumns(
+                cache,
+                COLUMN_A,
+                COLUMN_B
+        );
+
+        this.checkCellToLabels(
+                cache,
+                LABEL_MAPPINGA1A,
+                LABEL_MAPPINGA1B,
+                LABEL_MAPPINGB3
+        );
+
+        this.checkRows(
+                cache,
+                ROW_1,
+                ROW_2
+        );
+
+        cache.clear();
+
+        this.checkCells(cache);
+        this.checkColumns(cache);
+        this.checkCellToLabels(cache);
+        this.checkRows(cache);
+    }
+
+    // onSpreadsheetMetadata...........................................................................................
+
     @Test
     public void testOnSpreadsheetMetadata() {
         final double width = 123;
