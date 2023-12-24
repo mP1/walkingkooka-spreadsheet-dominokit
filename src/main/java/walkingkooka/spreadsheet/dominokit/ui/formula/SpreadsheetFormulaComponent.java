@@ -236,7 +236,6 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
                         selection,
                         context
                 );
-                this.selection = selection;
             }
         } else {
             context.debug("SpreadsheetFormulaComponent.refresh not cell historyToken clearing text");
@@ -272,10 +271,7 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
     public void close(final AppContext context) {
         this.textBox.setDisabled(true);
         this.textBox.clear(); // lost focus etc clear the textbox
-        this.selection = null;
     }
-
-    private SpreadsheetSelection selection;
 
     // SpreadsheetDeltaWatcher..........................................................................................
 
