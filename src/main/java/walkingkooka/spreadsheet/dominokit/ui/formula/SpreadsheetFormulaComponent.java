@@ -163,10 +163,6 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
         this.textBox.setValue(text);
     }
 
-    private final TextBox textBox;
-
-    private final AppContext context;
-
     /**
      * Calling this method results in this component always having the same height regardless of whether errors are
      * present or absent. Normally the height of this component is less when no errors are available.
@@ -280,4 +276,8 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
                                    final AppContext context) {
         this.refresh(context);
     }
+
+    private final TextBox textBox;
+
+    private final AppContext context;
 }
