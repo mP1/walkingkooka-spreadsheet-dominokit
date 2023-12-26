@@ -19,8 +19,11 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.TextBoxStringParserValidator;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -43,9 +46,12 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
                 .clearIcon()
                 .disableSpellcheck()
                 .enterFiresValueChange()
-                .setValidator(SpreadsheetExpressionReferenceComponentValidator.INSTANCE);
-
+                .setValidator(VALIDATOR);
     }
+
+    private final static Validator<TextBox> VALIDATOR = TextBoxStringParserValidator.with(
+            SpreadsheetSelection::parseExpressionReference
+    );
 
     public SpreadsheetExpressionReferenceComponent setId(final String id) {
         this.textBox.setId(id);
