@@ -27,7 +27,7 @@ import java.util.function.Consumer;
 /**
  * A {@link Validator} that invokes {@link Consumer#accept(Object)}, catching any exceptions and using that as the fail message.
  */
-public class TextBoxStringParserValidator implements Validator<TextBox> {
+public final class TextBoxStringParserValidator implements Validator<TextBox> {
 
     /**
      * Factory
