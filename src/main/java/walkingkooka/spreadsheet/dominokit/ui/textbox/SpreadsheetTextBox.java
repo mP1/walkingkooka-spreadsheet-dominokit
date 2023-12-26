@@ -70,7 +70,8 @@ public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
     }
 
     public SpreadsheetTextBox disableSpellcheck() {
-        this.textBox.element()
+        this.textBox.getInputElement()
+                .element()
                 .spellcheck = false;
         return this;
     }
