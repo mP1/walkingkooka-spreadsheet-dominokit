@@ -61,7 +61,7 @@ public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
                                 SpreadsheetIcons.close()
                                         .clickable()
                                         .addClickListener(
-                                                event -> this.textBox.setValue("")
+                                                event -> this.textBox.clear()
                                         )
                         )
                 )
