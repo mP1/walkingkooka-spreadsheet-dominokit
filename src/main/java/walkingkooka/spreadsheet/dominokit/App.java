@@ -240,7 +240,6 @@ public class App implements EntryPoint,
 
     @Override
     public void onModuleLoad() {
-        this.setSpreadsheetName("Untitled 123");
         this.fireInitialHistoryToken();
         this.fireInitialWindowSize();
     }
@@ -390,6 +389,8 @@ public class App implements EntryPoint,
         if (maybeId.isPresent() && maybeName.isPresent()) {
             final SpreadsheetId id = maybeId.get();
             final SpreadsheetName name = maybeName.get();
+
+            this.setSpreadsheetName(name.text());
 
             final HistoryToken historyToken = context.historyToken();
             final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
