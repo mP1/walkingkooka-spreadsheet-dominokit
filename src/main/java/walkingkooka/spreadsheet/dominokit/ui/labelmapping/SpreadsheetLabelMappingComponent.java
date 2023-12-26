@@ -141,8 +141,9 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
      * Creates the {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference} text box and installs a value change listener.
      */
     private SpreadsheetExpressionReferenceComponent target() {
-        return SpreadsheetExpressionReferenceComponent.with("Cell, cell range or Label")
+        return SpreadsheetExpressionReferenceComponent.empty()
                 .setId(ID_PREFIX + "target-TextBox")
+                .setLabel("Cell, cell range or Label")
                 .addChangeListener(
                         (oldValue, newValue) -> this.onTarget(newValue)
                 );
