@@ -44,7 +44,8 @@ public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
     }
 
     private SpreadsheetTextBox() {
-        this.textBox = new TextBox();
+        this.textBox = new TextBox()
+                .setMarginBottom("0");
     }
 
     public SpreadsheetTextBox addChangeListener(final ChangeListener<String> listener) {
