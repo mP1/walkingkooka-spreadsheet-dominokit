@@ -19,9 +19,12 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.Value;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.ui.TextBoxStringParserValidator;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 
 import java.util.Objects;
@@ -42,9 +45,10 @@ public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
                 .clearIcon()
                 .disableSpellcheck()
                 .enterFiresValueChange()
-                .setValidator(SpreadsheetNameComponentValidator.INSTANCE);
-
+                .setValidator(VALIDATOR);
     }
+
+    private final static Validator<TextBox> VALIDATOR = TextBoxStringParserValidator.with(SpreadsheetName::with);
 
     public SpreadsheetNameComponent setId(final String id) {
         this.textBox.setId(id);
