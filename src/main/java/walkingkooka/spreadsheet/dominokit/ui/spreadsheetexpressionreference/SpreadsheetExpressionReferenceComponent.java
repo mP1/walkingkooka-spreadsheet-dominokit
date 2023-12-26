@@ -41,6 +41,7 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
     private SpreadsheetExpressionReferenceComponent() {
         this.textBox = SpreadsheetTextBox.empty()
                 .clearIcon()
+                .disableSpellcheck()
                 .enterFiresValueChange()
                 .setValidator(SpreadsheetExpressionReferenceComponentValidator.INSTANCE);
 
