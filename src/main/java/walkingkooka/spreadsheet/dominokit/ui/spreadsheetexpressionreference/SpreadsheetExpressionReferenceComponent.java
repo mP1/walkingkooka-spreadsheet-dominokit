@@ -26,7 +26,6 @@ import walkingkooka.Value;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -37,14 +36,12 @@ import java.util.Optional;
 public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFieldSetElement>,
         Value<Optional<SpreadsheetExpressionReference>> {
 
-    public static SpreadsheetExpressionReferenceComponent with(final String label) {
-        CharSequences.failIfNullOrEmpty(label, "label");
-
-        return new SpreadsheetExpressionReferenceComponent(label);
+    public static SpreadsheetExpressionReferenceComponent empty() {
+        return new SpreadsheetExpressionReferenceComponent();
     }
 
-    private SpreadsheetExpressionReferenceComponent(final String label) {
-        final TextBox textBox = new TextBox(label);
+    private SpreadsheetExpressionReferenceComponent() {
+        final TextBox textBox = new TextBox();
         textBox.apply(
                 self -> self.appendChild(
                         PostfixAddOn.of(
@@ -66,6 +63,11 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
     public SpreadsheetExpressionReferenceComponent setId(final String id) {
         this.textBox.getInputElement()
                 .setId(id);
+        return this;
+    }
+
+    public SpreadsheetExpressionReferenceComponent setLabel(final String label) {
+        this.textBox.setLabel(label);
         return this;
     }
 
