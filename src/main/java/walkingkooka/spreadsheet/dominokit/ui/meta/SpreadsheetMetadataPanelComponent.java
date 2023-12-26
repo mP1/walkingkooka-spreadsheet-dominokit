@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.meta;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLTableElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.TBodyElement;
@@ -163,10 +164,7 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
     }
 
     private SpreadsheetMetadataPanelComponentItem<?> spreadsheetName() {
-        return readOnlyText(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                SpreadsheetName::toString
-        );
+        return this.spreadsheetNameComponent();
     }
 
     private SpreadsheetMetadataPanelComponentItem<?> creator() {
@@ -395,6 +393,15 @@ public final class SpreadsheetMetadataPanelComponent implements ComponentLifecyc
         return SpreadsheetMetadataPanelComponentItem.readOnlyText(
                 propertyName,
                 formatter,
+                this.context
+        );
+    }
+
+    /**
+     * Factory that creates a single ROW with a single {@link org.dominokit.domino.ui.forms.TextBox}.
+     */
+    private SpreadsheetMetadataPanelComponentItem<?> spreadsheetNameComponent() {
+        return SpreadsheetMetadataPanelComponentItem.spreadsheetName(
                 this.context
         );
     }
