@@ -19,11 +19,9 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.Value;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -41,28 +39,15 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
     }
 
     private SpreadsheetExpressionReferenceComponent() {
-        final TextBox textBox = new TextBox();
-        textBox.apply(
-                self -> self.appendChild(
-                        PostfixAddOn.of(
-                                SpreadsheetIcons.close()
-                                        .clickable()
-                                        .addClickListener(
-                                                event -> textBox.setValue("")
-                                        )
-                        )
-                )
-        );
-        textBox.setAutoValidation(true);
-        textBox.addValidator(SpreadsheetExpressionReferenceComponentValidator.INSTANCE);
-
-        this.textBox = textBox;
+        this.textBox = SpreadsheetTextBox.empty()
+                .clearIcon()
+                .enterFiresValueChange()
+                .setValidator(SpreadsheetExpressionReferenceComponentValidator.INSTANCE);
 
     }
 
     public SpreadsheetExpressionReferenceComponent setId(final String id) {
-        this.textBox.getInputElement()
-                .setId(id);
+        this.textBox.setId(id);
         return this;
     }
 
@@ -76,16 +61,13 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
     }
 
     public SpreadsheetExpressionReferenceComponent addChangeListener(final ChangeListener<Optional<SpreadsheetExpressionReference>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
         this.textBox.addChangeListener(
                 (final String oldValue,
-                 final String newValue) -> {
-                    listener.onValueChanged(
-                            tryParse(oldValue),
-                            tryParse(newValue)
-                    );
-                }
+                 final String newValue) ->
+                        listener.onValueChanged(
+                                tryParse(oldValue),
+                                tryParse(newValue)
+                        )
         );
 
         return this;
@@ -112,7 +94,7 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
     @Override //
     public Optional<SpreadsheetExpressionReference> value() {
         return tryParse(
-                this.textBox.getStringValue()
+                this.textBox.value()
         );
     }
 
@@ -128,13 +110,12 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
         return Optional.ofNullable(expressionReference);
     }
 
-    private final TextBox textBox;
+    private final SpreadsheetTextBox textBox;
 
     // Object...........................................................................................................
 
     @Override
     public String toString() {
-        return this.element()
-                .toString();
+        return this.textBox.toString();
     }
 }
