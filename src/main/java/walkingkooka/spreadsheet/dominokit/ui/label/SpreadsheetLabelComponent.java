@@ -27,7 +27,6 @@ import walkingkooka.Context;
 import walkingkooka.Value;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -38,21 +37,14 @@ import java.util.Optional;
 public final class SpreadsheetLabelComponent implements IsElement<HTMLFieldSetElement>,
         Value<Optional<SpreadsheetLabelName>> {
 
-    public static SpreadsheetLabelComponent with(final String label,
-                                                 final Context context) {
-        CharSequences.failIfNullOrEmpty(label, "label");
+    public static SpreadsheetLabelComponent with(final Context context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetLabelComponent(
-                label,
-                context
-        );
+        return new SpreadsheetLabelComponent(context);
     }
 
-    private SpreadsheetLabelComponent(final String label,
-                                      final Context context) {
+    private SpreadsheetLabelComponent(final Context context) {
         final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox = SuggestBox.create(
-                label,
                 SpreadsheetLabelComponentSuggestStore.with(context)
         );
         this.suggestBox = suggestBox;
@@ -63,6 +55,11 @@ public final class SpreadsheetLabelComponent implements IsElement<HTMLFieldSetEl
     public SpreadsheetLabelComponent setId(final String id) {
         this.suggestBox.getInputElement()
                 .setId(id);
+        return this;
+    }
+
+    public SpreadsheetLabelComponent setLabel(final String label) {
+        this.suggestBox.setLabel(label);
         return this;
     }
 
