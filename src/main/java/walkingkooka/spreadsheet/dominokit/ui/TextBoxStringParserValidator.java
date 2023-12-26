@@ -32,7 +32,7 @@ public class TextBoxStringParserValidator implements Validator<TextBox> {
     /**
      * Factory
      */
-    static TextBoxStringParserValidator with(final Consumer<String> parser) {
+    public static TextBoxStringParserValidator with(final Consumer<String> parser) {
         Objects.requireNonNull(parser, "parser");
 
         return new TextBoxStringParserValidator(parser);
