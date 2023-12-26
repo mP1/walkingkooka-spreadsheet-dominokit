@@ -28,7 +28,6 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
-import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
@@ -171,13 +170,6 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     }
 
     // DOM factory methods..............................................................................................
-
-    final Tooltip tooltip(final Anchor anchor) {
-        return Tooltip.create(
-                anchor,
-                ""
-        ).setPosition(DropDirection.BOTTOM_MIDDLE);
-    }
 
     /**
      * Creates an {@link Anchor}, which will need to be refreshed.
