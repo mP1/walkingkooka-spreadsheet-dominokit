@@ -112,14 +112,13 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     // SpreadsheetLabelComponent........................................................................................
 
     private SpreadsheetLabelComponent label(final Context context) {
-        return SpreadsheetLabelComponent.with(
-                "label",
-                context
-
-        ).addChangeListener(
-                (oldValue, newValue) ->
-                        this.onLabel(newValue)
-        ).setId(ID_PREFIX + "label-TextBox");
+        return SpreadsheetLabelComponent.with(context)
+                .setId(ID_PREFIX + "label-TextBox")
+                .setLabel("Label")
+                .addChangeListener(
+                        (oldValue, newValue) ->
+                                this.onLabel(newValue)
+                );
     }
 
     private void onLabel(final Optional<SpreadsheetLabelName> label) {
