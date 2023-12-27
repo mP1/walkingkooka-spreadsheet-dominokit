@@ -42,6 +42,14 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     }
 
     @Test
+    public void testUrlFragmentCellRangeStar() {
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+                "/123/SpreadsheetName456/cell/*/top-left"
+        );
+    }
+
+    @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,

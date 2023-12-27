@@ -41,6 +41,14 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
         );
     }
 
+    @Test
+    public void testUrlFragmentColumnRangeStar() {
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
+                "/123/SpreadsheetName456/column/*/right"
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test

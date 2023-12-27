@@ -42,6 +42,14 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
         );
     }
 
+    @Test
+    public void testUrlFragmentRowRangeStar() {
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+                "/123/SpreadsheetName456/row/*/bottom"
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test

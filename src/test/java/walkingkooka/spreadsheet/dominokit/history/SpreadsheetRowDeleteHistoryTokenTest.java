@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetRowDeleteHistoryTokenTest extends SpreadsheetRowHistoryTokenTestCase<SpreadsheetRowDeleteHistoryToken> {
@@ -38,6 +39,14 @@ public final class SpreadsheetRowDeleteHistoryTokenTest extends SpreadsheetRowHi
         this.urlFragmentAndCheck(
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
                 "/123/SpreadsheetName456/row/2:3/bottom/delete"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentRowRangeStar() {
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+                "/123/SpreadsheetName456/row/*/bottom/delete"
         );
     }
 
