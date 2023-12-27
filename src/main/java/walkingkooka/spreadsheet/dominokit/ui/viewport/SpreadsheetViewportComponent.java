@@ -1662,12 +1662,13 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
         this.loadViewportCellsIfNecessary(context);
 
         final Optional<SpreadsheetId> spreadsheetId = metadata.id();
-        if (spreadsheetId.isPresent()) {
+        final Optional<SpreadsheetName> spreadsheetName = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME);
+        if (spreadsheetId.isPresent() && spreadsheetName.isPresent()) {
             context.pushHistoryToken(
                     context.historyToken()
                             .setIdAndName(
                                     spreadsheetId.get(),
-                                    metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME)
+                                    spreadsheetName.get()
                             )
             );
         }
