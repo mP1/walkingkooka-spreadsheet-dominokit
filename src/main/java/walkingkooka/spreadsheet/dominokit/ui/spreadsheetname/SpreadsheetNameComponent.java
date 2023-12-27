@@ -80,7 +80,7 @@ public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
         return this.textBox.value();
     }
 
-    private final ParserSpreadsheetTextBox textBox;
+    private final ParserSpreadsheetTextBox<SpreadsheetName> textBox;
 
     // Object...........................................................................................................
 
