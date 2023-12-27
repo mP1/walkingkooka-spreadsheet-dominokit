@@ -1661,18 +1661,6 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         this.loadViewportCellsIfNecessary(context);
 
-        final Optional<SpreadsheetId> spreadsheetId = metadata.id();
-        final Optional<SpreadsheetName> spreadsheetName = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME);
-        if (spreadsheetId.isPresent() && spreadsheetName.isPresent()) {
-            context.pushHistoryToken(
-                    context.historyToken()
-                            .setIdAndName(
-                                    spreadsheetId.get(),
-                                    spreadsheetName.get()
-                            )
-            );
-        }
-
         // the returned metadata isnt any different from the current metadata skip rendering again.
         if (this.reload) {
             this.refresh(context);
