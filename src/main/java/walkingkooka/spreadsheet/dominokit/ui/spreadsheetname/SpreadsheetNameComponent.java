@@ -19,13 +19,10 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.Value;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.ui.TextBoxStringParserValidator;
-import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -41,14 +38,8 @@ public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
     }
 
     private SpreadsheetNameComponent() {
-        this.textBox = SpreadsheetTextBox.empty()
-                .clearIcon()
-                .disableSpellcheck()
-                .enterFiresValueChange()
-                .setValidator(VALIDATOR);
+        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetName::with);
     }
-
-    private final static Validator<TextBox> VALIDATOR = TextBoxStringParserValidator.with(SpreadsheetName::with);
 
     public SpreadsheetNameComponent setId(final String id) {
         this.textBox.setId(id);
@@ -65,16 +56,7 @@ public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
     }
 
     public SpreadsheetNameComponent addChangeListener(final ChangeListener<Optional<SpreadsheetName>> listener) {
-        this.textBox.addChangeListener(
-                (final String oldValue,
-                 final String newValue) -> {
-                    listener.onValueChanged(
-                            tryParse(oldValue),
-                            tryParse(newValue)
-                    );
-                }
-        );
-
+        this.textBox.addChangeListener(listener);
         return this;
     }
 
@@ -90,32 +72,15 @@ public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
     public void setValue(final Optional<SpreadsheetName> spreadsheetName) {
         Objects.requireNonNull(spreadsheetName, "spreadsheetName");
 
-        this.textBox.setValue(
-                spreadsheetName.map(SpreadsheetName::text)
-                        .orElse("")
-        );
+        this.textBox.setValue(spreadsheetName);
     }
 
     @Override //
     public Optional<SpreadsheetName> value() {
-        return tryParse(
-                this.textBox.value()
-        );
+        return this.textBox.value();
     }
 
-    private Optional<SpreadsheetName> tryParse(final String value) {
-        SpreadsheetName spreadsheetName;
-
-        try {
-            spreadsheetName = SpreadsheetName.with(value);
-        } catch (final Exception ignore) {
-            spreadsheetName = null;
-        }
-
-        return Optional.ofNullable(spreadsheetName);
-    }
-
-    private final SpreadsheetTextBox textBox;
+    private final ParserSpreadsheetTextBox textBox;
 
     // Object...........................................................................................................
 
