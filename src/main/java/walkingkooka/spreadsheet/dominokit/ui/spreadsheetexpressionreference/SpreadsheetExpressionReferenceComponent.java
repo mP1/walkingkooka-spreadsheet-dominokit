@@ -31,9 +31,6 @@ import java.util.Optional;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetExpressionReference}.
  */
-/**
- * A text box that accepts entry and validates it as a {@link SpreadsheetExpressionReference}.
- */
 public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFieldSetElement>,
         Value<Optional<SpreadsheetExpressionReference>> {
 
