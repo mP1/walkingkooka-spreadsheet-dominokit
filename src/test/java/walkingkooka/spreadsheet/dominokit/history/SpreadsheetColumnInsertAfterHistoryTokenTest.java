@@ -55,6 +55,14 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
         );
     }
 
+    @Test
+    public void testUrlFragmentColumnRangeStar() {
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
+                "/123/SpreadsheetName456/column/*/right/insertAfter/1"
+        );
+    }
+
     // parse............................................................................................................
 
     @Test

@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import java.util.Optional;
@@ -40,6 +41,14 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
                 "/123/SpreadsheetName456/cell/B2:C3/top-left/find"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentCellRangeStar() {
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+                "/123/SpreadsheetName456/cell/*/top-left/find"
         );
     }
 

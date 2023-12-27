@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellDeleteHistoryToken> {
@@ -28,6 +29,14 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/delete");
+    }
+
+    @Test
+    public void testUrlFragmentCellRangeStar() {
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+                "/123/SpreadsheetName456/cell/*/top-left/delete"
+        );
     }
 
     @Test

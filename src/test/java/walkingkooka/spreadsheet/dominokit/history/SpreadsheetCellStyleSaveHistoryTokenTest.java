@@ -77,6 +77,14 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     }
 
     @Test
+    public void testUrlFragmentCellRangeStar() {
+        this.urlFragmentAndCheck(
+                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+                "/123/SpreadsheetName456/cell/*/top-left/style/color/save/#123456"
+        );
+    }
+
+    @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
