@@ -32,15 +32,19 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.text.CaseKind;
+import walkingkooka.tree.expression.Expression;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 public final class SpreadsheetDeltaFetcher implements Fetcher {
 
@@ -195,6 +199,96 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
+    public void findCells(final SpreadsheetId id,
+                          final SpreadsheetCellRange cells,
+                          final Optional<SpreadsheetCellRangePath> path,
+                          final OptionalInt offset,
+                          final OptionalInt max,
+                          final Optional<String> valueType,
+                          final Optional<Expression> query) {
+        this.get(
+                findCellsUrl(
+                        id,
+                        cells,
+                        path,
+                        offset,
+                        max,
+                        valueType,
+                        query
+                )
+        );
+    }
+
+    // @VisibleForTesting
+    static RelativeUrl findCellsUrl(final SpreadsheetId id,
+                                    final SpreadsheetCellRange cells,
+                                    final Optional<SpreadsheetCellRangePath> path,
+                                    final OptionalInt offset,
+                                    final OptionalInt max,
+                                    final Optional<String> valueType,
+                                    final Optional<Expression> query) {
+        checkId(id);
+        Objects.requireNonNull(cells, "cells");
+        Objects.requireNonNull(path, "path");
+        Objects.requireNonNull(valueType, "valueType");
+        Objects.requireNonNull(query, "query");
+
+        UrlQueryString urlQuery = UrlQueryString.EMPTY;
+
+        if (path.isPresent()) {
+            urlQuery = urlQuery.addParameter(
+                    CELL_RANGE_PATH,
+                    CaseKind.kebabEnumName(
+                            path.get()
+                    )
+            );
+        }
+        if (max.isPresent()) {
+            urlQuery = urlQuery.addParameter(
+                    MAX,
+                    String.valueOf(
+                            max.getAsInt()
+                    )
+            );
+        }
+        if (offset.isPresent()) {
+            urlQuery = urlQuery.addParameter(
+                    OFFSET,
+                    String.valueOf(
+                            offset.getAsInt()
+                    )
+            );
+        }
+        if (query.isPresent()) {
+            urlQuery = urlQuery.addParameter(
+                    QUERY,
+                    query.get()
+                            .toString()
+            );
+        }
+        if (valueType.isPresent()) {
+            urlQuery = urlQuery.addParameter(
+                    VALUE_TYPE,
+                    valueType.get().toString()
+            );
+        }
+
+        return Url.parseRelative(
+                "/api/spreadsheet/" +
+                        id +
+                        "/cells/" +
+                        cells +
+                        "/find"
+        ).setQuery(urlQuery);
+    }
+
+    final static UrlParameterName CELL_RANGE_PATH = UrlParameterName.with("cell-range-path");
+    final static UrlParameterName MAX = UrlParameterName.with("max");
+    final static UrlParameterName OFFSET = UrlParameterName.with("offset");
+    final static UrlParameterName QUERY = UrlParameterName.with("query");
+
+    final static UrlParameterName VALUE_TYPE = UrlParameterName.with("value-type");
+
     public void insertAfterColumn(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,
                                   final int count,
@@ -214,7 +308,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 viewport
         );
     }
-    
+
     public void insertBeforeColumn(final SpreadsheetId id,
                                    final SpreadsheetSelection selection,
                                    final int count,

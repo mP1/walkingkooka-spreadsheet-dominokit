@@ -24,15 +24,21 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.test.Testing;
+import walkingkooka.tree.expression.Expression;
+import walkingkooka.tree.expression.FunctionExpressionName;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -515,6 +521,275 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         initial
                 ),
                 () -> initial + " appendViewportAndWindow " + viewport + " " + windows
+        );
+    }
+
+    // findCells........................................................................................................
+
+    private final static SpreadsheetId ID = SpreadsheetId.parse("1234");
+
+    private final static SpreadsheetCellRange CELLS = SpreadsheetSelection.parseCellRange("A1:B2");
+
+    private final static Optional<SpreadsheetCellRangePath> PATH = Optional.of(
+            SpreadsheetCellRangePath.BULR
+    );
+
+    private final static OptionalInt OFFSET = OptionalInt.of(12);
+
+    private final static OptionalInt MAX = OptionalInt.of(34);
+
+    private final static Optional<String> VALUE_TYPE = Optional.of(SpreadsheetValueType.DATE);
+
+    private final static Optional<Expression> QUERY = Optional.of(
+            Expression.add(
+                    Expression.value(56),
+                    Expression.call(
+                            Expression.namedFunction(
+                                    FunctionExpressionName.with("function78")
+                            ),
+                            Lists.of(
+                                    Expression.value(90),
+                                    Expression.value(true)
+                            )
+                    )
+            )
+    );
+
+    @Test
+    public void testFindCellsWithNullIdFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.findCellsUrl(
+                        null,
+                        CELLS,
+                        PATH,
+                        OFFSET,
+                        MAX,
+                        VALUE_TYPE,
+                        QUERY
+                )
+        );
+    }
+
+    @Test
+    public void testFindCellsWithNullCellsFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.findCellsUrl(
+                        ID,
+                        null,
+                        PATH,
+                        OFFSET,
+                        MAX,
+                        VALUE_TYPE,
+                        QUERY
+                )
+        );
+    }
+
+    @Test
+    public void testFindCellsWithNullPathFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.findCellsUrl(
+                        ID,
+                        CELLS,
+                        null,
+                        OFFSET,
+                        MAX,
+                        VALUE_TYPE,
+                        QUERY
+                )
+        );
+    }
+
+    @Test
+    public void testFindCellsWithNullOffsetFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.findCellsUrl(
+                        ID,
+                        CELLS,
+                        PATH,
+                        null,
+                        MAX,
+                        VALUE_TYPE,
+                        QUERY
+                )
+        );
+    }
+
+    @Test
+    public void testFindCellsWithNullMaxFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.findCellsUrl(
+                        ID,
+                        CELLS,
+                        PATH,
+                        OFFSET,
+                        null,
+                        VALUE_TYPE,
+                        QUERY
+                )
+        );
+    }
+
+    @Test
+    public void testFindCellsWithNullValueTypeFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.findCellsUrl(
+                        ID,
+                        CELLS,
+                        PATH,
+                        OFFSET,
+                        MAX,
+                        null,
+                        QUERY
+                )
+        );
+    }
+
+    @Test
+    public void testFindCellsWithNullQueryFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.findCellsUrl(
+                        ID,
+                        CELLS,
+                        PATH,
+                        OFFSET,
+                        MAX,
+                        VALUE_TYPE,
+                        null
+                )
+        );
+    }
+
+    @Test
+    public void testFindCellsPath() {
+        this.findCellsUrlAndCheck(
+                ID,
+                CELLS,
+                PATH,
+                OptionalInt.empty(), // offset
+                OptionalInt.empty(), // max
+                Optional.empty(),
+                Optional.empty(),
+                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?cell-range-path=bulr")
+        );
+    }
+
+    @Test
+    public void testFindCellsOffset() {
+        this.findCellsUrlAndCheck(
+                ID,
+                CELLS,
+                Optional.empty(),
+                OptionalInt.of(123), // offset
+                OptionalInt.empty(), // max
+                Optional.empty(),
+                Optional.empty(),
+                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?offset=123")
+        );
+    }
+
+    @Test
+    public void testFindCellsMax() {
+        this.findCellsUrlAndCheck(
+                ID,
+                CELLS,
+                Optional.empty(),
+                OptionalInt.empty(), // offset
+                OptionalInt.of(123), // max
+                Optional.empty(),
+                Optional.empty(),
+                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?max=123")
+        );
+    }
+
+    @Test
+    public void testFindCellsValueType() {
+        this.findCellsUrlAndCheck(
+                ID,
+                CELLS,
+                Optional.empty(),
+                OptionalInt.empty(), // offset
+                OptionalInt.empty(), // max
+                Optional.of(SpreadsheetValueType.NUMBER),
+                Optional.empty(),
+                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?value-type=number")
+        );
+    }
+
+    @Test
+    public void testFindCellsQuery() {
+        this.findCellsUrlAndCheck(
+                ID,
+                CELLS,
+                Optional.empty(), // path
+                OptionalInt.empty(), // offset
+                OptionalInt.empty(), // max
+                Optional.empty(), // value-type
+                QUERY,
+                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?query=56%2Bfunction78%2890%2Ctrue%29")
+        );
+    }
+
+    @Test
+    public void testFindCellsAllParameters() {
+        this.findCellsUrlAndCheck(
+                ID,
+                CELLS,
+                PATH,
+                OFFSET,
+                MAX,
+                VALUE_TYPE,
+                Optional.of(
+                        Expression.add(
+                                Expression.value(56),
+                                Expression.value(78)
+                        )
+                ),
+                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=56%2B78&value-type=date")
+        );
+    }
+
+    @Test
+    public void testFindCellsAllParameters2() {
+        this.findCellsUrlAndCheck(
+                ID,
+                CELLS,
+                PATH,
+                OFFSET,
+                MAX,
+                VALUE_TYPE,
+                QUERY,
+                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=56%2Bfunction78%2890%2Ctrue%29&value-type=date")
+        );
+    }
+
+    private void findCellsUrlAndCheck(final SpreadsheetId id,
+                                      final SpreadsheetCellRange cells,
+                                      final Optional<SpreadsheetCellRangePath> path,
+                                      final OptionalInt offset,
+                                      final OptionalInt max,
+                                      final Optional<String> valueType,
+                                      final Optional<Expression> query,
+                                      final RelativeUrl expected) {
+        this.checkEquals(
+                expected,
+                SpreadsheetDeltaFetcher.findCellsUrl(
+                        id,
+                        cells,
+                        path,
+                        offset,
+                        max,
+                        valueType,
+                        query
+                ),
+                () -> "findCellsUrl " + id + " " + cells + " path=" + path + " offset=" + offset + " max=" + max + " valueType=" + valueType + " query=" + query
         );
     }
 
