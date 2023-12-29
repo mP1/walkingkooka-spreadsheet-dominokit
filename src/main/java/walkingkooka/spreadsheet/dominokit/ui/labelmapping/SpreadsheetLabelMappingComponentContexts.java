@@ -25,7 +25,7 @@ public final class SpreadsheetLabelMappingComponentContexts implements PublicSta
     /**
      * {@see AppContextSpreadsheetLabelMappingComponentContext}
      */
-    public static SpreadsheetLabelMappingComponentContext basic(final AppContext context) {
+    public static SpreadsheetLabelMappingComponentContext appContext(final AppContext context) {
         return AppContextSpreadsheetLabelMappingComponentContext.with(context);
     }
 

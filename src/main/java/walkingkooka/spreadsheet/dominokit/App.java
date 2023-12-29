@@ -156,7 +156,7 @@ public class App implements EntryPoint,
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
 
         SpreadsheetLabelMappingComponent.with(
-                SpreadsheetLabelMappingComponentContexts.basic(this)
+                SpreadsheetLabelMappingComponentContexts.appContext(this)
         );
 
         SpreadsheetPatternComponent.format(
