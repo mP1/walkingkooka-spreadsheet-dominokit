@@ -22,8 +22,7 @@ import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
@@ -43,18 +42,11 @@ import java.util.Optional;
 
 public interface AppContext extends CanGiveFocus,
         HasNow,
+        HasSpreadsheetDeltaFetcher,
         HasSpreadsheetMetadata,
         HistoryTokenContext,
         LoggingContext,
         Context {
-
-    // delta............................................................................................................
-
-    Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
-
-    Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher);
-
-    SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 
     // labelMapping............................................................................................................
 
