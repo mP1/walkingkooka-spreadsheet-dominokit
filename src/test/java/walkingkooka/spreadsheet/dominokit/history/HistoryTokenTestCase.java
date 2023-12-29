@@ -68,6 +68,26 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // close............................................................................................................
+
+    final void closeAndCheck() {
+        final HistoryToken token = this.createHistoryToken();
+
+        assertSame(
+                token,
+                token.close()
+        );
+    }
+
+    final void closeAndCheck(final HistoryToken token,
+                             final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.close(),
+                () -> token + " close"
+        );
+    }
+
     // setIdAndName.....................................................................................................
 
     @Test
