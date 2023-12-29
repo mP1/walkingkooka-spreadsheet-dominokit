@@ -27,15 +27,15 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.util.Locale;
 import java.util.Objects;
 
-final class BasicSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext {
+final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext {
 
-    static BasicSpreadsheetMetadataPanelComponentContext with(final AppContext context) {
+    static AppContextSpreadsheetMetadataPanelComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new BasicSpreadsheetMetadataPanelComponentContext(context);
+        return new AppContextSpreadsheetMetadataPanelComponentContext(context);
     }
 
-    private BasicSpreadsheetMetadataPanelComponentContext(final AppContext context) {
+    private AppContextSpreadsheetMetadataPanelComponentContext(final AppContext context) {
         super();
         this.context = context;
     }

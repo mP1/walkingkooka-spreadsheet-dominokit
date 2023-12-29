@@ -23,10 +23,10 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetMetadataPanelComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetMetadataPanelComponentContext}.
+     * {@see AppContextSpreadsheetMetadataPanelComponentContext}.
      */
     public static SpreadsheetMetadataPanelComponentContext basic(final AppContext context) {
-        return BasicSpreadsheetMetadataPanelComponentContext.with(context);
+        return AppContextSpreadsheetMetadataPanelComponentContext.with(context);
     }
 
     /**
