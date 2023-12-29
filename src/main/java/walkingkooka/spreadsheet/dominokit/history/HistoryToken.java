@@ -793,22 +793,28 @@ public abstract class HistoryToken implements HasUrlFragment {
                     label.name()
             );
         }
-        if (this instanceof SpreadsheetCellPatternSelectHistoryToken) {
-            final SpreadsheetCellPatternSelectHistoryToken patternSelect = (SpreadsheetCellPatternSelectHistoryToken) this;
+        if (this instanceof SpreadsheetCellPatternHistoryToken) {
+            final SpreadsheetCellPatternHistoryToken cellPattern = (SpreadsheetCellPatternHistoryToken) this;
 
-            final SpreadsheetId id = patternSelect.id();
-            final SpreadsheetName name = patternSelect.name();
-            final AnchoredSpreadsheetSelection selection = patternSelect.selection();
+            final SpreadsheetId id = cellPattern.id();
+            final SpreadsheetName name = cellPattern.name();
+            final AnchoredSpreadsheetSelection selection = cellPattern.selection();
+            final Optional<SpreadsheetPatternKind> patternKind = cellPattern.patternKind();
 
-            closed = patternSelect.patternKind()
-                    .get()
-                    .isFormatPattern() ?
-                    cellFormatPatternToolbar(
-                            id,
-                            name,
-                            selection
-                    ) :
-                    cellParsePatternToolbar(
+            closed = patternKind.isPresent() ?
+                    patternKind.get()
+                            .isFormatPattern() ?
+                            cellFormatPatternToolbar(
+                                    id,
+                                    name,
+                                    selection
+                            ) :
+                            cellParsePatternToolbar(
+                                    id,
+                                    name,
+                                    selection
+                            ) :
+                    selection(
                             id,
                             name,
                             selection
