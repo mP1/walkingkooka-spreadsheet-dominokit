@@ -32,14 +32,14 @@ import java.util.Optional;
 /**
  * A basic implementation of {@link SpreadsheetLabelMappingComponentContext}.
  */
-final class BasicSpreadsheetLabelMappingComponentContext implements SpreadsheetLabelMappingComponentContext {
+final class AppContextSpreadsheetLabelMappingComponentContext implements SpreadsheetLabelMappingComponentContext {
 
-    static BasicSpreadsheetLabelMappingComponentContext with(final AppContext context) {
+    static AppContextSpreadsheetLabelMappingComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
-        return new BasicSpreadsheetLabelMappingComponentContext(context);
+        return new AppContextSpreadsheetLabelMappingComponentContext(context);
     }
 
-    private BasicSpreadsheetLabelMappingComponentContext(final AppContext context) {
+    private AppContextSpreadsheetLabelMappingComponentContext(final AppContext context) {
         this.context = context;
     }
 
