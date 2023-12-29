@@ -34,6 +34,19 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         super();
     }
 
+    // close............................................................................................................
+
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.spreadsheetSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
     // setMenu1(Selection)..................................................................................................
 
     @Test
