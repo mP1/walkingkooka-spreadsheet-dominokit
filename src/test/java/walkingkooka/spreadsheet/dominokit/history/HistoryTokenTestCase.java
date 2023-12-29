@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragment;
+import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -34,7 +35,10 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class HistoryTokenTestCase<T extends HistoryToken> implements ClassTesting<T>, HashCodeEqualsDefinedTesting2<T>, ToStringTesting<T> {
+public abstract class HistoryTokenTestCase<T extends HistoryToken> implements ClassTesting<T>,
+        HashCodeEqualsDefinedTesting2<T>,
+        HasUrlFragmentTesting,
+        ToStringTesting<T> {
 
     final static SpreadsheetId ID = SpreadsheetId.with(0x123);
 
@@ -278,15 +282,6 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         this.urlFragmentAndCheck(
                 fragment,
                 UrlFragment.with(expected)
-        );
-    }
-
-    final void urlFragmentAndCheck(final HasUrlFragment fragment,
-                                   final UrlFragment expected) {
-        this.checkEquals(
-                expected,
-                fragment.urlFragment(),
-                () -> "urlFragment of " + fragment
         );
     }
 
