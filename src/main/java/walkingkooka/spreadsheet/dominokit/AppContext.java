@@ -23,9 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
@@ -41,19 +40,12 @@ import java.util.Optional;
 public interface AppContext extends CanGiveFocus,
         HasNow,
         HasSpreadsheetDeltaFetcher,
+        HasSpreadsheetLabelMappingFetcher,
         HasSpreadsheetMetadata,
         HasSpreadsheetMetadataFetcher,
         HistoryTokenContext,
         LoggingContext,
         Context {
-
-    // labelMapping............................................................................................................
-
-    Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher);
-
-    Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher);
-
-    SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher();
 
     // json............................................................................................................
 
