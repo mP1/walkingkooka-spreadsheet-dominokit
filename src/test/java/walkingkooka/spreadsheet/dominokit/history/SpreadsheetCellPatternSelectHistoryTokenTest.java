@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -127,6 +128,50 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
                 "/123/SpreadsheetName456/cell/Label123/format-pattern/date"
         );
     }
+
+    // close............................................................................................................
+
+    @Test
+    public void testCloseFormatPattern() {
+        final SpreadsheetPattern formatPattern = SpreadsheetPattern.parseTextFormatPattern("@");
+
+        this.closeAndCheck(
+                SpreadsheetCellPatternSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        formatPattern.kind(),
+                        Optional.of(formatPattern)
+                ),
+                HistoryToken.cellFormatPatternToolbar(
+                        ID,
+                        NAME,
+                        SELECTION
+                )
+        );
+    }
+
+    @Test
+    public void testCloseParePattern() {
+        final SpreadsheetPattern parsePattern = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
+
+        this.closeAndCheck(
+                SpreadsheetCellPatternSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        parsePattern.kind(),
+                        Optional.of(parsePattern)
+                ),
+                HistoryToken.cellParsePatternToolbar(
+                        ID,
+                        NAME,
+                        SELECTION
+                )
+        );
+    }
+
+    // helpers.........................................................................................................
 
     @Override
     SpreadsheetCellPatternSelectHistoryToken createHistoryToken(final SpreadsheetId id,

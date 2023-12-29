@@ -113,6 +113,48 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
         );
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testCloseFormatPattern() {
+        final SpreadsheetPattern formatPattern = SpreadsheetPattern.parseTextFormatPattern("@");
+
+        this.closeAndCheck(
+                SpreadsheetCellPatternSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        formatPattern.kind(),
+                        Optional.of(formatPattern)
+                ),
+                HistoryToken.cellFormatPatternToolbar(
+                        ID,
+                        NAME,
+                        SELECTION
+                )
+        );
+    }
+
+    @Test
+    public void testCloseParePattern() {
+        final SpreadsheetPattern parsePattern = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
+
+        this.closeAndCheck(
+                SpreadsheetCellPatternSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        parsePattern.kind(),
+                        Optional.of(parsePattern)
+                ),
+                HistoryToken.cellParsePatternToolbar(
+                        ID,
+                        NAME,
+                        SELECTION
+                )
+        );
+    }
+
     @Override
     SpreadsheetCellPatternSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,
