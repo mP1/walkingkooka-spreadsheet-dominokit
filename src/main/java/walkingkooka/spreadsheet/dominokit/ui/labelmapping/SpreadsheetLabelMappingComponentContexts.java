@@ -23,10 +23,10 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetLabelMappingComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetLabelMappingComponentContext}
+     * {@see AppContextSpreadsheetLabelMappingComponentContext}
      */
     public static SpreadsheetLabelMappingComponentContext basic(final AppContext context) {
-        return BasicSpreadsheetLabelMappingComponentContext.with(context);
+        return AppContextSpreadsheetLabelMappingComponentContext.with(context);
     }
 
     private SpreadsheetLabelMappingComponentContexts() {
