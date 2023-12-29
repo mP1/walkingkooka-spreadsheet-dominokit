@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-public interface HasLabelMappingFetcher {
+public interface HasSpreadsheetLabelMappingFetcher {
 
     Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher);
 
