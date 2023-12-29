@@ -128,8 +128,8 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(
-                () -> this.close(null)
-                );
+                this.context::close
+        );
         dialog.id(ID);
 
         dialog.appendChild(this.patternKindTabsPanel);
