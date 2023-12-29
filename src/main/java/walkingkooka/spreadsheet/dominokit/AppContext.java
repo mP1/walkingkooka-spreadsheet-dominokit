@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatc
 import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
@@ -55,14 +54,6 @@ public interface AppContext extends CanGiveFocus,
     Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher);
 
     SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher();
-
-    // metadata..........................................................................................................
-
-    /**
-     * Returns the current or last loaded {@link SpreadsheetMetadata}.
-     */
-    @Override
-    SpreadsheetMetadata spreadsheetMetadata();
 
     // json............................................................................................................
 
