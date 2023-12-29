@@ -23,10 +23,9 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
@@ -44,6 +43,7 @@ public interface AppContext extends CanGiveFocus,
         HasNow,
         HasSpreadsheetDeltaFetcher,
         HasSpreadsheetMetadata,
+        HasSpreadsheetMetadataFetcher,
         HistoryTokenContext,
         LoggingContext,
         Context {
@@ -57,12 +57,6 @@ public interface AppContext extends CanGiveFocus,
     SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher();
 
     // metadata..........................................................................................................
-
-    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
-
-    Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher);
-
-    SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 
     /**
      * Returns the current or last loaded {@link SpreadsheetMetadata}.
