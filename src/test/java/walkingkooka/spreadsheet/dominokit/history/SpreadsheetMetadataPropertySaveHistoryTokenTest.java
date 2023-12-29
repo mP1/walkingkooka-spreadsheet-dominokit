@@ -227,6 +227,46 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
         );
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testCloseFormatPattern() {
+        this.closeAndCheck(
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN,
+                        Optional.of(
+                                SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                        )
+                ),
+                HistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public void testCloseParsePattern() {
+        this.closeAndCheck(
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN,
+                        Optional.of(
+                                SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                        )
+                ),
+                HistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    // helper...........................................................................................................
+
     @Override
     SpreadsheetMetadataPropertySaveHistoryToken<ExpressionNumberKind> createHistoryToken(final SpreadsheetId id,
                                                                                          final SpreadsheetName name) {
