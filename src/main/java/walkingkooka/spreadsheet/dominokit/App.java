@@ -207,7 +207,7 @@ public class App implements EntryPoint,
                                 .appendChild(
                                         SpreadsheetMetadataPanelComponent.with(
                                                 AppRightDrawerOpenableComponent.with(layout),
-                                                SpreadsheetMetadataPanelComponentContexts.basic(this)
+                                                SpreadsheetMetadataPanelComponentContexts.appContext(this)
                                         ))
                 );
 

@@ -25,7 +25,7 @@ public final class SpreadsheetMetadataPanelComponentContexts implements PublicSt
     /**
      * {@see AppContextSpreadsheetMetadataPanelComponentContext}.
      */
-    public static SpreadsheetMetadataPanelComponentContext basic(final AppContext context) {
+    public static SpreadsheetMetadataPanelComponentContext appContext(final AppContext context) {
         return AppContextSpreadsheetMetadataPanelComponentContext.with(context);
     }
 
