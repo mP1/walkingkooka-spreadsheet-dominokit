@@ -156,6 +156,38 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         this.clearActionAndCheck();
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testCloseFormatPattern() {
+        this.closeAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+                ),
+                HistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public void testCloseParsePattern() {
+        this.closeAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN
+                ),
+                HistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
     // setPatternKind...................................................................................................
 
     @Test
