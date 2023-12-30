@@ -18,9 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.ui.parsertextbox;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxValidators;
 import walkingkooka.text.HasText;
@@ -33,8 +32,7 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages.
  */
-public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HTMLFieldSetElement>,
-        Value<Optional<T>> {
+public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueComponent<HTMLFieldSetElement, T> {
 
     /**
      * Creates a new {@link ParserSpreadsheetTextBox}.
@@ -54,16 +52,19 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
         this.required();
     }
 
+    @Override
     public ParserSpreadsheetTextBox<T> setId(final String id) {
         this.textBox.setId(id);
         return this;
     }
 
+    @Override
     public ParserSpreadsheetTextBox<T> setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
     }
 
+    @Override
     public ParserSpreadsheetTextBox<T> optional() {
         this.textBox.setValidator(
                 SpreadsheetTextBoxValidators.optional(
@@ -73,6 +74,7 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
         return this;
     }
 
+    @Override
     public ParserSpreadsheetTextBox<T> required() {
         this.textBox.setValidator(
                 SpreadsheetTextBoxValidators.parser(this.parser::apply)
@@ -80,10 +82,13 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
         return this;
     }
 
-    public void focus() {
+    @Override
+    public ParserSpreadsheetTextBox<T> focus() {
         this.textBox.focus();
+        return this;
     }
 
+    @Override
     public ParserSpreadsheetTextBox<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
@@ -109,13 +114,15 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
 
     // Value............................................................................................................
 
-    public void setValue(final Optional<T> value) {
+    @Override
+    public ParserSpreadsheetTextBox<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
         this.textBox.setValue(
                 value.map(T::text)
                         .orElse("")
         );
+        return this;
     }
 
     @Override //
