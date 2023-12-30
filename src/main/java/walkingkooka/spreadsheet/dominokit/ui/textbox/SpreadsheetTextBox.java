@@ -117,9 +117,11 @@ public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
     }
 
 
-    public SpreadsheetTextBox setValidator(final Validator<TextBox> validator) {
+    public SpreadsheetTextBox setValidator(final Validator<String> validator) {
         this.textBox.setAutoValidation(true);
-        this.textBox.addValidator(validator);
+        this.textBox.addValidator(
+                SpreadsheetTextBoxValidator.with(validator)
+        );
         return this;
     }
 
