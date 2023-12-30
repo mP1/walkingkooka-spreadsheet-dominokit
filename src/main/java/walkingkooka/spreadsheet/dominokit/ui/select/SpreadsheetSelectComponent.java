@@ -18,11 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.ui.select;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -30,8 +29,7 @@ import java.util.Optional;
 /**
  * A select component with a few helpers to assist with build and working with values.
  */
-public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElement>,
-        Value<Optional<T>> {
+public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T> {
 
     public static <T> SpreadsheetSelectComponent<T> empty() {
         return new SpreadsheetSelectComponent<>();
@@ -43,21 +41,25 @@ public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElem
         this.select.addValidator(SpreadsheetSelectComponentValidator.with(this));
     }
 
+    @Override
     public SpreadsheetSelectComponent<T> setId(final String id) {
         this.select.setId(id);
         return this;
     }
 
+    @Override
     public SpreadsheetSelectComponent<T> setLabel(final String label) {
         this.select.setLabel(label);
         return this;
     }
 
+    @Override
     public SpreadsheetSelectComponent<T> optional() {
         this.required = false;
         return this;
     }
 
+    @Override
     public SpreadsheetSelectComponent<T> required() {
         this.required = true;
         return this;
@@ -65,8 +67,10 @@ public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElem
 
     boolean required;
 
-    public void focus() {
+    @Override
+    public SpreadsheetSelectComponent<T> focus() {
         this.select.focus();
+        return this;
     }
 
     public SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
@@ -121,12 +125,14 @@ public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElem
         return this;
     }
 
-    public void setValue(final Optional<T> value) {
+    @Override
+    public SpreadsheetSelectComponent<T> setValue(final Optional<T> value) {
         checkValue(value);
 
         this.select.setValue(
                 value.orElse(null)
         );
+        return this;
     }
 
     @Override //
