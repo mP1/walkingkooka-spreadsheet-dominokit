@@ -205,15 +205,10 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
     public void open(final AppContext context) {
         this.textBox.setDisabled(false);
 
-        final SpreadsheetSelection selection = context.historyToken()
+        this.selection = context.historyToken()
                 .selectionOrEmpty()
                 .get()
                 .selection();
-
-        this.reload(
-                selection,
-                context
-        );
     }
 
     @Override
@@ -221,17 +216,21 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
         final HistoryToken token = context.historyToken();
 
         if (token instanceof SpreadsheetCellHistoryToken) {
-            if (token instanceof SpreadsheetCellFormulaHistoryToken) {
-                context.debug("SpreadsheetFormulaComponent.refresh giving focus");
-                this.textBox.focus();
-            } else {
-                final SpreadsheetCellHistoryToken cellHistoryToken = (SpreadsheetCellHistoryToken) token;
-                final SpreadsheetSelection selection = cellHistoryToken.selection().selection();
+            final SpreadsheetSelection selection = token.cast(SpreadsheetCellHistoryToken.class)
+                    .selection()
+                    .selection();
 
+            // if selection change reload formula text
+            if (false == selection.equalsIgnoreReferenceKind(this.selection)) {
                 this.reload(
                         selection,
                         context
                 );
+            }
+
+            if (token instanceof SpreadsheetCellFormulaHistoryToken) {
+                context.debug("SpreadsheetFormulaComponent.refresh giving focus");
+                this.textBox.focus();
             }
         } else {
             context.debug("SpreadsheetFormulaComponent.refresh not cell historyToken clearing text");
@@ -267,7 +266,10 @@ public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSet
     public void close(final AppContext context) {
         this.textBox.setDisabled(true);
         this.textBox.clear(); // lost focus etc clear the textbox
+        this.selection = null;
     }
+
+    private SpreadsheetSelection selection;
 
     // SpreadsheetDeltaWatcher..........................................................................................
 
