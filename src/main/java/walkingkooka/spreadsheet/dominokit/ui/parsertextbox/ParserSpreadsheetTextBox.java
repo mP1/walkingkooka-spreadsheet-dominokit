@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxStringParserValidator;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxValidators;
 import walkingkooka.text.HasText;
 
 import java.util.Objects;
@@ -50,7 +50,7 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
                 .clearIcon()
                 .disableSpellcheck()
                 .enterFiresValueChange()
-                .setValidator(SpreadsheetTextBoxStringParserValidator.with(parser::apply));
+                .setValidator(SpreadsheetTextBoxValidators.parser(parser::apply));
         this.parser = parser;
     }
 
