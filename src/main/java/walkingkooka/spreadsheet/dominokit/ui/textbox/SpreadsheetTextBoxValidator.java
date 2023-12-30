@@ -36,7 +36,9 @@ final class SpreadsheetTextBoxValidator implements Validator<TextBox> {
 
     @Override
     public ValidationResult isValid(final TextBox component) {
-        return null;
+        return this.validator.isValid(
+                component.getValue()
+        );
     }
 
     private final Validator<String> validator;
