@@ -39,6 +39,8 @@ public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElem
 
     private SpreadsheetSelectComponent() {
         this.select = Select.create();
+        this.select.setAutoValidation(true);
+        this.select.addValidator(SpreadsheetSelectComponentValidator.with(this));
     }
 
     public SpreadsheetSelectComponent setId(final String id) {
@@ -50,6 +52,18 @@ public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElem
         this.select.setLabel(label);
         return this;
     }
+
+    public SpreadsheetSelectComponent<T> optional() {
+        this.required = false;
+        return this;
+    }
+
+    public SpreadsheetSelectComponent<T> required() {
+        this.required = true;
+        return this;
+    }
+
+    boolean required;
 
     public void focus() {
         this.select.focus();
