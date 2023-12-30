@@ -123,31 +123,6 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
-    // setViewport.............................................................................................
-
-    @Test
-    public final void testSetSelectionWithSameColumn() {
-        this.setSelectionAndCheck(
-                COLUMN.setDefaultAnchor()
-        );
-    }
-
-    @Test
-    public final void testSetSelectionWithSameColumnRange() {
-        this.setSelectionAndCheck(
-                SpreadsheetSelection.parseColumnRange("A:B")
-                        .setAnchor(SpreadsheetViewportAnchor.RIGHT)
-        );
-    }
-
-    @Test
-    public final void testSetSelectionWithSameColumnRange2() {
-        this.setSelectionAndCheck(
-                SpreadsheetSelection.parseColumnRange("A:C")
-                        .setAnchor(SpreadsheetViewportAnchor.LEFT)
-        );
-    }
-
     // setMenu1(Selection)..................................................................................................
 
     @Test
@@ -227,6 +202,33 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     public final void testSetMenuWithRow() {
         this.setMenuWithRowAndCheck();
     }
+
+    // setSelection.....................................................................................................
+
+    @Test
+    public final void testSetSelectionWithSameColumn() {
+        this.setSelectionAndCheck(
+                COLUMN.setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameColumnRange() {
+        this.setSelectionAndCheck(
+                SpreadsheetSelection.parseColumnRange("A:B")
+                        .setAnchor(SpreadsheetViewportAnchor.RIGHT)
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameColumnRange2() {
+        this.setSelectionAndCheck(
+                SpreadsheetSelection.parseColumnRange("A:C")
+                        .setAnchor(SpreadsheetViewportAnchor.LEFT)
+        );
+    }
+
+    // helpers..............................................................................................
 
     final void urlFragmentAndCheck(final SpreadsheetColumnReference reference,
                                    final String expected) {

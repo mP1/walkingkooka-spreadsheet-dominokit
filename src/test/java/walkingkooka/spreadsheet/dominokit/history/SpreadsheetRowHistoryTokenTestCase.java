@@ -125,31 +125,6 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
-    // setViewport.............................................................................................
-
-    @Test
-    public final void testSetSelectionWithSameColumn() {
-        this.setSelectionAndCheck(
-                ROW.setDefaultAnchor()
-        );
-    }
-
-    @Test
-    public final void testSetSelectionWithSameColumnRange() {
-        this.setSelectionAndCheck(
-                SpreadsheetSelection.parseRowRange("1:2")
-                        .setAnchor(SpreadsheetViewportAnchor.TOP)
-        );
-    }
-
-    @Test
-    public final void testSetSelectionWithSameColumnRange2() {
-        this.setSelectionAndCheck(
-                SpreadsheetSelection.parseRowRange("1:3")
-                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-        );
-    }
-
     // setMenu1(Selection)..................................................................................................
 
     @Test
@@ -239,6 +214,31 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         assertSame(
                 historyToken.setSave("=1"),
                 historyToken
+        );
+    }
+
+    // setSelection.............................................................................................
+
+    @Test
+    public final void testSetSelectionWithSameColumn() {
+        this.setSelectionAndCheck(
+                ROW.setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameColumnRange() {
+        this.setSelectionAndCheck(
+                SpreadsheetSelection.parseRowRange("1:2")
+                        .setAnchor(SpreadsheetViewportAnchor.TOP)
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameColumnRange2() {
+        this.setSelectionAndCheck(
+                SpreadsheetSelection.parseRowRange("1:3")
+                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
     }
 
