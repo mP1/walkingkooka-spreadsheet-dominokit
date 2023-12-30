@@ -21,8 +21,8 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBoxStringParserValidator;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxStringParserValidator;
 import walkingkooka.text.HasText;
 
 import java.util.Objects;
