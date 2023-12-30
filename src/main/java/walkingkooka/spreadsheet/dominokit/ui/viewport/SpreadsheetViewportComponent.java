@@ -354,9 +354,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
                 // clear any selection
                 context.pushHistoryToken(
                         context.historyToken()
-                                .setSelection(
-                                        Optional.empty()
-                                )
+                                .clearSelection()
                 );
                 break;
             default:
