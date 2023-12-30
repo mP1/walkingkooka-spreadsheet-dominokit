@@ -18,9 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.ui.cellrangepath;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 
@@ -30,8 +29,7 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link SpreadsheetCellRangePath}.
  */
-public class SpreadsheetCellRangePathComponent implements IsElement<HTMLFieldSetElement>,
-        Value<Optional<SpreadsheetCellRangePath>> {
+public final class SpreadsheetCellRangePathComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangePath> {
 
     public static SpreadsheetCellRangePathComponent empty() {
         return new SpreadsheetCellRangePathComponent();
@@ -48,30 +46,37 @@ public class SpreadsheetCellRangePathComponent implements IsElement<HTMLFieldSet
         }
     }
 
+    @Override
     public SpreadsheetCellRangePathComponent setId(final String id) {
         this.select.setId(id);
         return this;
     }
 
+    @Override
     public SpreadsheetCellRangePathComponent setLabel(final String label) {
         this.select.setLabel(label);
         return this;
     }
 
+    @Override
     public SpreadsheetCellRangePathComponent optional() {
         this.select.optional();
         return this;
     }
 
+    @Override
     public SpreadsheetCellRangePathComponent required() {
         this.select.required();
         return this;
     }
 
-    public void focus() {
+    @Override
+    public SpreadsheetCellRangePathComponent focus() {
         this.select.focus();
+        return this;
     }
 
+    @Override
     public SpreadsheetCellRangePathComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRangePath>> listener) {
         this.select.addChangeListener(listener);
         return this;
@@ -86,10 +91,12 @@ public class SpreadsheetCellRangePathComponent implements IsElement<HTMLFieldSet
 
     // Value............................................................................................................
 
-    public void setValue(final Optional<SpreadsheetCellRangePath> spreadsheetCellRangePath) {
+    @Override
+    public SpreadsheetCellRangePathComponent setValue(final Optional<SpreadsheetCellRangePath> spreadsheetCellRangePath) {
         Objects.requireNonNull(spreadsheetCellRangePath, "spreadsheetCellRangePath");
 
         this.select.setValue(spreadsheetCellRangePath);
+        return this;
     }
 
     @Override //
