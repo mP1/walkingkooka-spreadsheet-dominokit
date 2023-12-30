@@ -49,7 +49,7 @@ public final class SpreadsheetLabelComponent implements IsElement<HTMLFieldSetEl
         );
         this.suggestBox = suggestBox;
         suggestBox.setAutoValidation(true);
-        suggestBox.addValidator(SpreadsheetLabelComponentValidator.INSTANCE);
+        suggestBox.addValidator(SpreadsheetLabelComponentValidator.with(this));
     }
 
     public SpreadsheetLabelComponent setId(final String id) {
@@ -62,6 +62,18 @@ public final class SpreadsheetLabelComponent implements IsElement<HTMLFieldSetEl
         this.suggestBox.setLabel(label);
         return this;
     }
+
+    public SpreadsheetLabelComponent optional() {
+        this.required = false;
+        return this;
+    }
+
+    public SpreadsheetLabelComponent required() {
+        this.required = true;
+        return this;
+    }
+
+    boolean required;
 
     public void focus() {
         this.suggestBox.focus();
