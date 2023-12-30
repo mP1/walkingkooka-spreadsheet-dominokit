@@ -18,10 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 
 import java.util.Objects;
@@ -30,8 +29,7 @@ import java.util.Optional;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetName}.
  */
-public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
-        Value<Optional<SpreadsheetName>> {
+public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetName> {
 
     public static SpreadsheetNameComponent empty() {
         return new SpreadsheetNameComponent();
@@ -41,20 +39,25 @@ public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
         this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetName::with);
     }
 
+    @Override
     public SpreadsheetNameComponent setId(final String id) {
         this.textBox.setId(id);
         return this;
     }
 
+    @Override
     public SpreadsheetNameComponent setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
     }
 
-    public void focus() {
+    @Override
+    public SpreadsheetNameComponent focus() {
         this.textBox.focus();
+        return this;
     }
 
+    @Override
     public SpreadsheetNameComponent addChangeListener(final ChangeListener<Optional<SpreadsheetName>> listener) {
         this.textBox.addChangeListener(listener);
         return this;
@@ -69,10 +72,12 @@ public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
 
     // Value............................................................................................................
 
-    public void setValue(final Optional<SpreadsheetName> spreadsheetName) {
+    @Override
+    public SpreadsheetNameComponent setValue(final Optional<SpreadsheetName> spreadsheetName) {
         Objects.requireNonNull(spreadsheetName, "spreadsheetName");
 
         this.textBox.setValue(spreadsheetName);
+        return this;
     }
 
     @Override //
@@ -81,6 +86,15 @@ public class SpreadsheetNameComponent implements IsElement<HTMLFieldSetElement>,
     }
 
     private final ParserSpreadsheetTextBox<SpreadsheetName> textBox;
+
+
+    public SpreadsheetNameComponent required() {
+        return this;
+    }
+
+    public SpreadsheetNameComponent optional() {
+        throw new UnsupportedOperationException();
+    }
 
     // Object...........................................................................................................
 
