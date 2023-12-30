@@ -33,8 +33,8 @@ import java.util.Optional;
 public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElement>,
         Value<Optional<T>> {
 
-    public static SpreadsheetSelectComponent empty() {
-        return new SpreadsheetSelectComponent();
+    public static <T> SpreadsheetSelectComponent<T> empty() {
+        return new SpreadsheetSelectComponent<>();
     }
 
     private SpreadsheetSelectComponent() {
@@ -43,12 +43,12 @@ public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElem
         this.select.addValidator(SpreadsheetSelectComponentValidator.with(this));
     }
 
-    public SpreadsheetSelectComponent setId(final String id) {
+    public SpreadsheetSelectComponent<T> setId(final String id) {
         this.select.setId(id);
         return this;
     }
 
-    public SpreadsheetSelectComponent setLabel(final String label) {
+    public SpreadsheetSelectComponent<T> setLabel(final String label) {
         this.select.setLabel(label);
         return this;
     }
@@ -69,7 +69,7 @@ public class SpreadsheetSelectComponent<T> implements IsElement<HTMLFieldSetElem
         this.select.focus();
     }
 
-    public SpreadsheetSelectComponent addChangeListener(final ChangeListener<Optional<T>> listener) {
+    public SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.select.addChangeListener(
