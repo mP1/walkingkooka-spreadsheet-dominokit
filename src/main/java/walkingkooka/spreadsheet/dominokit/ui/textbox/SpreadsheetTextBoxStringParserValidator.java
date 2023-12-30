@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.textbox;
 
-import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 
@@ -27,7 +26,7 @@ import java.util.function.Consumer;
 /**
  * A {@link Validator} that invokes {@link Consumer#accept(Object)}, catching any exceptions and using that as the fail message.
  */
-public final class SpreadsheetTextBoxStringParserValidator implements Validator<TextBox> {
+public final class SpreadsheetTextBoxStringParserValidator implements Validator<String> {
 
     /**
      * Factory
@@ -44,13 +43,11 @@ public final class SpreadsheetTextBoxStringParserValidator implements Validator<
     }
 
     @Override
-    public ValidationResult isValid(final TextBox component) {
+    public ValidationResult isValid(final String value) {
         ValidationResult result;
 
         try {
-            this.parser.accept(
-                    component.getValue()
-            );
+            this.parser.accept(value);
             result = ValidationResult.valid();
         } catch (final Exception fail) {
             result = ValidationResult.invalid(fail.getMessage());
