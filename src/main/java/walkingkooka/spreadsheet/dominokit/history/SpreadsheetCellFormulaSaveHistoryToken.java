@@ -37,7 +37,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     static SpreadsheetCellFormulaSaveHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection selection,
-                                                       final SpreadsheetFormula formula) {
+                                                       final String formula) {
         return new SpreadsheetCellFormulaSaveHistoryToken(
                 id,
                 name,
@@ -49,7 +49,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     private SpreadsheetCellFormulaSaveHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection selection,
-                                                   final SpreadsheetFormula formula) {
+                                                   final String formula) {
         super(
                 id,
                 name,
@@ -59,11 +59,11 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         this.formula = Objects.requireNonNull(formula, "formula");
     }
 
-    public SpreadsheetFormula formula() {
+    public String formula() {
         return this.formula;
     }
 
-    private final SpreadsheetFormula formula;
+    private final String formula;
 
     @Override
     UrlFragment formulaUrlFragment() {
@@ -129,7 +129,11 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                         Sets.of(
                                 selection.selection()
                                         .toCell()
-                                        .setFormula(this.formula())
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY.setText(
+                                                        this.formula()
+                                                )
+                                        )
                         )
                 )
         );

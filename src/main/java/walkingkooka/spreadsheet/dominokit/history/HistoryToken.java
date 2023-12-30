@@ -21,7 +21,6 @@ import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.predicate.character.CharPredicates;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -92,7 +91,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetCellFormulaSaveHistoryToken formulaSave(final SpreadsheetId id,
                                                                      final SpreadsheetName name,
                                                                      final AnchoredSpreadsheetSelection selection,
-                                                                     final SpreadsheetFormula formula) {
+                                                                     final String formula) {
         return SpreadsheetCellFormulaSaveHistoryToken.with(
                 id,
                 name,

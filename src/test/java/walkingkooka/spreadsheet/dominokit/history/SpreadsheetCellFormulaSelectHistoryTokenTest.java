@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -40,7 +39,7 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         selection,
-                        SpreadsheetFormula.EMPTY.setText(formulaText)
+                        formulaText
                 )
         );
     }
