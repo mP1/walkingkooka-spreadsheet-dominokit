@@ -54,6 +54,16 @@ public class SpreadsheetCellRangeComponent implements IsElement<HTMLFieldSetElem
         return this;
     }
 
+    public SpreadsheetCellRangeComponent optional() {
+        this.textBox.optional();
+        return this;
+    }
+
+    public SpreadsheetCellRangeComponent required() {
+        this.textBox.required();
+        return this;
+    }
+
     public void focus() {
         this.textBox.focus();
     }
