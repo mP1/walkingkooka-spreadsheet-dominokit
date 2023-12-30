@@ -69,6 +69,8 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
     }
 
     public ParserSpreadsheetTextBox addChangeListener(final ChangeListener<Optional<T>> listener) {
+        Objects.requireNonNull(listener, "listener");
+
         this.textBox.addChangeListener(
                 (final String oldValue,
                  final String newValue) -> {
