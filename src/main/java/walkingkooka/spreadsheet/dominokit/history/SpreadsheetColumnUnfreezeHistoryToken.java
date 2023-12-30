@@ -59,6 +59,15 @@ public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHist
         return UNFREEZE;
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setUnfreeze();
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

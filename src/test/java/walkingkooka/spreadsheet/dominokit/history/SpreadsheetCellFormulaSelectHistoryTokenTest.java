@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends SpreadsheetCellFormulaHistoryTokenTestCase<SpreadsheetCellFormulaSelectHistoryToken> {
@@ -74,6 +75,25 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
         this.clearActionAndCheck();
     }
 
+    // setSelection.....................................................................................................
+
+    @Test
+    public void testSetSelectionDifferentCell() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.formula(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    // helpers..........................................................................................................
 
     @Override
     SpreadsheetCellFormulaSelectHistoryToken createHistoryToken(final SpreadsheetId id,

@@ -50,6 +50,15 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
         return SELECT;
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        );
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

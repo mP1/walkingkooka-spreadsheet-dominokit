@@ -165,6 +165,21 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         return this.selectionSelect();
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setFind(
+                this.path,
+                this.offset,
+                this.max,
+                this.valueType,
+                this.query
+        );
+    }
+
     @Override
     public HistoryToken setFormatPattern() {
         return this;

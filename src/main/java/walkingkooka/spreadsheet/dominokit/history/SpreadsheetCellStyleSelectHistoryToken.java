@@ -57,6 +57,17 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
         return SELECT;
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setStyle(
+                this.propertyName()
+        );
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

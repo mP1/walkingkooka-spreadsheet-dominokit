@@ -69,6 +69,58 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
+    // setSelection.....................................................................................................
+
+    @Test
+    public void testSetSelectionDifferentCell() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.cellMenu(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetSelectionDifferentColumn() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.columnMenu(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetSelectionDifferentRow() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.rowMenu(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    // ClassTesting....................................................................................................
+
     @Override
     SpreadsheetCellMenuHistoryToken createHistoryToken(final SpreadsheetId id,
                                                        final SpreadsheetName name,

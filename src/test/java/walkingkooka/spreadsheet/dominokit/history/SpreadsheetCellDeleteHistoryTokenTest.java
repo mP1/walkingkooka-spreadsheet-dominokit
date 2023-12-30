@@ -87,6 +87,58 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
         );
     }
 
+    // setSelection.....................................................................................................
+
+    @Test
+    public void testSetSelectionDifferentCell() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.cellDelete(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetSelectionDifferentColumn() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.columnDelete(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetSelectionDifferentRow() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.rowDelete(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    // ClassTesting....................................................................................................
+
     @Override
     public Class<SpreadsheetCellDeleteHistoryToken> type() {
         return SpreadsheetCellDeleteHistoryToken.class;

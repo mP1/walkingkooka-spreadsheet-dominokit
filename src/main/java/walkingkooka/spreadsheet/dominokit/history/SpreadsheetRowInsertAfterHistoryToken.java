@@ -59,6 +59,17 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
         );
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setInsertAfter(
+                this.count()
+        );
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

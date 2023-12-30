@@ -73,6 +73,15 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
         return this.selectionSelect();
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setFreeze();
+    }
+
     @Override
     public HistoryToken setFormatPattern() {
         return this;
