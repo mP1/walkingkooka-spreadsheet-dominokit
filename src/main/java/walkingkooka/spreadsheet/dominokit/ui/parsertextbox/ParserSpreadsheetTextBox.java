@@ -49,9 +49,9 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
         this.textBox = SpreadsheetTextBox.empty()
                 .clearIcon()
                 .disableSpellcheck()
-                .enterFiresValueChange()
-                .setValidator(SpreadsheetTextBoxValidators.parser(parser::apply));
+                .enterFiresValueChange();
         this.parser = parser;
+        this.required();
     }
 
     public ParserSpreadsheetTextBox setId(final String id) {
@@ -61,6 +61,22 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
 
     public ParserSpreadsheetTextBox setLabel(final String label) {
         this.textBox.setLabel(label);
+        return this;
+    }
+
+    public ParserSpreadsheetTextBox optional() {
+        this.textBox.setValidator(
+                SpreadsheetTextBoxValidators.optional(
+                        SpreadsheetTextBoxValidators.parser(this.parser::apply)
+                )
+        );
+        return this;
+    }
+
+    public ParserSpreadsheetTextBox required() {
+        this.textBox.setValidator(
+                SpreadsheetTextBoxValidators.parser(this.parser::apply)
+        );
         return this;
     }
 
