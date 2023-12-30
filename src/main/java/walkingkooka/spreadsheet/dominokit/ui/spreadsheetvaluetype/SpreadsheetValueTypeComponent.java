@@ -18,10 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
 
 import java.util.Objects;
@@ -30,8 +29,7 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link String spreadsheet value type}.
  */
-public class SpreadsheetValueTypeComponent implements IsElement<HTMLFieldSetElement>,
-        Value<Optional<String>> {
+public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLFieldSetElement, String> {
 
     public static SpreadsheetValueTypeComponent empty() {
         return new SpreadsheetValueTypeComponent();
@@ -52,20 +50,37 @@ public class SpreadsheetValueTypeComponent implements IsElement<HTMLFieldSetElem
         this.select = select;
     }
 
+    @Override
     public SpreadsheetValueTypeComponent setId(final String id) {
         this.select.setId(id);
         return this;
     }
 
+    @Override
     public SpreadsheetValueTypeComponent setLabel(final String label) {
         this.select.setLabel(label);
         return this;
     }
 
-    public void focus() {
+    @Override
+    public SpreadsheetValueTypeComponent focus() {
         this.select.focus();
+        return this;
     }
 
+    @Override
+    public SpreadsheetValueTypeComponent required() {
+        this.select.required();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetValueTypeComponent optional() {
+        this.select.optional();
+        return this;
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.select.addChangeListener(listener);
         return this;
@@ -80,10 +95,12 @@ public class SpreadsheetValueTypeComponent implements IsElement<HTMLFieldSetElem
 
     // Value............................................................................................................
 
-    public void setValue(final Optional<String> valueType) {
+    @Override
+    public SpreadsheetValueTypeComponent setValue(final Optional<String> valueType) {
         Objects.requireNonNull(valueType, "valueType");
 
         this.select.setValue(valueType);
+        return this;
     }
 
     @Override //
