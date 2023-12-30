@@ -32,7 +32,7 @@ final class SpreadsheetTextBoxOptionalValidator implements Validator<String> {
     /**
      * Factory
      */
-    public static SpreadsheetTextBoxOptionalValidator with(final Validator<String> validator) {
+    static SpreadsheetTextBoxOptionalValidator with(final Validator<String> validator) {
         Objects.requireNonNull(validator, "validator");
 
         return new SpreadsheetTextBoxOptionalValidator(validator);

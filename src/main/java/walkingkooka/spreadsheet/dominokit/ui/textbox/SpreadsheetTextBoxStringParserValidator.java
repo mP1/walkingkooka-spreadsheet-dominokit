@@ -26,12 +26,12 @@ import java.util.function.Consumer;
 /**
  * A {@link Validator} that invokes {@link Consumer#accept(Object)}, catching any exceptions and using that as the fail message.
  */
-public final class SpreadsheetTextBoxStringParserValidator implements Validator<String> {
+final class SpreadsheetTextBoxStringParserValidator implements Validator<String> {
 
     /**
      * Factory
      */
-    public static SpreadsheetTextBoxStringParserValidator with(final Consumer<String> parser) {
+    static SpreadsheetTextBoxStringParserValidator with(final Consumer<String> parser) {
         Objects.requireNonNull(parser, "parser");
 
         return new SpreadsheetTextBoxStringParserValidator(parser);
