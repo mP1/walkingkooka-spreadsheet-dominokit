@@ -54,6 +54,16 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
         return this;
     }
 
+    public SpreadsheetExpressionReferenceComponent optional() {
+        this.textBox.optional();
+        return this;
+    }
+
+    public SpreadsheetExpressionReferenceComponent required() {
+        this.textBox.required();
+        return this;
+    }
+
     public void focus() {
         this.textBox.focus();
     }
