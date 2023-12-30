@@ -18,9 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -31,8 +30,7 @@ import java.util.Optional;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetExpressionReference}.
  */
-public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFieldSetElement>,
-        Value<Optional<SpreadsheetExpressionReference>> {
+public final class SpreadsheetExpressionReferenceComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetExpressionReference> {
 
     public static SpreadsheetExpressionReferenceComponent empty() {
         return new SpreadsheetExpressionReferenceComponent();
@@ -44,30 +42,37 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
         );
     }
 
+    @Override
     public SpreadsheetExpressionReferenceComponent setId(final String id) {
         this.textBox.setId(id);
         return this;
     }
 
+    @Override
     public SpreadsheetExpressionReferenceComponent setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
     }
 
+    @Override
     public SpreadsheetExpressionReferenceComponent optional() {
         this.textBox.optional();
         return this;
     }
 
+    @Override
     public SpreadsheetExpressionReferenceComponent required() {
         this.textBox.required();
         return this;
     }
 
-    public void focus() {
+    @Override
+    public SpreadsheetExpressionReferenceComponent focus() {
         this.textBox.focus();
+        return this;
     }
 
+    @Override
     public SpreadsheetExpressionReferenceComponent addChangeListener(final ChangeListener<Optional<SpreadsheetExpressionReference>> listener) {
         this.textBox.addChangeListener(listener);
         return this;
@@ -82,10 +87,12 @@ public class SpreadsheetExpressionReferenceComponent implements IsElement<HTMLFi
 
     // Value............................................................................................................
 
-    public void setValue(final Optional<SpreadsheetExpressionReference> spreadsheetExpressionReference) {
+    @Override
+    public SpreadsheetExpressionReferenceComponent setValue(final Optional<SpreadsheetExpressionReference> spreadsheetExpressionReference) {
         Objects.requireNonNull(spreadsheetExpressionReference, "spreadsheetExpressionReference");
 
         this.textBox.setValue(spreadsheetExpressionReference);
+        return this;
     }
 
     @Override //
