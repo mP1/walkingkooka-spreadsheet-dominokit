@@ -115,6 +115,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         return SpreadsheetLabelComponent.with(context)
                 .setId(ID_PREFIX + "label-TextBox")
                 .setLabel("Label")
+                .required()
                 .addChangeListener(
                         (oldValue, newValue) ->
                                 this.onLabel(newValue)
