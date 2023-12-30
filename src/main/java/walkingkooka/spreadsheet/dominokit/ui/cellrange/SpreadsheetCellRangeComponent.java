@@ -18,9 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.ui.cellrange;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -31,8 +30,7 @@ import java.util.Optional;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetCellRange}.
  */
-public class SpreadsheetCellRangeComponent implements IsElement<HTMLFieldSetElement>,
-        Value<Optional<SpreadsheetCellRange>> {
+public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRange> {
 
     public static SpreadsheetCellRangeComponent empty() {
         return new SpreadsheetCellRangeComponent();
@@ -44,30 +42,37 @@ public class SpreadsheetCellRangeComponent implements IsElement<HTMLFieldSetElem
         );
     }
 
+    @Override
     public SpreadsheetCellRangeComponent setId(final String id) {
         this.textBox.setId(id);
         return this;
     }
 
+    @Override
     public SpreadsheetCellRangeComponent setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
     }
 
+    @Override
     public SpreadsheetCellRangeComponent optional() {
         this.textBox.optional();
         return this;
     }
 
+    @Override
     public SpreadsheetCellRangeComponent required() {
         this.textBox.required();
         return this;
     }
 
-    public void focus() {
+    @Override
+    public SpreadsheetCellRangeComponent focus() {
         this.textBox.focus();
+        return this;
     }
 
+    @Override
     public SpreadsheetCellRangeComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRange>> listener) {
         this.textBox.addChangeListener(listener);
         return this;
@@ -82,10 +87,12 @@ public class SpreadsheetCellRangeComponent implements IsElement<HTMLFieldSetElem
 
     // Value............................................................................................................
 
-    public void setValue(final Optional<SpreadsheetCellRange> cellRange) {
+    @Override
+    public SpreadsheetCellRangeComponent setValue(final Optional<SpreadsheetCellRange> cellRange) {
         Objects.requireNonNull(cellRange, "cellRange");
 
         this.textBox.setValue(cellRange);
+        return this;
     }
 
     @Override //
