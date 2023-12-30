@@ -22,7 +22,6 @@ import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -1604,7 +1603,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         viewport,
-                        SpreadsheetFormula.EMPTY.setText("=1")
+                        "=1"
                 ),
                 HistoryToken.cell(
                         ID,
@@ -2135,7 +2134,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetFormula.EMPTY.setText("=1+2")
+                        "=1+2"
                 )
         );
     }

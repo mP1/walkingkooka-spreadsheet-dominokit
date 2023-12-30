@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -26,7 +25,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends SpreadsheetCellFormulaHistoryTokenTestCase<SpreadsheetCellFormulaSaveHistoryToken> {
 
-    private final static SpreadsheetFormula FORMULA = SpreadsheetFormula.EMPTY.setText("=12+3");
+    private final static String FORMULA = "=12+3";
 
     @Test
     public void testUrlFragmentCell() {

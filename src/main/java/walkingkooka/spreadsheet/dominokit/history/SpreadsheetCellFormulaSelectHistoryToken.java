@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -77,7 +76,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
                 this.id(),
                 this.name(),
                 this.selection(),
-                SpreadsheetFormula.EMPTY.setText(formulaText)
+                formulaText
         );
     }
 
