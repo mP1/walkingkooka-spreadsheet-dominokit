@@ -52,6 +52,15 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
         return DELETE;
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setDelete();
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

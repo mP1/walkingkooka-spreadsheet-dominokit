@@ -1318,6 +1318,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         th.appendChild(
                 context.historyToken()
+                        .clearAction()
                         .setSelection(
                                 Optional.of(
                                         column.setDefaultAnchor()
@@ -1411,6 +1412,7 @@ public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElem
 
         td.appendChild(
                 context.historyToken()
+                        .clearAction()
                         .setSelection(
                                 Optional.of(
                                         row.setDefaultAnchor()

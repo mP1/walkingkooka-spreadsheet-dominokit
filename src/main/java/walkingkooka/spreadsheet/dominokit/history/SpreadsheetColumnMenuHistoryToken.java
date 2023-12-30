@@ -50,6 +50,15 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
         return MENU;
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setMenu1();
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

@@ -50,6 +50,15 @@ public final class SpreadsheetCellPatternToolbarFormatHistoryToken extends Sprea
         );
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setFormatPattern();
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

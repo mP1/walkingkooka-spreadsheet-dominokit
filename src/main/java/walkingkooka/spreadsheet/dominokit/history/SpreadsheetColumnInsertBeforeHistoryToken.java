@@ -59,6 +59,17 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
         );
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setInsertBefore(
+                this.count()
+        );
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

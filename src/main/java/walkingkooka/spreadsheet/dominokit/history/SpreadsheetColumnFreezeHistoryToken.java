@@ -59,6 +59,15 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
         return FREEZE;
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setFreeze();
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

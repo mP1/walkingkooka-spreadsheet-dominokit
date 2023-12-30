@@ -72,6 +72,19 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
         return this.saveUrlFragment(this.propertyValue());
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setStyle(
+                this.propertyName()
+        ).setSave(
+                this.propertyValue()
+        );
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

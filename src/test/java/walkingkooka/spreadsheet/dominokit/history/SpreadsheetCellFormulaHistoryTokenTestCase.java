@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends SpreadsheetCellFormulaHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
@@ -29,4 +31,38 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
     public void testSetMenuWithCell() {
         this.setMenuWithCellAndCheck();
     }
+
+
+    @Test
+    public final void testSetSelectionDifferentColumn() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionDifferentRow() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
 }

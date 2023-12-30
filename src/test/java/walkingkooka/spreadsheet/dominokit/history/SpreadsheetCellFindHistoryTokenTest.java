@@ -258,6 +258,65 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.setMenuWithCellAndCheck();
     }
 
+    // setSelection.....................................................................................................
+
+    @Test
+    public void testSetSelectionDifferent() {
+        final AnchoredSpreadsheetSelection newSelection = SpreadsheetSelection.parseCellRange("B2:C3")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                ),
+                newSelection,
+                this.createHistoryToken(
+                        ID,
+                        NAME,
+                        newSelection
+                )
+        );
+    }
+
+    @Test
+    public void testSetSelectionDifferentColumn() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetSelectionDifferentRow() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    // ClassTesting....................................................................................................
+
+    // helpers..........................................................................................................
+
     @Override
     SpreadsheetCellFindHistoryToken createHistoryToken(final SpreadsheetId id,
                                                        final SpreadsheetName name,

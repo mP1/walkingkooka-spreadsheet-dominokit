@@ -76,6 +76,56 @@ public final class SpreadsheetCellClearHistoryTokenTest extends SpreadsheetCellH
         this.setMenuWithCellAndCheck();
     }
 
+    // setSelection............................................................................................
+
+    @Test
+    public void testSetSelectionDifferentCell() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.cellClear(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetSelectionDifferentColumn() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.columnClear(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetSelectionDifferentRow() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
+                .setDefaultAnchor();
+
+        this.setSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.rowClear(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
     @Override
     SpreadsheetCellClearHistoryToken createHistoryToken(final SpreadsheetId id,
                                                         final SpreadsheetName name,

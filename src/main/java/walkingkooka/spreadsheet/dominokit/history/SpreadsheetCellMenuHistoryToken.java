@@ -58,6 +58,15 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
         return this.selectionSelect();
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setMenu1();
+    }
+
     @Override
     public HistoryToken setFormatPattern() {
         return this;

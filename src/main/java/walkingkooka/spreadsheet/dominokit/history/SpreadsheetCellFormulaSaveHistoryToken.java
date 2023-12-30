@@ -77,6 +77,16 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         return this.setFormula();
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setFormula()
+                .setSave(this.formula);
+    }
+
     @Override
     public HistoryToken setFormula() {
         return setFormula0();

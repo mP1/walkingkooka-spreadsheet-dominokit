@@ -77,6 +77,17 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         );
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setPatternKind(
+                this.patternKind()
+        ).setSave(this.pattern());
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {

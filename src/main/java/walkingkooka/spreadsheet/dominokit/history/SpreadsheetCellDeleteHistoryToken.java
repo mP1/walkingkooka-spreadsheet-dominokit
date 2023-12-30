@@ -58,6 +58,15 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
         return this.selectionSelect();
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setDelete();
+    }
+
     @Override
     public HistoryToken setFormatPattern() {
         return this;

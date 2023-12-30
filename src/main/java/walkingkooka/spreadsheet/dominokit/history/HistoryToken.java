@@ -1379,21 +1379,32 @@ public abstract class HistoryToken implements HasUrlFragment {
                 this.setDifferentSelection(selection);
     }
 
-    private HistoryToken setDifferentSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
-        HistoryToken token = this;
+    private HistoryToken setDifferentSelection(final Optional<AnchoredSpreadsheetSelection> maybeSelection) {
+        HistoryToken token = null;
 
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+        if (maybeSelection.isPresent()) {
+            final AnchoredSpreadsheetSelection selection = maybeSelection.get();
 
-            token = selection.isPresent() ?
-                    HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
+            if (this instanceof AnchoredSpreadsheetSelectionHistoryToken) {
+                final AnchoredSpreadsheetSelectionHistoryToken anchored = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class);
+                token = anchored.setDifferentSelection(selection);
+            } else {
+                if (this instanceof SpreadsheetNameHistoryToken) {
+                    final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                    token = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
                             spreadsheetNameHistoryToken,
-                            selection.get()
-                    ) :
-                    spreadsheetSelect(
-                            spreadsheetNameHistoryToken.id(),
-                            spreadsheetNameHistoryToken.name()
+                            selection
                     );
+                }
+            }
+        } else {
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                token = spreadsheetSelect(
+                        spreadsheetNameHistoryToken.id(),
+                        spreadsheetNameHistoryToken.name()
+                );
+            }
         }
 
         return token;

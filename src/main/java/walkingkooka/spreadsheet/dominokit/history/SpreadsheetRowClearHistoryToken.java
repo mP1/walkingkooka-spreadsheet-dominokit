@@ -50,6 +50,15 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
         return CLEAR;
     }
 
+    @Override //
+    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+        return selection(
+                this.id(),
+                this.name(),
+                selection
+        ).setClear();
+    }
+
     @Override
     public HistoryToken setIdAndName(final SpreadsheetId id,
                                      final SpreadsheetName name) {
