@@ -54,17 +54,17 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
         this.required();
     }
 
-    public ParserSpreadsheetTextBox setId(final String id) {
+    public ParserSpreadsheetTextBox<T> setId(final String id) {
         this.textBox.setId(id);
         return this;
     }
 
-    public ParserSpreadsheetTextBox setLabel(final String label) {
+    public ParserSpreadsheetTextBox<T> setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
     }
 
-    public ParserSpreadsheetTextBox optional() {
+    public ParserSpreadsheetTextBox<T> optional() {
         this.textBox.setValidator(
                 SpreadsheetTextBoxValidators.optional(
                         SpreadsheetTextBoxValidators.parser(this.parser::apply)
@@ -73,7 +73,7 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
         return this;
     }
 
-    public ParserSpreadsheetTextBox required() {
+    public ParserSpreadsheetTextBox<T> required() {
         this.textBox.setValidator(
                 SpreadsheetTextBoxValidators.parser(this.parser::apply)
         );
@@ -84,7 +84,7 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
         this.textBox.focus();
     }
 
-    public ParserSpreadsheetTextBox addChangeListener(final ChangeListener<Optional<T>> listener) {
+    public ParserSpreadsheetTextBox<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.addChangeListener(
