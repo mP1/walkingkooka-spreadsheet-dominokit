@@ -121,38 +121,6 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
-    // setViewport.............................................................................................
-
-    @Test
-    public final void testSetSelectionWithSameCell() {
-        this.setSelectionAndCheck(
-                CELL.setDefaultAnchor()
-        );
-    }
-
-    @Test
-    public final void testSetSelectionWithSameCellRange() {
-        this.setSelectionAndCheck(
-                SpreadsheetSelection.parseCellRange("A1:B2")
-                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-        );
-    }
-
-    @Test
-    public final void testSetSelectionWithSameCellRange2() {
-        this.setSelectionAndCheck(
-                SpreadsheetSelection.parseCellRange("A1:C3")
-                        .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
-        );
-    }
-
-    @Test
-    public final void testSetSelectionWithSameLabel() {
-        this.setSelectionAndCheck(
-                LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-        );
-    }
-
     // setMenu1 with selection..............................................................................................
 
     @Test
@@ -230,6 +198,38 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     @Test
     public final void testSetMenuWithRow() {
         this.setMenuWithRowAndCheck();
+    }
+
+    // setSelection.............................................................................................
+
+    @Test
+    public final void testSetSelectionWithSameCell() {
+        this.setSelectionAndCheck(
+                CELL.setDefaultAnchor()
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameCellRange() {
+        this.setSelectionAndCheck(
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameCellRange2() {
+        this.setSelectionAndCheck(
+                SpreadsheetSelection.parseCellRange("A1:C3")
+                        .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameLabel() {
+        this.setSelectionAndCheck(
+                LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+        );
     }
 
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,

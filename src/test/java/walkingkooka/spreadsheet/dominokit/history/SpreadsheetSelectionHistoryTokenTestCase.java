@@ -30,30 +30,47 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         super();
     }
 
-    // setViewport.............................................................................................
+    // setMenu1(Selection)..............................................................................................
 
     @Test
-    public final void testSetViewportWithDifferentCell() {
-        this.setViewportCellAndCheck(
+    public void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
+    }
+
+    @Test
+    public void testSetMenuWithColumn() {
+        this.setMenuWithColumnAndCheck();
+    }
+
+    @Test
+    public void testSetMenuWithRow() {
+        this.setMenuWithRowAndCheck();
+    }
+
+    // setSelection.............................................................................................
+
+    @Test
+    public final void testSetSelectionWithDifferentCell() {
+        this.setSelectionCellAndCheck(
                 SpreadsheetSelection.parseCell("Z99")
         );
     }
 
     @Test
-    public final void testSetViewportWithDifferentCellRange() {
-        this.setViewportCellAndCheck(
+    public final void testSetSelectionWithDifferentCellRange() {
+        this.setSelectionCellAndCheck(
                 SpreadsheetSelection.parseCellRange("B2:C3")
         );
     }
 
     @Test
-    public final void testSetViewportWithDifferentLabel() {
-        this.setViewportCellAndCheck(
+    public final void testSetSelectionWithDifferentLabel() {
+        this.setSelectionCellAndCheck(
                 SpreadsheetSelection.labelName("Label123")
         );
     }
 
-    private void setViewportCellAndCheck(final SpreadsheetExpressionReference selection) {
+    private void setSelectionCellAndCheck(final SpreadsheetExpressionReference selection) {
         this.setSelectionAndCheck(
                 selection,
                 HistoryToken.cell(
@@ -65,20 +82,20 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testSetViewportWithDifferentColumn() {
-        this.setViewportColumnAndCheck(
+    public final void testSetSelectionWithDifferentColumn() {
+        this.setSelectionColumnAndCheck(
                 SpreadsheetSelection.parseColumn("Z")
         );
     }
 
     @Test
-    public final void testSetViewportWithDifferentColumnRange() {
-        this.setViewportColumnAndCheck(
+    public final void testSetSelectionWithDifferentColumnRange() {
+        this.setSelectionColumnAndCheck(
                 SpreadsheetSelection.parseColumnRange("B:C")
         );
     }
 
-    private void setViewportColumnAndCheck(final SpreadsheetSelection selection) {
+    private void setSelectionColumnAndCheck(final SpreadsheetSelection selection) {
         this.setSelectionAndCheck(
                 selection,
                 HistoryToken.column(
@@ -90,20 +107,20 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testSetViewportWithDifferentRow() {
-        this.setViewportRowAndCheck(
+    public final void testSetSelectionWithDifferentRow() {
+        this.setSelectionRowAndCheck(
                 SpreadsheetSelection.parseRow("99")
         );
     }
 
     @Test
-    public final void testSetViewportWithDifferentRowRange() {
-        this.setViewportRowAndCheck(
+    public final void testSetSelectionWithDifferentRowRange() {
+        this.setSelectionRowAndCheck(
                 SpreadsheetSelection.parseRowRange("2:3")
         );
     }
 
-    private void setViewportRowAndCheck(final SpreadsheetSelection selection) {
+    private void setSelectionRowAndCheck(final SpreadsheetSelection selection) {
         this.setSelectionAndCheck(
                 selection,
                 HistoryToken.row(
@@ -135,22 +152,5 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                 ),
                 () -> token + " setSelection " + selection
         );
-    }
-
-    // setMenu1(Selection)..............................................................................................
-
-    @Test
-    public void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
-    }
-
-    @Test
-    public void testSetMenuWithColumn() {
-        this.setMenuWithColumnAndCheck();
-    }
-
-    @Test
-    public void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
     }
 }

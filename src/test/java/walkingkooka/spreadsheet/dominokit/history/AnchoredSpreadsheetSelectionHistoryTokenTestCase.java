@@ -66,7 +66,7 @@ public abstract class AnchoredSpreadsheetSelectionHistoryTokenTestCase<T extends
         );
     }
 
-    // setViewport.............................................................................................
+    // setSelection.............................................................................................
 
     final void setSelectionAndCheck(final AnchoredSpreadsheetSelection selection) {
         final T token = this.createHistoryToken(selection);
