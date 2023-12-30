@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import walkingkooka.Context;
+import walkingkooka.collect.list.Lists;
 
 import java.util.function.Consumer;
 
@@ -41,13 +42,19 @@ final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<St
     @Override
     public void find(final String searchValue,
                      final Consumer<SuggestOption<String>> handler) {
-        // nop
+        handler.accept(
+                SuggestOption.create(searchValue)
+        );
     }
 
     @Override
-    public void filter(final String value,
+    public void filter(final String filter,
                        final SuggestionsHandler<String, SpanElement, SuggestOption<String>> handler) {
-        // nop
+        handler.onSuggestionsReady(
+                Lists.of(
+                        SuggestOption.create(filter)
+                )
+        );
     }
 
     private final Context context;
