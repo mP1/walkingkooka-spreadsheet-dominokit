@@ -18,13 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.ui.label;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Context;
-import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -34,8 +33,7 @@ import java.util.Optional;
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetLabelComponent implements IsElement<HTMLFieldSetElement>,
-        Value<Optional<SpreadsheetLabelName>> {
+public final class SpreadsheetLabelComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetLabelName> {
 
     public static SpreadsheetLabelComponent with(final Context context) {
         Objects.requireNonNull(context, "context");
@@ -52,22 +50,26 @@ public final class SpreadsheetLabelComponent implements IsElement<HTMLFieldSetEl
         suggestBox.addValidator(SpreadsheetLabelComponentValidator.with(this));
     }
 
+    @Override
     public SpreadsheetLabelComponent setId(final String id) {
         this.suggestBox.getInputElement()
                 .setId(id);
         return this;
     }
 
+    @Override
     public SpreadsheetLabelComponent setLabel(final String label) {
         this.suggestBox.setLabel(label);
         return this;
     }
 
+    @Override
     public SpreadsheetLabelComponent optional() {
         this.required = false;
         return this;
     }
 
+    @Override
     public SpreadsheetLabelComponent required() {
         this.required = true;
         return this;
@@ -75,10 +77,13 @@ public final class SpreadsheetLabelComponent implements IsElement<HTMLFieldSetEl
 
     boolean required;
 
-    public void focus() {
+    @Override
+    public SpreadsheetLabelComponent focus() {
         this.suggestBox.focus();
+        return this;
     }
 
+    @Override
     public SpreadsheetLabelComponent addChangeListener(final ChangeListener<Optional<SpreadsheetLabelName>> listener) {
         Objects.requireNonNull(listener, "listener");
 
@@ -104,13 +109,15 @@ public final class SpreadsheetLabelComponent implements IsElement<HTMLFieldSetEl
 
     // Value............................................................................................................
 
-    public void setValue(final Optional<SpreadsheetLabelName> label) {
+    @Override
+    public SpreadsheetLabelComponent setValue(final Optional<SpreadsheetLabelName> label) {
         Objects.requireNonNull(label, "label");
 
         this.suggestBox.setValue(
                 label.map(SpreadsheetLabelName::text)
                         .orElse("")
         );
+        return this;
     }
 
     @Override //
