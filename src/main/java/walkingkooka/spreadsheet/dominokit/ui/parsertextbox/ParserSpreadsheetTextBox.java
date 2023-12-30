@@ -21,7 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
-import walkingkooka.spreadsheet.dominokit.ui.TextBoxStringParserValidator;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBoxStringParserValidator;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.text.HasText;
 
@@ -50,7 +50,7 @@ public class ParserSpreadsheetTextBox<T extends HasText> implements IsElement<HT
                 .clearIcon()
                 .disableSpellcheck()
                 .enterFiresValueChange()
-                .setValidator(TextBoxStringParserValidator.with(parser::apply));
+                .setValidator(SpreadsheetTextBoxStringParserValidator.with(parser::apply));
         this.parser = parser;
     }
 

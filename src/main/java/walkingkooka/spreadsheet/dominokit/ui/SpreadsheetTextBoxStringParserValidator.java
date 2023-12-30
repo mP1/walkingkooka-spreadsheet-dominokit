@@ -27,18 +27,18 @@ import java.util.function.Consumer;
 /**
  * A {@link Validator} that invokes {@link Consumer#accept(Object)}, catching any exceptions and using that as the fail message.
  */
-public final class TextBoxStringParserValidator implements Validator<TextBox> {
+public final class SpreadsheetTextBoxStringParserValidator implements Validator<TextBox> {
 
     /**
      * Factory
      */
-    public static TextBoxStringParserValidator with(final Consumer<String> parser) {
+    public static SpreadsheetTextBoxStringParserValidator with(final Consumer<String> parser) {
         Objects.requireNonNull(parser, "parser");
 
-        return new TextBoxStringParserValidator(parser);
+        return new SpreadsheetTextBoxStringParserValidator(parser);
     }
 
-    private TextBoxStringParserValidator(final Consumer<String> parser) {
+    private SpreadsheetTextBoxStringParserValidator(final Consumer<String> parser) {
         super();
         this.parser = parser;
     }
