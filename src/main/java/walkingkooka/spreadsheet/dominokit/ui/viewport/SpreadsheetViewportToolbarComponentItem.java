@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
@@ -33,7 +33,7 @@ import walkingkooka.tree.text.VerticalAlign;
 /**
  * A ui such as an icon within a {@link SpreadsheetViewportToolbarComponent}.
  */
-abstract class SpreadsheetViewportToolbarComponentItem implements IsElement<HTMLElement> {
+abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTMLElement> {
 
     static SpreadsheetViewportToolbarComponentItem bold(final HistoryTokenContext context) {
         return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
