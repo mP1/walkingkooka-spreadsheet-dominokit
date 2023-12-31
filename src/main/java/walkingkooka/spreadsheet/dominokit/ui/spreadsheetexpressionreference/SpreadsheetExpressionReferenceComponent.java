@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
@@ -87,6 +88,12 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
     @Override
     public SpreadsheetExpressionReferenceComponent addChangeListener(final ChangeListener<Optional<SpreadsheetExpressionReference>> listener) {
         this.textBox.addChangeListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetExpressionReferenceComponent addFocusListener(final EventListener listener) {
+        this.textBox.addFocusListener(listener);
         return this;
     }
 

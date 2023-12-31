@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -72,6 +73,12 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
     @Override
     public SpreadsheetNameComponent addChangeListener(final ChangeListener<Optional<SpreadsheetName>> listener) {
         this.textBox.addChangeListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetNameComponent addFocusListener(final EventListener listener) {
+        this.textBox.addFocusListener(listener);
         return this;
     }
 

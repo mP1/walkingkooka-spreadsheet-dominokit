@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
@@ -95,6 +96,14 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     @Override
     public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.select.addChangeListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetValueTypeComponent addFocusListener(final EventListener listener) {
+        this.select.addFocusListener(
+                listener
+        );
         return this;
     }
 

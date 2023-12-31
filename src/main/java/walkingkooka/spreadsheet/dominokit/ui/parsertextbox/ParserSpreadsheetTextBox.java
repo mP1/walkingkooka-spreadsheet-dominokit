@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.parsertextbox;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
@@ -113,6 +114,12 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
                         )
         );
 
+        return this;
+    }
+
+    @Override
+    public ParserSpreadsheetTextBox<T> addFocusListener(final EventListener listener) {
+        this.textBox.addFocusListener(listener);
         return this;
     }
 

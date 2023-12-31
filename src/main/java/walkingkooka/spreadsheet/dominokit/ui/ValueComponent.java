@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.Element;
+import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
 
@@ -41,6 +42,8 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
     ValueComponent<E, V> required();
 
     ValueComponent<E, V> addChangeListener(final ChangeListener<Optional<V>> listener);
+
+    ValueComponent<E, V> addFocusListener(final EventListener listener);
 
     ValueComponent<E, V> hideMarginBottom();
 
