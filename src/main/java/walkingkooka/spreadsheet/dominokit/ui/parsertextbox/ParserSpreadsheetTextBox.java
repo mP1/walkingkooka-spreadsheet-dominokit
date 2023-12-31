@@ -93,13 +93,12 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.addChangeListener(
-                (final String oldValue,
-                 final String newValue) -> {
-                    listener.onValueChanged(
-                            tryParse(oldValue),
-                            tryParse(newValue)
-                    );
-                }
+                (final Optional<String> oldValue,
+                 final Optional<String> newValue) ->
+                        listener.onValueChanged(
+                                tryParse(oldValue),
+                                tryParse(newValue)
+                        )
         );
 
         return this;
@@ -120,7 +119,6 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
 
         this.textBox.setValue(
                 value.map(T::text)
-                        .orElse("")
         );
         return this;
     }
@@ -132,16 +130,16 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
         );
     }
 
-    private Optional<T> tryParse(final String text) {
-        T value;
-
+    private Optional<T> tryParse(final Optional<String> text) {
+        T parsed;
         try {
-            value = parser.apply(text);
+            parsed = this.parser.apply(
+                    text.orElse("")
+            );
         } catch (final Exception ignore) {
-            value = null;
+            parsed = null;
         }
-
-        return Optional.ofNullable(value);
+        return Optional.ofNullable(parsed);
     }
 
     private final Function<String, T> parser;

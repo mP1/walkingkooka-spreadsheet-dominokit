@@ -21,23 +21,23 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
-import walkingkooka.Value;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A textbox that adds a few extras that should be common to all text boxes.
  */
-public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
-        Value<String> {
+public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String> {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();
@@ -48,10 +48,11 @@ public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
                 .setMarginBottom("0");
     }
 
-    public SpreadsheetTextBox addChangeListener(final ChangeListener<String> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.textBox.addChangeListener(listener);
+    @Override
+    public SpreadsheetTextBox addChangeListener(final ChangeListener<Optional<String>> listener) {
+        this.textBox.addChangeListener(
+                SpreadsheetTextBoxChangeListener.with(listener)
+        );
         return this;
     }
 
@@ -77,8 +78,10 @@ public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
         return this;
     }
 
-    public void focus() {
+    @Override
+    public SpreadsheetTextBox focus() {
         this.textBox.focus();
+        return this;
     }
 
     public SpreadsheetTextBox enterFiresValueChange() {
@@ -105,12 +108,14 @@ public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
         return this;
     }
 
+    @Override
     public SpreadsheetTextBox setId(final String id) {
         this.textBox.getInputElement()
                 .setId(id);
         return this;
     }
 
+    @Override
     public SpreadsheetTextBox setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
@@ -136,15 +141,35 @@ public final class SpreadsheetTextBox implements IsElement<HTMLFieldSetElement>,
 
     // Value............................................................................................................
 
-    public void setValue(final String value) {
+    @Override
+    public SpreadsheetTextBox setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
-        this.textBox.setValue(value);
+        this.textBox.setValue(
+                value.orElse(null)
+        );
+        return this;
     }
 
     @Override //
-    public String value() {
-        return this.textBox.getValue();
+    public Optional<String> value() {
+        return Optional.ofNullable(
+                CharSequences.nullToEmpty(
+                        this.textBox.getValue()
+                ).toString()
+        );
+    }
+
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetTextBox required() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetTextBox optional() {
+        throw new UnsupportedOperationException();
     }
 
     // Object...........................................................................................................
