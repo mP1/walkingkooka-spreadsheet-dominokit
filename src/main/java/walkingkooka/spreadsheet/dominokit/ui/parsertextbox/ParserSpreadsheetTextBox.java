@@ -95,6 +95,12 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     @Override
+    public ParserSpreadsheetTextBox<T> removeBorders() {
+        this.textBox.removeBorders();
+        return this;
+    }
+
+    @Override
     public ParserSpreadsheetTextBox<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 

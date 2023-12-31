@@ -22,7 +22,6 @@ import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
-import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameComponent;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -77,6 +76,15 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     @Override
     public SpreadsheetSelectComponent<T> hideMarginBottom() {
         this.select.setMarginBottom("");
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> removeBorders() {
+        this.select.getInputElement()
+                .parent()
+                .setBorder("0")
+                .setCssProperty("border-radius", 0);
         return this;
     }
 

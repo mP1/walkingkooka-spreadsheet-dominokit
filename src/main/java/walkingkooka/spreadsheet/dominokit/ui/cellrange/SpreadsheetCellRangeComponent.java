@@ -79,6 +79,12 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetCellRangeComponent removeBorders() {
+        this.textBox.removeBorders();
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRange>> listener) {
         this.textBox.addChangeListener(listener);
         return this;

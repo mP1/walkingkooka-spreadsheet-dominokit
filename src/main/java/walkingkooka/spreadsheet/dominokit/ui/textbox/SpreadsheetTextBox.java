@@ -114,6 +114,15 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     }
 
     @Override
+    public SpreadsheetTextBox removeBorders() {
+        this.textBox.getInputElement()
+                .parent()
+                .setBorder("0")
+                .setCssProperty("border-radius", 0);
+        return this;
+    }
+
+    @Override
     public SpreadsheetTextBox setId(final String id) {
         this.textBox.getInputElement()
                 .setId(id);

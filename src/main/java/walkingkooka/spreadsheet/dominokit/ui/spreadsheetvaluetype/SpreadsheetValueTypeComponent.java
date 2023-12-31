@@ -75,6 +75,12 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetValueTypeComponent removeBorders() {
+        this.select.removeBorders();
+        return this;
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent required() {
         this.select.required();
         return this;

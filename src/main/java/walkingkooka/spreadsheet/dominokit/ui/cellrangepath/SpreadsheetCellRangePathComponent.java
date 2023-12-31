@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.cellrangepath;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
-import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeComponent;
 import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 
@@ -80,6 +79,12 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
     @Override
     public SpreadsheetCellRangePathComponent hideMarginBottom() {
         this.select.hideMarginBottom();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetCellRangePathComponent removeBorders() {
+        this.select.removeBorders();
         return this;
     }
 
