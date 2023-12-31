@@ -73,10 +73,10 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatc
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetColorPickerComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -554,7 +554,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 SpreadsheetIcons.palette()
         );
 
-        final SpreadsheetColorPickerComponent colors = SpreadsheetColorPickerComponent.with(historyToken);
+        final SpreadsheetMetadataColorPickerComponent colors = SpreadsheetMetadataColorPickerComponent.with(historyToken);
         colors.element().className = "dui dui-menu-item";
 
         colors.refreshAll(
