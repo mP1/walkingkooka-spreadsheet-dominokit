@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -30,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.FlexLayout;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -44,8 +44,8 @@ import java.util.Optional;
 /**
  * A toolbar that contains icons that trigger an action for the viewport selection.
  */
-public final class SpreadsheetViewportToolbarComponent implements ComponentLifecycle,
-        IsElement<HTMLDivElement>,
+public final class SpreadsheetViewportToolbarComponent implements Component<HTMLDivElement>,
+        ComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher {
 
