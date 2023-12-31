@@ -73,6 +73,12 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetCellRangeComponent hideMarginBottom() {
+        this.textBox.hideMarginBottom();
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRange>> listener) {
         this.textBox.addChangeListener(listener);
         return this;

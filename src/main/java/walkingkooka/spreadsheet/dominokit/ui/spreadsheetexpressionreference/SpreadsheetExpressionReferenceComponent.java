@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -69,6 +70,12 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
     @Override
     public SpreadsheetExpressionReferenceComponent focus() {
         this.textBox.focus();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetExpressionReferenceComponent hideMarginBottom() {
+        this.textBox.hideMarginBottom();
         return this;
     }
 
