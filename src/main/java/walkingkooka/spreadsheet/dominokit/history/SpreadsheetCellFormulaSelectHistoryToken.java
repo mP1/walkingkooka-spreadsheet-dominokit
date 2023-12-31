@@ -92,6 +92,6 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // SpreadsheetFormulaComponent will grab focus etc.
+        // SpreadsheetViewportFormulaComponent will grab focus etc.
     }
 }

@@ -17,266 +17,152 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.formula;
 
-import elemental2.dom.Element;
-import elemental2.dom.Event;
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.KeyboardEvent;
-import jsinterop.base.Js;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.icons.lib.Icons;
-import org.dominokit.domino.ui.utils.DominoElement;
-import org.dominokit.domino.ui.utils.PostfixAddOn;
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
-import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.CharSequences;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
+import walkingkooka.tree.expression.Expression;
 
 import java.util.Objects;
 import java.util.Optional;
-
-import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
+import java.util.function.Function;
 
 /**
- * Provides a text box which supports editing of a formula belonging to a cell.
+ * A text box that accepts entry and validates it as a {@link Expression}.
  */
-public final class SpreadsheetFormulaComponent implements Component<HTMLFieldSetElement>,
-        ComponentLifecycle,
-        NopFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher {
+public final class SpreadsheetFormulaComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetFormula> {
 
-    public static SpreadsheetFormulaComponent with(final AppContext context) {
-        return new SpreadsheetFormulaComponent(
-                Objects.requireNonNull(context, "context")
-        );
+    public static SpreadsheetFormulaComponent empty(final Function<String, SpreadsheetFormula> parser) {
+        return new SpreadsheetFormulaComponent(parser);
     }
 
-    private SpreadsheetFormulaComponent(final AppContext context) {
-        final TextBox textBox = TextBox.create()
-                .addEventListener(
-                        EventType.keydown.getName(),
-                        (event) -> onKeyDownEvent(
-                                Js.cast(event)
-                        )
-                );
-
-        textBox.element()
-                .style.set("margin-bottom", "0"); //
-
-        textBox.getInputElement()
-                .addEventListener(
-                        EventType.focus.getName(),
-                        this::onFocus
-                ).parent()
-                .setBorder("0")
-                .setCssProperty("border-radius", 0);
-
-        textBox.apply(
-                self ->
-                        self.appendChild(
-                                PostfixAddOn.of(
-                                        Icons.close_circle()
-                                                .clickable()
-                                                .addClickListener(this::onClear)
-                                )
-                        )
-        );
-
-        textBox.setAutoValidation(true);
-        textBox.addValidator(
-                SpreadsheetFormulaComponentValidator.with(
-                        context
-                )
-        );
-
-        this.textBox = textBox;
-        this.context = context;
-
-        context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetDeltaWatcher(this);
+    private SpreadsheetFormulaComponent(final Function<String, SpreadsheetFormula> parser) {
+        this.textBox = ParserSpreadsheetTextBox.with(parser)
+                .setValidator(SpreadsheetFormulaComponentValidator.with(parser));
     }
 
-    private void onKeyDownEvent(final KeyboardEvent event) {
-        final AppContext context = this.context;
-
-        switch (Key.fromEvent(event)) {
-            case Enter:
-                context.debug("SpreadsheetFormulaComponent.onKeyDownEvent ENTER");
-
-                // if cell then edit formula
-                context.pushHistoryToken(
-                        context.historyToken()
-                                .setFormula()
-                                .setSave(this.textBox.getValue())
-                );
-                break;
-            case Escape:
-                context.debug("SpreadsheetFormulaComponent.onKeyDownEvent ESCAPE restoring text");
-                this.onUndo();
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
-    }
-
-    /**
-     * Reloads the textbox with the last saved (loaded) value.
-     */
-    private void onUndo() {
-        this.textBox.setValue(this.undoText);
-    }
-
-    private String undoText;
-
-    private void onFocus(final Event event) {
-        final AppContext context = this.context;
-        final HistoryToken historyToken = context.historyToken();
-
-        context.debug("SpreadsheetFormulaComponent.onFocus " + historyToken.selectionOrEmpty());
-
-        context.pushHistoryToken(
-                historyToken.setFormula()
-        );
-    }
-
-    /**
-     * Clears the textbox when the big CROSS to the right of the formula is clicked.
-     */
-    private void onClear(final Event event) {
-        this.context.debug("SpreadsheetFormulaComponent.onClear");
-        this.textBox.clear();
-    }
-
-    private void setText(final String text) {
-        this.context.debug("SpreadsheetFormulaComponent.setText " + CharSequences.quoteAndEscape(text));
-        this.textBox.setValue(text);
-    }
-
-    /**
-     * Calling this method results in this component always having the same height regardless of whether errors are
-     * present or absent. Normally the height of this component is less when no errors are available.
-     */
-    public SpreadsheetFormulaComponent helperTextAlwaysExpanded() {
-        DominoElement<Element> e = elements.elementOf(
-                this.textBox.element()
-                        .firstElementChild
-        );
-        e.setCssProperty("height", "4em");
-
+    @Override
+    public SpreadsheetFormulaComponent setId(final String id) {
+        this.textBox.setId(id);
         return this;
     }
 
-    // IsElement.......................................................................................................
+    @Override
+    public SpreadsheetFormulaComponent setLabel(final String label) {
+        this.textBox.setLabel(label);
+        return this;
+    }
+
+    @Override
+    public boolean isDisabled() {
+        return this.textBox.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent setDisabled(final boolean disabled) {
+        this.textBox.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent validate() {
+        this.textBox.validate();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent focus() {
+        this.textBox.focus();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent alwaysShowHelperText() {
+        this.textBox.alwaysShowHelperText();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent setHelperText(final Optional<String> text) {
+        this.textBox.setHelperText(text);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent hideMarginBottom() {
+        this.textBox.hideMarginBottom();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent removeBorders() {
+        this.textBox.removeBorders();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent addChangeListener(final ChangeListener<Optional<SpreadsheetFormula>> listener) {
+        this.textBox.addChangeListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent addFocusListener(final EventListener listener) {
+        this.textBox.addFocusListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetFormulaComponent addKeydownListener(final EventListener listener) {
+        this.textBox.addKeydownListener(listener);
+        return this;
+    }
+
+    // IsElement........................................................................................................
 
     @Override
     public HTMLFieldSetElement element() {
         return this.textBox.element();
     }
 
-    // ComponentLifecycle..............................................................................................
+    // Value............................................................................................................
 
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
-        return false;
+    public SpreadsheetFormulaComponent setValue(final Optional<SpreadsheetFormula> formula) {
+        Objects.requireNonNull(formula, "formula");
+
+        this.textBox.setValue(formula);
+        return this;
+    }
+
+    @Override //
+    public Optional<SpreadsheetFormula> value() {
+        return this.textBox.value();
+    }
+
+    public Optional<String> stringValue() {
+        return this.textBox.stringValue();
+    }
+
+    public SpreadsheetFormulaComponent setStringValue(final Optional<String> stringValue) {
+        this.textBox.setStringValue(stringValue);
+        return this;
+    }
+
+    private final ParserSpreadsheetTextBox<SpreadsheetFormula> textBox;
+
+    @Override
+    public SpreadsheetFormulaComponent required() {
+        this.textBox.required();
+        return this;
     }
 
     @Override
-    public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellHistoryToken;
-    }
-
-    @Override
-    public boolean isOpen() {
-        return false == this.textBox.isDisabled();
-    }
-
-    @Override
-    public void open(final AppContext context) {
-        this.textBox.setDisabled(false);
-
-        this.selection = context.historyToken()
-                .selectionOrEmpty()
-                .get()
-                .selection();
-    }
-
-    @Override
-    public void refresh(final AppContext context) {
-        final HistoryToken token = context.historyToken();
-
-        if (token instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetSelection selection = token.cast(SpreadsheetCellHistoryToken.class)
-                    .selection()
-                    .selection();
-
-            // if selection change reload formula text
-            if (false == selection.equalsIgnoreReferenceKind(this.selection)) {
-                this.reload(
-                        selection,
-                        context
-                );
-            }
-
-            if (token instanceof SpreadsheetCellFormulaHistoryToken) {
-                context.debug("SpreadsheetFormulaComponent.refresh giving focus");
-                this.textBox.focus();
-            }
-        } else {
-            context.debug("SpreadsheetFormulaComponent.refresh not cell historyToken clearing text");
-            this.setText("");
-        }
-    }
-
-    private void reload(final SpreadsheetSelection selection,
-                        final AppContext context) {
-        context.debug("SpreadsheetFormulaComponent.reload");
-
-        String text = "";
-
-        final SpreadsheetViewportCache cache = context.viewportCache();
-        final Optional<SpreadsheetSelection> maybeNonLabel = cache.nonLabelSelection(selection);
-        if (maybeNonLabel.isPresent()) {
-            final SpreadsheetSelection nonLabel = maybeNonLabel.get();
-            final Optional<SpreadsheetCell> maybeCell = cache.cell(nonLabel.toCell());
-
-            if (maybeCell.isPresent()) {
-                text = maybeCell.get()
-                        .formula()
-                        .text();
-            }
-        }
-
-        this.setText(text);
-        this.textBox.validate();
-        this.undoText = text;
-    }
-
-    @Override
-    public void close(final AppContext context) {
-        this.textBox.setDisabled(true);
-        this.textBox.clear(); // lost focus etc clear the textbox
-        this.selection = null;
-    }
-
-    private SpreadsheetSelection selection;
-
-    // SpreadsheetDeltaWatcher..........................................................................................
-
-    @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
-                                   final AppContext context) {
-        this.refresh(context);
+    public SpreadsheetFormulaComponent optional() {
+        this.textBox.required();
+        return this;
     }
 
     // Object...........................................................................................................
@@ -285,8 +171,4 @@ public final class SpreadsheetFormulaComponent implements Component<HTMLFieldSet
     public String toString() {
         return this.textBox.toString();
     }
-
-    private final TextBox textBox;
-
-    private final AppContext context;
 }
