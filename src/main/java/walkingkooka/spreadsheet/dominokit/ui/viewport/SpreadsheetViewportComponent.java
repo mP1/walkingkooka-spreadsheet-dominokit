@@ -31,7 +31,6 @@ import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.DivElement;
@@ -72,6 +71,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetColorPickerComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
@@ -119,7 +119,7 @@ import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
 /**
  * A ui that displays a table holding the cells and headers for the columns and rows.
  */
-public final class SpreadsheetViewportComponent implements IsElement<HTMLDivElement>,
+public final class SpreadsheetViewportComponent implements Component<HTMLDivElement>,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetLabelMappingFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
