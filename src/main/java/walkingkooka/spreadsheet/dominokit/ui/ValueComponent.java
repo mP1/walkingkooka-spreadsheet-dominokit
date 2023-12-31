@@ -21,6 +21,7 @@ import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 
 import java.util.Optional;
 
@@ -42,4 +43,6 @@ public interface ValueComponent<E extends Element, V> extends IsElement<E>, Valu
     ValueComponent<E, V> required();
 
     ValueComponent<E, V> addChangeListener(final ChangeListener<Optional<V>> listener);
+
+    ValueComponent<E, V> hideMarginBottom();
 }

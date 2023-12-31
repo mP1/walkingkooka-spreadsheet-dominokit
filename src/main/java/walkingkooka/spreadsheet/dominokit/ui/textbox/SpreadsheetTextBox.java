@@ -44,8 +44,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     }
 
     private SpreadsheetTextBox() {
-        this.textBox = new TextBox()
-                .setMarginBottom("0");
+        this.textBox = new TextBox();
     }
 
     @Override
@@ -105,6 +104,12 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
                     }
                 }
         );
+        return this;
+    }
+
+    @Override
+    public SpreadsheetTextBox hideMarginBottom() {
+        this.textBox.setMarginBottom("0");
         return this;
     }
 

@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 
 import java.util.Objects;
@@ -54,6 +55,12 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
     @Override
     public SpreadsheetNameComponent focus() {
         this.textBox.focus();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetNameComponent hideMarginBottom() {
+        this.textBox.hideMarginBottom();
         return this;
     }
 
