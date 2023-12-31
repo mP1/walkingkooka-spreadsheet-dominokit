@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.textbox;
 
 import elemental2.dom.Event;
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
@@ -51,6 +52,17 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     public SpreadsheetTextBox addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.textBox.addChangeListener(
                 SpreadsheetTextBoxChangeListener.with(listener)
+        );
+        return this;
+    }
+
+    @Override
+    public SpreadsheetTextBox addFocusListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.textBox.addEventListener(
+                EventType.focus,
+                listener
         );
         return this;
     }

@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.select;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -96,6 +98,15 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
                         Optional.ofNullable(oldValue),
                         Optional.ofNullable(newValue)
                 )
+        );
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
+        this.select.addEventListener(
+                EventType.focus,
+                listener
         );
         return this;
     }

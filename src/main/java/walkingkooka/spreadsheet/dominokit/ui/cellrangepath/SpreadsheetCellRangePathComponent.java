@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.cellrangepath;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
@@ -91,6 +92,12 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
     @Override
     public SpreadsheetCellRangePathComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRangePath>> listener) {
         this.select.addChangeListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetCellRangePathComponent addFocusListener(final EventListener listener) {
+        this.select.addFocusListener(listener);
         return this;
     }
 

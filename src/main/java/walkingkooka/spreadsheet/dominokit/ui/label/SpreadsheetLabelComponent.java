@@ -17,8 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.label;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.elements.SpanElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -113,6 +115,15 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
                 }
         );
 
+        return this;
+    }
+
+    @Override
+    public SpreadsheetLabelComponent addFocusListener(final EventListener listener) {
+        this.suggestBox.addEventListener(
+                EventType.focus,
+                listener
+        );
         return this;
     }
 

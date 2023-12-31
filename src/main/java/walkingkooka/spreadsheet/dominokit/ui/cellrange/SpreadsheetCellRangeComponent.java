@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.cellrange;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
@@ -87,6 +88,12 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
     @Override
     public SpreadsheetCellRangeComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRange>> listener) {
         this.textBox.addChangeListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetCellRangeComponent addFocusListener(final EventListener listener) {
+        this.textBox.addFocusListener(listener);
         return this;
     }
 
