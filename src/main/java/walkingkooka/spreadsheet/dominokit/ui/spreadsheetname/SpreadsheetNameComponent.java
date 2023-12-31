@@ -37,7 +37,10 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
     }
 
     private SpreadsheetNameComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetName::with);
+        this.textBox = ParserSpreadsheetTextBox.with(
+                SpreadsheetName::with,
+                SpreadsheetName::text
+        );
     }
 
     @Override

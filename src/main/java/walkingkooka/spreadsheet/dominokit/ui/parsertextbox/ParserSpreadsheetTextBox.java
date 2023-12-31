@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxValidators;
-import walkingkooka.text.HasText;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -33,23 +32,31 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages.
  */
-public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueComponent<HTMLFieldSetElement, T> {
+public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFieldSetElement, T> {
 
     /**
      * Creates a new {@link ParserSpreadsheetTextBox}.
+     * A {@link Function textExtractor} is required to convert types that require context such as an {@link walkingkooka.tree.expression.Expression}.
      */
-    public static <T extends HasText> ParserSpreadsheetTextBox<T> with(final Function<String, T> parser) {
+    public static <T> ParserSpreadsheetTextBox<T> with(final Function<String, T> parser,
+                                                       final Function<T, String> textExtractor) {
         Objects.requireNonNull(parser, "parser");
+        Objects.requireNonNull(textExtractor, "textExtractor");
 
-        return new ParserSpreadsheetTextBox<>(parser);
+        return new ParserSpreadsheetTextBox<>(
+                parser,
+                textExtractor
+        );
     }
 
-    private ParserSpreadsheetTextBox(final Function<String, T> parser) {
+    private ParserSpreadsheetTextBox(final Function<String, T> parser,
+                                     final Function<T, String> textExtractor) {
         this.textBox = SpreadsheetTextBox.empty()
                 .clearIcon()
                 .disableSpellcheck()
                 .enterFiresValueChange();
         this.parser = parser;
+        this.textExtractor = textExtractor;
         this.required();
     }
 
@@ -149,10 +156,12 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
         Objects.requireNonNull(value, "value");
 
         this.textBox.setValue(
-                value.map(T::text)
+                value.map(this.textExtractor::apply)
         );
         return this;
     }
+
+    private final Function<T, String> textExtractor;
 
     @Override //
     public Optional<T> value() {
@@ -174,6 +183,13 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     private final Function<String, T> parser;
+
+    /**
+     * Returns the original entered text.
+     */
+    public Optional<String> stringValue() {
+        return this.textBox.value();
+    }
 
     private final SpreadsheetTextBox textBox;
 
