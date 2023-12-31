@@ -22,7 +22,6 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.icons.lib.Icons;
@@ -36,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryT
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -50,7 +50,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * Provides a text box which supports editing of a formula belonging to a cell.
  */
-public final class SpreadsheetFormulaComponent implements IsElement<HTMLFieldSetElement>,
+public final class SpreadsheetFormulaComponent implements Component<HTMLFieldSetElement>,
         ComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher {
