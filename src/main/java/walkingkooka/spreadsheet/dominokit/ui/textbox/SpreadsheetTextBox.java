@@ -71,6 +71,17 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    @Override
+    public SpreadsheetTextBox addKeydownListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.textBox.addEventListener(
+                EventType.keydown,
+                listener
+        );
+        return this;
+    }
+
     public SpreadsheetTextBox clearIcon() {
         this.textBox.apply(
                 self -> self.appendChild(
