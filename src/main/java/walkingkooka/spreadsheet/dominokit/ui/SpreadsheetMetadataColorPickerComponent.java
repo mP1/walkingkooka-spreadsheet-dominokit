@@ -183,4 +183,9 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
     }
 
     private final HistoryToken historyToken;
+
+    @Override
+    public String toString() {
+        return this.element().toString();
+    }
 }
