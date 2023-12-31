@@ -41,7 +41,7 @@ import java.util.function.Function;
  * If a {@link SpreadsheetColorName} exists that will be used otherwise a name is formed by combining the "color-" and the color number.
  * Each cell will have a link with a {@link HistoryToken} that saves its {@link Color}.
  */
-public final class SpreadsheetColorPickerComponent implements SpreadsheetMetadataFetcherWatcher,
+public final class SpreadsheetMetadataColorPickerComponent implements SpreadsheetMetadataFetcherWatcher,
         NopFetcherWatcher,
         IsElement<HTMLTableElement> {
 
@@ -53,13 +53,13 @@ public final class SpreadsheetColorPickerComponent implements SpreadsheetMetadat
 
     private final static int COLOR_COUNT = ROWS * COLUMNS;
 
-    public static SpreadsheetColorPickerComponent with(final HistoryToken historyToken) {
+    public static SpreadsheetMetadataColorPickerComponent with(final HistoryToken historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
-        return new SpreadsheetColorPickerComponent(historyToken);
+        return new SpreadsheetMetadataColorPickerComponent(historyToken);
     }
 
-    public SpreadsheetColorPickerComponent(final HistoryToken historyToken) {
+    public SpreadsheetMetadataColorPickerComponent(final HistoryToken historyToken) {
         final TBodyElement tbody = ElementsFactory.elements.tbody();
 
         int i = 0;
