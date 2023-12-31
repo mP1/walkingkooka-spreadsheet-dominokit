@@ -63,11 +63,13 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
         this.list = this.uListElement();
 
         final HistoryToken token = context.historyToken()
+                .clearSelection()
                 .setMetadataPropertyName(propertyName);
 
         final Map<T, Anchor> valueToAnchors = Maps.hash();
 
         for (final T value : values) {
+            // anchor will be updated later with save value.
             final Anchor anchor = token
                     .link(SpreadsheetMetadataPanelComponent.id(propertyName) + "-" + CaseKind.kebabEnumName(value))
                     .setTabIndex(0)
