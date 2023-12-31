@@ -17,12 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.label;
 
+import elemental2.dom.Element;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
+import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
@@ -31,6 +33,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
+
+import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 
 /**
  * A text box component that includes support for finding a label.
@@ -82,6 +86,16 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     @Override
     public SpreadsheetLabelComponent focus() {
         this.suggestBox.focus();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetLabelComponent alwaysShowHelperText() {
+        final DominoElement<Element> element = elements.elementOf(
+                this.suggestBox.element()
+                        .firstElementChild
+        );
+        element.setHeight(HELPER_TEXT_HEIGHT);
         return this;
     }
 
