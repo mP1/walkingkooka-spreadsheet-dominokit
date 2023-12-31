@@ -64,8 +64,7 @@ final class SpreadsheetFormulaComponentValidator implements Validator<TextBox> {
 
         final SpreadsheetViewportCache viewportCache = context.viewportCache();
         final SpreadsheetSelection nonLabelSelection = context.historyToken()
-                .selectionOrEmpty()
-                .map((a) -> viewportCache.nonLabelSelection(a.selection()).orElse(null))
+                .nonLabelSelection(viewportCache)
                 .orElse(null);
         if (null != nonLabelSelection) {
             final Optional<SpreadsheetCell> maybeCell = viewportCache.cell(nonLabelSelection.toCell());
