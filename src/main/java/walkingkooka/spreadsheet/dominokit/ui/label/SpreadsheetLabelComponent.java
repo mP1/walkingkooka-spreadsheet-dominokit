@@ -24,7 +24,6 @@ import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
-import walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -87,6 +86,16 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     @Override
     public SpreadsheetLabelComponent hideMarginBottom() {
         this.suggestBox.setMarginBottom("");
+        return this;
+    }
+
+    @Override
+    public SpreadsheetLabelComponent removeBorders() {
+        this.suggestBox.getInputElement()
+                .parent()
+                .parent()
+                .setBorder("0")
+                .setCssProperty("border-radius", 0);
         return this;
     }
 
