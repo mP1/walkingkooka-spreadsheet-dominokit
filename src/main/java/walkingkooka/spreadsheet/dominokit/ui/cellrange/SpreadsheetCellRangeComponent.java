@@ -103,6 +103,12 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
         return this;
     }
 
+    @Override
+    public SpreadsheetCellRangeComponent addKeydownListener(final EventListener listener) {
+        this.textBox.addKeydownListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

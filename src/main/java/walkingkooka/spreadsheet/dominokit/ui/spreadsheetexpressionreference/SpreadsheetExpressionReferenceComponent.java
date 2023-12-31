@@ -103,6 +103,12 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
         return this;
     }
 
+    @Override
+    public SpreadsheetExpressionReferenceComponent addKeydownListener(final EventListener listener) {
+        this.textBox.addKeydownListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

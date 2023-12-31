@@ -88,6 +88,12 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
         return this;
     }
 
+    @Override
+    public SpreadsheetNameComponent addKeydownListener(final EventListener listener) {
+        this.textBox.addKeydownListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

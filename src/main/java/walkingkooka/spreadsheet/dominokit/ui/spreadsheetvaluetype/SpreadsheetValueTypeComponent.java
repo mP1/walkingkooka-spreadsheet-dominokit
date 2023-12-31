@@ -113,6 +113,12 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
         return this;
     }
 
+    @Override
+    public SpreadsheetValueTypeComponent addKeydownListener(final EventListener listener) {
+        this.select.addKeydownListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override
