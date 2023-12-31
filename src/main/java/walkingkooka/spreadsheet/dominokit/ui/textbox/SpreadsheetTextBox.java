@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.textbox;
 
+import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -24,6 +25,7 @@ import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
+import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
@@ -34,6 +36,8 @@ import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
+
+import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 
 /**
  * A textbox that adds a few extras that should be common to all text boxes.
@@ -116,6 +120,16 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
                     }
                 }
         );
+        return this;
+    }
+
+    @Override
+    public SpreadsheetTextBox alwaysShowHelperText() {
+        final DominoElement<Element> element = elements.elementOf(
+                this.textBox.element()
+                        .firstElementChild
+        );
+        element.setHeight(HELPER_TEXT_HEIGHT);
         return this;
     }
 

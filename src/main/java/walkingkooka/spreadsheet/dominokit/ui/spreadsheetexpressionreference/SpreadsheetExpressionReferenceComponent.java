@@ -74,6 +74,12 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
     }
 
     @Override
+    public SpreadsheetExpressionReferenceComponent alwaysShowHelperText() {
+        this.textBox.alwaysShowHelperText();
+        return this;
+    }
+
+    @Override
     public SpreadsheetExpressionReferenceComponent hideMarginBottom() {
         this.textBox.hideMarginBottom();
         return this;

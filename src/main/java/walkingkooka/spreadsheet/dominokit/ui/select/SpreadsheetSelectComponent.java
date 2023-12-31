@@ -76,6 +76,11 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetSelectComponent<T> alwaysShowHelperText() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> hideMarginBottom() {
         this.select.setMarginBottom("");
         return this;

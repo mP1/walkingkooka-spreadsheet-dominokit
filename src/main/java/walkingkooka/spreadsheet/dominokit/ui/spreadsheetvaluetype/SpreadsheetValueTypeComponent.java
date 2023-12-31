@@ -70,6 +70,12 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetValueTypeComponent alwaysShowHelperText() {
+        this.select.alwaysShowHelperText();
+        return this;
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent hideMarginBottom() {
         this.select.hideMarginBottom();
         return this;

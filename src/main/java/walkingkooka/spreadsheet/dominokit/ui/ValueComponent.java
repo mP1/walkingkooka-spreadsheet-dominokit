@@ -45,6 +45,17 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
 
     ValueComponent<E, V> addFocusListener(final EventListener listener);
 
+    /**
+     * The normal domino-kit behaviour is to only show helper text where validation error text appears, as necessary.
+     * When a component has no helper text to show the helper text space is auto hidden.
+     */
+    ValueComponent<E, V> alwaysShowHelperText();
+
+    /**
+     * Constant height for containers holding helper text.
+     */
+    String HELPER_TEXT_HEIGHT = "4em";
+
     ValueComponent<E, V> hideMarginBottom();
 
     ValueComponent<E, V> removeBorders();
