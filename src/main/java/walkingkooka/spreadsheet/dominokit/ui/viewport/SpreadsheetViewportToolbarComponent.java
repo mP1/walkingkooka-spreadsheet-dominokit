@@ -23,7 +23,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
@@ -162,20 +161,15 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
     public void refresh(final AppContext context) {
         context.debug("SpreadsheetViewportToolbarComponent.refresh BEGIN");
 
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = context.historyToken()
-                .cast(AnchoredSpreadsheetSelectionHistoryToken.class);
-
-        final Optional<SpreadsheetSelection> maybeSelection = context.viewportCache()
+        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.historyToken()
                 .nonLabelSelection(
-                        historyToken.selection()
-                                .selection()
+                        context.viewportCache()
                 );
-
-        if (maybeSelection.isPresent()) {
-            final SpreadsheetSelection selection = maybeSelection.get();
-            if (selection.isCellReference() || selection.isCellRange()) {
+        if (maybeNonLabelSelection.isPresent()) {
+            final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
+            if (nonLabelSelection.isCellReference() || nonLabelSelection.isCellRange()) {
                 this.refreshItems(
-                        selection,
+                        nonLabelSelection,
                         context
                 );
             }
