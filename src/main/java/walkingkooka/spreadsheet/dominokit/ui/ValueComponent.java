@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.Element;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
 
@@ -27,7 +26,7 @@ import java.util.Optional;
 /**
  * A component that supports entering or selecting a value.
  */
-public interface ValueComponent<E extends Element, V> extends IsElement<E>, Value<Optional<V>> {
+public interface ValueComponent<E extends Element, V> extends Component<E>, Value<Optional<V>> {
 
     ValueComponent<E, V> setId(final String id);
 
