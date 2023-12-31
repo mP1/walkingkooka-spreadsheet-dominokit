@@ -17,16 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.meta;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLTableElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.TBodyElement;
 import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToken;
@@ -34,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySav
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.OpenableComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
@@ -60,8 +58,8 @@ import java.util.function.Function;
 /**
  * A ui that displays numerous {@link SpreadsheetMetadata} properties with support for editing the individual values.
  */
-public final class SpreadsheetMetadataPanelComponent implements ComponentLifecycle,
-        IsElement<HTMLTableElement>,
+public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTableElement>,
+        ComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 
