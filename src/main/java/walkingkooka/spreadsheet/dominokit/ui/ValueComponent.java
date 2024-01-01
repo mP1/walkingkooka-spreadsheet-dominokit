@@ -64,6 +64,11 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
     ValueComponent<E, V> alwaysShowHelperText();
 
     /**
+     * This setter may be used to set a (error) message.
+     */
+    ValueComponent<E, V> setHelperText(final Optional<String> text);
+
+    /**
      * Constant height for containers holding helper text.
      */
     String HELPER_TEXT_HEIGHT = "4em";

@@ -145,6 +145,16 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     }
 
     @Override
+    public SpreadsheetTextBox setHelperText(final Optional<String> text) {
+        Objects.requireNonNull(text, "text");
+
+        this.textBox.setHelperText(
+                text.orElse(null)
+        );
+        return this;
+    }
+
+    @Override
     public SpreadsheetTextBox hideMarginBottom() {
         this.textBox.setMarginBottom("0");
         return this;

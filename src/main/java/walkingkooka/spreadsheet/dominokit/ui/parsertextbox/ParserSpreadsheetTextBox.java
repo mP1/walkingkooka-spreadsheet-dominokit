@@ -123,6 +123,12 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     @Override
+    public ParserSpreadsheetTextBox<T> setHelperText(final Optional<String> text) {
+        this.textBox.setHelperText(text);
+        return this;
+    }
+
+    @Override
     public ParserSpreadsheetTextBox<T> hideMarginBottom() {
         this.textBox.hideMarginBottom();
         return this;
