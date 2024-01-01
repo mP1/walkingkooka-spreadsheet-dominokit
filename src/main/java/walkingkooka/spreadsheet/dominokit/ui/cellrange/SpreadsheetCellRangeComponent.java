@@ -146,6 +146,16 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
         return this.textBox.value();
     }
 
+    public Optional<String> stringValue() {
+        return this.textBox.stringValue();
+    }
+
+    public SpreadsheetCellRangeComponent setStringValue(final Optional<String> stringValue) {
+        this.textBox.setStringValue(stringValue);
+        return this;
+    }
+
+
     private final ParserSpreadsheetTextBox<SpreadsheetCellRange> textBox;
 
     // Object...........................................................................................................
