@@ -129,10 +129,12 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
         return this;
     }
 
+    @Override
     public SpreadsheetNameComponent required() {
         return this;
     }
 
+    @Override
     public SpreadsheetNameComponent optional() {
         throw new UnsupportedOperationException();
     }
