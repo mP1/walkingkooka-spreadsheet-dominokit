@@ -116,6 +116,15 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
         return this.textBox.value();
     }
 
+    public Optional<String> stringValue() {
+        return this.textBox.stringValue();
+    }
+
+    public SpreadsheetNameComponent setStringValue(final Optional<String> stringValue) {
+        this.textBox.setStringValue(stringValue);
+        return this;
+    }
+
     private final ParserSpreadsheetTextBox<SpreadsheetName> textBox;
 
     @Override
