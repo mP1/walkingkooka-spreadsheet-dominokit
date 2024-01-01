@@ -38,10 +38,7 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
     }
 
     private SpreadsheetCellRangeComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
-                SpreadsheetSelection::parseCellRange,
-                SpreadsheetCellRange::text
-        );
+        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseCellRange);
     }
 
     @Override
