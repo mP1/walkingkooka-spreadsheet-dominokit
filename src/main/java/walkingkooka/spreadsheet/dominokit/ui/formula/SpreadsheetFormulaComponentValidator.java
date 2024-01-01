@@ -17,111 +17,58 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.formula;
 
-import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.cursor.TextCursors;
-import walkingkooka.text.cursor.parser.Parser;
 
-import java.util.Optional;
+import java.util.Objects;
+import java.util.function.Function;
 
 /**
- * Parse the text from the {@link SpreadsheetFormulaComponent}. Any caught {@link Exception#getMessage()} becomes the validation failure message.
+ * A {@link Validator} that uses the function to parse new text. If the parser throws an exception or returns a {@link SpreadsheetFormula#error()},
+ * the message will be used as the validation text.
  */
-final class SpreadsheetFormulaComponentValidator implements Validator<TextBox> {
+final class SpreadsheetFormulaComponentValidator implements Validator<String> {
 
     /**
      * Factory
      */
-    static SpreadsheetFormulaComponentValidator with(final AppContext context) {
-        return new SpreadsheetFormulaComponentValidator(
-                context
-        );
+    static SpreadsheetFormulaComponentValidator with(final Function<String, SpreadsheetFormula> parser) {
+        Objects.requireNonNull(parser, "parser");
+
+        return new SpreadsheetFormulaComponentValidator(parser);
     }
 
-    private SpreadsheetFormulaComponentValidator(final AppContext context) {
+    private SpreadsheetFormulaComponentValidator(final Function<String, SpreadsheetFormula> parser) {
         super();
-        this.context = context;
+        this.parser = parser;
     }
 
     @Override
-    public ValidationResult isValid(final TextBox component) {
-        final AppContext context = this.context;
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-
-        String errorMessage = null;
-        Parser<SpreadsheetParserContext> parser = null;
-
-        final SpreadsheetViewportCache viewportCache = context.viewportCache();
-        final SpreadsheetSelection nonLabelSelection = context.historyToken()
-                .nonLabelSelection(viewportCache)
-                .orElse(null);
-        if (null != nonLabelSelection) {
-            final Optional<SpreadsheetCell> maybeCell = viewportCache.cell(nonLabelSelection.toCell());
-            if (maybeCell.isPresent()) {
-                final SpreadsheetCell cell = maybeCell.get();
-                errorMessage = cell.formula()
-                        .error()
-                        .map(SpreadsheetError::message)
-                        .orElse(null);
-                parser = cell.parsePattern()
-                        .map(p -> p.parser())
-                        .orElseGet(() -> SpreadsheetParsers.valueOrExpression(
-                                        metadata.parser()
-                                )
-                        );
-            }
-        }
-        if (null == parser) {
-            parser = SpreadsheetParsers.valueOrExpression(
-                    metadata.parser()
-            );
-        }
+    public ValidationResult isValid(final String value) {
+        String message;
 
         try {
-            final SpreadsheetFormula formula = SpreadsheetFormula.parse(
-                    TextCursors.charSequence(
-                            component.getInputElement()
-                                    .element()
-                                    .value
-                    ),
-                    parser,
-                    metadata.parserContext(
-                            () -> context.now()
-                    )
-            );
-
-            errorMessage = formula.error()
+            final SpreadsheetFormula formula = this.parser.apply(value);
+            message = formula.error()
                     .map(SpreadsheetError::message)
-                    .orElse(errorMessage);
-
+                    .orElse(
+                            null
+                    );
         } catch (final Exception fail) {
-            errorMessage = fail.getMessage();
-
-            if (CharSequences.isNullOrEmpty(errorMessage)) {
-                errorMessage = "Failed to parse formula";
-            }
+            message = fail.getMessage();
         }
-        return null == errorMessage ?
+        return CharSequences.isNullOrEmpty(message) ?
                 ValidationResult.valid() :
-                ValidationResult.invalid(errorMessage);
+                ValidationResult.invalid(message);
     }
 
-    private final AppContext context;
+    private final Function<String, SpreadsheetFormula> parser;
 
     @Override
     public String toString() {
-        return this.context.spreadsheetMetadata()
-                .toString();
+        return this.parser.toString();
     }
 }

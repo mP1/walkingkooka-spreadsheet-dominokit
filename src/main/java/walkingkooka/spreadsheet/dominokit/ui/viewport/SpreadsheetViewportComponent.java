@@ -76,7 +76,6 @@ import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
-import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -134,7 +133,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     private SpreadsheetViewportComponent(final AppContext context) {
         this.context = context;
 
-        this.formulaComponent = this.formulaComponent();
+        this.formulaComponent = this.formula();
 
         this.tableElement = this.table();
 
@@ -168,7 +167,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     }
 
     /**
-     * The root or container that holds the {@link SpreadsheetFormulaComponent} and {@link #tableElement}.
+     * The root or container that holds the {@link SpreadsheetViewportFormulaComponent} and {@link #tableElement}.
      */
     private final DivElement root;
 
@@ -184,12 +183,12 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     // formulaComponent.................................................................................................
 
-    private SpreadsheetFormulaComponent formulaComponent() {
-        return SpreadsheetFormulaComponent.with(this.context)
-                .helperTextAlwaysExpanded();
+    private SpreadsheetViewportFormulaComponent formula() {
+        return SpreadsheetViewportFormulaComponent.with(this.context);
+                //.helperTextAlwaysExpanded();
     }
 
-    private final SpreadsheetFormulaComponent formulaComponent;
+    private final SpreadsheetViewportFormulaComponent formulaComponent;
 
     // table container..................................................................................................
 
