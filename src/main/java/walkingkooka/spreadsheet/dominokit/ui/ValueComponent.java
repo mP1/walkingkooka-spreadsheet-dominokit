@@ -47,6 +47,10 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
 
     ValueComponent<E, V> validate();
 
+    boolean isDisabled();
+
+    ValueComponent<E, V> setDisabled(final boolean disabled);
+
     ValueComponent<E, V> addChangeListener(final ChangeListener<Optional<V>> listener);
 
     ValueComponent<E, V> addFocusListener(final EventListener listener);

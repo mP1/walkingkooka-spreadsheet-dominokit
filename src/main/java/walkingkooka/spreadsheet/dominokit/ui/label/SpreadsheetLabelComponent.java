@@ -70,6 +70,17 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     }
 
     @Override
+    public boolean isDisabled() {
+        return this.suggestBox.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetLabelComponent setDisabled(final boolean disabled) {
+        this.suggestBox.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
     public SpreadsheetLabelComponent optional() {
         this.required = false;
         return this;

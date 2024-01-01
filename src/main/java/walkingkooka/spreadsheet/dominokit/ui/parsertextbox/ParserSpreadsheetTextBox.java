@@ -66,6 +66,17 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     @Override
+    public boolean isDisabled() {
+        return this.textBox.isDisabled();
+    }
+
+    @Override
+    public ParserSpreadsheetTextBox<T> setDisabled(final boolean disabled) {
+        this.textBox.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
     public ParserSpreadsheetTextBox<T> optional() {
         this.textBox.setValidator(
                 SpreadsheetTextBoxValidators.optional(

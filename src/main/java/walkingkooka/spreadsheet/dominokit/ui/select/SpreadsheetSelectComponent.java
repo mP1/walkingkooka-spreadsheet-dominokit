@@ -70,6 +70,17 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     boolean required;
 
     @Override
+    public boolean isDisabled() {
+        return this.select.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetSelectComponent setDisabled(final boolean disabled) {
+        this.select.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> validate() {
         this.select.validate();
         return this;

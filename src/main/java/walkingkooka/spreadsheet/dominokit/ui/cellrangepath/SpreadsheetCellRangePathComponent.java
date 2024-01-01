@@ -60,6 +60,17 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
     }
 
     @Override
+    public boolean isDisabled() {
+        return this.select.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetCellRangePathComponent setDisabled(final boolean disabled) {
+        this.select.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangePathComponent optional() {
         this.select.optional();
         return this;

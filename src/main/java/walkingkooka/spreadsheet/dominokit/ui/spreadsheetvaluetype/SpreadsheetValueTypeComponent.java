@@ -88,6 +88,17 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public boolean isDisabled() {
+        return this.select.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetValueTypeComponent setDisabled(final boolean disabled) {
+        this.select.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent required() {
         this.select.required();
         return this;
