@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.parsertextbox;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxValidators;
@@ -31,7 +32,7 @@ import java.util.function.Function;
 
 /**
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
- * the validation fail messages.
+ * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
 public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueComponent<HTMLFieldSetElement, T> {
 
@@ -50,6 +51,9 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
                 .disableSpellcheck()
                 .enterFiresValueChange();
         this.parser = parser;
+        this.setValidator(
+                SpreadsheetTextBoxValidators.parser(parser::apply)
+        );
         this.required();
     }
 
@@ -79,20 +83,26 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     @Override
     public ParserSpreadsheetTextBox<T> optional() {
         this.textBox.setValidator(
-                SpreadsheetTextBoxValidators.optional(
-                        SpreadsheetTextBoxValidators.parser(this.parser::apply)
-                )
+                SpreadsheetTextBoxValidators.optional(this.validator)
         );
         return this;
     }
 
     @Override
     public ParserSpreadsheetTextBox<T> required() {
-        this.textBox.setValidator(
-                SpreadsheetTextBoxValidators.parser(this.parser::apply)
-        );
+        this.textBox.setValidator(this.validator);
         return this;
     }
+
+    private boolean required;
+
+    public ParserSpreadsheetTextBox<T> setValidator(final Validator<String> validator) {
+        Objects.requireNonNull(validator, "validator");
+        this.validator = validator;
+        return this;
+    }
+
+    private Validator<String> validator;
 
     @Override
     public ParserSpreadsheetTextBox<T> validate() {
