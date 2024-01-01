@@ -35,6 +35,10 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
 
     ValueComponent<E, V> setValue(final Optional<V> value);
 
+    default ValueComponent<E, V> clearValue() {
+        return this.setValue(Optional.empty());
+    }
+
     ValueComponent<E, V> focus();
 
     ValueComponent<E, V> optional();
