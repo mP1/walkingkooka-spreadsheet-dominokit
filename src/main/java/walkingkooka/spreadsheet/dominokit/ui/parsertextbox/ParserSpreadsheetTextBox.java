@@ -84,6 +84,12 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     @Override
+    public ParserSpreadsheetTextBox<T> validate() {
+        this.textBox.validate();
+        return this;
+    }
+
+    @Override
     public ParserSpreadsheetTextBox<T> focus() {
         this.textBox.focus();
         return this;

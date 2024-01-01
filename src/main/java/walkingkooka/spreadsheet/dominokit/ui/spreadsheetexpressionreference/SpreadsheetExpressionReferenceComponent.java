@@ -66,6 +66,12 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
     }
 
     @Override
+    public SpreadsheetExpressionReferenceComponent validate() {
+        this.textBox.validate();
+        return this;
+    }
+
+    @Override
     public SpreadsheetExpressionReferenceComponent focus() {
         this.textBox.focus();
         return this;
