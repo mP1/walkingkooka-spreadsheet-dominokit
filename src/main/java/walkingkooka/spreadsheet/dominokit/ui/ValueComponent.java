@@ -69,6 +69,13 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
     ValueComponent<E, V> setHelperText(final Optional<String> text);
 
     /**
+     * Clears any present helper text.
+     */
+    default ValueComponent<E, V> clearHelperText() {
+        return this.setHelperText(Optional.empty());
+    }
+
+    /**
      * Constant height for containers holding helper text.
      */
     String HELPER_TEXT_HEIGHT = "4em";
