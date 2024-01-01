@@ -193,6 +193,15 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     private final Function<String, T> parser;
 
     /**
+     * Sets the given {@link String value} on the wrapped {@link org.dominokit.domino.ui.forms.TextBox} skipping any
+     * validation or conversion.
+     */
+    public ParserSpreadsheetTextBox<T> setStringValue(final Optional<String> value) {
+        this.textBox.setValue(value);
+        return this;
+    }
+
+    /**
      * Returns the original entered text.
      */
     public Optional<String> stringValue() {
