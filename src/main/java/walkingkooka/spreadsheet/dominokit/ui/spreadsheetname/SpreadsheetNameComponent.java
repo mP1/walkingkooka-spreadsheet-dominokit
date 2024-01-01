@@ -65,6 +65,12 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
     }
 
     @Override
+    public SpreadsheetNameComponent setHelperText(final Optional<String> text) {
+        this.textBox.setHelperText(text);
+        return this;
+    }
+
+    @Override
     public SpreadsheetNameComponent hideMarginBottom() {
         this.textBox.hideMarginBottom();
         return this;

@@ -101,6 +101,12 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
     }
 
     @Override
+    public SpreadsheetCellRangePathComponent setHelperText(final Optional<String> text) {
+        this.select.setHelperText(text);
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangePathComponent hideMarginBottom() {
         this.select.hideMarginBottom();
         return this;

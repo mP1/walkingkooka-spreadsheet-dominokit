@@ -95,6 +95,12 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
     }
 
     @Override
+    public SpreadsheetExpressionReferenceComponent setHelperText(final Optional<String> text) {
+        this.textBox.setHelperText(text);
+        return this;
+    }
+
+    @Override
     public SpreadsheetExpressionReferenceComponent hideMarginBottom() {
         this.textBox.hideMarginBottom();
         return this;

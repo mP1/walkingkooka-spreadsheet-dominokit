@@ -95,6 +95,12 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetCellRangeComponent setHelperText(final Optional<String> text) {
+        this.textBox.setHelperText(text);
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeComponent hideMarginBottom() {
         this.textBox.hideMarginBottom();
         return this;
