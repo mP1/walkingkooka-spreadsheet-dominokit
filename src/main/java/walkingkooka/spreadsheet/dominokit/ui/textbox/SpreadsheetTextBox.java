@@ -214,6 +214,17 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     // ValueComponent...................................................................................................
 
     @Override
+    public boolean isDisabled() {
+        return this.textBox.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetTextBox setDisabled(final boolean disabled) {
+        this.textBox.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
     public SpreadsheetTextBox required() {
         throw new UnsupportedOperationException();
     }

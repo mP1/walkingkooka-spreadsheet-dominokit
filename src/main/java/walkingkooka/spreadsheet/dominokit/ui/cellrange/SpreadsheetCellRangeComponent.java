@@ -54,6 +54,17 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public boolean isDisabled() {
+        return this.textBox.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetCellRangeComponent setDisabled(final boolean disabled) {
+        this.textBox.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeComponent optional() {
         this.textBox.optional();
         return this;

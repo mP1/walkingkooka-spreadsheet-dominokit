@@ -54,6 +54,17 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
     }
 
     @Override
+    public boolean isDisabled() {
+        return this.textBox.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetExpressionReferenceComponent setDisabled(final boolean disabled) {
+        this.textBox.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
     public SpreadsheetExpressionReferenceComponent optional() {
         this.textBox.optional();
         return this;

@@ -118,6 +118,16 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
 
     private final ParserSpreadsheetTextBox<SpreadsheetName> textBox;
 
+    @Override
+    public boolean isDisabled() {
+        return this.textBox.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetNameComponent setDisabled(final boolean disabled) {
+        this.textBox.setDisabled(disabled);
+        return this;
+    }
 
     public SpreadsheetNameComponent required() {
         return this;
