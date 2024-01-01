@@ -146,6 +146,15 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
         return this.textBox.value();
     }
 
+    public Optional<String> stringValue() {
+        return this.textBox.stringValue();
+    }
+
+    public SpreadsheetExpressionReferenceComponent setStringValue(final Optional<String> stringValue) {
+        this.textBox.setStringValue(stringValue);
+        return this;
+    }
+
     private final ParserSpreadsheetTextBox<SpreadsheetExpressionReference> textBox;
 
     // Object...........................................................................................................
