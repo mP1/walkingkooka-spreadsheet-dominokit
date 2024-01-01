@@ -84,6 +84,12 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     boolean required;
 
     @Override
+    public SpreadsheetLabelComponent validate() {
+        this.suggestBox.validate();
+        return this;
+    }
+
+    @Override
     public SpreadsheetLabelComponent focus() {
         this.suggestBox.focus();
         return this;

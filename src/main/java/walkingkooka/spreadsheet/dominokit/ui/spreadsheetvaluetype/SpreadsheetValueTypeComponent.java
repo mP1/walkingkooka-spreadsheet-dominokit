@@ -100,6 +100,12 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetValueTypeComponent validate() {
+        this.select.validate();
+        return this;
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.select.addChangeListener(listener);
         return this;

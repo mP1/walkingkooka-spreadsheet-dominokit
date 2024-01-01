@@ -127,6 +127,12 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public SpreadsheetNameComponent validate() {
+        this.textBox.validate();
+        return this;
+    }
+
     // Object...........................................................................................................
 
     @Override

@@ -70,6 +70,12 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     boolean required;
 
     @Override
+    public SpreadsheetSelectComponent<T> validate() {
+        this.select.validate();
+        return this;
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> focus() {
         this.select.focus();
         return this;

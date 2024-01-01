@@ -223,6 +223,12 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public SpreadsheetTextBox validate() {
+        this.textBox.validate();
+        return this;
+    }
+
     // Object...........................................................................................................
 
     public String toString() {

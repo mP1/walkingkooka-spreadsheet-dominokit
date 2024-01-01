@@ -72,6 +72,12 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
     }
 
     @Override
+    public SpreadsheetCellRangePathComponent validate() {
+        this.select.validate();
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangePathComponent focus() {
         this.select.focus();
         return this;

@@ -66,6 +66,12 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetCellRangeComponent validate() {
+        this.textBox.validate();
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeComponent focus() {
         this.textBox.focus();
         return this;

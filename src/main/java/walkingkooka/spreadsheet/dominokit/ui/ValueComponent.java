@@ -45,6 +45,8 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
 
     ValueComponent<E, V> required();
 
+    ValueComponent<E, V> validate();
+
     ValueComponent<E, V> addChangeListener(final ChangeListener<Optional<V>> listener);
 
     ValueComponent<E, V> addFocusListener(final EventListener listener);
