@@ -38,10 +38,7 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
     }
 
     private SpreadsheetExpressionReferenceComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
-                SpreadsheetSelection::parseExpressionReference,
-                SpreadsheetExpressionReference::text
-        );
+        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseExpressionReference);
     }
 
     @Override
