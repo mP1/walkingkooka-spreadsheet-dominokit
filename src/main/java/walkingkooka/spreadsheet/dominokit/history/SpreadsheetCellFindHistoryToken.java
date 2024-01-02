@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+// http://localhost:12345/index.html#/2/Untitled/cell/A1/find/path/LR-TB/offset/0/max/100/value-type/any/query/true()
 public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellFindHistoryToken with(final SpreadsheetId id,
@@ -79,6 +80,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     public OptionalInt offset() {
         return this.offset;
     }
+
     private final OptionalInt offset;
 
     public OptionalInt max() {
@@ -90,6 +92,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     public Optional<String> valueType() {
         return this.valueType;
     }
+
     private final Optional<String> valueType;
 
     public Optional<String> query() {
@@ -104,61 +107,73 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
 
         final Optional<SpreadsheetCellRangePath> path = this.path;
         if (path.isPresent()) {
-            urlFragment = urlFragment.append(UrlFragment.SLASH)
+            urlFragment = urlFragment.append(PATH)
                     .append(
                             UrlFragment.with(
                                     path.get()
                                             .toString()
                             )
                     );
+        }
 
-            final OptionalInt offset = this.offset;
-            if (offset.isPresent()) {
-                urlFragment = urlFragment.append(UrlFragment.SLASH)
-                        .append(
-                                UrlFragment.with(
-                                        String.valueOf(
-                                                offset.getAsInt()
-                                        )
-                                )
-                        );
-
-                final OptionalInt max = this.max;
-                if (max.isPresent()) {
-                    urlFragment = urlFragment.append(UrlFragment.SLASH)
-                            .append(
-                                    UrlFragment.with(
-                                            String.valueOf(
-                                                    max.getAsInt()
-                                            )
+        final OptionalInt offset = this.offset;
+        if (offset.isPresent()) {
+            urlFragment = urlFragment.append(OFFSET)
+                    .append(
+                            UrlFragment.with(
+                                    String.valueOf(
+                                            offset.getAsInt()
                                     )
-                            );
+                            )
+                    );
+        }
 
-                    final Optional<String> valueType = this.valueType;
-                    if (valueType.isPresent()) {
-                        urlFragment = urlFragment.append(UrlFragment.SLASH)
-                                .append(
-                                        UrlFragment.with(
-                                                valueType.get()
-                                        )
-                                );
+        final OptionalInt max = this.max;
+        if (max.isPresent()) {
+            urlFragment = urlFragment.append(MAX)
+                    .append(
+                            UrlFragment.with(
+                                    String.valueOf(
+                                            max.getAsInt()
+                                    )
+                            )
+                    );
+        }
 
-                        final Optional<String> query = this.query;
-                        if (query.isPresent()) {
-                            urlFragment = urlFragment.append(UrlFragment.SLASH)
-                                    .append(
-                                            UrlFragment.with(
-                                                    query.get()
-                                            )
-                                    );
-                        }
-                    }
-                }
-            }
+        final Optional<String> valueType = this.valueType;
+        if (valueType.isPresent()) {
+            urlFragment = urlFragment.append(VALUE_TYPE)
+                    .append(
+                            UrlFragment.with(
+                                    valueType.get()
+                            )
+                    );
+        }
+
+        final Optional<String> query = this.query;
+        if (query.isPresent()) {
+            urlFragment = urlFragment.append(QUERY)
+                    .append(
+                            UrlFragment.with(
+                                    query.get()
+                            )
+                    );
         }
 
         return urlFragment;
     }
+
+    private final static UrlFragment PATH = UrlFragment.parse("/path/");
+
+    private final static UrlFragment OFFSET = UrlFragment.parse("/offset/");
+
+
+    private final static UrlFragment MAX = UrlFragment.parse("/max/");
+
+
+    private final static UrlFragment VALUE_TYPE = UrlFragment.parse("/value-type/");
+
+    private final static UrlFragment QUERY = UrlFragment.parse("/query/");
 
     @Override
     public HistoryToken clearAction() {
