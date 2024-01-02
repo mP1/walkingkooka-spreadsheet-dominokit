@@ -276,7 +276,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         return Url.parseRelative(
                 "/api/spreadsheet/" +
                         id +
-                        "/cells/" +
+                        "/cell/" +
                         cells +
                         "/find"
         ).setQuery(urlQuery);

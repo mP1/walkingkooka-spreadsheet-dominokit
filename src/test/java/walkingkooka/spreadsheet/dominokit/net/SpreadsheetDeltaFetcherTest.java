@@ -677,7 +677,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 OptionalInt.empty(), // max
                 Optional.empty(),
                 Optional.empty(),
-                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?cell-range-path=bulr")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr")
         );
     }
 
@@ -691,7 +691,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 OptionalInt.empty(), // max
                 Optional.empty(),
                 Optional.empty(),
-                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?offset=123")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?offset=123")
         );
     }
 
@@ -705,7 +705,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 OptionalInt.of(123), // max
                 Optional.empty(),
                 Optional.empty(),
-                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?max=123")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?max=123")
         );
     }
 
@@ -719,7 +719,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 OptionalInt.empty(), // max
                 Optional.of(SpreadsheetValueType.NUMBER),
                 Optional.empty(),
-                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?value-type=number")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?value-type=number")
         );
     }
 
@@ -733,7 +733,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 OptionalInt.empty(), // max
                 Optional.empty(), // value-type
                 QUERY,
-                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?query=56%2Bfunction78%2890%2Ctrue%29")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?query=56%2Bfunction78%2890%2Ctrue%29")
         );
     }
 
@@ -752,7 +752,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 Expression.value(78)
                         )
                 ),
-                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=56%2B78&value-type=date")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=56%2B78&value-type=date")
         );
     }
 
@@ -766,7 +766,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 MAX,
                 VALUE_TYPE,
                 QUERY,
-                Url.parseRelative("/api/spreadsheet/1234/cells/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=56%2Bfunction78%2890%2Ctrue%29&value-type=date")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=56%2Bfunction78%2890%2Ctrue%29&value-type=date")
         );
     }
 
