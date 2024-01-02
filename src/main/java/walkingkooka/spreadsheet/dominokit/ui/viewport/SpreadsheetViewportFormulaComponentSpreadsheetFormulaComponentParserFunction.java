@@ -27,15 +27,14 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.text.cursor.parser.Parser;
-import walkingkooka.tree.expression.Expression;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * A {@link Function} that parsers any given text into a {@link Expression}. The parser will be taken from an existing
- * {@link SpreadsheetCell#parsePattern()} or falling back to {@link SpreadsheetMetadata#parser()}.
+ * A {@link Function} that parsers any given text into a {@link SpreadsheetFormula}. The parser will be taken from an existing
+ * {@link SpreadsheetCell#parsePattern()} or falling back to {@link SpreadsheetMetadata#parser()} for the current {@link SpreadsheetCellReference}.
  */
 final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction implements Function<String, SpreadsheetFormula> {
 
