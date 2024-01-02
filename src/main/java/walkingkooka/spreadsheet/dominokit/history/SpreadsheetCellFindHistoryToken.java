@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 
@@ -75,10 +76,38 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         return this.path;
     }
 
+    public SpreadsheetCellFindHistoryToken setPath(final Optional<SpreadsheetCellRangePath> path) {
+        Objects.requireNonNull(path, "path");
+
+        return this.path.equals(path) ?
+                this :
+                this.replace(
+                        path,
+                        this.offset,
+                        this.max,
+                        this.valueType,
+                        this.query
+                );
+    }
+
     private final Optional<SpreadsheetCellRangePath> path;
 
     public OptionalInt offset() {
         return this.offset;
+    }
+
+    public SpreadsheetCellFindHistoryToken setOffset(final OptionalInt offset) {
+        Objects.requireNonNull(offset, "offset");
+
+        return this.offset.equals(offset) ?
+                this :
+                this.replace(
+                        this.path,
+                        offset,
+                        this.max,
+                        this.valueType,
+                        this.query
+                );
     }
 
     private final OptionalInt offset;
@@ -87,10 +116,38 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         return this.max;
     }
 
+    public SpreadsheetCellFindHistoryToken setMax(final OptionalInt max) {
+        Objects.requireNonNull(max, "max");
+
+        return this.max.equals(max) ?
+                this :
+                this.replace(
+                        this.path,
+                        this.offset,
+                        max,
+                        this.valueType,
+                        this.query
+                );
+    }
+
     private final OptionalInt max;
 
     public Optional<String> valueType() {
         return this.valueType;
+    }
+
+    public SpreadsheetCellFindHistoryToken setValueType(final Optional<String> valueType) {
+        Objects.requireNonNull(valueType, "valueType");
+
+        return this.valueType.equals(valueType) ?
+                this :
+                this.replace(
+                        this.path,
+                        this.offset,
+                        this.max,
+                        valueType,
+                        this.query
+                );
     }
 
     private final Optional<String> valueType;
@@ -99,7 +156,38 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         return this.query;
     }
 
+    public SpreadsheetCellFindHistoryToken setQuery(final Optional<String> query) {
+        Objects.requireNonNull(query, "query");
+
+        return this.query.equals(query) ?
+                this :
+                this.replace(
+                        this.path,
+                        this.offset,
+                        this.max,
+                        this.valueType,
+                        query
+                );
+    }
+
     private final Optional<String> query;
+
+    private SpreadsheetCellFindHistoryToken replace(final Optional<SpreadsheetCellRangePath> path,
+                                                    final OptionalInt offset,
+                                                    final OptionalInt max,
+                                                    final Optional<String> valueType,
+                                                    final Optional<String> query) {
+        return new SpreadsheetCellFindHistoryToken(
+                this.id(),
+                this.name(),
+                this.selection(),
+                path,
+                offset,
+                max,
+                valueType,
+                query
+        );
+    }
 
     @Override
     UrlFragment cellUrlFragment() {
