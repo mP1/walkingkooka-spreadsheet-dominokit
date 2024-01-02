@@ -39,7 +39,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.text.CaseKind;
-import walkingkooka.tree.expression.Expression;
 
 import java.util.List;
 import java.util.Objects;
@@ -205,7 +204,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                           final OptionalInt offset,
                           final OptionalInt max,
                           final Optional<String> valueType,
-                          final Optional<Expression> query) {
+                          final Optional<String> query) {
         this.get(
                 findCellsUrl(
                         id,
@@ -226,7 +225,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                     final OptionalInt offset,
                                     final OptionalInt max,
                                     final Optional<String> valueType,
-                                    final Optional<Expression> query) {
+                                    final Optional<String> query) {
         checkId(id);
         Objects.requireNonNull(cells, "cells");
         Objects.requireNonNull(path, "path");
