@@ -34,8 +34,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.test.Testing;
-import walkingkooka.tree.expression.Expression;
-import walkingkooka.tree.expression.FunctionExpressionName;
 
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -540,19 +538,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
     private final static Optional<String> VALUE_TYPE = Optional.of(SpreadsheetValueType.DATE);
 
-    private final static Optional<Expression> QUERY = Optional.of(
-            Expression.add(
-                    Expression.value(56),
-                    Expression.call(
-                            Expression.namedFunction(
-                                    FunctionExpressionName.with("function78")
-                            ),
-                            Lists.of(
-                                    Expression.value(90),
-                                    Expression.value(true)
-                            )
-                    )
-            )
+    private final static Optional<String> QUERY = Optional.of(
+            "query789"
     );
 
     @Test
@@ -733,7 +720,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 OptionalInt.empty(), // max
                 Optional.empty(), // value-type
                 QUERY,
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?query=56%2Bfunction78%2890%2Ctrue%29")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?query=query789")
         );
     }
 
@@ -746,27 +733,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 OFFSET,
                 MAX,
                 VALUE_TYPE,
-                Optional.of(
-                        Expression.add(
-                                Expression.value(56),
-                                Expression.value(78)
-                        )
-                ),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=56%2B78&value-type=date")
-        );
-    }
-
-    @Test
-    public void testFindCellsAllParameters2() {
-        this.findCellsUrlAndCheck(
-                ID,
-                CELLS,
-                PATH,
-                OFFSET,
-                MAX,
-                VALUE_TYPE,
                 QUERY,
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=56%2Bfunction78%2890%2Ctrue%29&value-type=date")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=query789&value-type=date")
         );
     }
 
@@ -776,7 +744,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                       final OptionalInt offset,
                                       final OptionalInt max,
                                       final Optional<String> valueType,
-                                      final Optional<Expression> query,
+                                      final Optional<String> query,
                                       final RelativeUrl expected) {
         this.checkEquals(
                 expected,
