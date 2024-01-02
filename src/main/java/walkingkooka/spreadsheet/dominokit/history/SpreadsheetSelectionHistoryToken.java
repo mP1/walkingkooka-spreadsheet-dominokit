@@ -37,8 +37,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         );
     }
 
-    @Override
-    final UrlFragment spreadsheetUrlFragment() {
+    @Override final UrlFragment spreadsheetUrlFragment() {
         return this.selectionUrlFragment();
     }
 
@@ -49,7 +48,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                         final TextCursor cursor) {
         final HistoryToken result;
 
-        switch(component) {
+        switch (component) {
             case "clear":
                 result = this.setClear();
                 break;
@@ -111,47 +110,56 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     }
 
     private HistoryToken parseFind(final TextCursor cursor) {
-        final Optional<SpreadsheetCellRangePath> path = parseComponent(cursor)
-                .map(SpreadsheetCellRangePath::valueOf);
+        Optional<SpreadsheetCellRangePath> path = Optional.empty();
+        OptionalInt offset = OptionalInt.empty();
+        OptionalInt max = OptionalInt.empty();
+        Optional<String> valueType = Optional.empty();
+        Optional<String> query = Optional.empty();
 
-        final OptionalInt offset = path.isPresent() ?
-                parseComponent(cursor)
+        String component = parseComponentOfNull(cursor);
+        if (null != component) {
+            if ("path".equals(component)) {
+                path = parseComponent(cursor)
+                        .map(SpreadsheetCellRangePath::valueOf);
+
+                component = parseComponentOfNull(cursor);
+            }
+            if ("offset".equals(component)) {
+                offset = parseComponent(cursor)
                         .map(Integer::parseInt)
                         .map(OptionalInt::of)
                         .orElseGet(
                                 OptionalInt::empty
-                        ) :
-                OptionalInt.empty();
-
-        final OptionalInt max = offset.isPresent() ?
-                parseComponent(cursor)
+                        );
+                component = parseComponentOfNull(cursor);
+            }
+            if ("max".equals(component)) {
+                max = parseComponent(cursor)
                         .map(Integer::parseInt)
                         .map(OptionalInt::of)
                         .orElseGet(
                                 OptionalInt::empty
-                        ) :
-                OptionalInt.empty();
+                        );
+                component = parseComponentOfNull(cursor);
+            }
+            if ("value-type".equals(component)) {
+                valueType = parseComponent(cursor);
+                component = parseComponentOfNull(cursor);
+            }
+            if ("query".equals(component)) {
+                cursor.next();
 
-        final Optional<String> valueType = max.isPresent() ?
-                parseComponent(cursor) :
-                Optional.empty();
+                final TextCursorSavePoint save = cursor.save();
+                cursor.end();
 
-        final Optional<String> query;
-        if (valueType.isPresent() && false == cursor.isEmpty()) {
-            cursor.next();
-
-            final TextCursorSavePoint save = cursor.save();
-            cursor.end();
-
-            final String queryText = save.textBetween()
-                    .toString();
-            query = queryText.isEmpty() ?
-                    Optional.empty() :
-                    Optional.of(
-                            queryText
-                    );
-        } else {
-            query = Optional.empty();
+                final String queryText = save.textBetween()
+                        .toString();
+                query = queryText.isEmpty() ?
+                        Optional.empty() :
+                        Optional.of(
+                                queryText
+                        );
+            }
         }
 
         return this.setFind(
@@ -161,5 +169,10 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 valueType,
                 query
         );
+    }
+
+    private static String parseComponentOfNull(final TextCursor cursor) {
+        return parseComponent(cursor)
+                .orElse(null);
     }
 }

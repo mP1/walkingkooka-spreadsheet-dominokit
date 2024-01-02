@@ -75,9 +75,21 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     }
 
     @Test
+    public void testParseInvalidComponent() {
+        this.parseAndCheck2(
+                "/123/SpreadsheetName456/cell/A1/find/!invalid",
+                Optional.empty(), // path
+                OptionalInt.empty(), // offset
+                OptionalInt.empty(), // max
+                Optional.empty(), // valueType
+                Optional.empty() // query
+        );
+    }
+
+    @Test
     public void testParsePath() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/BULR",
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR",
                 Optional.of(
                         SpreadsheetCellRangePath.BULR
                 ), // path
@@ -91,7 +103,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testParsePathInvalidOffset() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/find/BULR/!invalid",
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/!invalid",
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -103,7 +115,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testParsePathOffset() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/LRBU/1",
+                "/123/SpreadsheetName456/cell/A1/find/path/LRBU/offset/1",
                 Optional.of(
                         SpreadsheetCellRangePath.LRBU
                 ), // path
@@ -117,7 +129,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testParsePathOffsetInvalidMax() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/find/BULR/0/!invalid",
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/0/max/!invalid",
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -129,7 +141,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testParsePathOffsetMax() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/BULR/12/34",
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/12/max/34",
                 Optional.of(
                         SpreadsheetCellRangePath.BULR
                 ), // path
@@ -143,7 +155,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testParsePathOffsetMaxValueType() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/BULR/123/456/" + SpreadsheetValueType.NUMBER,
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/123/max/456/value-type/" + SpreadsheetValueType.NUMBER,
                 Optional.of(
                         SpreadsheetCellRangePath.BULR
                 ), // path
@@ -159,7 +171,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final String query = "'Hello'";
 
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/BULR/1234/5678/" + SpreadsheetValueType.DATE + "/",
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/",
                 Optional.of(
                         SpreadsheetCellRangePath.BULR
                 ), // path
@@ -175,7 +187,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final String query = "'Hello'";
 
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/BULR/1234/5678/" + SpreadsheetValueType.DATE + "/" + query,
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/" + query,
                 Optional.of(
                         SpreadsheetCellRangePath.BULR
                 ), // path
@@ -191,13 +203,89 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final String query = "=1/23*4/5";
 
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/BULR/1234/5678/" + SpreadsheetValueType.TIME + "/" + query,
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
                 Optional.of(
                         SpreadsheetCellRangePath.BULR
                 ), // path
                 OptionalInt.of(1234), // offset
                 OptionalInt.of(5678), // max
                 Optional.of(SpreadsheetValueType.TIME), // valueType
+                Optional.of(query) // query
+        );
+    }
+
+    @Test
+    public void testParseOffset() {
+        this.parseAndCheck2(
+                "/123/SpreadsheetName456/cell/A1/find/offset/1234",
+                Optional.empty(), // path
+                OptionalInt.of(1234), // offset
+                OptionalInt.empty(), // max
+                Optional.empty(), // valueType
+                Optional.empty() // query
+        );
+    }
+
+    @Test
+    public void testParseMax() {
+        this.parseAndCheck2(
+                "/123/SpreadsheetName456/cell/A1/find/max/5678/",
+                Optional.empty(), // path
+                OptionalInt.empty(), // offset
+                OptionalInt.of(5678), // max
+                Optional.empty(), // valueType
+                Optional.empty() // query
+        );
+    }
+
+    @Test
+    public void testParseOffsetMax() {
+        this.parseAndCheck2(
+                "/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/",
+                Optional.empty(), // path
+                OptionalInt.of(1234), // offset
+                OptionalInt.of(5678), // max
+                Optional.empty(), // valueType
+                Optional.empty() // query
+        );
+    }
+
+    @Test
+    public void testParseValueType() {
+        this.parseAndCheck2(
+                "/123/SpreadsheetName456/cell/A1/find/value-type/" + SpreadsheetValueType.TIME,
+                Optional.empty(), // path
+                OptionalInt.empty(), // offset
+                OptionalInt.empty(), // max
+                Optional.of(SpreadsheetValueType.TIME), // valueType
+                Optional.empty() // query
+        );
+    }
+
+    @Test
+    public void testParseValueTypeQuery() {
+        final String query = "=1/23*4/5";
+
+        this.parseAndCheck2(
+                "/123/SpreadsheetName456/cell/A1/find/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
+                Optional.empty(), // path
+                OptionalInt.empty(), // offset
+                OptionalInt.empty(), // max
+                Optional.of(SpreadsheetValueType.TIME), // valueType
+                Optional.of(query) // query
+        );
+    }
+
+    @Test
+    public void testParseQuery() {
+        final String query = "=1/23*4/5";
+
+        this.parseAndCheck2(
+                "/123/SpreadsheetName456/cell/A1/find/query/" + query,
+                Optional.empty(), // path
+                OptionalInt.empty(), // offset
+                OptionalInt.empty(), // max
+                Optional.empty(), // valueType
                 Optional.of(query) // query
         );
     }
