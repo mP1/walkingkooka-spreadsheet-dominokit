@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
+import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 
 import java.util.Objects;
@@ -34,27 +35,28 @@ public class SpreadsheetDialogComponent {
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
      */
-    public static SpreadsheetDialogComponent create(final Runnable close) {
-        Objects.requireNonNull(close, "close");
+    public static SpreadsheetDialogComponent create(final CloseableHistoryTokenContext context) {
+        Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetDialogComponent(close);
+        return new SpreadsheetDialogComponent(context);
     }
 
-    private SpreadsheetDialogComponent(final Runnable close) {
-        final NavBar navBar = this.dialogNavBar(close);
+    private SpreadsheetDialogComponent(final CloseableHistoryTokenContext context) {
+        this.context = context;
+
+        final NavBar navBar = this.dialogNavBar();
         this.navBar = navBar;
 
         this.dialog = dialog(navBar);
-        this.close = close;
     }
 
-    private NavBar dialogNavBar(final Runnable close) {
+    private NavBar dialogNavBar() {
         return NavBar.create() //
                 .appendChild(
                         PostfixAddOn.of(
                                 SpreadsheetIcons.close()
                                         .clickable()
-                                        .addClickListener((event) -> close.run())
+                                        .addClickListener((event) -> this.fireClose())
                         )
                 );
     }
@@ -76,10 +78,14 @@ public class SpreadsheetDialogComponent {
     }
 
     private void onCollapse() {
-        this.close.run();
+        this.fireClose();
     }
 
-    private final Runnable close;
+    private void fireClose() {
+        this.context.close();
+    }
+
+    private CloseableHistoryTokenContext context;
 
     public SpreadsheetDialogComponent id(final String id) {
         this.dialog.id(id);

@@ -80,9 +80,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
      * Creates the modal dialog, which includes a few text boxes to edit the label and the target.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(
-                () -> this.context.close()
-        );
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(this.context);
         dialog.setTitle("Label");
         dialog.id(ID);
 
