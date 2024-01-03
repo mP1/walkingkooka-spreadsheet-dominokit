@@ -110,13 +110,14 @@ public class SpreadsheetDialogComponent {
      * Tests if the dialog is open.
      */
     public boolean isOpen() {
-        return this.dialog.isOpen();
+        return this.open;
     }
 
     /**
      * Opens the modal dialog.
      */
     public void open() {
+        this.open = true;
         this.dialog.open();
     }
 
@@ -124,8 +125,14 @@ public class SpreadsheetDialogComponent {
      * Closes the modal dialog.
      */
     public void close() {
+        this.open = false;
         this.dialog.close();
     }
+
+    /**
+     * A flag is used to test if a {@link Dialog}, because {@link Dialog#close} reports true until closing animations finish.
+     */
+    private boolean open;
 
     private final Dialog dialog;
 
