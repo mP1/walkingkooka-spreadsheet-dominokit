@@ -48,8 +48,10 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
     default void onHistoryTokenChange(final HistoryToken previous,
                                       final AppContext context) {
         final HistoryToken token = context.historyToken();
+        final String prefix = this.getClass().getSimpleName();
+        
         if (this.shouldIgnore(token)) {
-            context.debug(this.getClass().getSimpleName() + ".ignored");
+            context.debug(prefix + ".ignored");
         } else {
             final boolean nextOpen = this.isMatch(token);
 
@@ -57,18 +59,18 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
                 if (nextOpen) {
                     // open -> open -> refresh
 
-                    context.debug(this.getClass().getSimpleName() + ".refresh");
+                    context.debug(prefix + ".refresh");
                     this.refresh(context);
                 } else {
                     // open -> close -> close
 
-                    context.debug(this.getClass().getSimpleName() + ".close");
+                    context.debug(prefix + ".close");
                     this.close(context);
                 }
             } else {
                 if (nextOpen) {
                     // close -> open -> open
-                    context.debug(this.getClass().getSimpleName() + ".open");
+                    context.debug(prefix + ".open");
                     this.open(context);
                 }
                 // close -> close -> do nothing
