@@ -45,6 +45,7 @@ public class SpreadsheetDialogComponent {
         this.navBar = navBar;
 
         this.dialog = dialog(navBar);
+        this.close = close;
     }
 
     private NavBar dialogNavBar(final Runnable close) {
@@ -71,8 +72,14 @@ public class SpreadsheetDialogComponent {
                 .withHeader(
                         (d, header) ->
                                 header.appendChild(navBar)
-                );
+                ).addCollapseListener(this::onCollapse);
     }
+
+    private void onCollapse() {
+        this.close.run();
+    }
+
+    private final Runnable close;
 
     public SpreadsheetDialogComponent id(final String id) {
         this.dialog.id(id);
