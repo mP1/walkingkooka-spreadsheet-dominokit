@@ -34,7 +34,9 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
      * Conditionally calls {@link #refresh(AppContext)} if this ui is {@link #isOpen()}.
      */
     default void refreshIfOpen(final AppContext context) {
-        if (this.isOpen()) {
+        // extra isMatch, which should avoid ClassCastExceptions for Components that have delayed closes.
+        // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1468
+        if (this.isOpen() && this.isMatch(context.historyToken())) {
             this.refresh(context);
         }
     }
