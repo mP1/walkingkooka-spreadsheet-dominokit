@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.find;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.Node;
-import static org.dominokit.domino.ui.utils.Domino.*;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.datatable.CellRenderer;
 import org.dominokit.domino.ui.datatable.CellRenderer.CellInfo;
@@ -32,7 +31,6 @@ import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
@@ -58,7 +56,6 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import walkingkooka.tree.expression.Expression;
-import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
@@ -68,6 +65,7 @@ import java.util.OptionalInt;
 import java.util.function.Function;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
+import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
 
 /**
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
@@ -265,7 +263,8 @@ public final class SpreadsheetFindComponent implements ComponentLifecycle,
         return SpreadsheetCellRangeComponent.empty()
                 .setId(ID_PREFIX + "-cell-range")
                 .setLabel("Cell Range")
-                .addChangeListener(this::onCellRangeValueChange);
+                .addChangeListener(this::onCellRangeValueChange)
+                .required();
     }
 
     /**
