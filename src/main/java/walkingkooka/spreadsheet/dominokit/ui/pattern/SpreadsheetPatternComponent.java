@@ -127,9 +127,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(
-                this.context::close
-        );
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(this.context);
         dialog.id(ID);
 
         dialog.appendChild(this.patternKindTabsPanel);
