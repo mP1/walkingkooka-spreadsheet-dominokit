@@ -58,6 +58,7 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
                         SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(context)
                 ).alwaysShowHelperText()
                 .hideMarginBottom()
+                .removeBorders()
                 .addFocusListener(this::onFocus)
                 .addKeydownListener(
                         (event) -> onKeyDownEvent(
