@@ -522,14 +522,24 @@ public final class SpreadsheetFindComponent implements ComponentLifecycle,
 
     // History.........................................................................................................
 
-    private void historyTokenSetAndPush(final Function<SpreadsheetCellFindHistoryToken, SpreadsheetCellFindHistoryToken> updater) {
+    private void historyTokenSetAndPush(final Function<SpreadsheetCellFindHistoryToken, HistoryToken> updater) {
         final SpreadsheetFindComponentContext context = this.context;
-        context.pushHistoryToken(
-                updater.apply(
-                        context.historyToken()
-                                .cast(SpreadsheetCellFindHistoryToken.class)
-                )
-        );
+
+        // if setter failed ignore, validation will eventually show an error for the field.
+        HistoryToken token = null;
+        try {
+            token = updater.apply(
+                    context.historyToken()
+                            .cast(SpreadsheetCellFindHistoryToken.class)
+            );
+        } catch (final Exception ignore) {
+            token = null;
+        }
+
+        // only update history token if setter was successful.
+        if (token instanceof SpreadsheetCellFindHistoryToken) {
+            context.pushHistoryToken(token);
+        } ;
     }
 
     // UI...............................................................................................................
