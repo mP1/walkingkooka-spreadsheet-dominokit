@@ -513,6 +513,8 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         this.query.setStringValue(
             token.query()
         );
+
+        this.find();
     }
 
     // History.........................................................................................................
