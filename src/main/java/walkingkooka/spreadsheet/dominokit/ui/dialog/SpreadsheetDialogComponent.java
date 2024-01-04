@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.layout.NavBar;
+import org.dominokit.domino.ui.utils.HasCollapseListeners.CollapseListener;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -74,7 +75,15 @@ public class SpreadsheetDialogComponent {
                 .withHeader(
                         (d, header) ->
                                 header.appendChild(navBar)
-                ).addCollapseListener(this::onCollapse);
+                ).addCollapseListener(
+                        // using a method reference incorrectly selects Dialog.addCollapseListener(CollapseHandler)
+                        // which does not receive events when a dialog is closed.
+                        new CollapseListener() {
+                            @Override
+                            public void onCollapsed(final Object ignored) {
+                                SpreadsheetDialogComponent.this.onCollapse();
+                            }
+                        });
     }
 
     private void onCollapse() {
