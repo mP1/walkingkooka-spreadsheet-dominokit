@@ -113,6 +113,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
+        this.setWindows(delta.window());
+
         final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
@@ -367,7 +369,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public void setWindows(final SpreadsheetViewportWindows windows) {
         Objects.requireNonNull(windows, "windows");
 
-        if (windows.isEmpty()) {
+        if (false == windows.isEmpty()) {
             if (false == this.windows.equals(windows)) {
                 // no window clear caches
                 this.cells.clear();
@@ -382,9 +384,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 this.columnWidths.clear();
                 this.rowHeights.clear();
             }
-        }
 
-        this.windows = windows;
+            this.windows = windows;
+        }
     }
 
     /**
