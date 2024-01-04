@@ -469,14 +469,6 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         return token instanceof SpreadsheetCellFindHistoryToken;
     }
 
-    /**
-     * Returns true if the dialog is open.
-     */
-    @Override
-    public boolean isOpen() {
-        return this.dialog.isOpen();
-    }
-
     @Override
     public void openGiveFocus(final AppContext context) {
         context.giveFocus(
