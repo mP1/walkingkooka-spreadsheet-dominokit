@@ -17,11 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
@@ -60,16 +58,6 @@ final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFet
                     context.pushHistoryToken(withSelection);
                 }
             }
-        }
-
-        final SpreadsheetViewportCache viewportCache = context.viewportCache();
-        final SpreadsheetViewportWindows previousWindow = viewportCache.windows();
-        final SpreadsheetViewportWindows window = delta.window();
-
-        if (false == previousWindow.equals(window)) {
-            context.debug("PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta window changed from " + previousWindow + " to " + window);
-
-            viewportCache.setWindows(window);
         }
     }
 
