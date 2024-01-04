@@ -36,6 +36,7 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
     default void refreshIfOpen(final AppContext context) {
         // extra isMatch, which should avoid ClassCastExceptions for Components that have delayed closes.
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1468
+        context.debug(this.getClass().getSimpleName() + ".refreshIfOpen isOpen: " + this.isOpen() + " isMatch: " + this.isMatch(context.historyToken()));
         if (this.isOpen() && this.isMatch(context.historyToken())) {
             this.refresh(context);
         }

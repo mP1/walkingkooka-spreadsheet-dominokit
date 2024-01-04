@@ -29,7 +29,6 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
@@ -45,11 +44,11 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Anchor;
-import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype.SpreadsheetValueTypeComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -70,7 +69,7 @@ import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
 /**
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
  */
-public final class SpreadsheetFindComponent implements ComponentLifecycle,
+public final class SpreadsheetFindComponent implements SpreadsheetDialogComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher {
 
@@ -455,7 +454,12 @@ public final class SpreadsheetFindComponent implements ComponentLifecycle,
         return button;
     }
 
-    // ComponentLifecycle...............................................................................................
+    // SpreadsheetDialogComponentLifecycle..............................................................................
+
+    @Override
+    public SpreadsheetDialogComponent dialog() {
+        return this.dialog;
+    }
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
@@ -476,20 +480,10 @@ public final class SpreadsheetFindComponent implements ComponentLifecycle,
     }
 
     @Override
-    public void open(final AppContext context) {
-        this.dialog.open();
-
+    public void openGiveFocus(final AppContext context) {
         context.giveFocus(
-                () -> this.cellRange.focus() // GWT fails with ReferenceError when using method reference.
+                () -> this.cellRange.focus()
         );
-    }
-
-    /**
-     * Closes or hides the {@link Dialog}.
-     */
-    @Override
-    public void close(final AppContext context) {
-        this.dialog.close();
     }
 
     /**
@@ -497,6 +491,8 @@ public final class SpreadsheetFindComponent implements ComponentLifecycle,
      */
     @Override
     public void refresh(final AppContext context) {
+        context.debug("SpreadsheetFindComponent.refresh " + context.historyToken());
+
         final SpreadsheetCellFindHistoryToken token = context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class);
         context.debug("SpreadsheetFindComponent.refresh " + token);
