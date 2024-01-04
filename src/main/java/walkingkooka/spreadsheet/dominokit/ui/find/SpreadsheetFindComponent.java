@@ -428,8 +428,6 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     }
 
     private void resetForm() {
-        final SpreadsheetFindComponentContext context = this.context;
-
         this.path.setValue(Optional.empty());
         this.valueType.setValue(Optional.empty());
     }
