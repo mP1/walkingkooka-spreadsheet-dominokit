@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<SpreadsheetDeltaFetcherWatcher>
@@ -26,13 +25,6 @@ public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<Sprea
 
     public static SpreadsheetDeltaFetcherWatchers empty() {
         return new SpreadsheetDeltaFetcherWatchers();
-    }
-
-    /**
-     * {@see PushHistoryTokenSpreadsheetDeltaFetcherWatcher}
-     */
-    public static SpreadsheetDeltaFetcherWatcher pushHistoryToken(final HistoryToken historyToken) {
-        return PushHistoryTokenSpreadsheetDeltaFetcherWatcher.with(historyToken);
     }
 
     /**
