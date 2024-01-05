@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
@@ -33,7 +34,8 @@ import walkingkooka.tree.text.VerticalAlign;
 /**
  * A ui such as an icon within a {@link SpreadsheetToolbarComponent}.
  */
-abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement> {
+abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>,
+        ComponentLifecycle {
 
     static SpreadsheetToolbarComponentItem bold(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(

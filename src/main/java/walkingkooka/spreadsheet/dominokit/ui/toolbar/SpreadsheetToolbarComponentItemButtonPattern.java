@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
+import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import walkingkooka.collect.map.Maps;
@@ -25,6 +26,9 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.tree.text.TextStyle;
@@ -36,7 +40,10 @@ import java.util.Optional;
 /**
  * A button ui that may exist withing a toolbar, which actives the pattern editor by pushing a new {@link HistoryToken}.
  */
-abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends SpreadsheetPattern> extends SpreadsheetToolbarComponentItemButton {
+abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends SpreadsheetPattern> extends SpreadsheetToolbarComponentItemButton
+        implements SpreadsheetCellComponentLifecycle,
+        NopRefreshComponentLifecycle,
+        VisibleComponentLifecycle<HTMLElement> {
 
     SpreadsheetToolbarComponentItemButtonPattern(final String id,
                                                  final MdiIcon icon,
