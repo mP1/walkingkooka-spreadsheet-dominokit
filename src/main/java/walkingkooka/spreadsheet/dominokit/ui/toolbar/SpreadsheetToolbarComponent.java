@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
@@ -56,7 +56,10 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
     }
 
     private SpreadsheetToolbarComponent(final AppContext context) {
-        this.components = this.components(context);
+        final List<SpreadsheetToolbarComponentItem> components = this.components(context);
+        components.forEach(c -> context.addHistoryTokenWatcher(c));
+
+        this.components = components;
         this.flexLayout = this.createFlexLayout();
 
         context.addHistoryTokenWatcher(this);
@@ -128,35 +131,25 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellHistoryToken;
+        return token instanceof SpreadsheetHistoryToken;
     }
 
     @Override
     public boolean isOpen() {
-        return false == "hidden".equals(
-                this.element()
-                        .style
-                        .visibility
-        );
+        return this.open;
     }
 
     @Override
     public void open(final AppContext context) {
-        this.setVisibility("visible");
+        this.open = true;
     }
 
     @Override
     public void close(final AppContext context) {
-        this.setVisibility("hidden");
+        this.open = false;
     }
 
-    private void setVisibility(final String visibility) {
-        this.element()
-                .style.set(
-                        "visibility",
-                        visibility
-                );
-    }
+    private boolean open;
 
     @Override
     public void refresh(final AppContext context) {
