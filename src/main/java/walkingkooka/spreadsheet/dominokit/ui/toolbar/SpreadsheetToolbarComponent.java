@@ -220,7 +220,7 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
     // viewport-column-A
     public static <T> String id(final TextStylePropertyName<T> propertyName,
                                 final Optional<T> value) {
-        return VIEWPORT_TOOLBAR_ID_PREFIX +
+        return TOOLBAR_ID_PREFIX +
                 propertyName.constantName().toLowerCase() +
                 value.map(
                         v -> '-' + v.toString().toUpperCase()
@@ -228,12 +228,12 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
     }
 
     public static String formatPattern() {
-        return VIEWPORT_TOOLBAR_ID_PREFIX + "format-pattern";
+        return TOOLBAR_ID_PREFIX + "format-pattern";
     }
 
     public static String parsePattern() {
-        return VIEWPORT_TOOLBAR_ID_PREFIX + "parse-pattern";
+        return TOOLBAR_ID_PREFIX + "parse-pattern";
     }
 
-    final static String VIEWPORT_TOOLBAR_ID_PREFIX = "toolbar-";
+    final static String TOOLBAR_ID_PREFIX = "toolbar-";
 }
