@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import org.dominokit.domino.ui.events.EventType;
@@ -36,12 +36,12 @@ import java.util.Optional;
 /**
  * A button ui that may exist withing a toolbar, which actives the pattern editor by pushing a new {@link HistoryToken}.
  */
-abstract class SpreadsheetViewportToolbarComponentItemButtonPattern<T extends SpreadsheetPattern> extends SpreadsheetViewportToolbarComponentItemButton {
+abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends SpreadsheetPattern> extends SpreadsheetToolbarComponentItemButton {
 
-    SpreadsheetViewportToolbarComponentItemButtonPattern(final String id,
-                                                         final MdiIcon icon,
-                                                         final String tooltip,
-                                                         final HistoryTokenContext context) {
+    SpreadsheetToolbarComponentItemButtonPattern(final String id,
+                                                 final MdiIcon icon,
+                                                 final String tooltip,
+                                                 final HistoryTokenContext context) {
         super(
                 id,
                 icon,

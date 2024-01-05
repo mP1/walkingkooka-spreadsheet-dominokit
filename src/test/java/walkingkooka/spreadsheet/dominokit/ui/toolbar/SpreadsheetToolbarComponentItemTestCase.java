@@ -15,14 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public abstract class SpreadsheetViewportToolbarComponentItemTestCase<T extends SpreadsheetViewportToolbarComponentItem> implements ClassTesting<T> {
+public abstract class SpreadsheetToolbarComponentItemTestCase<T extends SpreadsheetToolbarComponentItem> implements ClassTesting<T> {
 
-    SpreadsheetViewportToolbarComponentItemTestCase() {
+    SpreadsheetToolbarComponentItemTestCase() {
         super();
     }
 

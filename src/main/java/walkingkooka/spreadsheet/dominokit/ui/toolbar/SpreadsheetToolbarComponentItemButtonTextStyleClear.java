@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -33,19 +33,19 @@ import java.util.Optional;
  * A button ui that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetViewportToolbarComponentItemButtonTextStyleClear extends SpreadsheetViewportToolbarComponentItemButton {
+final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends SpreadsheetToolbarComponentItemButton {
 
-    static SpreadsheetViewportToolbarComponentItemButtonTextStyleClear with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemButtonTextStyleClear with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentItemButtonTextStyleClear(
+        return new SpreadsheetToolbarComponentItemButtonTextStyleClear(
                 context
         );
     }
 
-    private SpreadsheetViewportToolbarComponentItemButtonTextStyleClear(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemButtonTextStyleClear(final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportToolbarComponent.id(
+                SpreadsheetToolbarComponent.id(
                         PROPERTY,
                         Optional.empty()
                 ),
@@ -129,7 +129,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonTextStyleClear extends 
                 context
         );
 
-        context.debug("SpreadsheetViewportToolbarComponentItemButtonTextStyleClear.onToolbarRefreshEnd " + PROPERTY + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected);
+        context.debug("SpreadsheetToolbarComponentItemButtonTextStyleClear.onToolbarRefreshEnd " + PROPERTY + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected);
     }
 
     private static final TextStylePropertyName<Void> PROPERTY = TextStylePropertyName.ALL;

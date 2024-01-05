@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.button.Button;
@@ -30,12 +30,12 @@ import walkingkooka.tree.text.TextStyle;
 /**
  * A templated class that displays a button. Sub classes will have to add {link EventListeners} as required.
  */
-abstract class SpreadsheetViewportToolbarComponentItemButton extends SpreadsheetViewportToolbarComponentItem {
+abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarComponentItem {
 
-    SpreadsheetViewportToolbarComponentItemButton(final String id,
-                                                  final MdiIcon icon,
-                                                  final String tooltipText,
-                                                  final HistoryTokenContext context) {
+    SpreadsheetToolbarComponentItemButton(final String id,
+                                          final MdiIcon icon,
+                                          final String tooltipText,
+                                          final HistoryTokenContext context) {
         final Button button = Button.create(icon)
                 .circle();
 

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -29,19 +29,19 @@ import java.util.Optional;
 /**
  * A button ui that may exist withing a toolbar, which actives the format pattern editor.
  */
-final class SpreadsheetViewportToolbarComponentItemButtonPatternFormat extends SpreadsheetViewportToolbarComponentItemButtonPattern<SpreadsheetFormatPattern> {
+final class SpreadsheetToolbarComponentItemButtonPatternFormat extends SpreadsheetToolbarComponentItemButtonPattern<SpreadsheetFormatPattern> {
 
-    static SpreadsheetViewportToolbarComponentItemButtonPatternFormat with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemButtonPatternFormat with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentItemButtonPatternFormat(
+        return new SpreadsheetToolbarComponentItemButtonPatternFormat(
                 context
         );
     }
 
-    private SpreadsheetViewportToolbarComponentItemButtonPatternFormat(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemButtonPatternFormat(final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportToolbarComponent.formatPattern(),
+                SpreadsheetToolbarComponent.formatPattern(),
                 SpreadsheetIcons.parsePattern(),
                 "Format pattern(s)",
                 context

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import org.dominokit.domino.ui.events.EventType;
@@ -34,20 +34,20 @@ import java.util.Optional;
  * A button ui that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<T> extends SpreadsheetViewportToolbarComponentItemButton {
+final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends SpreadsheetToolbarComponentItemButton {
 
-    static <T> SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<T> with(final TextStylePropertyName<T> propertyName,
-                                                                                      final T propertyValue,
-                                                                                      final MdiIcon icon,
-                                                                                      final String tooltipText,
-                                                                                      final HistoryTokenContext context) {
+    static <T> SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> with(final TextStylePropertyName<T> propertyName,
+                                                                              final T propertyValue,
+                                                                              final MdiIcon icon,
+                                                                              final String tooltipText,
+                                                                              final HistoryTokenContext context) {
         Objects.requireNonNull(propertyName, "propertyName");
         Objects.requireNonNull(propertyValue, "propertyValue");
         Objects.requireNonNull(icon, "icon");
         CharSequences.failIfNullOrEmpty(tooltipText, "tooltipText");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<>(
+        return new SpreadsheetToolbarComponentItemButtonTextStyleProperty<>(
                 propertyName,
                 propertyValue,
                 icon,
@@ -56,13 +56,13 @@ final class SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<T> ex
         );
     }
 
-    private SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty(final TextStylePropertyName<T> propertyName,
-                                                                           final T propertyValue,
-                                                                           final MdiIcon icon,
-                                                                           final String tooltipText,
-                                                                           final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemButtonTextStyleProperty(final TextStylePropertyName<T> propertyName,
+                                                                   final T propertyValue,
+                                                                   final MdiIcon icon,
+                                                                   final String tooltipText,
+                                                                   final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportToolbarComponent.id(
+                SpreadsheetToolbarComponent.id(
                         propertyName,
                         Optional.of(propertyValue)
                 ),
@@ -184,7 +184,7 @@ final class SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty<T> ex
 
         this.setSaveValue(saveValue);
 
-        context.debug("SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
+        context.debug("SpreadsheetToolbarComponentItemButtonTextStyleProperty.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
     }
 
     private void setSaveValue(final T saveValue) {
