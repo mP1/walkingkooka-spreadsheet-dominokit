@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -29,19 +29,19 @@ import java.util.Optional;
 /**
  * A button ui that may exist withing a toolbar, which actives the parse pattern editor.
  */
-final class SpreadsheetViewportToolbarComponentItemButtonPatternParse extends SpreadsheetViewportToolbarComponentItemButtonPattern<SpreadsheetParsePattern> {
+final class SpreadsheetToolbarComponentItemButtonPatternParse extends SpreadsheetToolbarComponentItemButtonPattern<SpreadsheetParsePattern> {
 
-    static SpreadsheetViewportToolbarComponentItemButtonPatternParse with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemButtonPatternParse with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponentItemButtonPatternParse(
+        return new SpreadsheetToolbarComponentItemButtonPatternParse(
                 context
         );
     }
 
-    private SpreadsheetViewportToolbarComponentItemButtonPatternParse(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemButtonPatternParse(final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportToolbarComponent.parsePattern(),
+                SpreadsheetToolbarComponent.parsePattern(),
                 SpreadsheetIcons.formatPattern(),
                 "Parse pattern(s)",
                 context

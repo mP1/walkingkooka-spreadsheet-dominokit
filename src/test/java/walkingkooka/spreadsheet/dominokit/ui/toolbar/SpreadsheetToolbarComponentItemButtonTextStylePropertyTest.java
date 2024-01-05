@@ -15,11 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
-public final class SpreadsheetViewportToolbarComponentItemButtonTest extends SpreadsheetViewportToolbarComponentItemTestCase<SpreadsheetViewportToolbarComponentItemButton> {
+import walkingkooka.Cast;
+
+public final class SpreadsheetToolbarComponentItemButtonTextStylePropertyTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItemButtonTextStyleProperty<?>> {
     @Override
-    public Class<SpreadsheetViewportToolbarComponentItemButton> type() {
-        return SpreadsheetViewportToolbarComponentItemButton.class;
+    public Class<SpreadsheetToolbarComponentItemButtonTextStyleProperty<?>> type() {
+        return Cast.to(SpreadsheetToolbarComponentItemButtonTextStyleProperty.class);
     }
 }

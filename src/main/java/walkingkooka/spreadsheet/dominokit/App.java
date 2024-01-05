@@ -67,9 +67,9 @@ import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelCompon
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponent;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportToolbarComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -203,7 +203,7 @@ public class App implements EntryPoint,
         layout.getNavBar()
                 .getBody()
                 .appendChild(
-                        SpreadsheetViewportToolbarComponent.with(this)
+                        SpreadsheetToolbarComponent.with(this)
                 );
 
         layout.setRightDrawerSize(RightDrawerSize.XLARGE)

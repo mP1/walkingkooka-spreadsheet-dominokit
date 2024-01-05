@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -31,12 +31,12 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.VerticalAlign;
 
 /**
- * A ui such as an icon within a {@link SpreadsheetViewportToolbarComponent}.
+ * A ui such as an icon within a {@link SpreadsheetToolbarComponent}.
  */
-abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTMLElement> {
+abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement> {
 
-    static SpreadsheetViewportToolbarComponentItem bold(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem bold(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.FONT_WEIGHT,
                 FontWeight.BOLD,
                 SpreadsheetIcons.bold(),
@@ -45,21 +45,21 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem clear(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleClear.with(
+    static SpreadsheetToolbarComponentItem clear(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleClear.with(
                 context
         );
     }
 
     /**
-     * {@link SpreadsheetViewportToolbarComponentItemButtonPatternFormat}
+     * {@link SpreadsheetToolbarComponentItemButtonPatternFormat}
      */
-    static SpreadsheetViewportToolbarComponentItem formatPattern(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonPatternFormat.with(context);
+    static SpreadsheetToolbarComponentItem formatPattern(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonPatternFormat.with(context);
     }
 
-    static SpreadsheetViewportToolbarComponentItem italics(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem italics(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.FONT_STYLE,
                 FontStyle.ITALIC,
                 SpreadsheetIcons.italics(),
@@ -69,14 +69,14 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
     }
 
     /**
-     * {@link SpreadsheetViewportToolbarComponentItemButtonPatternParse}
+     * {@link SpreadsheetToolbarComponentItemButtonPatternParse}
      */
-    static SpreadsheetViewportToolbarComponentItem parsePattern(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonPatternParse.with(context);
+    static SpreadsheetToolbarComponentItem parsePattern(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonPatternParse.with(context);
     }
 
-    static SpreadsheetViewportToolbarComponentItem strikeThru(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem strikeThru(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.LINE_THROUGH,
                 SpreadsheetIcons.strikethrough(),
@@ -85,8 +85,8 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem textAlignLeft(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem textAlignLeft(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.LEFT,
                 SpreadsheetIcons.alignLeft(),
@@ -95,8 +95,8 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem textAlignCenter(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem textAlignCenter(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.CENTER,
                 SpreadsheetIcons.alignCenter(),
@@ -105,8 +105,8 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem textAlignRight(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem textAlignRight(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.RIGHT,
                 SpreadsheetIcons.alignRight(),
@@ -115,8 +115,8 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem textAlignJustify(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem textAlignJustify(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY,
                 SpreadsheetIcons.alignJustify(),
@@ -125,8 +125,8 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem underline(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem underline(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE,
                 SpreadsheetIcons.underline(),
@@ -135,8 +135,8 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem verticalAlignTop(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem verticalAlignTop(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.TOP,
                 SpreadsheetIcons.verticalAlignTop(),
@@ -145,8 +145,8 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem verticalAlignMiddle(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem verticalAlignMiddle(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.MIDDLE,
                 SpreadsheetIcons.verticalAlignMiddle(),
@@ -155,8 +155,8 @@ abstract class SpreadsheetViewportToolbarComponentItem implements Component<HTML
         );
     }
 
-    static SpreadsheetViewportToolbarComponentItem verticalAlignBottom(final HistoryTokenContext context) {
-        return SpreadsheetViewportToolbarComponentItemButtonTextStyleProperty.with(
+    static SpreadsheetToolbarComponentItem verticalAlignBottom(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.BOTTOM,
                 SpreadsheetIcons.verticalAlignBottom(),

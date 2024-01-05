@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.iterable.Iterables;
@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.FlexLayout;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -41,20 +42,20 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A toolbar that contains icons that trigger an action for the viewport selection.
+ * A toolbar that contains icons that trigger an action.
  */
-public final class SpreadsheetViewportToolbarComponent implements Component<HTMLDivElement>,
+public final class SpreadsheetToolbarComponent implements Component<HTMLDivElement>,
         ComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher {
 
-    public static SpreadsheetViewportToolbarComponent with(final AppContext context) {
+    public static SpreadsheetToolbarComponent with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetViewportToolbarComponent(context);
+        return new SpreadsheetToolbarComponent(context);
     }
 
-    private SpreadsheetViewportToolbarComponent(final AppContext context) {
+    private SpreadsheetToolbarComponent(final AppContext context) {
         this.components = this.components(context);
         this.flexLayout = this.createFlexLayout();
 
@@ -77,7 +78,7 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
     private FlexLayout createFlexLayout() {
         final FlexLayout flexLayout = new FlexLayout();
 
-        for (final SpreadsheetViewportToolbarComponentItem component : this.components) {
+        for (final SpreadsheetToolbarComponentItem component : this.components) {
             flexLayout.appendChild(
                     component.element()
             );
@@ -86,29 +87,29 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
         return flexLayout;
     }
 
-    private List<SpreadsheetViewportToolbarComponentItem> components(final HistoryTokenContext context) {
+    private List<SpreadsheetToolbarComponentItem> components(final HistoryTokenContext context) {
         return Lists.of(
-                SpreadsheetViewportToolbarComponentItem.bold(context),
-                SpreadsheetViewportToolbarComponentItem.italics(context),
-                SpreadsheetViewportToolbarComponentItem.strikeThru(context),
-                SpreadsheetViewportToolbarComponentItem.underline(context),
-                SpreadsheetViewportToolbarComponentItem.textAlignLeft(context),
-                SpreadsheetViewportToolbarComponentItem.textAlignCenter(context),
-                SpreadsheetViewportToolbarComponentItem.textAlignRight(context),
-                SpreadsheetViewportToolbarComponentItem.textAlignJustify(context),
-                SpreadsheetViewportToolbarComponentItem.verticalAlignTop(context),
-                SpreadsheetViewportToolbarComponentItem.verticalAlignMiddle(context),
-                SpreadsheetViewportToolbarComponentItem.verticalAlignBottom(context),
-                SpreadsheetViewportToolbarComponentItem.clear(context),
-                SpreadsheetViewportToolbarComponentItem.formatPattern(context),
-                SpreadsheetViewportToolbarComponentItem.parsePattern(context)
+                SpreadsheetToolbarComponentItem.bold(context),
+                SpreadsheetToolbarComponentItem.italics(context),
+                SpreadsheetToolbarComponentItem.strikeThru(context),
+                SpreadsheetToolbarComponentItem.underline(context),
+                SpreadsheetToolbarComponentItem.textAlignLeft(context),
+                SpreadsheetToolbarComponentItem.textAlignCenter(context),
+                SpreadsheetToolbarComponentItem.textAlignRight(context),
+                SpreadsheetToolbarComponentItem.textAlignJustify(context),
+                SpreadsheetToolbarComponentItem.verticalAlignTop(context),
+                SpreadsheetToolbarComponentItem.verticalAlignMiddle(context),
+                SpreadsheetToolbarComponentItem.verticalAlignBottom(context),
+                SpreadsheetToolbarComponentItem.clear(context),
+                SpreadsheetToolbarComponentItem.formatPattern(context),
+                SpreadsheetToolbarComponentItem.parsePattern(context)
         );
     }
 
     /**
      * The UI components within the toolbar thqt react to selection changes and also support updates.
      */
-    private final List<SpreadsheetViewportToolbarComponentItem> components;
+    private final List<SpreadsheetToolbarComponentItem> components;
 
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
@@ -159,7 +160,7 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
 
     @Override
     public void refresh(final AppContext context) {
-        context.debug("SpreadsheetViewportToolbarComponent.refresh BEGIN");
+        context.debug("SpreadsheetToolbarComponent.refresh BEGIN");
 
         final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.historyToken()
                 .nonLabelSelection(
@@ -175,7 +176,7 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
             }
         }
 
-        context.debug("SpreadsheetViewportToolbarComponent.refresh END");
+        context.debug("SpreadsheetToolbarComponent.refresh END");
     }
 
     /**
@@ -185,10 +186,10 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
                               final AppContext context) {
         final SpreadsheetViewportCache cache = context.viewportCache();
         final SpreadsheetViewportWindows window = cache.windows();
-        context.debug("SpreadsheetViewportToolbarComponent.refreshItems begin " + selection + " window: " + window);
+        context.debug("SpreadsheetToolbarComponent.refreshItems begin " + selection + " window: " + window);
 
-        final List<SpreadsheetViewportToolbarComponentItem> components = this.components;
-        for (final SpreadsheetViewportToolbarComponentItem component : components) {
+        final List<SpreadsheetToolbarComponentItem> components = this.components;
+        for (final SpreadsheetToolbarComponentItem component : components) {
             component.onToolbarRefreshBegin();
         }
 
@@ -196,11 +197,11 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
 
         for (final SpreadsheetCellReference cellReference : Iterables.iterator(window.cells(selection))) {
             final Optional<SpreadsheetCell> maybeCell = context.viewportCell(cellReference);
-            context.debug("SpreadsheetViewportToolbarComponent.refreshItems " + cellReference, maybeCell.orElse(null));
+            context.debug("SpreadsheetToolbarComponent.refreshItems " + cellReference, maybeCell.orElse(null));
             if (maybeCell.isPresent()) {
                 final SpreadsheetCell cell = maybeCell.get();
 
-                for (final SpreadsheetViewportToolbarComponentItem component : components) {
+                for (final SpreadsheetToolbarComponentItem component : components) {
                     component.onToolbarRefreshSelectedCell(
                             cell,
                             context
@@ -211,14 +212,14 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
             cellCount++;
         }
 
-        for (final SpreadsheetViewportToolbarComponentItem component : components) {
+        for (final SpreadsheetToolbarComponentItem component : components) {
             component.onToolbarRefreshEnd(
                     cellCount,
                     context
             );
         }
 
-        context.debug("SpreadsheetViewportToolbarComponent.refreshItems end " + selection);
+        context.debug("SpreadsheetToolbarComponent.refreshItems end " + selection);
     }
 
     // element..........................................................................................................
@@ -241,5 +242,5 @@ public final class SpreadsheetViewportToolbarComponent implements Component<HTML
         return VIEWPORT_TOOLBAR_ID_PREFIX + "parse-pattern";
     }
 
-    final static String VIEWPORT_TOOLBAR_ID_PREFIX = "viewport-toolbar-";
+    final static String VIEWPORT_TOOLBAR_ID_PREFIX = "toolbar-";
 }

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
@@ -26,7 +26,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class SpreadsheetViewportToolbarComponentTest implements ClassTesting<SpreadsheetViewportToolbarComponent> {
+public final class SpreadsheetToolbarComponentTest implements ClassTesting<SpreadsheetToolbarComponent> {
 
     // id...............................................................................................................
 
@@ -35,7 +35,7 @@ public final class SpreadsheetViewportToolbarComponentTest implements ClassTesti
         this.idAndCheck(
                 TextStylePropertyName.COLOR,
                 Optional.empty(),
-                "viewport-toolbar-color"
+                "toolbar-color"
         );
     }
 
@@ -44,7 +44,7 @@ public final class SpreadsheetViewportToolbarComponentTest implements ClassTesti
         this.idAndCheck(
                 TextStylePropertyName.COLOR,
                 Optional.of(Color.BLACK),
-                "viewport-toolbar-color-#000000"
+                "toolbar-color-#000000"
         );
     }
 
@@ -53,7 +53,7 @@ public final class SpreadsheetViewportToolbarComponentTest implements ClassTesti
         this.idAndCheck(
                 TextStylePropertyName.TEXT_ALIGN,
                 Optional.of(TextAlign.CENTER),
-                "viewport-toolbar-text_align-CENTER"
+                "toolbar-text_align-CENTER"
         );
     }
 
@@ -62,7 +62,7 @@ public final class SpreadsheetViewportToolbarComponentTest implements ClassTesti
                                 final String expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetViewportToolbarComponent.id(
+                SpreadsheetToolbarComponent.id(
                         property,
                         value
                 )
@@ -72,8 +72,8 @@ public final class SpreadsheetViewportToolbarComponentTest implements ClassTesti
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetViewportToolbarComponent> type() {
-        return SpreadsheetViewportToolbarComponent.class;
+    public Class<SpreadsheetToolbarComponent> type() {
+        return SpreadsheetToolbarComponent.class;
     }
 
     @Override
