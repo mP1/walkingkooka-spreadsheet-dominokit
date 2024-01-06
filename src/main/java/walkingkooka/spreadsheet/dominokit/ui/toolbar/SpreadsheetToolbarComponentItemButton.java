@@ -57,8 +57,7 @@ abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarC
         ).addEventListener(
                 EventType.focus,
                 this::onFocus
-        );
-        this.element().tabIndex = 0;
+        ).setTabIndex(0);
 
         this.context = context;
     }
