@@ -18,15 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
-import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -38,10 +34,7 @@ import java.util.Optional;
  * A button ui that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends SpreadsheetToolbarComponentItemButton
-        implements SpreadsheetCellComponentLifecycle,
-        NopRefreshComponentLifecycle,
-        VisibleComponentLifecycle<HTMLElement> {
+final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends SpreadsheetToolbarComponentItemButtonTextStyle {
 
     static <T> SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> with(final TextStylePropertyName<T> propertyName,
                                                                               final T propertyValue,
