@@ -17,8 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.button.Button;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
@@ -49,10 +51,21 @@ abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarC
                 tooltipText
         ).setPosition(DropDirection.BOTTOM_MIDDLE);
 
-        this.button = button;
+        this.button = button.addEventListener(
+                EventType.click,
+                this::onClick
+        ).addEventListener(
+                EventType.focus,
+                this::onFocus
+        );
+        this.element().tabIndex = 0;
 
         this.context = context;
     }
+
+    abstract void onClick(final Event event);
+
+    abstract void onFocus(final Event event);
 
     final void setButtonSelected(final boolean selected,
                                  final AppContext context) {

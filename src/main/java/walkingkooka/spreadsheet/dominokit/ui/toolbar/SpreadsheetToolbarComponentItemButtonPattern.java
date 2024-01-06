@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -55,21 +54,13 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
                 tooltip,
                 context
         );
-        this.button.addEventListener(
-                EventType.click,
-                this::onClick
-        ).addEventListener(
-                EventType.focus,
-                this::onFocus
-        );
-
-        this.element().tabIndex = 0;
     }
 
     /**
      * When clicked perform a save on the {@link HistoryToken} and push that.
      */
-    private void onClick(final Event event) {
+    @Override //
+    final void onClick(final Event event) {
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
@@ -83,7 +74,8 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
                 ).ifPresent(context::pushHistoryToken);
     }
 
-    private void onFocus(final Event event) {
+    @Override //
+    final void onFocus(final Event event) {
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
