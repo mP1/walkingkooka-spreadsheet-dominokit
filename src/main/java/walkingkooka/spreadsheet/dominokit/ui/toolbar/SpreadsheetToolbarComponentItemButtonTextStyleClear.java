@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
-import org.dominokit.domino.ui.events.EventType;
+import elemental2.dom.Event;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -53,21 +53,13 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
                 "Clear styling",
                 context
         );
-        this.button.addEventListener(
-                EventType.click,
-                (event) -> this.onClick()
-        ).addEventListener(
-                EventType.focus,
-                (event) -> this.onFocus()
-        );
-
-        this.element().tabIndex = 0;
     }
 
     /**
      * When clicked perform a save on the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} and push that.
      */
-    private void onClick() {
+    @Override //
+    void onClick(final Event event) {
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
@@ -81,7 +73,8 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
     /**
      * Upon focus the history token is set {@link walkingkooka.spreadsheet.reference.SpreadsheetSelection} and the {@link TextStylePropertyName}.
      */
-    private void onFocus() {
+    @Override //
+    void onFocus(final Event event) {
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
