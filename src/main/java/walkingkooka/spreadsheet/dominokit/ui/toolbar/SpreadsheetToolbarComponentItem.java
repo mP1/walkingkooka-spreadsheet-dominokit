@@ -54,6 +54,15 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
     }
 
     /**
+     * {@see SpreadsheetToolbarComponentItemButtonCellFind}
+     */
+    static SpreadsheetToolbarComponentItem findCells(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonCellFind.with(
+                context
+        );
+    }
+
+    /**
      * {@link SpreadsheetToolbarComponentItemButtonPatternFormat}
      */
     static SpreadsheetToolbarComponentItem formatPattern(final HistoryTokenContext context) {

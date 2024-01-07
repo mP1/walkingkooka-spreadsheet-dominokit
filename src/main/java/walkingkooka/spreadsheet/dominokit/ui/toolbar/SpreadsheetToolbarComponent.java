@@ -105,7 +105,8 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 SpreadsheetToolbarComponentItem.verticalAlignBottom(context),
                 SpreadsheetToolbarComponentItem.clear(context),
                 SpreadsheetToolbarComponentItem.formatPattern(context),
-                SpreadsheetToolbarComponentItem.parsePattern(context)
+                SpreadsheetToolbarComponentItem.parsePattern(context),
+                SpreadsheetToolbarComponentItem.findCells(context)
         );
     }
 
@@ -225,6 +226,10 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 value.map(
                         v -> '-' + v.toString().toUpperCase()
                 ).orElse("");
+    }
+
+    public static String findCells() {
+        return TOOLBAR_ID_PREFIX + "find-cells";
     }
 
     public static String formatPattern() {

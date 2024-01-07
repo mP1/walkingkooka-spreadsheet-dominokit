@@ -67,6 +67,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.close_circle();
     }
 
+    public static MdiIcon findCells() {
+        return Icons.magnify();
+    }
+
     public static MdiIcon formatPattern() {
         return Icons.format_text();
     }
