@@ -57,6 +57,68 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         );
     }
 
+    // parse............................................................................................................
+
+    @Test
+    public void testParseCell() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/cell/A1",
+                SpreadsheetCellSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseCellRange() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3",
+                SpreadsheetCellSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        RANGE.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseCellRangeAndAnchor() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/cell/B2:C3",
+                SpreadsheetCellSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        RANGE.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseCellRangeStar() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/cell/*",
+                SpreadsheetCellSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseCellRangeStarAndAnchor() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/cell/*/bottom-right",
+                SpreadsheetCellSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+                )
+        );
+    }
+
     // clearAction......................................................................................................
 
     @Test
