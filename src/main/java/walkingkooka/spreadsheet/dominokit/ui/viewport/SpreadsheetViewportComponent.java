@@ -218,7 +218,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     private TableElement table() {
         final TableElement tableElement = ElementsFactory.elements.table();
         tableElement.setId(VIEWPORT_ID);
-        tableElement.style("width: 100%; height: 100%; overflow-x: hidden; overflow-y: hidden; border-spacing: 0;");
+        tableElement.style("width: 100%; height: 100%; overflow-x: hidden; overflow-y: hidden;");
         tableElement.appendChild(
                 ElementsFactory.elements.tbody()
                         .appendChild(
