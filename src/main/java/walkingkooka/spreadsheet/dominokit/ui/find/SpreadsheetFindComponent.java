@@ -148,32 +148,27 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      */
     private TableConfig<SpreadsheetCell> tableConfig() {
         return new TableConfig<SpreadsheetCell>()
-                .setFixed(true)
                 .addColumn(
                         columnConfig(
                                 "Cell",
-                                "10%",
                                 CellTextAlign.LEFT,
                                 this::renderCellReference
                         )
                 ).addColumn(
                         columnConfig(
                                 "Formula",
-                                "30%",
                                 CellTextAlign.LEFT,
                                 this::renderCellFormula
                         )
                 ).addColumn(
                         columnConfig(
                                 "Formatted",
-                                "30%",
                                 CellTextAlign.LEFT,
                                 this::renderCellFormatted
                         )
                 ).addColumn(
                         columnConfig(
                                 "Value",
-                                "30%",
                                 CellTextAlign.LEFT,
                                 this::renderCellValue
                         )
@@ -181,12 +176,9 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     }
 
     private ColumnConfig<SpreadsheetCell> columnConfig(final String title,
-                                                       final String minWidth,
                                                        final CellTextAlign cellTextAlign,
                                                        final CellRenderer<SpreadsheetCell> renderer) {
         return ColumnConfig.<SpreadsheetCell>create(title.toLowerCase(), title)
-                .minWidth(minWidth)
-                .maxWidth(minWidth)
                 .setTextAlign(cellTextAlign)
                 .setCellRenderer(renderer);
     }
