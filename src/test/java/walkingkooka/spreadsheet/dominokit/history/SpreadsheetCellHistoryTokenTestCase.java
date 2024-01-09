@@ -28,6 +28,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
+import java.util.Optional;
+import java.util.OptionalInt;
+
 public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends AnchoredSpreadsheetSelectionHistoryTokenTestCase<T> {
 
     final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
@@ -101,6 +104,30 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                         ID,
                         NAME,
                         selection
+                )
+        );
+    }
+
+    // setFind..........................................................................................................
+
+    @Test
+    public final void testSetFind() {
+        this.setFindAndCheck(
+                this.createHistoryToken(),
+                Optional.empty(), // path
+                OptionalInt.empty(), // offset
+                OptionalInt.empty(), // max
+                Optional.empty(), // valueType
+                Optional.empty(), // query
+                HistoryToken.cellFind(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        Optional.empty(), // path
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty(), // max
+                        Optional.empty(), // valueType
+                        Optional.empty()
                 )
         );
     }
