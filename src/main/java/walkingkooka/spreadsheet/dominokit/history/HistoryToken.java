@@ -952,8 +952,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                                       final Optional<String> valueType,
                                       final Optional<String> query) {
         HistoryToken historyToken = this;
-        if (this instanceof SpreadsheetCellSelectHistoryToken) {
-            final SpreadsheetCellSelectHistoryToken cell = (SpreadsheetCellSelectHistoryToken) this;
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = (SpreadsheetCellHistoryToken) this;
             historyToken = cellFind(
                     cell.id(),
                     cell.name(),

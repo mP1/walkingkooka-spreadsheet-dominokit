@@ -29,8 +29,10 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -85,6 +87,28 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                 expected,
                 token.close(),
                 () -> token + " close"
+        );
+    }
+
+    // setFind..........................................................................................................
+
+    final void setFindAndCheck(final HistoryToken token,
+                               final Optional<SpreadsheetCellRangePath> path,
+                               final OptionalInt offset,
+                               final OptionalInt max,
+                               final Optional<String> valueType,
+                               final Optional<String> query,
+                               final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setFind(
+                        path,
+                        offset,
+                        max,
+                        valueType,
+                        query
+                ),
+                () -> token + " setFind"
         );
     }
 
