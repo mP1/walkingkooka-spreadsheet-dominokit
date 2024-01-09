@@ -63,11 +63,11 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public SpreadsheetTextBox addFocusListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
-
-        this.textBox.addEventListener(
-                EventType.focus,
-                listener
-        );
+        this.textBox.getInputElement()
+                .addEventListener(
+                        EventType.focus,
+                        (e) -> listener.handleEvent(e)
+                );
         return this;
     }
 
