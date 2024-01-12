@@ -94,7 +94,7 @@ public class SpreadsheetDialogComponent {
         this.context.close();
     }
 
-    private CloseableHistoryTokenContext context;
+    private final CloseableHistoryTokenContext context;
 
     public SpreadsheetDialogComponent id(final String id) {
         this.dialog.id(id);
