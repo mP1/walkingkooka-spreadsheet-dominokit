@@ -262,13 +262,12 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             urlQuery = urlQuery.addParameter(
                     QUERY,
                     query.get()
-                            .toString()
             );
         }
         if (valueType.isPresent()) {
             urlQuery = urlQuery.addParameter(
                     VALUE_TYPE,
-                    valueType.get().toString()
+                    valueType.get()
             );
         }
 
