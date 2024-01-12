@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -177,7 +178,7 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
                     cell.flatMap(
                             c -> c.formula()
                                     .error()
-                                    .map(e -> e.message())
+                                    .map(SpreadsheetError::message)
                     )
             );
 

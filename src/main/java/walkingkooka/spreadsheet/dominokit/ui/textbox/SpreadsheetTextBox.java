@@ -66,7 +66,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         this.textBox.getInputElement()
                 .addEventListener(
                         EventType.focus,
-                        (e) -> listener.handleEvent(e)
+                        listener::handleEvent
                 );
         return this;
     }

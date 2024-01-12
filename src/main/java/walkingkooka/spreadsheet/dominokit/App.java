@@ -406,7 +406,7 @@ public class App implements EntryPoint,
                             id,
                             name
                     ).setSelection(
-                            viewport.flatMap(v -> v.selection())
+                            viewport.flatMap(SpreadsheetViewport::selection)
                     );
 
             if (false == historyToken.equals(idNameSelectionHistoryToken)) {
