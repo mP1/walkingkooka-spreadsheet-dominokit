@@ -75,7 +75,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
-    public SpreadsheetSelectComponent setDisabled(final boolean disabled) {
+    public SpreadsheetSelectComponent<T> setDisabled(final boolean disabled) {
         this.select.setDisabled(disabled);
         return this;
     }

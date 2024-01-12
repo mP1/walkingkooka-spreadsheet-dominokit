@@ -173,7 +173,7 @@ public class SpreadsheetContextMenu {
 
     public SpreadsheetContextMenu item(final String id,
                                        final String text,
-                                       final Icon icon,
+                                       final Icon<?> icon,
                                        final HistoryToken historyToken) {
         return this.item(
                 id,
@@ -185,7 +185,7 @@ public class SpreadsheetContextMenu {
 
     public SpreadsheetContextMenu item(final String id,
                                        final String text,
-                                       final Optional<Icon> icon,
+                                       final Optional<Icon<?>> icon,
                                        final HistoryToken historyToken) {
         return this.item(
                 id,
@@ -210,7 +210,7 @@ public class SpreadsheetContextMenu {
 
     public SpreadsheetContextMenu item(final String id,
                                        final String text,
-                                       final Icon icon,
+                                       final Icon<?> icon,
                                        final Optional<HistoryToken> historyToken) {
         return this.item(
                 id,
@@ -223,7 +223,7 @@ public class SpreadsheetContextMenu {
 
     public SpreadsheetContextMenu item(final String id,
                                        final String text,
-                                       final Icon icon,
+                                       final Icon<?> icon,
                                        final Badge badge,
                                        final Optional<HistoryToken> historyToken) {
         return this.item(
@@ -237,7 +237,7 @@ public class SpreadsheetContextMenu {
 
     public SpreadsheetContextMenu item(final String id,
                                        final String text,
-                                       final Icon icon,
+                                       final Icon<?> icon,
                                        final Optional<Badge> badge,
                                        final Optional<HistoryToken> historyToken) {
         return this.item(
@@ -264,7 +264,7 @@ public class SpreadsheetContextMenu {
 
     public SpreadsheetContextMenu item(final String id,
                                        final String text,
-                                       final Optional<Icon> icon,
+                                       final Optional<Icon<?>> icon,
                                        final Optional<Badge> badge,
                                        final Optional<HistoryToken> historyToken) {
         CharSequences.failIfNullOrEmpty(id, "id");
