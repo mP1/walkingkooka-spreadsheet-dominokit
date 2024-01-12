@@ -275,7 +275,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 "/api/spreadsheet/" +
                         id +
                         "/cell/" +
-                        cells +
+                        cells.toStringMaybeStar() +
                         "/find"
         ).setQuery(urlQuery);
     }
@@ -388,7 +388,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                 "/" +
                                 selection.cellColumnOrRowText() +
                                 "/" +
-                                selection +
+                                selection.toStringMaybeStar() +
                                 "/" +
                                 afterOrBefore
                 ).setQuery(queryString),
@@ -453,7 +453,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         selection.cellColumnOrRowText()
                 )
         ).append(
-                UrlPath.parse(selection.toString())
+                UrlPath.parse(
+                        selection.toStringMaybeStar()
+                )
         );
 
         Objects.requireNonNull(path, "path");
