@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 final class SpreadsheetSelectComponentValidator<T> implements Validator<Select<T>> {
 
     static <T> SpreadsheetSelectComponentValidator<T> with(final SpreadsheetSelectComponent<T> spreadsheetSelectComponent) {
-        return new SpreadsheetSelectComponentValidator(spreadsheetSelectComponent);
+        return new SpreadsheetSelectComponentValidator<>(spreadsheetSelectComponent);
     }
 
     private SpreadsheetSelectComponentValidator(final SpreadsheetSelectComponent<T> spreadsheetSelectComponent) {

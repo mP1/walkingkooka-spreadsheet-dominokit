@@ -78,9 +78,9 @@ public class SpreadsheetDialogComponent {
                 ).addCollapseListener(
                         // using a method reference incorrectly selects Dialog.addCollapseListener(CollapseHandler)
                         // which does not receive events when a dialog is closed.
-                        new CollapseListener() {
+                        new CollapseListener<Dialog>() {
                             @Override
-                            public void onCollapsed(final Object ignored) {
+                            public void onCollapsed(final Dialog ignored) {
                                 SpreadsheetDialogComponent.this.onCollapse();
                             }
                         });
