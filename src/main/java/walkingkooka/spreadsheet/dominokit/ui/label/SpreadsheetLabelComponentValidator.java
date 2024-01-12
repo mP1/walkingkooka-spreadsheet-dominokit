@@ -37,8 +37,6 @@ final class SpreadsheetLabelComponentValidator implements Validator<SuggestBox<S
         return new SpreadsheetLabelComponentValidator(component);
     }
 
-    ;
-
     private SpreadsheetLabelComponentValidator(final SpreadsheetLabelComponent component) {
         super();
         this.component = component;
