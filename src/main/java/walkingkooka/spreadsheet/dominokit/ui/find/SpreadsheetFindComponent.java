@@ -518,7 +518,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         // only update history token if setter was successful.
         if (token instanceof SpreadsheetCellFindHistoryToken) {
             context.pushHistoryToken(token);
-        } ;
+        }
     }
 
     // UI...............................................................................................................
