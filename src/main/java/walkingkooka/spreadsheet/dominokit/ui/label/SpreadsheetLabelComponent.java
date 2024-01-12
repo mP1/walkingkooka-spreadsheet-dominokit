@@ -148,12 +148,10 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
         this.suggestBox.addChangeListener(
                 (final String oldValue,
-                 final String newValue) -> {
-                    listener.onValueChanged(
-                            tryParse(oldValue),
-                            tryParse(newValue)
-                    );
-                }
+                 final String newValue) -> listener.onValueChanged(
+                        tryParse(oldValue),
+                        tryParse(newValue)
+                )
         );
 
         return this;
