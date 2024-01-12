@@ -54,6 +54,7 @@ import walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype.SpreadsheetVal
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.Expression;
 import walkingkooka.tree.text.TextNode;
 
@@ -266,7 +267,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         this.historyTokenSetAndPush(
                 t -> t.setSelection(
                         newCellRange.map(
-                                s -> s.setDefaultAnchor()
+                                SpreadsheetSelection::setDefaultAnchor
                         )
                 ).cast(SpreadsheetCellFindHistoryToken.class)
         );
@@ -308,7 +309,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     private void onQueryChange(final Optional<SpreadsheetFormula> oldFormula,
                                final Optional<SpreadsheetFormula> newFormula) {
         this.historyTokenSetAndPush(
-                t -> t.setQuery(newFormula.map(f -> f.text()))
+                t -> t.setQuery(newFormula.map(SpreadsheetFormula::text))
         );
     }
 
@@ -464,7 +465,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     @Override
     public void openGiveFocus(final AppContext context) {
         context.giveFocus(
-                () -> this.cellRange.focus()
+                this.cellRange::focus
         );
     }
 

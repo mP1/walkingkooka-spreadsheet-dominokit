@@ -346,7 +346,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.checkEquals(
                 expected,
                 token.isCellFormatPattern(),
-                () -> token.toString()
+                token::toString
         );
     }
 
@@ -431,7 +431,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.checkEquals(
                 expected,
                 token.isCellParsePattern(),
-                () -> token.toString()
+                token::toString
         );
     }
 

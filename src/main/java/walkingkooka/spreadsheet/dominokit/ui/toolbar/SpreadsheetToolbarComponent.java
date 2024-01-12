@@ -57,7 +57,7 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
 
     private SpreadsheetToolbarComponent(final AppContext context) {
         final List<SpreadsheetToolbarComponentItem> components = this.components(context);
-        components.forEach(c -> context.addHistoryTokenWatcher(c));
+        components.forEach(context::addHistoryTokenWatcher);
 
         this.components = components;
         this.flexLayout = this.createFlexLayout();

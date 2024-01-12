@@ -301,7 +301,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                         Optional.empty() // query
                 ),
                 UrlFragment.with(expected),
-                () -> anchoredSpreadsheetSelection.toString()
+                anchoredSpreadsheetSelection::toString
         );
     }
 
