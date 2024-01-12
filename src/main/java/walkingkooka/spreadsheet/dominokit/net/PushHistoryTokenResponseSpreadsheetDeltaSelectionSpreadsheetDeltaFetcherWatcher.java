@@ -63,6 +63,6 @@ final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFet
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName().toString();
+        return this.getClass().getSimpleName();
     }
 }
