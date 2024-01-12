@@ -20,14 +20,9 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyValueException;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
-import walkingkooka.tree.text.BorderStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends SpreadsheetColumnHistoryTokenTestCase<SpreadsheetColumnInsertBeforeHistoryToken> {
 

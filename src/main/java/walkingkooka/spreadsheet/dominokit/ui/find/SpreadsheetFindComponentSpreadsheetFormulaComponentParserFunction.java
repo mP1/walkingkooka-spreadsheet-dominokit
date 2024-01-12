@@ -17,21 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.find;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursors;
-import walkingkooka.text.cursor.parser.Parser;
-import walkingkooka.tree.expression.Expression;
 
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Function;
 
 /**
