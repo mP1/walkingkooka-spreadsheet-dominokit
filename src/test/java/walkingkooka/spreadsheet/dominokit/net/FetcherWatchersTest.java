@@ -240,11 +240,11 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
                             final Url url,
                             final Optional<String> body,
                             final AppContext context) {
-            this.b.append(this.prefix + ".onBegin");
+            this.b.append(this.prefix).append(".onBegin");
         }
 
         public void onSuccess(final AppContext context) {
-            this.b.append(this.prefix + ".onSuccess");
+            this.b.append(this.prefix).append(".onSuccess");
         }
 
         @Override
