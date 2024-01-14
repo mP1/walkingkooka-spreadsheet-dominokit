@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -76,24 +75,6 @@ final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToo
         if (null == anchoredSpreadsheetSelection) {
             anchoredSpreadsheetSelection = SpreadsheetSelection.ALL_CELLS.setDefaultAnchor();
         }
-
-        DomGlobal.console.error(
-                "historyToken.setSelection " + anchoredSpreadsheetSelection + " -> " +
-                historyToken.setSelection(
-                        Optional.of(anchoredSpreadsheetSelection)
-                ),
-                "anchoredSpreadsheetSelection: " + anchoredSpreadsheetSelection,
-                "historyToken " + historyToken + " -> setFind ->  " +
-                        historyToken.setSelection(
-                                Optional.of(anchoredSpreadsheetSelection)
-                        ).setFind(
-                                Optional.empty(), // path
-                                OptionalInt.empty(), // offset
-                                OptionalInt.empty(), // max
-                                Optional.empty(), // value-type
-                                Optional.empty() // query
-                        )
-        );
 
         context.pushHistoryToken(
                 historyToken.setSelection(
