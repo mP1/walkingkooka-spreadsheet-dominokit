@@ -217,7 +217,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         return Doms.node(
                 cell.getRecord()
                         .formatted()
-                        .orElse(TextNode.text(""))
+                        .orElse(TextNode.EMPTY_TEXT)
         );
     }
 
