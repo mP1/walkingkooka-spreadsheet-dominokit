@@ -174,6 +174,13 @@ public final class SpreadsheetCellFind implements HasUrlFragment {
                 ) : EMPTY;
     }
 
+    /**
+     * Returns true if all properties are empty.
+     */
+    public boolean isEmpty() {
+        return this == EMPTY;
+    }
+
     @Override
     public UrlFragment urlFragment() {
         UrlFragment urlFragment = UrlFragment.EMPTY;

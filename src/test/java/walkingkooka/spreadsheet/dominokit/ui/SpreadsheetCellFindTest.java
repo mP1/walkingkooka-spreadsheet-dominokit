@@ -272,6 +272,25 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
         );
     }
 
+    // isEmpty.........................................................................................................
+
+    @Test
+    public void testIsEmptyWhenEmpty() {
+        this.checkEquals(
+                true,
+                SpreadsheetCellFind.empty().isEmpty()
+        );
+    }
+
+    @Test
+    public void testIsEmptyWhenNotEmpty() {
+        this.checkEquals(
+                false,
+                this.createObject()
+                        .isEmpty()
+        );
+    }
+
     // Object...........................................................................................................
 
     @Test
