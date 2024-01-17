@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
@@ -110,40 +111,44 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     }
 
     private HistoryToken parseFind(final TextCursor cursor) {
-        Optional<SpreadsheetCellRangePath> path = Optional.empty();
-        OptionalInt offset = OptionalInt.empty();
-        OptionalInt max = OptionalInt.empty();
-        Optional<String> valueType = Optional.empty();
-        Optional<String> query = Optional.empty();
+        SpreadsheetCellFind find = SpreadsheetCellFind.empty();
 
         String component = parseComponentOfNull(cursor);
         if (null != component) {
             if ("path".equals(component)) {
-                path = parseComponent(cursor)
-                        .map(SpreadsheetCellRangePath::valueOf);
+                find = find.setPath(
+                        parseComponent(cursor)
+                                .map(SpreadsheetCellRangePath::valueOf)
+                );
 
                 component = parseComponentOfNull(cursor);
             }
             if ("offset".equals(component)) {
-                offset = parseComponent(cursor)
+                find = find.setOffset(
+                        parseComponent(cursor)
                         .map(Integer::parseInt)
                         .map(OptionalInt::of)
                         .orElseGet(
                                 OptionalInt::empty
-                        );
+                        )
+                );
                 component = parseComponentOfNull(cursor);
             }
             if ("max".equals(component)) {
-                max = parseComponent(cursor)
+                find = find.setMax(
+                        parseComponent(cursor)
                         .map(Integer::parseInt)
                         .map(OptionalInt::of)
                         .orElseGet(
                                 OptionalInt::empty
-                        );
+                        )
+                );
                 component = parseComponentOfNull(cursor);
             }
             if ("value-type".equals(component)) {
-                valueType = parseComponent(cursor);
+                find = find.setValueType(
+                        parseComponent(cursor)
+                );
                 component = parseComponentOfNull(cursor);
             }
             if ("query".equals(component)) {
@@ -154,21 +159,17 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
 
                 final String queryText = save.textBetween()
                         .toString();
-                query = queryText.isEmpty() ?
+                find = find.setQuery(
+                        queryText.isEmpty() ?
                         Optional.empty() :
                         Optional.of(
                                 queryText
-                        );
+                        )
+                );
             }
         }
 
-        return this.setFind(
-                path,
-                offset,
-                max,
-                valueType,
-                query
-        );
+        return this.setFind(find);
     }
 
     private static String parseComponentOfNull(final TextCursor cursor) {

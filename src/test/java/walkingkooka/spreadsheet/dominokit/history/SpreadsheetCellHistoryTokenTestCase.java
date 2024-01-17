@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -27,9 +28,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
-
-import java.util.Optional;
-import java.util.OptionalInt;
 
 public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends AnchoredSpreadsheetSelectionHistoryTokenTestCase<T> {
 
@@ -114,20 +112,12 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     public final void testSetFind() {
         this.setFindAndCheck(
                 this.createHistoryToken(),
-                Optional.empty(), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // max
-                Optional.empty(), // valueType
-                Optional.empty(), // query
+                SpreadsheetCellFind.empty(), // query
                 HistoryToken.cellFind(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        Optional.empty(), // path
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty(), // max
-                        Optional.empty(), // valueType
-                        Optional.empty()
+                        SpreadsheetCellFind.empty()
                 )
         );
     }

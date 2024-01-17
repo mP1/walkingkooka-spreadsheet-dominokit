@@ -62,7 +62,6 @@ import walkingkooka.tree.text.TextNode;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 import java.util.function.Function;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
@@ -288,7 +287,10 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     private void onCellRangePathValueChange(final Optional<SpreadsheetCellRangePath> oldPath,
                                             final Optional<SpreadsheetCellRangePath> newPath) {
         this.historyTokenSetAndPush(
-                t -> t.setPath(newPath)
+                t -> t.setFind(
+                        t.find()
+                                .setPath(newPath)
+                )
         );
     }
 
@@ -310,7 +312,11 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     private void onQueryChange(final Optional<SpreadsheetFormula> oldFormula,
                                final Optional<SpreadsheetFormula> newFormula) {
         this.historyTokenSetAndPush(
-                t -> t.setQuery(newFormula.map(SpreadsheetFormula::text))
+                t -> t.setFind(
+                        t.find()
+                                .setQuery(newFormula.map(SpreadsheetFormula::text)
+                                )
+                )
         );
     }
 
@@ -331,7 +337,10 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     private void onValueTypeChange(final Optional<String> oldValue,
                                    final Optional<String> newValue) {
         this.historyTokenSetAndPush(
-                t -> t.setValueType(newValue)
+                t -> t.setFind(
+                        t.find()
+                                .setValueType(newValue)
+                )
         );
     }
 
@@ -385,22 +394,12 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         final SpreadsheetCellRange cells = historyToken.selection()
                 .selection()
                 .toCellRange();
-        final Optional<SpreadsheetCellRangePath> path = historyToken.path();
-        final OptionalInt offset = historyToken.offset();
-        final OptionalInt max = historyToken.max();
-        final Optional<String> valueType = historyToken.valueType();
-        final Optional<String> query = historyToken.query();
 
         context.spreadsheetDeltaFetcher()
                 .findCells(
                         id,
                         cells,
-                        SpreadsheetCellFind.empty()
-                                .setPath(path)
-                                .setOffset(offset)
-                                .setMax(max)
-                                .setValueType(valueType)
-                                .setQuery(query)
+                        historyToken.find()
                 );
     }
 
@@ -489,14 +488,17 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
                                 .toCellRange()
                 )
         );
+
+        final SpreadsheetCellFind find = token.find();
+
         this.path.setValue(
-                token.path()
+                find.path()
         );
         this.valueType.setValue(
-                token.valueType()
+                find.valueType()
         );
         this.query.setStringValue(
-            token.query()
+                find.query()
         );
 
         this.find();
