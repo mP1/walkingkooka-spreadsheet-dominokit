@@ -44,6 +44,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangePathComponent;
@@ -372,7 +373,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
     /**
      * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellFindHistoryToken}
-     * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRange, Optional, OptionalInt, OptionalInt, Optional, Optional)}.
+     * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRange, SpreadsheetCellFind)}.
      */
     private void find() {
         final SpreadsheetFindComponentContext context = this.context;
@@ -394,11 +395,12 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
                 .findCells(
                         id,
                         cells,
-                        path,
-                        offset,
-                        max,
-                        valueType,
-                        query
+                        SpreadsheetCellFind.empty()
+                                .setPath(path)
+                                .setOffset(offset)
+                                .setMax(max)
+                                .setValueType(valueType)
+                                .setQuery(query)
                 );
     }
 
