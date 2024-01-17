@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -200,20 +201,16 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     public void findCells(final SpreadsheetId id,
                           final SpreadsheetCellRange cells,
-                          final Optional<SpreadsheetCellRangePath> path,
-                          final OptionalInt offset,
-                          final OptionalInt max,
-                          final Optional<String> valueType,
-                          final Optional<String> query) {
+                          final SpreadsheetCellFind find) {
         this.get(
                 findCellsUrl(
                         id,
                         cells,
-                        path,
-                        offset,
-                        max,
-                        valueType,
-                        query
+                        find.path(),
+                        find.offset(),
+                        find.max(),
+                        find.valueType(),
+                        find.query()
                 )
         );
     }
