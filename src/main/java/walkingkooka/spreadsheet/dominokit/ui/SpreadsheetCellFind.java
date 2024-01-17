@@ -160,13 +160,18 @@ public final class SpreadsheetCellFind implements HasUrlFragment {
                                         final OptionalInt max,
                                         final Optional<String> valueType,
                                         final Optional<String> query) {
-        return new SpreadsheetCellFind(
-                path,
-                offset,
-                max,
-                valueType,
-                query
-        );
+        return path.isPresent() ||
+                offset.isPresent() ||
+                max.isPresent() ||
+                valueType.isPresent() ||
+                query.isPresent() ?
+                new SpreadsheetCellFind(
+                        path,
+                        offset,
+                        max,
+                        valueType,
+                        query
+                ) : EMPTY;
     }
 
     @Override
