@@ -51,7 +51,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     /**
      * Appends any {@link SpreadsheetCellFind} values to the given {@link UrlQueryString}.
      */
-    public static UrlQueryString appendCellFind(final SpreadsheetCellFind find) {
+    public static UrlQueryString cellFindQueryString(final SpreadsheetCellFind find) {
         Objects.requireNonNull(find, "find");
 
         UrlQueryString result = UrlQueryString.EMPTY;
@@ -270,7 +270,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         cells.toStringMaybeStar() +
                         "/find"
         ).setQuery(
-                appendCellFind(
+                cellFindQueryString(
                         find
                 )
         );
