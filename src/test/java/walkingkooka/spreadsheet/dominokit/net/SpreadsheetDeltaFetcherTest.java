@@ -50,18 +50,6 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetDeltaFetcher.appendCellFind(
-                        null,
-                        UrlQueryString.EMPTY
-                )
-        );
-    }
-
-    @Test
-    public void testAppendCellFindWithNullUrlQueryStringFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendCellFind(
-                        SpreadsheetCellFind.empty(),
                         null
                 )
         );
@@ -133,17 +121,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.checkEquals(
                 UrlQueryString.parse(expected),
                 SpreadsheetDeltaFetcher.appendCellFind(
-                        find,
-                        UrlQueryString.EMPTY
-                ),
-                () -> "appendCellFind " + find
-        );
-
-        this.checkEquals(
-                UrlQueryString.parse("a=b&" + expected),
-                SpreadsheetDeltaFetcher.appendCellFind(
-                        find,
-                        UrlQueryString.parse("a=b")
+                        find
                 ),
                 () -> "appendCellFind " + find
         );
