@@ -21,13 +21,12 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 // http://localhost:12345/index.html#/2/Untitled/cell/A1/find/path/LR-TB/offset/0/max/100/value-type/any/query/true()
 public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistoryToken {
@@ -35,233 +34,50 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     static SpreadsheetCellFindHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection selection,
-                                                final Optional<SpreadsheetCellRangePath> path,
-                                                final OptionalInt offset,
-                                                final OptionalInt max,
-                                                final Optional<String> valueType,
-                                                final Optional<String> query) {
+                                                final SpreadsheetCellFind find) {
         return new SpreadsheetCellFindHistoryToken(
                 id,
                 name,
                 selection,
-                path,
-                offset,
-                max,
-                valueType,
-                query
+                find
         );
     }
 
     private SpreadsheetCellFindHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
                                             final AnchoredSpreadsheetSelection selection,
-                                            final Optional<SpreadsheetCellRangePath> path,
-                                            final OptionalInt offset,
-                                            final OptionalInt max,
-                                            final Optional<String> valueType,
-                                            final Optional<String> query) {
+                                            final SpreadsheetCellFind find) {
         super(
                 id,
                 name,
                 selection
         );
-        this.path = path;
-        this.offset = offset;
-        this.max = max;
-        this.valueType = valueType;
-        this.query = query;
+        this.find = find;
     }
 
-    public Optional<SpreadsheetCellRangePath> path() {
-        return this.path;
+    public SpreadsheetCellFind find() {
+        return this.find;
     }
 
-    public SpreadsheetCellFindHistoryToken setPath(final Optional<SpreadsheetCellRangePath> path) {
-        Objects.requireNonNull(path, "path");
+    SpreadsheetCellFindHistoryToken setFind0(final SpreadsheetCellFind find) {
+        Objects.requireNonNull(find, "find");
 
-        return this.path.equals(path) ?
+        return this.find.equals(find) ?
                 this :
-                this.replace(
-                        path,
-                        this.offset,
-                        this.max,
-                        this.valueType,
-                        this.query
+                new SpreadsheetCellFindHistoryToken(
+                        this.id(),
+                        this.name(),
+                        this.selection(),
+                        find
                 );
     }
 
-    private final Optional<SpreadsheetCellRangePath> path;
-
-    public OptionalInt offset() {
-        return this.offset;
-    }
-
-    public SpreadsheetCellFindHistoryToken setOffset(final OptionalInt offset) {
-        Objects.requireNonNull(offset, "offset");
-
-        return this.offset.equals(offset) ?
-                this :
-                this.replace(
-                        this.path,
-                        offset,
-                        this.max,
-                        this.valueType,
-                        this.query
-                );
-    }
-
-    private final OptionalInt offset;
-
-    public OptionalInt max() {
-        return this.max;
-    }
-
-    public SpreadsheetCellFindHistoryToken setMax(final OptionalInt max) {
-        Objects.requireNonNull(max, "max");
-
-        return this.max.equals(max) ?
-                this :
-                this.replace(
-                        this.path,
-                        this.offset,
-                        max,
-                        this.valueType,
-                        this.query
-                );
-    }
-
-    private final OptionalInt max;
-
-    public Optional<String> valueType() {
-        return this.valueType;
-    }
-
-    public SpreadsheetCellFindHistoryToken setValueType(final Optional<String> valueType) {
-        Objects.requireNonNull(valueType, "valueType");
-
-        return this.valueType.equals(valueType) ?
-                this :
-                this.replace(
-                        this.path,
-                        this.offset,
-                        this.max,
-                        valueType,
-                        this.query
-                );
-    }
-
-    private final Optional<String> valueType;
-
-    public Optional<String> query() {
-        return this.query;
-    }
-
-    public SpreadsheetCellFindHistoryToken setQuery(final Optional<String> query) {
-        Objects.requireNonNull(query, "query");
-
-        return this.query.equals(query) ?
-                this :
-                this.replace(
-                        this.path,
-                        this.offset,
-                        this.max,
-                        this.valueType,
-                        query
-                );
-    }
-
-    private final Optional<String> query;
-
-    private SpreadsheetCellFindHistoryToken replace(final Optional<SpreadsheetCellRangePath> path,
-                                                    final OptionalInt offset,
-                                                    final OptionalInt max,
-                                                    final Optional<String> valueType,
-                                                    final Optional<String> query) {
-        return new SpreadsheetCellFindHistoryToken(
-                this.id(),
-                this.name(),
-                this.selection(),
-                path,
-                offset,
-                max,
-                valueType,
-                query
-        );
-    }
+    private final SpreadsheetCellFind find;
 
     @Override
     UrlFragment cellUrlFragment() {
-        UrlFragment urlFragment = FIND;
-
-        final Optional<SpreadsheetCellRangePath> path = this.path;
-        if (path.isPresent()) {
-            urlFragment = urlFragment.append(PATH)
-                    .append(
-                            UrlFragment.with(
-                                    path.get()
-                                            .toString()
-                            )
-                    );
-        }
-
-        final OptionalInt offset = this.offset;
-        if (offset.isPresent()) {
-            urlFragment = urlFragment.append(OFFSET)
-                    .append(
-                            UrlFragment.with(
-                                    String.valueOf(
-                                            offset.getAsInt()
-                                    )
-                            )
-                    );
-        }
-
-        final OptionalInt max = this.max;
-        if (max.isPresent()) {
-            urlFragment = urlFragment.append(MAX)
-                    .append(
-                            UrlFragment.with(
-                                    String.valueOf(
-                                            max.getAsInt()
-                                    )
-                            )
-                    );
-        }
-
-        final Optional<String> valueType = this.valueType;
-        if (valueType.isPresent()) {
-            urlFragment = urlFragment.append(VALUE_TYPE)
-                    .append(
-                            UrlFragment.with(
-                                    valueType.get()
-                            )
-                    );
-        }
-
-        final Optional<String> query = this.query;
-        if (query.isPresent()) {
-            urlFragment = urlFragment.append(QUERY)
-                    .append(
-                            UrlFragment.with(
-                                    query.get()
-                            )
-                    );
-        }
-
-        return urlFragment;
+        return FIND.append(this.find.urlFragment());
     }
-
-    private final static UrlFragment PATH = UrlFragment.parse("/path/");
-
-    private final static UrlFragment OFFSET = UrlFragment.parse("/offset/");
-
-
-    private final static UrlFragment MAX = UrlFragment.parse("/max/");
-
-
-    private final static UrlFragment VALUE_TYPE = UrlFragment.parse("/value-type/");
-
-    private final static UrlFragment QUERY = UrlFragment.parse("/query/");
 
     @Override
     public HistoryToken clearAction() {
@@ -274,13 +90,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                 this.id(),
                 this.name(),
                 selection
-        ).setFind(
-                this.path,
-                this.offset,
-                this.max,
-                this.valueType,
-                this.query
-        );
+        ).setFind(this.find);
     }
 
     @Override
@@ -300,11 +110,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                 id,
                 name,
                 this.selection(),
-                this.path,
-                this.offset,
-                this.max,
-                this.valueType,
-                this.query
+                this.find
         );
     }
 

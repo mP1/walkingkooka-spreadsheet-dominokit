@@ -22,6 +22,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -34,26 +35,22 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellFindHistoryToken> {
-
-    private final static Optional<SpreadsheetCellRangePath> PATH = Optional.of(
-            SpreadsheetCellRangePath.LRTD
-    );
-
-    private final static OptionalInt OFFSET = OptionalInt.of(123);
-    private final static OptionalInt MAX = OptionalInt.of(456);
-
-    private final static Optional<String> VALUE_TYPE = Optional.of(SpreadsheetValueType.ANY);
-
-    private final static Optional<String> QUERY = Optional.of("=789+blah()");
+    private final static SpreadsheetCellFind FIND = SpreadsheetCellFind.empty()
+            .setPath(
+                    Optional.of(SpreadsheetCellRangePath.LRTD)
+            ).setOffset(OptionalInt.of(123))
+            .setMax(OptionalInt.of(456))
+            .setValueType(Optional.of(SpreadsheetValueType.ANY))
+            .setQuery(Optional.of("=789+blah()"));
 
     // setPath..........................................................................................................
 
     @Test
-    public void testSetPathNullFails() {
+    public void testSetFindNullFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> this.createHistoryToken()
-                        .setPath(null)
+                        .setFind(null)
         );
     }
 
@@ -63,193 +60,28 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
         assertSame(
                 token,
-                token.setPath(token.path())
+                token.setFind(token.find())
         );
     }
 
     @Test
-    public void testSetPathDifferent() {
+    public void testSetFindDifferent() {
         final Optional<SpreadsheetCellRangePath> path = Optional.of(
                 SpreadsheetCellRangePath.BULR
         );
 
-        this.checkEquals(
-                SpreadsheetCellFindHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        path,
-                        OFFSET,
-                        MAX,
-                        VALUE_TYPE,
-                        QUERY
-                ),
-                this.createHistoryToken()
-                        .setPath(path)
-        );
-    }
-
-    // setOffset..........................................................................................................
-
-    @Test
-    public void testSetOffsetNullFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setOffset(null)
-        );
-    }
-
-    @Test
-    public void testSetOffsetSame() {
-        final SpreadsheetCellFindHistoryToken token = this.createHistoryToken();
-
-        assertSame(
-                token,
-                token.setOffset(token.offset())
-        );
-    }
-
-    @Test
-    public void testSetOffsetDifferent() {
-        final OptionalInt offset = OptionalInt.of(999);
+        final SpreadsheetCellFind find = SpreadsheetCellFind.empty()
+                .setPath(path);
 
         this.checkEquals(
                 SpreadsheetCellFindHistoryToken.with(
                         ID,
                         NAME,
                         SELECTION,
-                        PATH,
-                        offset,
-                        MAX,
-                        VALUE_TYPE,
-                        QUERY
+                        find
                 ),
                 this.createHistoryToken()
-                        .setOffset(offset)
-        );
-    }
-
-    // setMax..........................................................................................................
-
-    @Test
-    public void testSetMaxNullFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setMax(null)
-        );
-    }
-
-    @Test
-    public void testSetMaxSame() {
-        final SpreadsheetCellFindHistoryToken token = this.createHistoryToken();
-
-        assertSame(
-                token,
-                token.setMax(token.max())
-        );
-    }
-
-    @Test
-    public void testSetMaxDifferent() {
-        final OptionalInt max = OptionalInt.of(999);
-
-        this.checkEquals(
-                SpreadsheetCellFindHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        PATH,
-                        OFFSET,
-                        max,
-                        VALUE_TYPE,
-                        QUERY
-                ),
-                this.createHistoryToken()
-                        .setMax(max)
-        );
-    }
-
-    // setValueType..........................................................................................................
-
-    @Test
-    public void testSetValueTypeNullFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setValueType(null)
-        );
-    }
-
-    @Test
-    public void testSetValueTypeSame() {
-        final SpreadsheetCellFindHistoryToken token = this.createHistoryToken();
-
-        assertSame(
-                token,
-                token.setValueType(token.valueType())
-        );
-    }
-
-    @Test
-    public void testSetValueTypeDifferent() {
-        final Optional<String> valueType = Optional.of("different");
-
-        this.checkEquals(
-                SpreadsheetCellFindHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        PATH,
-                        OFFSET,
-                        MAX,
-                        valueType,
-                        QUERY
-                ),
-                this.createHistoryToken()
-                        .setValueType(valueType)
-        );
-    }
-
-    // setQuery..........................................................................................................
-
-    @Test
-    public void testSetQueryNullFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setQuery(null)
-        );
-    }
-
-    @Test
-    public void testSetQuerySame() {
-        final SpreadsheetCellFindHistoryToken token = this.createHistoryToken();
-
-        assertSame(
-                token,
-                token.setQuery(token.query())
-        );
-    }
-
-    @Test
-    public void testSetQueryDifferent() {
-        final Optional<String> query = Optional.of("different-query");
-
-        this.checkEquals(
-                SpreadsheetCellFindHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        PATH,
-                        OFFSET,
-                        MAX,
-                        VALUE_TYPE,
-                        query
-                ),
-                this.createHistoryToken()
-                        .setQuery(query)
+                        .setFind(find)
         );
     }
 
@@ -294,11 +126,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                         ID,
                         NAME,
                         anchoredSpreadsheetSelection,
-                        Optional.empty(), // path
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty(), // max
-                        Optional.empty(), // valueType
-                        Optional.empty() // query
+                        SpreadsheetCellFind.empty()
                 ),
                 UrlFragment.with(expected),
                 anchoredSpreadsheetSelection::toString
@@ -547,11 +375,12 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                         ID,
                         NAME,
                         SELECTION,
-                        path,
-                        offset,
-                        max,
-                        valueType,
-                        query
+                        SpreadsheetCellFind.empty()
+                                .setPath(path)
+                                .setOffset(offset)
+                                .setMax(max)
+                                .setValueType(valueType)
+                                .setQuery(query)
                 )
         );
     }
@@ -658,11 +487,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                 id,
                 name,
                 selection,
-                PATH, // path
-                OFFSET, // offset
-                MAX, // max
-                VALUE_TYPE, // valueType
-                QUERY // query
+                FIND
         );
     }
 

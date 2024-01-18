@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -32,7 +33,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToolbarComponentItemButton
         implements NopRefreshComponentLifecycle,
@@ -80,11 +80,7 @@ final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToo
                 historyToken.setSelection(
                         Optional.of(anchoredSpreadsheetSelection)
                 ).setFind(
-                        Optional.empty(), // path
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty(), // max
-                        Optional.empty(), // value-type
-                        Optional.empty() // query
+                        SpreadsheetCellFind.empty()
                 )
         );
     }
