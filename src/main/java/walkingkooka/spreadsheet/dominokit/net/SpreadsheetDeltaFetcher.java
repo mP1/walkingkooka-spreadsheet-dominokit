@@ -49,6 +49,69 @@ import java.util.OptionalInt;
 public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     /**
+     * Appends any {@link SpreadsheetCellFind} values to the given {@link UrlQueryString}.
+     */
+    public static UrlQueryString appendCellFind(final SpreadsheetCellFind find,
+                                                final UrlQueryString urlQueryString) {
+        Objects.requireNonNull(find, "find");
+        Objects.requireNonNull(urlQueryString, "urlQueryString");
+
+        UrlQueryString result = urlQueryString;
+
+        final Optional<SpreadsheetCellRangePath> path = find.path();
+        final OptionalInt offset = find.offset();
+        final OptionalInt max = find.max();
+        final Optional<String> valueType = find.valueType();
+        final Optional<String> query = find.query();
+
+        if (path.isPresent()) {
+            result = result.addParameter(
+                    CELL_RANGE_PATH,
+                    CaseKind.kebabEnumName(
+                            path.get()
+                    )
+            );
+        }
+        if (max.isPresent()) {
+            result = result.addParameter(
+                    MAX,
+                    String.valueOf(
+                            max.getAsInt()
+                    )
+            );
+        }
+        if (offset.isPresent()) {
+            result = result.addParameter(
+                    OFFSET,
+                    String.valueOf(
+                            offset.getAsInt()
+                    )
+            );
+        }
+        if (query.isPresent()) {
+            result = result.addParameter(
+                    QUERY,
+                    query.get()
+            );
+        }
+        if (valueType.isPresent()) {
+            result = result.addParameter(
+                    VALUE_TYPE,
+                    valueType.get()
+            );
+        }
+
+        return result;
+    }
+
+    final static UrlParameterName CELL_RANGE_PATH = UrlParameterName.with("cell-range-path");
+    final static UrlParameterName MAX = UrlParameterName.with("max");
+    final static UrlParameterName OFFSET = UrlParameterName.with("offset");
+    final static UrlParameterName QUERY = UrlParameterName.with("query");
+
+    final static UrlParameterName VALUE_TYPE = UrlParameterName.with("value-type");
+
+    /**
      * Creates a {@link UrlQueryString} with parameters taken from the given method parameters.
      * <pre>
      * window=A1%3AP9&
@@ -219,66 +282,19 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         Objects.requireNonNull(cells, "cells");
         Objects.requireNonNull(find, "find");
 
-        final Optional<SpreadsheetCellRangePath> path = find.path();
-        final OptionalInt offset = find.offset();
-        final OptionalInt max = find.max();
-        final Optional<String> valueType = find.valueType();
-        final Optional<String> query = find.query();
-
-        UrlQueryString urlQuery = UrlQueryString.EMPTY;
-
-        if (path.isPresent()) {
-            urlQuery = urlQuery.addParameter(
-                    CELL_RANGE_PATH,
-                    CaseKind.kebabEnumName(
-                            path.get()
-                    )
-            );
-        }
-        if (max.isPresent()) {
-            urlQuery = urlQuery.addParameter(
-                    MAX,
-                    String.valueOf(
-                            max.getAsInt()
-                    )
-            );
-        }
-        if (offset.isPresent()) {
-            urlQuery = urlQuery.addParameter(
-                    OFFSET,
-                    String.valueOf(
-                            offset.getAsInt()
-                    )
-            );
-        }
-        if (query.isPresent()) {
-            urlQuery = urlQuery.addParameter(
-                    QUERY,
-                    query.get()
-            );
-        }
-        if (valueType.isPresent()) {
-            urlQuery = urlQuery.addParameter(
-                    VALUE_TYPE,
-                    valueType.get()
-            );
-        }
-
         return Url.parseRelative(
                 "/api/spreadsheet/" +
                         id +
                         "/cell/" +
                         cells.toStringMaybeStar() +
                         "/find"
-        ).setQuery(urlQuery);
+        ).setQuery(
+                appendCellFind(
+                        find,
+                        UrlQueryString.EMPTY
+                )
+        );
     }
-
-    final static UrlParameterName CELL_RANGE_PATH = UrlParameterName.with("cell-range-path");
-    final static UrlParameterName MAX = UrlParameterName.with("max");
-    final static UrlParameterName OFFSET = UrlParameterName.with("offset");
-    final static UrlParameterName QUERY = UrlParameterName.with("query");
-
-    final static UrlParameterName VALUE_TYPE = UrlParameterName.with("value-type");
 
     public void insertAfterColumn(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,

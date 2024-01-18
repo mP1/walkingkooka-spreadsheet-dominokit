@@ -43,6 +43,112 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetDeltaFetcherTest implements Testing {
 
+    // appendCellFind..................................................................................................
+
+    @Test
+    public void testAppendCellFindWithNullCellFindFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.appendCellFind(
+                        null,
+                        UrlQueryString.EMPTY
+                )
+        );
+    }
+
+    @Test
+    public void testAppendCellFindWithNullUrlQueryStringFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetDeltaFetcher.appendCellFind(
+                        SpreadsheetCellFind.empty(),
+                        null
+                )
+        );
+    }
+
+    @Test
+    public void testAppendCellFindPath() {
+        this.appendCellFindAndCheck(
+                SpreadsheetCellFind.empty()
+                        .setPath(PATH),
+                "cell-range-path=bulr"
+        );
+    }
+
+    @Test
+    public void testAppendCellFindOffset() {
+        this.appendCellFindAndCheck(
+                SpreadsheetCellFind.empty()
+                        .setOffset(OFFSET),
+                "offset=12"
+        );
+    }
+
+    @Test
+    public void testAppendCellFindMax() {
+        this.appendCellFindAndCheck(
+                SpreadsheetCellFind.empty()
+                        .setMax(MAX),
+                "max=34"
+        );
+    }
+
+    @Test
+    public void testAppendCellFindValueType() {
+        this.appendCellFindAndCheck(
+                SpreadsheetCellFind.empty()
+                        .setValueType(
+                                Optional.of(
+                                        SpreadsheetValueType.NUMBER)
+                        ),
+                "value-type=number"
+        );
+    }
+
+    @Test
+    public void testAppendCellFindQuery() {
+        this.appendCellFindAndCheck(
+                SpreadsheetCellFind.empty()
+                        .setQuery(QUERY),
+                "query=query789"
+        );
+    }
+
+    @Test
+    public void testAppendCellFindAllParameters() {
+        this.appendCellFindAndCheck(
+                SpreadsheetCellFind.empty()
+                        .setPath(PATH)
+                        .setOffset(OFFSET)
+                        .setMax(MAX)
+                        .setValueType(VALUE_TYPE)
+                        .setQuery(QUERY),
+                "cell-range-path=bulr&max=34&offset=12&query=query789&value-type=date"
+        );
+    }
+
+    private void appendCellFindAndCheck(final SpreadsheetCellFind find,
+                                        final String expected) {
+        this.checkEquals(
+                UrlQueryString.parse(expected),
+                SpreadsheetDeltaFetcher.appendCellFind(
+                        find,
+                        UrlQueryString.EMPTY
+                ),
+                () -> "appendCellFind " + find
+        );
+
+        this.checkEquals(
+                UrlQueryString.parse("a=b&" + expected),
+                SpreadsheetDeltaFetcher.appendCellFind(
+                        find,
+                        UrlQueryString.parse("a=b")
+                ),
+                () -> "appendCellFind " + find
+        );
+    }
+
     // appendSelection..................................................................................................
 
     @Test
