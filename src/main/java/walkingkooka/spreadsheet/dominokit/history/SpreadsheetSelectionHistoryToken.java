@@ -113,7 +113,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     private HistoryToken parseFind(final TextCursor cursor) {
         SpreadsheetCellFind find = SpreadsheetCellFind.empty();
 
-        String component = parseComponentOfNull(cursor);
+        String component = parseComponentOrNull(cursor);
         if (null != component) {
             if ("path".equals(component)) {
                 find = find.setPath(
@@ -121,7 +121,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                                 .map(SpreadsheetCellRangePath::valueOf)
                 );
 
-                component = parseComponentOfNull(cursor);
+                component = parseComponentOrNull(cursor);
             }
             if ("offset".equals(component)) {
                 find = find.setOffset(
@@ -132,7 +132,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                                 OptionalInt::empty
                         )
                 );
-                component = parseComponentOfNull(cursor);
+                component = parseComponentOrNull(cursor);
             }
             if ("max".equals(component)) {
                 find = find.setMax(
@@ -143,13 +143,13 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                                 OptionalInt::empty
                         )
                 );
-                component = parseComponentOfNull(cursor);
+                component = parseComponentOrNull(cursor);
             }
             if ("value-type".equals(component)) {
                 find = find.setValueType(
                         parseComponent(cursor)
                 );
-                component = parseComponentOfNull(cursor);
+                component = parseComponentOrNull(cursor);
             }
             if ("query".equals(component)) {
                 cursor.next();
@@ -172,7 +172,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         return this.setFind(find);
     }
 
-    private static String parseComponentOfNull(final TextCursor cursor) {
+    private static String parseComponentOrNull(final TextCursor cursor) {
         return parseComponent(cursor)
                 .orElse(null);
     }
