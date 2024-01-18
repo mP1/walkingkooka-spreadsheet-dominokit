@@ -97,7 +97,7 @@ public interface AppContext extends CanGiveFocus,
     /**
      * Returns true if viewport {@link SpreadsheetCellFind} highlighting is enabled.
      */
-    boolean isViewportFindHighlightingEnabled();
+    boolean isViewportHighlightEnabled();
 
     // cellFind.........................................................................................................
 
