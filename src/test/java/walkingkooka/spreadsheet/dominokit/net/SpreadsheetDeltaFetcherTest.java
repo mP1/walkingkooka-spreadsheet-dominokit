@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -549,11 +550,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 () -> SpreadsheetDeltaFetcher.findCellsUrl(
                         null,
                         CELLS,
-                        PATH,
-                        OFFSET,
-                        MAX,
-                        VALUE_TYPE,
-                        QUERY
+                        SpreadsheetCellFind.empty()
                 )
         );
     }
@@ -565,90 +562,18 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 () -> SpreadsheetDeltaFetcher.findCellsUrl(
                         ID,
                         null,
-                        PATH,
-                        OFFSET,
-                        MAX,
-                        VALUE_TYPE,
-                        QUERY
+                        SpreadsheetCellFind.empty()
                 )
         );
     }
 
     @Test
-    public void testFindCellsWithNullPathFails() {
+    public void testFindCellsWithNullFindFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetDeltaFetcher.findCellsUrl(
                         ID,
                         CELLS,
-                        null,
-                        OFFSET,
-                        MAX,
-                        VALUE_TYPE,
-                        QUERY
-                )
-        );
-    }
-
-    @Test
-    public void testFindCellsWithNullOffsetFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.findCellsUrl(
-                        ID,
-                        CELLS,
-                        PATH,
-                        null,
-                        MAX,
-                        VALUE_TYPE,
-                        QUERY
-                )
-        );
-    }
-
-    @Test
-    public void testFindCellsWithNullMaxFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.findCellsUrl(
-                        ID,
-                        CELLS,
-                        PATH,
-                        OFFSET,
-                        null,
-                        VALUE_TYPE,
-                        QUERY
-                )
-        );
-    }
-
-    @Test
-    public void testFindCellsWithNullValueTypeFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.findCellsUrl(
-                        ID,
-                        CELLS,
-                        PATH,
-                        OFFSET,
-                        MAX,
-                        null,
-                        QUERY
-                )
-        );
-    }
-
-    @Test
-    public void testFindCellsWithNullQueryFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.findCellsUrl(
-                        ID,
-                        CELLS,
-                        PATH,
-                        OFFSET,
-                        MAX,
-                        VALUE_TYPE,
                         null
                 )
         );
@@ -659,11 +584,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.findCellsUrlAndCheck(
                 ID,
                 CELLS,
-                PATH,
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // max
-                Optional.empty(),
-                Optional.empty(),
+                SpreadsheetCellFind.empty()
+                        .setPath(PATH),
                 Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr")
         );
     }
@@ -673,12 +595,9 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.findCellsUrlAndCheck(
                 ID,
                 CELLS,
-                Optional.empty(),
-                OptionalInt.of(123), // offset
-                OptionalInt.empty(), // max
-                Optional.empty(),
-                Optional.empty(),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?offset=123")
+                SpreadsheetCellFind.empty()
+                        .setOffset(OFFSET),
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?offset=12")
         );
     }
 
@@ -687,12 +606,9 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.findCellsUrlAndCheck(
                 ID,
                 CELLS,
-                Optional.empty(),
-                OptionalInt.empty(), // offset
-                OptionalInt.of(123), // max
-                Optional.empty(),
-                Optional.empty(),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?max=123")
+                SpreadsheetCellFind.empty()
+                        .setMax(MAX),
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?max=34")
         );
     }
 
@@ -701,11 +617,11 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.findCellsUrlAndCheck(
                 ID,
                 CELLS,
-                Optional.empty(),
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // max
-                Optional.of(SpreadsheetValueType.NUMBER),
-                Optional.empty(),
+                SpreadsheetCellFind.empty()
+                        .setValueType(
+                                Optional.of(
+                                        SpreadsheetValueType.NUMBER)
+                        ),
                 Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?value-type=number")
         );
     }
@@ -715,11 +631,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.findCellsUrlAndCheck(
                 ID,
                 CELLS,
-                Optional.empty(), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // max
-                Optional.empty(), // value-type
-                QUERY,
+                SpreadsheetCellFind.empty()
+                        .setQuery(QUERY),
                 Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?query=query789")
         );
     }
@@ -729,35 +642,28 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.findCellsUrlAndCheck(
                 ID,
                 CELLS,
-                PATH,
-                OFFSET,
-                MAX,
-                VALUE_TYPE,
-                QUERY,
+                SpreadsheetCellFind.empty()
+                        .setPath(PATH)
+                        .setOffset(OFFSET)
+                        .setMax(MAX)
+                        .setValueType(VALUE_TYPE)
+                        .setQuery(QUERY),
                 Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=query789&value-type=date")
         );
     }
 
     private void findCellsUrlAndCheck(final SpreadsheetId id,
                                       final SpreadsheetCellRange cells,
-                                      final Optional<SpreadsheetCellRangePath> path,
-                                      final OptionalInt offset,
-                                      final OptionalInt max,
-                                      final Optional<String> valueType,
-                                      final Optional<String> query,
+                                      final SpreadsheetCellFind find,
                                       final RelativeUrl expected) {
         this.checkEquals(
                 expected,
                 SpreadsheetDeltaFetcher.findCellsUrl(
                         id,
                         cells,
-                        path,
-                        offset,
-                        max,
-                        valueType,
-                        query
+                        find
                 ),
-                () -> "findCellsUrl " + id + " " + cells + " path=" + path + " offset=" + offset + " max=" + max + " valueType=" + valueType + " query=" + query
+                () -> "findCellsUrl " + id + " " + cells + " find=" + find
         );
     }
 

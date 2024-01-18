@@ -206,11 +206,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 findCellsUrl(
                         id,
                         cells,
-                        find.path(),
-                        find.offset(),
-                        find.max(),
-                        find.valueType(),
-                        find.query()
+                        find
                 )
         );
     }
@@ -218,16 +214,16 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     // @VisibleForTesting
     static RelativeUrl findCellsUrl(final SpreadsheetId id,
                                     final SpreadsheetCellRange cells,
-                                    final Optional<SpreadsheetCellRangePath> path,
-                                    final OptionalInt offset,
-                                    final OptionalInt max,
-                                    final Optional<String> valueType,
-                                    final Optional<String> query) {
+                                    final SpreadsheetCellFind find) {
         checkId(id);
         Objects.requireNonNull(cells, "cells");
-        Objects.requireNonNull(path, "path");
-        Objects.requireNonNull(valueType, "valueType");
-        Objects.requireNonNull(query, "query");
+        Objects.requireNonNull(find, "find");
+
+        final Optional<SpreadsheetCellRangePath> path = find.path();
+        final OptionalInt offset = find.offset();
+        final OptionalInt max = find.max();
+        final Optional<String> valueType = find.valueType();
+        final Optional<String> query = find.query();
 
         UrlQueryString urlQuery = UrlQueryString.EMPTY;
 
