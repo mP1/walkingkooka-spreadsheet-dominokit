@@ -155,6 +155,34 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * {@see SpreadsheetCellHighlightSaveHistoryToken}
+     */
+    public static SpreadsheetCellHighlightSaveHistoryToken cellHighlightSave(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final AnchoredSpreadsheetSelection selection,
+                                                                             final boolean value) {
+        return SpreadsheetCellHighlightSaveHistoryToken.with(
+                id,
+                name,
+                selection,
+                value
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellHighlightSelectHistoryToken}
+     */
+    public static SpreadsheetCellHighlightSelectHistoryToken cellHighlightSelect(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final AnchoredSpreadsheetSelection selection) {
+        return SpreadsheetCellHighlightSelectHistoryToken.with(
+                id,
+                name,
+                selection
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellMenuHistoryToken}
      */
     public static SpreadsheetCellMenuHistoryToken cellMenu(final SpreadsheetId id,
@@ -986,6 +1014,26 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return Optional.ofNullable(token);
+    }
+
+    /**
+     * Creates a {@link SpreadsheetCellHighlightHistoryToken}.
+     */
+    public final HistoryToken setHighlight() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            if (false == this instanceof SpreadsheetCellHighlightHistoryToken) {
+                final SpreadsheetCellHistoryToken cellHistoryToken = (SpreadsheetCellHistoryToken) this;
+                historyToken = cellHighlightSelect(
+                        cellHistoryToken.id(),
+                        cellHistoryToken.name(),
+                        cellHistoryToken.selection()
+                );
+            }
+        }
+
+        return historyToken;
     }
 
     /**
