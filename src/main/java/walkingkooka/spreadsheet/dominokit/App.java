@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -497,6 +498,10 @@ public class App implements EntryPoint,
         if (token instanceof SpreadsheetCellFindHistoryToken) {
             final SpreadsheetCellFindHistoryToken cellFindHistoryToken = (SpreadsheetCellFindHistoryToken) token;
             this.lastCellFind = cellFindHistoryToken.find();
+        }
+        if (token instanceof SpreadsheetCellHighlightSaveHistoryToken) {
+            final SpreadsheetCellHighlightSaveHistoryToken save = (SpreadsheetCellHighlightSaveHistoryToken) token;
+            this.viewportHighlightEnabled = save.value();
         }
 
         if (false == token.equals(previousToken)) {
