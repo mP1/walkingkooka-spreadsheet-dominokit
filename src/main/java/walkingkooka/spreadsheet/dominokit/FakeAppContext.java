@@ -174,6 +174,11 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public boolean isViewportFindHighlightingEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
     // cellFind.........................................................................................................
 
     @Override
