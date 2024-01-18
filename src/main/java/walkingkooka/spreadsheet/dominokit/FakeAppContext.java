@@ -175,7 +175,7 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public boolean isViewportFindHighlightingEnabled() {
+    public boolean isViewportHighlightEnabled() {
         throw new UnsupportedOperationException();
     }
 

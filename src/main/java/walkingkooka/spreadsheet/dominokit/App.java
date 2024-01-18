@@ -771,11 +771,11 @@ public class App implements EntryPoint,
      * Returns true if viewport {@link SpreadsheetCellFind} highlighting is enabled.
      */
     @Override
-    public boolean isViewportFindHighlightingEnabled() {
-        return this.viewportFindEnabled;
+    public boolean isViewportHighlightEnabled() {
+        return this.viewportHighlightEnabled;
     }
 
-    private boolean viewportFindEnabled = false;
+    private boolean viewportHighlightEnabled = false;
 
     // focus............................................................................................................
 
