@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
-import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -122,11 +121,10 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                         selection.selection(),
                         Optional.empty() // no extra path
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.appendViewportAndWindow(
+                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
                                 context.viewport(SpreadsheetViewport.NO_SELECTION),
                                 context.viewportCache()
-                                        .windows(),
-                                UrlQueryString.EMPTY
+                                        .windows()
                         )
                 ),
                 SpreadsheetDelta.stylePatch(

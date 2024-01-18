@@ -127,35 +127,21 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
-    // appendSelection..................................................................................................
+    // viewportQueryString..............................................................................................
 
     @Test
-    public void testAppendViewportWithNullSelectionFails() {
+    public void testViewportQueryStringWithNullSelectionFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendViewport(
-                        null,
-                        UrlQueryString.EMPTY
-                )
-        );
-    }
-
-    @Test
-    public void testAppendViewportWithNullQueryStringFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendViewport(
-                        SpreadsheetSelection.A1
-                                .viewportRectangle(100, 200)
-                                .viewport(),
+                () -> SpreadsheetDeltaFetcher.viewportQueryString(
                         null
                 )
         );
     }
 
     @Test
-    public void testAppendViewportCell() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringCell() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.parseCell("B2")
                         .viewportRectangle(
                                 111,
@@ -172,8 +158,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportCellRange() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringCellRange() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(
                                 111,
@@ -190,8 +176,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportColumn() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringColumn() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(
                                 111,
@@ -207,8 +193,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportColumnRange() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringColumnRange() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(
                                 111,
@@ -224,8 +210,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportRow() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringRow() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(
                                 111,
@@ -242,8 +228,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportRowRange() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringRowRange() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(
                                 111,
@@ -260,8 +246,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportLabel() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringLabel() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(
                                 111,
@@ -277,8 +263,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportLabel2() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringLabel2() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(
                                 111,
@@ -290,14 +276,13 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                                 .setDefaultAnchor()
                                 )
                         ),
-                UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Label123&selectionType=label")
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Label123&selectionType=label"
         );
     }
 
     @Test
-    public void testAppendViewportColumnAndNavigationLeftColumn() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringColumnAndNavigationLeftColumn() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.parseCell("A2")
                         .viewportRectangle(
                                 111,
@@ -313,14 +298,13 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                         SpreadsheetViewportNavigation.leftColumn()
                                 )
                         ),
-                UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&navigation=left+column")
+                "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&navigation=left+column"
         );
     }
 
     @Test
-    public void testAppendViewportColumnAndNavigationExtendRightColumn() {
-        this.appendViewportAndCheck(
+    public void testViewportQueryStringColumnAndNavigationExtendRightColumn() {
+        this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.parseCell("A2")
                         .viewportRectangle(
                                 111,
@@ -336,120 +320,89 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                         SpreadsheetViewportNavigation.extendRightColumn()
                                 )
                         ),
-                UrlQueryString.parse("a=1"),
-                UrlQueryString.parse("a=1&home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&navigation=extend-right+column")
+                "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&navigation=extend-right+column"
         );
     }
 
-    private void appendViewportAndCheck(final SpreadsheetViewport viewport,
-                                        final String expected) {
-        this.appendViewportAndCheck(
+    private void viewportQueryStringAndCheck(final SpreadsheetViewport viewport,
+                                             final String expected) {
+        this.viewportQueryStringAndCheck(
                 viewport,
                 UrlQueryString.parse(expected)
         );
     }
 
-    private void appendViewportAndCheck(final SpreadsheetViewport viewport,
-                                        final UrlQueryString expected) {
-        this.appendViewportAndCheck(
-                viewport,
-                UrlQueryString.EMPTY,
-                expected
-        );
-    }
-
-    private void appendViewportAndCheck(final SpreadsheetViewport viewport,
-                                        final UrlQueryString initial,
-                                        final UrlQueryString expected) {
+    private void viewportQueryStringAndCheck(final SpreadsheetViewport viewport,
+                                             final UrlQueryString expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetDeltaFetcher.appendViewport(
-                        viewport,
-                        initial
+                SpreadsheetDeltaFetcher.viewportQueryString(
+                        viewport
                 ),
-                () -> initial + " appendViewport " + viewport
+                () -> viewport.toString()
         );
     }
 
-    // appendWindow..................................................................................................
+    // windowQueryString..................................................................................................
 
     @Test
-    public void testAppendWindowWithNullWindowFails() {
+    public void testWindowQueryStringWithNullWindowFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendWindow(
-                        null,
-                        UrlQueryString.EMPTY
-                )
-        );
-    }
-
-    @Test
-    public void testAppendWindowWithNullQueryStringFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaFetcher.appendWindow(
-                        SpreadsheetViewportWindows.EMPTY,
+                () -> SpreadsheetDeltaFetcher.windowQueryString(
                         null
                 )
         );
     }
 
     @Test
-    public void testAppendWindowEmpty() {
-        this.appendWindowAndCheck(
+    public void testWindowQueryStringEmpty() {
+        this.windowQueryStringAndCheck(
                 "",
-                "a=1",
-                "a=1"
+                ""
         );
     }
 
     @Test
-    public void testAppendWindowNotEmpty() {
-        this.appendWindowAndCheck(
+    public void testWindowQueryStringNotEmpty() {
+        this.windowQueryStringAndCheck(
                 "a1:b2",
-                "a=1",
-                "a=1&window=A1:B2"
+                "window=A1:B2"
         );
     }
 
     @Test
-    public void testAppendWindowNotEmpty2() {
-        this.appendWindowAndCheck(
+    public void testWindowQueryStringNotEmpty2() {
+        this.windowQueryStringAndCheck(
                 "a1:b2,c3:d4",
-                "a=1",
-                "a=1&window=A1:B2,C3:D4"
+                "window=A1:B2,C3:D4"
         );
     }
 
-    private void appendWindowAndCheck(final String window,
-                                      final String initial,
-                                      final String expected) {
-        this.appendWindowAndCheck(
+    private void windowQueryStringAndCheck(final String window,
+                                           final String expected) {
+        this.windowQueryStringAndCheck(
                 SpreadsheetViewportWindows.parse(window),
-                UrlQueryString.parse(initial),
                 UrlQueryString.parse(expected)
         );
     }
 
-    private void appendWindowAndCheck(final SpreadsheetViewportWindows window,
-                                      final UrlQueryString initial,
-                                      final UrlQueryString expected) {
+    private void windowQueryStringAndCheck(final SpreadsheetViewportWindows window,
+                                           final UrlQueryString expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetDeltaFetcher.appendWindow(
-                        window,
-                        initial
+                SpreadsheetDeltaFetcher.windowQueryString(
+                        window
                 ),
-                () -> initial + " appendWindow " + window
+                () -> window.toString()
         );
     }
 
-    // appendViewportAndWindowAndCheck.........................................................................................
+    // viewportAndWindowQueryStringAndCheck.........................................................................................
 
     @Test
-    public void testAppendViewportAndWindowCell() {
-        this.appendViewportAndWindowAndCheck(
+    public void testViewportWindowQueryStringCell() {
+        this.viewportAndWindowQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
@@ -465,8 +418,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportAndWindowCellRange() {
-        this.appendViewportAndWindowAndCheck(
+    public void testViewportWindowQueryStringCellRange() {
+        this.viewportAndWindowQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
@@ -483,8 +436,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportAndWindowColumn() {
-        this.appendViewportAndWindowAndCheck(
+    public void testViewportWindowQueryStringColumn() {
+        this.viewportAndWindowQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
@@ -501,8 +454,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportAndWindowColumnRange() {
-        this.appendViewportAndWindowAndCheck(
+    public void testViewportWindowQueryStringColumnRange() {
+        this.viewportAndWindowQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
@@ -518,8 +471,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportAndWindowRow() {
-        this.appendViewportAndWindowAndCheck(
+    public void testViewportWindowQueryStringRow() {
+        this.viewportAndWindowQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
@@ -535,8 +488,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportAndWindowRowRange() {
-        this.appendViewportAndWindowAndCheck(
+    public void testViewportWindowQueryStringRowRange() {
+        this.viewportAndWindowQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
@@ -552,8 +505,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testAppendViewportAndWindowLabel() {
-        this.appendViewportAndWindowAndCheck(
+    public void testViewportWindowQueryStringLabel() {
+        this.viewportAndWindowQueryStringAndCheck(
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
@@ -564,46 +517,30 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 )
                         ),
                 "A1:C3",
-                "a1",
-                "a1&home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Label123&selectionType=label&window=A1%3AC3"
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Label123&selectionType=label&window=A1%3AC3"
         );
     }
 
-    private void appendViewportAndWindowAndCheck(final SpreadsheetViewport viewport,
-                                                 final String windows,
-                                                 final String expected) {
-        this.appendViewportAndWindowAndCheck(
-                viewport,
-                windows,
-                "",
-                expected
-        );
-    }
-
-    private void appendViewportAndWindowAndCheck(final SpreadsheetViewport viewport,
-                                                 final String windows,
-                                                 final String initial,
-                                                 final String expected) {
-        this.appendViewportAndWindowAndCheck(
+    private void viewportAndWindowQueryStringAndCheck(final SpreadsheetViewport viewport,
+                                                      final String windows,
+                                                      final String expected) {
+        this.viewportAndWindowQueryStringAndCheck(
                 viewport,
                 SpreadsheetViewportWindows.parse(windows),
-                UrlQueryString.parse(initial),
                 UrlQueryString.parse(expected)
         );
     }
 
-    private void appendViewportAndWindowAndCheck(final SpreadsheetViewport viewport,
-                                                 final SpreadsheetViewportWindows windows,
-                                                 final UrlQueryString initial,
-                                                 final UrlQueryString expected) {
+    private void viewportAndWindowQueryStringAndCheck(final SpreadsheetViewport viewport,
+                                                      final SpreadsheetViewportWindows windows,
+                                                      final UrlQueryString expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetDeltaFetcher.appendViewportAndWindow(
+                SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
                         viewport,
-                        windows,
-                        initial
+                        windows
                 ),
-                () -> initial + " appendViewportAndWindow " + viewport + " " + windows
+                () -> viewport + " " + windows
         );
     }
 
