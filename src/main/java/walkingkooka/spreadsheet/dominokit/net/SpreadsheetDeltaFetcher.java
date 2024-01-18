@@ -51,12 +51,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     /**
      * Appends any {@link SpreadsheetCellFind} values to the given {@link UrlQueryString}.
      */
-    public static UrlQueryString appendCellFind(final SpreadsheetCellFind find,
-                                                final UrlQueryString urlQueryString) {
+    public static UrlQueryString appendCellFind(final SpreadsheetCellFind find) {
         Objects.requireNonNull(find, "find");
-        Objects.requireNonNull(urlQueryString, "urlQueryString");
 
-        UrlQueryString result = urlQueryString;
+        UrlQueryString result = UrlQueryString.EMPTY;
 
         final Optional<SpreadsheetCellRangePath> path = find.path();
         final OptionalInt offset = find.offset();
@@ -290,8 +288,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         "/find"
         ).setQuery(
                 appendCellFind(
-                        find,
-                        UrlQueryString.EMPTY
+                        find
                 )
         );
     }
