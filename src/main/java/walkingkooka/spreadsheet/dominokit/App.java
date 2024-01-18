@@ -498,10 +498,12 @@ public class App implements EntryPoint,
         if (token instanceof SpreadsheetCellFindHistoryToken) {
             final SpreadsheetCellFindHistoryToken cellFindHistoryToken = (SpreadsheetCellFindHistoryToken) token;
             this.lastCellFind = cellFindHistoryToken.find();
+            this.debug("App.onHistoryTokenChange updated find=" + this.lastCellFind);
         }
         if (token instanceof SpreadsheetCellHighlightSaveHistoryToken) {
             final SpreadsheetCellHighlightSaveHistoryToken save = (SpreadsheetCellHighlightSaveHistoryToken) token;
             this.viewportHighlightEnabled = save.value();
+            this.debug("App.onHistoryTokenChange updated viewportHighlightEnabled=" + this.viewportHighlightEnabled);
         }
 
         if (false == token.equals(previousToken)) {
