@@ -2260,6 +2260,58 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // cell/highlight.....................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellHighlight() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/highlight",
+                HistoryToken.cellHighlightSelect(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellHighlightSaveDisabled() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/highlight/save/disabled",
+                HistoryToken.cellHighlightSave(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        false
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellHighlightSaveEnabled() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/highlight/save/enabled",
+                HistoryToken.cellHighlightSave(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        true
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellHighlightSaveInvalid() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/highlight/save/!invalid",
+                HistoryToken.cellHighlightSelect(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
     // cell/pattern.......................................................................................................
 
     @Test
