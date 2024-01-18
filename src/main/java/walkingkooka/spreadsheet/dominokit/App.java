@@ -44,6 +44,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -59,6 +60,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.ui.AppRightDrawerOpenableComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetFindComponent;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetFindComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingComponent;
@@ -492,6 +494,11 @@ public class App implements EntryPoint,
 
         this.previousToken = token;
 
+        if (token instanceof SpreadsheetCellFindHistoryToken) {
+            final SpreadsheetCellFindHistoryToken cellFindHistoryToken = (SpreadsheetCellFindHistoryToken) token;
+            this.lastCellFind = cellFindHistoryToken.find();
+        }
+
         if (false == token.equals(previousToken)) {
             if (token instanceof UnknownHistoryToken) {
                 this.debug("App.onHistoryTokenChange updated with invalid token " + token + ", will restore previous " + previousToken);
@@ -796,6 +803,15 @@ public class App implements EntryPoint,
      * A {@link Runnable} which will give focus to some element. This is used to track and prevent multiple give focus attempts
      */
     private Runnable giveFocus;
+
+    // cellFind.........................................................................................................
+
+    @Override
+    public SpreadsheetCellFind lastCellFind() {
+        return this.lastCellFind;
+    }
+
+    private SpreadsheetCellFind lastCellFind = SpreadsheetCellFind.empty();
 
     // HasNow...........................................................................................................
 

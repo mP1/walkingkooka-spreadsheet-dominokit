@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -92,4 +93,11 @@ public interface AppContext extends CanGiveFocus,
     TextStyle viewportColumnHeaderStyle(final boolean selected);
 
     TextStyle viewportRowHeaderStyle(final boolean selected);
+
+    // cellFind.........................................................................................................
+
+    /**
+     * Returns the last {@link SpreadsheetCellFind} which will initially be {@link SpreadsheetCellFind#empty()}.
+     */
+    SpreadsheetCellFind lastCellFind();
 }
