@@ -109,42 +109,28 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     final static UrlParameterName VALUE_TYPE = UrlParameterName.with("value-type");
 
-    /**
-     * Creates a {@link UrlQueryString} with parameters taken from the given method parameters.
-     * <pre>
-     * window=A1%3AP9&
-     * selection=B1&
-     * selectionType=cell
-     * </pre>
-     */
-    public static UrlQueryString appendViewportAndWindow(final SpreadsheetViewport viewport,
-                                                         final SpreadsheetViewportWindows window,
-                                                         final UrlQueryString queryString) {
-        return appendWindow(
-                window,
-                appendViewport(
-                        viewport,
-                        queryString
-                )
-        );
+    public static UrlQueryString viewportAndWindowQueryString(final SpreadsheetViewport viewport,
+                                                              final SpreadsheetViewportWindows window) {
+        return viewportQueryString(viewport)
+                .addParameters(
+                        windowQueryString(window)
+                );
     }
 
     /**
-     * Appends the given {@link SpreadsheetSelection} to the given {@link UrlQueryString}
+     * Returns a {@link UrlQueryString} with the {@link SpreadsheetSelection} as query parameters
      * <pre>
      * window=A1%3AP9&
      * selection=B1&
      * selectionType=cell
      * </pre>
      */
-    public static UrlQueryString appendViewport(final SpreadsheetViewport viewport,
-                                                final UrlQueryString queryString) {
+    public static UrlQueryString viewportQueryString(final SpreadsheetViewport viewport) {
         Objects.requireNonNull(viewport, "viewport");
-        Objects.requireNonNull(queryString, "queryString");
 
         final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
 
-        UrlQueryString result = queryString
+        UrlQueryString result = UrlQueryString.EMPTY
                 .addParameter(HOME, rectangle.home().toString())
                 .addParameter(WIDTH, String.valueOf(rectangle.width()))
                 .addParameter(HEIGHT, String.valueOf(rectangle.height()))
@@ -208,14 +194,12 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     /**
      * Appends the given window to the given {@link UrlQueryString}
      */
-    public static UrlQueryString appendWindow(final SpreadsheetViewportWindows window,
-                                              final UrlQueryString queryString) {
+    public static UrlQueryString windowQueryString(final SpreadsheetViewportWindows window) {
         Objects.requireNonNull(window, "window");
-        Objects.requireNonNull(queryString, "queryString");
 
         return window.isEmpty() ?
-                queryString :
-                queryString.addParameter(
+                UrlQueryString.EMPTY :
+                UrlQueryString.EMPTY.addParameter(
                         WINDOW,
                         window.toString()
                 );
@@ -251,10 +235,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         selection,
                         Optional.empty()
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.appendWindow(
+                        SpreadsheetDeltaFetcher.windowQueryString(
                                 this.context.viewportCache()
-                                        .windows(),
-                                UrlQueryString.EMPTY
+                                        .windows()
                         )
                 )
         );
@@ -378,14 +361,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                    final String afterOrBefore,
                                    final int count,
                                    final Optional<SpreadsheetViewport> viewport) {
-        final UrlQueryString after = UrlQueryString.parse("count=" + count);
-
-        final UrlQueryString queryString = viewport.isPresent() ?
-                appendViewport(
-                        viewport.get(),
-                        after
-                ) :
-                after;
+        UrlQueryString queryString = UrlQueryString.parse("count=" + count);
+        if (viewport.isPresent()) {
+            queryString.addParameters(
+                    viewportQueryString(
+                            viewport.get()
+                    )
+            );
+        }
 
         this.post(
                 Url.parseRelative(
@@ -414,9 +397,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         // load cells for the new window...
         // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
-        final UrlQueryString queryString = appendViewport(
-                viewport,
-                UrlQueryString.EMPTY
+        final UrlQueryString queryString = viewportQueryString(
+                viewport
         );
 
         this.get(

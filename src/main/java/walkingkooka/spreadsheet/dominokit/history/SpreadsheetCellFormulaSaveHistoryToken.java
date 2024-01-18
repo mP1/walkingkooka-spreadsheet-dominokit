@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -128,11 +127,10 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                                 .selection(),
                         Optional.empty() // no extra path
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.appendViewportAndWindow(
+                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
                                 context.viewport(SpreadsheetViewport.NO_SELECTION),
                                 context.viewportCache()
-                                        .windows(),
-                                UrlQueryString.EMPTY
+                                        .windows()
                         )
                 ),
                 SpreadsheetDelta.EMPTY.setCells(
