@@ -21,12 +21,10 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
 
@@ -140,36 +138,20 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final SpreadsheetPatternKind kind = this.patternKind()
-                .get();
+        final Optional<SpreadsheetPatternKind> kind = this.patternKind();
 
         // clear the save from the history token.
         context.pushHistoryToken(
-                previous.setPatternKind(
-                        Optional.of(kind)
-                ).clearAction()
+                previous.setPatternKind(kind)
+                        .clearAction()
         );
 
-        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-        final Optional<SpreadsheetPattern> pattern = this.pattern();
-        final AnchoredSpreadsheetSelection selection = this.selection();
-
-        fetcher.patch(
-                fetcher.url(
+        context.spreadsheetDeltaFetcher()
+                .savePattern(
                         this.id(),
-                        selection.selection(),
-                        Optional.empty() // no extra path
-                ).setQuery(
-                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                                context.viewport(SpreadsheetViewport.NO_SELECTION),
-                                context.viewportCache()
-                                        .windows()
-                        )
-                ),
-                kind.patternPatch(
-                        pattern.orElse(null),
-                        context.marshallContext()
-                ).toString()
-        );
+                        this.selection().selection(),
+                        kind.get(),
+                        this.pattern()
+                );
     }
 }
