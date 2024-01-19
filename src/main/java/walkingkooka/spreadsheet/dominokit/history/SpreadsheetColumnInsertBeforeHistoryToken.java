@@ -24,8 +24,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Optional;
-
 public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumnInsertHistoryToken {
 
     static SpreadsheetColumnInsertBeforeHistoryToken with(final SpreadsheetId id,
@@ -92,12 +90,7 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
                 .insertBeforeColumn(
                         this.id(),
                         selection,
-                        count,
-                        Optional.of(
-                                context.viewport(
-                                        Optional.of(anchoredSpreadsheetSelection)
-                                )
-                        )
+                        count
                 );
         context.pushHistoryToken(
                 previous.clearAction()

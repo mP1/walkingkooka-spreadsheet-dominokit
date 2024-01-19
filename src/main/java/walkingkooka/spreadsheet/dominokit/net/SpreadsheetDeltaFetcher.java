@@ -310,11 +310,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     public void insertAfterColumn(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,
-                                  final int count,
-                                  final Optional<SpreadsheetViewport> viewport) {
+                                  final int count) {
         checkId(id);
         checkColumnOrColumnRange(selection);
-        checkViewport(viewport);
 
         this.context.debug("SpreadsheetDeltaFetcher.insertAfterColumn " + id + ", " + selection + ", " + count);
 
@@ -323,18 +321,15 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 id,
                 selection,
                 "after",
-                count,
-                viewport
+                count
         );
     }
 
     public void insertBeforeColumn(final SpreadsheetId id,
                                    final SpreadsheetSelection selection,
-                                   final int count,
-                                   final Optional<SpreadsheetViewport> viewport) {
+                                   final int count) {
         checkId(id);
         checkColumnOrColumnRange(selection);
-        checkViewport(viewport);
 
         this.context.debug("SpreadsheetDeltaFetcher.insertBeforeColumn " + id + ", " + selection + ", " + count);
 
@@ -343,18 +338,15 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 id,
                 selection,
                 "before",
-                count,
-                viewport
+                count
         );
     }
 
     public void insertAfterRow(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
-                               final int count,
-                               final Optional<SpreadsheetViewport> viewport) {
+                               final int count) {
         checkId(id);
         checkRowOrRowRange(selection);
-        checkViewport(viewport);
 
         this.context.debug("SpreadsheetDeltaFetcher.insertAfterRow " + id + ", " + selection + ", " + count);
 
@@ -363,18 +355,15 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 id,
                 selection,
                 "after",
-                count,
-                viewport
+                count
         );
     }
 
     public void insertBeforeRow(final SpreadsheetId id,
                                 final SpreadsheetSelection selection,
-                                final int count,
-                                final Optional<SpreadsheetViewport> viewport) {
+                                final int count) {
         checkId(id);
         checkRowOrRowRange(selection);
-        checkViewport(viewport);
 
         this.context.debug("SpreadsheetDeltaFetcher.insertBeforeRow " + id + ", " + selection + ", " + count);
 
@@ -383,26 +372,24 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 id,
                 selection,
                 "before",
-                count,
-                viewport
+                count
         );
     }
 
     private void insertColumnOrRow(final SpreadsheetId id,
                                    final SpreadsheetSelection selection,
                                    final String afterOrBefore,
-                                   final int count,
-                                   final Optional<SpreadsheetViewport> viewport) {
-        UrlQueryString queryString = UrlQueryString.parse("count=" + count);
-        if (viewport.isPresent()) {
-            queryString.addParameters(
-                    viewportQueryString(
-                            viewport.get()
-                    )
-            ).addParameters(
-                    this.context.lastCellFindQueryString()
-            );
-        }
+                                   final int count) {
+        final AppContext context = this.context;
+
+        final UrlQueryString queryString = UrlQueryString.parse("count=" + count)
+                .addParameters(
+                        viewportAndWindowQueryString(
+                                context.viewport(SpreadsheetViewport.NO_SELECTION),
+                                context.viewportCache()
+                                        .windows()
+                        )
+                );
 
         this.post(
                 Url.parseRelative(
