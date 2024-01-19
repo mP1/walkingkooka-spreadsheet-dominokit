@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
@@ -25,6 +26,7 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
+import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
@@ -430,6 +432,37 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                 "/cell/*/" +
                                 CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
                 ).setQuery(queryString)
+        );
+    }
+
+    public void saveFormulaText(final SpreadsheetId id,
+                                final SpreadsheetSelection selection,
+                                final String formulaText) {
+        final AppContext context = this.context();
+
+        // PATCH cell with new formula
+        this.patchDelta(
+                this.url(
+                        id,
+                        selection,
+                        Optional.empty() // no extra path
+                ).setQuery(
+                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
+                                context.viewport(SpreadsheetViewport.NO_SELECTION),
+                                context.viewportCache()
+                                        .windows()
+                        )
+                ),
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                selection.toCell()
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY.setText(
+                                                        formulaText
+                                                )
+                                        )
+                        )
+                )
         );
     }
 
