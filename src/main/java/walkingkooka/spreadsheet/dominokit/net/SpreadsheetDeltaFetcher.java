@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
@@ -463,6 +465,31 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                         )
                         )
                 )
+        );
+    }
+
+    public void savePattern(final SpreadsheetId id,
+                            final SpreadsheetSelection selection,
+                            final SpreadsheetPatternKind kind,
+                            final Optional<SpreadsheetPattern> pattern) {
+        final AppContext context = this.context;
+
+        this.patch(
+                this.url(
+                        id,
+                        selection,
+                        Optional.empty() // no extra path
+                ).setQuery(
+                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
+                                context.viewport(SpreadsheetViewport.NO_SELECTION),
+                                context.viewportCache()
+                                        .windows()
+                        )
+                ),
+                kind.patternPatch(
+                        pattern.orElse(null),
+                        context.marshallContext()
+                ).toString()
         );
     }
 
