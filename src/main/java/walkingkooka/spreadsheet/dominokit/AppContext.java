@@ -19,12 +19,14 @@ package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetMetadataFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
@@ -105,4 +107,17 @@ public interface AppContext extends CanGiveFocus,
      * Returns the last {@link SpreadsheetCellFind} which will initially be {@link SpreadsheetCellFind#empty()}.
      */
     SpreadsheetCellFind lastCellFind();
+
+
+    /**
+     * Returns a {@link UrlQueryString} which will not be empty if {@link #isViewportHighlightEnabled()} is true
+     * and {@link SpreadsheetCellFind} is not empty.
+     */
+    default UrlQueryString lastCellFindQueryString() {
+        return this.isViewportHighlightEnabled() ?
+                SpreadsheetDeltaFetcher.cellFindQueryString(
+                        this.lastCellFind()
+                ) :
+                UrlQueryString.EMPTY;
+    }
 }
