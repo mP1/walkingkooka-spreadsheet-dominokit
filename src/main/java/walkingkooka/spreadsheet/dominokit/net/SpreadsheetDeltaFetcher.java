@@ -245,6 +245,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                 context.viewport(SpreadsheetViewport.NO_SELECTION),
                                 context.viewportCache()
                                         .windows()
+                        ).addParameters(
+                                context.lastCellFindQueryString()
                         )
                 ),
                 SpreadsheetDelta.EMPTY
@@ -256,6 +258,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      */
     public void deleteDelta(final SpreadsheetId id,
                             final SpreadsheetSelection selection) {
+        final AppContext context = this.context;
         this.delete(
                 this.url(
                         id,
@@ -263,8 +266,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         Optional.empty()
                 ).setQuery(
                         SpreadsheetDeltaFetcher.windowQueryString(
-                                this.context.viewportCache()
+                                context.viewportCache()
                                         .windows()
+                        ).addParameters(
+                                context.lastCellFindQueryString()
                         )
                 )
         );
@@ -394,6 +399,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                     viewportQueryString(
                             viewport.get()
                     )
+            ).addParameters(
+                    this.context.lastCellFindQueryString()
             );
         }
 
@@ -420,7 +427,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         checkId(id);
         checkViewport(viewport);
 
-        this.context.debug("SpreadsheetDeltaFetcher.loadCells " + id + " " + viewport);
+        final AppContext context = this.context;
+
+        context.debug("SpreadsheetDeltaFetcher.loadCells " + id + " " + viewport);
 
         // load cells for the new window...
         // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
@@ -432,6 +441,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ).setQuery(
                         viewportQueryString(
                                 viewport
+                        ).addParameters(
+                                context.lastCellFindQueryString()
                         )
                 )
         );
@@ -459,6 +470,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                 context.viewport(SpreadsheetViewport.NO_SELECTION),
                                 context.viewportCache()
                                         .windows()
+                        ).addParameters(
+                                context.lastCellFindQueryString()
                         )
                 ),
                 SpreadsheetDelta.EMPTY.setCells(
@@ -490,6 +503,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                 context.viewport(SpreadsheetViewport.NO_SELECTION),
                                 context.viewportCache()
                                         .windows()
+                        ).addParameters(
+                                context.lastCellFindQueryString()
                         )
                 ),
                 kind.patternPatch(
@@ -515,6 +530,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                 context.viewport(SpreadsheetViewport.NO_SELECTION),
                                 context.viewportCache()
                                         .windows()
+                        ).addParameters(
+                                context.lastCellFindQueryString()
                         )
                 ),
                 SpreadsheetDelta.stylePatch(
