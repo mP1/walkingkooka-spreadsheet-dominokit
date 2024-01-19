@@ -389,6 +389,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                 context.viewportCache()
                                         .windows()
                         )
+                ).addParameters(
+                        context.lastCellFindQueryString()
                 );
 
         this.post(
