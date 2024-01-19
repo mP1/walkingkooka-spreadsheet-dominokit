@@ -61,6 +61,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
@@ -150,6 +151,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
+
+        context.addHistoryTokenWatcher(this::onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken);
     }
 
     // root.............................................................................................................
@@ -1545,7 +1548,19 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         }
     }
 
-    // history..........................................................................................................
+    // SpreadsheetCellHighlightSaveHistoryToken........................................................................
+
+    private void onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken(final HistoryToken previous,
+                                                                              final AppContext context) {
+        if (context.historyToken() instanceof SpreadsheetCellHighlightSaveHistoryToken) {
+            this.context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken viewport reload necessary");
+
+            this.reload = true;
+            this.loadViewportCells(context);
+        }
+    }
+
+    // ComponentLifecycle..............................................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
