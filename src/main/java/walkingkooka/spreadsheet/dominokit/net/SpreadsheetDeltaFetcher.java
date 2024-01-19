@@ -424,19 +424,24 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         // load cells for the new window...
         // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
-        final UrlQueryString queryString = viewportQueryString(
-                viewport
-        );
-
         this.get(
-                Url.parseRelative(
-                        "/api/spreadsheet/" +
-                                id +
-                                "/cell/*/" +
-                                CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
-                ).setQuery(queryString)
+                this.url(
+                        id,
+                        SpreadsheetSelection.ALL_CELLS,
+                        FORCE_RECOMPUTE // path
+                ).setQuery(
+                        viewportQueryString(
+                                viewport
+                        )
+                )
         );
     }
+
+    private final static Optional<UrlPath> FORCE_RECOMPUTE = Optional.of(
+            UrlPath.parse(
+                    CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
+            )
+    );
 
     public void saveFormulaText(final SpreadsheetId id,
                                 final SpreadsheetSelection selection,
