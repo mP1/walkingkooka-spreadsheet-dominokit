@@ -44,6 +44,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.text.CaseKind;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Objects;
@@ -489,6 +490,32 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 kind.patternPatch(
                         pattern.orElse(null),
                         context.marshallContext()
+                ).toString()
+        );
+    }
+
+    public <T> void saveStyleProperty(final SpreadsheetId id,
+                                      final SpreadsheetSelection selection,
+                                      final TextStylePropertyName<T> name,
+                                      final Optional<T> value) {
+        final AppContext context = this.context;
+
+        this.patch(
+                this.url(
+                        id,
+                        selection,
+                        Optional.empty() // no extra path
+                ).setQuery(
+                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
+                                context.viewport(SpreadsheetViewport.NO_SELECTION),
+                                context.viewportCache()
+                                        .windows()
+                        )
+                ),
+                SpreadsheetDelta.stylePatch(
+                        name.patch(
+                                value.orElse(null)
+                        )
                 ).toString()
         );
     }
