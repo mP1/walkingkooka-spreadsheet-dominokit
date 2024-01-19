@@ -224,6 +224,28 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.context = context;
     }
 
+    public void clear(final SpreadsheetId id,
+                      final SpreadsheetSelection selection) {
+        final AppContext context = this.context;
+
+        this.postDelta(
+                this.url(
+                        id,
+                        selection,
+                        Optional.of(
+                                UrlPath.parse("/clear")
+                        )
+                ).setQuery(
+                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
+                                context.viewport(SpreadsheetViewport.NO_SELECTION),
+                                context.viewportCache()
+                                        .windows()
+                        )
+                ),
+                SpreadsheetDelta.EMPTY
+        );
+    }
+
     /**
      * DELETEs the given {@link SpreadsheetViewport} such as a cell/column/row.
      */
