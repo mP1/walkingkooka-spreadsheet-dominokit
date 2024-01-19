@@ -18,19 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
-import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Objects;
-import java.util.Optional;
 
 public abstract class AnchoredSpreadsheetSelectionHistoryToken extends SpreadsheetSelectionHistoryToken {
 
@@ -83,26 +78,11 @@ public abstract class AnchoredSpreadsheetSelectionHistoryToken extends Spreadshe
      * Invokes the server to clear the current selection.
      */
     final void deltaClearSelection(final AppContext context) {
-        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-        final AnchoredSpreadsheetSelection selection = this.selection();
-
-        // clear row
-        fetcher.postDelta(
-                fetcher.url(
+        context.spreadsheetDeltaFetcher()
+                .clear(
                         this.id(),
-                        selection.selection(),
-                        Optional.of(
-                                UrlPath.parse("/clear")
-                        )
-                ).setQuery(
-                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                                context.viewport(SpreadsheetViewport.NO_SELECTION),
-                                context.viewportCache()
-                                        .windows()
-                        )
-                ),
-                SpreadsheetDelta.EMPTY
-        );
+                        this.selection().selection()
+                );
 
         pushSelectionHistoryToken(context);
     }
