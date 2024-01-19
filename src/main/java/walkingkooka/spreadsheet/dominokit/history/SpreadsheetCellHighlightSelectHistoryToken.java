@@ -72,13 +72,13 @@ public final class SpreadsheetCellHighlightSelectHistoryToken extends Spreadshee
 
     @Override
     HistoryToken setSave0(final String value) {
-        final boolean enabled = ENABLED.equals(value);
+        final boolean enabled = ENABLE.equals(value);
 
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
         final AnchoredSpreadsheetSelection selection = this.selection();
 
-        return enabled || DISABLED.equals(value) ?
+        return enabled || DISABLE.equals(value) ?
                 cellHighlightSave(
                         id,
                         name,

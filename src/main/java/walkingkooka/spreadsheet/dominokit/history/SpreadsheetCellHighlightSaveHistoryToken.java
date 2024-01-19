@@ -55,14 +55,14 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
     UrlFragment highlightUrlFragment() {
         return SAVE.append(
                 this.value() ?
-                        ENABLED_FRAGMENT :
-                        DISABLED_FRAGMENT
+                        ENABLE_FRAGMENT :
+                        DISABLE_FRAGMENT
         );
     }
 
-    private final static UrlFragment DISABLED_FRAGMENT = UrlFragment.with(DISABLED);
+    private final static UrlFragment DISABLE_FRAGMENT = UrlFragment.with(DISABLE);
 
-    private final static UrlFragment ENABLED_FRAGMENT = UrlFragment.with(ENABLED);
+    private final static UrlFragment ENABLE_FRAGMENT = UrlFragment.with(ENABLE);
 
     HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
         return selection(
@@ -72,8 +72,8 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
         ).setHighlight()
                 .setSave(
                         this.value ?
-                                ENABLED :
-                                DISABLED
+                                ENABLE :
+                                DISABLE
                 );
     }
 

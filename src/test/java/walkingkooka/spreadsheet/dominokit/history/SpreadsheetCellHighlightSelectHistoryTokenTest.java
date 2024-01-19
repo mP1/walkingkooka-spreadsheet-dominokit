@@ -29,12 +29,12 @@ public final class SpreadsheetCellHighlightSelectHistoryTokenTest extends Spread
     // setSave.........................................................................................................
 
     @Test
-    public void testSetSaveDisabled() {
+    public void testSetSaveDisable() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.cellHighlightSelect(ID, NAME, selection);
 
         this.checkEquals(
-                historyToken.setSave("disabled"),
+                historyToken.setSave("disable"),
                 HistoryToken.cellHighlightSave(
                         ID,
                         NAME,
@@ -45,12 +45,12 @@ public final class SpreadsheetCellHighlightSelectHistoryTokenTest extends Spread
     }
 
     @Test
-    public void testSetSaveEnabled() {
+    public void testSetSaveEnable() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.cellHighlightSelect(ID, NAME, selection);
 
         this.checkEquals(
-                historyToken.setSave("enabled"),
+                historyToken.setSave("enable"),
                 HistoryToken.cellHighlightSave(
                         ID,
                         NAME,
