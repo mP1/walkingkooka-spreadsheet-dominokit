@@ -520,7 +520,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public void patchDelta(final Url url,
+    private void patchDelta(final Url url,
                            final SpreadsheetDelta delta) {
         this.patch(
                 url,
@@ -528,7 +528,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public void postDelta(final Url url,
+    private void postDelta(final Url url,
                           final SpreadsheetDelta delta) {
         this.post(
                 url,
@@ -536,9 +536,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public RelativeUrl url(final SpreadsheetId id,
-                           final SpreadsheetSelection selection,
-                           final Optional<UrlPath> path) {
+    // @VisibleForTesting
+    RelativeUrl url(final SpreadsheetId id,
+                    final SpreadsheetSelection selection,
+                    final Optional<UrlPath> path) {
         UrlPath urlPath = this.context.spreadsheetMetadataFetcher()
                 .url(id)
                 .path();
