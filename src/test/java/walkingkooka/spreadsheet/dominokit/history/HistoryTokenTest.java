@@ -2275,9 +2275,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellHighlightSaveDisabled() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellHighlightSaveDisable() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/highlight/save/disabled",
+                "/123/SpreadsheetName456/cell/A1/highlight/save/disable",
                 HistoryToken.cellHighlightSave(
                         ID,
                         NAME,
@@ -2288,9 +2288,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellHighlightSaveEnabled() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellHighlightSaveEnable() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/highlight/save/enabled",
+                "/123/SpreadsheetName456/cell/A1/highlight/save/enable",
                 HistoryToken.cellHighlightSave(
                         ID,
                         NAME,

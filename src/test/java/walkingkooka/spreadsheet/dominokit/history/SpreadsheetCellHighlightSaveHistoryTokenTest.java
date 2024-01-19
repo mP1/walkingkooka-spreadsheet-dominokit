@@ -30,14 +30,14 @@ public final class SpreadsheetCellHighlightSaveHistoryTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/highlight/save/enabled");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/highlight/save/enable");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/highlight/save/enabled"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/highlight/save/enable"
         );
     }
 
@@ -45,7 +45,7 @@ public final class SpreadsheetCellHighlightSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/highlight/save/enabled"
+                "/123/SpreadsheetName456/cell/Label123/highlight/save/enable"
         );
     }
 
