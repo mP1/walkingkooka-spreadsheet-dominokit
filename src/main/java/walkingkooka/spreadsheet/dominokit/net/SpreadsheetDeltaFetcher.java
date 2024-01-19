@@ -241,13 +241,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                 UrlPath.parse("/clear")
                         )
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                                context.viewport(SpreadsheetViewport.NO_SELECTION),
-                                context.viewportCache()
-                                        .windows()
-                        ).addParameters(
-                                context.lastCellFindQueryString()
-                        )
+                        context.lastCellFindAndViewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.EMPTY
         );
@@ -265,12 +259,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         selection,
                         Optional.empty()
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.windowQueryString(
-                                context.viewportCache()
-                                        .windows()
-                        ).addParameters(
-                                context.lastCellFindQueryString()
-                        )
+                        context.lastCellFindAndViewportAndWindowQueryString()
                 )
         );
     }
@@ -384,13 +373,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         final UrlQueryString queryString = UrlQueryString.parse("count=" + count)
                 .addParameters(
-                        viewportAndWindowQueryString(
-                                context.viewport(SpreadsheetViewport.NO_SELECTION),
-                                context.viewportCache()
-                                        .windows()
-                        )
-                ).addParameters(
-                        context.lastCellFindQueryString()
+                        context.lastCellFindAndViewportAndWindowQueryString()
                 );
 
         this.post(
@@ -455,13 +438,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         selection,
                         Optional.empty() // no extra path
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                                context.viewport(SpreadsheetViewport.NO_SELECTION),
-                                context.viewportCache()
-                                        .windows()
-                        ).addParameters(
-                                context.lastCellFindQueryString()
-                        )
+                        context.lastCellFindAndViewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
@@ -488,13 +465,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         selection,
                         Optional.empty() // no extra path
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                                context.viewport(SpreadsheetViewport.NO_SELECTION),
-                                context.viewportCache()
-                                        .windows()
-                        ).addParameters(
-                                context.lastCellFindQueryString()
-                        )
+                        context.lastCellFindAndViewportAndWindowQueryString()
                 ),
                 kind.patternPatch(
                         pattern.orElse(null),
@@ -515,13 +486,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         selection,
                         Optional.empty() // no extra path
                 ).setQuery(
-                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                                context.viewport(SpreadsheetViewport.NO_SELECTION),
-                                context.viewportCache()
-                                        .windows()
-                        ).addParameters(
-                                context.lastCellFindQueryString()
-                        )
+                        context.lastCellFindAndViewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.stylePatch(
                         name.patch(
