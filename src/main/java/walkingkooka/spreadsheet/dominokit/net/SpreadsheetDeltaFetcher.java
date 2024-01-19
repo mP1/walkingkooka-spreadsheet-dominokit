@@ -457,6 +457,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
+    // checkXXX.........................................................................................................
+
     private static SpreadsheetId checkId(final SpreadsheetId id) {
         return Objects.requireNonNull(id, "id");
     }
@@ -492,6 +494,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     private static SpreadsheetViewport checkViewport(final SpreadsheetViewport viewport) {
         return Objects.requireNonNull(viewport, "viewport");
     }
+
+    // Fetcher.........................................................................................................
 
     @Override
     public void onBegin(final HttpMethod method,
@@ -549,6 +553,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     private final AppContext context;
+
+    // Object..........................................................................................................
 
     @Override
     public String toString() {
