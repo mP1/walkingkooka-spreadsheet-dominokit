@@ -17,19 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.set.Sets;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Objects;
-import java.util.Optional;
 
 public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCellFormulaHistoryToken {
 
@@ -115,35 +109,11 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                 this.setFormula()
         );
 
-        // PATCH cell with new formula
-        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-
-        final AnchoredSpreadsheetSelection selection = this.selection();
-
-        fetcher.patchDelta(
-                fetcher.url(
+        context.spreadsheetDeltaFetcher()
+                .saveFormulaText(
                         this.id(),
-                        this.selection()
-                                .selection(),
-                        Optional.empty() // no extra path
-                ).setQuery(
-                        SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                                context.viewport(SpreadsheetViewport.NO_SELECTION),
-                                context.viewportCache()
-                                        .windows()
-                        )
-                ),
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                selection.selection()
-                                        .toCell()
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY.setText(
-                                                        this.formula()
-                                                )
-                                        )
-                        )
-                )
-        );
+                        this.selection().selection(),
+                        this.formula()
+                );
     }
 }
