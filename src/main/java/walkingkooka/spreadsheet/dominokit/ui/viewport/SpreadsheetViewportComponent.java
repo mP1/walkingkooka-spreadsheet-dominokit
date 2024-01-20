@@ -1270,7 +1270,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 .id(VIEWPORT_SELECT_ALL_CELLS)
                 .appendChild("ALL")
                 .style(
-                        context.viewportAllStyle(false)
+                        context.viewportSelectAllCellsStyle(false)
                                 .set(
                                         TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH

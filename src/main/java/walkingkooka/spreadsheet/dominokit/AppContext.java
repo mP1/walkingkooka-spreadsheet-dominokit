@@ -88,7 +88,7 @@ public interface AppContext extends CanGiveFocus,
      */
     Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection);
 
-    TextStyle viewportAllStyle(final boolean selected);
+    TextStyle viewportSelectAllCellsStyle(final boolean selected);
 
     TextStyle viewportCellStyle(final boolean selected);
 
