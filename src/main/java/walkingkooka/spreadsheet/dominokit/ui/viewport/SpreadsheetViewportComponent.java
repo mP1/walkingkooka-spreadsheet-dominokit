@@ -46,6 +46,7 @@ import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.Url;
@@ -1535,22 +1536,20 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                     .error();
         }
 
-        style = style.set(
-                TextStylePropertyName.WIDTH,
-                cache.columnWidth(cellReference.column())
-        ).set(
-                TextStylePropertyName.HEIGHT,
-                cache.rowHeight(cellReference.row())
+        // copy width/height to MIN to prevent table squashing cells to fit.
+        style = style.setValues(
+                Maps.of(
+                        TextStylePropertyName.WIDTH,
+                        cache.columnWidth(cellReference.column()),
+                        TextStylePropertyName.HEIGHT,
+                        cache.rowHeight(cellReference.row()),
+                        TextStylePropertyName.MIN_WIDTH,
+                        style.getOrFail(TextStylePropertyName.WIDTH),
+                        TextStylePropertyName.MIN_HEIGHT,
+                        style.getOrFail(TextStylePropertyName.HEIGHT)
+                )
         );
 
-        // copy width/height to MIN to prevent table squashing cells to fit.
-        style = style.set(
-                TextStylePropertyName.MIN_WIDTH,
-                style.getOrFail(TextStylePropertyName.WIDTH)
-        ).set(
-                TextStylePropertyName.MIN_HEIGHT,
-                style.getOrFail(TextStylePropertyName.HEIGHT)
-        );
 
         final TDElement td = ElementsFactory.elements.td()
                 .id(
