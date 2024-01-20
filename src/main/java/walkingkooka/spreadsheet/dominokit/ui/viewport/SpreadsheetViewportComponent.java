@@ -1163,7 +1163,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     private void render(final AppContext context) {
         final HistoryToken historyToken = context.historyToken();
         final Optional<AnchoredSpreadsheetSelection> maybeAnchored = historyToken.selectionOrEmpty();
-        this.setSelection(maybeAnchored);
+        this.setSelected(maybeAnchored);
 
         final TableElement tableElement = this.tableElement;
 
@@ -1687,24 +1687,24 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      */
     private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
 
-    private void setSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
+    private void setSelected(final Optional<AnchoredSpreadsheetSelection> selected) {
         final AppContext context = this.context;
         context.debug(
-                "SpreadsheetViewportComponent.setSelection " + selection.orElse(null)
+                "SpreadsheetViewportComponent.setSelection " + selected.orElse(null)
         );
 
         Predicate<SpreadsheetSelection> predicate = null;
 
-        if (selection.isPresent()) {
+        if (selected.isPresent()) {
             // special case for label
             final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
-                    .nonLabelSelection(selection.get().selection());
+                    .nonLabelSelection(selected.get().selection());
             if (maybeNotLabel.isPresent()) {
                 predicate = maybeNotLabel.get();
             }
         }
 
-        this.selection = null != predicate ?
+        this.selected = null != predicate ?
                 predicate :
                 Predicates.never();
     }
@@ -1800,10 +1800,14 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * This is used during rendering of the viewport headers or cells if the item should be selected.
      */
     private boolean isSelected(final SpreadsheetSelection selection) {
-        return this.selection.test(selection);
+        return this.selected.test(selection);
     }
 
-    private Predicate<SpreadsheetSelection> selection = Predicates.never();
+    /**
+     * A {@link Predicate} that matches selected {@link SpreadsheetSelection} and will be used to highlight cells,
+     * columns and rows.
+     */
+    private Predicate<SpreadsheetSelection> selected = Predicates.never();
 
     /**
      * Helper that finds the {@link Element} for the given {@link SpreadsheetSelection}
