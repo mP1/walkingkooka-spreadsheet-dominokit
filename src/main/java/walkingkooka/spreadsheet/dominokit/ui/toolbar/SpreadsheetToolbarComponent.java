@@ -228,15 +228,15 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 ).orElse("");
     }
 
-    public static String findCells() {
+    public static String findCellsId() {
         return TOOLBAR_ID_PREFIX + "find-cells";
     }
 
-    public static String formatPattern() {
+    public static String formatPatternId() {
         return TOOLBAR_ID_PREFIX + "format-pattern";
     }
 
-    public static String parsePattern() {
+    public static String parsePatternId() {
         return TOOLBAR_ID_PREFIX + "parse-pattern";
     }
 
