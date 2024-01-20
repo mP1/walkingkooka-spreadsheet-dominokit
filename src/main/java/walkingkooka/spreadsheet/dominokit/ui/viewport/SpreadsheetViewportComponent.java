@@ -1315,18 +1315,17 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 .id(id(column))
                 .style(
                         this.columnHeaderStyle(column)
-                                .set(
-                                        TextStylePropertyName.MIN_WIDTH,
-                                        width
-                                ).set(
-                                        TextStylePropertyName.WIDTH,
-                                        width
-                                ).set(
-                                        TextStylePropertyName.MIN_HEIGHT,
-                                        COLUMN_HEIGHT
-                                ).set(
-                                        TextStylePropertyName.HEIGHT,
-                                        COLUMN_HEIGHT
+                                .setValues(
+                                        Maps.of(
+                                                TextStylePropertyName.MIN_WIDTH,
+                                                width,
+                                                TextStylePropertyName.WIDTH,
+                                                width,
+                                                TextStylePropertyName.MIN_HEIGHT,
+                                                COLUMN_HEIGHT,
+                                                TextStylePropertyName.HEIGHT,
+                                                COLUMN_HEIGHT
+                                        )
                                 ).css() + "box-sizing: border-box;"
                 );
 
@@ -1409,18 +1408,17 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 .id(id(row))
                 .style(
                         this.rowHeaderStyle(row)
-                                .set(
-                                        TextStylePropertyName.MIN_WIDTH,
-                                        ROW_WIDTH
-                                ).set(
-                                        TextStylePropertyName.WIDTH,
-                                        ROW_WIDTH
-                                ).set(
-                                        TextStylePropertyName.MIN_HEIGHT,
-                                        height
-                                ).set(
-                                        TextStylePropertyName.HEIGHT,
-                                        height
+                                .setValues(
+                                        Maps.of(
+                                                TextStylePropertyName.MIN_WIDTH,
+                                                ROW_WIDTH,
+                                                TextStylePropertyName.WIDTH,
+                                                ROW_WIDTH,
+                                                TextStylePropertyName.MIN_HEIGHT,
+                                                height,
+                                                TextStylePropertyName.HEIGHT,
+                                                height
+                                        )
                                 ).css() + "box-sizing: border-box;"
                 );
 
@@ -1476,18 +1474,17 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                         BORDER_COLOR,
                         BORDER_STYLE,
                         BORDER_LENGTH
-
                 ).setPadding(
                         Length.none()
-                ).set(
-                        TextStylePropertyName.TEXT_ALIGN,
-                        TextAlign.CENTER
-                ).set(
-                        TextStylePropertyName.VERTICAL_ALIGN,
-                        VerticalAlign.MIDDLE
-                ).set(
-                        TextStylePropertyName.FONT_WEIGHT,
-                        FontWeight.NORMAL
+                ).setValues(
+                        Maps.of(
+                                TextStylePropertyName.TEXT_ALIGN,
+                                TextAlign.CENTER,
+                                TextStylePropertyName.VERTICAL_ALIGN,
+                                VerticalAlign.MIDDLE,
+                                TextStylePropertyName.FONT_WEIGHT,
+                                FontWeight.NORMAL
+                        )
                 );
         COLUMN_ROW_HEADER_SELECTED_STYLE = style.set(
                 TextStylePropertyName.BACKGROUND_COLOR,
