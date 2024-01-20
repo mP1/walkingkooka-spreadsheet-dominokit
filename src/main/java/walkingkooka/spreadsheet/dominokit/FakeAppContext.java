@@ -155,26 +155,6 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public TextStyle viewportSelectAllCellsStyle(final boolean selected) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextStyle viewportCellStyle(final boolean selected) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextStyle viewportColumnHeaderStyle(final boolean selected) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextStyle viewportRowHeaderStyle(final boolean selected) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public boolean isViewportHighlightEnabled() {
         throw new UnsupportedOperationException();
     }
