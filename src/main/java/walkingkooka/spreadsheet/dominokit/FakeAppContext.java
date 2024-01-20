@@ -155,7 +155,7 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public TextStyle viewportAllStyle(final boolean selected) {
+    public TextStyle viewportSelectAllCellsStyle(final boolean selected) {
         throw new UnsupportedOperationException();
     }
 

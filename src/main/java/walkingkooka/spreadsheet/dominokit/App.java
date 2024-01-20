@@ -661,7 +661,7 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public TextStyle viewportAllStyle(final boolean selected) {
+    public TextStyle viewportSelectAllCellsStyle(final boolean selected) {
         return this.viewportColumnRowHeaderStyle(selected);
     }
 
