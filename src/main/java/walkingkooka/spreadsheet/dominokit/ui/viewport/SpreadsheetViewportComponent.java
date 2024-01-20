@@ -950,7 +950,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 "h-scrollbar-left",
                 SpreadsheetIcons.arrowLeft(),
                 "right: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 8) + "px; bottom: -10px;",
-                () -> SpreadsheetViewportNavigation.leftPixel(this.viewportTableCellsWidth() - 1)
+                () -> SpreadsheetViewportNavigation.leftPixel(this.tableCellsWidth() - 1)
         );
     }
 
@@ -959,7 +959,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 "v-scrollbar-up",
                 SpreadsheetIcons.arrowUp(),
                 "bottom: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 3) + "px; right: -16px;",
-                () -> SpreadsheetViewportNavigation.upPixel(this.viewportTableCellsHeight() - 1)
+                () -> SpreadsheetViewportNavigation.upPixel(this.tableCellsHeight() - 1)
         );
     }
 
@@ -968,7 +968,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 "h-scrollbar-right",
                 SpreadsheetIcons.arrowRight(),
                 "right: " + (SCROLLBAR_LENGTH - 8) + "px; bottom: -10px;",
-                () -> SpreadsheetViewportNavigation.rightPixel(this.viewportTableCellsWidth() - 1)
+                () -> SpreadsheetViewportNavigation.rightPixel(this.tableCellsWidth() - 1)
         );
     }
 
@@ -977,7 +977,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 "v-scrollbar-down",
                 SpreadsheetIcons.arrowDown(),
                 "bottom: " + (SCROLLBAR_LENGTH - 3) + "px; right: -16px;",
-                () -> SpreadsheetViewportNavigation.downPixel(this.viewportTableCellsHeight() - 1)
+                () -> SpreadsheetViewportNavigation.downPixel(this.tableCellsHeight() - 1)
         );
     }
 
@@ -1098,10 +1098,10 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         this.reload = reload;
 
         this.tableContainer.element()
-                .style.cssText = "width: " + this.viewportWidth()  + "px; height: " + this.viewportHeight() + "px; overflow: hidden; position: relative;";
+                .style.cssText = "width: " + this.width() + "px; height: " + this.height() + "px; overflow: hidden; position: relative;";
 
         this.tableElement.element()
-                .style.cssText = "width: " + this.viewportTableWidth() + "px; height: " + this.viewportTableHeight() + "px; overflow: hidden";
+                .style.cssText = "width: " + this.tableWidth() + "px; height: " + this.tableHeight() + "px; overflow: hidden";
 
         this.loadViewportCellsIfNecessary(context);
     }
@@ -1113,38 +1113,38 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 .rectangle()
                 .home();
         return home.viewportRectangle(
-                        this.viewportTableCellsWidth(),
-                        this.viewportTableCellsHeight()
+                        this.tableCellsWidth(),
+                        this.tableCellsHeight()
                 ).viewport()
                 .setSelection(selection);
     }
 
-    private int viewportWidth() {
+    private int width() {
         return this.width;
     }
 
-    private int viewportTableWidth() {
-        return this.viewportWidth() - SCROLLBAR_LENGTH;
+    private int tableWidth() {
+        return this.width() - SCROLLBAR_LENGTH;
     }
 
-    private int viewportTableCellsWidth() {
-        return this.viewportTableWidth() -
+    private int tableCellsWidth() {
+        return this.tableWidth() -
                 (int) ROW_WIDTH.pixelValue() -
                 SCROLLBAR_LENGTH;
     }
 
-    private int viewportHeight() {
+    private int height() {
         return this.height - this.formulaComponent.element()
                 .offsetHeight;
     }
 
-    private int viewportTableHeight() {
-        return this.viewportHeight() -
+    private int tableHeight() {
+        return this.height() -
                 SCROLLBAR_LENGTH;
     }
 
-    private int viewportTableCellsHeight() {
-        return this.viewportTableHeight() -
+    private int tableCellsHeight() {
+        return this.tableHeight() -
                 (int) COLUMN_HEIGHT.pixelValue();
     }
 
@@ -1879,9 +1879,9 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
         viewport = viewport.setRectangle(
                 rectangle.setWidth(
-                        this.viewportTableCellsWidth()
+                        this.tableCellsWidth()
                 ).setHeight(
-                        this.viewportTableCellsHeight()
+                        this.tableCellsHeight()
                 )
         ).setNavigations(navigations);
 
