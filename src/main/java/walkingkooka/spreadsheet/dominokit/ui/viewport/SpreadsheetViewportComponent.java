@@ -47,6 +47,7 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.color.Color;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -91,8 +92,13 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
+import walkingkooka.tree.text.BorderStyle;
+import walkingkooka.tree.text.FontFamily;
+import walkingkooka.tree.text.FontSize;
 import walkingkooka.tree.text.FontStyle;
+import walkingkooka.tree.text.FontVariant;
 import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.Hyphens;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
@@ -100,6 +106,7 @@ import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.VerticalAlign;
+import walkingkooka.tree.text.WordBreak;
 
 import java.util.Collection;
 import java.util.List;
@@ -1270,7 +1277,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 .id(VIEWPORT_SELECT_ALL_CELLS)
                 .appendChild("ALL")
                 .style(
-                        context.viewportSelectAllCellsStyle(false)
+                        this.viewportSelectAllCellsStyle(false)
                                 .set(
                                         TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH
@@ -1289,6 +1296,12 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private final static String VIEWPORT_SELECT_ALL_CELLS = VIEWPORT_ID_PREFIX + "select-all-cells";
 
+    private TextStyle viewportSelectAllCellsStyle(final boolean selected) {
+        return this.viewportColumnRowHeaderStyle(selected);
+    }
+
+    // renderColumnHeader | renderRowHeader.............................................................................
+
     /**
      * Creates a TH with the column in UPPER CASE with column width.
      */
@@ -1300,7 +1313,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final THElement th = ElementsFactory.elements.th()
                 .id(id(column))
                 .style(
-                        context.viewportColumnHeaderStyle(this.isSelected(column))
+                        this.viewportColumnHeaderStyle(this.isSelected(column))
                                 .set(
                                         TextStylePropertyName.MIN_WIDTH,
                                         width
@@ -1394,7 +1407,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final TDElement td = ElementsFactory.elements.td()
                 .id(id(row))
                 .style(
-                        context.viewportRowHeaderStyle(this.isSelected(row))
+                        this.viewportRowHeaderStyle(this.isSelected(row))
                                 .set(
                                         TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH
@@ -1433,6 +1446,66 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private final static Length<?> ROW_WIDTH = Length.pixel(80.0);
 
+    private TextStyle viewportColumnHeaderStyle(final boolean selected) {
+        return this.viewportColumnRowHeaderStyle(selected);
+    }
+
+    private TextStyle viewportRowHeaderStyle(final boolean selected) {
+        return this.viewportColumnRowHeaderStyle(selected);
+    }
+
+    private TextStyle viewportColumnRowHeaderStyle(final boolean selected) {
+        return selected ?
+                COLUMN_ROW_HEADER_SELECTED_STYLE :
+                COLUMN_ROW_HEADER_UNSELECTED_STYLE;
+    }
+
+    private final static TextStyle COLUMN_ROW_HEADER_SELECTED_STYLE;
+    private final static TextStyle COLUMN_ROW_HEADER_UNSELECTED_STYLE;
+
+    private final static Color BORDER_COLOR = Color.BLACK;
+    private final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
+    private final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
+
+    static {
+        final TextStyle style = TextStyle.EMPTY
+                .setMargin(
+                        Length.none()
+                ).setBorder(
+                        BORDER_COLOR,
+                        BORDER_STYLE,
+                        BORDER_LENGTH
+
+                ).setPadding(
+                        Length.none()
+                ).set(
+                        TextStylePropertyName.TEXT_ALIGN,
+                        TextAlign.CENTER
+                ).set(
+                        TextStylePropertyName.VERTICAL_ALIGN,
+                        VerticalAlign.MIDDLE
+                ).set(
+                        TextStylePropertyName.FONT_WEIGHT,
+                        FontWeight.NORMAL
+                );
+        COLUMN_ROW_HEADER_SELECTED_STYLE = style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                Color.parse("#555")
+        );
+        COLUMN_ROW_HEADER_UNSELECTED_STYLE = style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                Color.parse("#aaa")
+        );
+    }
+
+    // renderCell.......................................................................................................
+
+    private void refreshCellStyle(final SpreadsheetMetadata metadata) {
+        final TextStyle cellStyle = metadata.effectiveStyle();
+        this.cellSelectedStyle = cellStyle.merge(CELL_SELECTED_STYLE);
+        this.cellUnselectedStyle = cellStyle.merge(CELL_UNSELECTED_STYLE);
+    }
+
     /**
      * Renders the given cell, reading the cell contents using {@link AppContext#viewportCache()}.
      */
@@ -1441,7 +1514,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
-        TextStyle style = context.viewportCellStyle(
+        TextStyle style = this.viewportCellStyle(
                 this.isSelected(cellReference)
         );
         TextNode content = null;
@@ -1503,6 +1576,68 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
         return element;
     }
+
+    private TextStyle viewportCellStyle(final boolean selected) {
+        return selected ?
+                this.cellSelectedStyle :
+                this.cellUnselectedStyle;
+    }
+
+    private TextStyle cellSelectedStyle;
+    private TextStyle cellUnselectedStyle;
+    private final static TextStyle CELL_SELECTED_STYLE;
+    private final static TextStyle CELL_UNSELECTED_STYLE;
+
+    static {
+        final TextStyle style = TextStyle.EMPTY
+                .setMargin(
+                        Length.none()
+                ).setBorder(
+                        BORDER_COLOR,
+                        BORDER_STYLE,
+                        BORDER_LENGTH
+
+                ).setPadding(
+                        Length.none()
+                ).set(
+                        TextStylePropertyName.TEXT_ALIGN,
+                        TextAlign.LEFT
+                ).set(
+                        TextStylePropertyName.VERTICAL_ALIGN,
+                        VerticalAlign.TOP
+                ).set(
+                        TextStylePropertyName.FONT_FAMILY,
+                        FontFamily.with("MS Sans Serif")
+                ).set(
+                        TextStylePropertyName.FONT_SIZE,
+                        FontSize.with(11)
+                ).set(
+                        TextStylePropertyName.FONT_STYLE,
+                        FontStyle.NORMAL
+                ).set(
+                        TextStylePropertyName.FONT_WEIGHT,
+                        FontWeight.NORMAL
+                ).set(
+                        TextStylePropertyName.FONT_VARIANT,
+                        FontVariant.NORMAL
+                ).set(
+                        TextStylePropertyName.HYPHENS,
+                        Hyphens.NONE
+                ).set(
+                        TextStylePropertyName.WORD_BREAK,
+                        WordBreak.NORMAL
+                );
+        CELL_SELECTED_STYLE = style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                Color.parse("#ccc")
+        );
+        CELL_UNSELECTED_STYLE = style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                Color.parse("#fff")
+        );
+    }
+
+    // giveViewportSelectionFocus......................................................................................
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final AppContext context) {
@@ -1666,6 +1801,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
         Objects.requireNonNull(metadata, "metadata");
+
+        this.refreshCellStyle(metadata);
 
         if (metadata.shouldViewRefresh(this.metadata)) {
             this.reload = true;

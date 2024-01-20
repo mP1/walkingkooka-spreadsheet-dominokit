@@ -84,19 +84,8 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
-import walkingkooka.tree.text.BorderStyle;
-import walkingkooka.tree.text.FontFamily;
-import walkingkooka.tree.text.FontSize;
-import walkingkooka.tree.text.FontStyle;
-import walkingkooka.tree.text.FontVariant;
-import walkingkooka.tree.text.FontWeight;
-import walkingkooka.tree.text.Hyphens;
-import walkingkooka.tree.text.Length;
-import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.tree.text.VerticalAlign;
-import walkingkooka.tree.text.WordBreak;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
@@ -382,10 +371,6 @@ public class App implements EntryPoint,
         final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
         this.spreadsheetMetadata = metadata;
 
-        final TextStyle cellStyle = metadata.effectiveStyle();
-        this.cellSelectedStyle = cellStyle.merge(CELL_SELECTED_STYLE);
-        this.cellUnselectedStyle = cellStyle.merge(CELL_UNSELECTED_STYLE);
-
         // update the global JsonNodeUnmarshallContext.
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 metadata.expressionNumberKind(),
@@ -657,127 +642,6 @@ public class App implements EntryPoint,
         return this.viewportComponent.viewportCell(
                 selection,
                 this
-        );
-    }
-
-    @Override
-    public TextStyle viewportSelectAllCellsStyle(final boolean selected) {
-        return this.viewportColumnRowHeaderStyle(selected);
-    }
-
-    @Override
-    public TextStyle viewportCellStyle(final boolean selected) {
-        return selected ?
-                this.cellSelectedStyle :
-                this.cellUnselectedStyle;
-    }
-
-    private TextStyle cellSelectedStyle;
-    private TextStyle cellUnselectedStyle;
-
-    private final static Color BORDER_COLOR = Color.BLACK;
-    private final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
-    private final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
-
-    private final static TextStyle CELL_SELECTED_STYLE;
-    private final static TextStyle CELL_UNSELECTED_STYLE;
-
-    static {
-        final TextStyle style = TextStyle.EMPTY
-                .setMargin(
-                        Length.none()
-                ).setBorder(
-                        BORDER_COLOR,
-                        BORDER_STYLE,
-                        BORDER_LENGTH
-
-                ).setPadding(
-                        Length.none()
-                ).set(
-                        TextStylePropertyName.TEXT_ALIGN,
-                        TextAlign.LEFT
-                ).set(
-                        TextStylePropertyName.VERTICAL_ALIGN,
-                        VerticalAlign.TOP
-                ).set(
-                        TextStylePropertyName.FONT_FAMILY,
-                        FontFamily.with("MS Sans Serif")
-                ).set(
-                        TextStylePropertyName.FONT_SIZE,
-                        FontSize.with(11)
-                ).set(
-                        TextStylePropertyName.FONT_STYLE,
-                        FontStyle.NORMAL
-                ).set(
-                        TextStylePropertyName.FONT_WEIGHT,
-                        FontWeight.NORMAL
-                ).set(
-                        TextStylePropertyName.FONT_VARIANT,
-                        FontVariant.NORMAL
-                ).set(
-                        TextStylePropertyName.HYPHENS,
-                        Hyphens.NONE
-                ).set(
-                        TextStylePropertyName.WORD_BREAK,
-                        WordBreak.NORMAL
-                );
-        CELL_SELECTED_STYLE = style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                Color.parse("#ccc")
-        );
-        CELL_UNSELECTED_STYLE = style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                Color.parse("#fff")
-        );
-    }
-
-    @Override
-    public TextStyle viewportColumnHeaderStyle(final boolean selected) {
-        return this.viewportColumnRowHeaderStyle(selected);
-    }
-
-    @Override
-    public TextStyle viewportRowHeaderStyle(final boolean selected) {
-        return this.viewportColumnRowHeaderStyle(selected);
-    }
-
-    private TextStyle viewportColumnRowHeaderStyle(final boolean selected) {
-        return selected ?
-                COLUMN_ROW_HEADER_SELECTED_STYLE :
-                COLUMN_ROW_HEADER_UNSELECTED_STYLE;
-    }
-
-    private final static TextStyle COLUMN_ROW_HEADER_SELECTED_STYLE;
-    private final static TextStyle COLUMN_ROW_HEADER_UNSELECTED_STYLE;
-
-    static {
-        final TextStyle style = TextStyle.EMPTY
-                .setMargin(
-                        Length.none()
-                ).setBorder(
-                        BORDER_COLOR,
-                        BORDER_STYLE,
-                        BORDER_LENGTH
-
-                ).setPadding(
-                        Length.none()
-                ).set(
-                        TextStylePropertyName.TEXT_ALIGN,
-                        TextAlign.CENTER
-                ).set(
-                        TextStylePropertyName.VERTICAL_ALIGN,
-                        VerticalAlign.MIDDLE
-                ).set(
-                        TextStylePropertyName.FONT_WEIGHT,
-                        FontWeight.NORMAL
-                );
-        COLUMN_ROW_HEADER_SELECTED_STYLE = style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                Color.parse("#555")
-        );
-        COLUMN_ROW_HEADER_UNSELECTED_STYLE = style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                Color.parse("#aaa")
         );
     }
 
