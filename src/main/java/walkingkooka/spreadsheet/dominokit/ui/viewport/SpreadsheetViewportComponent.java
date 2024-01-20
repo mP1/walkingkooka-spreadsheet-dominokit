@@ -1278,7 +1278,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 .id(VIEWPORT_SELECT_ALL_CELLS)
                 .appendChild("ALL")
                 .style(
-                        this.viewportSelectAllCellsStyle(false)
+                        this.viewportSelectAllCellsStyle()
                                 .set(
                                         TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH
@@ -1297,8 +1297,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private final static String VIEWPORT_SELECT_ALL_CELLS = VIEWPORT_ID_PREFIX + "select-all-cells";
 
-    private TextStyle viewportSelectAllCellsStyle(final boolean selected) {
-        return this.viewportColumnRowHeaderStyle(selected);
+    private TextStyle viewportSelectAllCellsStyle() {
+        return this.viewportColumnRowHeaderStyle(SpreadsheetSelection.ALL_CELLS);
     }
 
     // renderColumnHeader | renderRowHeader.............................................................................
@@ -1314,7 +1314,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final THElement th = ElementsFactory.elements.th()
                 .id(id(column))
                 .style(
-                        this.viewportColumnHeaderStyle(this.isSelected(column))
+                        this.viewportColumnHeaderStyle(column)
                                 .set(
                                         TextStylePropertyName.MIN_WIDTH,
                                         width
@@ -1408,7 +1408,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final TDElement td = ElementsFactory.elements.td()
                 .id(id(row))
                 .style(
-                        this.viewportRowHeaderStyle(this.isSelected(row))
+                        this.viewportRowHeaderStyle(row)
                                 .set(
                                         TextStylePropertyName.MIN_WIDTH,
                                         ROW_WIDTH
@@ -1447,16 +1447,16 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private final static Length<?> ROW_WIDTH = Length.pixel(80.0);
 
-    private TextStyle viewportColumnHeaderStyle(final boolean selected) {
-        return this.viewportColumnRowHeaderStyle(selected);
+    private TextStyle viewportColumnHeaderStyle(final SpreadsheetColumnReference column) {
+        return this.viewportColumnRowHeaderStyle(column);
     }
 
-    private TextStyle viewportRowHeaderStyle(final boolean selected) {
-        return this.viewportColumnRowHeaderStyle(selected);
+    private TextStyle viewportRowHeaderStyle(final SpreadsheetRowReference row) {
+        return this.viewportColumnRowHeaderStyle(row);
     }
 
-    private TextStyle viewportColumnRowHeaderStyle(final boolean selected) {
-        return selected ?
+    private TextStyle viewportColumnRowHeaderStyle(final SpreadsheetSelection selection) {
+        return this.isSelected(selection) ?
                 COLUMN_ROW_HEADER_SELECTED_STYLE :
                 COLUMN_ROW_HEADER_UNSELECTED_STYLE;
     }
@@ -1515,9 +1515,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
-        TextStyle style = this.viewportCellStyle(
-                this.isSelected(cellReference)
-        );
+        TextStyle style = this.viewportCellStyle(cellReference);
         TextNode content = null;
 
         // if an error is present add a tooltip below the cell with the error message.
@@ -1576,8 +1574,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         return element;
     }
 
-    private TextStyle viewportCellStyle(final boolean selected) {
-        return selected ?
+    private TextStyle viewportCellStyle(final SpreadsheetSelection selection) {
+        return this.isSelected(selection) ?
                 this.cellSelectedStyle :
                 this.cellUnselectedStyle;
     }
