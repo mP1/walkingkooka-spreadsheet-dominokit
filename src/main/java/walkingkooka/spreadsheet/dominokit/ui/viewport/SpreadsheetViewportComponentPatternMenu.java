@@ -334,8 +334,8 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
                 PARSE_ID;
     }
 
-    private final static String FORMAT_ID = SpreadsheetViewportComponent.VIEWPORT_CONTEXT_MENU_ID_PREFIX + "-format-";
-    private final static String PARSE_ID = SpreadsheetViewportComponent.VIEWPORT_CONTEXT_MENU_ID_PREFIX + "-parse-";
+    private final static String FORMAT_ID = SpreadsheetViewportComponent.CONTEXT_MENU_ID_PREFIX + "-format-";
+    private final static String PARSE_ID = SpreadsheetViewportComponent.CONTEXT_MENU_ID_PREFIX + "-parse-";
 
     final HistoryToken historyToken;
     final Locale locale;
