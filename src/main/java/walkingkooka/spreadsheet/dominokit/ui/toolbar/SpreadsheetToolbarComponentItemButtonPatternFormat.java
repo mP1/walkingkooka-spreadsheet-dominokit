@@ -41,7 +41,7 @@ final class SpreadsheetToolbarComponentItemButtonPatternFormat extends Spreadshe
 
     private SpreadsheetToolbarComponentItemButtonPatternFormat(final HistoryTokenContext context) {
         super(
-                SpreadsheetToolbarComponent.formatPattern(),
+                SpreadsheetToolbarComponent.formatPatternId(),
                 SpreadsheetIcons.parsePattern(),
                 "Format pattern(s)",
                 context
