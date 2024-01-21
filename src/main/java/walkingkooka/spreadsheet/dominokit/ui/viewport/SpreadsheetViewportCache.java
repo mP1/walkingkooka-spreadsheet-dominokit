@@ -115,51 +115,75 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                                    final AppContext context) {
         this.setWindows(delta.window());
 
-        final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
+        {
+            final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
-        final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
-        final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = this.labelToNonLabel;
+            final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
+            final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = this.labelToNonLabel;
 
-        final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
+            // while removing deleted cells also remove cell-> labels, any labels will be (re)-added a few lines below.
+            for (final SpreadsheetCellReference cell : delta.deletedCells()) {
+                cells.remove(cell);
+                cellToLabels.remove(cell);
+            }
+
+            // while adding cells also remove cell -> label, ditto.
+            for (final SpreadsheetCell cell : delta.cells()) {
+                final SpreadsheetCellReference cellReference = cell.reference();
+                cells.put(
+                        cellReference,
+                        cell
+                );
+                cellToLabels.remove(cellReference);
+            }
+
+            this.labelMappings = delta.labels();
+
+            // expands a Map holding cells to labels, the visitor is mostly used to add cell -> labels for all cells in a range,
+            // as well as handling multiple label to label mappings eventually to cells.
+            SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
+                    delta.labels(),
+                    cellToLabels,
+                    labelToNonLabel,
+                    this.windows
+            );
+        }
+
+        // columns.....................................................................................................
+        {
+            final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
+            final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
+
+            for (final SpreadsheetColumnReference column : delta.deletedColumns()) {
+                columns.remove(column);
+                columnWidths.remove(column);
+            }
+
+            for (final SpreadsheetColumn column : delta.columns()) {
+                columns.put(
+                        column.reference(),
+                        column
+                );
+            }
+
+            for (final Entry<SpreadsheetColumnReference, Double> width : delta.columnWidths().entrySet()) {
+                columnWidths.put(
+                        width.getKey(),
+                        Length.pixel(width.getValue())
+                );
+            }
+
+            final OptionalInt columnCount = delta.columnCount();
+            if (columnCount.isPresent()) {
+                this.columnCount = columnCount;
+            }
+        }
+
+        // rows.........................................................................................................
+
         final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
-
-        final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
         final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
 
-        // while removing deleted cells also remove cell-> labels, any labels will be (re)-added a few lines below.
-        for (final SpreadsheetCellReference cell : delta.deletedCells()) {
-            cells.remove(cell);
-            cellToLabels.remove(cell);
-        }
-
-        // while adding cells also remove cell -> label, ditto.
-        for (final SpreadsheetCell cell : delta.cells()) {
-            final SpreadsheetCellReference cellReference = cell.reference();
-            cells.put(
-                    cellReference,
-                    cell
-            );
-            cellToLabels.remove(cellReference);
-        }
-
-        for (final SpreadsheetColumnReference column : delta.deletedColumns()) {
-            columns.remove(column);
-            columnWidths.remove(column);
-        }
-
-        for (final SpreadsheetColumn column : delta.columns()) {
-            columns.put(
-                    column.reference(),
-                    column
-            );
-        }
-
-        for (final Entry<SpreadsheetColumnReference, Double> width : delta.columnWidths().entrySet()) {
-            columnWidths.put(
-                    width.getKey(),
-                    Length.pixel(width.getValue())
-            );
-        }
         for (final SpreadsheetRowReference row : delta.deletedRows()) {
             rows.remove(row);
             rowHeights.remove(row);
@@ -177,22 +201,6 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                     height.getKey(),
                     Length.pixel(height.getValue())
             );
-        }
-
-        this.labelMappings = delta.labels();
-
-        // expands a Map holding cells to labels, the visitor is mostly used to add cell -> labels for all cells in a range,
-        // as well as handling multiple label to label mappings eventually to cells.
-        SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
-                delta.labels(),
-                cellToLabels,
-                labelToNonLabel,
-                this.windows
-        );
-
-        final OptionalInt columnCount = delta.columnCount();
-        if (columnCount.isPresent()) {
-            this.columnCount = columnCount;
         }
 
         final OptionalInt rowCount = delta.rowCount();
