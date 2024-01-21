@@ -126,11 +126,13 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
         final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
 
+        // while removing deleted cells also remove cell-> labels, any labels will be (re)-added a few lines below.
         for (final SpreadsheetCellReference cell : delta.deletedCells()) {
             cells.remove(cell);
             cellToLabels.remove(cell);
         }
 
+        // while adding cells also remove cell -> label, ditto.
         for (final SpreadsheetCell cell : delta.cells()) {
             final SpreadsheetCellReference cellReference = cell.reference();
             cells.put(
@@ -179,6 +181,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         this.labelMappings = delta.labels();
 
+        // expands a Map holding cells to labels, the visitor is mostly used to add cell -> labels for all cells in a range,
+        // as well as handling multiple label to label mappings eventually to cells.
         SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
                 delta.labels(),
                 cellToLabels,
