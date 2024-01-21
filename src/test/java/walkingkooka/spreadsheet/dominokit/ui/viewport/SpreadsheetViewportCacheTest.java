@@ -117,6 +117,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache
         );
 
+        this.checkMatchedCells(
+                cache
+        );
+
         this.checkColumns(
                 cache
         );
@@ -184,6 +188,11 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                         A2_CELL,
                                         A3_CELL
                                 )
+                        ).setMatchedCells(
+                                Sets.of(
+                                        A1,
+                                        A2
+                                )
                         ).setColumns(
                                 Sets.of(
                                         COLUMN_A,
@@ -209,6 +218,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A1_CELL,
                 A2_CELL,
                 A3_CELL
+        );
+
+        this.checkMatchedCells(
+                cache,
+                A1,
+                A2
         );
 
         this.checkColumns(
@@ -467,6 +482,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost"))
                                 )
+                        ).setMatchedCells(
+                                Sets.of(
+                                        A1
+                                )
                         ),
                 CONTEXT
         );
@@ -484,6 +503,17 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         this.checkCells(
                 cache,
                 A1_CELL
+        );
+
+        this.checkMatchedCells(
+                cache,
+                A1
+        );
+
+        this.isMatchedCellAndCheck(
+                cache,
+                A2,
+                false
         );
 
         this.checkNonLabelSelection(
@@ -736,6 +766,8 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         A1_CELL
                                 )
+                        ).setMatchedCells(
+                                Sets.of(A1)
                         ).setLabels(
                                 Sets.of(
                                         LABEL_MAPPINGA1A
@@ -749,6 +781,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         .setCells(
                                 Sets.of(
                                         A2_CELL
+                                )
+                        ).setMatchedCells(
+                                Sets.of(
+                                        A2
                                 )
                         ).setLabels(
                                 Sets.of(
@@ -764,6 +800,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 A1_CELL,
                 A2_CELL
+        );
+
+        this.checkMatchedCells(
+                cache,
+                A1,
+                A2
         );
 
         this.checkCellToLabels(
@@ -782,6 +824,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         .setCells(
                                 Sets.of(
                                         A1_CELL
+                                )
+                        ).setMatchedCells(
+                                Sets.of(
+                                        A1
                                 )
                         ).setLabels(
                                 Sets.of(
@@ -802,9 +848,66 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 A1_CELL
         );
 
+        this.checkMatchedCells(
+                cache,
+                A1
+        );
+
         this.checkCellToLabels(
                 cache,
                 LABEL_MAPPINGA1A
+        );
+    }
+
+    @Test
+    public void testOnSpreadsheetDeltaTwiceSecondDeletedCells() {
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1_CELL,
+                                        A2_CELL
+                                )
+                        ).setMatchedCells(
+                                Sets.of(
+                                        A1,
+                                        A2
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGB3
+                                )
+                        ).setWindow(WINDOW),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setDeletedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        )
+                        .setWindow(WINDOW),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                A2_CELL
+        );
+
+        this.checkMatchedCells(
+                cache,
+                A2
+        );
+
+        this.checkCellToLabels(
+                cache,
+                LABEL_MAPPINGB3
         );
     }
 
@@ -817,6 +920,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                         .setCells(
                                 Sets.of(
                                         A1_CELL
+                                )
+                        ).setMatchedCells(
+                                Sets.of(
+                                        A1
                                 )
                         ).setLabels(
                                 Sets.of(
@@ -832,6 +939,10 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                                 Sets.of(
                                         A2_CELL
                                 )
+                        ).setMatchedCells(
+                                Sets.of(
+                                        A2
+                                )
                         ).setLabels(
                                 Sets.of(
                                         LABEL_MAPPINGB3
@@ -844,6 +955,12 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache,
                 A1_CELL,
                 A2_CELL
+        );
+
+        this.checkMatchedCells(
+                cache,
+                A1,
+                A2
         );
 
         this.checkCellToLabels(
@@ -2020,6 +2137,52 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                     cache.cell(entry.getKey())
             );
         }
+    }
+
+    private void checkMatchedCells(final SpreadsheetViewportCache cache,
+                                   final SpreadsheetCellReference... cells) {
+        this.checkMatchedCells(
+                cache,
+                Sets.of(cells)
+        );
+
+        for(final SpreadsheetCellReference cell : cells ) {
+            this.isMatchedCellAndCheck(
+                    cache,
+                    cell,
+                    true
+            );
+        }
+    }
+
+    private void checkMatchedCells(final SpreadsheetViewportCache cache,
+                                   final Set<SpreadsheetCellReference> matchedCells) {
+        this.checkEquals(
+                matchedCells,
+                cache.matchedCells,
+                "matchedCells"
+        );
+
+
+        final Set<SpreadsheetCellReference> cells = Sets.sorted();
+        cells.addAll(cache.matchedCells);
+        cells.removeAll(cache.cells.keySet());
+
+        this.checkEquals(
+                Sets.empty(),
+                cells,
+                "matchedCells should only include cells"
+        );
+    }
+
+    private void isMatchedCellAndCheck(final SpreadsheetViewportCache cache,
+                                       final SpreadsheetCellReference cell,
+                                       final boolean expected) {
+        this.checkEquals(
+                expected,
+                cache.isMatchedCell(cell),
+                () -> cache + " isMatchedCell " + cell
+        );
     }
 
     private void checkColumns(final SpreadsheetViewportCache cache,

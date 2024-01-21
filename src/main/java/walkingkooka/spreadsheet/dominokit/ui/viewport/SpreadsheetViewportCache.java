@@ -77,6 +77,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         this.labelMappings = Sets.empty();
         this.cellToLabels.clear();
+        this.matchedCells.clear();
         this.labelToNonLabel.clear();
 
         this.columns.clear();
@@ -120,12 +121,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         {
             final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
 
+            final Set<SpreadsheetCellReference> matchedCells = this.matchedCells;
+
             final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
             final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = this.labelToNonLabel;
 
             // while removing deleted cells also remove cell-> labels, any labels will be (re)-added a few lines below.
             for (final SpreadsheetCellReference cell : delta.deletedCells()) {
                 cells.remove(cell);
+                matchedCells.remove(cell);
                 cellToLabels.remove(cell);
             }
 
@@ -138,6 +142,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 );
                 cellToLabels.remove(cellReference);
             }
+
+            matchedCells.addAll(delta.matchedCells());
 
             this.labelMappings = delta.labels();
 
@@ -213,6 +219,10 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
         return Optional.ofNullable(this.cells.get(cell));
+    }
+
+    public boolean isMatchedCell(final SpreadsheetCellReference cell) {
+        return this.matchedCells.contains(cell);
     }
 
     Optional<SpreadsheetColumn> column(final SpreadsheetColumnReference column) {
@@ -331,6 +341,12 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     final Map<SpreadsheetCellReference, SpreadsheetCell> cells = Maps.sorted();
 
     /**
+     * A cache of all matched cells. Anytime the window or {link SpreadsheetCellFind} changes this entire cache needs
+     * to be cleared and all cells in the viewport reloaded.
+     */
+    final Set<SpreadsheetCellReference> matchedCells = Sets.sorted();
+
+    /**
      * A cache of columns, this is used mostly to track hidden columns.
      */
     // VisibleForTesting
@@ -387,6 +403,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             if (false == this.windows.equals(windows)) {
                 // no window clear caches
                 this.cells.clear();
+                this.matchedCells.clear();
 
                 this.labelMappings.clear();
                 this.cellToLabels.clear();
@@ -419,6 +436,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public String toString() {
         return ToStringBuilder.empty()
                 .value(this.cells)
+                .value(this.matchedCells)
                 .value(this.columns)
                 .value(this.columnWidths)
                 .value(this.cellToLabels)
