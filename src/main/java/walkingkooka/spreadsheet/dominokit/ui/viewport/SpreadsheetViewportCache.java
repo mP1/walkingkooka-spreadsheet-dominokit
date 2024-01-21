@@ -108,7 +108,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     Length<?> defaultHeight;
 
     /**
-     * Removes any deleted cells and then adds updated cells to the {@link #cells}.
+     * Basically adds/removes cells, labels, column, rows from the fields in this cache.
+     * Note the cache is only cleared when the windows changes, as {@link SpreadsheetDelta} are mostly changes and not
+     * all values for a window.
      */
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
