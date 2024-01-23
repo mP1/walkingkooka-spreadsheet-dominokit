@@ -390,6 +390,14 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
+    public void testWindowQueryStringAllCells() {
+        this.windowQueryStringAndCheck(
+                "*",
+                "window=*"
+        );
+    }
+
+    @Test
     public void testWindowQueryStringNotEmpty2() {
         this.windowQueryStringAndCheck(
                 "a1:b2,c3:d4",
