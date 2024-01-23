@@ -63,6 +63,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
@@ -161,6 +162,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         context.addSpreadsheetDeltaWatcher(this);
 
         context.addHistoryTokenWatcher(this::onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken);
+        context.addHistoryTokenWatcher(this::onHistoryTokenChangeSpreadsheetCellFindHistoryToken);
     }
 
     // root.............................................................................................................
@@ -1700,6 +1702,16 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                                                                               final AppContext context) {
         if (context.historyToken() instanceof SpreadsheetCellHighlightSaveHistoryToken) {
             this.context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken viewport reload necessary");
+
+            this.reload = true;
+            this.loadViewportCells(context);
+        }
+    }
+
+    private void onHistoryTokenChangeSpreadsheetCellFindHistoryToken(final HistoryToken previous,
+                                                                     final AppContext context) {
+        if (context.historyToken() instanceof SpreadsheetCellFindHistoryToken) {
+            this.context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken viewport reload necessary");
 
             this.reload = true;
             this.loadViewportCells(context);
