@@ -1571,11 +1571,28 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         return element;
     }
 
-    private TextStyle cellStyle(final SpreadsheetSelection selection) {
-        return this.isSelected(selection) ?
+    private TextStyle cellStyle(final SpreadsheetCellReference cell) {
+        TextStyle style = this.isSelected(cell) ?
                 this.cellSelectedStyle :
                 this.cellUnselectedStyle;
+
+        if (this.context.viewportCache()
+                .isMatchedCell(cell)) {
+
+            style = style.set(
+                    TextStylePropertyName.BACKGROUND_COLOR,
+                    style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
+                            .mix(CANARY_YELLOW, 0.5f)
+            );
+        }
+
+        return style;
     }
+
+    /**
+     * This color will be mixed with the cell background-color for
+     */
+    private final static Color CANARY_YELLOW = Color.parse("#FFFF8F");
 
     private TextStyle cellSelectedStyle;
     private TextStyle cellUnselectedStyle;
