@@ -148,7 +148,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
             result = result.addParameter(
                     SELECTION,
-                    selection.toString()
+                    selection.toStringMaybeStar()
             ).addParameter(
                     SELECTION_TYPE,
                     selection.selectionTypeName()
