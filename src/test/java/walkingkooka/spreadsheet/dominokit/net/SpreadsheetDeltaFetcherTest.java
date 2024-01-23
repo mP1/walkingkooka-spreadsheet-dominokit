@@ -176,6 +176,24 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
+    public void testViewportQueryStringCellRangeAll() {
+        this.viewportQueryStringAndCheck(
+                SpreadsheetSelection.A1
+                        .viewportRectangle(
+                                111,
+                                222
+                        ).viewport()
+                        .setSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.ALL_CELLS
+                                                .setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
+                                )
+                        ),
+                "home=A1&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=*&selectionType=cell-range&selectionAnchor=top-right"
+        );
+    }
+
+    @Test
     public void testViewportQueryStringColumn() {
         this.viewportQueryStringAndCheck(
                 SpreadsheetSelection.A1
