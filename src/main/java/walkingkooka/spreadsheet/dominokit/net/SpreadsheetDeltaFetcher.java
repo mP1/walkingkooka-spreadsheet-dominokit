@@ -573,10 +573,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         return selection;
     }
 
-    private Optional<SpreadsheetViewport> checkViewport(final Optional<SpreadsheetViewport> viewport) {
-        return Objects.requireNonNull(viewport, "viewport");
-    }
-
     private static SpreadsheetViewport checkViewport(final SpreadsheetViewport viewport) {
         return Objects.requireNonNull(viewport, "viewport");
     }
