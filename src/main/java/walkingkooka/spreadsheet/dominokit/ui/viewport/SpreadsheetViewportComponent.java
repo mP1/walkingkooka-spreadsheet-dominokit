@@ -1736,21 +1736,28 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 String reload = "Cannot resolve label";
                 if (maybeSelectionNotLabel.isPresent()) {
 
-                    reload = "offset not empty or 0";
+                    final SpreadsheetSelection selectionNotLabel = maybeSelectionNotLabel.get();
+                    final SpreadsheetViewportWindows windows = cache.windows();
 
-                    final OptionalInt offset = spreadsheetCellFind.offset();
-                    if (false == offset.isPresent() || offset.getAsInt() == 0) {
+                    reload = "window " + windows + " not within " + selectionNotLabel.toStringMaybeStar();
 
-                        reload = "max not empty or less than window cell count";
+                    if (selectionNotLabel.containsAll(windows)) {
+                        reload = "offset not empty or 0";
 
-                        final SpreadsheetViewportWindows windows = cache.windows();
-                        final long windowsCellCount = windows.count();
-                        final OptionalInt max = spreadsheetCellFind.max();
+                        final OptionalInt offset = spreadsheetCellFind.offset();
+                        if (false == offset.isPresent() || offset.getAsInt() == 0) {
 
-                        if (false == max.isPresent() || max.getAsInt() < windowsCellCount) {
-                            reload = null;
-                            notRequired = "";
+                            reload = "max not empty or less than window cell count";
+
+                            final long windowsCellCount = windows.count();
+                            final OptionalInt max = spreadsheetCellFind.max();
+
+                            if (false == max.isPresent() || max.getAsInt() < windowsCellCount) {
+                                reload = null;
+                                notRequired = "";
+                            }
                         }
+
                     }
                 }
 
