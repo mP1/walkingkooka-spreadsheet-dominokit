@@ -58,6 +58,7 @@ import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
+import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
@@ -77,6 +78,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatc
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
@@ -1708,13 +1710,60 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         }
     }
 
+    /**
+     * Tries to skip reloading the viewport cells if the {@link AppContext#lastCellFind()} is the same or should include
+     * all highlights for the current {@link SpreadsheetViewportCache#windows()}.
+     */
     private void onHistoryTokenChangeSpreadsheetCellFindHistoryToken(final HistoryToken previous,
                                                                      final AppContext context) {
-        if (context.historyToken() instanceof SpreadsheetCellFindHistoryToken) {
-            this.context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken viewport reload necessary");
+        final HistoryToken token = context.historyToken();
+        if (token instanceof SpreadsheetCellFindHistoryToken) {
+            final SpreadsheetCellFindHistoryToken findHistoryToken = token.cast(SpreadsheetCellFindHistoryToken.class);
+            final SpreadsheetCellFind spreadsheetCellFind = findHistoryToken.find();
 
-            this.reload = true;
-            this.loadViewportCells(context);
+            String notRequired = null;
+
+            final SpreadsheetCellFind last = context.lastCellFind();
+            if (last.equals(spreadsheetCellFind)) {
+                notRequired = " find unchanged " + last;
+            } else {
+                final SpreadsheetViewportCache cache = context.viewportCache();
+                final Optional<SpreadsheetSelection> maybeSelectionNotLabel = cache.nonLabelSelection(
+                        findHistoryToken.selection()
+                                .selection()
+                );
+
+                String reload = "Cannot resolve label";
+                if (maybeSelectionNotLabel.isPresent()) {
+
+                    reload = "offset not empty or 0";
+
+                    final OptionalInt offset = spreadsheetCellFind.offset();
+                    if (false == offset.isPresent() || offset.getAsInt() == 0) {
+
+                        reload = "max not empty or less than window cell count";
+
+                        final SpreadsheetViewportWindows windows = cache.windows();
+                        final long windowsCellCount = windows.count();
+                        final OptionalInt max = spreadsheetCellFind.max();
+
+                        if (false == max.isPresent() || max.getAsInt() < windowsCellCount) {
+                            reload = null;
+                            notRequired = "";
+                        }
+                    }
+                }
+
+                if (null != reload) {
+                    context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken load viewport required because " + reload);
+                    this.reload = true;
+                    this.loadViewportCells(context);
+                }
+            }
+
+            if (null != notRequired) {
+                context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken " + notRequired + " viewport load not required");
+            }
         }
     }
 
