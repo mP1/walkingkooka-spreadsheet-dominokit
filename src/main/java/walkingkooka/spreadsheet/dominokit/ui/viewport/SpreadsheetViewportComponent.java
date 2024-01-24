@@ -1916,7 +1916,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
                     .nonLabelSelection(selected.get().selection());
             if (maybeNotLabel.isPresent()) {
-                predicate = maybeNotLabel.get();
+                final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
+
+                // is not cell-range required otherwise select-all-component will always be rendered as selected.
+                predicate = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
+                        (false == s.isCellRange() && selectionNotLabel.test(s));
             }
         }
 
