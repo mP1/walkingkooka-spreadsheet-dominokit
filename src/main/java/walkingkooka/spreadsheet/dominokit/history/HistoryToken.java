@@ -59,6 +59,10 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     private final static int MAX_LENGTH = 8192;
 
+    public final static String DISABLE = "disable";
+
+    public final static String ENABLE = "enable";
+
     /**
      * {@see SpreadsheetCellSelectHistoryToken}
      */

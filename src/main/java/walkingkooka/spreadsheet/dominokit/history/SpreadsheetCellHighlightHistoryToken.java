@@ -27,10 +27,6 @@ import java.util.Optional;
 
 public abstract class SpreadsheetCellHighlightHistoryToken extends SpreadsheetCellHistoryToken {
 
-    final static String DISABLE = "disable";
-
-    final static String ENABLE = "enable";
-
     SpreadsheetCellHighlightHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
                                          final AnchoredSpreadsheetSelection selection) {
