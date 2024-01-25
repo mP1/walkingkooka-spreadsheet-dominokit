@@ -69,6 +69,15 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         return SpreadsheetToolbarComponentItemButtonPatternFormat.with(context);
     }
 
+    /**
+     * {@see SpreadsheetToolbarComponentItemButtonViewportHighlight}
+     */
+    static SpreadsheetToolbarComponentItem highlightCells(final AppContext context) {
+        return SpreadsheetToolbarComponentItemButtonViewportHighlight.with(
+                context
+        );
+    }
+
     static SpreadsheetToolbarComponentItem italics(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.FONT_STYLE,

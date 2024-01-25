@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -90,7 +89,7 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
         return flexLayout;
     }
 
-    private List<SpreadsheetToolbarComponentItem> components(final HistoryTokenContext context) {
+    private List<SpreadsheetToolbarComponentItem> components(final AppContext context) {
         return Lists.of(
                 SpreadsheetToolbarComponentItem.bold(context),
                 SpreadsheetToolbarComponentItem.italics(context),
@@ -106,7 +105,9 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 SpreadsheetToolbarComponentItem.clear(context),
                 SpreadsheetToolbarComponentItem.formatPattern(context),
                 SpreadsheetToolbarComponentItem.parsePattern(context),
-                SpreadsheetToolbarComponentItem.findCells(context)
+                // FindCells | Highlight
+                SpreadsheetToolbarComponentItem.findCells(context),
+                SpreadsheetToolbarComponentItem.highlightCells(context)
         );
     }
 
@@ -234,6 +235,10 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
 
     public static String formatPatternId() {
         return TOOLBAR_ID_PREFIX + "format-pattern";
+    }
+
+    public static String highlightId() {
+        return TOOLBAR_ID_PREFIX + "highlight";
     }
 
     public static String parsePatternId() {
