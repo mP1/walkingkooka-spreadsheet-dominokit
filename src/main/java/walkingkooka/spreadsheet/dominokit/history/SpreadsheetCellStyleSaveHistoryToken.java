@@ -101,8 +101,6 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final TextStylePropertyName<T> propertyName = this.propertyName();
-
         // clear the save from the history token.
         context.pushHistoryToken(
                 previous.clearAction()
