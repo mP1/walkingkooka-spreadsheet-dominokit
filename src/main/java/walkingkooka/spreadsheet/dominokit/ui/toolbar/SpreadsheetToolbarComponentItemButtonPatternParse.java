@@ -42,7 +42,7 @@ final class SpreadsheetToolbarComponentItemButtonPatternParse extends Spreadshee
     private SpreadsheetToolbarComponentItemButtonPatternParse(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.parsePatternId(),
-                SpreadsheetIcons.formatPattern(),
+                SpreadsheetIcons.parsePattern(),
                 "Parse pattern(s)",
                 context
         );
