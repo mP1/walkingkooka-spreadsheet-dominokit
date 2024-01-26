@@ -119,7 +119,6 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
     @Override //
     void onToolbarRefreshEnd(final int cellPresentCount,
                              final AppContext context) {
-        context.debug("@@onToolbarRefreshEnd=context.find.isViewportHighlightEnabled()=" + context.isViewportHighlightEnabled());
         this.setButtonSelected(
                 context.isViewportHighlightEnabled(), // selected
                 context
