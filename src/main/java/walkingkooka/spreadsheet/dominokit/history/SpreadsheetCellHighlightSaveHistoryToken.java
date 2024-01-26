@@ -107,7 +107,7 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
                                final AppContext context) {
         // clear the save from the history token.
         context.pushHistoryToken(
-                this.clearAction()
+                previous
         );
     }
 }

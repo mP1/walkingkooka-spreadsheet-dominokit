@@ -101,10 +101,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // clear the save from the history token.
-        context.pushHistoryToken(
-                previous.clearAction()
-        );
+        context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
                 .saveStyleProperty(

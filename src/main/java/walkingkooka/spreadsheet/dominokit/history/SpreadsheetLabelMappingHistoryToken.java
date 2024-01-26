@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -123,22 +122,5 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     @Override//
     final HistoryToken setUnfreeze0() {
         return this;
-    }
-
-    /**
-     * Pushes a label select, typically called after a save or delete label.
-     */
-    final void pushLabelSelect(final AppContext context) {
-        final Optional<SpreadsheetLabelName> labelName = this.labelName();
-
-        if (labelName.isPresent()) {
-            context.pushHistoryToken(
-                    HistoryToken.labelMapping(
-                            this.id(),
-                            this.name(),
-                            labelName
-                    )
-            );
-        }
     }
 }

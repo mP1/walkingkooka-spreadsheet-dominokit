@@ -138,19 +138,13 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final Optional<SpreadsheetPatternKind> kind = this.patternKind();
-
-        // clear the save from the history token.
-        context.pushHistoryToken(
-                previous.setPatternKind(kind)
-                        .clearAction()
-        );
+        context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
                 .savePattern(
                         this.id(),
                         this.selection().selection(),
-                        kind.get(),
+                        this.patternKind().get(),
                         this.pattern()
                 );
     }
