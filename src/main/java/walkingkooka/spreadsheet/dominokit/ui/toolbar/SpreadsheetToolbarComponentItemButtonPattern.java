@@ -70,7 +70,7 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
                                 Optional.of(
                                         this.spreadsheetPatternKind()
                                 )
-                        ).clearSave()
+                        )
                 ).ifPresent(context::pushHistoryToken);
     }
 
