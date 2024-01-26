@@ -43,7 +43,7 @@ final class SpreadsheetToolbarComponentItemButtonPatternFormat extends Spreadshe
         super(
                 SpreadsheetToolbarComponent.formatPatternId(),
                 SpreadsheetIcons.parsePattern(),
-                "Format pattern(s)",
+                "Format pattern(s)...",
                 context
         );
     }
