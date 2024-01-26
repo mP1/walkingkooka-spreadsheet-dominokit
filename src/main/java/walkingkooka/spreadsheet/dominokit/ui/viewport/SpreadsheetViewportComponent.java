@@ -1609,14 +1609,17 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             style = style.set(
                     TextStylePropertyName.BACKGROUND_COLOR,
                     style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
-                            .mix(CANARY_YELLOW, 0.5f)
+                            .mix(HIGHLIGHT_COLOR, 0.5f)
             );
         }
 
         return style;
     }
 
-    private final static Color CANARY_YELLOW = Color.parse("#FFFF8F");
+    /**
+     * This {@link Color} is mixed with cells that are selected for highlighting because of a {@link SpreadsheetCellFind} query.
+     */
+    private final static Color HIGHLIGHT_COLOR = WebColorName.LIGHTYELLOW.color();
 
     private TextStyle hideZeroValues(final TextStyle style) {
         return style.set(
