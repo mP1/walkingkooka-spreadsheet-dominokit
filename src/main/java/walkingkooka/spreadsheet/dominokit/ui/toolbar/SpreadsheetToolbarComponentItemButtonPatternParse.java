@@ -43,7 +43,7 @@ final class SpreadsheetToolbarComponentItemButtonPatternParse extends Spreadshee
         super(
                 SpreadsheetToolbarComponent.parsePatternId(),
                 SpreadsheetIcons.parsePattern(),
-                "Parse pattern(s)",
+                "Parse pattern(s)...",
                 context
         );
     }

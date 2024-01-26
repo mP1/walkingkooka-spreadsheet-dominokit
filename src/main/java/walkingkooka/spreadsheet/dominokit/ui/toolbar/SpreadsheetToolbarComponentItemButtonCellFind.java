@@ -50,7 +50,7 @@ final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToo
         super(
                 SpreadsheetToolbarComponent.findCellsId(),
                 SpreadsheetIcons.findCells(),
-                "Find cells",
+                "Find cells...",
                 context
         );
     }
