@@ -71,9 +71,8 @@ final class AppContextSpreadsheetLabelMappingComponentContext implements Spreads
     }
 
     @Override
-    public SpreadsheetLabelMappingHistoryToken historyToken() {
-        return this.context.historyToken()
-                .cast(SpreadsheetLabelMappingHistoryToken.class);
+    public HistoryToken historyToken() {
+        return this.context.historyToken();
     }
 
     @Override
@@ -88,8 +87,11 @@ final class AppContextSpreadsheetLabelMappingComponentContext implements Spreads
 
     @Override
     public Optional<SpreadsheetLabelName> label() {
-        return this.historyToken()
-                .labelName();
+        final HistoryToken token = this.historyToken();
+
+        return token instanceof SpreadsheetLabelMappingHistoryToken ?
+                token.cast(SpreadsheetLabelMappingHistoryToken.class).labelName() :
+                Optional.empty();
     }
 
     // Crud...................................................................................................
