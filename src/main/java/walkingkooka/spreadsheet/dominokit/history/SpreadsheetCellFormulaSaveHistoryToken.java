@@ -104,10 +104,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // remove the save
-        context.pushHistoryToken(
-                this.setFormula()
-        );
+        context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
                 .saveFormulaText(
