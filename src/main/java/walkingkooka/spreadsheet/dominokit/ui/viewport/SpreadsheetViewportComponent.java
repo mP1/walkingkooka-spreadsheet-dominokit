@@ -49,6 +49,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
+import walkingkooka.color.WebColorName;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -96,6 +97,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
+import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.ExpressionNumberSign;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.FontSize;
@@ -200,7 +204,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private SpreadsheetViewportFormulaComponent formula() {
         return SpreadsheetViewportFormulaComponent.with(this.context);
-                //.helperTextAlwaysExpanded();
+        //.helperTextAlwaysExpanded();
     }
 
     private final SpreadsheetViewportFormulaComponent formulaComponent;
@@ -644,33 +648,33 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 "Alignment"
         ).item(
                 CONTEXT_MENU_ID_PREFIX + "left" + SpreadsheetIds.MENU_ITEM,
-                        "Left",
-                        SpreadsheetIcons.alignLeft(),
-                        historyToken.setStyle(
-                                TextStylePropertyName.TEXT_ALIGN
-                        ).setSave(TextAlign.LEFT)
-                ).item(
+                "Left",
+                SpreadsheetIcons.alignLeft(),
+                historyToken.setStyle(
+                        TextStylePropertyName.TEXT_ALIGN
+                ).setSave(TextAlign.LEFT)
+        ).item(
                 CONTEXT_MENU_ID_PREFIX + "center" + SpreadsheetIds.MENU_ITEM,
-                        "Center",
-                        SpreadsheetIcons.alignCenter(),
-                        historyToken.setStyle(
-                                TextStylePropertyName.TEXT_ALIGN
-                        ).setSave(TextAlign.CENTER)
-                ).item(
+                "Center",
+                SpreadsheetIcons.alignCenter(),
+                historyToken.setStyle(
+                        TextStylePropertyName.TEXT_ALIGN
+                ).setSave(TextAlign.CENTER)
+        ).item(
                 CONTEXT_MENU_ID_PREFIX + "right" + SpreadsheetIds.MENU_ITEM,
-                        "Right",
-                        SpreadsheetIcons.alignRight(),
-                        historyToken.setStyle(
-                                TextStylePropertyName.TEXT_ALIGN
-                        ).setSave(TextAlign.RIGHT)
-                ).item(
+                "Right",
+                SpreadsheetIcons.alignRight(),
+                historyToken.setStyle(
+                        TextStylePropertyName.TEXT_ALIGN
+                ).setSave(TextAlign.RIGHT)
+        ).item(
                 CONTEXT_MENU_ID_PREFIX + "justify" + SpreadsheetIds.MENU_ITEM,
-                        "Justify",
-                        SpreadsheetIcons.alignJustify(),
-                        historyToken.setStyle(
-                                TextStylePropertyName.TEXT_ALIGN
-                        ).setSave(TextAlign.JUSTIFY)
-                );
+                "Justify",
+                SpreadsheetIcons.alignJustify(),
+                historyToken.setStyle(
+                        TextStylePropertyName.TEXT_ALIGN
+                ).setSave(TextAlign.JUSTIFY)
+        );
     }
 
     private static void renderContextMenuVerticalAlignment(final HistoryToken historyToken,
@@ -680,26 +684,26 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 "Vertical Alignment"
         ).item(
                 CONTEXT_MENU_ID_PREFIX + "top" + SpreadsheetIds.MENU_ITEM,
-                        "Top",
-                        SpreadsheetIcons.verticalAlignTop(),
-                        historyToken.setStyle(
-                                TextStylePropertyName.VERTICAL_ALIGN
-                        ).setSave(VerticalAlign.TOP)
-                ).item(
+                "Top",
+                SpreadsheetIcons.verticalAlignTop(),
+                historyToken.setStyle(
+                        TextStylePropertyName.VERTICAL_ALIGN
+                ).setSave(VerticalAlign.TOP)
+        ).item(
                 CONTEXT_MENU_ID_PREFIX + "middle" + SpreadsheetIds.MENU_ITEM,
-                        "Middle",
-                        SpreadsheetIcons.verticalAlignMiddle(),
-                        historyToken.setStyle(
-                                TextStylePropertyName.VERTICAL_ALIGN
-                        ).setSave(VerticalAlign.MIDDLE)
-                ).item(
+                "Middle",
+                SpreadsheetIcons.verticalAlignMiddle(),
+                historyToken.setStyle(
+                        TextStylePropertyName.VERTICAL_ALIGN
+                ).setSave(VerticalAlign.MIDDLE)
+        ).item(
                 CONTEXT_MENU_ID_PREFIX + "bottom" + SpreadsheetIds.MENU_ITEM,
-                        "Bottom",
-                        SpreadsheetIcons.verticalAlignBottom(),
-                        historyToken.setStyle(
-                                TextStylePropertyName.VERTICAL_ALIGN
-                        ).setSave(VerticalAlign.BOTTOM)
-                );
+                "Bottom",
+                SpreadsheetIcons.verticalAlignBottom(),
+                historyToken.setStyle(
+                        TextStylePropertyName.VERTICAL_ALIGN
+                ).setSave(VerticalAlign.BOTTOM)
+        );
     }
 
     private void renderContextMenuInsertColumns(final HistoryToken historyToken,
@@ -912,7 +916,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 SpreadsheetViewportNavigation.upPixel(height) :
                 SpreadsheetViewportNavigation.downPixel(height);
 
-        this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientY: " + clientY + "< " +  topClientY + " " + navigation);
+        this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientY: " + clientY + "< " + topClientY + " " + navigation);
 
         this.onNavigation(
                 navigation,
@@ -1524,12 +1528,31 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
-            final Optional<TextNode> maybeFormatted = cell.formatted();
-            if (maybeFormatted.isPresent()) {
-                content = maybeFormatted.get();
+
+            boolean hide = false;
+            if (this.hideZeroValues) {
+                final Object value = cell.formula()
+                        .value()
+                        .orElse(null);
+
+                if (ExpressionNumber.is(value) &&
+                        ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
+                    hide = true;
+                }
+            }
+
+            if (false == hide) {
+                final Optional<TextNode> maybeFormatted = cell.formatted();
+                if (maybeFormatted.isPresent()) {
+                    content = maybeFormatted.get();
+                }
             }
             style = cell.style()
                     .merge(style);
+
+            if (hide) {
+                style = hideZeroValues(style);
+            }
 
             maybeError = cell.formula()
                     .error();
@@ -1593,10 +1616,20 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         return style;
     }
 
-    /**
-     * This color will be mixed with the cell background-color for
-     */
     private final static Color CANARY_YELLOW = Color.parse("#FFFF8F");
+
+    private TextStyle hideZeroValues(final TextStyle style) {
+        return style.set(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
+                        .mix(HIDE_ZERO_VALUES_COLOR, 0.5f)
+        );
+    }
+
+    /**
+     * This color will be mixed with the cell background-color when {@link SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES} is true and the value is a zero number.
+     */
+    private final static Color HIDE_ZERO_VALUES_COLOR = WebColorName.LIGHTGREEN.color();
 
     private TextStyle cellSelectedStyle;
     private TextStyle cellUnselectedStyle;
@@ -1888,6 +1921,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         }
 
         this.metadata = metadata;
+        this.hideZeroValues = metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES);
 
         this.loadViewportCellsIfNecessary(context);
 
@@ -1902,6 +1936,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * Initial metadata is EMPTY or nothing.
      */
     private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
+
+    /**
+     * local cache of {@see SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES}
+     */
+    private boolean hideZeroValues;
 
     private void setSelected(final Optional<AnchoredSpreadsheetSelection> selected) {
         final AppContext context = this.context;
