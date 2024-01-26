@@ -357,7 +357,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetDeltaFetcher.viewportQueryString(
                         viewport
                 ),
-                () -> viewport.toString()
+                viewport::toString
         );
     }
 
@@ -420,7 +420,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetDeltaFetcher.windowQueryString(
                         window
                 ),
-                () -> window.toString()
+                window::toString
         );
     }
 
