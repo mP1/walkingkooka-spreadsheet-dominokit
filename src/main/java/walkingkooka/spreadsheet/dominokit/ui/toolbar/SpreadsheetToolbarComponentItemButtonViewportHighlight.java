@@ -48,7 +48,7 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
         super(
                 SpreadsheetToolbarComponent.highlightId(),
                 SpreadsheetIcons.highlight(),
-                "Highlight cell(s)",
+                "",
                 context
         );
         this.context = context;
@@ -119,9 +119,16 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
     @Override //
     void onToolbarRefreshEnd(final int cellPresentCount,
                              final AppContext context) {
+        final boolean enabled = context.isViewportHighlightEnabled();
+
         this.setButtonSelected(
-                context.isViewportHighlightEnabled(), // selected
+                enabled, // selected
                 context
+        );
+        this.setTooltipText(
+                enabled ?
+                        "Disable cell highlighting" :
+                        "Enable cell highlighting"
         );
     }
 
