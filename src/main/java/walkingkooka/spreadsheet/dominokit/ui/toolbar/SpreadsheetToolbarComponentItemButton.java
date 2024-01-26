@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
@@ -46,7 +47,7 @@ abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarC
         element.id = id;
         element.tabIndex = 0;
 
-        Tooltip.create(
+        this.tooltip = Tooltip.create(
                 button,
                 tooltipText
         ).setPosition(DropDirection.BOTTOM_MIDDLE);
@@ -90,6 +91,18 @@ abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarC
     }
 
     final Button button;
+
+    /**
+     * Replaces the current tooltip text with the new {@link String text}.
+     */
+    final void setTooltipText(final String text) {
+        // setTextContent only updates the text and not the Node.
+        this.tooltip.setContent(
+                Doms.textNode(text)
+        );
+    }
+
+    final Tooltip tooltip;
 
     final HistoryTokenContext context;
 
