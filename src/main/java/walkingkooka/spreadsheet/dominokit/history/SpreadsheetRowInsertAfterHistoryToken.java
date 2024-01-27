@@ -27,24 +27,24 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
 
     static SpreadsheetRowInsertAfterHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,
-                                                      final AnchoredSpreadsheetSelection selection,
+                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final int count) {
         return new SpreadsheetRowInsertAfterHistoryToken(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 count
         );
     }
 
     private SpreadsheetRowInsertAfterHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name,
-                                                  final AnchoredSpreadsheetSelection selection,
+                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final int count) {
         super(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 count
         );
     }
@@ -57,11 +57,11 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setInsertAfter(
                 this.count()
         );
@@ -73,7 +73,7 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
         return with(
                 id,
                 name,
-                this.selection(),
+                this.anchoredSelection(),
                 this.count()
         );
     }
@@ -84,7 +84,7 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
         context.spreadsheetDeltaFetcher()
                 .insertAfterRow(
                         this.id(),
-                        this.selection()
+                        this.anchoredSelection()
                                 .selection(),
                         this.count()
                 );

@@ -160,7 +160,7 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
         final SpreadsheetFormulaComponent formula = this.formula;
         if (token instanceof SpreadsheetCellHistoryToken) {
             final SpreadsheetSelection selection = token.cast(SpreadsheetCellHistoryToken.class)
-                    .selection()
+                    .anchoredSelection()
                     .selection();
 
             // if selection change reload formula text

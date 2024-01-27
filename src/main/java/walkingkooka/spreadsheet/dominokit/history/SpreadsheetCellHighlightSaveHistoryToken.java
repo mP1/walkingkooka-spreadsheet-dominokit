@@ -28,21 +28,25 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
 
     static SpreadsheetCellHighlightSaveHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
-                                                         final AnchoredSpreadsheetSelection selection,
+                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final Boolean value) {
         return new SpreadsheetCellHighlightSaveHistoryToken(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 value
         );
     }
 
     private SpreadsheetCellHighlightSaveHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
-                                                     final AnchoredSpreadsheetSelection selection,
+                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Boolean value) {
-        super(id, name, selection);
+        super(
+                id,
+                name,
+                anchoredSelection
+        );
         this.value = value;
     }
 
@@ -65,11 +69,11 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
 
     private final static UrlFragment ENABLE_FRAGMENT = UrlFragment.with(ENABLE);
 
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setHighlight()
                 .setSave(
                         this.value ?
@@ -83,7 +87,7 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
         return cellHighlightSelect(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -93,7 +97,7 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
         return new SpreadsheetCellHighlightSaveHistoryToken(
                 id,
                 name,
-                this.selection(),
+                this.anchoredSelection(),
                 this.value
         );
     }

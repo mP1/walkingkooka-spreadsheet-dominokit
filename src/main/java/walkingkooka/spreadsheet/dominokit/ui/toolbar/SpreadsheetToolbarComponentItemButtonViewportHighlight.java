@@ -68,7 +68,7 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
 
         // default to "*" if no current cells present.
         context.pushHistoryToken(
-                historyToken.setSelection(
+                historyToken.setAnchoredSelection(
                                 Optional.of(
                                         historyToken.selectionOrEmpty()
                                                 .orElse(
@@ -83,7 +83,7 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
                                         SpreadsheetCellHighlightHistoryToken.DISABLE
                         )
         );
-        context.debug(this.getClass().getSimpleName() + ".onClick highlight save " + enable + " " + historyToken.setSelection(
+        context.debug(this.getClass().getSimpleName() + ".onClick highlight save " + enable + " " + historyToken.setAnchoredSelection(
                                 Optional.of(
                                         historyToken.selectionOrEmpty()
                                                 .orElse(

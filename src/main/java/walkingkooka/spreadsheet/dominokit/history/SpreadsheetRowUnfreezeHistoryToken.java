@@ -29,27 +29,27 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
 
     static SpreadsheetRowUnfreezeHistoryToken with(final SpreadsheetId id,
                                                    final SpreadsheetName name,
-                                                   final AnchoredSpreadsheetSelection selection) {
+                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowUnfreezeHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetRowUnfreezeHistoryToken(final SpreadsheetId id,
                                                final SpreadsheetName name,
-                                               final AnchoredSpreadsheetSelection selection) {
+                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
         // validate selection
         SpreadsheetMetadata.EMPTY.set(
                 SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                selection.selection()
+                anchoredSelection.selection()
                         .toRowRange()
         );
     }
@@ -60,11 +60,11 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setUnfreeze();
     }
 
@@ -74,7 +74,7 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
         return with(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 

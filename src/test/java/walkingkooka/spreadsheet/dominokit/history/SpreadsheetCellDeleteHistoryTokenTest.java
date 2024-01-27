@@ -87,14 +87,14 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
         );
     }
 
-    // setSelection.....................................................................................................
+    // setAnchoredSelection.............................................................................................
 
     @Test
-    public void testSetSelectionDifferentCell() {
+    public void testSetAnchoredSelectionDifferentCell() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.cellDelete(
@@ -106,11 +106,11 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     }
 
     @Test
-    public void testSetSelectionDifferentColumn() {
+    public void testSetAnchoredSelectionDifferentColumn() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.columnDelete(
@@ -122,11 +122,11 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     }
 
     @Test
-    public void testSetSelectionDifferentRow() {
+    public void testSetAnchoredSelectionDifferentRow() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.rowDelete(

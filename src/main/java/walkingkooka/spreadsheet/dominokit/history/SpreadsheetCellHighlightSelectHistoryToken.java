@@ -27,26 +27,30 @@ public final class SpreadsheetCellHighlightSelectHistoryToken extends Spreadshee
 
     static SpreadsheetCellHighlightSelectHistoryToken with(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final AnchoredSpreadsheetSelection selection) {
+                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellHighlightSelectHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetCellHighlightSelectHistoryToken(final SpreadsheetId id,
                                                        final SpreadsheetName name,
-                                                       final AnchoredSpreadsheetSelection selection) {
-        super(id, name, selection);
+                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
+        super(
+                id,
+                name,
+                anchoredSelection
+        );
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setHighlight();
     }
 
@@ -61,7 +65,7 @@ public final class SpreadsheetCellHighlightSelectHistoryToken extends Spreadshee
         return new SpreadsheetCellHighlightSelectHistoryToken(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -76,19 +80,19 @@ public final class SpreadsheetCellHighlightSelectHistoryToken extends Spreadshee
 
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
-        final AnchoredSpreadsheetSelection selection = this.selection();
+        final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();
 
         return enabled || DISABLE.equals(value) ?
                 cellHighlightSave(
                         id,
                         name,
-                        selection,
+                        anchoredSelection,
                         enabled
                 ) :
                 cellHighlightSelect(
                         id,
                         name,
-                        selection
+                        anchoredSelection
                 );
     }
 

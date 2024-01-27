@@ -28,11 +28,11 @@ public abstract class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsh
 
     SpreadsheetCellPatternToolbarHistoryToken(final SpreadsheetId id,
                                               final SpreadsheetName name,
-                                              final AnchoredSpreadsheetSelection selection) {
+                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 Optional.empty()
         );
     }
@@ -56,7 +56,7 @@ public abstract class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsh
                 cellPattern(
                         this.id(),
                         this.name(),
-                        this.selection(),
+                        this.anchoredSelection(),
                         patternKind
                 ) :
                 this;

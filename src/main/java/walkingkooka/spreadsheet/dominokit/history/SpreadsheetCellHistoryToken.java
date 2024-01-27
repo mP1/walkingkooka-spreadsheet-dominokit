@@ -28,16 +28,16 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
 
     SpreadsheetCellHistoryToken(final SpreadsheetId id,
                                 final SpreadsheetName name,
-                                final AnchoredSpreadsheetSelection selection) {
+                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
-        final SpreadsheetSelection spreadsheetSelection = selection.selection();
-        if (false == (spreadsheetSelection.isCellReference() || spreadsheetSelection.isCellRange() || spreadsheetSelection.isLabelName())) {
-            throw new IllegalArgumentException("Got " + spreadsheetSelection + " expected cell, cell-range or label");
+        final SpreadsheetSelection selection = anchoredSelection.selection();
+        if (false == (selection.isCellReference() || selection.isCellRange() || selection.isLabelName())) {
+            throw new IllegalArgumentException("Got " + selection + " expected cell, cell-range or label");
         }
     }
 
@@ -53,7 +53,7 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
         return cellClear(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -62,7 +62,7 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
         return cellDelete(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -70,7 +70,7 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
         return formula(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -79,7 +79,7 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
         return cellFreeze(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -98,13 +98,13 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
         return cellMenu(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
     @Override //
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
-        final AnchoredSpreadsheetSelection anchored = this.selection();
+        final AnchoredSpreadsheetSelection anchored = this.anchoredSelection();
 
         return selection.isCellReference() &&
                 anchored.selection()
@@ -118,7 +118,7 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
         return cellStyle(
                 this.id(),
                 this.name(),
-                this.selection(),
+                this.anchoredSelection(),
                 propertyName
         );
     }
@@ -128,7 +128,7 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
         return cellUnfreeze(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 }

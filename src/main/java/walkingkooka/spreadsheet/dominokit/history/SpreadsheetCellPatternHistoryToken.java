@@ -31,12 +31,12 @@ abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCell
 
     SpreadsheetCellPatternHistoryToken(final SpreadsheetId id,
                                        final SpreadsheetName name,
-                                       final AnchoredSpreadsheetSelection selection,
+                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                        final Optional<SpreadsheetPatternKind> patternKind) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
         this.patternKind = Objects.requireNonNull(patternKind, "patternKind");

@@ -31,16 +31,16 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
 
     SpreadsheetColumnHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name,
-                                  final AnchoredSpreadsheetSelection selection) {
+                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
-        final SpreadsheetSelection spreadsheetSelection = selection.selection();
-        if (false == spreadsheetSelection.isColumnReference() && false == spreadsheetSelection.isColumnReferenceRange()) {
-            throw new IllegalArgumentException("Got " + spreadsheetSelection + " expected column or column-range");
+        final SpreadsheetSelection selection = anchoredSelection.selection();
+        if (false == selection.isColumnReference() && false == selection.isColumnReferenceRange()) {
+            throw new IllegalArgumentException("Got " + selection + " expected column or column-range");
         }
     }
 
@@ -61,7 +61,7 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
         return columnClear(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -70,7 +70,7 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
         return columnDelete(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -89,7 +89,7 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
         return columnFreeze(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -98,7 +98,7 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
         return columnInsertAfter(
                 this.id(),
                 this.name(),
-                this.selection(),
+                this.anchoredSelection(),
                 count
         );
     }
@@ -108,7 +108,7 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
         return columnInsertBefore(
                 this.id(),
                 this.name(),
-                this.selection(),
+                this.anchoredSelection(),
                 count
         );
     }
@@ -118,13 +118,13 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
         return columnMenu(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
     @Override //
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
-        final AnchoredSpreadsheetSelection anchored = this.selection();
+        final AnchoredSpreadsheetSelection anchored = this.anchoredSelection();
 
         return selection.isColumnReference() &&
                 anchored
@@ -159,7 +159,7 @@ abstract public class SpreadsheetColumnHistoryToken extends AnchoredSpreadsheetS
         return columnUnfreeze(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 }

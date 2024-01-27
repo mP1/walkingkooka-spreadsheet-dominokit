@@ -392,7 +392,7 @@ public class App implements EntryPoint,
                     .setIdAndName(
                             id,
                             name
-                    ).setSelection(
+                    ).setAnchoredSelection(
                             viewport.flatMap(SpreadsheetViewport::selection)
                     );
 

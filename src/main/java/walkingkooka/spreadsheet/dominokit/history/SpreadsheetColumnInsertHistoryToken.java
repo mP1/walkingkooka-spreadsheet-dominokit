@@ -26,12 +26,12 @@ abstract class SpreadsheetColumnInsertHistoryToken extends SpreadsheetColumnHist
 
     SpreadsheetColumnInsertHistoryToken(final SpreadsheetId id,
                                         final SpreadsheetName name,
-                                        final AnchoredSpreadsheetSelection selection,
+                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                         final int count) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
         if (count <= 0) {

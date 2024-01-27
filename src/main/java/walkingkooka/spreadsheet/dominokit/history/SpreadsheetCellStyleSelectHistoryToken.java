@@ -30,24 +30,24 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
 
     static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId id,
                                                               final SpreadsheetName name,
-                                                              final AnchoredSpreadsheetSelection selection,
+                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                               final TextStylePropertyName<T> propertyName) {
         return new SpreadsheetCellStyleSelectHistoryToken<>(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 propertyName
         );
     }
 
     private SpreadsheetCellStyleSelectHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
-                                                   final AnchoredSpreadsheetSelection selection,
+                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final TextStylePropertyName<T> propertyName) {
         super(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 propertyName
         );
     }
@@ -58,11 +58,11 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setStyle(
                 this.propertyName()
         );
@@ -74,7 +74,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
         return with(
                 id,
                 name,
-                this.selection(),
+                this.anchoredSelection(),
                 this.propertyName()
         );
     }
@@ -86,7 +86,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
         return cellStyleSave(
                 this.id(),
                 this.name(),
-                this.selection(),
+                this.anchoredSelection(),
                 propertyName,
                 Optional.ofNullable(
                         value.isEmpty() ?

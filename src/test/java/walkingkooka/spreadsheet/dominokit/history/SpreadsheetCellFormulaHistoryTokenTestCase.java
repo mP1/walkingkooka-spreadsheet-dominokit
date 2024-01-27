@@ -34,11 +34,11 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
 
 
     @Test
-    public final void testSetSelectionDifferentColumn() {
+    public final void testSetAnchoredSelectionDifferentColumn() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.column(
@@ -50,11 +50,11 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
     }
 
     @Test
-    public final void testSetSelectionDifferentRow() {
+    public final void testSetAnchoredSelectionDifferentRow() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.row(

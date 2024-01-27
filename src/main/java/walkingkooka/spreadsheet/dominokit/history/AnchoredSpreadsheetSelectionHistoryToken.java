@@ -31,28 +31,28 @@ public abstract class AnchoredSpreadsheetSelectionHistoryToken extends Spreadshe
 
     AnchoredSpreadsheetSelectionHistoryToken(final SpreadsheetId id,
                                              final SpreadsheetName name,
-                                             final AnchoredSpreadsheetSelection selection) {
+                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name
         );
-        this.selection = Objects.requireNonNull(selection, "selection");
+        this.anchoredSelection = Objects.requireNonNull(anchoredSelection, "anchoredSelection");
     }
 
-    public final AnchoredSpreadsheetSelection selection() {
-        return this.selection;
+    public final AnchoredSpreadsheetSelection anchoredSelection() {
+        return this.anchoredSelection;
     }
 
     /**
      * Factory method where sub-classes create a new instance with the given {@link AnchoredSpreadsheetSelection}.
      */
-    abstract HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection);
+    abstract HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection);
 
-    private final AnchoredSpreadsheetSelection selection;
+    private final AnchoredSpreadsheetSelection anchoredSelection;
 
     @Override //
     final UrlFragment selectionUrlFragment() {
-        return this.selection.urlFragment()
+        return this.anchoredSelection.urlFragment()
                 .append(this.anchoredSelectionUrlFragment());
     }
 
@@ -62,7 +62,7 @@ public abstract class AnchoredSpreadsheetSelectionHistoryToken extends Spreadshe
         final HistoryToken selection = HistoryToken.selection(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
         return this.equals(selection) ?
                 this :
@@ -81,7 +81,7 @@ public abstract class AnchoredSpreadsheetSelectionHistoryToken extends Spreadshe
         context.spreadsheetDeltaFetcher()
                 .clear(
                         this.id(),
-                        this.selection().selection()
+                        this.anchoredSelection().selection()
                 );
 
         pushSelectionHistoryToken(context);

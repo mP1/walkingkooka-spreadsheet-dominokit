@@ -440,7 +440,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     private void renderContextMenu(final AnchoredSpreadsheetSelectionHistoryToken historyToken,
                                    final AppContext context) {
         // show context setMenu1
-        final AnchoredSpreadsheetSelection anchored = historyToken.selection();
+        final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchored.selection();
         final Optional<Element> maybeElement = this.findElement(
                 selection.focused(anchored.anchor()),
@@ -1236,7 +1236,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 historyToken instanceof SpreadsheetRowSelectHistoryToken) {
             this.giveViewportSelectionFocus(
                     historyToken.cast(AnchoredSpreadsheetSelectionHistoryToken.class)
-                            .selection(),
+                            .anchoredSelection(),
                     context
             );
         }
@@ -1340,7 +1340,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         th.appendChild(
                 context.historyToken()
                         .clearAction()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         column.setDefaultAnchor()
                                 )
@@ -1433,7 +1433,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         td.appendChild(
                 context.historyToken()
                         .clearAction()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         row.setDefaultAnchor()
                                 )
@@ -1765,7 +1765,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             } else {
                 final SpreadsheetViewportCache cache = context.viewportCache();
                 final Optional<SpreadsheetSelection> maybeSelectionNotLabel = cache.nonLabelSelection(
-                        findHistoryToken.selection()
+                        findHistoryToken.anchoredSelection()
                                 .selection()
                 );
 

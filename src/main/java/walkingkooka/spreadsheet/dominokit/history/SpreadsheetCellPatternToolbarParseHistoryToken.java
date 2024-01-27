@@ -32,30 +32,30 @@ public final class SpreadsheetCellPatternToolbarParseHistoryToken extends Spread
 
     static SpreadsheetCellPatternToolbarParseHistoryToken with(final SpreadsheetId id,
                                                                final SpreadsheetName name,
-                                                               final AnchoredSpreadsheetSelection selection) {
+                                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellPatternToolbarParseHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetCellPatternToolbarParseHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final AnchoredSpreadsheetSelection selection) {
+                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setParsePattern();
     }
 
@@ -65,7 +65,7 @@ public final class SpreadsheetCellPatternToolbarParseHistoryToken extends Spread
         return with(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 

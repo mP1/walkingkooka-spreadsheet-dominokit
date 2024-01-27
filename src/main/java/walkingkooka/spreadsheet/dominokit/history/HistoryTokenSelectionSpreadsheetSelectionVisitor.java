@@ -37,12 +37,14 @@ import java.util.function.Function;
 final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
 
     static HistoryToken selectionToken(final SpreadsheetHistoryToken token,
-                                       final AnchoredSpreadsheetSelection selection) {
+                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         final HistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new HistoryTokenSelectionSpreadsheetSelectionVisitor(
                 token,
-                selection.anchor()
+                anchoredSelection.anchor()
         );
-        visitor.accept(selection.selection());
+        visitor.accept(
+                anchoredSelection.selection()
+        );
         return visitor.selectionToken;
     }
 
