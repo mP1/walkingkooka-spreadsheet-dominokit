@@ -1496,11 +1496,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 );
         COLUMN_ROW_HEADER_SELECTED_STYLE = style.set(
                 TextStylePropertyName.BACKGROUND_COLOR,
-                Color.parse("#555")
+                SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR
         );
         COLUMN_ROW_HEADER_UNSELECTED_STYLE = style.set(
                 TextStylePropertyName.BACKGROUND_COLOR,
-                Color.parse("#aaa")
+                SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR
         );
     }
 
@@ -1676,11 +1676,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 );
         CELL_SELECTED_STYLE = style.set(
                 TextStylePropertyName.BACKGROUND_COLOR,
-                Color.parse("#ccc")
+                SpreadsheetDominoKitColor.VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR
         );
         CELL_UNSELECTED_STYLE = style.set(
                 TextStylePropertyName.BACKGROUND_COLOR,
-                Color.parse("#fff")
+                SpreadsheetDominoKitColor.VIEWPORT_CELL_UNSELECTED_BACKGROUND_COLOR
         );
     }
 
