@@ -105,10 +105,9 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        context.setViewportHighlightEnabled(this.value);
-
         context.pushHistoryToken(
                 previous
         );
+        context.setViewportHighlightEnabled(this.value);
     }
 }
