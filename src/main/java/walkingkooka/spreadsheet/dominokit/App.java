@@ -88,6 +88,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Optional;
 
 @LocaleAware
@@ -696,6 +697,12 @@ public class App implements EntryPoint,
     @Override
     public SpreadsheetCellFind lastCellFind() {
         return this.lastCellFind;
+    }
+
+    @Override
+    public void setLastCellFind(final SpreadsheetCellFind lastCellFind) {
+        Objects.requireNonNull(lastCellFind, "lastCellFind");
+        this.lastCellFind = lastCellFind;
     }
 
     private SpreadsheetCellFind lastCellFind = SpreadsheetCellFind.empty();
