@@ -70,6 +70,15 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
     }
 
     /**
+     * {@see SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues}
+     */
+    static SpreadsheetToolbarComponentItem hideZeroValues(final AppContext context) {
+        return SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues.with(
+                context
+        );
+    }
+
+    /**
      * {@see SpreadsheetToolbarComponentItemButtonViewportHighlight}
      */
     static SpreadsheetToolbarComponentItem highlightCells(final AppContext context) {

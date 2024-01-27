@@ -105,6 +105,8 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 SpreadsheetToolbarComponentItem.clear(context),
                 SpreadsheetToolbarComponentItem.formatPattern(context),
                 SpreadsheetToolbarComponentItem.parsePattern(context),
+                // metadata properties
+                SpreadsheetToolbarComponentItem.hideZeroValues(context),
                 // FindCells | Highlight
                 SpreadsheetToolbarComponentItem.findCells(context),
                 SpreadsheetToolbarComponentItem.highlightCells(context)
@@ -235,6 +237,10 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
 
     public static String formatPatternId() {
         return TOOLBAR_ID_PREFIX + "format-pattern";
+    }
+
+    public static String hideZeroValues() {
+        return TOOLBAR_ID_PREFIX + "hide-zero-values";
     }
 
     public static String highlightId() {
