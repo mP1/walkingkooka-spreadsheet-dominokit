@@ -35,6 +35,16 @@ public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
      */
     public final static Color HIDE_ZERO_VALUES_COLOR = WebColorName.LIGHTGREEN.color();
 
+    /**
+     * The default selected background color for toolbar button icons.
+     */
+    public final static Color TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR = Color.parse("#ffff00");
+
+    /**
+     * The default selected background color for toolbar button icons.
+     */
+    public final static Color TOOLBAR_ICON_SELECTED_COLOR = Color.parse("#0000ff");
+
 
     private SpreadsheetDominoKitColor() {
         throw new UnsupportedOperationException();

@@ -24,11 +24,12 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
  * A templated class that displays a button. Sub classes will have to add {link EventListeners} as required.
@@ -67,12 +68,15 @@ abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarC
 
     abstract void onFocus(final Event event);
 
-    final void setButtonSelected(final boolean selected,
-                                 final AppContext context) {
+    final void setButtonSelected(final boolean selected) {
         TextStyle style = BUTTON_STYLE;
         if (selected) {
-            style = style.merge(
-                    context.selectedIconStyle()
+            style = style.set(
+                    TextStylePropertyName.BACKGROUND_COLOR,
+                    SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
+            ).set(
+                    TextStylePropertyName.COLOR,
+                    SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_COLOR
             );
         }
 

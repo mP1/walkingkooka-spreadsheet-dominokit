@@ -118,8 +118,7 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
         final boolean selected = setCellCounter == cellPresentCount;
 
         this.setButtonSelected(
-                selected,
-                context
+                selected
         );
 
         context.debug("SpreadsheetToolbarComponentItemButtonTextStyleClear.onToolbarRefreshEnd " + PROPERTY + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected);

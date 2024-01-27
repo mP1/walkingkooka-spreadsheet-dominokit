@@ -73,8 +73,7 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
         final boolean hide = this.isHideZeroValues(context);
 
         this.setButtonSelected(
-                hide,
-                context
+                hide
         );
 
         this.setTooltipText(

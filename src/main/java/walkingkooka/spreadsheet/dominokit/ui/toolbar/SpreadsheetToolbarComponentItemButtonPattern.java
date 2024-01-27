@@ -128,8 +128,7 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
         final boolean selected = false == patternKindToCount.isEmpty();
 
         this.setButtonSelected(
-                selected,
-                context
+                selected
         );
 
         context.debug(this.getClass().getSimpleName() + ".onToolbarRefreshEnd selected: " + selected + " patternToKindCount: " + patternKindToCount);

@@ -36,7 +36,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
-import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
 
@@ -61,14 +60,6 @@ public interface AppContext extends CanGiveFocus,
      * {@see JsonNodeUnmarshallContext}
      */
     JsonNodeUnmarshallContext unmarshallContext();
-
-    // UI...............................................................................................................
-
-    /**
-     * A {@link TextStyle} that should be added to any selected Icon.
-     * For now this means a background-color to yellow.
-     */
-    TextStyle selectedIconStyle();
 
     // viewport.........................................................................................................
 
