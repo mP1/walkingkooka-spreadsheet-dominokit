@@ -107,7 +107,6 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
                                final AppContext context) {
         context.setViewportHighlightEnabled(this.value);
 
-        // clear the save from the history token.
         context.pushHistoryToken(
                 previous
         );
