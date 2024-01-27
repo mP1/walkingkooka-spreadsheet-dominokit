@@ -147,7 +147,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseCell("B2")
                                                 .setDefaultAnchor()
@@ -165,7 +165,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseCellRange("B2:B3")
                                                 .setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
@@ -183,7 +183,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.ALL_CELLS
                                                 .setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
@@ -201,7 +201,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
                                 )
@@ -218,7 +218,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportAnchor.LEFT)
                                 )
@@ -235,7 +235,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseRow("2")
                                                 .setDefaultAnchor()
@@ -253,7 +253,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseRowRange("2:3")
                                                 .setAnchor(SpreadsheetViewportAnchor.TOP)
@@ -271,7 +271,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.labelName("Label123").setDefaultAnchor()
                                 )
@@ -288,7 +288,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.labelName("Label123")
                                                 .setDefaultAnchor()
@@ -306,7 +306,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseColumn("ABC")
                                                 .setDefaultAnchor()
@@ -328,7 +328,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                 111,
                                 222
                         ).viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseColumn("Z")
                                                 .setDefaultAnchor()
@@ -432,7 +432,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseCell("B2")
                                                 .setDefaultAnchor()
@@ -449,7 +449,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseCellRange("B2:B3")
                                                 .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
@@ -467,7 +467,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseColumn("B")
                                                 .setDefaultAnchor()
@@ -485,7 +485,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseColumnRange("B:C")
                                                 .setAnchor(SpreadsheetViewportAnchor.LEFT)
@@ -502,7 +502,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseRow("2")
                                                 .setDefaultAnchor()
@@ -519,7 +519,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.parseRowRange("2:3")
                                                 .setAnchor(SpreadsheetViewportAnchor.TOP)
@@ -536,7 +536,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetSelection.A1
                         .viewportRectangle(111, 222)
                         .viewport()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 Optional.of(
                                         SpreadsheetSelection.labelName("Label123")
                                                 .setDefaultAnchor()

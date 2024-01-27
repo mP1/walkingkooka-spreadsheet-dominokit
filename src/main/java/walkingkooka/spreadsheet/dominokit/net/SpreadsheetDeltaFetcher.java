@@ -141,7 +141,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 .addParameter(HEIGHT, String.valueOf(rectangle.height()))
                 .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
 
-        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = viewport.selection();
+        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = viewport.anchoredSelection();
         if (maybeAnchored.isPresent()) {
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = maybeAnchored.get();
             final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();

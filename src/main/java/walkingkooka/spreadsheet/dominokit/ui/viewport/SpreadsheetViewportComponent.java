@@ -1114,7 +1114,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         this.loadViewportCellsIfNecessary(context);
     }
 
-    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> selection,
+    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection,
                                         final AppContext context) {
         final SpreadsheetCellReference home = context.spreadsheetMetadata()
                 .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
@@ -1124,7 +1124,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                         this.tableCellsWidth(),
                         this.tableCellsHeight()
                 ).viewport()
-                .setSelection(selection);
+                .setAnchoredSelection(anchoredSelection);
     }
 
     private int width() {
