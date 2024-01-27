@@ -1619,7 +1619,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     /**
      * This {@link Color} is mixed with cells that are selected for highlighting because of a {@link SpreadsheetCellFind} query.
      */
-    private final static Color HIGHLIGHT_COLOR = WebColorName.LIGHTYELLOW.color();
+    private final static Color HIGHLIGHT_COLOR = WebColorName.YELLOW.color();
 
     private TextStyle hideZeroValues(final TextStyle style) {
         return style.set(
