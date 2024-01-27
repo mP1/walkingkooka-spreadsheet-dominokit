@@ -56,15 +56,17 @@ public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
     public final static Color VIEWPORT_CELL_UNSELECTED_BACKGROUND_COLOR = Color.parse("#fff");
 
     /**
-     * The background color for selected column/row headers.
-     */
-    public final static Color VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR = Color.parse("#555");
-
-    /**
      * The background color for unselected column/row headers.
      */
     public final static Color VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR = Color.parse("#aaa");
 
+    /**
+     * The background color for selected column/row headers.
+     */
+    public final static Color VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR = VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.mix(
+            Color.BLACK,
+            0.5f
+    );
 
     private SpreadsheetDominoKitColor() {
         throw new UnsupportedOperationException();
