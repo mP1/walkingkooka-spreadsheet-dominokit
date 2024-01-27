@@ -27,21 +27,21 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
 
     static SpreadsheetColumnSelectHistoryToken with(final SpreadsheetId id,
                                                     final SpreadsheetName name,
-                                                    final AnchoredSpreadsheetSelection selection) {
+                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnSelectHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetColumnSelectHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection selection) {
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
@@ -51,11 +51,11 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         );
     }
 
@@ -65,7 +65,7 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
         return with(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 

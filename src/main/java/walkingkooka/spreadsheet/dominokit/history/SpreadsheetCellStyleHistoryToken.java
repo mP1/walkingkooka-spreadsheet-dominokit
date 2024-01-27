@@ -31,12 +31,12 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     SpreadsheetCellStyleHistoryToken(final SpreadsheetId id,
                                      final SpreadsheetName name,
-                                     final AnchoredSpreadsheetSelection selection,
+                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                      final TextStylePropertyName<T> propertyName) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
         this.propertyName = Objects.requireNonNull(propertyName, "propertyName");

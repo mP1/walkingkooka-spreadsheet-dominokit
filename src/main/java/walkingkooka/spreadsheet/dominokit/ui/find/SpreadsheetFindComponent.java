@@ -265,7 +265,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     private void onCellRangeValueChange(final Optional<SpreadsheetCellRange> oldCellRange,
                                         final Optional<SpreadsheetCellRange> newCellRange) {
         this.historyTokenSetAndPush(
-                t -> t.setSelection(
+                t -> t.setAnchoredSelection(
                         newCellRange.map(
                                 SpreadsheetSelection::setDefaultAnchor
                         )
@@ -391,7 +391,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
                 .cast(SpreadsheetCellFindHistoryToken.class);
 
         final SpreadsheetId id = historyToken.id();
-        final SpreadsheetCellRange cells = historyToken.selection()
+        final SpreadsheetCellRange cells = historyToken.anchoredSelection()
                 .selection()
                 .toCellRange();
 
@@ -483,7 +483,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
         this.cellRange.setValue(
                 Optional.of(
-                        token.selection()
+                        token.anchoredSelection()
                                 .selection()
                                 .toCellRange()
                 )

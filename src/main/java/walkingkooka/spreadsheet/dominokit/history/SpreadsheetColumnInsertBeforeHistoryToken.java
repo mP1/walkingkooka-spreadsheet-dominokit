@@ -28,24 +28,24 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
 
     static SpreadsheetColumnInsertBeforeHistoryToken with(final SpreadsheetId id,
                                                           final SpreadsheetName name,
-                                                          final AnchoredSpreadsheetSelection selection,
+                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                           final int count) {
         return new SpreadsheetColumnInsertBeforeHistoryToken(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 count
         );
     }
 
     private SpreadsheetColumnInsertBeforeHistoryToken(final SpreadsheetId id,
                                                       final SpreadsheetName name,
-                                                      final AnchoredSpreadsheetSelection selection,
+                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final int count) {
         super(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 count
         );
     }
@@ -58,11 +58,11 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setInsertBefore(
                 this.count()
         );
@@ -74,7 +74,7 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
         return with(
                 id,
                 name,
-                this.selection(),
+                this.anchoredSelection(),
                 this.count()
         );
     }
@@ -82,7 +82,7 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.selection();
+        final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
         final int count = this.count();
 
@@ -94,7 +94,7 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
                 );
         context.pushHistoryToken(
                 previous.clearAction()
-                        .setSelection(
+                        .setAnchoredSelection(
                                 previous.selectionOrEmpty()
                                         .map(
                                                 a -> a.selection()

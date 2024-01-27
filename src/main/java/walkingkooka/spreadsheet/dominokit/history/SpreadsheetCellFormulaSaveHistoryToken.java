@@ -29,24 +29,24 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
     static SpreadsheetCellFormulaSaveHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
-                                                       final AnchoredSpreadsheetSelection selection,
+                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final String formula) {
         return new SpreadsheetCellFormulaSaveHistoryToken(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 formula
         );
     }
 
     private SpreadsheetCellFormulaSaveHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
-                                                   final AnchoredSpreadsheetSelection selection,
+                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final String formula) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
         this.formula = Objects.requireNonNull(formula, "formula");
@@ -71,11 +71,11 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setFormula()
                 .setSave(this.formula);
     }
@@ -91,7 +91,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         return with(
                 id,
                 name,
-                this.selection(),
+                this.anchoredSelection(),
                 this.formula()
         );
     }
@@ -109,7 +109,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         context.spreadsheetDeltaFetcher()
                 .saveFormulaText(
                         this.id(),
-                        this.selection().selection(),
+                        this.anchoredSelection().selection(),
                         this.formula()
                 );
     }

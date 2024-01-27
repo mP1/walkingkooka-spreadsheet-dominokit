@@ -48,7 +48,7 @@ final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFet
         if (historyToken instanceof SpreadsheetSelectionHistoryToken) {
             final Optional<SpreadsheetViewport> viewport = delta.viewport();
             if (viewport.isPresent()) {
-                final HistoryToken withSelection = historyToken.setSelection(
+                final HistoryToken withSelection = historyToken.setAnchoredSelection(
                         viewport.get()
                                 .selection()
                 );

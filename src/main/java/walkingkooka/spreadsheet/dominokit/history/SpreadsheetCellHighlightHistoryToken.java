@@ -29,8 +29,12 @@ public abstract class SpreadsheetCellHighlightHistoryToken extends SpreadsheetCe
 
     SpreadsheetCellHighlightHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
-                                         final AnchoredSpreadsheetSelection selection) {
-        super(id, name, selection);
+                                         final AnchoredSpreadsheetSelection anchoredSelection) {
+        super(
+                id,
+                name,
+                anchoredSelection
+        );
     }
 
     @Override //

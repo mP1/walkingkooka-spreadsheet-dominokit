@@ -30,21 +30,21 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
 
     static SpreadsheetCellMenuHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection selection) {
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellMenuHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetCellMenuHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
-                                            final AnchoredSpreadsheetSelection selection) {
+                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
@@ -59,11 +59,11 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setMenu1();
     }
 
@@ -83,7 +83,7 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
         return with(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 

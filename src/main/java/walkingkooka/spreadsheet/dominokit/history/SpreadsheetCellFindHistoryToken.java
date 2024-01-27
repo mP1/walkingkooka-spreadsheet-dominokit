@@ -33,24 +33,24 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
 
     static SpreadsheetCellFindHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection selection,
+                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final SpreadsheetCellFind find) {
         return new SpreadsheetCellFindHistoryToken(
                 id,
                 name,
-                selection,
+                anchoredSelection,
                 find
         );
     }
 
     private SpreadsheetCellFindHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
-                                            final AnchoredSpreadsheetSelection selection,
+                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                             final SpreadsheetCellFind find) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
         this.find = find;
     }
@@ -67,7 +67,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                 new SpreadsheetCellFindHistoryToken(
                         this.id(),
                         this.name(),
-                        this.selection(),
+                        this.anchoredSelection(),
                         find
                 );
     }
@@ -85,11 +85,11 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setFind(this.find);
     }
 
@@ -109,7 +109,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         return with(
                 id,
                 name,
-                this.selection(),
+                this.anchoredSelection(),
                 this.find
         );
     }

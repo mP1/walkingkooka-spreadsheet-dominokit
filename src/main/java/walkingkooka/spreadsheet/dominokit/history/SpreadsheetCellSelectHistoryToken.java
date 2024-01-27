@@ -30,21 +30,21 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
     static SpreadsheetCellSelectHistoryToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name,
-                                                  final AnchoredSpreadsheetSelection selection) {
+                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellSelectHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetCellSelectHistoryToken(final SpreadsheetId id,
                                               final SpreadsheetName name,
-                                              final AnchoredSpreadsheetSelection selection) {
+                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
@@ -59,11 +59,11 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         );
     }
 
@@ -72,7 +72,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         return cellFormatPatternToolbar(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -87,7 +87,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         return with(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -96,7 +96,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         return cellParsePatternToolbar(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -104,13 +104,13 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
-        final AnchoredSpreadsheetSelection selection = this.selection();
+        final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();
 
         return patternKind.isPresent() ?
                 cellPattern(
                         id,
                         name,
-                        selection,
+                        anchoredSelection,
                         patternKind.get()
                 ) :
                 this;

@@ -55,7 +55,7 @@ abstract class SpreadsheetPatternComponentContextBasicCell extends SpreadsheetPa
         final Optional<SpreadsheetCell> maybeCell = this.context.viewportCell(
                 this.historyToken()
                         .cast(SpreadsheetCellPatternSelectHistoryToken.class)
-                        .selection()
+                        .anchoredSelection()
                         .selection()
         );
         if (maybeCell.isPresent()) {

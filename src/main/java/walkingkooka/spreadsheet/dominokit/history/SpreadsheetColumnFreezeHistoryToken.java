@@ -29,27 +29,27 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
 
     static SpreadsheetColumnFreezeHistoryToken with(final SpreadsheetId id,
                                                     final SpreadsheetName name,
-                                                    final AnchoredSpreadsheetSelection selection) {
+                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnFreezeHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetColumnFreezeHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection selection) {
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
         // validate selection
         SpreadsheetMetadata.EMPTY.set(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                selection.selection()
+                anchoredSelection.selection()
                         .toColumnRange()
         );
     }
@@ -60,11 +60,11 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setFreeze();
     }
 
@@ -74,7 +74,7 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
         return with(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -83,7 +83,7 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
                                final AppContext context) {
         this.patchMetadataAndPushSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                this.selection()
+                this.anchoredSelection()
                         .selection()
                         .toColumnRange(),
                 context

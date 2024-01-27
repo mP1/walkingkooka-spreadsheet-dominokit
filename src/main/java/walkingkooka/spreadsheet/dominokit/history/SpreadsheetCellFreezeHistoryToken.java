@@ -33,32 +33,32 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
 
     static SpreadsheetCellFreezeHistoryToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name,
-                                                  final AnchoredSpreadsheetSelection selection) {
+                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFreezeHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetCellFreezeHistoryToken(final SpreadsheetId id,
                                               final SpreadsheetName name,
-                                              final AnchoredSpreadsheetSelection selection) {
+                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
-        final SpreadsheetSelection spreadsheetSelection = selection.selection();
+        final SpreadsheetSelection selection = anchoredSelection.selection();
 
-        if (false == spreadsheetSelection.isLabelName()) {
+        if (false == selection.isLabelName()) {
             SpreadsheetMetadata.EMPTY.set(
                     SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                    spreadsheetSelection.toColumnRange()
+                    selection.toColumnRange()
             ).set(
                     SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                    spreadsheetSelection.toRowRange()
+                    selection.toRowRange()
             );
         }
     }
@@ -74,11 +74,11 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setFreeze();
     }
 
@@ -98,7 +98,7 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
         return with(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -120,7 +120,7 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final SpreadsheetSelection selection = this.selection()
+        final SpreadsheetSelection selection = this.anchoredSelection()
                 .selection();
         this.patchMetadataAndPushSelectionHistoryToken(
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,

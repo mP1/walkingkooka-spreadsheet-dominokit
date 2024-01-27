@@ -31,16 +31,16 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
 
     SpreadsheetRowHistoryToken(final SpreadsheetId id,
                                final SpreadsheetName name,
-                               final AnchoredSpreadsheetSelection selection) {
+                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
 
-        final SpreadsheetSelection spreadsheetSelection = selection.selection();
-        if (false == spreadsheetSelection.isRowReference() && false == spreadsheetSelection.isRowReferenceRange()) {
-            throw new IllegalArgumentException("Got " + spreadsheetSelection + " expected row or row-range");
+        final SpreadsheetSelection selection = anchoredSelection.selection();
+        if (false == selection.isRowReference() && false == selection.isRowReferenceRange()) {
+            throw new IllegalArgumentException("Got " + selection + " expected row or row-range");
         }
     }
 
@@ -60,7 +60,7 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
         return rowClear(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -69,7 +69,7 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
         return rowDelete(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -88,7 +88,7 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
         return rowFreeze(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -97,7 +97,7 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
         return rowInsertAfter(
                 this.id(),
                 this.name(),
-                this.selection(),
+                this.anchoredSelection(),
                 count
         );
     }
@@ -107,7 +107,7 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
         return rowInsertBefore(
                 this.id(),
                 this.name(),
-                this.selection(),
+                this.anchoredSelection(),
                 count
         );
     }
@@ -117,13 +117,13 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
         return rowMenu(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
     @Override //
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
-        final AnchoredSpreadsheetSelection anchored = this.selection();
+        final AnchoredSpreadsheetSelection anchored = this.anchoredSelection();
 
         return selection.isRowReference() &&
                 anchored.selection()
@@ -157,7 +157,7 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
         return rowUnfreeze(
                 this.id(),
                 this.name(),
-                this.selection()
+                this.anchoredSelection()
         );
     }
 }

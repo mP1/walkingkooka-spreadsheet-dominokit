@@ -76,14 +76,14 @@ public final class SpreadsheetCellClearHistoryTokenTest extends SpreadsheetCellH
         this.setMenuWithCellAndCheck();
     }
 
-    // setSelection............................................................................................
+    // setAnchoredSelection.............................................................................................
 
     @Test
-    public void testSetSelectionDifferentCell() {
+    public void testSetAnchoredSelectionDifferentCell() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.cellClear(
@@ -95,11 +95,11 @@ public final class SpreadsheetCellClearHistoryTokenTest extends SpreadsheetCellH
     }
 
     @Test
-    public void testSetSelectionDifferentColumn() {
+    public void testSetAnchoredSelectionDifferentColumn() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.columnClear(
@@ -111,11 +111,11 @@ public final class SpreadsheetCellClearHistoryTokenTest extends SpreadsheetCellH
     }
 
     @Test
-    public void testSetSelectionDifferentRow() {
+    public void testSetAnchoredSelectionDifferentRow() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.rowClear(

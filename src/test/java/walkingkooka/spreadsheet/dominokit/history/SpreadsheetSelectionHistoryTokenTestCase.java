@@ -45,17 +45,17 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         this.setMenuWithRowAndCheck();
     }
 
-    final void setSelectionAndCheck(final T token,
-                                    final AnchoredSpreadsheetSelection selection,
-                                    final HistoryToken expected) {
+    final void setAnchoredSelectionAndCheck(final T token,
+                                            final AnchoredSpreadsheetSelection anchoredSelection,
+                                            final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                token.setSelection(
+                token.setAnchoredSelection(
                         Optional.of(
-                                selection
+                                anchoredSelection
                         )
                 ),
-                () -> token + " setSelection " + selection
+                () -> token + " setAnchoredSelection " + anchoredSelection
         );
     }
 }

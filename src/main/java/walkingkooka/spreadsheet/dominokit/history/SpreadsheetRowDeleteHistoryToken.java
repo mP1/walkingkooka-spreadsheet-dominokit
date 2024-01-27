@@ -29,21 +29,21 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
 
     static SpreadsheetRowDeleteHistoryToken with(final SpreadsheetId id,
                                                  final SpreadsheetName name,
-                                                 final AnchoredSpreadsheetSelection selection) {
+                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowDeleteHistoryToken(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
     private SpreadsheetRowDeleteHistoryToken(final SpreadsheetId id,
                                              final SpreadsheetName name,
-                                             final AnchoredSpreadsheetSelection selection) {
+                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                selection
+                anchoredSelection
         );
     }
 
@@ -53,11 +53,11 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
     }
 
     @Override //
-    HistoryToken setDifferentSelection(final AnchoredSpreadsheetSelection selection) {
+    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
                 this.id(),
                 this.name(),
-                selection
+                anchoredSelection
         ).setDelete();
     }
 
@@ -67,7 +67,7 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
         return with(
                 id,
                 name,
-                this.selection()
+                this.anchoredSelection()
         );
     }
 
@@ -76,12 +76,12 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
                                final AppContext context) {
         context.pushHistoryToken(
                 context.historyToken()
-                        .setSelection(Optional.empty())
+                        .setAnchoredSelection(Optional.empty())
         );
         context.spreadsheetDeltaFetcher()
                 .deleteDelta(
                         this.id(),
-                        this.selection().selection()
+                        this.anchoredSelection().selection()
                 );
     }
 }

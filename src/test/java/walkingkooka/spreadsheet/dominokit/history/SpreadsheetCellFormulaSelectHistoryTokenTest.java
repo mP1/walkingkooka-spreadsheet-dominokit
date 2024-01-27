@@ -75,14 +75,13 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
         this.clearActionAndCheck();
     }
 
-    // setSelection.....................................................................................................
-
+    // setAnchoredSelection.............................................................................................
     @Test
-    public void testSetSelectionDifferentCell() {
+    public void testSetAnchoredSelectionDifferentCell() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
                 .setDefaultAnchor();
 
-        this.setSelectionAndCheck(
+        this.setAnchoredSelectionAndCheck(
                 this.createHistoryToken(),
                 different,
                 HistoryToken.formula(

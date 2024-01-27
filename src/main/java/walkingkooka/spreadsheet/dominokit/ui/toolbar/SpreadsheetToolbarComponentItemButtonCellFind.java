@@ -77,7 +77,7 @@ final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToo
         }
 
         context.pushHistoryToken(
-                historyToken.setSelection(
+                historyToken.setAnchoredSelection(
                         Optional.of(anchoredSpreadsheetSelection)
                 ).setFind(
                         SpreadsheetCellFind.empty()
