@@ -44,7 +44,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -479,19 +478,6 @@ public class App implements EntryPoint,
         this.debug("App.onHistoryTokenChange BEGIN from " + previousToken + " to " + token);
 
         this.previousToken = token;
-
-        if (token instanceof SpreadsheetCellFindHistoryToken) {
-            final SpreadsheetCellFindHistoryToken cellFindHistoryToken = (SpreadsheetCellFindHistoryToken) token;
-
-            final SpreadsheetCellFind previous = this.lastCellFind;
-            final SpreadsheetCellFind next = cellFindHistoryToken.find();
-            if (previous.equals(next)) {
-                this.debug("App.onHistoryTokenChange saved same find=" + next);
-            } else {
-                this.lastCellFind = next;
-                this.debug("App.onHistoryTokenChange saved " + next + " was " + previous);
-            }
-        }
 
         if (false == token.equals(previousToken)) {
             if (token instanceof UnknownHistoryToken) {
