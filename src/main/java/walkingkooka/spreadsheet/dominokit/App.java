@@ -540,29 +540,31 @@ public class App implements EntryPoint,
 
         // if the selection changed update metadata
         final HistoryToken historyToken = context.historyToken();
-        if (historyToken instanceof SpreadsheetIdHistoryToken) {
-            final Optional<AnchoredSpreadsheetSelection> selection = historyToken.selectionOrEmpty();
-            final Optional<AnchoredSpreadsheetSelection> previousSelection = previous.selectionOrEmpty();
-            if (false == selection.equals(previousSelection)) {
+        if (false == historyToken.shouldIgnore()) {
+            if (historyToken instanceof SpreadsheetIdHistoryToken) {
+                final Optional<AnchoredSpreadsheetSelection> selection = historyToken.selectionOrEmpty();
+                final Optional<AnchoredSpreadsheetSelection> previousSelection = previous.selectionOrEmpty();
+                if (false == selection.equals(previousSelection)) {
 
-                context.debug("App.onHistoryTokenChange selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
+                    context.debug("App.onHistoryTokenChange selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
 
-                // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
-                if (context.spreadsheetMetadata()
-                        .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                        .isPresent()) {
-                    final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
-                    context.spreadsheetMetadataFetcher()
-                            .patchMetadata(
-                                    spreadsheetIdHistoryToken.id(),
-                                    SpreadsheetMetadataPropertyName.VIEWPORT.patch(
-                                            selection.map(
-                                                    s -> context.viewport(
-                                                            Optional.of(s)
-                                                    )
-                                            ).orElse(null)
-                                    )
-                            );
+                    // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
+                    if (context.spreadsheetMetadata()
+                            .get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                            .isPresent()) {
+                        final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
+                        context.spreadsheetMetadataFetcher()
+                                .patchMetadata(
+                                        spreadsheetIdHistoryToken.id(),
+                                        SpreadsheetMetadataPropertyName.VIEWPORT.patch(
+                                                selection.map(
+                                                        s -> context.viewport(
+                                                                Optional.of(s)
+                                                        )
+                                                ).orElse(null)
+                                        )
+                                );
+                    }
                 }
             }
         }

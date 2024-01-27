@@ -1369,6 +1369,16 @@ public abstract class HistoryToken implements HasUrlFragment {
         return Optional.ofNullable(token);
     }
 
+    /**
+     * Temporary {@link HistoryToken} which perform an immediate action and probably return the previous {@link HistoryToken}
+     * should probably be ignored by {@link HistoryTokenWatcher} that are monitoring if a {@link SpreadsheetSelection} changes
+     * or present a stateful UI like a dialog box.
+     */
+    public final boolean shouldIgnore() {
+        final String name = this.getClass().getSimpleName();
+        return name.contains("Save");
+    }
+
     private HistoryToken setIfSpreadsheetNameHistoryToken(final Function<SpreadsheetNameHistoryToken, HistoryToken> setter) {
         HistoryToken token = this;
 
