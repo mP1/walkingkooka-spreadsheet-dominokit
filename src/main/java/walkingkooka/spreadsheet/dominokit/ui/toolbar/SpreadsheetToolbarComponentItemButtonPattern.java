@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.icons.MdiIcon;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
@@ -128,7 +129,8 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
         final boolean selected = false == patternKindToCount.isEmpty();
 
         this.setButtonSelected(
-                selected
+                selected,
+                SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
         );
 
         context.debug(this.getClass().getSimpleName() + ".onToolbarRefreshEnd selected: " + selected + " patternToKindCount: " + patternKindToCount);

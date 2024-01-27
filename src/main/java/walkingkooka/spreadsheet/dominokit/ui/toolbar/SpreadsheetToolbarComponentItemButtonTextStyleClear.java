@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 import elemental2.dom.Event;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.tree.text.TextNode;
@@ -118,7 +119,8 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
         final boolean selected = setCellCounter == cellPresentCount;
 
         this.setButtonSelected(
-                selected
+                selected,
+                SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
         );
 
         context.debug("SpreadsheetToolbarComponentItemButtonTextStyleClear.onToolbarRefreshEnd " + PROPERTY + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected);

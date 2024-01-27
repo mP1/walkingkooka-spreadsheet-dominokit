@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -73,7 +74,8 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
         final boolean hide = this.isHideZeroValues(context);
 
         this.setButtonSelected(
-                hide
+                hide,
+                SpreadsheetDominoKitColor.HIDE_ZERO_VALUES_COLOR
         );
 
         this.setTooltipText(
