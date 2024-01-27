@@ -125,7 +125,7 @@ public interface AppContext extends CanGiveFocus,
      */
     default UrlQueryString lastCellFindAndViewportAndWindowQueryString() {
         return SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                this.viewport(SpreadsheetViewport.NO_SELECTION),
+                this.viewport(SpreadsheetViewport.NO_ANCHORED_SELECTION),
                 this.viewportCache()
                         .windows()
         ).addParameters(

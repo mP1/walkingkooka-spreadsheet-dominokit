@@ -393,11 +393,11 @@ public class App implements EntryPoint,
                             id,
                             name
                     ).setAnchoredSelection(
-                            viewport.flatMap(SpreadsheetViewport::selection)
+                            viewport.flatMap(SpreadsheetViewport::anchoredSelection)
                     );
 
             if (false == historyToken.equals(idNameSelectionHistoryToken)) {
-                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/selection " + idNameSelectionHistoryToken, metadata);
+                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/anchoredSelection " + idNameSelectionHistoryToken, metadata);
                 context.pushHistoryToken(idNameSelectionHistoryToken);
             } else {
                 // must have loaded a new spreadsheet, need to fire history token

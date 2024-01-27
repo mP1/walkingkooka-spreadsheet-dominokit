@@ -50,7 +50,7 @@ final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFet
             if (viewport.isPresent()) {
                 final HistoryToken withSelection = historyToken.setAnchoredSelection(
                         viewport.get()
-                                .selection()
+                                .anchoredSelection()
                 );
 
                 if (false == historyToken.equals(withSelection)) {
