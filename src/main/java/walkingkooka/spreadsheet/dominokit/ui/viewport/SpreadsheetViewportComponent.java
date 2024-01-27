@@ -49,7 +49,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
-import walkingkooka.color.WebColorName;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -61,6 +60,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
@@ -1609,30 +1609,26 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             style = style.set(
                     TextStylePropertyName.BACKGROUND_COLOR,
                     style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
-                            .mix(HIGHLIGHT_COLOR, 0.5f)
+                            .mix(
+                                    SpreadsheetDominoKitColor.HIGHLIGHT_COLOR,
+                                    0.5f
+                            )
             );
         }
 
         return style;
     }
 
-    /**
-     * This {@link Color} is mixed with cells that are selected for highlighting because of a {@link SpreadsheetCellFind} query.
-     */
-    private final static Color HIGHLIGHT_COLOR = WebColorName.YELLOW.color();
-
     private TextStyle hideZeroValues(final TextStyle style) {
         return style.set(
                 TextStylePropertyName.BACKGROUND_COLOR,
                 style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
-                        .mix(HIDE_ZERO_VALUES_COLOR, 0.5f)
+                        .mix(
+                                SpreadsheetDominoKitColor.HIDE_ZERO_VALUES_COLOR,
+                                0.5f
+                        )
         );
     }
-
-    /**
-     * This color will be mixed with the cell background-color when {@link SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES} is true and the value is a zero number.
-     */
-    private final static Color HIDE_ZERO_VALUES_COLOR = WebColorName.LIGHTGREEN.color();
 
     private TextStyle cellSelectedStyle;
     private TextStyle cellUnselectedStyle;
