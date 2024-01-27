@@ -637,18 +637,6 @@ public class App implements EntryPoint,
     @Override
     public void setViewportHighlightEnabled(final boolean viewportHighlightEnabled) {
         this.viewportHighlightEnabled = viewportHighlightEnabled;
-
-        // if enabling and missing find show find cells dialog.
-        if (viewportHighlightEnabled) {
-            final SpreadsheetCellFind find = this.lastCellFind();
-            if (find.isEmpty()) {
-                final HistoryToken historyToken = this.historyToken();
-
-                this.pushHistoryToken(
-                        historyToken.setFind(find)
-                );
-            }
-        }
     }
 
     private boolean viewportHighlightEnabled = false;

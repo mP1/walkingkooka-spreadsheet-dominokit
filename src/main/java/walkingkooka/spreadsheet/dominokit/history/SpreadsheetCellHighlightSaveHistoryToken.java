@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetCellHighlightHistoryToken {
@@ -105,9 +106,26 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        context.pushHistoryToken(
-                previous
-        );
-        context.setViewportHighlightEnabled(this.value);
+        final boolean enable = this.value;
+        context.setViewportHighlightEnabled(enable);
+
+        boolean doPrevious = true;
+
+        // if enabling and missing find show find cells dialog.
+        if (enable) {
+            final SpreadsheetCellFind find = context.lastCellFind();
+            if (find.isEmpty()) {
+                context.pushHistoryToken(
+                        this.setFind(find)
+                );
+                doPrevious = false;
+            }
+        }
+
+        if (doPrevious) {
+            context.pushHistoryToken(
+                    previous
+            );
+        }
     }
 }
