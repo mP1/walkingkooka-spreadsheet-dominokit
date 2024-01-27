@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
+import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -68,12 +69,13 @@ abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarC
 
     abstract void onFocus(final Event event);
 
-    final void setButtonSelected(final boolean selected) {
+    final void setButtonSelected(final boolean selected,
+                                 final Color selectedBackgroundColor) {
         TextStyle style = BUTTON_STYLE;
         if (selected) {
             style = style.set(
                     TextStylePropertyName.BACKGROUND_COLOR,
-                    SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
+                    selectedBackgroundColor
             ).set(
                     TextStylePropertyName.COLOR,
                     SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_COLOR

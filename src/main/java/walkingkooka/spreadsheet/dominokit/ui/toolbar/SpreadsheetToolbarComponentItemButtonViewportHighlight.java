@@ -21,6 +21,7 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
@@ -122,7 +123,8 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
         final boolean enabled = context.isViewportHighlightEnabled();
 
         this.setButtonSelected(
-                enabled // selected
+                enabled, // selected
+                SpreadsheetDominoKitColor.HIGHLIGHT_COLOR
         );
         this.setTooltipText(
                 enabled ?
