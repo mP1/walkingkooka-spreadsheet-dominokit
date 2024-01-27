@@ -75,6 +75,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_text();
     }
 
+    public static MdiIcon hideZeroValues() {
+        return Icons.star();
+    }
+
     public static MdiIcon highlight() {
         return Icons.spotlight_beam();
     }
