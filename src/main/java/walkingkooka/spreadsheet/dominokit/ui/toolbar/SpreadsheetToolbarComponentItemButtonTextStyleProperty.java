@@ -169,8 +169,7 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends Sp
                 propertyValue;
 
         this.setButtonSelected(
-                selected,
-                context
+                selected
         );
 
         this.setSaveValue(saveValue);

@@ -34,7 +34,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
-import walkingkooka.tree.text.TextStyle;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -127,13 +126,6 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public void fireCurrentHistoryToken() {
-        throw new UnsupportedOperationException();
-    }
-
-    // UI...............................................................................................................
-
-    @Override
-    public TextStyle selectedIconStyle() {
         throw new UnsupportedOperationException();
     }
 

@@ -122,8 +122,7 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
         final boolean enabled = context.isViewportHighlightEnabled();
 
         this.setButtonSelected(
-                enabled, // selected
-                context
+                enabled // selected
         );
         this.setTooltipText(
                 enabled ?

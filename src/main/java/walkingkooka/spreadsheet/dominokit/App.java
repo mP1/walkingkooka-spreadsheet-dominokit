@@ -33,7 +33,6 @@ import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
-import walkingkooka.color.Color;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -82,8 +81,6 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
-import walkingkooka.tree.text.TextStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
@@ -589,22 +586,6 @@ public class App implements EntryPoint,
             }
         }
     }
-
-    // UI...............................................................................................................
-
-    @Override
-    public TextStyle selectedIconStyle() {
-        return SELECTED_ICON;
-    }
-
-    private final static TextStyle SELECTED_ICON = TextStyle.EMPTY
-            .set(
-                    TextStylePropertyName.BACKGROUND_COLOR,
-                    Color.parse("#ffff00")
-            ).set(
-                    TextStylePropertyName.COLOR,
-                    Color.parse("#0000ff")
-            );
 
     // Viewport.........................................................................................................
 
