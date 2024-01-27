@@ -171,6 +171,11 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public void setLastCellFind(final SpreadsheetCellFind lastCellFind) {
+        throw new UnsupportedOperationException();
+    }
+
     // CanGiveFocus.....................................................................................................
 
     @Override

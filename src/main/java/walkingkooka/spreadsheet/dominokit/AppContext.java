@@ -105,6 +105,7 @@ public interface AppContext extends CanGiveFocus,
      */
     SpreadsheetCellFind lastCellFind();
 
+    void setLastCellFind(final SpreadsheetCellFind lastCellFind);
 
     /**
      * Returns a {@link UrlQueryString} which will not be empty if {@link #isViewportHighlightEnabled()} is true
