@@ -639,7 +639,6 @@ public class App implements EntryPoint,
         this.viewportHighlightEnabled = viewportHighlightEnabled;
 
         // if enabling and missing find show find cells dialog.
-        DomGlobal.console.error("@@@setViewportHighlightEnabled " + viewportHighlightEnabled + " " + this.lastCellFind() + " " + this.lastCellFind().isEmpty() + " " + this.historyToken().setFind(this.lastCellFind()));
         if (viewportHighlightEnabled) {
             final SpreadsheetCellFind find = this.lastCellFind();
             if (find.isEmpty()) {
