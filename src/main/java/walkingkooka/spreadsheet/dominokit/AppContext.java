@@ -93,6 +93,11 @@ public interface AppContext extends CanGiveFocus,
      */
     boolean isViewportHighlightEnabled();
 
+    /**
+     * Setter that updates the viewportHighlightEnabled flag.
+     */
+    void setViewportHighlightEnabled(boolean viewportHighlightEnabled);
+
     // cellFind.........................................................................................................
 
     /**

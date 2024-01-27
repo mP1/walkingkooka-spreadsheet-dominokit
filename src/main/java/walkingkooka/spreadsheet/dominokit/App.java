@@ -653,6 +653,11 @@ public class App implements EntryPoint,
         return this.viewportHighlightEnabled;
     }
 
+    @Override
+    public void setViewportHighlightEnabled(final boolean viewportHighlightEnabled) {
+        this.viewportHighlightEnabled = viewportHighlightEnabled;
+    }
+
     private boolean viewportHighlightEnabled = false;
 
     // focus............................................................................................................
