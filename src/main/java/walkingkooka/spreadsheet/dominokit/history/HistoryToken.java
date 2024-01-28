@@ -1185,12 +1185,12 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         HistoryToken token = this;
 
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+        if (this instanceof SpreadsheetSelectHistoryToken) {
+            final SpreadsheetSelectHistoryToken select = this.cast(SpreadsheetSelectHistoryToken.class);
 
             token = HistoryToken.metadataPropertySelect(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name(),
+                    select.id(),
+                    select.name(),
                     propertyName
             );
         }

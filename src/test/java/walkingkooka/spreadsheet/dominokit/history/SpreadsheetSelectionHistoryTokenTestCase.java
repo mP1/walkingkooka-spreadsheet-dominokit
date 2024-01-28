@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
@@ -56,6 +57,19 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
                         )
                 ),
                 () -> token + " setAnchoredSelection " + anchoredSelection
+        );
+    }
+
+    // setMetadataPropertyName..........................................................................................
+
+    @Test
+    public final void testSetMetadataPropertyName2() {
+        final HistoryToken token = this.createHistoryToken();
+
+        this.setMetadataPropertyNameAndCheck(
+                token,
+                SpreadsheetMetadataPropertyName.LOCALE,
+                token
         );
     }
 }
