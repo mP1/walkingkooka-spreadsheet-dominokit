@@ -63,6 +63,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.close();
     }
 
+    public static MdiIcon cellDelete() {
+        return Icons.close();
+    }
+
     public static MdiIcon clearStyle() {
         return Icons.format_clear();
     }
