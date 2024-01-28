@@ -1654,19 +1654,19 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // selectionHistoryTokenOrEmpty....................................................................................
+    // anchoredSelectionHistoryTokenOrEmpty.............................................................................
 
     @Test
-    public void testViewportHistoryTokenNot() {
-        this.viewportHistoryTokenAndCheck(
+    public void testAnchoredSelectionHistoryTokenOrEmptyNot() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.unknown(UrlFragment.parse("/something-else")),
                 Optional.empty()
         );
     }
 
     @Test
-    public void testViewportHistoryTokenCell() {
-        this.viewportHistoryTokenAndCheck(
+    public void testAnchoredSelectionHistoryTokenOrEmptyCell() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -1676,8 +1676,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenCellRange() {
-        this.viewportHistoryTokenAndCheck(
+    public void testAnchoredSelectionHistoryTokenOrEmptyCellRange() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -1687,8 +1687,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenLabel() {
-        this.viewportHistoryTokenAndCheck(
+    public void testAnchoredSelectionHistoryTokenOrEmptyLabel() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -1698,10 +1698,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenWhenCellClear() {
+    public void testAnchoredSelectionHistoryTokenOrEmptyWhenCellClear() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
 
-        this.viewportHistoryTokenAndCheck(
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.cellClear(
                         ID,
                         NAME,
@@ -1716,10 +1716,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenWhenCellFormulaSave() {
+    public void testAnchoredSelectionHistoryTokenOrEmptyWhenCellFormulaSave() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
 
-        this.viewportHistoryTokenAndCheck(
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.formulaSave(
                         ID,
                         NAME,
@@ -1735,8 +1735,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenColumn() {
-        this.viewportHistoryTokenAndCheck(
+    public void testAnchoredSelectionHistoryTokenOrEmptyColumn() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -1746,10 +1746,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenWhenColumnClear() {
+    public void testAnchoredSelectionHistoryTokenOrEmptyWhenColumnClear() {
         final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
 
-        this.viewportHistoryTokenAndCheck(
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.columnClear(
                         ID,
                         NAME,
@@ -1764,8 +1764,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenColumnRange() {
-        this.viewportHistoryTokenAndCheck(
+    public void testAnchoredSelectionHistoryTokenOrEmptyColumnRange() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -1775,8 +1775,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenRow() {
-        this.viewportHistoryTokenAndCheck(
+    public void testAnchoredSelectionHistoryTokenOrEmptyRow() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -1786,10 +1786,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenWhenRowClear() {
+    public void testAnchoredSelectionHistoryTokenOrEmptyWhenRowClear() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
 
-        this.viewportHistoryTokenAndCheck(
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.rowClear(
                         ID,
                         NAME,
@@ -1804,8 +1804,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testViewportHistoryTokenRowRange() {
-        this.viewportHistoryTokenAndCheck(
+    public void testAnchoredSelectionHistoryTokenOrEmptyRowRange() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -1814,7 +1814,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    private void viewportHistoryTokenAndCheck(final HistoryToken token) {
+    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token) {
         assertSame(
                 token,
                 token.anchoredSelectionHistoryTokenOrEmpty()
@@ -1823,16 +1823,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    private void viewportHistoryTokenAndCheck(final HistoryToken token,
-                                                       final HistoryToken expected) {
-        this.viewportHistoryTokenAndCheck(
+    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token,
+                                                              final HistoryToken expected) {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
                 token,
                 Optional.of(expected)
         );
     }
 
-    private void viewportHistoryTokenAndCheck(final HistoryToken token,
-                                                       final Optional<HistoryToken> expected) {
+    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token,
+                                                              final Optional<HistoryToken> expected) {
         this.checkEquals(
                 expected,
                 token.anchoredSelectionHistoryTokenOrEmpty(),
