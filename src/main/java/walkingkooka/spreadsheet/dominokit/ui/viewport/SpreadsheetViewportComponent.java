@@ -495,7 +495,10 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             }
             menu.separator();
 
-            renderContextMenuClearDelete(historyToken, menu);
+            renderContextMenuClearDelete(
+                    historyToken,
+                    menu
+            );
             renderContextMenuInsertColumns(historyToken, selection, menu);
             renderContextMenuInsertRows(historyToken, selection, menu);
             renderContextMenuFreezeUnfreeze(historyToken, menu);
@@ -597,6 +600,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private static void renderContextMenuClearDelete(final HistoryToken historyToken,
                                                      final SpreadsheetContextMenu menu) {
+        final SpreadsheetSelection selection = historyToken.selectionOrEmpty()
+                .orElseThrow(
+                        () -> new IllegalStateException("History token missing selection " + historyToken)
+                ).selection();
+
         menu.item(
                 CONTEXT_MENU_ID_PREFIX + "clear" + SpreadsheetIds.MENU_ITEM,
                 "Clear",
@@ -604,6 +612,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         ).item(
                 CONTEXT_MENU_ID_PREFIX + "delete" + SpreadsheetIds.MENU_ITEM,
                 "Delete",
+                selection.<Supplier<MdiIcon>>pick(
+                        SpreadsheetIcons::cellDelete,
+                        SpreadsheetIcons::columnRemove,
+                        SpreadsheetIcons::rowRemove
+                ).get(),
                 historyToken.setDelete()
         ).separator();
     }
