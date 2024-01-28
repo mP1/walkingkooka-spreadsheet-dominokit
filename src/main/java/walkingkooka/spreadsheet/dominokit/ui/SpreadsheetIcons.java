@@ -67,6 +67,18 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.close_circle();
     }
 
+    public static MdiIcon columnInsertAfter() {
+        return Icons.table_column_plus_after();
+    }
+
+    public static MdiIcon columnInsertBefore() {
+        return Icons.table_column_plus_before();
+    }
+
+    public static MdiIcon columnRemove() {
+        return Icons.table_column_remove();
+    }
+
     public static MdiIcon copy() {
         return Icons.content_copy();
     }
