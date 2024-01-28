@@ -42,7 +42,7 @@ public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownH
     public void testViewportOrEmpty() {
         this.checkEquals(
                 Optional.empty(),
-                this.createHistoryToken().selectionOrEmpty()
+                this.createHistoryToken().anchoredSelectionOrEmpty()
         );
     }
 

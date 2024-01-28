@@ -95,7 +95,7 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
         context.pushHistoryToken(
                 previous.clearAction()
                         .setAnchoredSelection(
-                                previous.selectionOrEmpty()
+                                previous.anchoredSelectionOrEmpty()
                                         .map(
                                                 a -> a.selection()
                                                         .addSaturated(

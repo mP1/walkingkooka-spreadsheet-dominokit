@@ -1168,7 +1168,7 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetNameHistoryToken) {
             SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
 
-            final Optional<AnchoredSpreadsheetSelection> maybeAnchored = this.selectionOrEmpty();
+            final Optional<AnchoredSpreadsheetSelection> maybeAnchored = this.anchoredSelectionOrEmpty();
             if (maybeAnchored.isPresent()) {
                 final AnchoredSpreadsheetSelection anchored = maybeAnchored.get();
 
@@ -1428,7 +1428,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
         Objects.requireNonNull(selection, "selection");
 
-        return this.selectionOrEmpty().equals(selection) ?
+        return this.anchoredSelectionOrEmpty().equals(selection) ?
                 this :
                 this.setDifferentSelection(selection);
     }
@@ -1490,15 +1490,15 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Maybe used to get the {@link SpreadsheetViewport} from any {@link HistoryToken}
      */
-    public final Optional<AnchoredSpreadsheetSelection> selectionOrEmpty() {
-        AnchoredSpreadsheetSelection selection = null;
+    public final Optional<AnchoredSpreadsheetSelection> anchoredSelectionOrEmpty() {
+        AnchoredSpreadsheetSelection anchoredSelection = null;
 
         if (this instanceof AnchoredSpreadsheetSelectionHistoryToken) {
-            selection = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class)
+            anchoredSelection = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class)
                     .anchoredSelection();
         }
 
-        return Optional.ofNullable(selection);
+        return Optional.ofNullable(anchoredSelection);
     }
 
     /**
@@ -1507,7 +1507,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetViewportCache viewportCache) {
         Objects.requireNonNull(viewportCache, "viewportCache");
 
-        return this.selectionOrEmpty()
+        return this.anchoredSelectionOrEmpty()
                 .flatMap((a) -> viewportCache.nonLabelSelection(a.selection()));
     }
 

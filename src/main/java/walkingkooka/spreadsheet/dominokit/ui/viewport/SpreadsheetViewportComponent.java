@@ -600,7 +600,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private static void renderContextMenuClearDelete(final HistoryToken historyToken,
                                                      final SpreadsheetContextMenu menu) {
-        final SpreadsheetSelection selection = historyToken.selectionOrEmpty()
+        final SpreadsheetSelection selection = historyToken.anchoredSelectionOrEmpty()
                 .orElseThrow(
                         () -> new IllegalStateException("History token missing selection " + historyToken)
                 ).selection();
@@ -1206,7 +1206,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      */
     private void render(final AppContext context) {
         final HistoryToken historyToken = context.historyToken();
-        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = historyToken.selectionOrEmpty();
+        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = historyToken.anchoredSelectionOrEmpty();
         this.setSelected(maybeAnchored);
 
         final TableElement tableElement = this.tableElement;

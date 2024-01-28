@@ -95,7 +95,7 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
         context.pushHistoryToken(
                 previous.clearAction()
                         .setAnchoredSelection(
-                                previous.selectionOrEmpty()
+                                previous.anchoredSelectionOrEmpty()
                                         .map(
                                                 a -> a.selection()
                                                         .addSaturated(

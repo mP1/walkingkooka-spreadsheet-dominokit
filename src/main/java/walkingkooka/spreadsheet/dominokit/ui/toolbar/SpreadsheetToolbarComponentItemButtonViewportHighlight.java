@@ -71,7 +71,7 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
         context.pushHistoryToken(
                 historyToken.setAnchoredSelection(
                                 Optional.of(
-                                        historyToken.selectionOrEmpty()
+                                        historyToken.anchoredSelectionOrEmpty()
                                                 .orElse(
                                                         SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
                                                 )
@@ -86,7 +86,7 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
         );
         context.debug(this.getClass().getSimpleName() + ".onClick highlight save " + enable + " " + historyToken.setAnchoredSelection(
                                 Optional.of(
-                                        historyToken.selectionOrEmpty()
+                                        historyToken.anchoredSelectionOrEmpty()
                                                 .orElse(
                                                         SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
                                                 )

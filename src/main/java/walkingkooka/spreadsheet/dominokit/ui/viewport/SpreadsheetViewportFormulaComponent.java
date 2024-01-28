@@ -76,7 +76,7 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
         final AppContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
 
-        context.debug("SpreadsheetViewportFormulaComponent.onFocus " + historyToken.selectionOrEmpty());
+        context.debug("SpreadsheetViewportFormulaComponent.onFocus " + historyToken.anchoredSelectionOrEmpty());
 
         context.pushHistoryToken(
                 historyToken.setFormula()
@@ -148,7 +148,7 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
         this.formula.setDisabled(false);
 
         this.selection = context.historyToken()
-                .selectionOrEmpty()
+                .anchoredSelectionOrEmpty()
                 .get()
                 .selection();
     }

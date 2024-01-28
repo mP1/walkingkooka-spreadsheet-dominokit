@@ -560,8 +560,8 @@ public class App implements EntryPoint,
                                                         final HistoryToken previous,
                                                         final AppContext context) {
         if (historyToken instanceof SpreadsheetIdHistoryToken) {
-            final Optional<AnchoredSpreadsheetSelection> selection = historyToken.selectionOrEmpty();
-            final Optional<AnchoredSpreadsheetSelection> previousSelection = previous.selectionOrEmpty();
+            final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
+            final Optional<AnchoredSpreadsheetSelection> previousSelection = previous.anchoredSelectionOrEmpty();
             if (false == selection.equals(previousSelection)) {
 
                 context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
