@@ -15,12 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import walkingkooka.color.Color;
 import walkingkooka.color.WebColorName;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
