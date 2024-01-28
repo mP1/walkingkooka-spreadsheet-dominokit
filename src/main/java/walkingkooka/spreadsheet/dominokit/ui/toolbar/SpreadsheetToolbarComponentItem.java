@@ -29,6 +29,7 @@ import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 
 /**
@@ -150,6 +151,36 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
                 TextAlign.JUSTIFY,
                 SpreadsheetIcons.alignJustify(),
                 "Justify",
+                context
+        );
+    }
+
+    static SpreadsheetToolbarComponentItem textCaseCapitalize(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+                TextStylePropertyName.TEXT_TRANSFORM,
+                TextTransform.CAPITALIZE,
+                SpreadsheetIcons.textCaseCapitalize(),
+                "Capitalize text",
+                context
+        );
+    }
+
+    static SpreadsheetToolbarComponentItem textCaseLowercase(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+                TextStylePropertyName.TEXT_TRANSFORM,
+                TextTransform.LOWERCASE,
+                SpreadsheetIcons.textCaseLower(),
+                "Lower-case text",
+                context
+        );
+    }
+
+    static SpreadsheetToolbarComponentItem textCaseUppercase(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+                TextStylePropertyName.TEXT_TRANSFORM,
+                TextTransform.UPPERCASE,
+                SpreadsheetIcons.textCaseLower(),
+                "Upper-case text",
                 context
         );
     }
