@@ -67,6 +67,14 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.close_circle();
     }
 
+    public static MdiIcon copy() {
+        return Icons.content_copy();
+    }
+
+    public static MdiIcon cut() {
+        return Icons.content_cut();
+    }
+
     public static MdiIcon findCells() {
         return Icons.magnify();
     }
@@ -93,6 +101,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
 
     public static MdiIcon parsePattern() {
         return Icons.format_text();
+    }
+
+    public static MdiIcon paste() {
+        return Icons.content_paste();
     }
 
     public static MdiIcon strikethrough() {
