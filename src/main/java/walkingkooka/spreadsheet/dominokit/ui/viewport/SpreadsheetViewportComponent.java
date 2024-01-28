@@ -453,13 +453,13 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             final DominoElement<?> element = new DominoElement<>(maybeElement.get());
 
             // ALIGNMENT
+            // VERTICAL ALIGNMENT
             // COLOR
             // BACKGROUND COLOR
             // BOLD
             // ITALICS
             // STRIKE THRU
             // UNDERLINE
-            // VERTICAL ALIGNMENT
             // CLEAR STYLE
             // ----
             // FORMAT
@@ -480,10 +480,10 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             // TODO add tick if already selected
             if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
                 renderContextMenuAlignment(historyToken, menu);
+                renderContextMenuVerticalAlignment(historyToken, menu);
                 renderContextMenuColor(historyToken, menu, context);
                 renderContextMenuBackgroundColor(historyToken, menu, context);
                 renderContextMenuStyle(historyToken, menu);
-                renderContextMenuVerticalAlignment(historyToken, menu);
                 renderContextMenuClearStyle(historyToken, menu);
 
                 menu.separator();
