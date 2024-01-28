@@ -86,7 +86,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         this.textBox.apply(
                 self -> self.appendChild(
                         PostfixAddOn.of(
-                                SpreadsheetIcons.close()
+                                SpreadsheetIcons.textBoxClear()
                                         .clickable()
                                         .addClickListener(
                                                 event -> this.textBox.clear()
