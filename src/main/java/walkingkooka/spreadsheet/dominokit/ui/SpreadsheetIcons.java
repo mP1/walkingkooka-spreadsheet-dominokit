@@ -95,6 +95,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.table_column_remove();
     }
 
+    public static MdiIcon columnWidth() {
+        return Icons.table_column_width();
+    }
+
     public static MdiIcon copy() {
         return Icons.content_copy();
     }
