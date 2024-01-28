@@ -82,7 +82,7 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends Sp
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .selectionHistoryTokenOrEmpty()
+                .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setStyle(this.propertyName)
                                 .setSave(save(this.saveValue))
@@ -103,7 +103,7 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends Sp
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .selectionHistoryTokenOrEmpty()
+                .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setStyle(this.propertyName)
                 ).ifPresent(context::pushHistoryToken);

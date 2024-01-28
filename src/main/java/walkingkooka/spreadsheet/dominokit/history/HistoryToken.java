@@ -1467,7 +1467,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Returns a {@link AnchoredSpreadsheetSelectionHistoryToken} using the id, name and {@link AnchoredSpreadsheetSelection}.
      */
-    public final Optional<HistoryToken> selectionHistoryTokenOrEmpty() {
+    public final Optional<HistoryToken> anchoredSelectionHistoryTokenOrEmpty() {
         HistoryToken result = null;
 
         if (this instanceof AnchoredSpreadsheetSelectionHistoryToken) {
