@@ -135,6 +135,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_strikethrough();
     }
 
+    public static MdiIcon textBoxClear() {
+        return Icons.close_circle();
+    }
+
     public static MdiIcon underline() {
         return Icons.format_underline();
     }
