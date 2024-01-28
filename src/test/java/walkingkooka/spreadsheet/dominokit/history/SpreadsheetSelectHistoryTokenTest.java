@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetSelectHistoryToken> {
 
@@ -51,6 +52,38 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
     public void testSetMenuWithRow() {
         this.setMenuWithRowAndCheck();
     }
+
+    // setMetadataPropertyName..........................................................................................
+
+    @Test
+    public void testSetMetadataPropertyName() {
+        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN;
+
+        this.setMetadataPropertyNameAndCheck(
+                propertyName,
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        propertyName
+                )
+        );
+    }
+
+    @Test
+    public void testSetMetadataPropertyName2() {
+        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.LOCALE;
+
+        this.setMetadataPropertyNameAndCheck(
+                propertyName,
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        propertyName
+                )
+        );
+    }
+
+    // helpers.........................................................................................................
 
     @Override
     SpreadsheetSelectHistoryToken createHistoryToken(final SpreadsheetId id,
