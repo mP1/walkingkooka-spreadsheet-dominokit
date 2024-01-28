@@ -605,11 +605,20 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                         () -> new IllegalStateException("History token missing selection " + historyToken)
                 ).selection();
 
+        // only render clear for columns and rows
+        if (selection.pick(
+                false, // cell
+                true, // column
+                true // row
+        )) {
+            menu.item(
+                    CONTEXT_MENU_ID_PREFIX + "clear" + SpreadsheetIds.MENU_ITEM,
+                    "Clear",
+                    historyToken.setClear()
+            );
+        }
+
         menu.item(
-                CONTEXT_MENU_ID_PREFIX + "clear" + SpreadsheetIds.MENU_ITEM,
-                "Clear",
-                historyToken.setClear()
-        ).item(
                 CONTEXT_MENU_ID_PREFIX + "delete" + SpreadsheetIds.MENU_ITEM,
                 "Delete",
                 selection.<Supplier<MdiIcon>>pick(
