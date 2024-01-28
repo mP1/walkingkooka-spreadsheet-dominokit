@@ -59,12 +59,20 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_bold();
     }
 
+    public static MdiIcon cellClear() {
+        return Icons.close();
+    }
+
     public static MdiIcon clearStyle() {
         return Icons.format_clear();
     }
 
     public static MdiIcon close() {
         return Icons.close_circle();
+    }
+
+    public static MdiIcon columnClear() {
+        return Icons.close();
     }
 
     public static MdiIcon columnInsertAfter() {
@@ -117,6 +125,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
 
     public static MdiIcon paste() {
         return Icons.content_paste();
+    }
+
+    public static MdiIcon rowClear() {
+        return Icons.close();
     }
 
     public static MdiIcon rowInsertAfter() {
