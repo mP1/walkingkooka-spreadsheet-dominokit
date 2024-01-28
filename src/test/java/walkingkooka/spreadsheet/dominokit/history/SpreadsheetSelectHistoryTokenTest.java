@@ -60,26 +60,7 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN;
 
         this.setMetadataPropertyNameAndCheck(
-                propertyName,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        propertyName
-                )
-        );
-    }
-
-    @Test
-    public void testSetMetadataPropertyName2() {
-        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.LOCALE;
-
-        this.setMetadataPropertyNameAndCheck(
-                propertyName,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        propertyName
-                )
+                propertyName
         );
     }
 
