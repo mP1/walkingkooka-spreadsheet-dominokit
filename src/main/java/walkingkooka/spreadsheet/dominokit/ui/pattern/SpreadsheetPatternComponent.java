@@ -30,14 +30,12 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -48,10 +46,10 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
@@ -632,27 +630,14 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     /**
      * Creates the pattern text box and installs a value change listener.
      */
-    private TextBox patternTextBox() {
-        final TextBox textBox = new TextBox();
-
-        textBox.id(ID_PREFIX + "TextBox");
-        textBox.element().spellcheck = false;
-        textBox.element().type = "text";
-        textBox.apply(
-                self -> self.appendChild(
-                        PostfixAddOn.of(
-                                SpreadsheetIcons.textBoxClear()
-                                        .clickable()
-                                        .addClickListener(event -> this.setPatternText(""))
-                        )
-                )
-        );
-
-        textBox.addEventListener(
-                EventType.input,
-                (e) -> this.onPatternTextBox(this.patternText())
-        );
-        return textBox;
+    private SpreadsheetTextBox patternTextBox() {
+        return SpreadsheetTextBox.empty()
+                .setId(ID_PREFIX + "TextBox")
+                .disableSpellcheck()
+                .clearIcon()
+                .addKeydownListener(
+                        (e) -> this.onPatternTextBox(this.patternText())
+                );
     }
 
     /**
@@ -662,7 +647,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     private void onPatternTextBox(final String patternText) {
         final SpreadsheetPatternComponentContext context = this.context;
         final SpreadsheetPatternKind patternKind = context.patternKind();
-        final TextBox patternTextBox = this.patternTextBox;
+        final SpreadsheetTextBox patternTextBox = this.patternTextBox;
 
         context.debug(this.getClass().getSimpleName() + ".onPatternTextBox " + CharSequences.quoteAndEscape(patternText));
 
@@ -697,9 +682,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         // clear or update the errors
         patternTextBox.setHelperText(
-                CharSequences.nullToEmpty(
-                        errorMessage
-                ).toString()
+                Optional.ofNullable(errorMessage)
         );
 
         this.patternComponentRebuild(
@@ -723,18 +706,21 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * Retrieves the current pattern.
      */
     private String patternText() {
-        return this.patternTextBox.getValue();
+        return this.patternTextBox.value()
+                .get();
     }
 
     private void setPatternText(final String patternText) {
-        this.patternTextBox.setValue(patternText);
+        this.patternTextBox.setValue(
+                Optional.of(patternText)
+        );
         this.onPatternTextBox(patternText);
     }
 
     /**
-     * The {@link TextBox} that holds the pattern in text form.
+     * The {@link SpreadsheetTextBox} that holds the pattern in text form.
      */
-    private final TextBox patternTextBox;
+    private final SpreadsheetTextBox patternTextBox;
 
     // buttons..........................................................................................................
 
