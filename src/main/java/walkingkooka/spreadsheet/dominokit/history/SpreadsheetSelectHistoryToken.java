@@ -63,10 +63,12 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
         switch(component) {
             case "cell":
+                result = this.parseCell(
+                        cursor
+                );
+                break;
             case "column":
-            case "row":
-                result = parseCellColumnOrRow(
-                        component,
+                result = this.parseColumn(
                         cursor
                 );
                 break;
@@ -79,42 +81,12 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             case "reload":
                 result = this.parseReload(cursor);
                 break;
-            default:
-                cursor.end();
-                break;
-        }
-
-        return result;
-    }
-
-    private HistoryToken parseCellColumnOrRow(final String cellColumnOrLabel,
-                                              final TextCursor cursor) {
-        HistoryToken result = this;
-
-        switch (cellColumnOrLabel) {
-            case "cell":
-                result = parseCellColumnOrRow0(
-                        cursor,
-                        SpreadsheetSelection::parseExpressionReference,
-                        result::setCell
-                );
-                break;
-            case "column":
-                result = parseCellColumnOrRow0(
-                        cursor,
-                        SpreadsheetSelection::parseColumnOrColumnRange,
-                        result::setColumn
-                );
-                break;
             case "row":
-                result = parseCellColumnOrRow0(
-                        cursor,
-                        SpreadsheetSelection::parseRowOrRowRange,
-                        result::setRow
+                result = this.parseRow(
+                        cursor
                 );
                 break;
             default:
-                // cant happen.
                 cursor.end();
                 break;
         }
@@ -122,9 +94,33 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return result;
     }
 
-    private HistoryToken parseCellColumnOrRow0(final TextCursor cursor,
-                                               final Function<String, SpreadsheetSelection> parser,
-                                               final Function<SpreadsheetSelection, HistoryToken> historyTokenFactory) {
+    private HistoryToken parseCell(final TextCursor cursor) {
+        return parseCellColumnOrRow(
+                cursor,
+                SpreadsheetSelection::parseExpressionReference,
+                this::setCell
+        );
+    }
+
+    private HistoryToken parseColumn(final TextCursor cursor) {
+        return parseCellColumnOrRow(
+                cursor,
+                SpreadsheetSelection::parseColumnOrColumnRange,
+                this::setColumn
+        );
+    }
+
+    private HistoryToken parseRow(final TextCursor cursor) {
+        return parseCellColumnOrRow(
+                cursor,
+                SpreadsheetSelection::parseRowOrRowRange,
+                this::setRow
+        );
+    }
+
+    private HistoryToken parseCellColumnOrRow(final TextCursor cursor,
+                                              final Function<String, SpreadsheetSelection> parser,
+                                              final Function<SpreadsheetSelection, HistoryToken> historyTokenFactory) {
         HistoryToken result = this;
 
         final Optional<String> maybeSelection = parseComponent(cursor);
