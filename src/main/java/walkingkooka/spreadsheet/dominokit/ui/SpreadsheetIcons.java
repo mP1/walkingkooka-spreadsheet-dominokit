@@ -131,6 +131,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.content_paste();
     }
 
+    public static MdiIcon reload() {
+        return Icons.reload();
+    }
+
     public static MdiIcon rowClear() {
         return Icons.close();
     }
