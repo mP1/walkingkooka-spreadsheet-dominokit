@@ -602,7 +602,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         ).item(
                 CONTEXT_MENU_ID_PREFIX + "delete" + SpreadsheetIds.MENU_ITEM,
                 "Delete",
-                SpreadsheetIcons.columnRemove(),
                 historyToken.setDelete()
         ).separator();
     }
