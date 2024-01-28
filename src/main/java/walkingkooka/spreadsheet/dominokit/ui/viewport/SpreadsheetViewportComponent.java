@@ -113,6 +113,7 @@ import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
@@ -460,6 +461,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             // ITALICS
             // STRIKE THRU
             // UNDERLINE
+            // CASE
             // CLEAR STYLE
             // ----
             // FORMAT
@@ -484,6 +486,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 renderContextMenuColor(historyToken, menu, context);
                 renderContextMenuBackgroundColor(historyToken, menu, context);
                 renderContextMenuStyle(historyToken, menu);
+                renderContextMenuTextCase(historyToken, menu);
                 renderContextMenuClearStyle(historyToken, menu);
 
                 menu.separator();
@@ -662,6 +665,38 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 SpreadsheetIcons.underline(),
                 historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
                         .setSave(TextDecorationLine.UNDERLINE)
+        );
+    }
+
+    private static void renderContextMenuTextCase(final HistoryToken historyToken,
+                                                  final SpreadsheetContextMenu menu) {
+        menu.subMenu(
+                CONTEXT_MENU_ID_PREFIX + "text-case",
+                "Text case"
+        ).item(
+                CONTEXT_MENU_ID_PREFIX + "normal" + SpreadsheetIds.MENU_ITEM,
+                "Normal",
+                SpreadsheetIcons.textCaseUpper(),
+                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
+                        .setSave("")
+        ).item(
+                CONTEXT_MENU_ID_PREFIX + "capitalize" + SpreadsheetIds.MENU_ITEM,
+                "Capitalize",
+                SpreadsheetIcons.textCaseCapitalize(),
+                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
+                        .setSave(TextTransform.CAPITALIZE)
+        ).item(
+                CONTEXT_MENU_ID_PREFIX + "lower" + SpreadsheetIds.MENU_ITEM,
+                "Lower case",
+                SpreadsheetIcons.textCaseLower(),
+                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
+                        .setSave(TextTransform.LOWERCASE)
+        ).item(
+                CONTEXT_MENU_ID_PREFIX + "upper" + SpreadsheetIds.MENU_ITEM,
+                "Upper case",
+                SpreadsheetIcons.textCaseUpper(),
+                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
+                        .setSave(TextTransform.UPPERCASE)
         );
     }
 
