@@ -159,6 +159,18 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.close_circle();
     }
 
+    public static MdiIcon textCaseCapitalize() {
+        return Icons.format_letter_case();
+    }
+
+    public static MdiIcon textCaseLower() {
+        return Icons.format_letter_case_lower();
+    }
+
+    public static MdiIcon textCaseUpper() {
+        return Icons.format_letter_case_upper();
+    }
+
     public static MdiIcon underline() {
         return Icons.format_underline();
     }
