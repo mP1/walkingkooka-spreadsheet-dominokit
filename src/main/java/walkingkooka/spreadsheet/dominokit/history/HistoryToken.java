@@ -105,19 +105,6 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * {@see SpreadsheetCellClearHistoryToken}
-     */
-    public static SpreadsheetCellClearHistoryToken cellClear(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
-                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellClearHistoryToken.with(
-                id,
-                name,
-                anchoredSelection
-        );
-    }
-
-    /**
      * {@see SpreadsheetCellDeleteHistoryToken}
      */
     public static SpreadsheetCellDeleteHistoryToken cellDelete(final SpreadsheetId id,
