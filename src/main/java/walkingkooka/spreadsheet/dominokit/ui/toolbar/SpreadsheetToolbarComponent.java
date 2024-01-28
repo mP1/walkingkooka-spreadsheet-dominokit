@@ -102,7 +102,7 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 SpreadsheetToolbarComponentItem.verticalAlignTop(context),
                 SpreadsheetToolbarComponentItem.verticalAlignMiddle(context),
                 SpreadsheetToolbarComponentItem.verticalAlignBottom(context),
-                SpreadsheetToolbarComponentItem.clear(context),
+                SpreadsheetToolbarComponentItem.clearStyle(context),
                 SpreadsheetToolbarComponentItem.formatPattern(context),
                 SpreadsheetToolbarComponentItem.parsePattern(context),
                 // metadata properties

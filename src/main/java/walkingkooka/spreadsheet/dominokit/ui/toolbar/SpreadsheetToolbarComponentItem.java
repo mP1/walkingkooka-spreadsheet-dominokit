@@ -47,7 +47,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem clear(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem clearStyle(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleClear.with(
                 context
         );
