@@ -478,15 +478,15 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             );
 
             // TODO add tick if already selected
-            renderContextMenuAlignment(historyToken, menu);
-            renderContextMenuColor(historyToken, menu, context);
-            renderContextMenuBackgroundColor(historyToken, menu, context);
-            renderContextMenuStyle(historyToken, menu);
-            renderContextMenuVerticalAlignment(historyToken, menu);
-            renderContextMenuClearStyle(historyToken, menu);
+            if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
+                renderContextMenuAlignment(historyToken, menu);
+                renderContextMenuColor(historyToken, menu, context);
+                renderContextMenuBackgroundColor(historyToken, menu, context);
+                renderContextMenuStyle(historyToken, menu);
+                renderContextMenuVerticalAlignment(historyToken, menu);
+                renderContextMenuClearStyle(historyToken, menu);
 
-            menu.separator();
-            {
+                menu.separator();
                 final Locale locale = context.spreadsheetMetadata()
                         .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
 
