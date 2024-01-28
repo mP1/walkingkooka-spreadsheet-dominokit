@@ -49,7 +49,7 @@ final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToo
     private SpreadsheetToolbarComponentItemButtonCellFind(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.findCellsId(),
-                SpreadsheetIcons.findCells(),
+                SpreadsheetIcons.cellsFind(),
                 "Find cells...",
                 context
         );
