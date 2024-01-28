@@ -641,7 +641,8 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         textBox.apply(
                 self -> self.appendChild(
                         PostfixAddOn.of(
-                                SpreadsheetIcons.close().clickable()
+                                SpreadsheetIcons.textBoxClear()
+                                        .clickable()
                                         .addClickListener(event -> this.setPatternText(""))
                         )
                 )
