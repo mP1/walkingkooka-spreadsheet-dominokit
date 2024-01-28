@@ -119,6 +119,18 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.content_paste();
     }
 
+    public static MdiIcon rowInsertAfter() {
+        return Icons.table_row_plus_after();
+    }
+
+    public static MdiIcon rowInsertBefore() {
+        return Icons.table_row_plus_before();
+    }
+
+    public static MdiIcon rowRemove() {
+        return Icons.table_row_remove();
+    }
+
     public static MdiIcon strikethrough() {
         return Icons.format_strikethrough();
     }
