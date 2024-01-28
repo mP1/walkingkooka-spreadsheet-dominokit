@@ -602,6 +602,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         ).item(
                 CONTEXT_MENU_ID_PREFIX + "delete" + SpreadsheetIds.MENU_ITEM,
                 "Delete",
+                SpreadsheetIcons.columnRemove(),
                 historyToken.setDelete()
         ).separator();
     }
@@ -716,7 +717,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             this.insertSubMenu(
                     menu.subMenu(
                             CONTEXT_MENU_ID_PREFIX + "insert-before-column",
-                            "Insert before column"
+                            "Insert before column",
+                            SpreadsheetIcons.columnInsertBefore()
                     ),
                     CONTEXT_MENU_ID_PREFIX + "insert-before-column-",
                     columnHistoryToken::setInsertBefore
@@ -724,7 +726,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             this.insertSubMenu(
                     menu.subMenu(
                             CONTEXT_MENU_ID_PREFIX + "insert-after-column",
-                            "Insert after column"
+                            "Insert after column",
+                            SpreadsheetIcons.columnInsertAfter()
                     ),
                     CONTEXT_MENU_ID_PREFIX + "insert-after-column-",
                     columnHistoryToken::setInsertAfter
