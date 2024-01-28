@@ -99,17 +99,19 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 SpreadsheetToolbarComponentItem.textAlignCenter(context),
                 SpreadsheetToolbarComponentItem.textAlignRight(context),
                 SpreadsheetToolbarComponentItem.textAlignJustify(context),
-                // case
-                SpreadsheetToolbarComponentItem.textCaseCapitalize(context),
-                SpreadsheetToolbarComponentItem.textCaseLowercase(context),
-                SpreadsheetToolbarComponentItem.textCaseUppercase(context),
                 // vertical
                 SpreadsheetToolbarComponentItem.verticalAlignTop(context),
                 SpreadsheetToolbarComponentItem.verticalAlignMiddle(context),
                 SpreadsheetToolbarComponentItem.verticalAlignBottom(context),
-                SpreadsheetToolbarComponentItem.clearStyle(context),
+                // case
+                SpreadsheetToolbarComponentItem.textCaseCapitalize(context),
+                SpreadsheetToolbarComponentItem.textCaseLowercase(context),
+                SpreadsheetToolbarComponentItem.textCaseUppercase(context),
+                // pattern
                 SpreadsheetToolbarComponentItem.formatPattern(context),
                 SpreadsheetToolbarComponentItem.parsePattern(context),
+                // clear
+                SpreadsheetToolbarComponentItem.clearStyle(context),
                 // metadata properties
                 SpreadsheetToolbarComponentItem.hideZeroValues(context),
                 // FindCells | Highlight
