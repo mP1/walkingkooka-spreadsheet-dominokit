@@ -67,6 +67,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.close();
     }
 
+    public static MdiIcon cellsFind() {
+        return Icons.magnify();
+    }
+
     public static MdiIcon clearStyle() {
         return Icons.format_clear();
     }
@@ -97,10 +101,6 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
 
     public static MdiIcon cut() {
         return Icons.content_cut();
-    }
-
-    public static MdiIcon findCells() {
-        return Icons.magnify();
     }
 
     public static MdiIcon formatPattern() {
