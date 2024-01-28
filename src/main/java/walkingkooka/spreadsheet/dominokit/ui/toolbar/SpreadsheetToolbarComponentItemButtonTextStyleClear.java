@@ -64,7 +64,7 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .selectionHistoryTokenOrEmpty()
+                .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setStyle(PROPERTY)
                                 .clearSave()
@@ -79,7 +79,7 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .selectionHistoryTokenOrEmpty()
+                .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setStyle(PROPERTY)
                 ).ifPresent(context::pushHistoryToken);

@@ -1817,9 +1817,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private void viewportHistoryTokenAndCheck(final HistoryToken token) {
         assertSame(
                 token,
-                token.selectionHistoryTokenOrEmpty()
+                token.anchoredSelectionHistoryTokenOrEmpty()
                         .orElse(null),
-                () -> token + " selectionHistoryTokenOrEmpty"
+                () -> token + " anchoredSelectionHistoryTokenOrEmpty"
         );
     }
 
@@ -1835,8 +1835,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                                                        final Optional<HistoryToken> expected) {
         this.checkEquals(
                 expected,
-                token.selectionHistoryTokenOrEmpty(),
-                () -> token + " selectionHistoryTokenOrEmpty"
+                token.anchoredSelectionHistoryTokenOrEmpty(),
+                () -> token + " anchoredSelectionHistoryTokenOrEmpty"
         );
     }
 

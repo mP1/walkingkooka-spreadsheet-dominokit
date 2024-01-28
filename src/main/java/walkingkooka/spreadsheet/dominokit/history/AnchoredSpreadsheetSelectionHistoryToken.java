@@ -147,7 +147,7 @@ public abstract class AnchoredSpreadsheetSelectionHistoryToken extends Spreadshe
     }
 
     final void pushSelectionHistoryToken(final AppContext context) {
-        this.selectionHistoryTokenOrEmpty()
+        this.anchoredSelectionHistoryTokenOrEmpty()
                 .ifPresent(context::pushHistoryToken);
     }
 }
