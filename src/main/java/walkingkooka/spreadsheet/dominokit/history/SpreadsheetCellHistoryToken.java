@@ -50,11 +50,7 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
 
     @Override //
     final HistoryToken setClear0() {
-        return cellClear(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
+        return this; // clear cell not supported
     }
 
     @Override //
