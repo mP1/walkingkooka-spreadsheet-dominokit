@@ -1876,6 +1876,28 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameReload() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/reload",
+                HistoryToken.spreadsheetReload(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameReloadSave() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/reload/save",
+                HistoryToken.spreadsheetReload(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameUnknown() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/Unknown",
