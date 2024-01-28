@@ -746,7 +746,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             this.insertSubMenu(
                     menu.subMenu(
                             CONTEXT_MENU_ID_PREFIX + "insert-row-before",
-                            "Insert before row"
+                            "Insert before row",
+                            SpreadsheetIcons.rowInsertBefore()
                     ),
                     CONTEXT_MENU_ID_PREFIX + "insert-row-before-",
                     rowHistoryToken::setInsertBefore
@@ -754,7 +755,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             this.insertSubMenu(
                     menu.subMenu(
                             CONTEXT_MENU_ID_PREFIX + "insert-row-before",
-                            "Insert after row"
+                            "Insert after row",
+                            SpreadsheetIcons.rowInsertAfter()
                     ),
                     CONTEXT_MENU_ID_PREFIX + "insert-row-before-",
                     rowHistoryToken::setInsertAfter
