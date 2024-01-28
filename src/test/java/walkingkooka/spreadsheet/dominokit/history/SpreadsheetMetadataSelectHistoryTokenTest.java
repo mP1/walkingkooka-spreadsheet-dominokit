@@ -56,6 +56,37 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // setMetadataPropertyName..........................................................................................
+
+    @Test
+    public void testSetMetadataPropertyName() {
+        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.LOCALE;
+
+        this.setMetadataPropertyNameAndCheck(
+                propertyName,
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        propertyName
+                )
+        );
+    }
+
+    @Test
+    public void testSetMetadataPropertyName2() {
+        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES;
+
+        this.setMetadataPropertyNameAndCheck(
+                this.createHistoryToken(),
+                propertyName,
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        propertyName
+                )
+        );
+    }
+
     // setPatternKind...................................................................................................
 
     @Test

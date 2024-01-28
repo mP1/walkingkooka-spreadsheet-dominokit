@@ -188,6 +188,23 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         );
     }
 
+    // setMetadataPropertyName..........................................................................................
+
+    @Test
+    public void testSetMetadataPropertyName() {
+        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES;
+
+        this.setMetadataPropertyNameAndCheck(
+                this.createHistoryToken(),
+                propertyName,
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        propertyName
+                )
+        );
+    }
+
     // setPatternKind...................................................................................................
 
     @Test

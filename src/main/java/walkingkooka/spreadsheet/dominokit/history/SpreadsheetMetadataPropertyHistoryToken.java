@@ -45,6 +45,16 @@ public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends Spreads
         return this.propertyName;
     }
 
+    @Override final HistoryToken setMetadataPropertyName0(final SpreadsheetMetadataPropertyName<?> propertyName) {
+        return this.propertyName().equals(propertyName) ?
+                this :
+                metadataPropertySelect(
+                        this.id(),
+                        this.name(),
+                        propertyName
+                );
+    }
+
     private final SpreadsheetMetadataPropertyName<T> propertyName;
 
     // HasSpreadsheetPatternKind........................................................................................

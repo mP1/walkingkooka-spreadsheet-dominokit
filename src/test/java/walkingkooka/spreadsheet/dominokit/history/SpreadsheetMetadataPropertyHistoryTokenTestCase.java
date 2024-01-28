@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKindTesting;
@@ -30,6 +31,20 @@ public abstract class SpreadsheetMetadataPropertyHistoryTokenTestCase<T extends 
 
     SpreadsheetMetadataPropertyHistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testSetDifferentMetadataPropertyName() {
+        final SpreadsheetMetadataPropertyName<?> different = SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN;
+
+        this.setMetadataPropertyNameAndCheck(
+                different,
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
     }
 
     abstract T createHistoryToken(final SpreadsheetId id,
