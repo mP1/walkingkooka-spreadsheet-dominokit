@@ -500,8 +500,10 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             renderContextMenuInsertRows(historyToken, selection, menu);
             renderContextMenuFreezeUnfreeze(historyToken, menu);
 
-            menu.separator();
-            renderContextMenuLabel(historyToken, selection, menu, context);
+            if (selection.isCellReference() || selection.isCellRange()) {
+                menu.separator();
+                renderContextMenuLabel(historyToken, selection, menu, context);
+            }
 
             menu.focus();
         }
