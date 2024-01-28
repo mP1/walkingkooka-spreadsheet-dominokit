@@ -76,6 +76,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             case "metadata":
                 result = this.parseMetadata(cursor);
                 break;
+            case "reload":
+                result = this.parseReload(cursor);
+                break;
             default:
                 cursor.end();
                 break;
@@ -201,6 +204,13 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         }
 
         return result;
+    }
+
+    private HistoryToken parseReload(final TextCursor cursor) {
+        return spreadsheetReload(
+                this.id(),
+                this.name()
+        );
     }
 
     @Override

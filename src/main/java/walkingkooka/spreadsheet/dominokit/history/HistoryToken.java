@@ -671,6 +671,17 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * {@see SpreadsheetReloadHistoryToken}
+     */
+    public static SpreadsheetReloadHistoryToken spreadsheetReload(final SpreadsheetId id,
+                                                                  final SpreadsheetName name) {
+        return SpreadsheetReloadHistoryToken.with(
+                id,
+                name
+        );
+    }
+
+    /**
      * {@see SpreadsheetSelectHistoryToken}
      */
     public static SpreadsheetSelectHistoryToken spreadsheetSelect(final SpreadsheetId id,
