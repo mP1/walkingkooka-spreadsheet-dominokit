@@ -156,6 +156,8 @@ public class SpreadsheetContextMenu {
         this.menu.appendChild(
                 menuItem.setMenu(subMenu)
         );
+        this.allowSeparator = true;
+
         return new SpreadsheetContextMenu(
                 subMenu,
                 this.context
