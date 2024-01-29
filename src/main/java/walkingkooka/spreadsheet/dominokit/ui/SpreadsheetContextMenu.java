@@ -76,6 +76,7 @@ public class SpreadsheetContextMenu {
                                    final HistoryTokenContext context) {
         this.menu = menu;
         this.context = context;
+        this.allowSeparator = false;
     }
 
     /**
@@ -296,6 +297,7 @@ public class SpreadsheetContextMenu {
         }
 
         this.menu.appendChild(menuItem);
+        this.allowSeparator = true;
 
         return this;
     }
@@ -311,6 +313,7 @@ public class SpreadsheetContextMenu {
         this.menu.appendChild(
                 component.element()
         );
+        this.allowSeparator = true;
         return this;
     }
 
@@ -322,6 +325,7 @@ public class SpreadsheetContextMenu {
         if (this.addSeparator) {
             this.menu.appendChild(new Separator());
             this.addSeparator = false;
+            this.allowSeparator = false;
         }
     }
 
@@ -329,11 +333,18 @@ public class SpreadsheetContextMenu {
      * Adds a separator before the next item is added.
      */
     public SpreadsheetContextMenu separator() {
-        this.addSeparator = true;
+        if (this.allowSeparator) {
+            this.addSeparator = true;
+        }
         return this;
     }
 
     private boolean addSeparator;
+
+    /**
+     * Used to prevent adding a separator as the first item, and to prevent adding to a separator immediately after another.
+     */
+    private boolean allowSeparator;
 
     /**
      * Gives focus to the menu
