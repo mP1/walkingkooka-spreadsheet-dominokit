@@ -1238,6 +1238,20 @@ public abstract class HistoryToken implements HasUrlFragment {
         );
     }
 
+    public final HistoryToken setReload() {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            token = spreadsheetReload(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name()
+            );
+        }
+
+        return token;
+    }
+
     /**
      * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
      */
