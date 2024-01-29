@@ -64,6 +64,11 @@ public interface AppContext extends CanGiveFocus,
     // viewport.........................................................................................................
 
     /**
+     * Requests a reload of this spreadsheet.
+     */
+    void reload();
+
+    /**
      * Creates a {@link SpreadsheetViewport} with the provided {@link AnchoredSpreadsheetSelection}.
      */
     SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> selection);

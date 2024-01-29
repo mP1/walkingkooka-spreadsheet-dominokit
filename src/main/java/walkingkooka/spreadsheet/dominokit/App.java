@@ -587,6 +587,13 @@ public class App implements EntryPoint,
         }
     }
 
+    // reload...........................................................................................................
+
+    @Override
+    public void reload() {
+        this.viewportComponent.loadViewportCells(this);
+    }
+
     // Viewport.........................................................................................................
 
     @Override
