@@ -129,6 +129,13 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    // reload...........................................................................................................
+
+    @Override
+    public void reload() {
+        throw new UnsupportedOperationException();
+    }
+
     // viewport.........................................................................................................
 
     @Override
