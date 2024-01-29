@@ -2055,7 +2055,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     /**
      * Unconditionally Loads all the cells to fill the viewport using the {@link #navigations} buffer. Assumes that a metadata with id is present.
      */
-    private void loadViewportCells(final AppContext context) {
+    public void loadViewportCells(final AppContext context) {
         final List<SpreadsheetViewportNavigation> navigations = this.navigations;
 
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
