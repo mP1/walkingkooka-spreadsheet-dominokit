@@ -116,7 +116,9 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 SpreadsheetToolbarComponentItem.hideZeroValues(context),
                 // FindCells | Highlight
                 SpreadsheetToolbarComponentItem.findCells(context),
-                SpreadsheetToolbarComponentItem.highlightCells(context)
+                SpreadsheetToolbarComponentItem.highlightCells(context),
+                // reload
+                SpreadsheetToolbarComponentItem.reload(context)
         );
     }
 
@@ -256,6 +258,10 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
 
     public static String parsePatternId() {
         return TOOLBAR_ID_PREFIX + "parse-pattern";
+    }
+
+    public static String reloadId() {
+        return TOOLBAR_ID_PREFIX + "reload";
     }
 
     final static String TOOLBAR_ID_PREFIX = "toolbar-";

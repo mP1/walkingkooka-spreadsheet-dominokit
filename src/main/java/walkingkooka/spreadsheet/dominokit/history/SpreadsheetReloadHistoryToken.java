@@ -153,7 +153,9 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // ask SpreadsheetViewportComponent to reload viewport
-        throw new UnsupportedOperationException();
+        context.pushHistoryToken(
+                previous
+        );
+        context.reload();
     }
 }

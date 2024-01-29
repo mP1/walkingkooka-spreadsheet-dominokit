@@ -105,6 +105,13 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         return SpreadsheetToolbarComponentItemButtonPatternParse.with(context);
     }
 
+    /**
+     * {@link SpreadsheetToolbarComponentItemButtonReload}
+     */
+    static SpreadsheetToolbarComponentItem reload(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonReload.with(context);
+    }
+
     static SpreadsheetToolbarComponentItem strikeThru(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
