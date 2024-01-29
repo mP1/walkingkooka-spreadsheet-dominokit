@@ -493,8 +493,10 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 final Locale locale = context.spreadsheetMetadata()
                         .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
 
+                menu.separator();
                 renderContextMenuFormat(historyToken, locale, menu);
                 renderContextMenuParse(historyToken, locale, menu);
+                menu.separator();
             }
             menu.separator();
 
@@ -603,6 +605,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private static void renderContextMenuClearDelete(final HistoryToken historyToken,
                                                      final SpreadsheetContextMenu menu) {
+        menu.separator();
+
         final SpreadsheetSelection selection = historyToken.anchoredSelectionOrEmpty()
                 .orElseThrow(
                         () -> new IllegalStateException("History token missing selection " + historyToken)
@@ -769,6 +773,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                                                 final SpreadsheetSelection selection,
                                                 final SpreadsheetContextMenu menu) {
         if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
+            menu.separator();
+
             final HistoryToken columnHistoryToken = historyToken.setColumn(
                     selection.toColumnOrColumnRange()
             );
@@ -798,6 +804,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                                              final SpreadsheetSelection selection,
                                              final SpreadsheetContextMenu menu) {
         if (selection.isRowReference() | selection.isRowReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
+            menu.separator();
+
             final HistoryToken rowHistoryToken = historyToken.setRow(
                     selection.toRowOrRowRange()
             );
@@ -819,12 +827,15 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                     CONTEXT_MENU_ID_PREFIX + "insert-row-before-",
                     rowHistoryToken::setInsertAfter
             );
+
             menu.separator();
         }
     }
 
     private static void renderContextMenuFreezeUnfreeze(final HistoryToken historyToken,
                                                         final SpreadsheetContextMenu menu) {
+        menu.separator();
+
         menu.item(
                 CONTEXT_MENU_ID_PREFIX + "freeze" + SpreadsheetIds.MENU_ITEM,
                 "Freeze",
@@ -842,6 +853,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                                                final SpreadsheetSelection selection,
                                                final SpreadsheetContextMenu menu,
                                                final AppContext context) {
+        menu.separator();
+
         final Set<SpreadsheetLabelMapping> labelMappings = context.viewportCache().labelMappings(selection);
 
         SpreadsheetContextMenu sub = menu.subMenu(
@@ -877,6 +890,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 "Create...",
                 historyToken.setLabelName(Optional.empty())
         );
+
+        menu.separator();
     }
 
     private void insertSubMenu(final SpreadsheetContextMenu menu,
