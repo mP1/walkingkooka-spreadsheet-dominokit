@@ -1370,6 +1370,34 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setReload........................................................................................................
+
+    @Test
+    public void testSetReloadWithNotSpreadsheetNameHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setReload(),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetReloadWithSpreadsheetNameHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+        );
+
+        this.checkEquals(
+                historyToken.setReload(),
+                HistoryToken.spreadsheetReload(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
     // setSave..........................................................................................................
 
     @Test
