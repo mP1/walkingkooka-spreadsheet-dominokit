@@ -499,7 +499,16 @@ public class App implements EntryPoint,
      */
     @Override
     public void pushHistoryToken(final HistoryToken token) {
-        this.history.pushHistoryToken(token);
+        Objects.requireNonNull(token, "token");
+
+        HistoryToken push = token;
+
+        // this check is necessary so when historyToken = something save and that gets pushed again we dont want to reply that again.
+        final HistoryToken previous = this.firePrevious;
+        if (null != previous && push.shouldIgnore() && push.equals(previous)) {
+            push = push.clearAction();
+        }
+        this.history.pushHistoryToken(push);
     }
 
     @Override
@@ -511,11 +520,20 @@ public class App implements EntryPoint,
 
     @Override
     public void fireCurrentHistoryToken() {
-        this.historyWatchers.onHistoryTokenChange(
-                this.historyToken(),
-                this
-        );
+        final HistoryToken previous = this.historyToken();
+        this.firePrevious = previous;
+
+        try {
+            this.historyWatchers.onHistoryTokenChange(
+                    previous,
+                    this
+            );
+        } finally {
+            this.firePrevious = null;
+        }
     }
+
+    private HistoryToken firePrevious;
 
     // HistoryTokenWatcher...............................................................................................
 
@@ -534,7 +552,6 @@ public class App implements EntryPoint,
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-
         // if the selection changed update metadata
         final HistoryToken historyToken = context.historyToken();
         if (false == historyToken.shouldIgnore()) {
@@ -545,10 +562,15 @@ public class App implements EntryPoint,
             );
         }
 
-        historyToken.onHistoryTokenChange(
-                previous,
-                context
-        );
+        this.firePrevious = previous;
+        try {
+            historyToken.onHistoryTokenChange(
+                    previous,
+                    context
+            );
+        } finally {
+            this.firePrevious = null;
+        }
     }
 
     /**
