@@ -131,6 +131,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_italic();
     }
 
+    public static MdiIcon labelAdd() {
+        return Icons.flag_checkered();
+    }
+
     public static MdiIcon palette() {
         return Icons.palette();
     }
