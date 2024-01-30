@@ -99,6 +99,14 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.table_column_width();
     }
 
+    public static MdiIcon commentEdit() {
+        return Icons.tooltip_edit_outline();
+    }
+
+    public static MdiIcon commentRemove() {
+        return Icons.tooltip_remove_outline();
+    }
+
     public static MdiIcon copy() {
         return Icons.content_copy();
     }
