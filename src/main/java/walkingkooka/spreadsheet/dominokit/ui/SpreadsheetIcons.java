@@ -71,6 +71,14 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.magnify();
     }
 
+    public static MdiIcon cellsLock() {
+        return Icons.clock_plus_outline();
+    }
+
+    public static MdiIcon cellsUnlock() {
+        return Icons.lock_remove_outline();
+    }
+
     public static MdiIcon clearStyle() {
         return Icons.format_clear();
     }
