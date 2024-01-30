@@ -155,6 +155,47 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.table_row_remove();
     }
 
+    public static MdiIcon sortAlphaAscending() {
+        return Icons.sort_alphabetical_ascending();
+    }
+
+    public static MdiIcon sortAlphaDescending() {
+        return Icons.sort_alphabetical_descending();
+    }
+
+    public static MdiIcon sortDateAscending() {
+        return Icons.sort_calendar_ascending();
+    }
+
+    public static MdiIcon sortDateDescending() {
+        return Icons.sort_calendar_descending();
+    }
+
+    // DATE and DATE TIME are the same, need a combo icon DATE + TIME
+    public static MdiIcon sortDateTimeAscending() {
+        return Icons.sort_calendar_ascending();
+    }
+
+    public static MdiIcon sortDateTimeDescending() {
+        return Icons.sort_calendar_descending();
+    }
+
+    public static MdiIcon sortNumericAscending() {
+        return Icons.sort_numeric_ascending();
+    }
+
+    public static MdiIcon sortNumericDescending() {
+        return Icons.sort_numeric_descending();
+    }
+
+    public static MdiIcon sortTimeAscending() {
+        return Icons.sort_clock_ascending_outline();
+    }
+
+    public static MdiIcon sortTimeDescending() {
+        return Icons.sort_clock_descending_outline();
+    }
+
     public static MdiIcon strikethrough() {
         return Icons.format_strikethrough();
     }
