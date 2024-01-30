@@ -92,8 +92,6 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
                         this.count()
                 );
 
-        context.pushHistoryToken(
-                previous.clearAction()
-        );
+        context.pushHistoryToken(previous);
     }
 }

@@ -89,8 +89,6 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
                         this.count()
                 );
 
-        context.pushHistoryToken(
-                previous.clearAction()
-        );
+        context.pushHistoryToken(previous);
     }
 }
