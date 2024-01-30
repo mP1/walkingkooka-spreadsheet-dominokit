@@ -59,6 +59,30 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_bold();
     }
 
+    public static MdiIcon borderBottom() {
+        return Icons.border_bottom_variant();
+    }
+
+    public static MdiIcon borderColor() {
+        return Icons.border_color();
+    }
+
+    public static MdiIcon borderLeft() {
+        return Icons.border_left_variant();
+    }
+
+    public static MdiIcon borderRight() {
+        return Icons.border_right_variant();
+    }
+
+    public static MdiIcon borderStyle() {
+        return Icons.border_style();
+    }
+
+    public static MdiIcon borderTop() {
+        return Icons.border_top_variant();
+    }
+
     public static MdiIcon cellClear() {
         return Icons.close();
     }
