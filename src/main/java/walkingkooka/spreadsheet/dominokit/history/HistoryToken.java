@@ -1383,7 +1383,7 @@ public abstract class HistoryToken implements HasUrlFragment {
      */
     public final boolean shouldIgnore() {
         final String name = this.getClass().getSimpleName();
-        return name.contains("Save");
+        return name.contains("Menu") || name.contains("Reload") || name.contains("Save");
     }
 
     private HistoryToken setIfSpreadsheetNameHistoryToken(final Function<SpreadsheetNameHistoryToken, HistoryToken> setter) {
