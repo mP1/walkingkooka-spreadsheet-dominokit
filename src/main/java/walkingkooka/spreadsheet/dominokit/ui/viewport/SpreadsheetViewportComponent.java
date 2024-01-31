@@ -906,6 +906,15 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                     )
             );
         }
+
+        // insert a url which will display a modal to prompt the user for the actual count
+        menu.item(
+                idPrefix + SpreadsheetIds.MENU_ITEM,
+                "...",
+                setCount.apply(
+                        OptionalInt.empty()
+                )
+        );
     }
 
     /**
