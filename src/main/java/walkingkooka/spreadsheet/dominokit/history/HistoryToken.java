@@ -52,6 +52,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -347,7 +348,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetColumnInsertAfterHistoryToken columnInsertAfter(final SpreadsheetId id,
                                                                              final SpreadsheetName name,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                             final int count) {
+                                                                             final OptionalInt count) {
         return SpreadsheetColumnInsertAfterHistoryToken.with(
                 id,
                 name,
@@ -362,7 +363,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetColumnInsertBeforeHistoryToken columnInsertBefore(final SpreadsheetId id,
                                                                                final SpreadsheetName name,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                               final int count) {
+                                                                               final OptionalInt count) {
         return SpreadsheetColumnInsertBeforeHistoryToken.with(
                 id,
                 name,
@@ -561,7 +562,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetRowInsertAfterHistoryToken rowInsertAfter(final SpreadsheetId id,
                                                                        final SpreadsheetName name,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                       final int count) {
+                                                                       final OptionalInt count) {
         return SpreadsheetRowInsertAfterHistoryToken.with(
                 id,
                 name,
@@ -576,7 +577,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetRowInsertBeforeHistoryToken rowInsertBefore(final SpreadsheetId id,
                                                                          final SpreadsheetName name,
                                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                         final int count) {
+                                                                         final OptionalInt count) {
         return SpreadsheetRowInsertBeforeHistoryToken.with(
                 id,
                 name,
@@ -1041,7 +1042,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a insert after.
      */
-    public final HistoryToken setInsertAfter(final int count) {
+    public final HistoryToken setInsertAfter(final OptionalInt count) {
         return this.setIfSpreadsheetNameHistoryToken(
                 (nht) -> nht.setInsertAfter0(count)
         );
@@ -1050,7 +1051,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * if possible creates a freeze.
      */
-    public final HistoryToken setInsertBefore(final int count) {
+    public final HistoryToken setInsertBefore(final OptionalInt count) {
         return this.setIfSpreadsheetNameHistoryToken(
                 (nht) -> nht.setInsertBefore0(count)
         );

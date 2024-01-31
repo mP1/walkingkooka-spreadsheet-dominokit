@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSelectionHistoryToken {
 
@@ -93,7 +94,7 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
     }
 
     @Override //
-    final HistoryToken setInsertAfter0(final int count) {
+    final HistoryToken setInsertAfter0(final OptionalInt count) {
         return rowInsertAfter(
                 this.id(),
                 this.name(),
@@ -103,7 +104,7 @@ abstract public class SpreadsheetRowHistoryToken extends AnchoredSpreadsheetSele
     }
 
     @Override //
-    final HistoryToken setInsertBefore0(final int count) {
+    final HistoryToken setInsertBefore0(final OptionalInt count) {
         return rowInsertBefore(
                 this.id(),
                 this.name(),

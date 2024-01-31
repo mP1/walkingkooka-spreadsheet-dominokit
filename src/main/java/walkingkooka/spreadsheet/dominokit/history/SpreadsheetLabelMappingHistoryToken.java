@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSelectionHistoryToken {
 
@@ -85,12 +86,12 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override //
-    final HistoryToken setInsertAfter0(final int count) {
+    final HistoryToken setInsertAfter0(final OptionalInt count) {
         return this;
     }
 
     @Override //
-    final HistoryToken setInsertBefore0(final int count) {
+    final HistoryToken setInsertBefore0(final OptionalInt count) {
         return this;
     }
 

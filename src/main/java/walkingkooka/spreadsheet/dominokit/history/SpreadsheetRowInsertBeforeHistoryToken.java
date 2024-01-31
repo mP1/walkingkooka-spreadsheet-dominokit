@@ -24,12 +24,14 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.OptionalInt;
+
 public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsertHistoryToken {
 
     static SpreadsheetRowInsertBeforeHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                       final int count) {
+                                                       final OptionalInt count) {
         return new SpreadsheetRowInsertBeforeHistoryToken(
                 id,
                 name,
@@ -41,7 +43,7 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
     private SpreadsheetRowInsertBeforeHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final int count) {
+                                                   final OptionalInt count) {
         super(
                 id,
                 name,
@@ -82,9 +84,21 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
+        final OptionalInt count = this.count();
+        if (count.isPresent()) {
+            this.callServer(
+                    count.getAsInt(),
+                    previous,
+                    context
+            );
+        }
+    }
+
+    private void callServer(final int count,
+                            final HistoryToken previous,
+                            final AppContext context) {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
-        final int count = this.count();
 
         context.spreadsheetDeltaFetcher()
                 .insertBeforeRow(

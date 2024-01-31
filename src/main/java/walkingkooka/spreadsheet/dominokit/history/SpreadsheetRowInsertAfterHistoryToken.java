@@ -22,13 +22,16 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.OptionalInt;
 
 public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertHistoryToken {
 
     static SpreadsheetRowInsertAfterHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                      final int count) {
+                                                      final OptionalInt count) {
         return new SpreadsheetRowInsertAfterHistoryToken(
                 id,
                 name,
@@ -40,7 +43,7 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
     private SpreadsheetRowInsertAfterHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                  final int count) {
+                                                  final OptionalInt count) {
         super(
                 id,
                 name,
@@ -81,14 +84,19 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        context.spreadsheetDeltaFetcher()
-                .insertAfterRow(
-                        this.id(),
-                        this.anchoredSelection()
-                                .selection(),
-                        this.count()
-                );
+        final OptionalInt count = this.count();
+        if (count.isPresent()) {
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.anchoredSelection();
+            final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        context.pushHistoryToken(previous);
+            context.spreadsheetDeltaFetcher()
+                    .insertAfterRow(
+                            this.id(),
+                            selection,
+                            count.getAsInt()
+                    );
+
+            context.pushHistoryToken(previous);
+        }
     }
 }
