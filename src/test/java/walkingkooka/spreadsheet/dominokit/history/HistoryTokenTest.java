@@ -45,6 +45,7 @@ import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -2691,6 +2692,88 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInsertAfterMissingCount() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/insertAfter",
+                HistoryToken.columnInsertAfter(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        OptionalInt.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInsertAfterEmptyCount() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/insertAfter/",
+                HistoryToken.columnInsertAfter(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        OptionalInt.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInsertAfter123() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/insertAfter/123",
+                HistoryToken.columnInsertAfter(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        OptionalInt.of(
+                                123
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInsertBeforeMissingCount() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/insertBefore",
+                HistoryToken.columnInsertBefore(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        OptionalInt.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInsertBeforeEmptyCount() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/insertBefore/",
+                HistoryToken.columnInsertBefore(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        OptionalInt.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnInsertBefore123() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/column/AA/insertBefore/123",
+                HistoryToken.columnInsertBefore(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        OptionalInt.of(
+                                123
+                        )
+                )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnMenu() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/column/AA/menu",
@@ -2957,6 +3040,89 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfterMissingCount() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/insertAfter",
+                HistoryToken.rowInsertAfter(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        OptionalInt.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfterEmptyCount() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/insertAfter/",
+                HistoryToken.rowInsertAfter(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        OptionalInt.empty()
+                )
+        );
+    }
+
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfter123() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/insertAfter/123",
+                HistoryToken.rowInsertAfter(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        OptionalInt.of(
+                                123
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBeforeMissingCount() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/insertBefore",
+                HistoryToken.rowInsertBefore(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        OptionalInt.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBeforeEmptyCount() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/insertBefore/",
+                HistoryToken.rowInsertBefore(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        OptionalInt.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBefore123() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/row/11/insertBefore/123",
+                HistoryToken.rowInsertBefore(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        OptionalInt.of(
+                                123
+                        )
+                )
+        );
+    }
+    
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowMenu() {
         this.parseStringAndCheck(

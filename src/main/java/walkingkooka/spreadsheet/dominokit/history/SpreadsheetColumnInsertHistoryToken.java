@@ -22,35 +22,44 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+import java.util.OptionalInt;
+
 abstract class SpreadsheetColumnInsertHistoryToken extends SpreadsheetColumnHistoryToken {
 
     SpreadsheetColumnInsertHistoryToken(final SpreadsheetId id,
                                         final SpreadsheetName name,
                                         final AnchoredSpreadsheetSelection anchoredSelection,
-                                        final int count) {
+                                        final OptionalInt count) {
         super(
                 id,
                 name,
                 anchoredSelection
         );
 
-        if (count <= 0) {
-            throw new IllegalArgumentException("Invalid count " + count + " <= 0");
+        if (count.isPresent()) {
+            final int value = count.getAsInt();
+            if (value <= 0) {
+                throw new IllegalArgumentException("Invalid count " + value + " <= 0");
+            }
         }
         this.count = count;
     }
 
-    public final int count() {
+    public final OptionalInt count() {
         return this.count;
     }
 
-    private final int count;
+    private final OptionalInt count;
 
     final UrlFragment countUrlFragment() {
-        return UrlFragment.SLASH.append(
-                UrlFragment.with(
-                        String.valueOf(this.count)
-                )
-        );
+        final OptionalInt count = this.count();
+
+        return count.isPresent() ?
+                UrlFragment.SLASH.append(
+                        UrlFragment.with(
+                                String.valueOf(count.getAsInt())
+                        )
+                ) :
+                UrlFragment.EMPTY;
     }
 }

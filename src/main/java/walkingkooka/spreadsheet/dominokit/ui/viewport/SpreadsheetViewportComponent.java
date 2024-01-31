@@ -896,12 +896,14 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private void insertSubMenu(final SpreadsheetContextMenu menu,
                                final String idPrefix,
-                               final Function<Integer, HistoryToken> setCount) {
+                               final Function<OptionalInt, HistoryToken> setCount) {
         for (int i = 1; i <= 3; i++) {
             menu.item(
                     idPrefix + "-" + i + SpreadsheetIds.MENU_ITEM,
                     String.valueOf(i),
-                    setCount.apply(i)
+                    setCount.apply(
+                            OptionalInt.of(i)
+                    )
             );
         }
     }

@@ -24,9 +24,11 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
+import java.util.OptionalInt;
+
 public final class SpreadsheetRowInsertBeforeHistoryTokenTest extends SpreadsheetRowHistoryTokenTestCase<SpreadsheetRowInsertBeforeHistoryToken> {
 
-    private final static int COUNT = 1;
+    private final static OptionalInt COUNT = OptionalInt.of(1);
 
     @Test
     public void testUrlFragmentRow1() {
@@ -36,13 +38,27 @@ public final class SpreadsheetRowInsertBeforeHistoryTokenTest extends Spreadshee
     }
 
     @Test
+    public void testUrlFragmentRowEmptyCount() {
+        this.urlFragmentAndCheck(
+                SpreadsheetRowInsertBeforeHistoryToken.with(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseRow("12").setDefaultAnchor(),
+                        OptionalInt.empty()
+                ),
+                "/123/SpreadsheetName456/row/12/insertBefore");
+    }
+
+    @Test
     public void testUrlFragmentRow23() {
         this.urlFragmentAndCheck(
                 SpreadsheetRowInsertBeforeHistoryToken.with(
                         ID,
                         NAME,
                         SpreadsheetSelection.parseRow("12").setDefaultAnchor(),
-                        23
+                        OptionalInt.of(
+                                23
+                        )
                 ),
                 "/123/SpreadsheetName456/row/12/insertBefore/23");
     }
