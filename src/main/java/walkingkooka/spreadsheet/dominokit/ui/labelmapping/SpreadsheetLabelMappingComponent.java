@@ -113,6 +113,11 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         return this.context;
     }
 
+    @Override
+    public String idPrefix() {
+        return ID_PREFIX;
+    }
+
     // SpreadsheetLabelComponent........................................................................................
 
     private SpreadsheetLabelComponent label(final Context context) {

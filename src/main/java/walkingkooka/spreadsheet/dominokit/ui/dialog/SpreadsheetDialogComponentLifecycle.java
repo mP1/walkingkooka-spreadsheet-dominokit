@@ -37,6 +37,12 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
      */
     CloseableHistoryTokenContext closeableHistoryTokenContext();
 
+
+    /**
+     * Base id that should be used for all components within this dialog.
+     */
+    String idPrefix();
+
     // ComponentLifecycle..............................................................................................
 
     /**

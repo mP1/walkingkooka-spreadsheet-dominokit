@@ -460,6 +460,11 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     }
 
     @Override
+    public String idPrefix() {
+        return ID_PREFIX;
+    }
+
+    @Override
     public boolean shouldIgnore(final HistoryToken token) {
         return false;
     }
