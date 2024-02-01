@@ -26,6 +26,7 @@ import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
@@ -105,6 +106,11 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     @Override
     public SpreadsheetDialogComponent dialog() {
         return this.dialog;
+    }
+
+    @Override
+    public CloseableHistoryTokenContext closeableHistoryTokenContext() {
+        return this.context;
     }
 
     // SpreadsheetLabelComponent........................................................................................

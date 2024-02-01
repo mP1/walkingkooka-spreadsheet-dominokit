@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
@@ -451,6 +452,11 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     @Override
     public SpreadsheetDialogComponent dialog() {
         return this.dialog;
+    }
+
+    @Override
+    public CloseableHistoryTokenContext closeableHistoryTokenContext() {
+        return this.context;
     }
 
     @Override
