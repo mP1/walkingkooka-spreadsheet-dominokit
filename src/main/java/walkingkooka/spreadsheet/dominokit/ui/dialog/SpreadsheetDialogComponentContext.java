@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 /**
  * Base class for all {@link walkingkooka.Context} that accompanies a {@link SpreadsheetDialogComponent}
  */
-public interface SpreadsheetDialogComponentContext extends HistoryTokenContext,
+public interface SpreadsheetDialogComponentContext extends CloseableHistoryTokenContext,
         LoggingContext {
 }
