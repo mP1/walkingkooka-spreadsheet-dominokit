@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
+import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.dialogs.Dialog;
@@ -48,6 +49,22 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
      * Base id that should be used for all components within this dialog.
      */
     String idPrefix();
+
+    /**
+     * When clicked the CLOSE button invokes {@link #close}.
+     */
+    default Button closeButton() {
+        return this.button(
+                "Close",
+                StyleType.DANGER,
+                this::onCloseButtonClick
+        );
+    }
+
+    private void onCloseButtonClick(final Event event) {
+        this.closeableHistoryTokenContext()
+                .close();
+    }
 
     /**
      * Creates one of the modal action buttons that appear at the bottom of the modal dialog.
