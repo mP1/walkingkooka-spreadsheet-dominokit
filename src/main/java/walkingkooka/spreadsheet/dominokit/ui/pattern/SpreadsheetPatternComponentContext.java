@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -52,11 +51,6 @@ public interface SpreadsheetPatternComponentContext extends CanGiveFocus,
      * Provides the UNDO or loaded text.
      */
     String loaded();
-
-    /**
-     * Adds a {@link HistoryTokenWatcher}.
-     */
-    Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher);
 
     /**
      * A {@link SpreadsheetFormatterContext} which will be used to format values for the samples table.
