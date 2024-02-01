@@ -956,6 +956,23 @@ public abstract class HistoryToken implements HasUrlFragment {
         return token;
     }
 
+    public final OptionalInt count() {
+        final OptionalInt count;
+        if (this instanceof SpreadsheetColumnInsertHistoryToken) {
+            count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
+                    .count0();
+        } else {
+            if (this instanceof SpreadsheetRowInsertHistoryToken) {
+                count = this.cast(SpreadsheetRowInsertHistoryToken.class)
+                        .count0();
+            } else {
+                count = OptionalInt.empty();
+            }
+        }
+
+        return count;
+    }
+
     /**
      * if possible creates a delete.
      */
