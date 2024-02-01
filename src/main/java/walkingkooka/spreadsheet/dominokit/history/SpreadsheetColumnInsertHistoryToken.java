@@ -45,7 +45,7 @@ abstract class SpreadsheetColumnInsertHistoryToken extends SpreadsheetColumnHist
         this.count = count;
     }
 
-    public final OptionalInt count() {
+    final OptionalInt count0() {
         return this.count;
     }
 
