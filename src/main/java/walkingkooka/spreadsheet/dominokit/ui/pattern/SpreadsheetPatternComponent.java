@@ -170,6 +170,11 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetPatternComponentContext context;
 
+    @Override
+    public final String idPrefix() {
+        return ID_PREFIX;
+    }
+
     // tabs............................................................................................................
 
     /**
