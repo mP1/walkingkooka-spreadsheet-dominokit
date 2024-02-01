@@ -346,23 +346,6 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     // buttons..........................................................................................................
 
     /**
-     * When clicked the CLOSE button invokes {@link SpreadsheetFindComponentContext#close}.
-     */
-    private Button closeButton() {
-        return this.button(
-                "Close",
-                StyleType.DANGER,
-                this::onCloseButtonClick
-        );
-    }
-
-    private void onCloseButtonClick(final Event event) {
-        final SpreadsheetFindComponentContext context = this.context;
-        context.debug("SpreadsheetFindComponent.onCloseButtonClick");
-        context.close();
-    }
-
-    /**
      * When clicked initiates a find cells using the given parameters.
      */
     private Button findButton() {

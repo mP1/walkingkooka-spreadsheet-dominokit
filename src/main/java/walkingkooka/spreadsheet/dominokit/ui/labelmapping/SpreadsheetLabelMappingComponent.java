@@ -172,23 +172,6 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     // buttons..........................................................................................................
 
     /**
-     * When clicked the CLOSE button closes/hides this dialog.
-     */
-    private Button closeButton() {
-        return this.button(
-                "Close",
-                StyleType.DANGER,
-                this::onCloseButtonClick
-        );
-    }
-
-    private void onCloseButtonClick(final Event event) {
-        final SpreadsheetLabelMappingComponentContext context = this.context;
-        context.debug("SpreadsheetLabelMappingComponent.onCloseButtonClick");
-        context.close();
-    }
-
-    /**
      * When clicked the SAVE button pushes a {@link HistoryToken} which saves the {@link SpreadsheetLabelMapping}.
      */
     private Button saveButton() {

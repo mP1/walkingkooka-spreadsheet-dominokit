@@ -733,23 +733,6 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     // buttons..........................................................................................................
 
     /**
-     * When clicked the CLOSE button invokes {@link #close}.
-     */
-    private Button closeButton() {
-        return this.button(
-                "Close",
-                StyleType.DANGER,
-                this::onCloseButtonClick
-        );
-    }
-
-    private void onCloseButtonClick(final Event event) {
-        final SpreadsheetPatternComponentContext context = this.context;
-        context.debug(this.getClass().getSimpleName() + ".onCloseButtonClick");
-        context.close();
-    }
-
-    /**
      * When clicked the SAVE button invokes {@link SpreadsheetPatternComponentContext#save(Object)}.
      */
     private Button saveButton() {
