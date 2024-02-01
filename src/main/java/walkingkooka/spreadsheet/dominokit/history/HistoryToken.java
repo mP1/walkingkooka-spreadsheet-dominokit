@@ -974,6 +974,67 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * Would be setter that tries to replace the {@link #count()} with new value.
+     */
+    public final HistoryToken setCount(final OptionalInt count) {
+        Objects.requireNonNull(count, "count");
+
+        final HistoryToken with;
+
+        if (this.count().equals(count)) {
+            with = this;
+        } else {
+            if (this instanceof SpreadsheetColumnInsertAfterHistoryToken) {
+                final SpreadsheetColumnInsertAfterHistoryToken insert = this.cast(SpreadsheetColumnInsertAfterHistoryToken.class);
+
+                with = columnInsertAfter(
+                        insert.id(),
+                        insert.name(),
+                        insert.anchoredSelection(),
+                        count
+                );
+            } else {
+                if (this instanceof SpreadsheetColumnInsertBeforeHistoryToken) {
+                    final SpreadsheetColumnInsertBeforeHistoryToken insert = this.cast(SpreadsheetColumnInsertBeforeHistoryToken.class);
+
+                    with = columnInsertBefore(
+                            insert.id(),
+                            insert.name(),
+                            insert.anchoredSelection(),
+                            count
+                    );
+                } else {
+                    if (this instanceof SpreadsheetRowInsertAfterHistoryToken) {
+                        final SpreadsheetRowInsertAfterHistoryToken insert = this.cast(SpreadsheetRowInsertAfterHistoryToken.class);
+
+                        with = rowInsertAfter(
+                                insert.id(),
+                                insert.name(),
+                                insert.anchoredSelection(),
+                                count
+                        );
+                    } else {
+                        if (this instanceof SpreadsheetRowInsertBeforeHistoryToken) {
+                            final SpreadsheetRowInsertBeforeHistoryToken insert = this.cast(SpreadsheetRowInsertBeforeHistoryToken.class);
+
+                            with = rowInsertBefore(
+                                    insert.id(),
+                                    insert.name(),
+                                    insert.anchoredSelection(),
+                                    count
+                            );
+                        } else {
+                            with = this;
+                        }
+                    }
+                }
+            }
+        }
+
+        return with;
+    }
+
+    /**
      * if possible creates a delete.
      */
     public final HistoryToken setDelete() {

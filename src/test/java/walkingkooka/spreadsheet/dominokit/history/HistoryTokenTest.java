@@ -266,6 +266,194 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setCount.........................................................................................................
+
+    @Test
+    public void testSetCountOnSpreadsheetLoad() {
+        this.setCountAndCheck(
+                HistoryToken.spreadsheetLoad(
+                        ID
+                ),
+                OptionalInt.of(1)
+        );
+    }
+
+    @Test
+    public void testSetCountOnSpreadsheetCellSelect() {
+        this.setCountAndCheck(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                ),
+                OptionalInt.of(1)
+        );
+    }
+
+    @Test
+    public void testSetCountSpreadsheetColumnInsertAfterSame() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+                HistoryToken.columnInsertAfter(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        count
+                ),
+                count
+        );
+    }
+
+    @Test
+    public void testSetCountSpreadsheetColumnInsertAfterDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+                HistoryToken.columnInsertAfter(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        OptionalInt.empty()
+                ),
+                count,
+                HistoryToken.columnInsertAfter(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        count
+                )
+        );
+    }
+
+    @Test
+    public void testSetCountSpreadsheetColumnInsertBeforeSame() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+                HistoryToken.columnInsertBefore(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        count
+                ),
+                count
+        );
+    }
+
+    @Test
+    public void testSetCountSpreadsheetColumnInsertBeforeDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+                HistoryToken.columnInsertBefore(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        OptionalInt.empty()
+                ),
+                count,
+                HistoryToken.columnInsertBefore(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        count
+                )
+        );
+    }
+
+    @Test
+    public void testSetCountSpreadsheetRowInsertAfterSame() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+                HistoryToken.rowInsertAfter(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        count
+                ),
+                count
+        );
+    }
+
+    @Test
+    public void testSetCountSpreadsheetRowInsertAfterDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+                HistoryToken.rowInsertAfter(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        OptionalInt.empty()
+                ),
+                count,
+                HistoryToken.rowInsertAfter(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        count
+                )
+        );
+    }
+
+    @Test
+    public void testSetCountSpreadsheetRowInsertBeforeSame() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+                HistoryToken.rowInsertBefore(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        count
+                ),
+                count
+        );
+    }
+
+    @Test
+    public void testSetCountSpreadsheetRowInsertBeforeDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+                HistoryToken.rowInsertBefore(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        OptionalInt.empty()
+                ),
+                count,
+                HistoryToken.rowInsertBefore(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        count
+                )
+        );
+    }
+
+    private void setCountAndCheck(final HistoryToken token,
+                                  final OptionalInt count) {
+        assertSame(
+                token,
+                token.setCount(count),
+                () -> "setCount " + count
+        );
+    }
+
+
+    private void setCountAndCheck(final HistoryToken token,
+                                  final OptionalInt count,
+                                  final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setCount(count),
+                () -> "setCount " + count
+        );
+    }
+
     // isCellFormatPattern..............................................................................................
 
     @Test
