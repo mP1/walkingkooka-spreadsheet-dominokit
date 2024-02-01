@@ -157,7 +157,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public final SpreadsheetDialogComponent dialog() {
         return this.dialog;
     }
 
