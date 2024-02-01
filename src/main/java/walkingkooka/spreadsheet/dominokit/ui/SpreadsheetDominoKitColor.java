@@ -22,6 +22,9 @@ import walkingkooka.color.WebColorName;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+/**
+ * A collection of {@link Color} constants used in the app.
+ */
 public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
 
     /**
