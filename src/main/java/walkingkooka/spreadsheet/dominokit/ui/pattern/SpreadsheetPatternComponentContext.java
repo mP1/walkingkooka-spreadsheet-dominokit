@@ -18,12 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -33,9 +32,8 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
  */
 public interface SpreadsheetPatternComponentContext extends CanGiveFocus,
         CrudHistoryTokenContext<SpreadsheetPattern>,
-        HistoryTokenContext,
         ComponentLifecycleMatcher,
-        LoggingContext {
+        SpreadsheetDialogComponentContext {
 
     /**
      * The {@link SpreadsheetPatternKind} being edited.
