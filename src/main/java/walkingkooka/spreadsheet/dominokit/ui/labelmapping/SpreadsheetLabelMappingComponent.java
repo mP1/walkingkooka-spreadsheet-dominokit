@@ -18,10 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.labelmapping;
 
 import elemental2.dom.Event;
-import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.Context;
@@ -32,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelComponent;
@@ -277,26 +273,6 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     }
 
     private final Button deleteButton;
-
-    /**
-     * Creates one of the modal action buttons that appear at the bottom of the modal dialog.
-     */
-    private Button button(final String text,
-                          final StyleType type,
-                          final EventListener listener) {
-        final Button button = new Button(text);
-
-        button.id(ID_PREFIX + text.toLowerCase() + SpreadsheetIds.BUTTON);
-        button.addCss("dui-" + type.getStyle());
-        button.elevate(Elevation.LEVEL_1);
-
-        button.addEventListener(
-                EventType.click,
-                listener
-        );
-
-        return button;
-    }
 
     /**
      * Refreshes or enable/disables the SAVE and DELETE buttons.

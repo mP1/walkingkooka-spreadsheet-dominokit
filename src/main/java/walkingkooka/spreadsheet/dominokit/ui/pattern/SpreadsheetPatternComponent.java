@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import elemental2.dom.Event;
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
@@ -29,9 +28,7 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.menu.Menu;
-import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
@@ -815,26 +812,6 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         context.debug(this.getClass().getSimpleName() + ".onRemoveButtonClick");
         context.delete();
-    }
-
-    /**
-     * Creates one of the modal action buttons that appear at the bottom of the modal dialog.
-     */
-    private Button button(final String text,
-                          final StyleType type,
-                          final EventListener listener) {
-        final Button button = new Button(text);
-
-        button.id(ID_PREFIX + text.toLowerCase() + SpreadsheetIds.BUTTON);
-        button.addCss("dui-" + type.getStyle());
-        button.elevate(Elevation.LEVEL_1);
-
-        button.addEventListener(
-                EventType.click,
-                listener
-        );
-
-        return button;
     }
 
     // SpreadsheetDeltaFetcherWatcher..........................................................................................

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.find;
 
 import elemental2.dom.Event;
-import elemental2.dom.EventListener;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.datatable.CellRenderer;
@@ -29,8 +28,6 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
@@ -46,7 +43,6 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
@@ -425,26 +421,6 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     private void resetForm() {
         this.path.setValue(Optional.empty());
         this.valueType.setValue(Optional.empty());
-    }
-
-    /**
-     * Creates one of the modal action buttons that appear at the bottom of the modal dialog.
-     */
-    private Button button(final String text,
-                          final StyleType type,
-                          final EventListener listener) {
-        final Button button = new Button(text);
-
-        button.id(ID_PREFIX + text.toLowerCase() + SpreadsheetIds.BUTTON);
-        button.addCss("dui-" + type.getStyle());
-        button.elevate(Elevation.LEVEL_1);
-
-        button.addEventListener(
-                EventType.click,
-                listener
-        );
-
-        return button;
     }
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
