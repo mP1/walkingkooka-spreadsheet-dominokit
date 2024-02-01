@@ -40,6 +40,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -161,6 +162,11 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     }
 
     private final SpreadsheetDialogComponent dialog;
+
+    @Override
+    public final CloseableHistoryTokenContext closeableHistoryTokenContext() {
+        return this.context;
+    }
 
     private final SpreadsheetPatternComponentContext context;
 
