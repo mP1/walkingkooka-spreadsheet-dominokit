@@ -59,6 +59,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.ui.AppRightDrawerOpenableComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountComponent;
+import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetFindComponent;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetFindComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingComponent;
@@ -144,6 +146,10 @@ public class App implements EntryPoint,
         this.addSpreadsheetDeltaWatcher(this.viewportCache);
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
+
+        SpreadsheetColumnRowInsertCountComponent.with(
+                SpreadsheetColumnRowInsertCountComponentContexts.appContext(this)
+        );
 
         SpreadsheetFindComponent.with(
                 SpreadsheetFindComponentContexts.appContext(this)
