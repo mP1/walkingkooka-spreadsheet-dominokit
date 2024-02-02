@@ -86,9 +86,9 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
-                        .appendChild(this.saveButton())
+                        .appendChild(this.saveButton)
                         .appendChild(this.undoButton())
-                        .appendChild(this.deleteButton())
+                        .appendChild(this.deleteButton)
                         .appendChild(this.closeButton())
         );
 
