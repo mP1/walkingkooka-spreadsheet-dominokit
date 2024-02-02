@@ -119,6 +119,20 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
         );
     }
 
+    // close...........................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                )
+        );
+    }
+
     // setMenu1(Selection)..................................................................................................
 
     @Test

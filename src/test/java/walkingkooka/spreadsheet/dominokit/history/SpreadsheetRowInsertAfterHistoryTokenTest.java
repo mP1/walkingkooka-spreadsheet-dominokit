@@ -111,6 +111,20 @@ public final class SpreadsheetRowInsertAfterHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // close...........................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                )
+        );
+    }
+
     // setMenu1(Selection)..................................................................................................
 
     @Test

@@ -808,6 +808,10 @@ public abstract class HistoryToken implements HasUrlFragment {
             closed = find.clearAction();
         }
 
+        if (this instanceof SpreadsheetColumnInsertHistoryToken || this instanceof SpreadsheetRowInsertHistoryToken) {
+            closed = this.clearAction();
+        }
+
         if (this instanceof SpreadsheetLabelMappingHistoryToken) {
             final SpreadsheetLabelMappingHistoryToken label = (SpreadsheetLabelMappingHistoryToken) this;
             closed = spreadsheetSelect(
