@@ -211,6 +211,7 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
 
     // clear............................................................................................................
 
+    @Test
     public void testClear() {
         final HistoryTokenRecorder recorder = HistoryTokenRecorder.with(
                 Predicates.always(),
