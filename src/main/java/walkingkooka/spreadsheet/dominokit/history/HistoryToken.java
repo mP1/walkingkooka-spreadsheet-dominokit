@@ -57,7 +57,9 @@ import java.util.OptionalInt;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public abstract class HistoryToken implements HasUrlFragment, HasSpreadsheetPattern {
+public abstract class HistoryToken implements HasUrlFragment,
+        HasSpreadsheetPattern,
+        HasSpreadsheetPatternKind {
 
     private final static int MAX_LENGTH = 8192;
 
@@ -1320,6 +1322,27 @@ public abstract class HistoryToken implements HasUrlFragment, HasSpreadsheetPatt
                         pattern.text()
                 )
         );
+    }
+
+    // HasSpreadsheetPatternKind........................................................................................
+
+    @Override
+    public final Optional<SpreadsheetPatternKind> patternKind() {
+        final Optional<SpreadsheetPatternKind> kind;
+
+        if (this instanceof SpreadsheetCellPatternHistoryToken) {
+            kind = this.cast(SpreadsheetCellPatternHistoryToken.class)
+                    .patternKind0();
+        } else {
+            if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
+                kind = this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
+                        .patternKind0();
+            } else {
+                kind = Optional.empty();
+            }
+        }
+
+        return kind;
     }
 
     /**

@@ -85,6 +85,15 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
+    // patternKind......................................................................................................
+
+    @Test
+    public void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
     // urlFragment......................................................................................................
 
     @Test

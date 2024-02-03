@@ -227,6 +227,15 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // patternKind......................................................................................................
+
+    @Test
+    public final void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
     // helpers..............................................................................................
 
     final void urlFragmentAndCheck(final SpreadsheetColumnReference reference,

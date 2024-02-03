@@ -64,4 +64,14 @@ public abstract class SpreadsheetCellHighlightHistoryTokenTestCase<T extends Spr
                 )
         );
     }
+
+    // patternKind......................................................................................................
+
+    @Test
+    public final void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
 }

@@ -1445,6 +1445,32 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // HasSpreadsheetPatternKind........................................................................................
+
+    @Test
+    public void testPatternKindWithSpreadsheetCreateHistoryToken() {
+        this.patternKindAndCheck(
+                HistoryToken.spreadsheetCreate()
+        );
+    }
+
+    @Test
+    public void testPatternKindWithSpreadsheetLoadHistoryToken() {
+        this.patternKindAndCheck(
+                HistoryToken.spreadsheetLoad(
+                        SpreadsheetId.with(1)
+                )
+        );
+    }
+
+    private void patternKindAndCheck(final HistoryToken token) {
+        this.checkEquals(
+                Optional.empty(),
+                token.patternKind(),
+                () -> token.toString()
+        );
+    }
+
     // setPattern........................................................................................................
 
     @Test

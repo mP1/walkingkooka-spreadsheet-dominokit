@@ -52,8 +52,7 @@ abstract public class SpreadsheetCellPatternHistoryToken extends SpreadsheetCell
         return this;
     }
 
-    @Override
-    public final Optional<SpreadsheetPatternKind> patternKind() {
+    final Optional<SpreadsheetPatternKind> patternKind0() {
         return this.patternKind;
     }
 
