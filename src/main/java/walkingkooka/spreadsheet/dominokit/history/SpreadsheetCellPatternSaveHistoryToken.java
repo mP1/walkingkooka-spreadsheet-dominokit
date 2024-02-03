@@ -64,6 +64,12 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         this.pattern = pattern;
     }
 
+    Optional<SpreadsheetPattern> pattern0() {
+        return this.pattern;
+    }
+
+    private final Optional<SpreadsheetPattern> pattern;
+
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellPattern(
@@ -97,13 +103,6 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
                 this.pattern()
         );
     }
-
-    @Override
-    public Optional<SpreadsheetPattern> pattern() {
-        return this.pattern;
-    }
-
-    private final Optional<SpreadsheetPattern> pattern;
 
     // /cell/A1/format-pattern/text/save/@@
     //
