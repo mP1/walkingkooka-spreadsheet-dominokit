@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -56,7 +57,7 @@ import java.util.OptionalInt;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public abstract class HistoryToken implements HasUrlFragment {
+public abstract class HistoryToken implements HasUrlFragment, HasSpreadsheetPattern {
 
     private final static int MAX_LENGTH = 8192;
 
@@ -1285,6 +1286,25 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return token;
+    }
+
+    @Override
+    public final Optional<SpreadsheetPattern> pattern() {
+        final Optional<SpreadsheetPattern> pattern;
+
+        if (this instanceof SpreadsheetCellPatternSaveHistoryToken) {
+            pattern = this.cast(SpreadsheetCellPatternSaveHistoryToken.class)
+                    .pattern0();
+        } else {
+            if (this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
+                pattern = this.cast(SpreadsheetMetadataPropertySaveHistoryToken.class)
+                        .pattern0();
+            } else {
+                pattern = Optional.empty();
+            }
+        }
+
+        return pattern;
     }
 
     /**

@@ -65,6 +65,14 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
 
     private final Optional<T> propertyValue;
 
+    Optional<SpreadsheetPattern> pattern0() {
+        return this.propertyName().isPattern() ?
+                Cast.to(
+                        this.propertyValue()
+                ) :
+                Optional.empty();
+    }
+
     @Override
     UrlFragment metadataPropertyUrlFragment() {
         return this.saveUrlFragment(
@@ -124,16 +132,5 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
                                 this.propertyValue().orElse(null)
                         )
                 );
-    }
-
-    // HasSpreadsheetPattern............................................................................................
-
-    @Override
-    public Optional<SpreadsheetPattern> pattern() {
-        return this.propertyName().isPattern() ?
-                Cast.to(
-                        this.propertyValue()
-                ) :
-                Optional.empty();
     }
 }
