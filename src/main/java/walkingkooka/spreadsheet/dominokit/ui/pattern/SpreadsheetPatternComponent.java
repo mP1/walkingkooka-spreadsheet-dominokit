@@ -50,7 +50,6 @@ import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLi
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
-import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -538,8 +537,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                                     e.preventDefault();
                                     this.setPatternText(
                                             anchor.historyToken()
-                                                    .map(t -> t.cast(HasSpreadsheetPattern.class)
-                                                            .pattern()
+                                                    .map(t -> t.pattern()
                                                             .map(SpreadsheetPattern::text)
                                                             .orElse("")
                                                     ).orElse("")
