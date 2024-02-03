@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.function.Function;
@@ -36,10 +37,15 @@ import java.util.function.Function;
  */
 abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPattern> {
 
+    private final static int MAX_RECENT_COUNT = 3;
+
     SpreadsheetViewportComponentPatternMenu(final HistoryToken historyToken,
-                                            final Locale locale) {
+                                            final Locale locale,
+                                            final List<P> recents) {
         this.historyToken = historyToken.clearAction();
         this.locale = locale;
+
+        this.recents = recents;
     }
 
     void build(final SpreadsheetContextMenu menu) {
@@ -76,6 +82,8 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
                         "Time"
                 )
         );
+
+        this.buildRecents(menu);
     }
 
     private void date(final SpreadsheetContextMenu menu) {
@@ -315,6 +323,30 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     abstract P timePattern(final int style);
 
+    /**
+     * Adds menu items which will save each of the most recent {@link SpreadsheetPattern}.
+     */
+    private void buildRecents(final SpreadsheetContextMenu menu) {
+        final HistoryToken token = this.historyToken;
+        int i = 0;
+
+        for (final P recent : this.recents) {
+            if (0 == i) {
+                menu.separator();
+            }
+
+            final String text = recent.text();
+
+            menu.item(
+                    this.idPrefix() + "recent-" + i + SpreadsheetIds.MENU_ITEM, // id
+                    text, // label
+                    token.setPattern(recent)
+            );
+
+            i++;
+        }
+    }
+
     private void edit(final SpreadsheetContextMenu menu,
                       final SpreadsheetPatternKind kind) {
         menu.item(
@@ -339,6 +371,11 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
 
     final HistoryToken historyToken;
     final Locale locale;
+
+    /**
+     * Holds the most recent {@link SpreadsheetPattern}, these will fill a most recent patterns.
+     */
+    private final List<P> recents;
 
     @Override
     public final String toString() {
