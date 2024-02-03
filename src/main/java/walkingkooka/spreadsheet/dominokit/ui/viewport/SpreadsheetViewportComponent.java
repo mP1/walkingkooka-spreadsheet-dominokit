@@ -64,14 +64,17 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
@@ -85,6 +88,9 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -128,6 +134,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
 import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
@@ -170,6 +177,32 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
         context.addHistoryTokenWatcher(this::onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken);
         context.addHistoryTokenWatcher(this::onHistoryTokenChangeSpreadsheetCellFindHistoryToken);
+
+        this.recentFormatPatterns = this.recentPatternSaves(
+                true, // is format true
+                context
+        );
+        this.recentParsePatterns = this.recentPatternSaves(
+                false, // is format false
+                context
+        );
+    }
+
+    /**
+     * Creates a {@link HistoryTokenRecorder} which will keep the most recent saves of a {@link SpreadsheetPattern}.
+     */
+    private HistoryTokenRecorder recentPatternSaves(final boolean format,
+                                                    final HistoryTokenContext context) {
+        final HistoryTokenRecorder recorder = HistoryTokenRecorder.with(
+                (t) -> t instanceof SpreadsheetCellPatternSaveHistoryToken &&
+                        t.cast(SpreadsheetCellPatternSaveHistoryToken.class)
+                                .patternKind()
+                                .map(k -> k.isFormatPattern() == format)
+                                .orElse(false),
+                3 // max recents kept
+        );
+        context.addHistoryTokenWatcher(recorder);
+        return recorder;
     }
 
     // root.............................................................................................................
@@ -494,8 +527,24 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                         .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
 
                 menu.separator();
-                renderContextMenuFormat(historyToken, locale, menu);
-                renderContextMenuParse(historyToken, locale, menu);
+                renderContextMenuFormat(
+                        historyToken,
+                        locale,
+                        this.recentFormatPatterns.tokens()
+                                .stream()
+                                .map(t -> (SpreadsheetFormatPattern) t.pattern().get()) // cant fail must be SFP
+                                .collect(Collectors.toList()),
+                        menu
+                );
+                renderContextMenuParse(
+                        historyToken,
+                        locale,
+                        this.recentParsePatterns.tokens()
+                                .stream()
+                                .map(t -> (SpreadsheetParsePattern) t.pattern().get()) // cant fail must be SPP
+                                .collect(Collectors.toList()),
+                        menu
+                );
                 menu.separator();
             }
             menu.separator();
@@ -517,12 +566,18 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         }
     }
 
+    private final HistoryTokenRecorder recentFormatPatterns;
+
+    private final HistoryTokenRecorder recentParsePatterns;
+
     private static void renderContextMenuParse(final HistoryToken historyToken,
                                                final Locale locale,
+                                               final List<SpreadsheetParsePattern> recents,
                                                final SpreadsheetContextMenu menu) {
         SpreadsheetViewportComponentPatternMenuParse.with(
                 historyToken,
-                locale
+                locale,
+                recents
         ).build(
                 menu.subMenu(
                         CONTEXT_MENU_ID_PREFIX + "parse",
@@ -534,10 +589,12 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private static void renderContextMenuFormat(final HistoryToken historyToken,
                                                 final Locale locale,
+                                                final List<SpreadsheetFormatPattern> recents,
                                                 final SpreadsheetContextMenu menu) {
         SpreadsheetViewportComponentPatternMenuFormat.with(
                 historyToken,
-                locale
+                locale,
+                recents
         ).build(
                 menu.subMenu(
                         CONTEXT_MENU_ID_PREFIX + "format",

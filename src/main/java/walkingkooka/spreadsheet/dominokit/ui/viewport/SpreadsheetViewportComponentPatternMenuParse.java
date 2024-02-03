@@ -26,6 +26,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Locale;
 import java.util.function.Function;
 
@@ -35,18 +36,22 @@ import java.util.function.Function;
 final class SpreadsheetViewportComponentPatternMenuParse extends SpreadsheetViewportComponentPatternMenu<SpreadsheetParsePattern> {
 
     static SpreadsheetViewportComponentPatternMenuParse with(final HistoryToken historyToken,
-                                                             final Locale locale) {
+                                                             final Locale locale,
+                                                             final List<SpreadsheetParsePattern> recents) {
         return new SpreadsheetViewportComponentPatternMenuParse(
                 historyToken,
-                locale
+                locale,
+                recents
         );
     }
 
     private SpreadsheetViewportComponentPatternMenuParse(final HistoryToken historyToken,
-                                                         final Locale locale) {
+                                                         final Locale locale,
+                                                         final List<SpreadsheetParsePattern> recents) {
         super(
                 historyToken,
-                locale
+                locale,
+                recents
         );
     }
 
