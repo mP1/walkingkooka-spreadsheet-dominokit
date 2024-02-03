@@ -28,12 +28,6 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
     }
 
     @Test
-    public void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
-    }
-
-
-    @Test
     public final void testSetAnchoredSelectionDifferentColumn() {
         final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
                 .setDefaultAnchor();
@@ -63,6 +57,11 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
                         different
                 )
         );
+    }
+
+    @Test
+    public void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
     }
 
     // patternKind......................................................................................................
