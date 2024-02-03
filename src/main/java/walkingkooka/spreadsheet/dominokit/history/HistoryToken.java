@@ -1358,10 +1358,12 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setPatternKind(final Optional<SpreadsheetPatternKind> kind) {
         Objects.requireNonNull(kind, "kind");
 
-        return this.setIfSpreadsheetNameHistoryTokenWithValue(
-                SpreadsheetNameHistoryToken::replacePatternKind,
-                kind
-        );
+        return this.patternKind().equals(kind) ?
+                this :
+                this.setIfSpreadsheetNameHistoryTokenWithValue(
+                        SpreadsheetNameHistoryToken::replacePatternKind,
+                        kind
+                );
     }
 
     public final HistoryToken setReload() {
