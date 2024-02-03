@@ -76,6 +76,15 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
         this.setMenuWithCellAndCheck();
     }
 
+    // patternKind......................................................................................................
+
+    @Test
+    public void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetCellDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name,

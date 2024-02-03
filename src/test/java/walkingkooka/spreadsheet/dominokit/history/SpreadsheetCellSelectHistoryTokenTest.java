@@ -151,6 +151,15 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.setMenuWithCellAndCheck();
     }
 
+    // patternKind......................................................................................................
+
+    @Test
+    public void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
     // setSave.........................................................................................................
 
     @Test

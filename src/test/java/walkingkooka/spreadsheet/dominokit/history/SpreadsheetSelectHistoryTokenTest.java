@@ -64,6 +64,15 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         );
     }
 
+    // patternKind......................................................................................................
+
+    @Test
+    public void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
     // helpers.........................................................................................................
 
     @Override

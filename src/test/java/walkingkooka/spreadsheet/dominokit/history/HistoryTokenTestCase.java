@@ -195,6 +195,32 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // patternKind......................................................................................................
+
+    final void patternKindAndCheck(final HistoryToken token) {
+        this.patternKindAndCheck(
+                token,
+                Optional.empty()
+        );
+    }
+
+    final void patternKindAndCheck(final HistoryToken token,
+                                   final SpreadsheetPatternKind expected) {
+        this.patternKindAndCheck(
+                token,
+                Optional.of(expected)
+        );
+    }
+
+    final void patternKindAndCheck(final HistoryToken token,
+                                   final Optional<SpreadsheetPatternKind> expected) {
+        this.checkEquals(
+                expected,
+                token.patternKind(),
+                () -> token.toString()
+        );
+    }
+
     // setPatternKind...................................................................................................
 
     @Test

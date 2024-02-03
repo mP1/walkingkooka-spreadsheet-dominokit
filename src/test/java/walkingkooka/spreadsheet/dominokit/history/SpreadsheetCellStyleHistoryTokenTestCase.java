@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -31,6 +32,15 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
 
     SpreadsheetCellStyleHistoryTokenTestCase() {
         super();
+    }
+
+    // patternKind......................................................................................................
+
+    @Test
+    public final void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
     }
 
     // helpers.........................................................................................................

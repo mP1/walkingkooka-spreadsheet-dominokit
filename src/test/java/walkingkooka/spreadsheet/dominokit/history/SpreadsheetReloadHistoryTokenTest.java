@@ -51,6 +51,13 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
         );
     }
 
+    @Test
+    public void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetReloadHistoryToken createHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name) {
