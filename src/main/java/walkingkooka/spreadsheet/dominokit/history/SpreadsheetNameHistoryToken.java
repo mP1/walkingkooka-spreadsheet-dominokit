@@ -152,7 +152,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.
      */
-    abstract HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind);
+    abstract HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind);
 
     /**
      * Creates a save {@link HistoryToken} after attempting to parse the value.

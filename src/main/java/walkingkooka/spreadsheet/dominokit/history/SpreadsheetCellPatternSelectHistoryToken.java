@@ -88,13 +88,13 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this.patternKind().equals(patternKind) ?
                 this :
-                this.replacePatternKind(patternKind);
+                this.replacePatternKind0(patternKind);
     }
 
-    private HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+    private HistoryToken replacePatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
         final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();

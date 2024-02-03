@@ -63,7 +63,7 @@ public abstract class SpreadsheetCellHighlightHistoryToken extends SpreadsheetCe
     }
 
     @Override //
-    final HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 }
