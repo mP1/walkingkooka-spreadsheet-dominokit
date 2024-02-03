@@ -69,32 +69,6 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
         );
     }
 
-    // setMenu1(Selection)..................................................................................................
-
-    @Test
-    public void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
-    }
-
-    // patternKind......................................................................................................
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-                this.createHistoryToken()
-        );
-    }
-
-    @Override
-    SpreadsheetCellDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
-                                                         final AnchoredSpreadsheetSelection selection) {
-        return SpreadsheetCellDeleteHistoryToken.with(
-                id,
-                name,
-                selection
-        );
-    }
 
     // setAnchoredSelection.............................................................................................
 
@@ -143,6 +117,33 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
                         NAME,
                         different
                 )
+        );
+    }
+
+    // setMenu1(Selection)..................................................................................................
+
+    @Test
+    public void testSetMenuWithCell() {
+        this.setMenuWithCellAndCheck();
+    }
+
+    // patternKind......................................................................................................
+
+    @Test
+    public void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
+    @Override
+    SpreadsheetCellDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final AnchoredSpreadsheetSelection selection) {
+        return SpreadsheetCellDeleteHistoryToken.with(
+                id,
+                name,
+                selection
         );
     }
 
