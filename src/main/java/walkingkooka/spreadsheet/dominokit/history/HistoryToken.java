@@ -1563,15 +1563,15 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * Factory that creates a {@link HistoryToken} changing the {@link AnchoredSpreadsheetSelection} ui and clearing any action.
      */
-    public final HistoryToken setAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> selection) {
-        Objects.requireNonNull(selection, "selection");
+    public final HistoryToken setAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
+        Objects.requireNonNull(anchoredSelection, "anchoredSelection");
 
-        return this.anchoredSelectionOrEmpty().equals(selection) ?
+        return this.anchoredSelectionOrEmpty().equals(anchoredSelection) ?
                 this :
-                this.setDifferentSelection(selection);
+                this.setDifferentAnchoredSelection(anchoredSelection);
     }
 
-    private HistoryToken setDifferentSelection(final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSelection) {
+    private HistoryToken setDifferentAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSelection) {
         HistoryToken token = null;
 
         if (maybeAnchoredSelection.isPresent()) {
