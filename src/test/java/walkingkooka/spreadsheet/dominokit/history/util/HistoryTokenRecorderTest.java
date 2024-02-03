@@ -121,6 +121,52 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
     }
 
     @Test
+    public void testOnHistoryTokenChangeDuplicate() {
+        final HistoryTokenRecorder recorder = HistoryTokenRecorder.with(
+                (t) -> t instanceof SpreadsheetCellPatternSaveHistoryToken,
+                3
+        );
+
+        final HistoryToken keep1 = HistoryToken.cellPatternSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetPatternKind.DATE_PARSE_PATTERN,
+                Optional.of(
+                        SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                )
+        );
+
+        final HistoryToken keep2 = HistoryToken.cellPatternSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
+                Optional.of(
+                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                )
+        );
+
+        final HistoryToken ignore1 = HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+        );
+
+        this.onHistoryChangeAndCheck(
+                recorder,
+                Lists.of(
+                        keep1,
+                        ignore1,
+                        keep2,
+                        keep1
+                ),
+                keep1,
+                keep2
+        );
+    }
+
+    @Test
     public void testOnHistoryTokenChangeMax() {
         final HistoryTokenRecorder recorder = HistoryTokenRecorder.with(
                 (t) -> t instanceof SpreadsheetCellPatternSaveHistoryToken,
