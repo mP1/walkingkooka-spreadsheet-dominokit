@@ -63,6 +63,7 @@ public final class HistoryTokenRecorder implements HistoryTokenWatcher {
 
         final HistoryToken token = context.historyToken();
         if (this.predicate.test(token)) {
+            tokens.remove(token);
             tokens.add(
                     0,
                     token
