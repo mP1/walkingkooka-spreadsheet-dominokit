@@ -115,8 +115,8 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                         ignore1,
                         keep2
                 ),
-                keep1,
-                keep2
+                keep2,
+                keep1
         );
     }
 
@@ -182,9 +182,9 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                         ignore1,
                         keep4
                 ),
-                keep2,
+                keep4,
                 keep3,
-                keep4
+                keep2
         );
     }
 
