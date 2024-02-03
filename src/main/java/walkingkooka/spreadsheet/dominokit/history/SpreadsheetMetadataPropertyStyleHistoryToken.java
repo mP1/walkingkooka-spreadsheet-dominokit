@@ -58,7 +58,7 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     abstract UrlFragment styleUrlFragment();
 
     @Override //
-    final HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 

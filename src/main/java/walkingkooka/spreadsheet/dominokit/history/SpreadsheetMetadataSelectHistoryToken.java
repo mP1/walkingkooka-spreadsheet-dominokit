@@ -75,7 +75,7 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     }
 
     @Override //
-    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return patternKind.map(
                 k -> HistoryToken.metadataPropertySelect(
                         this.id(),

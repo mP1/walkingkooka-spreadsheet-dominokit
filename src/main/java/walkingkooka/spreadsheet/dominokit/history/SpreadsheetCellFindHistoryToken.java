@@ -120,7 +120,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override
-    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 

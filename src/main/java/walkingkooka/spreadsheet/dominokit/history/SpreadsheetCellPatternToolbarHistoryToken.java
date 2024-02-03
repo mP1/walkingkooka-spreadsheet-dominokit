@@ -43,7 +43,7 @@ public abstract class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsh
     }
 
     @Override //
-    final HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return false == patternKind.isPresent() ?
                 this :
                 this.replacePatternKind(

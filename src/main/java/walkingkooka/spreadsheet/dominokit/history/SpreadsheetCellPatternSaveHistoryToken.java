@@ -121,7 +121,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    HistoryToken setPatternKind0(final Optional<SpreadsheetPatternKind> patternKind) {
+    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return cellPattern(
                 this.id(),
                 this.name(),
