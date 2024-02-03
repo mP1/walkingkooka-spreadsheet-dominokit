@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
-import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -50,7 +49,6 @@ abstract class SpreadsheetPatternComponentContextBasicMetadata extends Spreadshe
         return this.context.spreadsheetMetadata()
                 .getIgnoringDefaults(
                         this.historyToken()
-                                .cast(HasSpreadsheetPatternKind.class)
                                 .patternKind()
                                 .get()
                                 .spreadsheetMetadataPropertyName()

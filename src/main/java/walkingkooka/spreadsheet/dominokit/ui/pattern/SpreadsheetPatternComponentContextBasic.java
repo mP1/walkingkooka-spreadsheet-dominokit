@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -44,7 +43,6 @@ abstract class SpreadsheetPatternComponentContextBasic implements SpreadsheetPat
     @Override
     public final SpreadsheetPatternKind patternKind() {
         return this.historyToken()
-                .cast(HasSpreadsheetPatternKind.class)
                 .patternKind()
                 .get();
     }
