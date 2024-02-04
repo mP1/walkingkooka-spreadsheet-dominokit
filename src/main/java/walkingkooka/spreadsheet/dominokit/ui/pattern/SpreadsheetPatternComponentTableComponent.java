@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
+import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
@@ -65,6 +66,9 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
         );
         this.dataStore = localListDataStore;
         this.table.headerElement().hide();
+
+        this.card = Card.create()
+                .appendChild(this.table);
     }
 
     private TableConfig<SpreadsheetPatternComponentTableComponentRow> tableConfig(final Consumer<String> setPatternText,
@@ -171,6 +175,8 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
 
     @Override
     public HTMLDivElement element() {
-        return this.table.element();
+        return this.card.element();
     }
+
+    private final Card card;
 }

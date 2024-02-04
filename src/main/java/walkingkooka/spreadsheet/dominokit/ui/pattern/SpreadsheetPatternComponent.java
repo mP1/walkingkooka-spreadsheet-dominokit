@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import elemental2.dom.Event;
 import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -101,10 +100,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         dialog.appendChild(this.tabs);
 
         dialog.appendChild(
-                Card.create()
-                        .appendChild(
-                                this.table
-                        )
+                this.table
         );
 
         dialog.appendChild(this.chips);
