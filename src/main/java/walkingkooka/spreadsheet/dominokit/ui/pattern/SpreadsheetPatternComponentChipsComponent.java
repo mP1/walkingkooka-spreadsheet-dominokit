@@ -149,6 +149,13 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
                 i++;
             }
         }
+
+        // hide the card if there are no chips
+        parent.setDisplay(
+                texts.isEmpty() ?
+                        "none" :
+                        ""
+        );
     }
 
     /**
