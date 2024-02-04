@@ -22,18 +22,15 @@ import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.cards.Card;
-import org.dominokit.domino.ui.chips.Chip;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -43,13 +40,11 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Anchor;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -57,13 +52,8 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextAlign;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
@@ -99,9 +89,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.patternTextBox = this.patternTextBox();
 
-        this.patternComponentParent = Card.create();
-        this.patternComponentKinds = Lists.array();
-        this.patternComponentTexts = Lists.array();
+        this.chips = SpreadsheetPatternComponentChipsComponent.empty();
 
         this.appendLinks = SpreadsheetPatternComponentAppenderComponent.empty();
 
@@ -135,9 +123,8 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.sampleDataTable.headerElement().hide();
 
-        dialog.appendChild(this.patternComponentParent);
+        dialog.appendChild(this.chips);
         dialog.appendChild(this.appendLinks);
-
         dialog.appendChild(this.patternTextBox);
 
         dialog.appendChild(
@@ -383,117 +370,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     // componentChips...................................................................................................
 
-    /**
-     * This is called anytime the pattern text is changed.
-     */
-    private void patternComponentRebuild(final SpreadsheetPattern pattern,
-                                         final String errorPattern) {
-        final Card parent = this.patternComponentParent.clearElement();
-        final SpreadsheetPatternComponentContext context = this.context;
-
-        final List<SpreadsheetFormatParserTokenKind> patternComponentKinds = this.patternComponentKinds;
-        patternComponentKinds.clear();
-
-        final List<String> patternComponentTexts = this.patternComponentTexts;
-        patternComponentTexts.clear();
-
-        // pattern will be null when pattern is empty
-        if (null == pattern) {
-            context.debug(this.getClass().getSimpleName() + ".patternComponentRebuild no components");
-        } else {
-            pattern.components(
-                    (kind, tokenPatternText) -> {
-                        patternComponentKinds.add(kind);
-                        patternComponentTexts.add(tokenPatternText);
-                    }
-            );
-
-            context.debug(this.getClass().getSimpleName() + ".patternComponentRebuild " + patternComponentTexts.size() + " text ", patternComponentTexts);
-
-            if (false == errorPattern.isEmpty()) {
-                patternComponentTexts.add(errorPattern);
-            }
-
-            // now build the chips
-            int i = 0;
-
-            for (final String patternComponentText : patternComponentTexts) {
-                final Chip chip = Chip.create(patternComponentText)
-                        .setId(
-                                ID_PREFIX +
-                                        i +
-                                        SpreadsheetIds.CHIP
-                        ).setRemovable(true)
-                        .addOnRemoveListener(this.patternComponentOnRemove(i))
-                        .setMarginRight("5px");
-
-                final Set<String> alternatives = patternComponentKinds.get(i)
-                        .alternatives();
-
-                if (false == alternatives.isEmpty()) {
-                    final HistoryToken historyToken = context.historyToken();
-                    final Menu<Void> menu = Menu.create();
-                    SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.menu(
-                            menu,
-                            context
-                    );
-
-                    final int ii = i;
-                    int j = 0;
-                    int selectedItem = -1;
-                    for (final String alternative : alternatives) {
-
-                        final String newPattern = IntStream.range(0, patternComponentTexts.size())
-                                .mapToObj(k -> ii == k ? alternative : patternComponentTexts.get(k))
-                                .collect(Collectors.joining());
-
-                        contextMenu = contextMenu.item(
-                                ID_PREFIX + "alternative-" + j,
-                                alternative,
-                                historyToken.setSave(newPattern)
-                        );
-
-                        if (alternative.equalsIgnoreCase(patternComponentText)) {
-                            selectedItem = j;
-                        }
-
-                        j++;
-                    }
-
-                    chip.setDropMenu(menu);
-                    menu.selectAt(
-                            selectedItem,
-                            true // silent = dont fire selection events
-                    );
-                }
-                parent.appendChild(chip);
-
-                i++;
-            }
-        }
-    }
-
-    /**
-     * This listener is fired when a chip is removed by clicking the X. It will recompute a new pattern and update the pattern text.
-     */
-    private Consumer<Chip> patternComponentOnRemove(final int index) {
-        return (chip) -> {
-            final String removed = this.patternComponentTexts.remove(index);
-            this.context.debug(this.getClass().getSimpleName() + ".patternComponentOnRemove removed " + CharSequences.quoteAndEscape(removed));
-            this.setPatternText(
-                    this.patternComponentTexts.stream().collect(Collectors.joining())
-            );
-        };
-    }
-
-    /**
-     * THe parent holding all the current ui pattern chips.
-     */
-    private final Card patternComponentParent;
-
-    private final List<SpreadsheetFormatParserTokenKind> patternComponentKinds;
-
-    private final List<String> patternComponentTexts;
+    private final SpreadsheetPatternComponentChipsComponent chips;
 
     // patternAppendLinks......................................................................................................
 
@@ -559,9 +436,11 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 Optional.ofNullable(errorMessage)
         );
 
-        this.patternComponentRebuild(
+        this.chips.refresh(
                 pattern,
-                errorPattern
+                errorPattern,
+                this::setPatternText,
+                this.context
         );
 
         this.appendLinks.refreshLinks(
