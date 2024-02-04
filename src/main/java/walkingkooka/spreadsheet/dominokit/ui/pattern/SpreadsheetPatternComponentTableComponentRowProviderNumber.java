@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -28,8 +27,6 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextNode;
-import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.tree.text.TextWhitespace;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -178,8 +175,12 @@ abstract class SpreadsheetPatternComponentTableComponentRowProviderNumber extend
                 pattern,
                 Lists.of(
                         textNode(
-                                formattedPositive,
-                                formattedNegative,
+                                formattedPositive
+                        ),
+                        textNode(
+                                formattedNegative
+                        ),
+                        textNode(
                                 formattedZero
                         )
                 )
@@ -189,24 +190,13 @@ abstract class SpreadsheetPatternComponentTableComponentRowProviderNumber extend
     /**
      * Creates three lines, with each line holding a single formatted number.
      */
-    private static TextNode textNode(final SpreadsheetText positive,
-                                     final SpreadsheetText negative,
-                                     final SpreadsheetText zero) {
+    private static TextNode textNode(final SpreadsheetText text) {
         return TextNode.style(
                 Lists.of(
-                        positive.toTextNode(),
-                        LINE_BREAK,
-                        negative.toTextNode(),
-                        LINE_BREAK,
-                        zero.toTextNode()
+                        text.toTextNode()
                 )
-        ).setAttributes(
-                Maps.of(
-                        TextStylePropertyName.WHITE_SPACE, TextWhitespace.PRE)
         );
     }
-
-    private final static TextNode LINE_BREAK = TextNode.text("\r\n");
 
     private ExpressionNumber positive(final ExpressionNumberKind kind) {
         return kind.create(1234.56);

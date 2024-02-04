@@ -68,6 +68,7 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
             final LocalListDataStore<SpreadsheetPatternComponentTableComponentRow> localListDataStore = new LocalListDataStore<>();
             this.table = new DataTable<>(
                     tableConfig(
+                            patternKind,
                             setPatternText,
                             context
                     ),
@@ -100,9 +101,10 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
 
     private LocalListDataStore<SpreadsheetPatternComponentTableComponentRow> dataStore;
 
-    private static TableConfig<SpreadsheetPatternComponentTableComponentRow> tableConfig(final Consumer<String> setPatternText,
+    private static TableConfig<SpreadsheetPatternComponentTableComponentRow> tableConfig(final SpreadsheetPatternKind kind,
+                                                                                         final Consumer<String> setPatternText,
                                                                                          final SpreadsheetPatternComponentContext context) {
-        return new TableConfig<SpreadsheetPatternComponentTableComponentRow>()
+        final TableConfig<SpreadsheetPatternComponentTableComponentRow> tableConfig = new TableConfig<SpreadsheetPatternComponentTableComponentRow>()
                 .addColumn(
                         columnConfig(
                                 "label",
@@ -122,7 +124,28 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
                                         context
                                 )
                         )
-                ).addColumn(
+                );
+
+        switch (kind) {
+            case NUMBER_FORMAT_PATTERN:
+            case NUMBER_PARSE_PATTERN:
+                for (int i = 0; i < 3; i++) {
+                    final int j = i;
+                    tableConfig.addColumn(
+                            columnConfig(
+                                    "formatted-" + j,
+                                    TextAlign.CENTER,
+                                    d -> Doms.node(
+                                            d.formatted()
+                                                    .get(j)
+                                    )
+                            )
+                    );
+                }
+
+                break;
+            default:
+                tableConfig.addColumn(
                         columnConfig(
                                 "formatted",
                                 TextAlign.CENTER,
@@ -132,6 +155,9 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
                                 )
                         )
                 );
+        }
+
+        return tableConfig;
     }
 
     private static ColumnConfig<SpreadsheetPatternComponentTableComponentRow> columnConfig(final String columnName,
