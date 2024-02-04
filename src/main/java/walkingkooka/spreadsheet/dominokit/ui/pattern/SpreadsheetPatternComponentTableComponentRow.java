@@ -34,23 +34,19 @@ final class SpreadsheetPatternComponentTableComponentRow {
      */
     static SpreadsheetPatternComponentTableComponentRow with(final String label,
                                                              final Optional<SpreadsheetPattern> pattern,
-                                                             final TextNode defaultFormattedValue,
                                                              final TextNode patternFormattedValue) {
         return new SpreadsheetPatternComponentTableComponentRow(
                 CharSequences.failIfNullOrEmpty(label, "label"),
                 Objects.requireNonNull(pattern, "pattern"),
-                Objects.requireNonNull(defaultFormattedValue, "defaultFormattedValue"),
                 Objects.requireNonNull(patternFormattedValue, "patternFormattedValue")
         );
     }
 
     private SpreadsheetPatternComponentTableComponentRow(final String label,
                                                          final Optional<SpreadsheetPattern> pattern,
-                                                         final TextNode defaultFormattedValue,
                                                          final TextNode patternFormattedValue) {
         this.label = label;
         this.pattern = pattern;
-        this.defaultFormattedValue = defaultFormattedValue;
         this.patternFormattedValue = patternFormattedValue;
     }
 
@@ -73,15 +69,6 @@ final class SpreadsheetPatternComponentTableComponentRow {
     private final Optional<SpreadsheetPattern> pattern;
 
     /**
-     * The value default formatted.
-     */
-    TextNode defaultFormattedValue() {
-        return this.defaultFormattedValue;
-    }
-
-    private final TextNode defaultFormattedValue;
-
-    /**
      * The value formatted using the {@link #pattern()}.
      */
     TextNode patternFormattedValue() {
@@ -98,7 +85,6 @@ final class SpreadsheetPatternComponentTableComponentRow {
         return Objects.hash(
                 this.label,
                 this.pattern,
-                this.defaultFormattedValue,
                 this.patternFormattedValue
         );
     }
@@ -111,7 +97,6 @@ final class SpreadsheetPatternComponentTableComponentRow {
     private boolean equals0(final SpreadsheetPatternComponentTableComponentRow other) {
         return this.label.equals(other.label) &&
                 this.pattern.equals(other.pattern) &&
-                this.defaultFormattedValue.equals(other.defaultFormattedValue) &&
                 this.patternFormattedValue.equals(other.patternFormattedValue);
     }
 
@@ -140,15 +125,6 @@ final class SpreadsheetPatternComponentTableComponentRow {
                         pattern.get()
                                 .text()
                 ).append(' ');
-            }
-            b.append("| ");
-        }
-
-        {
-            final String defaultFormattedValue = this.defaultFormattedValue.text();
-            if (false == defaultFormattedValue.isEmpty()) {
-                b.append(defaultFormattedValue)
-                        .append(' ');
             }
             b.append("| ");
         }

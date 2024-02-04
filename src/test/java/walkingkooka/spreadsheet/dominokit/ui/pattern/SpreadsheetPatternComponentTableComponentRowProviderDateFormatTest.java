@@ -150,15 +150,15 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderDateForma
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit Pattern | yyyy/mm/dd | Tuesday, 11 July 2023 | 2023/07/11\n" +
-                        "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
-                        "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
-                        "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
-                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023 | Tuesday, 11 July 2023\n" +
-                        "31 December 1999 Short | d/m/yy | Friday, 31 December 1999 | 31/12/99\n" +
-                        "31 December 1999 Medium | d mmm yyyy | Friday, 31 December 1999 | 31 Dec. 1999\n" +
-                        "31 December 1999 Long | d mmmm yyyy | Friday, 31 December 1999 | 31 December 1999\n" +
-                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999 | Friday, 31 December 1999"
+                "Edit Pattern | yyyy/mm/dd | 2023/07/11\n" +
+                        "Today Short | d/m/yy | 11/7/23\n" +
+                        "Today Medium | d mmm yyyy | 11 Jul. 2023\n" +
+                        "Today Long | d mmmm yyyy | 11 July 2023\n" +
+                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023\n" +
+                        "31 December 1999 Short | d/m/yy | 31/12/99\n" +
+                        "31 December 1999 Medium | d mmm yyyy | 31 Dec. 1999\n" +
+                        "31 December 1999 Long | d mmmm yyyy | 31 December 1999\n" +
+                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999"
         );
     }
 
@@ -169,15 +169,15 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderDateForma
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit Pattern | [RED]yyyy/dd/mmm | Tuesday, 11 July 2023 | 2023/11/Jul.\n" +
-                        "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
-                        "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
-                        "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
-                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023 | Tuesday, 11 July 2023\n" +
-                        "31 December 1999 Short | d/m/yy | Friday, 31 December 1999 | 31/12/99\n" +
-                        "31 December 1999 Medium | d mmm yyyy | Friday, 31 December 1999 | 31 Dec. 1999\n" +
-                        "31 December 1999 Long | d mmmm yyyy | Friday, 31 December 1999 | 31 December 1999\n" +
-                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999 | Friday, 31 December 1999"
+                "Edit Pattern | [RED]yyyy/dd/mmm | 2023/11/Jul.\n" +
+                        "Today Short | d/m/yy | 11/7/23\n" +
+                        "Today Medium | d mmm yyyy | 11 Jul. 2023\n" +
+                        "Today Long | d mmmm yyyy | 11 July 2023\n" +
+                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023\n" +
+                        "31 December 1999 Short | d/m/yy | 31/12/99\n" +
+                        "31 December 1999 Medium | d mmm yyyy | 31 Dec. 1999\n" +
+                        "31 December 1999 Long | d mmmm yyyy | 31 December 1999\n" +
+                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999"
         );
     }
 
@@ -186,15 +186,15 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderDateForma
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Edit Pattern | | Tuesday, 11 July 2023 |\n" +
-                        "Today Short | d/m/yy | Tuesday, 11 July 2023 | 11/7/23\n" +
-                        "Today Medium | d mmm yyyy | Tuesday, 11 July 2023 | 11 Jul. 2023\n" +
-                        "Today Long | d mmmm yyyy | Tuesday, 11 July 2023 | 11 July 2023\n" +
-                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023 | Tuesday, 11 July 2023\n" +
-                        "31 December 1999 Short | d/m/yy | Friday, 31 December 1999 | 31/12/99\n" +
-                        "31 December 1999 Medium | d mmm yyyy | Friday, 31 December 1999 | 31 Dec. 1999\n" +
-                        "31 December 1999 Long | d mmmm yyyy | Friday, 31 December 1999 | 31 December 1999\n" +
-                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999 | Friday, 31 December 1999"
+                "Edit Pattern | |\n" +
+                        "Today Short | d/m/yy | 11/7/23\n" +
+                        "Today Medium | d mmm yyyy | 11 Jul. 2023\n" +
+                        "Today Long | d mmmm yyyy | 11 July 2023\n" +
+                        "Today Full | dddd, d mmmm yyyy | Tuesday, 11 July 2023\n" +
+                        "31 December 1999 Short | d/m/yy | 31/12/99\n" +
+                        "31 December 1999 Medium | d mmm yyyy | 31 Dec. 1999\n" +
+                        "31 December 1999 Long | d mmmm yyyy | 31 December 1999\n" +
+                        "31 December 1999 Full | dddd, d mmmm yyyy | Friday, 31 December 1999"
         );
     }
 

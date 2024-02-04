@@ -108,13 +108,13 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTimeForma
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit Pattern | hh/mm/ss | 3:33:59 AM | 03/33/59\n" +
-                        "Now Short | h:mm AM/PM | 3:33:59 AM | 3:33 AM\n" +
-                        "Now Long | h:mm:ss AM/PM | 3:33:59 AM | 3:33:59 AM\n" +
-                        "12:58:59 AM Short | h:mm AM/PM | 12:58:59 PM | 12:58 PM\n" +
-                        "12:58:59 AM Long | h:mm:ss AM/PM | 12:58:59 PM | 12:58:59 PM\n" +
-                        "6:01:02 PM Short | h:mm AM/PM | 6:01:02 PM | 6:01 PM\n" +
-                        "6:01:02 PM Long | h:mm:ss AM/PM | 6:01:02 PM | 6:01:02 PM"
+                "Edit Pattern | hh/mm/ss | 03/33/59\n" +
+                        "Now Short | h:mm AM/PM | 3:33 AM\n" +
+                        "Now Long | h:mm:ss AM/PM | 3:33:59 AM\n" +
+                        "12:58:59 AM Short | h:mm AM/PM | 12:58 PM\n" +
+                        "12:58:59 AM Long | h:mm:ss AM/PM | 12:58:59 PM\n" +
+                        "6:01:02 PM Short | h:mm AM/PM | 6:01 PM\n" +
+                        "6:01:02 PM Long | h:mm:ss AM/PM | 6:01:02 PM"
         );
     }
 
@@ -125,13 +125,13 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTimeForma
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit Pattern | h/m/s | 3:33:59 AM | 3/33/59\n" +
-                        "Now Short | h:mm AM/PM | 3:33:59 AM | 3:33 AM\n" +
-                        "Now Long | h:mm:ss AM/PM | 3:33:59 AM | 3:33:59 AM\n" +
-                        "12:58:59 AM Short | h:mm AM/PM | 12:58:59 PM | 12:58 PM\n" +
-                        "12:58:59 AM Long | h:mm:ss AM/PM | 12:58:59 PM | 12:58:59 PM\n" +
-                        "6:01:02 PM Short | h:mm AM/PM | 6:01:02 PM | 6:01 PM\n" +
-                        "6:01:02 PM Long | h:mm:ss AM/PM | 6:01:02 PM | 6:01:02 PM"
+                "Edit Pattern | h/m/s | 3/33/59\n" +
+                        "Now Short | h:mm AM/PM | 3:33 AM\n" +
+                        "Now Long | h:mm:ss AM/PM | 3:33:59 AM\n" +
+                        "12:58:59 AM Short | h:mm AM/PM | 12:58 PM\n" +
+                        "12:58:59 AM Long | h:mm:ss AM/PM | 12:58:59 PM\n" +
+                        "6:01:02 PM Short | h:mm AM/PM | 6:01 PM\n" +
+                        "6:01:02 PM Long | h:mm:ss AM/PM | 6:01:02 PM"
         );
     }
 
@@ -140,13 +140,13 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTimeForma
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Edit Pattern | | 3:33:59 AM |\n" +
-                        "Now Short | h:mm AM/PM | 3:33:59 AM | 3:33 AM\n" +
-                        "Now Long | h:mm:ss AM/PM | 3:33:59 AM | 3:33:59 AM\n" +
-                        "12:58:59 AM Short | h:mm AM/PM | 12:58:59 PM | 12:58 PM\n" +
-                        "12:58:59 AM Long | h:mm:ss AM/PM | 12:58:59 PM | 12:58:59 PM\n" +
-                        "6:01:02 PM Short | h:mm AM/PM | 6:01:02 PM | 6:01 PM\n" +
-                        "6:01:02 PM Long | h:mm:ss AM/PM | 6:01:02 PM | 6:01:02 PM"
+                "Edit Pattern | |\n" +
+                        "Now Short | h:mm AM/PM | 3:33 AM\n" +
+                        "Now Long | h:mm:ss AM/PM | 3:33:59 AM\n" +
+                        "12:58:59 AM Short | h:mm AM/PM | 12:58 PM\n" +
+                        "12:58:59 AM Long | h:mm:ss AM/PM | 12:58:59 PM\n" +
+                        "6:01:02 PM Short | h:mm AM/PM | 6:01 PM\n" +
+                        "6:01:02 PM Long | h:mm:ss AM/PM | 6:01:02 PM"
         );
     }
 

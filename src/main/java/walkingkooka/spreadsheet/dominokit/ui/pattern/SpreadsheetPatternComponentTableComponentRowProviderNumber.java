@@ -141,12 +141,6 @@ abstract class SpreadsheetPatternComponentTableComponentRowProviderNumber extend
         final ExpressionNumber negative = negative(kind);
         final ExpressionNumber zero = zero(kind);
 
-        final SpreadsheetText defaultFormattedPositive = context.defaultFormat(positive);
-
-        final SpreadsheetText defaultFormattedNegative = context.defaultFormat(negative);
-
-        final SpreadsheetText defaultFormattedZero = context.defaultFormat(zero);
-
         final SpreadsheetText formattedPositive = context.format(
                 pattern.map(SpreadsheetPattern::formatter)
                         .orElse(SpreadsheetFormatters.emptyText()),
@@ -172,12 +166,6 @@ abstract class SpreadsheetPatternComponentTableComponentRowProviderNumber extend
                         " " +
                         CharSequences.quoteAndEscape(patternText) +
                         " " +
-                        defaultFormattedPositive +
-                        " " +
-                        defaultFormattedNegative +
-                        " " +
-                        defaultFormattedZero +
-                        " " +
                         formattedPositive +
                         " " +
                         formattedNegative +
@@ -188,11 +176,6 @@ abstract class SpreadsheetPatternComponentTableComponentRowProviderNumber extend
         return SpreadsheetPatternComponentTableComponentRow.with(
                 label,
                 pattern,
-                textNode(
-                        defaultFormattedPositive,
-                        defaultFormattedNegative,
-                        defaultFormattedZero
-                ),
                 textNode(
                         formattedPositive,
                         formattedNegative,

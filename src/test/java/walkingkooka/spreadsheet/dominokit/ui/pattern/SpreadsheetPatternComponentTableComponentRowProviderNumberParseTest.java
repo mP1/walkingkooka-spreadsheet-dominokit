@@ -110,11 +110,11 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderNumberPar
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit Pattern | $#.## | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1234D56\\r\\nAUDN9876D54\\r\\nAUDD\n" +
-                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
-                        "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
-                        "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
-                        "Currency | $#,##0.00 | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
+                "Edit Pattern | $#.## | AUD1234D56\\r\\nAUDN9876D54\\r\\nAUDD\n" +
+                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
+                        "Integer | #,##0 | 1G235\\r\\nN9G877\\r\\n0\n" +
+                        "Percent | #,##0% | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
+                        "Currency | $#,##0.00 | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
         );
     }
 
@@ -125,11 +125,11 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderNumberPar
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit Pattern | | 1G234D56\\r\\nN9G876D54\\r\\n0D |\n" +
-                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
-                        "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
-                        "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
-                        "Currency | $#,##0.00 | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
+                "Edit Pattern | |\n" +
+                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
+                        "Integer | #,##0 | 1G235\\r\\nN9G877\\r\\n0\n" +
+                        "Percent | #,##0% | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
+                        "Currency | $#,##0.00 | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
         );
     }
 
@@ -138,11 +138,11 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderNumberPar
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Edit Pattern | | 1G234D56\\r\\nN9G876D54\\r\\n0D |\n" +
-                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
-                        "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
-                        "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
-                        "Currency | $#,##0.00 | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
+                "Edit Pattern | |\n" +
+                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
+                        "Integer | #,##0 | 1G235\\r\\nN9G877\\r\\n0\n" +
+                        "Percent | #,##0% | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
+                        "Currency | $#,##0.00 | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
         );
     }
 
@@ -151,11 +151,11 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderNumberPar
         this.applyAndCheck2(
                 "General",
                 CONTEXT,
-                "Edit Pattern | | 1G234D56\\r\\nN9G876D54\\r\\n0D |\n" +
-                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
-                        "Integer | #,##0 | 1G234D56\\r\\nN9G876D54\\r\\n0D | 1G235\\r\\nN9G877\\r\\n0\n" +
-                        "Percent | #,##0% | 1G234D56\\r\\nN9G876D54\\r\\n0D | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
-                        "Currency | $#,##0.00 | 1G234D56\\r\\nN9G876D54\\r\\n0D | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
+                "Edit Pattern | |\n" +
+                        "Number | #,##0.### | 1G234D56\\r\\nN9G876D54\\r\\n0D\n" +
+                        "Integer | #,##0 | 1G235\\r\\nN9G877\\r\\n0\n" +
+                        "Percent | #,##0% | 123G456P\\r\\nN987G654P\\r\\n0P\n" +
+                        "Currency | $#,##0.00 | AUD1G234D56\\r\\nAUDN9G876D54\\r\\nAUD0D00"
         );
     }
 

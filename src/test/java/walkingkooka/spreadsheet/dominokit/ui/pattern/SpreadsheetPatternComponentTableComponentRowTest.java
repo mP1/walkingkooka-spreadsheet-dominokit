@@ -40,9 +40,6 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
             SpreadsheetPattern.parseTextFormatPattern("@")
     );
 
-    private final static TextNode DEFAULT_FORMATTED_VALUE = SpreadsheetText.with("default formatted value")
-            .toTextNode();
-
     private final static TextNode PATTERN_FORMATTED_VALUE = SpreadsheetText.with("pattern formatted value")
             .toTextNode();
 
@@ -53,7 +50,6 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
         this.withFails(
                 null,
                 PATTERN,
-                DEFAULT_FORMATTED_VALUE,
                 PATTERN_FORMATTED_VALUE
         );
     }
@@ -65,7 +61,6 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 () -> SpreadsheetPatternComponentTableComponentRow.with(
                         "",
                         PATTERN,
-                        DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 )
         );
@@ -76,17 +71,6 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
         this.withFails(
                 LABEL,
                 null,
-                DEFAULT_FORMATTED_VALUE,
-                PATTERN_FORMATTED_VALUE
-        );
-    }
-
-    @Test
-    public void testWithNullDefaultFormattedValueFails() {
-        this.withFails(
-                LABEL,
-                PATTERN,
-                null,
                 PATTERN_FORMATTED_VALUE
         );
     }
@@ -96,21 +80,18 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
         this.withFails(
                 LABEL,
                 PATTERN,
-                DEFAULT_FORMATTED_VALUE,
                 null
         );
     }
 
     private void withFails(final String label,
                            final Optional<SpreadsheetPattern> pattern,
-                           final TextNode defaultFormattedValue,
                            final TextNode patternFormattedValue) {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetPatternComponentTableComponentRow.with(
                         label,
                         pattern,
-                        defaultFormattedValue,
                         patternFormattedValue
                 )
         );
@@ -123,7 +104,6 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         "different",
                         PATTERN,
-                        DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 )
         );
@@ -137,20 +117,6 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                         Optional.of(
                                 SpreadsheetPattern.parseTextFormatPattern("\"different\"")
                         ),
-                        DEFAULT_FORMATTED_VALUE,
-                        PATTERN_FORMATTED_VALUE
-                )
-        );
-    }
-
-    @Test
-    public void testEqualsDifferentDefaultFormattedValue() {
-        this.checkNotEquals(
-                SpreadsheetPatternComponentTableComponentRow.with(
-                        LABEL,
-                        PATTERN,
-                        SpreadsheetText.with("different")
-                                .toTextNode(),
                         PATTERN_FORMATTED_VALUE
                 )
         );
@@ -162,7 +128,6 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
                         PATTERN,
-                        DEFAULT_FORMATTED_VALUE,
                         SpreadsheetText.with("different").toTextNode()
                 )
         );
@@ -173,7 +138,6 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
         return SpreadsheetPatternComponentTableComponentRow.with(
                 LABEL,
                 PATTERN,
-                DEFAULT_FORMATTED_VALUE,
                 PATTERN_FORMATTED_VALUE
         );
     }
@@ -186,10 +150,9 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
                         PATTERN,
-                        DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 ),
-                "Label123 | @ | default formatted value | pattern formatted value"
+                "Label123 | @ | pattern formatted value"
         );
     }
 
@@ -199,10 +162,9 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
                         Optional.empty(),
-                        DEFAULT_FORMATTED_VALUE,
                         PATTERN_FORMATTED_VALUE
                 ),
-                "Label123 | | default formatted value | pattern formatted value"
+                "Label123 | | pattern formatted value"
         );
     }
 
@@ -212,11 +174,9 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
                         Optional.empty(),
-                        SpreadsheetText.EMPTY
-                                .toTextNode(),
                         SpreadsheetText.EMPTY.toTextNode()
                 ),
-                "Label123 | | |"
+                "Label123 | |"
         );
     }
 

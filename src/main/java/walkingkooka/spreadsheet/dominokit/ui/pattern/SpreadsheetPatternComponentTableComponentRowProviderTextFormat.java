@@ -53,8 +53,6 @@ final class SpreadsheetPatternComponentTableComponentRowProviderTextFormat exten
                                 patternText,
                                 SpreadsheetPattern::parseTextFormatPattern
                         ),
-                        context.defaultFormat(value)
-                                .toTextNode(),
                         context.format(
                                 tryParsePatternText(
                                         patternText,
@@ -67,8 +65,6 @@ final class SpreadsheetPatternComponentTableComponentRowProviderTextFormat exten
                 SpreadsheetPatternComponentTableComponentRow.with(
                         "Default text format",
                         DEFAULT_TEXT_FORMAT_PATTERN,
-                        context.defaultFormat(value)
-                                .toTextNode(),
                         context.format(
                                 SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.formatter(),
                                 value
