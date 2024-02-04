@@ -103,7 +103,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         this.patternComponentKinds = Lists.array();
         this.patternComponentTexts = Lists.array();
 
-        this.appendParent = Card.create();
+        this.patternAppendLinksParent = Card.create();
         this.patternAppendLinks = Lists.array();
 
         final LocalListDataStore<SpreadsheetPatternComponentSampleRow> localListDataStore = new LocalListDataStore<>();
@@ -137,7 +137,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         this.sampleDataTable.headerElement().hide();
 
         dialog.appendChild(this.patternComponentParent);
-        dialog.appendChild(this.appendParent);
+        dialog.appendChild(this.patternAppendLinksParent);
 
         dialog.appendChild(this.patternTextBox);
 
@@ -186,7 +186,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         int i = 0;
         for (final SpreadsheetPatternKind kind : kinds) {
             final Tab tab = Tab.create(
-                    tabTitle(kind)
+                    paatternKindTabTitle(kind)
             );
 
             Anchor.with(
@@ -210,7 +210,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
      * </pre>
      */
-    static String tabTitle(final SpreadsheetPatternKind kind) {
+    static String paatternKindTabTitle(final SpreadsheetPatternKind kind) {
         return CaseKind.SNAKE.change(
                 kind.name()
                         .replace("FORMAT_PATTERN", "")
@@ -502,11 +502,11 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
-    private void patternAppendLinksRebuild() {
+    private void patternAppendLinksAllRebuild() {
         final SpreadsheetPatternComponentContext context = this.context;
         context.debug(this.getClass().getSimpleName() + ".patternAppendLinksRebuild");
 
-        final Card parent = this.appendParent.clearElement();
+        final Card parent = this.patternAppendLinksParent.clearElement();
         final List<SpreadsheetPatternComponentPatternAppendLink> patternAppendLinks = this.patternAppendLinks;
         patternAppendLinks.clear();
 
@@ -563,7 +563,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * The updated href is not strictly needed and is merely cosmetic.
      */
     private void patternAppendLinksHrefRefresh(final String patternText,
-                                        final SpreadsheetPattern pattern) {
+                                               final SpreadsheetPattern pattern) {
         final SpreadsheetPatternComponentContext context = this.context;
 
         final HistoryToken historyToken = context.historyToken();
@@ -623,7 +623,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     /**
      * THe parent holding all the append-pattern links.
      */
-    private final Card appendParent;
+    private final Card patternAppendLinksParent;
 
     /**
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
@@ -844,7 +844,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 )
         );
         this.patternKindTabsRefresh();
-        this.patternAppendLinksRebuild();
+        this.patternAppendLinksAllRebuild();
         this.setPatternText(componentContext.loaded());
     }
 
