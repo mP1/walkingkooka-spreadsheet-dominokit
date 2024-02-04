@@ -40,7 +40,7 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
             SpreadsheetPattern.parseTextFormatPattern("@")
     );
 
-    private final static TextNode PATTERN_FORMATTED_VALUE = SpreadsheetText.with("pattern formatted value")
+    private final static TextNode FORMATTED = SpreadsheetText.with("formatted")
             .toTextNode();
 
     // dateFormat.......................................................................................................
@@ -50,7 +50,7 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
         this.withFails(
                 null,
                 PATTERN,
-                PATTERN_FORMATTED_VALUE
+                FORMATTED
         );
     }
 
@@ -61,7 +61,7 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 () -> SpreadsheetPatternComponentTableComponentRow.with(
                         "",
                         PATTERN,
-                        PATTERN_FORMATTED_VALUE
+                        FORMATTED
                 )
         );
     }
@@ -71,12 +71,12 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
         this.withFails(
                 LABEL,
                 null,
-                PATTERN_FORMATTED_VALUE
+                FORMATTED
         );
     }
 
     @Test
-    public void testWithNullPatternFormattedValueFails() {
+    public void testWithNullFormattedFails() {
         this.withFails(
                 LABEL,
                 PATTERN,
@@ -86,13 +86,13 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
 
     private void withFails(final String label,
                            final Optional<SpreadsheetPattern> pattern,
-                           final TextNode patternFormattedValue) {
+                           final TextNode formatted) {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetPatternComponentTableComponentRow.with(
                         label,
                         pattern,
-                        patternFormattedValue
+                        formatted
                 )
         );
     }
@@ -104,7 +104,7 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         "different",
                         PATTERN,
-                        PATTERN_FORMATTED_VALUE
+                        FORMATTED
                 )
         );
     }
@@ -117,13 +117,13 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                         Optional.of(
                                 SpreadsheetPattern.parseTextFormatPattern("\"different\"")
                         ),
-                        PATTERN_FORMATTED_VALUE
+                        FORMATTED
                 )
         );
     }
 
     @Test
-    public void testEqualsDifferentPatternFormattedValue() {
+    public void testEqualsDifferentFormatted() {
         this.checkNotEquals(
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
@@ -138,7 +138,7 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
         return SpreadsheetPatternComponentTableComponentRow.with(
                 LABEL,
                 PATTERN,
-                PATTERN_FORMATTED_VALUE
+                FORMATTED
         );
     }
 
@@ -150,9 +150,9 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
                         PATTERN,
-                        PATTERN_FORMATTED_VALUE
+                        FORMATTED
                 ),
-                "Label123 | @ | pattern formatted value"
+                "Label123 | @ | formatted"
         );
     }
 
@@ -162,9 +162,9 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
                         Optional.empty(),
-                        PATTERN_FORMATTED_VALUE
+                        FORMATTED
                 ),
-                "Label123 | | pattern formatted value"
+                "Label123 | | formatted"
         );
     }
 
