@@ -151,8 +151,8 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
                         }).element();
     }
 
-    void sampleDataPrepare(final String patternText,
-                           final SpreadsheetPatternComponentContext context) {
+    void refresh(final String patternText,
+                 final SpreadsheetPatternComponentContext context) {
         final SpreadsheetPatternKind patternKind = context.patternKind();
 
         this.dataStore.setData(
