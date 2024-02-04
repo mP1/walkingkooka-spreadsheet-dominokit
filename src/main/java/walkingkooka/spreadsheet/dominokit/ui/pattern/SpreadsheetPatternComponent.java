@@ -28,8 +28,6 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.style.StyleType;
-import org.dominokit.domino.ui.tabs.Tab;
-import org.dominokit.domino.ui.tabs.TabsPanel;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -84,8 +82,10 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         context.addSpreadsheetDeltaWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
 
-        this.patternKindTabs = this.patternKindTabs();
-        this.patternKindTabsPanel = this.patternKindTabsPanel();
+        this.tabs = SpreadsheetPatternComponentTabsComponent.empty(
+                this.spreadsheetPatternKinds(),
+                context
+        );
 
         this.patternTextBox = this.patternTextBox();
 
@@ -112,7 +112,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(this.context);
         dialog.id(ID);
 
-        dialog.appendChild(this.patternKindTabsPanel);
+        dialog.appendChild(this.tabs);
 
         dialog.appendChild(
                 Card.create()
@@ -159,108 +159,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     // tabs............................................................................................................
 
-    /**
-     * Factory that creates a TAB for each {@link SpreadsheetPatternKind}. Note the anchors links are not set and need to be
-     * {@link #patternKindTabsRefresh()}.
-     */
-    private Tab[] patternKindTabs() {
-        final SpreadsheetPatternComponentContext context = this.context;
-
-        final SpreadsheetPatternKind[] kinds = this.spreadsheetPatternKinds();
-        final Tab[] tabs = new Tab[kinds.length];
-
-        int i = 0;
-        for (final SpreadsheetPatternKind kind : kinds) {
-            final Tab tab = Tab.create(
-                    paatternKindTabTitle(kind)
-            );
-
-            Anchor.with(
-                            (HTMLAnchorElement)
-                                    tab.getTab()
-                                            .element()
-                                            .firstElementChild
-                    ).setId(spreadsheetPatternKindId(kind))
-                    .addPushHistoryToken(context)
-                    .setDisabled(false);
-
-            tabs[i++] = tab;
-        }
-
-        return tabs;
-    }
-
-    /**
-     * Returns the text that will appear on a tab that when clicked switches to the given {@link SpreadsheetPatternKind}.
-     * <pre>
-     * SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
-     * </pre>
-     */
-    static String paatternKindTabTitle(final SpreadsheetPatternKind kind) {
-        return CaseKind.SNAKE.change(
-                kind.name()
-                        .replace("FORMAT_PATTERN", "")
-                        .replace("PARSE_PATTERN", ""),
-                CaseKind.TITLE
-        ).trim();
-    }
-
-    private final Tab[] patternKindTabs;
-
-    /**
-     * Returns a {@link TabsPanel} with tabs for each of the possible {@link SpreadsheetPatternKind}, with each
-     * tab holding a link which will switch to that pattern.
-     */
-    private TabsPanel patternKindTabsPanel() {
-        final TabsPanel tabsPanel = TabsPanel.create();
-
-        for (final Tab tab : this.patternKindTabs) {
-            tabsPanel.appendChild(tab);
-        }
-
-        return tabsPanel;
-    }
-
-    private final TabsPanel patternKindTabsPanel;
-
-    /**
-     * Iterates over the links in each tab updating the link, disabling and activating as necessary.
-     */
-    private void patternKindTabsRefresh() {
-        final SpreadsheetPatternComponentContext context = this.context;
-        final SpreadsheetPatternKind kind = context.patternKind();
-
-        int i = 0;
-        final Tab[] tabs = this.patternKindTabs;
-        for (final SpreadsheetPatternKind possible : this.spreadsheetPatternKinds()) {
-            final Tab tab = tabs[i++];
-            final Anchor anchor = Anchor.with(
-                    (HTMLAnchorElement)
-                            tab.getTab()
-                                    .element()
-                                    .firstElementChild
-            ).setId(spreadsheetPatternKindId(possible));
-
-            final boolean match = kind.equals(possible);
-            anchor.setDisabled(match);
-
-            if (match) {
-                tab.activate(true); // true=silent
-            } else {
-                tab.deActivate(true); // true=silent
-
-                final HistoryToken historyToken = context.historyToken();
-                final HistoryToken historyTokenWithPatternKind = historyToken.setPatternKind(
-                        Optional.of(possible)
-                );
-                anchor.setHistoryToken(
-                        Optional.of(historyTokenWithPatternKind)
-                );
-
-                context.debug(this.getClass().getSimpleName() + ".patternKindTabsRefresh " + historyTokenWithPatternKind);
-            }
-        }
-    }
+    private final SpreadsheetPatternComponentTabsComponent tabs;
 
     // sample...........................................................................................................
 
@@ -591,7 +490,10 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                         componentContext.patternKind()
                 )
         );
-        this.patternKindTabsRefresh();
+        this.tabs.refresh(
+                this.spreadsheetPatternKinds(),
+                componentContext
+        );
         this.appendLinks.recreate(
                 this::setPatternText,
                 componentContext
