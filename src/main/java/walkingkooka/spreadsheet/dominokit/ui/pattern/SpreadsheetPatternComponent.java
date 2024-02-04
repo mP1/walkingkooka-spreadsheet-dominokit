@@ -18,27 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import elemental2.dom.Event;
-import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.cards.Card;
-import org.dominokit.domino.ui.datatable.CellTextAlign;
-import org.dominokit.domino.ui.datatable.ColumnConfig;
-import org.dominokit.domino.ui.datatable.DataTable;
-import org.dominokit.domino.ui.datatable.TableConfig;
-import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
@@ -48,10 +37,8 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.text.TextAlign;
 
 import java.util.Optional;
-import java.util.function.Function;
 
 /**
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
@@ -93,12 +80,11 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.appendLinks = SpreadsheetPatternComponentAppenderComponent.empty();
 
-        final LocalListDataStore<SpreadsheetPatternComponentSampleRow> localListDataStore = new LocalListDataStore<>();
-        this.sampleDataTable = new DataTable<>(
-                this.sampleTableConfig(),
-                localListDataStore
-        );
-        this.sampleDataTableDataStore = localListDataStore;
+        this.table = SpreadsheetPatternComponentTableComponent
+                .empty(
+                        this::setPatternText,
+                        context
+                );
 
         this.dialog = this.dialogCreate();
     }
@@ -117,11 +103,9 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         dialog.appendChild(
                 Card.create()
                         .appendChild(
-                                this.sampleDataTable
+                                this.table
                         )
         );
-
-        this.sampleDataTable.headerElement().hide();
 
         dialog.appendChild(this.chips);
         dialog.appendChild(this.appendLinks);
@@ -163,109 +147,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     // sample...........................................................................................................
 
-    private TableConfig<SpreadsheetPatternComponentSampleRow> sampleTableConfig() {
-        return new TableConfig<SpreadsheetPatternComponentSampleRow>()
-                .addColumn(
-                        columnConfig(
-                                "label",
-                                TextAlign.LEFT,
-                                d -> Doms.textNode(d.label())
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "pattern-text",
-                                TextAlign.CENTER,
-                                d -> this.patternAnchor(
-                                        d.label(),
-                                        d.pattern()
-                                                .map(SpreadsheetPattern::text)
-                                                .orElse("")
-                                )
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "default-format",
-                                TextAlign.CENTER,
-                                (d) -> Doms.node(
-                                        d.defaultFormattedValue()
-                                )
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "formatted",
-                                TextAlign.CENTER,
-                                d -> Doms.node(
-                                        d.patternFormattedValue()
-                                )
-                        )
-                );
-    }
-
-    private static ColumnConfig<SpreadsheetPatternComponentSampleRow> columnConfig(final String columnName,
-                                                                                   final TextAlign textAlign,
-                                                                                   final Function<SpreadsheetPatternComponentSampleRow, Node> nodeMapper) {
-        return ColumnConfig.<SpreadsheetPatternComponentSampleRow>create(columnName)
-                .setFixed(true)
-                .minWidth("25%")
-                .setTextAlign(
-                        CellTextAlign.valueOf(
-                                textAlign.name()
-                        )
-                )
-                .setCellRenderer(cell -> nodeMapper.apply(
-                        cell.getTableRow()
-                                .getRecord()
-                        )
-                );
-    }
-
-    /**
-     * Creates an anchor which will appear in the pattern column, which when clicked updates the pattern text box.
-     * The history token is not updated.
-     */
-    private HTMLAnchorElement patternAnchor(final String label,
-                                            final String patternText) {
-        return Anchor.empty()
-                .setHref(
-                        Url.EMPTY_RELATIVE_URL.setFragment(
-                                this.context.historyToken()
-                                        .setSave(patternText)
-                                        .urlFragment()
-                        )
-                ).setTextContent(patternText)
-                .setId(
-                        ID_PREFIX +
-                                label.toLowerCase() +
-                                SpreadsheetIds.LINK
-                ).addClickAndKeydownEnterListener(
-                        e ->
-                        {
-                            e.preventDefault();
-                            this.setPatternText(patternText);
-                        }).element();
-    }
-
-    private void sampleDataPrepare() {
-        final SpreadsheetPatternComponentContext context = this.context;
-        final SpreadsheetPatternKind patternKind = context.patternKind();
-
-        this.sampleDataTableDataStore.setData(
-                SpreadsheetPatternComponentSampleRowProvider.spreadsheetPatternKind(patternKind)
-                        .apply(
-                                this.patternText(),
-                                SpreadsheetPatternComponentSampleRowProviderContexts.basic(
-                                        patternKind,
-                                        context.spreadsheetFormatterContext(),
-                                        context
-                                )
-                        )
-        );
-        this.sampleDataTable.load();
-    }
-
-    private final DataTable<SpreadsheetPatternComponentSampleRow> sampleDataTable;
-
-    private final LocalListDataStore<SpreadsheetPatternComponentSampleRow> sampleDataTableDataStore;
+    private final SpreadsheetPatternComponentTableComponent table;
 
     // componentChips...................................................................................................
 
@@ -352,7 +234,10 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 this.context
         );
 
-        this.sampleDataPrepare();
+        this.table.sampleDataPrepare(
+                patternText,
+                context
+        );
     }
 
     /**
