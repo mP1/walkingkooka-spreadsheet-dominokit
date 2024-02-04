@@ -103,8 +103,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         this.patternComponentKinds = Lists.array();
         this.patternComponentTexts = Lists.array();
 
-        this.patternAppendLinksParent = Card.create();
-        this.patternAppendLinks = Lists.array();
+        this.appendLinks = SpreadsheetPatternComponentAppenderComponent.empty();
 
         final LocalListDataStore<SpreadsheetPatternComponentSampleRow> localListDataStore = new LocalListDataStore<>();
         this.sampleDataTable = new DataTable<>(
@@ -137,7 +136,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         this.sampleDataTable.headerElement().hide();
 
         dialog.appendChild(this.patternComponentParent);
-        dialog.appendChild(this.patternAppendLinksParent);
+        dialog.appendChild(this.appendLinks);
 
         dialog.appendChild(this.patternTextBox);
 
@@ -498,138 +497,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     // patternAppendLinks......................................................................................................
 
-    /**
-     * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
-     * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
-     */
-    private void patternAppendLinksAllRebuild() {
-        final SpreadsheetPatternComponentContext context = this.context;
-        context.debug(this.getClass().getSimpleName() + ".patternAppendLinksRebuild");
-
-        final Card parent = this.patternAppendLinksParent.clearElement();
-        final List<SpreadsheetPatternComponentPatternAppendLink> patternAppendLinks = this.patternAppendLinks;
-        patternAppendLinks.clear();
-
-        for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
-
-            switch (formatParserTokenKind) {
-                case COLOR_NAME:
-                case COLOR_NUMBER:
-                    break; // skip for now insert color pick instead
-                case CONDITION:
-                    break;
-                case GENERAL:
-                    break; // skip GENERAL for now
-                case TEXT_LITERAL:
-                    break; // skip - let the user insert the text literal into the patternTextBox
-
-                default:
-                    for (final String pattern : formatParserTokenKind.patterns()) {
-                        final Anchor anchor = Anchor.empty()
-                                .setId(
-                                        ID_PREFIX +
-                                                "append-" +
-                                                pattern +
-                                                SpreadsheetIds.LINK
-                                ).setTextContent(pattern);
-                        anchor.addClickAndKeydownEnterListener(
-                                (e) -> {
-                                    e.preventDefault();
-                                    this.setPatternText(
-                                            anchor.historyToken()
-                                                    .map(t -> t.pattern()
-                                                            .map(SpreadsheetPattern::text)
-                                                            .orElse("")
-                                                    ).orElse("")
-                                    );
-                                }
-                        );
-                        patternAppendLinks.add(
-                                SpreadsheetPatternComponentPatternAppendLink.with(
-                                        formatParserTokenKind,
-                                        pattern,
-                                        anchor
-                                )
-                        );
-                        parent.appendChild(anchor);
-                    }
-                    break;
-            }
-        }
-    }
-
-    /**
-     * This should be invoked each time the pattern text is updated, and will update the HREF for each append link.
-     * The updated href is not strictly needed and is merely cosmetic.
-     */
-    private void patternAppendLinksHrefRefresh(final String patternText,
-                                               final SpreadsheetPattern pattern) {
-        final SpreadsheetPatternComponentContext context = this.context;
-
-        final HistoryToken historyToken = context.historyToken();
-
-        final List<SpreadsheetPatternComponentPatternAppendLink> patternAppendLinks = this.patternAppendLinks;
-        context.debug(this.getClass().getSimpleName() + ".patternAppendLinksHrefRefresh " + patternAppendLinks.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
-
-        for (final SpreadsheetPatternComponentPatternAppendLink link : patternAppendLinks) {
-            String savePatternText = null;
-
-            if (patternText.isEmpty()) {
-                savePatternText = link.pattern;
-            } else {
-                if (null != pattern) {
-                    // get last SpreadsheetFormatPatternKind
-                    final SpreadsheetFormatParserTokenKind[] lastPatternKind = new SpreadsheetFormatParserTokenKind[1];
-                    final String[] lastPatternText = new String[1];
-
-                    pattern.components(
-                            (kk, tt) -> {
-                                lastPatternKind[0] = kk;
-                                lastPatternText[0] = tt;
-                            }
-                    );
-
-                    savePatternText = patternText;
-
-                    // this exists so if a pattern text ends in "d" then "dd" should replace the "d" not append and make it "ddd".
-                    if (lastPatternKind[0].isDuplicate(link.kind)) {
-                        // replace last
-                        savePatternText = patternText.substring(
-                                0,
-                                patternText.length() - lastPatternText[0].length()
-                        ) + link.pattern;
-                    } else {
-                        savePatternText = savePatternText + link.pattern;
-                    }
-                }
-            }
-
-            HistoryToken save = null;
-            if (null != savePatternText) {
-                try {
-                    save = historyToken.setSave(savePatternText);
-                } catch (final RuntimeException invalidPattern) {
-                    // ignore save is already null
-                }
-            }
-
-            context.debug(this.getClass().getSimpleName() + ".patternAppendLinksHrefRefresh: " + link.pattern + "=" + save);
-            link.anchor.setHistoryToken(
-                    Optional.ofNullable(save)
-            );
-        }
-    }
-
-    /**
-     * THe parent holding all the append-pattern links.
-     */
-    private final Card patternAppendLinksParent;
-
-    /**
-     * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
-     * This is kept to support updates o the ANCHOR link as the {@link #patternTextBox} changes.
-     */
-    private final List<SpreadsheetPatternComponentPatternAppendLink> patternAppendLinks;
+    private final SpreadsheetPatternComponentAppenderComponent appendLinks;
 
     // patternTextBox...................................................................................................
 
@@ -696,13 +564,14 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 errorPattern
         );
 
-        this.patternAppendLinksHrefRefresh(
+        this.appendLinks.refreshLinks(
                 patternText,
                 CharSequences.nullToEmpty(
                         errorMessage
                 ).length() > 0 ?
                         null :
-                        pattern
+                        pattern,
+                this.context
         );
 
         this.sampleDataPrepare();
@@ -844,7 +713,10 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 )
         );
         this.patternKindTabsRefresh();
-        this.patternAppendLinksAllRebuild();
+        this.appendLinks.recreate(
+                this::setPatternText,
+                componentContext
+        );
         this.setPatternText(componentContext.loaded());
     }
 
@@ -866,7 +738,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      */
     private final static String ID = "pattern";
 
-    private final static String ID_PREFIX = ID + "-";
+    final static String ID_PREFIX = ID + "-";
 
     // @VisibleForTesting
     static String spreadsheetPatternKindId(final SpreadsheetPatternKind kind) {
