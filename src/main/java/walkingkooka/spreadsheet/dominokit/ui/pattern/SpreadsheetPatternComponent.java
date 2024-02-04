@@ -230,7 +230,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 this.context
         );
 
-        this.table.sampleDataPrepare(
+        this.table.refresh(
                 patternText,
                 context
         );
