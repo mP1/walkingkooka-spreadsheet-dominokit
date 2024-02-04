@@ -46,33 +46,62 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
     /**
      * Creates an empty {@link SpreadsheetPatternComponentTableComponent}.
      */
-    static SpreadsheetPatternComponentTableComponent empty(final Consumer<String> setPatternText,
-                                                           final SpreadsheetPatternComponentContext context) {
-        return new SpreadsheetPatternComponentTableComponent(
-                setPatternText,
-                context
-        );
+    static SpreadsheetPatternComponentTableComponent empty() {
+        return new SpreadsheetPatternComponentTableComponent();
     }
 
-    private SpreadsheetPatternComponentTableComponent(final Consumer<String> setPatternText,
-                                                      final SpreadsheetPatternComponentContext context) {
-        final LocalListDataStore<SpreadsheetPatternComponentTableComponentRow> localListDataStore = new LocalListDataStore<>();
-        this.table = new DataTable<>(
-                this.tableConfig(
-                        setPatternText,
-                        context
-                ),
-                localListDataStore
-        );
-        this.dataStore = localListDataStore;
-        this.table.headerElement().hide();
-
-        this.card = Card.create()
-                .appendChild(this.table);
+    private SpreadsheetPatternComponentTableComponent() {
+        this.card = Card.create();
     }
 
-    private TableConfig<SpreadsheetPatternComponentTableComponentRow> tableConfig(final Consumer<String> setPatternText,
-                                                                                  final SpreadsheetPatternComponentContext context) {
+    void refresh(final String patternText,
+                 final Consumer<String> setPatternText,
+                 final SpreadsheetPatternComponentContext context) {
+        final SpreadsheetPatternKind patternKind = context.patternKind();
+
+        // recreate table if pattern kind different
+        if (false == patternKind.equals(this.patternKind)) {
+            this.card.clearElement();
+
+            this.patternKind = patternKind;
+
+            final LocalListDataStore<SpreadsheetPatternComponentTableComponentRow> localListDataStore = new LocalListDataStore<>();
+            this.table = new DataTable<>(
+                    tableConfig(
+                            setPatternText,
+                            context
+                    ),
+                    localListDataStore
+            );
+            this.dataStore = localListDataStore;
+            this.table.headerElement().hide();
+
+            this.card.appendChild(this.table);
+        }
+
+        // load dataStore and table with new rows...
+        this.dataStore.setData(
+                SpreadsheetPatternComponentTableComponentRowProvider.spreadsheetPatternKind(patternKind)
+                        .apply(
+                                patternText,
+                                SpreadsheetPatternComponentTableComponentRowProviderContexts.basic(
+                                        patternKind,
+                                        context.spreadsheetFormatterContext(),
+                                        context
+                                )
+                        )
+        );
+        this.table.load();
+    }
+
+    private SpreadsheetPatternKind patternKind;
+
+    private DataTable<SpreadsheetPatternComponentTableComponentRow> table;
+
+    private LocalListDataStore<SpreadsheetPatternComponentTableComponentRow> dataStore;
+
+    private static TableConfig<SpreadsheetPatternComponentTableComponentRow> tableConfig(final Consumer<String> setPatternText,
+                                                                                         final SpreadsheetPatternComponentContext context) {
         return new TableConfig<SpreadsheetPatternComponentTableComponentRow>()
                 .addColumn(
                         columnConfig(
@@ -84,7 +113,7 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
                         columnConfig(
                                 "pattern-text",
                                 TextAlign.CENTER,
-                                d -> this.patternAnchor(
+                                d -> patternAnchor(
                                         d.label(),
                                         d.pattern()
                                                 .map(SpreadsheetPattern::text)
@@ -127,10 +156,10 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
      * Creates an anchor which will appear in the pattern column, which when clicked updates the pattern text box.
      * The history token is not updated.
      */
-    private HTMLAnchorElement patternAnchor(final String label,
-                                            final String patternText,
-                                            final Consumer<String> setPatternText,
-                                            final SpreadsheetPatternComponentContext context) {
+    private static HTMLAnchorElement patternAnchor(final String label,
+                                                   final String patternText,
+                                                   final Consumer<String> setPatternText,
+                                                   final SpreadsheetPatternComponentContext context) {
         return Anchor.empty()
                 .setHref(
                         Url.EMPTY_RELATIVE_URL.setFragment(
@@ -150,28 +179,6 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
                             setPatternText.accept(patternText);
                         }).element();
     }
-
-    void refresh(final String patternText,
-                 final SpreadsheetPatternComponentContext context) {
-        final SpreadsheetPatternKind patternKind = context.patternKind();
-
-        this.dataStore.setData(
-                SpreadsheetPatternComponentTableComponentRowProvider.spreadsheetPatternKind(patternKind)
-                        .apply(
-                                patternText,
-                                SpreadsheetPatternComponentTableComponentRowProviderContexts.basic(
-                                        patternKind,
-                                        context.spreadsheetFormatterContext(),
-                                        context
-                                )
-                        )
-        );
-        this.table.load();
-    }
-
-    private final DataTable<SpreadsheetPatternComponentTableComponentRow> table;
-
-    private final LocalListDataStore<SpreadsheetPatternComponentTableComponentRow> dataStore;
 
     @Override
     public HTMLDivElement element() {

@@ -79,11 +79,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.appendLinks = SpreadsheetPatternComponentAppenderComponent.empty();
 
-        this.table = SpreadsheetPatternComponentTableComponent
-                .empty(
-                        this::setPatternText,
-                        context
-                );
+        this.table = SpreadsheetPatternComponentTableComponent.empty();
 
         this.dialog = this.dialogCreate();
     }
@@ -232,6 +228,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.table.refresh(
                 patternText,
+                this::setPatternText,
                 context
         );
     }
