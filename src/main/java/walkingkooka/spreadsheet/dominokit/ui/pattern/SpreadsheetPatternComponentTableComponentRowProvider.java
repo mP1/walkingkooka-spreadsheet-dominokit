@@ -18,17 +18,19 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import walkingkooka.NeverError;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
-import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * A provider that uses the user's {@link java.util.Locale} and active {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} to prepare rows
@@ -191,21 +193,37 @@ abstract class SpreadsheetPatternComponentTableComponentRowProvider implements B
                                                            final Optional<SpreadsheetPattern> pattern,
                                                            final Object value,
                                                            final SpreadsheetPatternComponentTableComponentRowProviderContext context) {
+        return this.row(
+                label,
+                pattern,
+                Lists.of(value),
+                context
+        );
+    }
+
+    final SpreadsheetPatternComponentTableComponentRow row(final String label,
+                                                           final Optional<SpreadsheetPattern> pattern,
+                                                           final List<Object> values,
+                                                           final SpreadsheetPatternComponentTableComponentRowProviderContext context) {
         final String patternText = pattern.map(SpreadsheetPattern::text)
                 .orElse("");
 
-        final SpreadsheetText formatted = context.format(
-                pattern.map(SpreadsheetPattern::formatter)
-                        .orElse(SpreadsheetFormatters.emptyText()),
-                value
-        );
+        final List<TextNode> formatted =
+                values.stream()
+                        .map(v ->
+                                context.format(
+                                        pattern.map(SpreadsheetPattern::formatter)
+                                                .orElse(SpreadsheetFormatters.emptyText()),
+                                        v
+                                ).toTextNode()
+                        ).collect(Collectors.toList());
 
         context.debug(this.getClass().getSimpleName() + " " + label + " " + CharSequences.quoteAndEscape(patternText) + " " + formatted);
 
         return SpreadsheetPatternComponentTableComponentRow.with(
                 label,
                 pattern,
-                formatted.toTextNode()
+                formatted
         );
     }
 }

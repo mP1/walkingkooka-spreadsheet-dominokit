@@ -176,10 +176,12 @@ abstract class SpreadsheetPatternComponentTableComponentRowProviderNumber extend
         return SpreadsheetPatternComponentTableComponentRow.with(
                 label,
                 pattern,
-                textNode(
-                        formattedPositive,
-                        formattedNegative,
-                        formattedZero
+                Lists.of(
+                        textNode(
+                                formattedPositive,
+                                formattedNegative,
+                                formattedZero
+                        )
                 )
         );
     }
