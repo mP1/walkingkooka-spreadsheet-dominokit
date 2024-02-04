@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextNode;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -34,7 +35,7 @@ final class SpreadsheetPatternComponentTableComponentRow {
      */
     static SpreadsheetPatternComponentTableComponentRow with(final String label,
                                                              final Optional<SpreadsheetPattern> pattern,
-                                                             final TextNode formatted) {
+                                                             final List<TextNode> formatted) {
         return new SpreadsheetPatternComponentTableComponentRow(
                 CharSequences.failIfNullOrEmpty(label, "label"),
                 Objects.requireNonNull(pattern, "pattern"),
@@ -44,7 +45,7 @@ final class SpreadsheetPatternComponentTableComponentRow {
 
     private SpreadsheetPatternComponentTableComponentRow(final String label,
                                                          final Optional<SpreadsheetPattern> pattern,
-                                                         final TextNode formatted) {
+                                                         final List<TextNode> formatted) {
         this.label = label;
         this.pattern = pattern;
         this.formatted = formatted;
@@ -71,12 +72,11 @@ final class SpreadsheetPatternComponentTableComponentRow {
     /**
      * The value formatted using the {@link #pattern()}.
      */
-    TextNode formatted() {
+    List<TextNode> formatted() {
         return this.formatted;
-
     }
 
-    private final TextNode formatted;
+    private final List<TextNode> formatted;
 
     // Object...........................................................................................................
 
@@ -130,9 +130,12 @@ final class SpreadsheetPatternComponentTableComponentRow {
         }
 
         {
-            final String formatted = this.formatted.text();
-            if (false == formatted.isEmpty()) {
-                b.append(formatted);
+            String separator = "";
+            for (final TextNode f : this.formatted) {
+                b.append(separator);
+                separator = " | ";
+
+                b.append(f.text());
             }
         }
 

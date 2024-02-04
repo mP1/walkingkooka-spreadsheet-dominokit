@@ -53,22 +53,26 @@ final class SpreadsheetPatternComponentTableComponentRowProviderTextFormat exten
                                 patternText,
                                 SpreadsheetPattern::parseTextFormatPattern
                         ),
-                        context.format(
-                                tryParsePatternText(
-                                        patternText,
-                                        SpreadsheetPattern::parseTextFormatPattern
-                                ).map(SpreadsheetPattern::formatter)
-                                        .orElse(SpreadsheetFormatters.emptyText()),
-                                value
-                        ).toTextNode()
+                        Lists.of(
+                                context.format(
+                                        tryParsePatternText(
+                                                patternText,
+                                                SpreadsheetPattern::parseTextFormatPattern
+                                        ).map(SpreadsheetPattern::formatter)
+                                                .orElse(SpreadsheetFormatters.emptyText()),
+                                        value
+                                ).toTextNode()
+                        )
                 ),
                 SpreadsheetPatternComponentTableComponentRow.with(
                         "Default text format",
                         DEFAULT_TEXT_FORMAT_PATTERN,
-                        context.format(
-                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.formatter(),
-                                value
-                        ).toTextNode()
+                        Lists.of(
+                                context.format(
+                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.formatter(),
+                                        value
+                                ).toTextNode()
+                        )
                 )
         );
     }

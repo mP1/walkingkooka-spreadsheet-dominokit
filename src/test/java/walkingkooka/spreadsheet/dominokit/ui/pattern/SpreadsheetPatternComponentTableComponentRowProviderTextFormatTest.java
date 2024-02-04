@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -68,16 +69,20 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTextForma
                         Optional.of(
                                 SpreadsheetPattern.parseTextFormatPattern("@@")
                         ),
-                        SpreadsheetText.EMPTY.setText(text + text)
-                                .toTextNode()
+                        Lists.of(
+                                SpreadsheetText.EMPTY.setText(text + text)
+                                        .toTextNode()
+                        )
                 ),
                 SpreadsheetPatternComponentTableComponentRow.with(
                         "Default text format",
                         Optional.of(
                                 SpreadsheetPattern.parseTextFormatPattern("@")
                         ),
-                        SpreadsheetText.EMPTY.setText(text)
-                                .toTextNode()
+                        Lists.of(
+                                SpreadsheetText.EMPTY.setText(text)
+                                        .toTextNode()
+                        )
                 )
         );
     }
@@ -92,15 +97,19 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTextForma
                 SpreadsheetPatternComponentTableComponentRow.with(
                         "Edit Pattern",
                         Optional.empty(), // no pattern
-                        SpreadsheetText.EMPTY.toTextNode()
+                        Lists.of(
+                                SpreadsheetText.EMPTY.toTextNode()
+                        )
                 ),
                 SpreadsheetPatternComponentTableComponentRow.with(
                         "Default text format",
                         Optional.of(
                                 SpreadsheetPattern.parseTextFormatPattern("@")
                         ),
-                        SpreadsheetText.EMPTY.setText(text)
-                                .toTextNode()
+                        Lists.of(
+                                SpreadsheetText.EMPTY.setText(text)
+                                        .toTextNode()
+                        )
                 )
         );
     }

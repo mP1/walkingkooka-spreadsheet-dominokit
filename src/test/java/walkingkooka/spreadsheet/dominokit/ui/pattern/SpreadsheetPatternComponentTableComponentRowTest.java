@@ -20,12 +20,14 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.tree.text.TextNode;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -40,8 +42,10 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
             SpreadsheetPattern.parseTextFormatPattern("@")
     );
 
-    private final static TextNode FORMATTED = SpreadsheetText.with("formatted")
-            .toTextNode();
+    private final static List<TextNode> FORMATTED = Lists.of(
+            SpreadsheetText.with("formatted")
+                    .toTextNode()
+    );
 
     // dateFormat.......................................................................................................
 
@@ -86,7 +90,7 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
 
     private void withFails(final String label,
                            final Optional<SpreadsheetPattern> pattern,
-                           final TextNode formatted) {
+                           final List<TextNode> formatted) {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetPatternComponentTableComponentRow.with(
@@ -128,7 +132,10 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
                         PATTERN,
-                        SpreadsheetText.with("different").toTextNode()
+                        Lists.of(
+                                SpreadsheetText.with("different")
+                                        .toTextNode()
+                        )
                 )
         );
     }
@@ -174,7 +181,9 @@ public final class SpreadsheetPatternComponentTableComponentRowTest implements C
                 SpreadsheetPatternComponentTableComponentRow.with(
                         LABEL,
                         Optional.empty(),
-                        SpreadsheetText.EMPTY.toTextNode()
+                        Lists.of(
+                                SpreadsheetText.EMPTY.toTextNode()
+                        )
                 ),
                 "Label123 | |"
         );
