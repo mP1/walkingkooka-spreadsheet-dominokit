@@ -194,20 +194,17 @@ abstract class SpreadsheetPatternComponentTableComponentRowProvider implements B
         final String patternText = pattern.map(SpreadsheetPattern::text)
                 .orElse("");
 
-        final SpreadsheetText defaultFormatted = context.defaultFormat(value);
-
         final SpreadsheetText formatted = context.format(
                 pattern.map(SpreadsheetPattern::formatter)
                         .orElse(SpreadsheetFormatters.emptyText()),
                 value
         );
 
-        context.debug(this.getClass().getSimpleName() + " " + label + " " + CharSequences.quoteAndEscape(patternText) + " " + defaultFormatted + " " + formatted);
+        context.debug(this.getClass().getSimpleName() + " " + label + " " + CharSequences.quoteAndEscape(patternText) + " " + formatted);
 
         return SpreadsheetPatternComponentTableComponentRow.with(
                 label,
                 pattern,
-                defaultFormatted.toTextNode(),
                 formatted.toTextNode()
         );
     }

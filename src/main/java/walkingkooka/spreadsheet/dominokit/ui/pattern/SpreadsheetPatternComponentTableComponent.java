@@ -91,14 +91,6 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
                         )
                 ).addColumn(
                         columnConfig(
-                                "default-format",
-                                TextAlign.CENTER,
-                                (d) -> Doms.node(
-                                        d.defaultFormattedValue()
-                                )
-                        )
-                ).addColumn(
-                        columnConfig(
                                 "formatted",
                                 TextAlign.CENTER,
                                 d -> Doms.node(

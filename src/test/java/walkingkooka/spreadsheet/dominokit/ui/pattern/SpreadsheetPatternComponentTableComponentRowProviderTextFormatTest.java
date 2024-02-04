@@ -68,8 +68,6 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTextForma
                         Optional.of(
                                 SpreadsheetPattern.parseTextFormatPattern("@@")
                         ),
-                        SpreadsheetText.EMPTY.setText(text)
-                                .toTextNode(),
                         SpreadsheetText.EMPTY.setText(text + text)
                                 .toTextNode()
                 ),
@@ -78,8 +76,6 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTextForma
                         Optional.of(
                                 SpreadsheetPattern.parseTextFormatPattern("@")
                         ),
-                        SpreadsheetText.EMPTY.setText(text)
-                                .toTextNode(),
                         SpreadsheetText.EMPTY.setText(text)
                                 .toTextNode()
                 )
@@ -96,8 +92,6 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTextForma
                 SpreadsheetPatternComponentTableComponentRow.with(
                         "Edit Pattern",
                         Optional.empty(), // no pattern
-                        SpreadsheetText.EMPTY.setText(text)
-                                .toTextNode(),
                         SpreadsheetText.EMPTY.toTextNode()
                 ),
                 SpreadsheetPatternComponentTableComponentRow.with(
@@ -105,8 +99,6 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderTextForma
                         Optional.of(
                                 SpreadsheetPattern.parseTextFormatPattern("@")
                         ),
-                        SpreadsheetText.EMPTY.setText(text)
-                                .toTextNode(),
                         SpreadsheetText.EMPTY.setText(text)
                                 .toTextNode()
                 )

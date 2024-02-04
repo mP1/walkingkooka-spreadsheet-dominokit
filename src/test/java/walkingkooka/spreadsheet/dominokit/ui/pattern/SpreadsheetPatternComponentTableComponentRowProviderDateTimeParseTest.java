@@ -161,15 +161,15 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderDateTimeP
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit Pattern | yyyy/mm/dd | Wednesday, 12 July 2023 | 2023/07/12\n" +
-                        "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
-                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
-                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
-                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | Friday, 31 December 1999 | 31/12/99, 12:58 PM\n" +
-                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | Friday, 31 December 1999 | 31 Dec. 1999, 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | 31 December 1999 at 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | Friday, 31 December 1999 at 12:58:59 PM"
+                "Edit Pattern | yyyy/mm/dd | 2023/07/12\n" +
+                        "Today Short | d/m/yy, h:mm AM/PM | 12/7/23, 12:58 PM\n" +
+                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | 12 Jul. 2023, 12:58:59 PM\n" +
+                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | 12 July 2023 at 12:58:59 PM\n" +
+                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | 31/12/99, 12:58 PM\n" +
+                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | 31 Dec. 1999, 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | 31 December 1999 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 at 12:58:59 PM"
         );
     }
 
@@ -180,15 +180,15 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderDateTimeP
         this.applyAndCheck2(
                 patternText,
                 CONTEXT,
-                "Edit Pattern | | Wednesday, 12 July 2023 |\n" +
-                        "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
-                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
-                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
-                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | Friday, 31 December 1999 | 31/12/99, 12:58 PM\n" +
-                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | Friday, 31 December 1999 | 31 Dec. 1999, 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | 31 December 1999 at 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | Friday, 31 December 1999 at 12:58:59 PM"
+                "Edit Pattern | |\n" +
+                        "Today Short | d/m/yy, h:mm AM/PM | 12/7/23, 12:58 PM\n" +
+                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | 12 Jul. 2023, 12:58:59 PM\n" +
+                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | 12 July 2023 at 12:58:59 PM\n" +
+                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | 31/12/99, 12:58 PM\n" +
+                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | 31 Dec. 1999, 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | 31 December 1999 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 at 12:58:59 PM"
         );
     }
 
@@ -197,15 +197,15 @@ public final class SpreadsheetPatternComponentTableComponentRowProviderDateTimeP
         this.applyAndCheck2(
                 "\"Unclosed",
                 CONTEXT,
-                "Edit Pattern | | Wednesday, 12 July 2023 |\n" +
-                        "Today Short | d/m/yy, h:mm AM/PM | Wednesday, 12 July 2023 | 12/7/23, 12:58 PM\n" +
-                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 Jul. 2023, 12:58:59 PM\n" +
-                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | 12 July 2023 at 12:58:59 PM\n" +
-                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | Friday, 31 December 1999 | 31/12/99, 12:58 PM\n" +
-                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | Friday, 31 December 1999 | 31 Dec. 1999, 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | 31 December 1999 at 12:58:59 PM\n" +
-                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 | Friday, 31 December 1999 at 12:58:59 PM"
+                "Edit Pattern | |\n" +
+                        "Today Short | d/m/yy, h:mm AM/PM | 12/7/23, 12:58 PM\n" +
+                        "Today Medium | d mmm yyyy, h:mm:ss AM/PM | 12 Jul. 2023, 12:58:59 PM\n" +
+                        "Today Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | 12 July 2023 at 12:58:59 PM\n" +
+                        "Today Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Wednesday, 12 July 2023 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Short | d/m/yy, h:mm AM/PM | 31/12/99, 12:58 PM\n" +
+                        "31 December 1999 12:58:59 Medium | d mmm yyyy, h:mm:ss AM/PM | 31 Dec. 1999, 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Long | d mmmm yyyy \\a\\t h:mm:ss AM/PM | 31 December 1999 at 12:58:59 PM\n" +
+                        "31 December 1999 12:58:59 Full | dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM | Friday, 31 December 1999 at 12:58:59 PM"
         );
     }
 
