@@ -67,8 +67,8 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
         final List<SpreadsheetFormatParserTokenKind> tokenKinds = this.tokenKinds;
         tokenKinds.clear();
 
-        final List<String> patternComponentTexts = this.texts;
-        patternComponentTexts.clear();
+        final List<String> texts = this.texts;
+        texts.clear();
 
         // pattern will be null when pattern is empty
         if (null == pattern) {
@@ -77,21 +77,21 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
             pattern.components(
                     (kind, tokenPatternText) -> {
                         tokenKinds.add(kind);
-                        patternComponentTexts.add(tokenPatternText);
+                        texts.add(tokenPatternText);
                     }
             );
 
-            context.debug(this.getClass().getSimpleName() + ".refresh " + patternComponentTexts.size() + " text ", patternComponentTexts);
+            context.debug(this.getClass().getSimpleName() + ".refresh " + texts.size() + " text ", texts);
 
             if (false == errorPattern.isEmpty()) {
-                patternComponentTexts.add(errorPattern);
+                texts.add(errorPattern);
             }
 
             // now build the chips
             int i = 0;
 
-            for (final String patternComponentText : patternComponentTexts) {
-                final Chip chip = Chip.create(patternComponentText)
+            for (final String text : texts) {
+                final Chip chip = Chip.create(text)
                         .setId(
                                 SpreadsheetPatternComponent.ID_PREFIX +
                                         i +
@@ -121,8 +121,8 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
                     int selectedItem = -1;
                     for (final String alternative : alternatives) {
 
-                        final String newPattern = IntStream.range(0, patternComponentTexts.size())
-                                .mapToObj(k -> ii == k ? alternative : patternComponentTexts.get(k))
+                        final String newPattern = IntStream.range(0, texts.size())
+                                .mapToObj(k -> ii == k ? alternative : texts.get(k))
                                 .collect(Collectors.joining());
 
                         contextMenu = contextMenu.item(
@@ -131,7 +131,7 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
                                 historyToken.setSave(newPattern)
                         );
 
-                        if (alternative.equalsIgnoreCase(patternComponentText)) {
+                        if (alternative.equalsIgnoreCase(text)) {
                             selectedItem = j;
                         }
 
