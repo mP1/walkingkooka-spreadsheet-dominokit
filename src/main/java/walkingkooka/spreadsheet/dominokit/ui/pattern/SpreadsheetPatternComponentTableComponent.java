@@ -94,7 +94,7 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
                                 "formatted",
                                 TextAlign.CENTER,
                                 d -> Doms.node(
-                                        d.patternFormattedValue()
+                                        d.formatted()
                                 )
                         )
                 );
