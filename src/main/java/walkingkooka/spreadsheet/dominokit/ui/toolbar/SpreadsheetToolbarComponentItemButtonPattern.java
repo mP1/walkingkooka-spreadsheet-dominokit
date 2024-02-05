@@ -33,6 +33,9 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.tree.text.TextStyle;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
@@ -99,17 +102,45 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
                                             final AppContext context) {
         final Map<SpreadsheetPatternKind, Integer> patternKindToCount = this.patternKindToCount;
 
+        SpreadsheetPatternKind kind = null;
         final Optional<T> maybeFormatPattern = this.pattern(cell);
         if (maybeFormatPattern.isPresent()) {
-            final SpreadsheetPatternKind formatPatternKind = maybeFormatPattern.get()
+            kind = maybeFormatPattern.get()
                     .kind();
-            Integer count = patternKindToCount.get(formatPatternKind);
+        } else {
+            final Optional<Object> maybeValue = cell.formula()
+                    .value();
+            if (maybeValue.isPresent()) {
+                final Object value = maybeValue.get();
+
+                kind = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN; // default to text
+                if (value instanceof LocalDate) {
+                    kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+                }
+                if (value instanceof LocalDateTime) {
+                    kind = SpreadsheetPatternKind.DATE_TIME_FORMAT_PATTERN;
+                }
+                if (value instanceof LocalTime) {
+                    kind = SpreadsheetPatternKind.TIME_FORMAT_PATTERN;
+                }
+                if (value instanceof Number) {
+                    kind = SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN;
+                }
+            }
+            if (this instanceof SpreadsheetToolbarComponentItemButtonPatternParse) {
+                kind = kind.toParse()
+                        .orElse(SpreadsheetPatternKind.NUMBER_PARSE_PATTERN);
+            }
+        }
+
+        if (null != kind) {
+            Integer count = patternKindToCount.get(kind);
             if (null == count) {
                 count = 0;
             }
             count++;
             patternKindToCount.put(
-                    formatPatternKind,
+                    kind,
                     count
             );
         }
@@ -119,7 +150,6 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
      * Extracts a pattern from the cell.
      */
     abstract Optional<T> pattern(final SpreadsheetCell cell);
-
 
     /**
      * Counts the number of cells with non empty {@link TextStyle}.
