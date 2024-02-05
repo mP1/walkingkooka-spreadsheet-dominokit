@@ -91,7 +91,8 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
 
 
     /**
-     * Increment the counters for any present {@link SpreadsheetPattern}.
+     * Increment counters using the {@link SpreadsheetPattern#kind()} as the key.
+     * This will be used as the target of the format/parse button when clicked.
      */
     @Override //
     final void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
@@ -106,9 +107,10 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
             if (null == count) {
                 count = 0;
             }
+            count++;
             patternKindToCount.put(
                     formatPatternKind,
-                    count++
+                    count
             );
         }
     }
