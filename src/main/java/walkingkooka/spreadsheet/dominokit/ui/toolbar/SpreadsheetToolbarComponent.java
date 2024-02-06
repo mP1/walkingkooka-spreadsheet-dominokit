@@ -117,6 +117,8 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
                 // FindCells | Highlight
                 SpreadsheetToolbarComponentItem.findCells(context),
                 SpreadsheetToolbarComponentItem.highlightCells(context),
+                // label
+                SpreadsheetToolbarComponentItem.labelCreate(context),
                 // reload
                 SpreadsheetToolbarComponentItem.reload(context)
         );
@@ -254,6 +256,10 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
 
     public static String highlightId() {
         return TOOLBAR_ID_PREFIX + "highlight";
+    }
+
+    public static String labelCreateId() {
+        return TOOLBAR_ID_PREFIX + "label-create";
     }
 
     public static String parsePatternId() {
