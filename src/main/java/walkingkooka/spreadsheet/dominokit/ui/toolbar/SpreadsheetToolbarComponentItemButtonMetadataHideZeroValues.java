@@ -47,6 +47,7 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
                 "",
                 context
         );
+        this.refreshButton(context);
     }
 
     @Override
@@ -87,7 +88,8 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
 
     private boolean isHideZeroValues(final AppContext context) {
         return context.spreadsheetMetadata()
-                .getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES);
+                .get(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
+                .orElse(false);
     }
 
     // ComponentLifecycle...............................................................................................
