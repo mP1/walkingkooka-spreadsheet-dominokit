@@ -99,6 +99,15 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
     }
 
     /**
+     * {@see SpreadsheetToolbarComponentItemButtonLabelCreate}
+     */
+    static SpreadsheetToolbarComponentItem labelCreate(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemButtonLabelCreate.with(
+                context
+        );
+    }
+
+    /**
      * {@link SpreadsheetToolbarComponentItemButtonPatternParse}
      */
     static SpreadsheetToolbarComponentItem parsePattern(final HistoryTokenContext context) {
