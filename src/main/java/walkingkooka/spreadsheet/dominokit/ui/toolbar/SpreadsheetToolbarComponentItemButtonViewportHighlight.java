@@ -53,6 +53,8 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
                 context
         );
         this.context = context;
+
+        this.refreshButton(context);
     }
 
     private final AppContext context;
@@ -120,6 +122,10 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
     @Override //
     void onToolbarRefreshEnd(final int cellPresentCount,
                              final AppContext context) {
+        this.refreshButton(context);
+    }
+
+    private void refreshButton(final AppContext context) {
         final boolean enabled = context.isViewportHighlightEnabled();
 
         this.setButtonSelected(
