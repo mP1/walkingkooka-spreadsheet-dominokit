@@ -262,8 +262,8 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
      */
     private void refreshSaveAndDeleteButtons(final Optional<SpreadsheetLabelName> labelName,
                                              final Optional<SpreadsheetExpressionReference> target) {
-        this.deleteButton.setDisabled(labelName.isPresent());
-        this.saveButton.setDisabled(labelName.isPresent() && target.isPresent());
+        this.deleteButton.setDisabled(false == labelName.isPresent());
+        this.saveButton.setDisabled(false == labelName.isPresent() || false == target.isPresent());
     }
 
     // ComponentLifecycle...............................................................................................
