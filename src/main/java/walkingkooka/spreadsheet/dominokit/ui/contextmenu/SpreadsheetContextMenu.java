@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.badges.Badge;
-import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import org.dominokit.domino.ui.menu.Menu;
@@ -164,136 +163,29 @@ public class SpreadsheetContextMenu {
         );
     }
 
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final HistoryToken historyToken) {
-        return this.item(
-                id,
-                text,
-                Optional.of(historyToken)
-        );
-    }
-
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final Icon<?> icon,
-                                       final HistoryToken historyToken) {
-        return this.item(
-                id,
-                text,
-                Optional.of(icon),
-                historyToken
-        );
-    }
-
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final Optional<Icon<?>> icon,
-                                       final HistoryToken historyToken) {
-        return this.item(
-                id,
-                text,
-                icon,
-                Optional.empty(), // badge
-                Optional.of(historyToken)
-        );
-    }
-
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final Optional<HistoryToken> historyToken) {
-        return this.item(
-                id,
-                text,
-                Optional.empty(), // no icon
-                Optional.empty(), // no badge
-                historyToken
-        );
-    }
-
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final Icon<?> icon,
-                                       final Optional<HistoryToken> historyToken) {
-        return this.item(
-                id,
-                text,
-                icon,
-                Optional.empty(), // badge
-                historyToken
-        );
-    }
-
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final Icon<?> icon,
-                                       final Badge badge,
-                                       final Optional<HistoryToken> historyToken) {
-        return this.item(
-                id,
-                text,
-                Optional.of(icon),
-                Optional.of(badge),
-                historyToken
-        );
-    }
-
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final Icon<?> icon,
-                                       final Optional<Badge> badge,
-                                       final Optional<HistoryToken> historyToken) {
-        return this.item(
-                id,
-                text,
-                Optional.of(icon),
-                badge,
-                historyToken
-        );
-    }
-
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final Badge badge,
-                                       final Optional<HistoryToken> historyToken) {
-        return this.item(
-                id,
-                text,
-                Optional.empty(), // icon
-                Optional.of(badge),
-                historyToken
-        );
-    }
-
-    public SpreadsheetContextMenu item(final String id,
-                                       final String text,
-                                       final Optional<Icon<?>> icon,
-                                       final Optional<Badge> badge,
-                                       final Optional<HistoryToken> historyToken) {
-        CharSequences.failIfNullOrEmpty(id, "id");
-        checkText(text);
-        Objects.requireNonNull(historyToken, "historyToken");
+    public SpreadsheetContextMenu item(final SpreadsheetContextMenuItem item) {
+        Objects.requireNonNull(item, "item");
 
         this.addSeparatorIfNecessary();
 
         AbstractMenuItem<Void> menuItem = this.context.menuItem(
-                id,
-                text,
-                historyToken
+                item.id,
+                item.text,
+                item.historyToken
         );
-        if (icon.isPresent()) {
+        if (item.icon.isPresent()) {
             menuItem = menuItem.appendChild(
                     PrefixAddOn.of(
-                            icon.get()
+                            item.icon.get()
                                     .addCss(dui_font_size_5)
                     )
             );
         }
 
-        if (badge.isPresent()) {
+        if (item.badge.isPresent()) {
             menuItem.appendChild(
                     PostfixAddOn.of(
-                            badge.get()
+                            item.badge.get()
                     )
             );
         }
