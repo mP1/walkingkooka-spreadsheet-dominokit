@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -125,14 +124,11 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.datePattern(style);
 
         menu.item(
-                SpreadsheetContextMenuItem.with(
-                        this.idPrefix() + "date-" + id + SpreadsheetIds.MENU_ITEM,
-                        label + " " + pattern
-                ).historyToken(
-                        Optional.of(
-                                this.historyToken.setPattern(pattern)
+                this.historyToken.setPattern(pattern)
+                        .contextMenuItem(
+                                this.idPrefix() + "date-" + id + SpreadsheetIds.MENU_ITEM,
+                                label + " " + pattern
                         )
-                )
         );
     }
 
@@ -179,14 +175,11 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.datePattern(style);
 
         menu.item(
-                SpreadsheetContextMenuItem.with(
-                        this.idPrefix() + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
-                        label + " " + pattern
-                ).historyToken(
-                        Optional.of(
-                                this.historyToken.setPattern(pattern)
+                this.historyToken.setPattern(pattern)
+                        .contextMenuItem(
+                                this.idPrefix() + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
+                                label + " " + pattern
                         )
-                )
         );
     }
 
@@ -265,28 +258,21 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
                                 final SpreadsheetPattern pattern,
                                 final SpreadsheetContextMenu menu) {
         menu.item(
-                SpreadsheetContextMenuItem.with(
-                        this.idPrefix() + "number-" + id + SpreadsheetIds.MENU_ITEM,
-                        label + " " + pattern
-                ).historyToken(
-                        Optional.of(
-                                this.historyToken.setPattern(pattern)
+                this.historyToken.setPattern(pattern)
+                        .contextMenuItem(
+                                this.idPrefix() + "number-" + id + SpreadsheetIds.MENU_ITEM,
+                                label + " " + pattern
                         )
-                )
         );
     }
 
     private void text(final SpreadsheetContextMenu menu) {
         menu.item(
-                SpreadsheetContextMenuItem.with(
+                this.historyToken.setPattern(
+                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                ).contextMenuItem(
                         this.idPrefix() + "text-default" + SpreadsheetIds.MENU_ITEM,
                         "Default " + SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
-                ).historyToken(
-                        Optional.of(
-                                this.historyToken.setPattern(
-                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
-                                )
-                        )
                 )
         );
 
@@ -334,14 +320,11 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.timePattern(style);
 
         menu.item(
-                SpreadsheetContextMenuItem.with(
-                        this.idPrefix() + "time-" + id + SpreadsheetIds.MENU_ITEM,
-                        label + " " + pattern
-                ).historyToken(
-                        Optional.of(
-                                this.historyToken.setPattern(pattern)
+                this.historyToken.setPattern(pattern)
+                        .contextMenuItem(
+                                this.idPrefix() + "time-" + id + SpreadsheetIds.MENU_ITEM,
+                                label + " " + pattern
                         )
-                )
         );
     }
 
@@ -364,14 +347,11 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
             final String text = recent.text();
 
             menu.item(
-                    SpreadsheetContextMenuItem.with(
-                            this.idPrefix() + "recent-" + i + SpreadsheetIds.MENU_ITEM, // id
-                            text
-                    ).historyToken(
-                            Optional.of(
-                                    token.setPattern(recent)
+                    token.setPattern(recent)
+                            .contextMenuItem(
+                                    this.idPrefix() + "recent-" + i + SpreadsheetIds.MENU_ITEM, // id
+                                    text
                             )
-                    )
             );
 
             i++;
@@ -381,15 +361,11 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
     private void edit(final SpreadsheetContextMenu menu,
                       final SpreadsheetPatternKind kind) {
         menu.item(
-                SpreadsheetContextMenuItem.with(
+                this.historyToken.setPatternKind(
+                        Optional.of(kind)
+                ).contextMenuItem(
                         this.idPrefix() + "edit" + SpreadsheetIds.MENU_ITEM,
                         "Edit..."
-                ).historyToken(
-                        Optional.of(
-                                this.historyToken.setPatternKind(
-                                        Optional.of(kind)
-                                )
-                        )
                 )
         );
     }
