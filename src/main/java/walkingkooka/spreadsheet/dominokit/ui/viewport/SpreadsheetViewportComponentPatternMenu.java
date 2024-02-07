@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -124,9 +125,14 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.datePattern(style);
 
         menu.item(
-                this.idPrefix() + "date-" + id + SpreadsheetIds.MENU_ITEM,
-                label + " " + pattern,
-                this.historyToken.setPattern(pattern)
+                SpreadsheetContextMenuItem.with(
+                        this.idPrefix() + "date-" + id + SpreadsheetIds.MENU_ITEM,
+                        label + " " + pattern
+                ).historyToken(
+                        Optional.of(
+                                this.historyToken.setPattern(pattern)
+                        )
+                )
         );
     }
 
@@ -173,9 +179,14 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.datePattern(style);
 
         menu.item(
-                this.idPrefix() + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
-                label + " " + pattern,
-                this.historyToken.setPattern(pattern)
+                SpreadsheetContextMenuItem.with(
+                        this.idPrefix() + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
+                        label + " " + pattern
+                ).historyToken(
+                        Optional.of(
+                                this.historyToken.setPattern(pattern)
+                        )
+                )
         );
     }
 
@@ -254,18 +265,28 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
                                 final SpreadsheetPattern pattern,
                                 final SpreadsheetContextMenu menu) {
         menu.item(
-                this.idPrefix() + "number-" + id + SpreadsheetIds.MENU_ITEM,
-                label + " " + pattern,
-                this.historyToken.setPattern(pattern)
+                SpreadsheetContextMenuItem.with(
+                        this.idPrefix() + "number-" + id + SpreadsheetIds.MENU_ITEM,
+                        label + " " + pattern
+                ).historyToken(
+                        Optional.of(
+                                this.historyToken.setPattern(pattern)
+                        )
+                )
         );
     }
 
     private void text(final SpreadsheetContextMenu menu) {
         menu.item(
-                this.idPrefix() + "text-default" + SpreadsheetIds.MENU_ITEM,
-                "Default " + SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN,
-                this.historyToken.setPattern(
-                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                SpreadsheetContextMenuItem.with(
+                        this.idPrefix() + "text-default" + SpreadsheetIds.MENU_ITEM,
+                        "Default " + SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                ).historyToken(
+                        Optional.of(
+                                this.historyToken.setPattern(
+                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                                )
+                        )
                 )
         );
 
@@ -313,9 +334,14 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         final P pattern = this.timePattern(style);
 
         menu.item(
-                this.idPrefix() + "time-" + id + SpreadsheetIds.MENU_ITEM,
-                label + " " + pattern,
-                this.historyToken.setPattern(pattern)
+                SpreadsheetContextMenuItem.with(
+                        this.idPrefix() + "time-" + id + SpreadsheetIds.MENU_ITEM,
+                        label + " " + pattern
+                ).historyToken(
+                        Optional.of(
+                                this.historyToken.setPattern(pattern)
+                        )
+                )
         );
     }
 
@@ -338,9 +364,14 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
             final String text = recent.text();
 
             menu.item(
-                    this.idPrefix() + "recent-" + i + SpreadsheetIds.MENU_ITEM, // id
-                    text, // label
-                    token.setPattern(recent)
+                    SpreadsheetContextMenuItem.with(
+                            this.idPrefix() + "recent-" + i + SpreadsheetIds.MENU_ITEM, // id
+                            text
+                    ).historyToken(
+                            Optional.of(
+                                    token.setPattern(recent)
+                            )
+                    )
             );
 
             i++;
@@ -350,10 +381,15 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
     private void edit(final SpreadsheetContextMenu menu,
                       final SpreadsheetPatternKind kind) {
         menu.item(
-                this.idPrefix() + "edit" + SpreadsheetIds.MENU_ITEM,
-                "Edit...",
-                this.historyToken.setPatternKind(
-                        Optional.of(kind)
+                SpreadsheetContextMenuItem.with(
+                        this.idPrefix() + "edit" + SpreadsheetIds.MENU_ITEM,
+                        "Edit..."
+                ).historyToken(
+                        Optional.of(
+                                this.historyToken.setPatternKind(
+                                        Optional.of(kind)
+                                )
+                        )
                 )
         );
     }

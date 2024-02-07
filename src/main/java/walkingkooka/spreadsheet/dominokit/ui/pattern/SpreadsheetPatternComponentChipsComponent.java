@@ -26,11 +26,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -126,9 +128,14 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
                                 .collect(Collectors.joining());
 
                         contextMenu = contextMenu.item(
-                                SpreadsheetPatternComponent.ID_PREFIX + "alternative-" + j,
-                                alternative,
-                                historyToken.setSave(newPattern)
+                                SpreadsheetContextMenuItem.with(
+                                        SpreadsheetPatternComponent.ID_PREFIX + "alternative-" + j,
+                                        alternative
+                                ).historyToken(
+                                        Optional.of(
+                                                historyToken.setSave(newPattern)
+                                        )
+                                )
                         );
 
                         if (alternative.equalsIgnoreCase(text)) {
