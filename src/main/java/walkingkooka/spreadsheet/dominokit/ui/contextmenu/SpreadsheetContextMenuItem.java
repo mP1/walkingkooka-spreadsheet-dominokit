@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
 import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.icons.Icon;
