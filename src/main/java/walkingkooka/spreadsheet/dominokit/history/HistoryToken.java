@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
@@ -1665,6 +1666,19 @@ public abstract class HistoryToken implements HasUrlFragment,
                                               final AppContext context);
 
     // UI...............................................................................................................
+
+    /**
+     * Creates a {@link SpreadsheetContextMenuItem} with the given id & text and this {@link HistoryToken}.
+     */
+    public SpreadsheetContextMenuItem contextMenuItem(final String id,
+                                                      final String text) {
+        return SpreadsheetContextMenuItem.with(
+                id,
+                text
+        ).historyToken(
+                Optional.of(this)
+        );
+    }
 
     /**
      * Creates a link with the given id.
