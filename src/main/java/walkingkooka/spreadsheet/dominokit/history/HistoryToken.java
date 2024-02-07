@@ -1670,7 +1670,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * Creates a {@link SpreadsheetContextMenuItem} with the given id & text and this {@link HistoryToken}.
      */
-    public SpreadsheetContextMenuItem contextMenuItem(final String id,
+    public final SpreadsheetContextMenuItem contextMenuItem(final String id,
                                                       final String text) {
         return SpreadsheetContextMenuItem.with(
                 id,
