@@ -99,7 +99,7 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
         boolean ignore = false;
 
         if (token instanceof SpreadsheetMetadataPropertyHistoryToken) {
-            final SpreadsheetMetadataPropertyHistoryToken metadata = token.cast(SpreadsheetMetadataPropertyHistoryToken.class);
+            final SpreadsheetMetadataPropertyHistoryToken<?> metadata = token.cast(SpreadsheetMetadataPropertyHistoryToken.class);
             ignore = false == SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES.equals(metadata.propertyName());
         }
 
