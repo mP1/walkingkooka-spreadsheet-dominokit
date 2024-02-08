@@ -1467,7 +1467,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.checkEquals(
                 Optional.empty(),
                 token.patternKind(),
-                () -> token.toString()
+                token::toString
         );
     }
 
