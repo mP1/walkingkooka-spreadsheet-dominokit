@@ -245,7 +245,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     @Override
     public SpreadsheetIntegerBox required() {
         return this.setValidator(
-                new RequiredValidator(this.integerBox)
+                new RequiredValidator<>(this.integerBox)
         );
     }
 
