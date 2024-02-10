@@ -25,4 +25,9 @@ public interface NopRefreshComponentLifecycle extends ComponentLifecycle {
     default void refresh(AppContext context) {
         // nop
     }
+
+    @Override
+    default void openGiveFocus(final AppContext context) {
+        // nop
+    }
 }

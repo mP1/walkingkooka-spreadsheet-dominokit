@@ -151,7 +151,6 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
                 .anchoredSelectionOrEmpty()
                 .get()
                 .selection();
-        this.refresh(context);
     }
 
     @Override
@@ -212,6 +211,11 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
         this.formula.setStringValue(text);
         this.formula.validate();
         this.undoText = text;
+    }
+
+    @Override
+    public void openGiveFocus(final AppContext context) {
+        // nop MAYBE should give focus here
     }
 
     @Override

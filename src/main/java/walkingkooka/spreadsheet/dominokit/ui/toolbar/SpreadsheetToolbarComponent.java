@@ -230,6 +230,11 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
         context.debug("SpreadsheetToolbarComponent.refreshItems end " + selection);
     }
 
+    @Override
+    public void openGiveFocus(final AppContext context) {
+        // nop
+    }
+
     // element..........................................................................................................
 
     // viewport-column-A
