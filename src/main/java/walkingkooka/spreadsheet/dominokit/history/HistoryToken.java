@@ -1207,6 +1207,17 @@ public abstract class HistoryToken implements HasUrlFragment,
                                               final SpreadsheetName name);
 
     /**
+     * Sets or replaces the current {@link SpreadsheetName}.
+     */
+    public final HistoryToken setName(final SpreadsheetName name) {
+        Objects.requireNonNull(name, "name");
+
+        return this instanceof SpreadsheetNameHistoryToken ?
+                this.cast(SpreadsheetNameHistoryToken.class).setName0(name) :
+                this;
+    }
+
+    /**
      * Sets or replaces the current {@link SpreadsheetLabelName} otherwise returns this.
      */
     public final HistoryToken setLabelName(final Optional<SpreadsheetLabelName> label) {
