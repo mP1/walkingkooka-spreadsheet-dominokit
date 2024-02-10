@@ -28,6 +28,7 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
+import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
@@ -69,6 +70,7 @@ import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelCompon
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponent;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.spreadsheetnameanchor.SpreadsheetNameAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent;
@@ -194,8 +196,17 @@ public class App implements EntryPoint,
                 .setOverFlowY("hidden") // stop scrollbars on the cell viewport
                 .appendChild(this.viewportComponent);
 
-        layout.getNavBar()
-                .getBody()
+        final SpreadsheetNameAnchorComponent spreadsheetNameAnchor = SpreadsheetNameAnchorComponent.empty();
+        this.addHistoryTokenWatcher(spreadsheetNameAnchor);
+
+        final NavBar navBar = layout.getNavBar();
+        navBar.withTitle(
+                (n, header) -> {
+                    header.appendChild(spreadsheetNameAnchor.element());
+                }
+        );
+
+        navBar.getBody()
                 .appendChild(
                         SpreadsheetToolbarComponent.with(this)
                 );
@@ -386,8 +397,6 @@ public class App implements EntryPoint,
             final SpreadsheetId id = maybeId.get();
             final SpreadsheetName name = maybeName.get();
 
-            this.setSpreadsheetName(name.text());
-
             final HistoryToken historyToken = context.historyToken();
             final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
 
@@ -427,13 +436,6 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetMetadata spreadsheetMetadata;
-
-    // misc..........................................................................................................
-
-    public void setSpreadsheetName(final String name) {
-        this.layout.getNavBar()
-                .setTitle(name);
-    }
 
     // json.............................................................................................................
 
