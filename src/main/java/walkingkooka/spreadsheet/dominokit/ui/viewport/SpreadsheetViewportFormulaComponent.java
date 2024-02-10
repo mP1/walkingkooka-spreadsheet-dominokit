@@ -151,6 +151,7 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
                 .anchoredSelectionOrEmpty()
                 .get()
                 .selection();
+        this.refresh(context);
     }
 
     @Override
@@ -196,8 +197,6 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
 
     private void reload(final SpreadsheetSelection selection,
                         final AppContext context) {
-        context.debug("SpreadsheetViewportFormulaComponent.reload");
-
         Optional<String> text = Optional.empty();
 
         final SpreadsheetViewportCache cache = context.viewportCache();
@@ -207,6 +206,8 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
             final Optional<SpreadsheetCell> cell = cache.cell(nonLabel.toCell());
             text = cell.map((c) -> c.formula().text());
         }
+
+        context.debug("SpreadsheetViewportFormulaComponent.reload text=" + text);
 
         this.formula.setStringValue(text);
         this.formula.validate();
