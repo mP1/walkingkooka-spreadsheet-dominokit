@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -35,7 +36,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToolbarComponentItemButton
-        implements NopRefreshComponentLifecycle,
+        implements NopComponentLifecycleOpenGiveFocus,
+        NopRefreshComponentLifecycle,
         VisibleComponentLifecycle<HTMLElement> {
 
     static SpreadsheetToolbarComponentItemButtonCellFind with(final HistoryTokenContext context) {

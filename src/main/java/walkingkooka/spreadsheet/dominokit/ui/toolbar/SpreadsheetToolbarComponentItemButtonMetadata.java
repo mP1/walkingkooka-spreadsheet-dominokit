@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.icons.MdiIcon;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
  */
 abstract class SpreadsheetToolbarComponentItemButtonMetadata extends SpreadsheetToolbarComponentItemButton
         implements SpreadsheetCellComponentLifecycle,
+        NopComponentLifecycleOpenGiveFocus,
         NopRefreshComponentLifecycle,
         VisibleComponentLifecycle<HTMLElement> {
 

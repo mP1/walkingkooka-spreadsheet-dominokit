@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -34,7 +35,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends SpreadsheetToolbarComponentItemButton
-        implements NopRefreshComponentLifecycle,
+        implements NopComponentLifecycleOpenGiveFocus,
+        NopRefreshComponentLifecycle,
         VisibleComponentLifecycle<HTMLElement> {
 
     static SpreadsheetToolbarComponentItemButtonViewportHighlight with(final AppContext context) {
