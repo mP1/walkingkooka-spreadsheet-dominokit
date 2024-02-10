@@ -195,6 +195,40 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // setName.........................................................................................................
+
+    @Test
+    public final void testSetNameNullNameFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createHistoryToken()
+                        .setName(
+                                null
+                        )
+        );
+    }
+
+    final void setNameAndCheck(final SpreadsheetName name,
+                               final HistoryToken expected) {
+        this.setNameAndCheck(
+                this.createHistoryToken(),
+                name,
+                expected
+        );
+    }
+
+    final void setNameAndCheck(final HistoryToken token,
+                               final SpreadsheetName name,
+                               final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setName(
+                        name
+                ),
+                () -> token + " name=" + name
+        );
+    }
+
     // patternKind......................................................................................................
 
     final void patternKindAndCheck(final HistoryToken token) {
