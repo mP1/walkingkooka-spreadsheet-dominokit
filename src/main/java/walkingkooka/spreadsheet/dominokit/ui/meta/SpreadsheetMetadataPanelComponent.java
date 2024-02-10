@@ -488,6 +488,11 @@ public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTa
         }
     }
 
+    @Override
+    public void openGiveFocus(final AppContext context) {
+        // TODO read HistoryToken property name and give focus
+    }
+
     private final List<SpreadsheetMetadataPanelComponentItem<?>> items;
 
     @Override

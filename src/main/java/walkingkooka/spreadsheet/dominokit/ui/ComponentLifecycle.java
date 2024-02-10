@@ -31,6 +31,11 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
         OpenableComponent {
 
     /**
+     * This is called after {@link #open(AppContext)} and {@link #refresh(AppContext)}
+     */
+    void openGiveFocus(final AppContext context);
+
+    /**
      * Conditionally calls {@link #refresh(AppContext)} if this ui is {@link #isOpen()}.
      */
     default void refreshIfOpen(final AppContext context) {
@@ -75,6 +80,10 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
                     // close -> open -> open
                     context.debug(prefix + ".open");
                     this.open(context);
+                    this.refresh(context);
+
+                    context.debug(prefix + ".openGiveFocus");
+                    this.openGiveFocus(context);
                 }
                 // close -> close -> do nothing
             }

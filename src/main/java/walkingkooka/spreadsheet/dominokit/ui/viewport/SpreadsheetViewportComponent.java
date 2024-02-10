@@ -2091,6 +2091,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     }
 
     @Override
+    public void openGiveFocus(final AppContext context) {
+        // nop
+    }
+
+    @Override
     public void close(final AppContext context) {
         // nop
     }
