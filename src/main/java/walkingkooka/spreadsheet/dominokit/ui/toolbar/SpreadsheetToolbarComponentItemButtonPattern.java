@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
-import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
@@ -46,7 +46,7 @@ import java.util.Optional;
  */
 abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends SpreadsheetPattern> extends SpreadsheetToolbarComponentItemButton
         implements SpreadsheetCellComponentLifecycle,
-        NopRefreshComponentLifecycle,
+        NopComponentLifecycleRefresh,
         NopComponentLifecycleOpenGiveFocus,
         VisibleComponentLifecycle<HTMLElement> {
 

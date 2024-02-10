@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
-import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 
@@ -37,7 +37,7 @@ import java.util.Optional;
  */
 final class SpreadsheetToolbarComponentItemButtonLabelCreate extends SpreadsheetToolbarComponentItemButton
         implements NopComponentLifecycleOpenGiveFocus,
-        NopRefreshComponentLifecycle,
+        NopComponentLifecycleRefresh,
         VisibleComponentLifecycle<HTMLElement> {
 
     static SpreadsheetToolbarComponentItemButtonLabelCreate with(final HistoryTokenContext context) {
