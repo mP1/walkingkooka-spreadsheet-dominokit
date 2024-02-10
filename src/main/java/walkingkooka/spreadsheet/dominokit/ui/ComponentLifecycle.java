@@ -80,6 +80,8 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
                     // close -> open -> open
                     context.debug(prefix + ".open");
                     this.open(context);
+
+                    context.debug(prefix + ".refresh");
                     this.refresh(context);
 
                     context.debug(prefix + ".openGiveFocus");
