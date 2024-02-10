@@ -21,7 +21,7 @@ import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
-import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.tree.text.TextStyle;
@@ -32,7 +32,7 @@ import walkingkooka.tree.text.TextStyle;
 abstract class SpreadsheetToolbarComponentItemButtonTextStyle extends SpreadsheetToolbarComponentItemButton
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleOpenGiveFocus,
-        NopRefreshComponentLifecycle,
+        NopComponentLifecycleRefresh,
         VisibleComponentLifecycle<HTMLElement> {
 
     SpreadsheetToolbarComponentItemButtonTextStyle(final String id,

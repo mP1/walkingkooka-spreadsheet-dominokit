@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public interface NopRefreshComponentLifecycle extends ComponentLifecycle {
+public interface NopComponentLifecycleRefresh extends ComponentLifecycle {
 
     @Override
     default void refresh(AppContext context) {
