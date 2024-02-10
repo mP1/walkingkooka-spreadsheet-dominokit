@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopRefreshComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
@@ -31,7 +32,8 @@ import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import java.util.Objects;
 
 final class SpreadsheetToolbarComponentItemButtonReload extends SpreadsheetToolbarComponentItemButton
-        implements NopRefreshComponentLifecycle,
+        implements NopComponentLifecycleOpenGiveFocus,
+        NopRefreshComponentLifecycle,
         VisibleComponentLifecycle<HTMLElement> {
 
     static SpreadsheetToolbarComponentItemButtonReload with(final HistoryTokenContext context) {
