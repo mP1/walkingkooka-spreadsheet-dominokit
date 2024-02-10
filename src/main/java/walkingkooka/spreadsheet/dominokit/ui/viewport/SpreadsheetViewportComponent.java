@@ -1834,9 +1834,15 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final HTMLTableCellElement element = td.element();
 
         if (maybeError.isPresent()) {
+            final SpreadsheetError error = maybeError.get();
+            final String message = error.message();
+
+            // if theres no message show SpreadsheetError#toString
             Tooltip.create(
                     element,
-                    maybeError.get().message()
+                    message.isEmpty() ?
+                            error.toString() :
+                            message
             ).setPosition(DropDirection.BOTTOM_MIDDLE);
         }
 
