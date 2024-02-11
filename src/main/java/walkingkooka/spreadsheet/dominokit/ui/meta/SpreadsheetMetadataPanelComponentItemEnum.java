@@ -67,6 +67,7 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
                 .setMetadataPropertyName(propertyName);
 
         final Map<T, Anchor> valueToAnchors = Maps.hash();
+        Anchor firstAnchor = null;
 
         for (final T value : values) {
             // anchor will be updated later with save value.
@@ -77,6 +78,10 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
                     .setTextContent(this.format(value));
 
             valueToAnchors.put(value, anchor);
+
+            if (null == firstAnchor) {
+                firstAnchor = anchor;
+            }
 
             this.list.appendChild(
                     liElement()
@@ -91,10 +96,21 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
                                 defaultValueAnchor
                         )
         );
+        this.firstAnchor = firstAnchor;
         this.defaultValueAnchor = defaultValueAnchor;
 
         this.valueToAnchors = valueToAnchors;
     }
+
+    @Override
+    void focus() {
+        this.firstAnchor.focus();
+    }
+
+    /**
+     * This will the {@link Anchor} that is given focus.
+     */
+    private final Anchor firstAnchor;
 
     // ComponentRefreshable.............................................................................................
 

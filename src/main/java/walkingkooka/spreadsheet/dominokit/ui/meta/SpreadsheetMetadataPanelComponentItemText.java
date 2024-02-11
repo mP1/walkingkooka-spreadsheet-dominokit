@@ -68,6 +68,11 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
         this.defaultValueAnchor = defaultValueAnchor;
     }
 
+    @Override
+    void focus() {
+        this.textBox.focus();
+    }
+
     // ComponentRefreshable.............................................................................................
 
     @Override

@@ -74,6 +74,11 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
         this.defaultValueAnchor = defaultValueAnchor;
     }
 
+    @Override
+    void focus() {
+        this.integerBox.focus();
+    }
+
     // ComponentRefreshable.............................................................................................
 
     @Override

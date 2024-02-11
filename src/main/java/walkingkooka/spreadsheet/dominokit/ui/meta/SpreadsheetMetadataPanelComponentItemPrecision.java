@@ -96,6 +96,11 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
         this.valueToAnchors = valueToAnchors;
     }
 
+    @Override
+    void focus() {
+        this.integerBox.focus();
+    }
+
     private final IntegerBox integerBox;
 
     // ComponentRefreshable.............................................................................................

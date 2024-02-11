@@ -62,6 +62,11 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
                 .setPaddingBottom("5px");
     }
 
+    @Override
+    void focus() {
+        // NOP cant give focus to read only value.
+    }
+
     // ComponentRefreshable.............................................................................................
 
     @Override

@@ -53,6 +53,11 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T extends Sp
                 .setId(SpreadsheetMetadataPanelComponent.id(propertyName));
     }
 
+    @Override
+    void focus() {
+        this.anchor.focus();
+    }
+
     // ComponentRefreshable.............................................................................................
 
     @Override
