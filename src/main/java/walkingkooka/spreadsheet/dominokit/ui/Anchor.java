@@ -251,4 +251,10 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
         this.element.clearElement();
         return this;
     }
+
+    // focus............................................................................................................
+
+    public void focus() {
+        this.element().focus();
+    }
 }
