@@ -24,6 +24,7 @@ import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.AnchorElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -38,7 +39,7 @@ import java.util.Optional;
 /**
  * Abstraction for working with a HTML anchor.
  */
-public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
+public final class Anchor implements IsElement<HTMLAnchorElement> {
 
     /**
      * Creates a new un-attached ANCHOR.
@@ -61,10 +62,12 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
     }
 
     private Anchor(final AnchorElement element) {
-        super(element);
+        super();
         element.setMargin("5px");
         element.element()
                 .style.set("text-wrap", "nowrap");
+
+        this.element = element;
     }
 
     // disabled.........................................................................................................
@@ -77,7 +80,7 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
     }
 
     public Anchor setDisabled(final boolean disabled) {
-        this.setAttribute("aria-disabled", disabled);
+        this.element.setAttribute("aria-disabled", disabled);
 
         final HTMLAnchorElement element = this.element();
 
@@ -159,34 +162,42 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
 
     // id...............................................................................................................
 
-    @Override
+    public String id() {
+        return this.element.getId();
+    }
+
     public Anchor setId(final String id) {
-        this.setId0(id);
+        this.element.setId(id);
         return this;
     }
 
     // tabIndex.........................................................................................................
 
-    @Override
+    public int tabIndex() {
+        return this.element().tabIndex;
+    }
+
     public Anchor setTabIndex(final int tabIndex) {
-        this.setTabIndex0(tabIndex);
+        this.element.setTabIndex(tabIndex);
         return this;
     }
 
     // textContent......................................................................................................
 
-    @Override
+    public String textContent() {
+        return this.element.getTextContent();
+    }
+
     public Anchor setTextContent(final String text) {
-        this.setTextContent0(text);
+        this.element.setTextContent(text);
         return this;
     }
 
     // tooltip..........................................................................................................
 
-    @Override
     public Anchor setTooltip(final String text,
                              final DropDirection dropDirection) {
-        this.setTooltip0(
+        this.element.setTooltip(
                 text,
                 dropDirection
         );
@@ -194,17 +205,17 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
     }
 
     // events..........................................................................................................
-    @Override
     public Anchor addClickListener(final EventListener listener) {
-        this.addClickListener0(
+        this.element.addEventListener(
+                EventType.click.getName(),
                 this.disabledAwareEventListener(listener)
         );
         return this;
     }
 
-    @Override
     public Anchor addKeydownListener(final EventListener listener) {
-        this.addKeydownListener0(
+        this.element.addEventListener(
+                EventType.keydown.getName(),
                 this.disabledAwareEventListener(listener)
         );
         return this;
@@ -234,19 +245,16 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
 
     // children.........................................................................................................
 
-    @Override
     public Anchor append(final Node node) {
-        this.append0(node);
+        this.element.appendChild(node);
         return this;
     }
 
-    @Override
     public Anchor append(final IsElement<?> element) {
-        this.append0(element);
+        this.element.appendChild(element);
         return this;
     }
 
-    @Override
     public Anchor removeAllChildren() {
         this.element.clearElement();
         return this;
@@ -256,5 +264,21 @@ public final class Anchor extends Element<AnchorElement, HTMLAnchorElement> {
 
     public void focus() {
         this.element().focus();
+    }
+
+    // isElement........................................................................................................
+
+    @Override
+    public HTMLAnchorElement element() {
+        return this.element.element();
+    }
+
+    final AnchorElement element;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.element.toString();
     }
 }
