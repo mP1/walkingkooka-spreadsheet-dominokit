@@ -31,9 +31,9 @@ import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
@@ -178,9 +178,9 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     // DOM factory methods..............................................................................................
 
     /**
-     * Creates an {@link Anchor}, which will need to be refreshed.
+     * Creates an {@link HistoryTokenAnchorComponent}, which will need to be refreshed.
      */
-    final Anchor defaultValueAnchor() {
+    final HistoryTokenAnchorComponent defaultValueAnchor() {
         final SpreadsheetMetadataPanelComponentContext context = this.context;
         return context.historyToken()
                 .clearSave()
@@ -193,7 +193,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     /**
      * Updates the anchor link and the text with default and the current default value in parens.
      */
-    final void refreshDefaultValue(final Anchor anchor,
+    final void refreshDefaultValue(final HistoryTokenAnchorComponent anchor,
                                    final String newTooltip) {
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
         final SpreadsheetMetadataPanelComponentContext context = this.context;

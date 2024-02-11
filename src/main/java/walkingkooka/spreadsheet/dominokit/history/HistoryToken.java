@@ -24,10 +24,10 @@ import walkingkooka.predicate.character.CharPredicates;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
@@ -1694,8 +1694,8 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * Creates a link with the given id.
      */
-    public final Anchor link(final String id) {
-        return Anchor.empty()
+    public final HistoryTokenAnchorComponent link(final String id) {
+        return HistoryTokenAnchorComponent.empty()
                 .setId(id + SpreadsheetIds.LINK)
                 .setHistoryToken(
                         Optional.of(this)

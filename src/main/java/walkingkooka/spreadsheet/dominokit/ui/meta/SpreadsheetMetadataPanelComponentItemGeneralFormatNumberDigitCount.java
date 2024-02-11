@@ -21,7 +21,7 @@ import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
@@ -55,7 +55,7 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
                         .appendChild(integerBox)
         );
 
-        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
                 liElement()
                         .appendChild(defaultValueAnchor)
@@ -92,7 +92,7 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
         );
     }
 
-    private final Anchor defaultValueAnchor;
+    private final HistoryTokenAnchorComponent defaultValueAnchor;
 
     // isElement........................................................................................................
 

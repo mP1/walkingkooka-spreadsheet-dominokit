@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.elements.UListElement;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 
@@ -66,12 +66,12 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
                 .clearSelection()
                 .setMetadataPropertyName(propertyName);
 
-        final Map<T, Anchor> valueToAnchors = Maps.hash();
-        Anchor firstAnchor = null;
+        final Map<T, HistoryTokenAnchorComponent> valueToAnchors = Maps.hash();
+        HistoryTokenAnchorComponent firstAnchor = null;
 
         for (final T value : values) {
             // anchor will be updated later with save value.
-            final Anchor anchor = token
+            final HistoryTokenAnchorComponent anchor = token
                     .link(SpreadsheetMetadataPanelComponent.id(propertyName) + "-" + CaseKind.kebabEnumName(value))
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
@@ -89,7 +89,7 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
             );
         }
 
-        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         this.list.appendChild(
                 liElement()
                         .appendChild(
@@ -108,9 +108,9 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
     }
 
     /**
-     * This will the {@link Anchor} that is given focus.
+     * This will the {@link HistoryTokenAnchorComponent} that is given focus.
      */
-    private final Anchor firstAnchor;
+    private final HistoryTokenAnchorComponent firstAnchor;
 
     // ComponentRefreshable.............................................................................................
 
@@ -124,9 +124,9 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
         final HistoryToken token = context.historyToken()
                 .setMetadataPropertyName(propertyName);
 
-        for (final Entry<T, Anchor> valueAndAnchor : this.valueToAnchors.entrySet()) {
+        for (final Entry<T, HistoryTokenAnchorComponent> valueAndAnchor : this.valueToAnchors.entrySet()) {
             final T value = valueAndAnchor.getKey();
-            final Anchor anchor = valueAndAnchor.getValue();
+            final HistoryTokenAnchorComponent anchor = valueAndAnchor.getValue();
 
             anchor.setHistoryToken(
                     Optional.of(
@@ -154,9 +154,9 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
     }
 
 
-    private final Map<T, Anchor> valueToAnchors;
+    private final Map<T, HistoryTokenAnchorComponent> valueToAnchors;
 
-    private final Anchor defaultValueAnchor;
+    private final HistoryTokenAnchorComponent defaultValueAnchor;
 
     private String format(final Enum<?> value) {
         return CaseKind.SNAKE.change(

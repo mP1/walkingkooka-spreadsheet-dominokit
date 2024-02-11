@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
 
 import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.Event;
@@ -39,29 +39,29 @@ import java.util.Optional;
 /**
  * Abstraction for working with a HTML anchor.
  */
-public final class Anchor implements IsElement<HTMLAnchorElement> {
+public final class HistoryTokenAnchorComponent implements IsElement<HTMLAnchorElement> {
 
     /**
      * Creates a new un-attached ANCHOR.
      */
-    public static Anchor empty() {
-        return new Anchor(ElementsFactory.elements.a());
+    public static HistoryTokenAnchorComponent empty() {
+        return new HistoryTokenAnchorComponent(ElementsFactory.elements.a());
     }
 
     /**
      * Wraps an existing {@link HTMLAnchorElement}
      */
-    public static Anchor with(final HTMLAnchorElement element) {
+    public static HistoryTokenAnchorComponent with(final HTMLAnchorElement element) {
         Objects.requireNonNull(element, "element");
 
-        return new Anchor(
+        return new HistoryTokenAnchorComponent(
                 AnchorElement.of(
                         element
                 )
         );
     }
 
-    private Anchor(final AnchorElement element) {
+    private HistoryTokenAnchorComponent(final AnchorElement element) {
         super();
         element.setMargin("5px");
         element.element()
@@ -73,13 +73,13 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
     // disabled.........................................................................................................
 
     /**
-     * An {@link Anchor} is considered disabled when it has no href.
+     * An {@link HistoryTokenAnchorComponent} is considered disabled when it has no href.
      */
     public boolean isDisabled() {
         return null == this.href();
     }
 
-    public Anchor setDisabled(final boolean disabled) {
+    public HistoryTokenAnchorComponent setDisabled(final boolean disabled) {
         this.element.setAttribute("aria-disabled", disabled);
 
         final HTMLAnchorElement element = this.element();
@@ -115,7 +115,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         );
     }
 
-    public Anchor setHistoryToken(final Optional<HistoryToken> historyToken) {
+    public HistoryTokenAnchorComponent setHistoryToken(final Optional<HistoryToken> historyToken) {
         final HistoryToken historyTokenOrNull = historyToken.orElse(null);
 
         return this.setHref(
@@ -130,7 +130,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
     /**
      * The {@link #historyToken()} will be pushed if this anchor is clicked or ENTER key downed.
      */
-    public Anchor addPushHistoryToken(final HistoryTokenContext context) {
+    public HistoryTokenAnchorComponent addPushHistoryToken(final HistoryTokenContext context) {
         return this.addClickAndKeydownEnterListener(
                 (e) -> {
                     e.preventDefault();
@@ -152,7 +152,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
                 Url.parseAbsoluteOrRelative(href);
     }
 
-    public Anchor setHref(final Url url) {
+    public HistoryTokenAnchorComponent setHref(final Url url) {
         this.element().href =
                 null == url ?
                         "" :
@@ -166,7 +166,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         return this.element.getId();
     }
 
-    public Anchor setId(final String id) {
+    public HistoryTokenAnchorComponent setId(final String id) {
         this.element.setId(id);
         return this;
     }
@@ -177,7 +177,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         return this.element().tabIndex;
     }
 
-    public Anchor setTabIndex(final int tabIndex) {
+    public HistoryTokenAnchorComponent setTabIndex(final int tabIndex) {
         this.element.setTabIndex(tabIndex);
         return this;
     }
@@ -188,15 +188,15 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         return this.element.getTextContent();
     }
 
-    public Anchor setTextContent(final String text) {
+    public HistoryTokenAnchorComponent setTextContent(final String text) {
         this.element.setTextContent(text);
         return this;
     }
 
     // tooltip..........................................................................................................
 
-    public Anchor setTooltip(final String text,
-                             final DropDirection dropDirection) {
+    public HistoryTokenAnchorComponent setTooltip(final String text,
+                                                  final DropDirection dropDirection) {
         this.element.setTooltip(
                 text,
                 dropDirection
@@ -205,7 +205,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
     }
 
     // events..........................................................................................................
-    public Anchor addClickListener(final EventListener listener) {
+    public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
         this.element.addEventListener(
                 EventType.click.getName(),
                 this.disabledAwareEventListener(listener)
@@ -213,7 +213,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
         return this;
     }
 
-    public Anchor addKeydownListener(final EventListener listener) {
+    public HistoryTokenAnchorComponent addKeydownListener(final EventListener listener) {
         this.element.addEventListener(
                 EventType.keydown.getName(),
                 this.disabledAwareEventListener(listener)
@@ -237,7 +237,7 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
     /**
      * Adds a {@link EventListener} that receives click and keydown with ENTER events.
      */
-    public Anchor addClickAndKeydownEnterListener(final EventListener listener) {
+    public HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener) {
         this.element.onKeyPress(e -> e.onEnter(listener));
 
         return this.addClickListener(listener);
@@ -245,17 +245,17 @@ public final class Anchor implements IsElement<HTMLAnchorElement> {
 
     // children.........................................................................................................
 
-    public Anchor append(final Node node) {
+    public HistoryTokenAnchorComponent append(final Node node) {
         this.element.appendChild(node);
         return this;
     }
 
-    public Anchor append(final IsElement<?> element) {
+    public HistoryTokenAnchorComponent append(final IsElement<?> element) {
         this.element.appendChild(element);
         return this;
     }
 
-    public Anchor removeAllChildren() {
+    public HistoryTokenAnchorComponent removeAllChildren() {
         this.element.clearElement();
         return this;
     }

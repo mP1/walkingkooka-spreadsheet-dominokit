@@ -24,7 +24,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Map;
@@ -67,10 +67,10 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
         // build links for 0 | 32 | 64 | 128
         final HistoryToken token = context.historyToken()
                 .setMetadataPropertyName(SpreadsheetMetadataPropertyName.PRECISION);
-        final Map<Integer, Anchor> valueToAnchors = Maps.sorted();
+        final Map<Integer, HistoryTokenAnchorComponent> valueToAnchors = Maps.sorted();
 
         for (final int value : Lists.of(0, 32, 64, 128)) {
-            final Anchor anchor = token
+            final HistoryTokenAnchorComponent anchor = token
                     .setSave(value)
                     .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value)
                     .setTabIndex(0)
@@ -85,7 +85,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
             );
         }
 
-        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
                 liElement()
                         .appendChild(defaultValueAnchor)
@@ -122,9 +122,9 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
         final HistoryToken token = context.historyToken()
                 .setMetadataPropertyName(propertyName);
 
-        for (final Entry<Integer, Anchor> valueAndAnchor : this.valueToAnchors.entrySet()) {
+        for (final Entry<Integer, HistoryTokenAnchorComponent> valueAndAnchor : this.valueToAnchors.entrySet()) {
             final Integer value = valueAndAnchor.getKey();
-            final Anchor anchor = valueAndAnchor.getValue();
+            final HistoryTokenAnchorComponent anchor = valueAndAnchor.getValue();
 
             anchor.setHistoryToken(
                     Optional.of(
@@ -149,9 +149,9 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
         );
     }
 
-    private final Map<Integer, Anchor> valueToAnchors;
+    private final Map<Integer, HistoryTokenAnchorComponent> valueToAnchors;
 
-    private final Anchor defaultValueAnchor;
+    private final HistoryTokenAnchorComponent defaultValueAnchor;
 
     // isElement........................................................................................................
 
