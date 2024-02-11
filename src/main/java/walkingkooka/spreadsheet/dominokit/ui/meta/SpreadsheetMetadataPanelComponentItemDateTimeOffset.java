@@ -148,6 +148,11 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
         this.valueToAnchors = valueToAnchors;
     }
 
+    @Override
+    void focus() {
+        this.dateBox.focus();
+    }
+
     private final DateBox dateBox;
 
     private final Anchor defaultValueAnchor;

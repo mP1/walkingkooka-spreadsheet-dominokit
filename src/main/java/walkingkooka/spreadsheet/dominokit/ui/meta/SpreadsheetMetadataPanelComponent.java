@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -53,6 +54,7 @@ import java.math.RoundingMode;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -490,7 +492,21 @@ public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTa
 
     @Override
     public void openGiveFocus(final AppContext context) {
-        // TODO read HistoryToken property name and give focus
+        final HistoryToken token = context.historyToken();
+        if (token instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
+            final SpreadsheetMetadataPropertyName<?> propertyName = token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
+                    .propertyName();
+
+            final Optional<SpreadsheetMetadataPanelComponentItem<?>> maybeItem = this.items.stream()
+                    .filter(i -> i.propertyName.equals(propertyName))
+                    .findFirst();
+
+            if (maybeItem.isPresent()) {
+                context.giveFocus(
+                        maybeItem.get()::focus
+                );
+            }
+        }
     }
 
     private final List<SpreadsheetMetadataPanelComponentItem<?>> items;

@@ -64,6 +64,11 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
         );
     }
 
+    @Override
+    void focus() {
+        this.spreadsheetNameComponent.focus();
+    }
+
     // ComponentRefreshable.............................................................................................
 
     @Override

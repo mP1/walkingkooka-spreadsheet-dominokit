@@ -65,6 +65,11 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
         this.list = list;
     }
 
+    @Override
+    void focus() {
+        this.integerBox.focus();
+    }
+
     private final IntegerBox integerBox;
 
     // ComponentRefreshable.............................................................................................
