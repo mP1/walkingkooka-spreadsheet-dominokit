@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.text.CharSequences;
 
@@ -25,7 +25,7 @@ final class SpreadsheetPatternComponentAppenderComponentLink {
 
     static SpreadsheetPatternComponentAppenderComponentLink with(final SpreadsheetFormatParserTokenKind kind,
                                                                  final String pattern,
-                                                                 final Anchor anchor) {
+                                                                 final HistoryTokenAnchorComponent anchor) {
         return new SpreadsheetPatternComponentAppenderComponentLink(
                 kind,
                 pattern,
@@ -35,7 +35,7 @@ final class SpreadsheetPatternComponentAppenderComponentLink {
 
     private SpreadsheetPatternComponentAppenderComponentLink(final SpreadsheetFormatParserTokenKind kind,
                                                              final String pattern,
-                                                             final Anchor anchor) {
+                                                             final HistoryTokenAnchorComponent anchor) {
         this.kind = kind;
         this.pattern = pattern;
         this.anchor = anchor;
@@ -45,7 +45,7 @@ final class SpreadsheetPatternComponentAppenderComponentLink {
 
     final String pattern;
 
-    final Anchor anchor;
+    final HistoryTokenAnchorComponent anchor;
 
     @Override
     public String toString() {

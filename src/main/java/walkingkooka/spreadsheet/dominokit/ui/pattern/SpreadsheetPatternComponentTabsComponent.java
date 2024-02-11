@@ -22,8 +22,8 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 
@@ -67,7 +67,7 @@ final class SpreadsheetPatternComponentTabsComponent implements Component<HTMLDi
                     title(kind)
             );
 
-            Anchor.with(
+            HistoryTokenAnchorComponent.with(
                             (HTMLAnchorElement)
                                     tab.getTab()
                                             .element()
@@ -126,7 +126,7 @@ final class SpreadsheetPatternComponentTabsComponent implements Component<HTMLDi
         final Tab[] tabs = this.tabs;
         for (final SpreadsheetPatternKind possible : kinds) {
             final Tab tab = tabs[i++];
-            final Anchor anchor = Anchor.with(
+            final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.with(
                     (HTMLAnchorElement)
                             tab.getTab()
                                     .element()

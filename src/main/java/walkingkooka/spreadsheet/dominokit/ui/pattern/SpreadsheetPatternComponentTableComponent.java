@@ -28,9 +28,9 @@ import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.tree.text.TextAlign;
@@ -186,7 +186,7 @@ final class SpreadsheetPatternComponentTableComponent implements Component<HTMLD
                                                    final String patternText,
                                                    final Consumer<String> setPatternText,
                                                    final SpreadsheetPatternComponentContext context) {
-        return Anchor.empty()
+        return HistoryTokenAnchorComponent.empty()
                 .setHref(
                         Url.EMPTY_RELATIVE_URL.setFragment(
                                 context.historyToken()

@@ -41,13 +41,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype.SpreadsheetValueTypeComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
@@ -185,7 +185,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         final SpreadsheetCell cell = info.getRecord();
         final HistoryToken historyToken = this.context.historyToken();
 
-        return Anchor.empty()
+        return HistoryTokenAnchorComponent.empty()
                 .setTextContent(cell.reference().text())
                 .setHistoryToken(
                         Optional.of(
@@ -199,7 +199,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         final SpreadsheetCell cell = info.getRecord();
         final HistoryToken historyToken = this.context.historyToken();
 
-        return Anchor.empty()
+        return HistoryTokenAnchorComponent.empty()
                 .setTextContent(cell.formula().text())
                 .setHistoryToken(
                         Optional.of(

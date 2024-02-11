@@ -31,7 +31,7 @@ import walkingkooka.convert.Converters;
 import walkingkooka.datetime.DateTime;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDate;
@@ -113,10 +113,10 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
         // build links for 1900 | 1904
         final HistoryToken token = context.historyToken()
                 .setMetadataPropertyName(PROPERTY_NAME);
-        final Map<Long, Anchor> valueToAnchors = Maps.sorted();
+        final Map<Long, HistoryTokenAnchorComponent> valueToAnchors = Maps.sorted();
 
         for (final Long value : Lists.of(_1900, _1904)) {
-            final Anchor anchor = token
+            final HistoryTokenAnchorComponent anchor = token
                     .setSave(value)
                     .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value)
                     .setTabIndex(0)
@@ -135,7 +135,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             );
         }
 
-        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
                 liElement()
                         .appendChild(
@@ -155,7 +155,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
     private final DateBox dateBox;
 
-    private final Anchor defaultValueAnchor;
+    private final HistoryTokenAnchorComponent defaultValueAnchor;
 
     // ComponentRefreshable.............................................................................................
 
@@ -179,9 +179,9 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
                 .setMetadataPropertyName(PROPERTY_NAME);
 
         // refresh the 1900 and 1904 links.
-        for (final Entry<Long, Anchor> valueAndAnchor : this.valueToAnchors.entrySet()) {
+        for (final Entry<Long, HistoryTokenAnchorComponent> valueAndAnchor : this.valueToAnchors.entrySet()) {
             final Long value = valueAndAnchor.getKey();
-            final Anchor anchor = valueAndAnchor.getValue();
+            final HistoryTokenAnchorComponent anchor = valueAndAnchor.getValue();
 
             anchor.setHistoryToken(
                     Optional.of(
@@ -206,7 +206,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
         );
     }
 
-    private final Map<Long, Anchor> valueToAnchors;
+    private final Map<Long, HistoryTokenAnchorComponent> valueToAnchors;
 
     // isElement........................................................................................................
 

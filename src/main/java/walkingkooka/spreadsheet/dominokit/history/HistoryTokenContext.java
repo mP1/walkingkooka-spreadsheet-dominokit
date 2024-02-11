@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import walkingkooka.Context;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -65,7 +65,7 @@ public interface HistoryTokenContext extends Context {
                                             final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
-        final Anchor anchor = Anchor.empty()
+        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
                 .setId(id)
                 .setHistoryToken(historyToken)
                 .setTextContent(text);

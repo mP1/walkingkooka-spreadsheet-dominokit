@@ -21,7 +21,7 @@ import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.TextBox;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
@@ -58,7 +58,7 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
                         )
         );
 
-        final Anchor defaultValueAnchor = this.defaultValueAnchor();
+        final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
                 this.liElement()
                         .appendChild(
@@ -95,7 +95,7 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
 
     private final TextBox textBox;
 
-    private final Anchor defaultValueAnchor;
+    private final HistoryTokenAnchorComponent defaultValueAnchor;
 
     // isElement........................................................................................................
 

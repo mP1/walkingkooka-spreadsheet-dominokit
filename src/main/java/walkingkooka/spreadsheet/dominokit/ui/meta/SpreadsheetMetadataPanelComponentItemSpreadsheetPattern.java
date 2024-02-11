@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.meta;
 import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
@@ -49,7 +49,7 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T extends Sp
                 propertyName,
                 context
         );
-        this.anchor = Anchor.empty()
+        this.anchor = HistoryTokenAnchorComponent.empty()
                 .setId(SpreadsheetMetadataPanelComponent.id(propertyName));
     }
 
@@ -88,5 +88,5 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetPattern<T extends Sp
         return this.anchor.element();
     }
 
-    private final Anchor anchor;
+    private final HistoryTokenAnchorComponent anchor;
 }

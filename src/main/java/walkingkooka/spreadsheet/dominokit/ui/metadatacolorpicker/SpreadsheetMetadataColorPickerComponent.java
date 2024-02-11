@@ -29,8 +29,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
@@ -66,7 +66,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
 
         int i = 0;
         final TDElement[] cells = new TDElement[COLOR_COUNT];
-        final Anchor[] anchors = new Anchor[COLOR_COUNT];
+        final HistoryTokenAnchorComponent[] anchors = new HistoryTokenAnchorComponent[COLOR_COUNT];
 
         // 8x7
         for(int y = 0; y < ROWS; y++) {
@@ -78,7 +78,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
                 td.style("width: 64px; height: 32px; border-color: black; border-width: 2px; border-style: solid; text-align: center;");
                 tr.appendChild(td);
 
-                final Anchor anchor = Anchor.empty();
+                final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty();
                 anchor.setId(ID + "-color-" + (i + 1) + SpreadsheetIds.LINK);
 
                 td.appendChild(anchor);
@@ -100,7 +100,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
         td.style("width: 100%; height: 32px; text-align: center;");
         tr.appendChild(td);
 
-        final Anchor anchor = Anchor.empty();
+        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty();
         anchor.setId(ID + "-color-clear" + SpreadsheetIds.LINK);
         anchor.setTextContent("Clear");
         this.clearAnchor = anchor;
@@ -123,7 +123,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
     public void refreshAll(final HistoryToken token,
                            final SpreadsheetMetadata metadata) {
         final TDElement[] cells = this.cells;
-        final Anchor[] anchors = this.anchors;
+        final HistoryTokenAnchorComponent[] anchors = this.anchors;
         final Function<Integer, Optional<Color>> numberToColors = metadata.numberToColor();
         final Function<Integer, Optional<SpreadsheetColorName>> numberToColorNames = metadata.numberToColorName();
 
@@ -141,7 +141,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
                         .orElse("color " + colorNumber);
 
                 // update the link that when clicked will save the selected color
-                final Anchor anchor = anchors[i];
+                final HistoryTokenAnchorComponent anchor = anchors[i];
                 anchor.setTextContent(text);
                 anchor.setHistoryToken(
                         Optional.of(
@@ -169,9 +169,9 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
 
     private final TDElement[] cells;
 
-    private final Anchor[] anchors;
+    private final HistoryTokenAnchorComponent[] anchors;
 
-    private final Anchor clearAnchor;
+    private final HistoryTokenAnchorComponent clearAnchor;
 
     // SpreadsheetMetadataWatcher.......................................................................................
 

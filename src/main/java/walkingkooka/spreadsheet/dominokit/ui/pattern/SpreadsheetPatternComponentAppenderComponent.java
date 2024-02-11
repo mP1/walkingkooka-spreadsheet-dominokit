@@ -21,9 +21,9 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.cards.Card;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Anchor;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -77,7 +77,7 @@ final class SpreadsheetPatternComponentAppenderComponent implements Component<HT
 
                 default:
                     for (final String pattern : formatParserTokenKind.patterns()) {
-                        final Anchor anchor = Anchor.empty()
+                        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
                                 .setId(
                                         SpreadsheetPatternComponent.ID_PREFIX +
                                                 "append-" +
