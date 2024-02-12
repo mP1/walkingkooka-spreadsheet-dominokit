@@ -31,6 +31,7 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -39,7 +40,7 @@ import java.util.Optional;
 /**
  * Abstraction for working with a HTML anchor.
  */
-public final class HistoryTokenAnchorComponent implements IsElement<HTMLAnchorElement> {
+public final class HistoryTokenAnchorComponent implements Component<HTMLAnchorElement> {
 
     /**
      * Creates a new un-attached ANCHOR.
