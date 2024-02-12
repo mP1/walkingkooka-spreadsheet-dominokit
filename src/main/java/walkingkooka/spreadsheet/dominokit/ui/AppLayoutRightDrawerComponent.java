@@ -25,15 +25,15 @@ import java.util.Objects;
 /**
  * A {@link OpenableComponent} for a {@link AppLayout} right drawer.
  */
-public final class AppRightDrawerOpenableComponent implements OpenableComponent {
+public final class AppLayoutRightDrawerComponent implements OpenableComponent {
 
-    public static AppRightDrawerOpenableComponent with(final AppLayout appLayout) {
+    public static AppLayoutRightDrawerComponent with(final AppLayout appLayout) {
         Objects.requireNonNull(appLayout, "appLayout");
 
-        return new AppRightDrawerOpenableComponent(appLayout);
+        return new AppLayoutRightDrawerComponent(appLayout);
     }
 
-    private AppRightDrawerOpenableComponent(final AppLayout appLayout) {
+    private AppLayoutRightDrawerComponent(final AppLayout appLayout) {
         this.appLayout = appLayout;
     }
 
