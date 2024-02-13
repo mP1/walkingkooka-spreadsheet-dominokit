@@ -155,6 +155,76 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
         );
     }
 
+    // setPatternKind...................................................................................................
+
+    @Test
+    public void testSetPatternKindWithTimeFormatPattern() {
+        final SpreadsheetPattern oldPattern = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetPatternKind newKind = SpreadsheetPatternKind.TIME_FORMAT_PATTERN;
+
+        this.setPatternKindAndCheck(
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        oldPattern.kind(),
+                        Optional.of(oldPattern)
+                ),
+                newKind,
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        newKind
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindWithTimeParsePattern() {
+        final SpreadsheetPattern oldPattern = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
+        final SpreadsheetPatternKind newKind = SpreadsheetPatternKind.TIME_PARSE_PATTERN;
+
+        this.setPatternKindAndCheck(
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        oldPattern.kind(),
+                        Optional.of(oldPattern)
+                ),
+                newKind,
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        newKind
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindWithEmpty() {
+        final SpreadsheetPattern pattern = SpreadsheetPattern.parseTimeParsePattern("hh:mm");
+
+        this.setPatternKindAndCheck(
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        pattern.kind(),
+                        Optional.of(pattern)
+                ),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    // helpers..........................................................................................................
+
     @Override
     SpreadsheetCellPatternSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,

@@ -20,10 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-
-import java.util.Optional;
 
 public abstract class SpreadsheetCellHighlightHistoryToken extends SpreadsheetCellHistoryToken {
 
@@ -59,11 +56,6 @@ public abstract class SpreadsheetCellHighlightHistoryToken extends SpreadsheetCe
 
     @Override //
     final HistoryToken setParsePattern() {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 }

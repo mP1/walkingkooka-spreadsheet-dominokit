@@ -20,12 +20,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCellHistoryToken {
 
@@ -73,11 +71,6 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     @Override
     public final HistoryToken setParsePattern() {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 }

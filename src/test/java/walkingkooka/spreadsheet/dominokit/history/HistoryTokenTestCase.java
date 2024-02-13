@@ -258,11 +258,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // setPatternKind...................................................................................................
 
     @Test
-    public final void testSetPatternKindNullFails() {
+    public final void testSetPatternKindWithNullFails() {
         final T token = this.createHistoryToken();
         assertThrows(
                 NullPointerException.class,
                 () -> token.setPatternKind(null)
+        );
+    }
+
+    final void setPatternKindAndCheck() {
+        this.setPatternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
+    final void setPatternKindAndCheck(final HistoryToken token) {
+        this.setPatternKindAndCheck(
+                token,
+                token
         );
     }
 

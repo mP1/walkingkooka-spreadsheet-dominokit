@@ -50,32 +50,40 @@ public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends S
     }
 
     @Test
-    public void testSetPatternKindDifferent() {
-        final SpreadsheetPatternKind different = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN;
+    public void testSetPatternKindDateFormat() {
+        final SpreadsheetPatternKind different = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
 
         this.setPatternKindAndCheck(
-                this.createHistoryToken(),
-                Optional.of(different),
-                SpreadsheetCellPatternSelectHistoryToken.with(
+                SpreadsheetCellPatternToolbarFormatHistoryToken.with(
                         ID,
                         NAME,
-                        SELECTION,
+                        CELL.setDefaultAnchor()
+                ),
+                different,
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
                         different
                 )
         );
     }
 
     @Test
-    public void testSetPatternKindDifferent2() {
-        final SpreadsheetPatternKind different = SpreadsheetPatternKind.TIME_FORMAT_PATTERN;
+    public void testSetPatternKindDateParse() {
+        final SpreadsheetPatternKind different = SpreadsheetPatternKind.DATE_PARSE_PATTERN;
 
         this.setPatternKindAndCheck(
-                this.createHistoryToken(),
-                Optional.of(different),
-                SpreadsheetCellPatternSelectHistoryToken.with(
+                SpreadsheetCellPatternToolbarFormatHistoryToken.with(
                         ID,
                         NAME,
-                        SELECTION,
+                        CELL.setDefaultAnchor()
+                ),
+                different,
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
                         different
                 )
         );
@@ -91,17 +99,6 @@ public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends S
                         NAME,
                         SELECTION
                 )
-        );
-    }
-
-    private void setPatternKindAndCheck(
-            final SpreadsheetCellPatternToolbarFormatHistoryToken historyToken,
-            final Optional<SpreadsheetPatternKind> kind,
-            final HistoryToken expected) {
-        this.checkEquals(
-                expected,
-                historyToken.setPatternKind(kind),
-                () -> historyToken + " setPatternKind " + kind
         );
     }
 
