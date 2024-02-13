@@ -131,7 +131,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testColumnMenuWithSameColumn() {
+    public final void testSetMenuWithSameColumn() {
         final SpreadsheetColumnReference column = COLUMN;
 
         this.setMenuAndCheck(
@@ -148,7 +148,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testColumnMenuWithDifferentColumn() {
+    public final void testSetMenuWithDifferentColumn() {
         final SpreadsheetColumnReference column = COLUMN.add(1);
 
         this.setMenuAndCheck(
@@ -166,7 +166,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
 
 
     @Test
-    public final void testColumnRangeMenuWithColumnInside() {
+    public final void testSetMenuColumnRangeWithColumnInside() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseColumnRange("A:C")
                 .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
@@ -182,7 +182,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testColumnRangeMenuWithColumnOutside() {
+    public final void testSetMenuColumnRangeWithColumnOutside() {
         final SpreadsheetColumnReference column = SpreadsheetSelection.parseColumn("Z");
 
         this.setMenuAndCheck(

@@ -138,7 +138,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testRowMenuWithSameRow() {
+    public final void testSetMenuWithSameRow() {
         final SpreadsheetRowReference row = ROW;
 
         this.setMenuAndCheck(
@@ -155,7 +155,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testRowMenuWithDifferentRow() {
+    public final void testSetMenuWithDifferentRow() {
         final SpreadsheetRowReference row = ROW.add(1);
 
         this.setMenuAndCheck(
@@ -172,7 +172,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testRowRangeMenuWithRowInside() {
+    public final void testSetMenuRowRangeWithRowInside() {
         final SpreadsheetRowReferenceRange range = SpreadsheetSelection.parseRowRange("1:3");
 
         this.setMenuAndCheck(
