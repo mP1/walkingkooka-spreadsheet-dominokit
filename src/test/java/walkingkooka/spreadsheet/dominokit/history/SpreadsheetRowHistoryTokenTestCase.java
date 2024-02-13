@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
@@ -212,6 +213,20 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         this.patternKindAndCheck(
                 this.createHistoryToken()
         );
+    }
+
+    // setPatternKind...................................................................................................
+
+    @Test
+    public void testSetPatternKindWithDateFormatPattern() {
+        this.setPatternKindAndCheck(
+                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+        );
+    }
+
+    @Test
+    public void testSetPatternKindWithEmpty() {
+        this.setPatternKindAndCheck();
     }
 
     // setSave..........................................................................................................

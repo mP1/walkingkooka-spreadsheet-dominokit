@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -71,5 +72,44 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
         this.patternKindAndCheck(
                 this.createHistoryToken()
         );
+    }
+
+    // setPatternKind...................................................................................................
+
+    @Test
+    public final void testSetPatternKindWithDateFormatPattern() {
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+
+        this.setPatternKindAndCheck(
+                this.createHistoryToken(),
+                kind,
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        kind
+                )
+        );
+    }
+
+    @Test
+    public final void testSetPatternKindWithDateParsePattern() {
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_PARSE_PATTERN;
+
+        this.setPatternKindAndCheck(
+                this.createHistoryToken(),
+                kind,
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        kind
+                )
+        );
+    }
+
+    @Test
+    public final void testSetPatternKindWithEmpty() {
+        this.setPatternKindAndCheck();
     }
 }
