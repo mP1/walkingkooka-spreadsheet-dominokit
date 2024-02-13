@@ -128,10 +128,11 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
                 if (value instanceof Number) {
                     kind = SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN;
                 }
-            }
-            if (this instanceof SpreadsheetToolbarComponentItemButtonPatternParse) {
-                kind = kind.toParse()
-                        .orElse(SpreadsheetPatternKind.NUMBER_PARSE_PATTERN);
+
+                if (this instanceof SpreadsheetToolbarComponentItemButtonPatternParse) {
+                    kind = kind.toParse()
+                            .orElse(SpreadsheetPatternKind.NUMBER_PARSE_PATTERN);
+                }
             }
         }
 
