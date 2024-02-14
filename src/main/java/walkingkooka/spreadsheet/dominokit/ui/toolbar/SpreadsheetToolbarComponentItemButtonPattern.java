@@ -86,7 +86,13 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
 
         context.historyToken()
                 .anchoredSelectionHistoryTokenOrEmpty()
-                .map(HistoryToken::clearPatternKind)
+                .map(
+                        t -> t.setPatternKind(
+                                Optional.of(
+                                        this.spreadsheetPatternKind()
+                                )
+                        ).clearPatternKind()
+                )
                 .ifPresent(context::pushHistoryToken);
     }
 
