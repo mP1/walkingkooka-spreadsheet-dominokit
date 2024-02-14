@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
@@ -35,35 +35,37 @@ import java.util.function.Function;
 /**
  * Builds the context menu for format patterns.
  */
-abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPattern> {
+abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
 
     private final static int MAX_RECENT_COUNT = 3;
 
-    SpreadsheetViewportComponentPatternMenu(final HistoryToken historyToken,
-                                            final Locale locale,
-                                            final List<P> recents) {
+    SpreadsheetSelectionMenuPattern(final HistoryToken historyToken,
+                                    final Locale locale,
+                                    final List<P> recents,
+                                    final String idPrefix) {
         this.historyToken = historyToken.clearAction();
         this.locale = locale;
 
         this.recents = recents;
+        this.idPrefix = idPrefix;
     }
 
     void build(final SpreadsheetContextMenu menu) {
         this.date(
                 menu.subMenu(
-                        this.idPrefix() + "date",
+                        this.idPrefix + "date",
                         "Date"
                 )
         );
         this.dateTime(
                 menu.subMenu(
-                        this.idPrefix() + "datetime",
+                        this.idPrefix + "datetime",
                         "Date Time"
                 )
         );
         this.number(
                 menu.subMenu(
-                        this.idPrefix() + "number",
+                        this.idPrefix + "number",
                         "Number"
                 )
         );
@@ -71,14 +73,14 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         if (this.isFormat()) {
             this.text(
                     menu.subMenu(
-                            this.idPrefix() + "text",
+                            this.idPrefix + "text",
                             "Text"
                     )
             );
         }
         this.time(
                 menu.subMenu(
-                        this.idPrefix() + "time",
+                        this.idPrefix + "time",
                         "Time"
                 )
         );
@@ -126,7 +128,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         menu.item(
                 this.historyToken.setPattern(pattern)
                         .contextMenuItem(
-                                this.idPrefix() + "date-" + id + SpreadsheetIds.MENU_ITEM,
+                                this.idPrefix + "date-" + id + SpreadsheetIds.MENU_ITEM,
                                 label + " " + pattern
                         )
         );
@@ -177,7 +179,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         menu.item(
                 this.historyToken.setPattern(pattern)
                         .contextMenuItem(
-                                this.idPrefix() + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
+                                this.idPrefix + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
                                 label + " " + pattern
                         )
         );
@@ -260,7 +262,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         menu.item(
                 this.historyToken.setPattern(pattern)
                         .contextMenuItem(
-                                this.idPrefix() + "number-" + id + SpreadsheetIds.MENU_ITEM,
+                                this.idPrefix + "number-" + id + SpreadsheetIds.MENU_ITEM,
                                 label + " " + pattern
                         )
         );
@@ -271,7 +273,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
                 this.historyToken.setPattern(
                         SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
                 ).contextMenuItem(
-                        this.idPrefix() + "text-default" + SpreadsheetIds.MENU_ITEM,
+                        this.idPrefix + "text-default" + SpreadsheetIds.MENU_ITEM,
                         "Default " + SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
                 )
         );
@@ -322,7 +324,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
         menu.item(
                 this.historyToken.setPattern(pattern)
                         .contextMenuItem(
-                                this.idPrefix() + "time-" + id + SpreadsheetIds.MENU_ITEM,
+                                this.idPrefix + "time-" + id + SpreadsheetIds.MENU_ITEM,
                                 label + " " + pattern
                         )
         );
@@ -349,7 +351,7 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
             menu.item(
                     token.setPattern(recent)
                             .contextMenuItem(
-                                    this.idPrefix() + "recent-" + i + SpreadsheetIds.MENU_ITEM, // id
+                                    this.idPrefix + "recent-" + i + SpreadsheetIds.MENU_ITEM, // id
                                     text
                             )
             );
@@ -364,22 +366,13 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
                 this.historyToken.setPatternKind(
                         Optional.of(kind)
                 ).contextMenuItem(
-                        this.idPrefix() + "edit" + SpreadsheetIds.MENU_ITEM,
+                        this.idPrefix + "edit" + SpreadsheetIds.MENU_ITEM,
                         "Edit..."
                 )
         );
     }
 
     abstract boolean isFormat();
-
-    private String idPrefix() {
-        return this.isFormat() ?
-                FORMAT_ID :
-                PARSE_ID;
-    }
-
-    private final static String FORMAT_ID = SpreadsheetViewportComponent.CONTEXT_MENU_ID_PREFIX + "-format-";
-    private final static String PARSE_ID = SpreadsheetViewportComponent.CONTEXT_MENU_ID_PREFIX + "-parse-";
 
     final HistoryToken historyToken;
     final Locale locale;
@@ -388,6 +381,8 @@ abstract class SpreadsheetViewportComponentPatternMenu<P extends SpreadsheetPatt
      * Holds the most recent {@link SpreadsheetPattern}, these will fill a most recent patterns.
      */
     private final List<P> recents;
+
+    private final String idPrefix;
 
     @Override
     public final String toString() {
