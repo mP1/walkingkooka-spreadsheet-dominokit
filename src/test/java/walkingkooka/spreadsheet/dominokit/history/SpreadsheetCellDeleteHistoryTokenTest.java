@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -136,47 +135,6 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
                 this.createHistoryToken()
         );
     }
-
-    // setPatternKind...................................................................................................
-
-    @Test
-    public void testSetPatternKindWithDateFormatPattern() {
-        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
-
-        this.setPatternKindAndCheck(
-                this.createHistoryToken(),
-                kind,
-                HistoryToken.cellPattern(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        kind
-                )
-        );
-    }
-
-    @Test
-    public final void testSetPatternKindWithDateParsePattern() {
-        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_PARSE_PATTERN;
-
-        this.setPatternKindAndCheck(
-                this.createHistoryToken(),
-                kind,
-                HistoryToken.cellPattern(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        kind
-                )
-        );
-    }
-
-    @Test
-    public void testSetPatternKindWithEmpty() {
-        this.setPatternKindAndCheck();
-    }
-
-    // helpers..........................................................................................................
 
     @Override
     SpreadsheetCellDeleteHistoryToken createHistoryToken(final SpreadsheetId id,

@@ -42,6 +42,26 @@ public abstract class SpreadsheetCellPatternToolbarHistoryToken extends Spreadsh
         return this;
     }
 
+    @Override //
+    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+        return false == patternKind.isPresent() ?
+                this :
+                this.replacePatternKind(
+                        patternKind.get()
+                );
+    }
+
+    private HistoryToken replacePatternKind(final SpreadsheetPatternKind patternKind) {
+        return this.isCompatible(patternKind) ?
+                cellPattern(
+                        this.id(),
+                        this.name(),
+                        this.anchoredSelection(),
+                        patternKind
+                ) :
+                this;
+    }
+
     abstract boolean isCompatible(final SpreadsheetPatternKind kind);
 
     // ignore save value and return this.

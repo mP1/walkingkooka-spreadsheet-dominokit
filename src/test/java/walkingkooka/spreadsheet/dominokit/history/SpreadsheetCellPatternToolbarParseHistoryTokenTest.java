@@ -54,36 +54,28 @@ public final class SpreadsheetCellPatternToolbarParseHistoryTokenTest extends Sp
         final SpreadsheetPatternKind different = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
 
         this.setPatternKindAndCheck(
-                SpreadsheetCellPatternToolbarParseHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                different,
-                HistoryToken.cellPattern(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        different
-                )
+                different
         );
     }
 
     @Test
-    public void testSetPatternKindDateParse() {
+    public void testSetPatternKindTextFormat() {
+        this.setPatternKindAndCheck(
+                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN
+        );
+    }
+
+    @Test
+    public void testSetPatternKindDifferent() {
         final SpreadsheetPatternKind different = SpreadsheetPatternKind.DATE_PARSE_PATTERN;
 
         this.setPatternKindAndCheck(
-                SpreadsheetCellPatternToolbarParseHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
+                this.createHistoryToken(),
                 different,
-                HistoryToken.cellPattern(
+                SpreadsheetCellPatternSelectHistoryToken.with(
                         ID,
                         NAME,
-                        CELL.setDefaultAnchor(),
+                        SELECTION,
                         different
                 )
         );
@@ -99,6 +91,17 @@ public final class SpreadsheetCellPatternToolbarParseHistoryTokenTest extends Sp
                         NAME,
                         SELECTION
                 )
+        );
+    }
+
+    private void setPatternKindAndCheck(
+            final SpreadsheetCellPatternToolbarParseHistoryToken historyToken,
+            final Optional<SpreadsheetPatternKind> kind,
+            final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                historyToken.setPatternKind(kind),
+                () -> historyToken + " setPatternKind " + kind
         );
     }
 
