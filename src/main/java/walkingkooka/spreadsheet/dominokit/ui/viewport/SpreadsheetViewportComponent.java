@@ -470,11 +470,10 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     }
 
     /**
-     * Renders a drop down menu.
+     * Renders a drop down menu, provided the selection is in the current viewport TABLE.
      */
     private void renderContextMenu(final AnchoredSpreadsheetSelectionHistoryToken historyToken,
                                    final AppContext context) {
-        // show context setMenu1
         final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchored.selection();
         final Optional<Element> maybeElement = this.findElement(
@@ -482,89 +481,105 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 context
         );
 
-        context.debug("SpreadsheetViewportComponent.renderContextMenu " + anchored);
-
         if (maybeElement.isPresent()) {
-            final DominoElement<?> element = new DominoElement<>(maybeElement.get());
-
-            // ALIGNMENT
-            // VERTICAL ALIGNMENT
-            // COLOR
-            // BACKGROUND COLOR
-            // BOLD
-            // ITALICS
-            // STRIKE THRU
-            // UNDERLINE
-            // CASE
-            // CLEAR STYLE
-            // ----
-            // FORMAT
-            // PARSE
-            // -----
-            // CLEAR
-            // DELETE
-            // -------
-            // FREEZE
-            // UNFREEZE
-            // -------
-            // LABELS
-            final SpreadsheetContextMenu menu = SpreadsheetContextMenu.empty(
-                    element,
+            this.renderContextMenu(
+                    historyToken,
+                    new DominoElement<>(maybeElement.get()),
                     context
             );
+        }
+    }
 
-            // TODO add tick if already selected
-            if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
-                renderContextMenuAlignment(historyToken, menu);
-                renderContextMenuVerticalAlignment(historyToken, menu);
-                renderContextMenuColor(historyToken, menu, context);
-                renderContextMenuBackgroundColor(historyToken, menu, context);
-                renderContextMenuStyle(historyToken, menu);
-                renderContextMenuTextCase(historyToken, menu);
-                renderContextMenuClearStyle(historyToken, menu);
+    /**
+     * Renders a drop down menu attaching the context menu to the given {@link DominoElement}.
+     * This should make it possible to attach a context menu to the cell in the viewport and the formula component.
+     */
+    private void renderContextMenu(final AnchoredSpreadsheetSelectionHistoryToken historyToken,
+                                   final DominoElement<?> element,
+                                   final AppContext context) {
+        // show context menu
+        final SpreadsheetSelection selection = historyToken.anchoredSelection()
+                .selection();
 
-                menu.separator();
-                final Locale locale = context.spreadsheetMetadata()
-                        .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
+        context.debug("SpreadsheetViewportComponent.renderContextMenu " + selection);
 
-                menu.separator();
-                renderContextMenuFormat(
-                        historyToken,
-                        locale,
-                        this.recentFormatPatterns.tokens()
-                                .stream()
-                                .map(t -> (SpreadsheetFormatPattern) t.pattern().get()) // cant fail must be SFP
-                                .collect(Collectors.toList()),
-                        menu
-                );
-                renderContextMenuParse(
-                        historyToken,
-                        locale,
-                        this.recentParsePatterns.tokens()
-                                .stream()
-                                .map(t -> (SpreadsheetParsePattern) t.pattern().get()) // cant fail must be SPP
-                                .collect(Collectors.toList()),
-                        menu
-                );
-                menu.separator();
-            }
+        // ALIGNMENT
+        // VERTICAL ALIGNMENT
+        // COLOR
+        // BACKGROUND COLOR
+        // BOLD
+        // ITALICS
+        // STRIKE THRU
+        // UNDERLINE
+        // CASE
+        // CLEAR STYLE
+        // ----
+        // FORMAT
+        // PARSE
+        // -----
+        // CLEAR
+        // DELETE
+        // -------
+        // FREEZE
+        // UNFREEZE
+        // -------
+        // LABELS
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenu.empty(
+                element,
+                context
+        );
+
+        // TODO add tick if already selected
+        if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
+            renderContextMenuAlignment(historyToken, menu);
+            renderContextMenuVerticalAlignment(historyToken, menu);
+            renderContextMenuColor(historyToken, menu, context);
+            renderContextMenuBackgroundColor(historyToken, menu, context);
+            renderContextMenuStyle(historyToken, menu);
+            renderContextMenuTextCase(historyToken, menu);
+            renderContextMenuClearStyle(historyToken, menu);
+
             menu.separator();
+            final Locale locale = context.spreadsheetMetadata()
+                    .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
 
-            renderContextMenuClearDelete(
+            menu.separator();
+            renderContextMenuFormat(
                     historyToken,
+                    locale,
+                    this.recentFormatPatterns.tokens()
+                            .stream()
+                            .map(t -> (SpreadsheetFormatPattern) t.pattern().get()) // cant fail must be SFP
+                            .collect(Collectors.toList()),
                     menu
             );
-            renderContextMenuInsertColumns(historyToken, selection, menu);
-            renderContextMenuInsertRows(historyToken, selection, menu);
-            renderContextMenuFreezeUnfreeze(historyToken, menu);
-
-            if (selection.isCellReference() || selection.isCellRange()) {
-                menu.separator();
-                renderContextMenuLabel(historyToken, selection, menu, context);
-            }
-
-            menu.focus();
+            renderContextMenuParse(
+                    historyToken,
+                    locale,
+                    this.recentParsePatterns.tokens()
+                            .stream()
+                            .map(t -> (SpreadsheetParsePattern) t.pattern().get()) // cant fail must be SPP
+                            .collect(Collectors.toList()),
+                    menu
+            );
+            menu.separator();
         }
+        menu.separator();
+
+        renderContextMenuClearDelete(
+                historyToken,
+                menu
+        );
+        renderContextMenuInsertColumns(historyToken, selection, menu);
+        renderContextMenuInsertRows(historyToken, selection, menu);
+        renderContextMenuFreezeUnfreeze(historyToken, menu);
+
+        if (selection.isCellReference() || selection.isCellRange()) {
+            menu.separator();
+            renderContextMenuLabel(historyToken, selection, menu, context);
+        }
+
+        menu.focus();
     }
 
     private final HistoryTokenRecorder recentFormatPatterns;
