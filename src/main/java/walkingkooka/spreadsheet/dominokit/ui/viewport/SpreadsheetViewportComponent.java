@@ -31,7 +31,6 @@ import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.elements.TBodyElement;
@@ -84,13 +83,8 @@ import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
-import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
-import walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker.SpreadsheetMetadataColorPickerComponent;
+import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -99,7 +93,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
@@ -116,17 +109,14 @@ import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.Hyphens;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextAlign;
-import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -135,10 +125,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
-
-import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
-import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
 
 /**
  * A ui that displays a table holding the cells and headers for the columns and rows.
@@ -482,611 +468,21 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         );
 
         if (maybeElement.isPresent()) {
-            this.renderContextMenu(
+            SpreadsheetSelectionMenu.render(
                     historyToken,
                     new DominoElement<>(maybeElement.get()),
-                    context
+                    SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
+                            this.recentFormatPatterns.tokens(),
+                            this.recentParsePatterns.tokens(),
+                            context
+                    )
             );
         }
-    }
-
-    /**
-     * Renders a drop down menu attaching the context menu to the given {@link DominoElement}.
-     * This should make it possible to attach a context menu to the cell in the viewport and the formula component.
-     */
-    private void renderContextMenu(final AnchoredSpreadsheetSelectionHistoryToken historyToken,
-                                   final DominoElement<?> element,
-                                   final AppContext context) {
-        // show context menu
-        final SpreadsheetSelection selection = historyToken.anchoredSelection()
-                .selection();
-
-        context.debug("SpreadsheetViewportComponent.renderContextMenu " + selection);
-
-        // ALIGNMENT
-        // VERTICAL ALIGNMENT
-        // COLOR
-        // BACKGROUND COLOR
-        // BOLD
-        // ITALICS
-        // STRIKE THRU
-        // UNDERLINE
-        // CASE
-        // CLEAR STYLE
-        // ----
-        // FORMAT
-        // PARSE
-        // -----
-        // CLEAR
-        // DELETE
-        // -------
-        // FREEZE
-        // UNFREEZE
-        // -------
-        // LABELS
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenu.empty(
-                element,
-                context
-        );
-
-        // TODO add tick if already selected
-        if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
-            renderContextMenuAlignment(historyToken, menu);
-            renderContextMenuVerticalAlignment(historyToken, menu);
-            renderContextMenuColor(historyToken, menu, context);
-            renderContextMenuBackgroundColor(historyToken, menu, context);
-            renderContextMenuStyle(historyToken, menu);
-            renderContextMenuTextCase(historyToken, menu);
-            renderContextMenuClearStyle(historyToken, menu);
-
-            menu.separator();
-            final Locale locale = context.spreadsheetMetadata()
-                    .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
-
-            menu.separator();
-            renderContextMenuFormat(
-                    historyToken,
-                    locale,
-                    this.recentFormatPatterns.tokens()
-                            .stream()
-                            .map(t -> (SpreadsheetFormatPattern) t.pattern().get()) // cant fail must be SFP
-                            .collect(Collectors.toList()),
-                    menu
-            );
-            renderContextMenuParse(
-                    historyToken,
-                    locale,
-                    this.recentParsePatterns.tokens()
-                            .stream()
-                            .map(t -> (SpreadsheetParsePattern) t.pattern().get()) // cant fail must be SPP
-                            .collect(Collectors.toList()),
-                    menu
-            );
-            menu.separator();
-        }
-        menu.separator();
-
-        renderContextMenuClearDelete(
-                historyToken,
-                menu
-        );
-        renderContextMenuInsertColumns(historyToken, selection, menu);
-        renderContextMenuInsertRows(historyToken, selection, menu);
-        renderContextMenuFreezeUnfreeze(historyToken, menu);
-
-        if (selection.isCellReference() || selection.isCellRange()) {
-            menu.separator();
-            renderContextMenuLabel(historyToken, selection, menu, context);
-        }
-
-        menu.focus();
     }
 
     private final HistoryTokenRecorder recentFormatPatterns;
 
     private final HistoryTokenRecorder recentParsePatterns;
-
-    private static void renderContextMenuParse(final HistoryToken historyToken,
-                                               final Locale locale,
-                                               final List<SpreadsheetParsePattern> recents,
-                                               final SpreadsheetContextMenu menu) {
-        SpreadsheetViewportComponentPatternMenuParse.with(
-                historyToken,
-                locale,
-                recents
-        ).build(
-                menu.subMenu(
-                        CONTEXT_MENU_ID_PREFIX + "parse",
-                        "Parse",
-                        SpreadsheetIcons.parsePattern()
-                )
-        );
-    }
-
-    private static void renderContextMenuFormat(final HistoryToken historyToken,
-                                                final Locale locale,
-                                                final List<SpreadsheetFormatPattern> recents,
-                                                final SpreadsheetContextMenu menu) {
-        SpreadsheetViewportComponentPatternMenuFormat.with(
-                historyToken,
-                locale,
-                recents
-        ).build(
-                menu.subMenu(
-                        CONTEXT_MENU_ID_PREFIX + "format",
-                        "Format",
-                        SpreadsheetIcons.formatPattern()
-                )
-        );
-    }
-
-    private static void renderContextMenuColor(final HistoryToken historyToken,
-                                               final SpreadsheetContextMenu menu,
-                                               final AppContext context) {
-        renderContextMenuColorItem(
-                "color",
-                "Color",
-                historyToken.setStyle(TextStylePropertyName.COLOR),
-                menu,
-                context
-        );
-    }
-
-    private static void renderContextMenuBackgroundColor(final HistoryToken historyToken,
-                                                         final SpreadsheetContextMenu menu,
-                                                         final AppContext context) {
-        renderContextMenuColorItem(
-                "background-color",
-                "Background color",
-                historyToken.setStyle(TextStylePropertyName.BACKGROUND_COLOR),
-                menu,
-                context
-        );
-    }
-
-    private static void renderContextMenuColorItem(final String id,
-                                                   final String text,
-                                                   final HistoryToken historyToken,
-                                                   final SpreadsheetContextMenu menu,
-                                                   final AppContext context) {
-        final SpreadsheetContextMenu sub = menu.subMenu(
-                CONTEXT_MENU_ID_PREFIX + id + SpreadsheetIds.MENU_ITEM,
-                text,
-                SpreadsheetIcons.palette()
-        );
-
-        final SpreadsheetMetadataColorPickerComponent colors = SpreadsheetMetadataColorPickerComponent.with(historyToken);
-        colors.element().className = "dui dui-menu-item";
-
-        colors.refreshAll(
-                historyToken,
-                context.spreadsheetMetadata()
-        );
-        sub.item(colors);
-    }
-
-    private static void renderContextMenuClearStyle(final HistoryToken historyToken,
-                                                    final SpreadsheetContextMenu menu) {
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.ALL)
-                        .clearSave()
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "clear-style" + SpreadsheetIds.MENU_ITEM,
-                                "Clear style"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.clearStyle()
-                                )
-                        )
-        );
-    }
-
-    private static void renderContextMenuClearDelete(final HistoryToken historyToken,
-                                                     final SpreadsheetContextMenu menu) {
-        menu.separator();
-
-        final SpreadsheetSelection selection = historyToken.anchoredSelectionOrEmpty()
-                .orElseThrow(
-                        () -> new IllegalStateException("History token missing selection " + historyToken)
-                ).selection();
-
-        // only render clear for columns and rows
-        if (selection.pick(
-                false, // cell
-                true, // column
-                true // row
-        )) {
-            menu.item(
-                    historyToken.setClear()
-                            .contextMenuItem(
-                                    CONTEXT_MENU_ID_PREFIX + "clear" + SpreadsheetIds.MENU_ITEM,
-                                    "Clear"
-                            )
-            );
-        }
-
-        menu.item(
-                historyToken.setDelete()
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "delete" + SpreadsheetIds.MENU_ITEM,
-                                "Delete"
-                        ).icon(
-                                Optional.of(
-                                        selection.<Supplier<MdiIcon>>pick(
-                                                SpreadsheetIcons::cellDelete,
-                                                SpreadsheetIcons::columnRemove,
-                                                SpreadsheetIcons::rowRemove
-                                        ).get()
-                                )
-                        )
-        ).separator();
-    }
-
-    private static void renderContextMenuStyle(final HistoryToken historyToken,
-                                               final SpreadsheetContextMenu menu) {
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.FONT_WEIGHT)
-                        .setSave(FontWeight.BOLD)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "bold" + SpreadsheetIds.MENU_ITEM,
-                                "Bold"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.bold()
-                                )
-                        )
-        );
-
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.FONT_STYLE)
-                        .setSave(FontStyle.ITALIC)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "italics" + SpreadsheetIds.MENU_ITEM,
-                                "Italics"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.italics()
-                                )
-                        )
-        );
-
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
-                        .setSave(TextDecorationLine.LINE_THROUGH)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "strike-thru" + SpreadsheetIds.MENU_ITEM,
-                                "Strike-thru"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.strikethrough()
-                                )
-                        )
-        );
-
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
-                        .setSave(TextDecorationLine.UNDERLINE)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "underline" + SpreadsheetIds.MENU_ITEM,
-                                "Underline"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.underline()
-                                )
-                        )
-        );
-    }
-
-    private static void renderContextMenuTextCase(final HistoryToken historyToken,
-                                                  final SpreadsheetContextMenu menu) {
-        menu.subMenu(
-                CONTEXT_MENU_ID_PREFIX + "text-case",
-                "Text case"
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
-                        .setSave("")
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "normal" + SpreadsheetIds.MENU_ITEM,
-                                "Normal"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textCaseUpper()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
-                        .setSave(TextTransform.CAPITALIZE)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "capitalize" + SpreadsheetIds.MENU_ITEM,
-                                "Capitalize"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textCaseCapitalize()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
-                        .setSave(TextTransform.LOWERCASE)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "lower" + SpreadsheetIds.MENU_ITEM,
-                                "Lower case"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textCaseLower()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
-                        .setSave(TextTransform.UPPERCASE)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "upper" + SpreadsheetIds.MENU_ITEM,
-                                "Upper case"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textCaseUpper()
-                                )
-                        )
-        );
-    }
-
-    private static void renderContextMenuAlignment(final HistoryToken historyToken,
-                                                   final SpreadsheetContextMenu menu) {
-        menu.subMenu(
-                CONTEXT_MENU_ID_PREFIX + "alignment",
-                "Alignment"
-        ).item(
-                historyToken.setStyle(
-                                TextStylePropertyName.TEXT_ALIGN
-                        ).setSave(TextAlign.LEFT)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "left" + SpreadsheetIds.MENU_ITEM,
-                                "Left"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.alignLeft()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(
-                                TextStylePropertyName.TEXT_ALIGN
-                        ).setSave(TextAlign.CENTER)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "center" + SpreadsheetIds.MENU_ITEM,
-                                "Center"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.alignCenter()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(
-                                TextStylePropertyName.TEXT_ALIGN
-                        ).setSave(TextAlign.RIGHT)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "right" + SpreadsheetIds.MENU_ITEM,
-                                "Right"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.alignRight()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(
-                                TextStylePropertyName.TEXT_ALIGN
-                        ).setSave(TextAlign.JUSTIFY)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "justify" + SpreadsheetIds.MENU_ITEM,
-                                "Justify"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.alignJustify()
-                                )
-                        )
-        );
-    }
-
-    private static void renderContextMenuVerticalAlignment(final HistoryToken historyToken,
-                                                           final SpreadsheetContextMenu menu) {
-        menu.subMenu(
-                CONTEXT_MENU_ID_PREFIX + "vertical-alignment",
-                "Vertical Alignment"
-        ).item(
-                historyToken.setStyle(
-                                TextStylePropertyName.VERTICAL_ALIGN
-                        ).setSave(VerticalAlign.TOP)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "top" + SpreadsheetIds.MENU_ITEM,
-                                "Top"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.verticalAlignTop()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(
-                                TextStylePropertyName.VERTICAL_ALIGN
-                        ).setSave(VerticalAlign.MIDDLE)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "middle" + SpreadsheetIds.MENU_ITEM,
-                                "Middle"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.verticalAlignMiddle()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(
-                                TextStylePropertyName.VERTICAL_ALIGN
-                        ).setSave(VerticalAlign.BOTTOM)
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "bottom" + SpreadsheetIds.MENU_ITEM,
-                                "Bottom"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.verticalAlignBottom()
-                                )
-                        )
-        );
-    }
-
-    private void renderContextMenuInsertColumns(final HistoryToken historyToken,
-                                                final SpreadsheetSelection selection,
-                                                final SpreadsheetContextMenu menu) {
-        if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
-            menu.separator();
-
-            final HistoryToken columnHistoryToken = historyToken.setColumn(
-                    selection.toColumnOrColumnRange()
-            );
-            this.insertSubMenu(
-                    menu.subMenu(
-                            CONTEXT_MENU_ID_PREFIX + "insert-before-column",
-                            "Insert before column",
-                            SpreadsheetIcons.columnInsertBefore()
-                    ),
-                    CONTEXT_MENU_ID_PREFIX + "insert-before-column-",
-                    columnHistoryToken::setInsertBefore
-            );
-            this.insertSubMenu(
-                    menu.subMenu(
-                            CONTEXT_MENU_ID_PREFIX + "insert-after-column",
-                            "Insert after column",
-                            SpreadsheetIcons.columnInsertAfter()
-                    ),
-                    CONTEXT_MENU_ID_PREFIX + "insert-after-column-",
-                    columnHistoryToken::setInsertAfter
-            );
-            menu.separator();
-        }
-    }
-
-    private void renderContextMenuInsertRows(final HistoryToken historyToken,
-                                             final SpreadsheetSelection selection,
-                                             final SpreadsheetContextMenu menu) {
-        if (selection.isRowReference() | selection.isRowReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
-            menu.separator();
-
-            final HistoryToken rowHistoryToken = historyToken.setRow(
-                    selection.toRowOrRowRange()
-            );
-            this.insertSubMenu(
-                    menu.subMenu(
-                            CONTEXT_MENU_ID_PREFIX + "insert-row-before",
-                            "Insert before row",
-                            SpreadsheetIcons.rowInsertBefore()
-                    ),
-                    CONTEXT_MENU_ID_PREFIX + "insert-row-before-",
-                    rowHistoryToken::setInsertBefore
-            );
-            this.insertSubMenu(
-                    menu.subMenu(
-                            CONTEXT_MENU_ID_PREFIX + "insert-row-before",
-                            "Insert after row",
-                            SpreadsheetIcons.rowInsertAfter()
-                    ),
-                    CONTEXT_MENU_ID_PREFIX + "insert-row-before-",
-                    rowHistoryToken::setInsertAfter
-            );
-
-            menu.separator();
-        }
-    }
-
-    private static void renderContextMenuFreezeUnfreeze(final HistoryToken historyToken,
-                                                        final SpreadsheetContextMenu menu) {
-        menu.separator();
-
-        menu.item(
-                SpreadsheetContextMenuItem.with(
-                        CONTEXT_MENU_ID_PREFIX + "freeze" + SpreadsheetIds.MENU_ITEM,
-                        "Freeze"
-                ).historyToken(
-                        historyToken.freezeOrEmpty()
-                )
-        ).item(
-                SpreadsheetContextMenuItem.with(
-                        CONTEXT_MENU_ID_PREFIX + "unfreeze" + SpreadsheetIds.MENU_ITEM,
-                        "Unfreeze"
-                ).historyToken(
-                        historyToken.unfreezeOrEmpty()
-                )
-        );
-
-        menu.separator();
-    }
-
-    private static void renderContextMenuLabel(final HistoryToken historyToken,
-                                               final SpreadsheetSelection selection,
-                                               final SpreadsheetContextMenu menu,
-                                               final AppContext context) {
-        menu.separator();
-
-        final Set<SpreadsheetLabelMapping> labelMappings = context.viewportCache().labelMappings(selection);
-
-        SpreadsheetContextMenu sub = menu.subMenu(
-                CONTEXT_MENU_ID_PREFIX + "label" + SpreadsheetIds.MENU_ITEM,
-                "Labels",
-                Badge.create(
-                        String.valueOf(labelMappings.size())
-                ).addCss(
-                        dui_bg_orange,
-                        dui_rounded_full
-                )
-        );
-
-        int i = 0;
-
-        // create items for each label
-        for (final SpreadsheetLabelMapping mapping : labelMappings) {
-            final SpreadsheetLabelName label = mapping.label();
-
-            sub = sub.item(
-                    historyToken.setLabelName(
-                            Optional.of(label)
-                    ).contextMenuItem(
-                            CONTEXT_MENU_ID_PREFIX + "label-" + i + SpreadsheetIds.MENU_ITEM,
-                            label + " (" + mapping.target() + ")"
-                    )
-            );
-
-            i++;
-        }
-
-        sub.item(
-                historyToken.setLabelName(Optional.empty())
-                        .contextMenuItem(
-                                CONTEXT_MENU_ID_PREFIX + "label-create" + SpreadsheetIds.MENU_ITEM,
-                                "Create..."
-                        )
-        );
-
-        menu.separator();
-    }
-
-    private void insertSubMenu(final SpreadsheetContextMenu menu,
-                               final String idPrefix,
-                               final Function<OptionalInt, HistoryToken> setCount) {
-        for (int i = 1; i <= 3; i++) {
-            menu.item(
-                    setCount.apply(
-                            OptionalInt.of(i)
-                    ).contextMenuItem(
-                            idPrefix + "-" + i + SpreadsheetIds.MENU_ITEM,
-                            String.valueOf(i)
-                    )
-            );
-        }
-
-        // insert a url which will display a modal to prompt the user for the actual count
-        menu.item(
-                setCount.apply(
-                        OptionalInt.empty()
-                ).contextMenuItem(
-                        idPrefix + SpreadsheetIds.MENU_ITEM,
-                        "..."
-                )
-        );
-    }
 
     /**
      * A TABLE that holds the grid of cells including the column and row headers.
@@ -1101,9 +497,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     /**
      * Prefix for any ui within a viewport
      */
-    private final static String ID_PREFIX = ID + "-";
-
-    final static String CONTEXT_MENU_ID_PREFIX = ID + "-context-menu-";
+    final static String ID_PREFIX = ID + "-";
 
     // horizontal-scrollbar..............................................................................................
 

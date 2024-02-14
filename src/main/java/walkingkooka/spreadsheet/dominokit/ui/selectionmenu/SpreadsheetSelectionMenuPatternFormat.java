@@ -15,10 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -31,65 +31,69 @@ import java.util.Locale;
 import java.util.function.Function;
 
 /**
- * Builds the context menu for parse patterns.
+ * Builds the context menu for format patterns.
  */
-final class SpreadsheetViewportComponentPatternMenuParse extends SpreadsheetViewportComponentPatternMenu<SpreadsheetParsePattern> {
+final class SpreadsheetSelectionMenuPatternFormat extends SpreadsheetSelectionMenuPattern<SpreadsheetFormatPattern> {
 
-    static SpreadsheetViewportComponentPatternMenuParse with(final HistoryToken historyToken,
-                                                             final Locale locale,
-                                                             final List<SpreadsheetParsePattern> recents) {
-        return new SpreadsheetViewportComponentPatternMenuParse(
+    static SpreadsheetSelectionMenuPatternFormat with(final HistoryToken historyToken,
+                                                      final Locale locale,
+                                                      final List<SpreadsheetFormatPattern> recents,
+                                                      final String idPrefix) {
+        return new SpreadsheetSelectionMenuPatternFormat(
                 historyToken,
                 locale,
-                recents
+                recents,
+                idPrefix
         );
     }
 
-    private SpreadsheetViewportComponentPatternMenuParse(final HistoryToken historyToken,
-                                                         final Locale locale,
-                                                         final List<SpreadsheetParsePattern> recents) {
+    private SpreadsheetSelectionMenuPatternFormat(final HistoryToken historyToken,
+                                                  final Locale locale,
+                                                  final List<SpreadsheetFormatPattern> recents,
+                                                  final String idPrefix) {
         super(
                 historyToken,
                 locale,
-                recents
+                recents,
+                idPrefix
         );
     }
 
     @Override
-    SpreadsheetParsePattern datePattern(final int style) {
+    SpreadsheetFormatPattern datePattern(final int style) {
         return SpreadsheetPattern.dateParsePattern(
                 (SimpleDateFormat) DateFormat.getDateInstance(
                         style,
                         this.locale
                 )
-        );
+        ).toFormat();
     }
 
 
     @Override
     SpreadsheetPatternKind editDatePatternKind() {
-        return SpreadsheetPatternKind.DATE_PARSE_PATTERN;
+        return SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
     }
 
     @Override
-    SpreadsheetParsePattern dateTimePattern(final int style) {
+    SpreadsheetFormatPattern dateTimePattern(final int style) {
         return SpreadsheetPattern.dateTimeParsePattern(
                 (SimpleDateFormat) DateFormat.getDateTimeInstance(
                         style,
                         style,
                         this.locale
                 )
-        );
+        ).toFormat();
     }
 
     @Override
     SpreadsheetPatternKind editDateTimePatternKind() {
-        return SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN;
+        return SpreadsheetPatternKind.DATE_TIME_FORMAT_PATTERN;
     }
 
     @Override
-    SpreadsheetParsePattern numberPattern(final Function<Locale, NumberFormat> decimalFormat) {
-        return SpreadsheetPattern.numberParsePattern(
+    SpreadsheetFormatPattern numberPattern(final Function<Locale, NumberFormat> decimalFormat) {
+        return SpreadsheetPattern.numberFormatPattern(
                 SpreadsheetPattern.decimalFormat(
                                 (DecimalFormat) decimalFormat.apply(
                                         this.locale
@@ -101,26 +105,26 @@ final class SpreadsheetViewportComponentPatternMenuParse extends SpreadsheetView
 
     @Override
     SpreadsheetPatternKind editNumberPatternKind() {
-        return SpreadsheetPatternKind.NUMBER_PARSE_PATTERN;
+        return SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN;
     }
 
     @Override
-    SpreadsheetParsePattern timePattern(final int style) {
+    SpreadsheetFormatPattern timePattern(final int style) {
         return SpreadsheetPattern.timeParsePattern(
                 (SimpleDateFormat) DateFormat.getTimeInstance(
                         style,
                         this.locale
                 )
-        );
+        ).toFormat();
     }
 
     @Override
     SpreadsheetPatternKind editTimePatternKind() {
-        return SpreadsheetPatternKind.TIME_PARSE_PATTERN;
+        return SpreadsheetPatternKind.TIME_FORMAT_PATTERN;
     }
 
     @Override
     boolean isFormat() {
-        return false;
+        return true;
     }
 }
