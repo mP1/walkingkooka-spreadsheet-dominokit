@@ -87,10 +87,32 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
     }
 
     @Test
-    public void testSetPatternKindEmpty() {
+    public void testSetPatternKindEmptyWasDateFormat() {
         this.setPatternKindAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cell(
+                SpreadsheetCellPatternSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                ),
+                HistoryToken.cellFormatPatternToolbar(
+                        ID,
+                        NAME,
+                        SELECTION
+                )
+        );
+    }
+
+    @Test
+    public void testSetPatternKindEmptyWasDateParse() {
+        this.setPatternKindAndCheck(
+                SpreadsheetCellPatternSelectHistoryToken.with(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        SpreadsheetPatternKind.DATE_PARSE_PATTERN
+                ),
+                HistoryToken.cellParsePatternToolbar(
                         ID,
                         NAME,
                         SELECTION

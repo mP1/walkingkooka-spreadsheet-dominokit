@@ -32,33 +32,6 @@ public abstract class AnchoredSpreadsheetSelectionHistoryTokenTestCase<T extends
         super();
     }
 
-    // anchoredSelection.........................................................................................
-
-    @Test
-    public void testAnchoredSelection() {
-        final T token = this.createHistoryToken();
-        this.checkEquals(
-                Optional.of(token.anchoredSelection()),
-                token.anchoredSelection()
-        );
-    }
-
-    // setAnchoredSelection.............................................................................................
-
-    final void setAnchoredSelectionAndCheck(final AnchoredSpreadsheetSelection anchoredSelection) {
-        final T token = this.createHistoryToken(anchoredSelection);
-
-        this.setAnchoredSelectionAndCheck(
-                token,
-                anchoredSelection,
-                token.setAnchoredSelection(
-                        Optional.of(
-                                anchoredSelection
-                        )
-                )
-        );
-    }
-
     // freezeOrEmpty....................................................................................................
 
     final void freezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection) {
@@ -90,6 +63,22 @@ public abstract class AnchoredSpreadsheetSelectionHistoryTokenTestCase<T extends
                 expected,
                 historyToken.freezeOrEmpty(),
                 () -> historyToken + " freezeOrEmpty"
+        );
+    }
+
+    // setAnchoredSelection.............................................................................................
+
+    final void setAnchoredSelectionAndCheck(final AnchoredSpreadsheetSelection anchoredSelection) {
+        final T token = this.createHistoryToken(anchoredSelection);
+
+        this.setAnchoredSelectionAndCheck(
+                token,
+                anchoredSelection,
+                token.setAnchoredSelection(
+                        Optional.of(
+                                anchoredSelection
+                        )
+                )
         );
     }
 
@@ -127,7 +116,16 @@ public abstract class AnchoredSpreadsheetSelectionHistoryTokenTestCase<T extends
         );
     }
 
-    // helpers..........................................................................................................
+    // selectionOrEmpty.........................................................................................
+
+    @Test
+    public void testViewportOrEmpty() {
+        final T token = this.createHistoryToken();
+        this.checkEquals(
+                Optional.of(token.anchoredSelection()),
+                token.anchoredSelection()
+        );
+    }
 
     final void createHistoryTokenFails(final AnchoredSpreadsheetSelection anchoredSelection,
                                        final String expected) {

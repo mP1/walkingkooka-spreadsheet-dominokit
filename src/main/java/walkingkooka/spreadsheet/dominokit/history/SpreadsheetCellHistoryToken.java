@@ -20,12 +20,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Optional;
 import java.util.OptionalInt;
 
 abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSelectionHistoryToken {
@@ -111,25 +109,6 @@ abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSel
                         .testCell(selection.toCell()) ?
                 anchored :
                 selection.setDefaultAnchor();
-    }
-
-    @Override final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        final SpreadsheetId id = this.id();
-        final SpreadsheetName name = this.name();
-        final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();
-
-        return patternKind.isPresent() ?
-                cellPattern(
-                        id,
-                        name,
-                        anchoredSelection,
-                        patternKind.get()
-                ) :
-                cell(
-                        id,
-                        name,
-                        anchoredSelection
-                );
     }
 
     @Override //

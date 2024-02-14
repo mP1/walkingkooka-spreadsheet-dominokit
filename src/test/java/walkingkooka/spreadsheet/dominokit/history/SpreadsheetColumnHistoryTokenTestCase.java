@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceRange;
@@ -132,7 +131,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testSetMenuWithSameColumn() {
+    public final void testColumnMenuWithSameColumn() {
         final SpreadsheetColumnReference column = COLUMN;
 
         this.setMenuAndCheck(
@@ -149,7 +148,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testSetMenuWithDifferentColumn() {
+    public final void testColumnMenuWithDifferentColumn() {
         final SpreadsheetColumnReference column = COLUMN.add(1);
 
         this.setMenuAndCheck(
@@ -167,7 +166,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
 
 
     @Test
-    public final void testSetMenuColumnRangeWithColumnInside() {
+    public final void testColumnRangeMenuWithColumnInside() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseColumnRange("A:C")
                 .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
@@ -183,7 +182,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testSetMenuColumnRangeWithColumnOutside() {
+    public final void testColumnRangeMenuWithColumnOutside() {
         final SpreadsheetColumnReference column = SpreadsheetSelection.parseColumn("Z");
 
         this.setMenuAndCheck(
@@ -235,20 +234,6 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         this.patternKindAndCheck(
                 this.createHistoryToken()
         );
-    }
-
-    // setPatternKind...................................................................................................
-
-    @Test
-    public void testSetPatternKindWithDateFormatPattern() {
-        this.setPatternKindAndCheck(
-                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
-        );
-    }
-
-    @Test
-    public void testSetPatternKindWithEmpty() {
-        this.setPatternKindAndCheck();
     }
 
     // helpers..............................................................................................

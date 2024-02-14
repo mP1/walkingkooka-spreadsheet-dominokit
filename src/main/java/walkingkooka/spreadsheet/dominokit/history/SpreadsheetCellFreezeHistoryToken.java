@@ -21,10 +21,13 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Optional;
 
 public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHistoryToken {
 
@@ -101,6 +104,11 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
 
     @Override
     public HistoryToken setParsePattern() {
+        return this;
+    }
+
+    @Override
+    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
 

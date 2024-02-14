@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
@@ -139,7 +138,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testSetMenuWithSameRow() {
+    public final void testRowMenuWithSameRow() {
         final SpreadsheetRowReference row = ROW;
 
         this.setMenuAndCheck(
@@ -156,7 +155,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testSetMenuWithDifferentRow() {
+    public final void testRowMenuWithDifferentRow() {
         final SpreadsheetRowReference row = ROW.add(1);
 
         this.setMenuAndCheck(
@@ -173,7 +172,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testSetMenuRowRangeWithRowInside() {
+    public final void testRowRangeMenuWithRowInside() {
         final SpreadsheetRowReferenceRange range = SpreadsheetSelection.parseRowRange("1:3");
 
         this.setMenuAndCheck(
@@ -213,20 +212,6 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         this.patternKindAndCheck(
                 this.createHistoryToken()
         );
-    }
-
-    // setPatternKind...................................................................................................
-
-    @Test
-    public void testSetPatternKindWithDateFormatPattern() {
-        this.setPatternKindAndCheck(
-                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
-        );
-    }
-
-    @Test
-    public void testSetPatternKindWithEmpty() {
-        this.setPatternKindAndCheck();
     }
 
     // setSave..........................................................................................................

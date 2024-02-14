@@ -21,7 +21,10 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+
+import java.util.Optional;
 
 public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHistoryToken {
 
@@ -95,6 +98,22 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 this.name(),
                 this.anchoredSelection()
         );
+    }
+
+    @Override
+    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+        final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();
+
+        return patternKind.isPresent() ?
+                cellPattern(
+                        id,
+                        name,
+                        anchoredSelection,
+                        patternKind.get()
+                ) :
+                this;
     }
 
     @Override
