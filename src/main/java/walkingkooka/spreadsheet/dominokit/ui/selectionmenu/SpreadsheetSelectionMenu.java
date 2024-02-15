@@ -91,7 +91,7 @@ public class SpreadsheetSelectionMenu {
             renderStyle(
                     historyToken,
                     menu.subMenu(
-                            context.idPrefix() + "style-MenuItem",
+                            context.idPrefix() + "style" + SpreadsheetIds.SUB_MENU,
                             "Style"
                     ),
                     context
@@ -385,7 +385,7 @@ public class SpreadsheetSelectionMenu {
                                        final SpreadsheetContextMenu menu,
                                        final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
-                context.idPrefix() + "text-case",
+                context.idPrefix() + "text-case" + SpreadsheetIds.SUB_MENU,
                 "Text case"
         ).item(
                 historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
@@ -438,7 +438,7 @@ public class SpreadsheetSelectionMenu {
                                         final SpreadsheetContextMenu menu,
                                         final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
-                context.idPrefix() + "alignment",
+                context.idPrefix() + "alignment" + SpreadsheetIds.SUB_MENU,
                 "Alignment"
         ).item(
                 historyToken.setStyle(
@@ -495,7 +495,7 @@ public class SpreadsheetSelectionMenu {
                                                 final SpreadsheetContextMenu menu,
                                                 final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
-                context.idPrefix() + "vertical-alignment",
+                context.idPrefix() + "vertical-alignment" + SpreadsheetIds.SUB_MENU,
                 "Vertical Alignment"
         ).item(
                 historyToken.setStyle(
@@ -548,7 +548,7 @@ public class SpreadsheetSelectionMenu {
             );
             insertSubMenu(
                     menu.subMenu(
-                            context.idPrefix() + "insert-before-column",
+                            context.idPrefix() + "insert-before-column" + SpreadsheetIds.SUB_MENU,
                             "Insert before column",
                             SpreadsheetIcons.columnInsertBefore()
                     ),
@@ -557,7 +557,7 @@ public class SpreadsheetSelectionMenu {
             );
             insertSubMenu(
                     menu.subMenu(
-                            context.idPrefix() + "insert-after-column",
+                            context.idPrefix() + "insert-after-column" + SpreadsheetIds.SUB_MENU,
                             "Insert after column",
                             SpreadsheetIcons.columnInsertAfter()
                     ),
@@ -580,7 +580,7 @@ public class SpreadsheetSelectionMenu {
             );
             insertSubMenu(
                     menu.subMenu(
-                            context.idPrefix() + "insert-row-before",
+                            context.idPrefix() + "insert-row-before" + SpreadsheetIds.SUB_MENU,
                             "Insert before row",
                             SpreadsheetIcons.rowInsertBefore()
                     ),
@@ -589,7 +589,7 @@ public class SpreadsheetSelectionMenu {
             );
             insertSubMenu(
                     menu.subMenu(
-                            context.idPrefix() + "insert-row-before",
+                            context.idPrefix() + "insert-row-before" + SpreadsheetIds.SUB_MENU,
                             "Insert after row",
                             SpreadsheetIcons.rowInsertAfter()
                     ),
@@ -634,7 +634,7 @@ public class SpreadsheetSelectionMenu {
         final Set<SpreadsheetLabelMapping> labelMappings = context.labelMappings(selection);
 
         SpreadsheetContextMenu sub = menu.subMenu(
-                context.idPrefix() + "label" + SpreadsheetIds.MENU_ITEM,
+                context.idPrefix() + "label" + SpreadsheetIds.SUB_MENU,
                 "Labels",
                 Badge.create(
                         String.valueOf(labelMappings.size())

@@ -33,6 +33,8 @@ public final class SpreadsheetIds implements PublicStaticHelper {
 
     public final static String SELECT = "-Select";
 
+    public final static String SUB_MENU = "-SubMenu";
+
     private SpreadsheetIds() {
         throw new UnsupportedOperationException();
     }

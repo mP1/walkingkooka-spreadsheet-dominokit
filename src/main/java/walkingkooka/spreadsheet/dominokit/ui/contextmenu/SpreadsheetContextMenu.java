@@ -127,6 +127,15 @@ public class SpreadsheetContextMenu {
                                           final Optional<MdiIcon> icon,
                                           final Optional<Badge> badge) {
         CharSequences.failIfNullOrEmpty(id, "id");
+        if (false == id.endsWith(SUB_MENU_ID_SUFFIX)) {
+            throw new IllegalArgumentException(
+                    "Invalid subMenu id " +
+                            CharSequences.quote(id) +
+                            " missing " +
+                            CharSequences.quote(SUB_MENU_ID_SUFFIX)
+            );
+        }
+
         checkText(text);
 
         this.addSeparatorIfNecessary();
@@ -162,6 +171,8 @@ public class SpreadsheetContextMenu {
                 this.context
         );
     }
+
+    private final static String SUB_MENU_ID_SUFFIX = "-SubMenu";
 
     public SpreadsheetContextMenu item(final SpreadsheetContextMenuItem item) {
         Objects.requireNonNull(item, "item");
