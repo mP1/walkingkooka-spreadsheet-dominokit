@@ -101,7 +101,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         return ID_PREFIX;
     }
 
-    final static String ID_PREFIX = SpreadsheetViewportComponent.ID_PREFIX + "-context-menu-";
+    final static String ID_PREFIX = SpreadsheetViewportComponent.ID_PREFIX + "context-menu-";
 
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
