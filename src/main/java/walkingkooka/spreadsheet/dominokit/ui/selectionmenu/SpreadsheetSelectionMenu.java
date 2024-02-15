@@ -155,7 +155,7 @@ public class SpreadsheetSelectionMenu {
                 idPrefix
         ).build(
                 menu.subMenu(
-                        idPrefix + "-MenuItem",
+                        idPrefix + SpreadsheetIds.SUB_MENU,
                         "Parse",
                         SpreadsheetIcons.parsePattern()
                 )
@@ -176,7 +176,7 @@ public class SpreadsheetSelectionMenu {
                 idPrefix
         ).build(
                 menu.subMenu(
-                        idPrefix + "-MenuItem",
+                        idPrefix + SpreadsheetIds.SUB_MENU,
                         "Format",
                         SpreadsheetIcons.formatPattern()
                 )
@@ -239,7 +239,7 @@ public class SpreadsheetSelectionMenu {
                                         final SpreadsheetContextMenu menu,
                                         final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu sub = menu.subMenu(
-                context.idPrefix() + id + SpreadsheetIds.MENU_ITEM,
+                context.idPrefix() + id + SpreadsheetIds.SUB_MENU,
                 text,
                 SpreadsheetIcons.palette()
         );
