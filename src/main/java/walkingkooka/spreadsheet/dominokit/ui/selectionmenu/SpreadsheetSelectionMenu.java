@@ -69,16 +69,7 @@ public class SpreadsheetSelectionMenu {
         final SpreadsheetSelection selection = historyToken.anchoredSelection()
                 .selection();
 
-        // ALIGNMENT
-        // VERTICAL ALIGNMENT
-        // COLOR
-        // BACKGROUND COLOR
-        // BOLD
-        // ITALICS
-        // STRIKE THRU
-        // UNDERLINE
-        // CASE
-        // CLEAR STYLE
+        // STYLE
         // ----
         // FORMAT
         // PARSE
@@ -97,19 +88,18 @@ public class SpreadsheetSelectionMenu {
 
         // TODO add tick if already selected
         if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
-            renderAlignment(historyToken, menu, context);
-            renderVerticalAlignment(historyToken, menu, context);
-            renderColor(historyToken, menu, context);
-            renderBackgroundColor(historyToken, menu, context);
-            renderStyle(historyToken, menu, context);
-            renderTextCase(historyToken, menu, context);
-            renderClearStyle(historyToken, menu, context);
+            renderStyle(
+                    historyToken,
+                    menu.subMenu(
+                            context.idPrefix() + "style-MenuItem",
+                            "Style"
+                    ),
+                    context
+            );
 
-            menu.separator();
             final Locale locale = context.spreadsheetMetadata()
                     .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
 
-            menu.separator();
             renderFormat(
                     historyToken,
                     locale,
@@ -191,6 +181,32 @@ public class SpreadsheetSelectionMenu {
                         SpreadsheetIcons.formatPattern()
                 )
         );
+    }
+
+    // ALIGNMENT
+    // VERTICAL ALIGNMENT
+    // COLOR
+    // BACKGROUND COLOR
+    // BOLD
+    // ITALICS
+    // STRIKE THRU
+    // UNDERLINE
+    // CASE
+    // CLEAR STYLE
+    private static void renderStyle(final HistoryToken historyToken,
+                                    final SpreadsheetContextMenu menu,
+                                    final SpreadsheetSelectionMenuContext context) {
+        renderAlignment(historyToken, menu, context);
+        renderVerticalAlignment(historyToken, menu, context);
+        renderColor(historyToken, menu, context);
+        renderBackgroundColor(historyToken, menu, context);
+        renderFontWeight(historyToken, menu, context);
+        renderFontStyle(historyToken, menu, context);
+        renderTextDecoration(historyToken, menu, context);
+        renderTextCase(historyToken, menu, context);
+        renderClearStyle(historyToken, menu, context);
+
+        menu.separator();
     }
 
     private static void renderColor(final HistoryToken historyToken,
@@ -301,9 +317,9 @@ public class SpreadsheetSelectionMenu {
         ).separator();
     }
 
-    private static void renderStyle(final HistoryToken historyToken,
-                                    final SpreadsheetContextMenu menu,
-                                    final SpreadsheetSelectionMenuContext context) {
+    private static void renderFontWeight(final HistoryToken historyToken,
+                                         final SpreadsheetContextMenu menu,
+                                         final SpreadsheetSelectionMenuContext context) {
         menu.item(
                 historyToken.setStyle(TextStylePropertyName.FONT_WEIGHT)
                         .setSave(FontWeight.BOLD)
@@ -316,7 +332,11 @@ public class SpreadsheetSelectionMenu {
                                 )
                         )
         );
+    }
 
+    private static void renderFontStyle(final HistoryToken historyToken,
+                                        final SpreadsheetContextMenu menu,
+                                        final SpreadsheetSelectionMenuContext context) {
         menu.item(
                 historyToken.setStyle(TextStylePropertyName.FONT_STYLE)
                         .setSave(FontStyle.ITALIC)
@@ -329,7 +349,11 @@ public class SpreadsheetSelectionMenu {
                                 )
                         )
         );
+    }
 
+    private static void renderTextDecoration(final HistoryToken historyToken,
+                                             final SpreadsheetContextMenu menu,
+                                             final SpreadsheetSelectionMenuContext context) {
         menu.item(
                 historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
                         .setSave(TextDecorationLine.LINE_THROUGH)
