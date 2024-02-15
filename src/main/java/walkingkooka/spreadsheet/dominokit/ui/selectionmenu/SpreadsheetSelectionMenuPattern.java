@@ -53,19 +53,19 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
     void build(final SpreadsheetContextMenu menu) {
         this.date(
                 menu.subMenu(
-                        this.idPrefix + "date",
+                        this.idPrefix + "date" + SpreadsheetIds.SUB_MENU,
                         "Date"
                 )
         );
         this.dateTime(
                 menu.subMenu(
-                        this.idPrefix + "datetime",
+                        this.idPrefix + "datetime" + SpreadsheetIds.SUB_MENU,
                         "Date Time"
                 )
         );
         this.number(
                 menu.subMenu(
-                        this.idPrefix + "number",
+                        this.idPrefix + "number" + SpreadsheetIds.SUB_MENU,
                         "Number"
                 )
         );
@@ -73,14 +73,14 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
         if (this.isFormat()) {
             this.text(
                     menu.subMenu(
-                            this.idPrefix + "text",
+                            this.idPrefix + "text" + SpreadsheetIds.SUB_MENU,
                             "Text"
                     )
             );
         }
         this.time(
                 menu.subMenu(
-                        this.idPrefix + "time",
+                        this.idPrefix + "time" + SpreadsheetIds.SUB_MENU,
                         "Time"
                 )
         );
