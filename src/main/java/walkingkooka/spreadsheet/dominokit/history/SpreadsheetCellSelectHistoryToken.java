@@ -69,7 +69,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
     @Override
     public HistoryToken setFormatPattern() {
-        return cellFormatPatternToolbar(
+        return cellFormatPattern(
                 this.id(),
                 this.name(),
                 this.anchoredSelection()

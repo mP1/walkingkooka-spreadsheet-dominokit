@@ -28,21 +28,21 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 /**
  * This {@link HistoryToken} is used to represent the selection of the toolbar format-pattern icon.
  */
-public final class SpreadsheetCellPatternToolbarFormatHistoryToken extends SpreadsheetCellPatternToolbarHistoryToken {
+public final class SpreadsheetCellPatternFormatHistoryToken extends SpreadsheetCellPatternToolbarHistoryToken {
 
-    static SpreadsheetCellPatternToolbarFormatHistoryToken with(final SpreadsheetId id,
-                                                                final SpreadsheetName name,
-                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
-        return new SpreadsheetCellPatternToolbarFormatHistoryToken(
+    static SpreadsheetCellPatternFormatHistoryToken with(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
+        return new SpreadsheetCellPatternFormatHistoryToken(
                 id,
                 name,
                 anchoredSelection
         );
     }
 
-    private SpreadsheetCellPatternToolbarFormatHistoryToken(final SpreadsheetId id,
-                                                            final SpreadsheetName name,
-                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
+    private SpreadsheetCellPatternFormatHistoryToken(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,

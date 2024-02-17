@@ -29,7 +29,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternToolbarFormatHistoryToken> {
+public final class SpreadsheetCellPatternFormatHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternFormatHistoryToken> {
 
     // clearAction......................................................................................................
 
@@ -42,7 +42,7 @@ public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends S
 
     @Test
     public void testSetPatternKindSame() {
-        final SpreadsheetCellPatternToolbarFormatHistoryToken historyToken = this.createHistoryToken();
+        final SpreadsheetCellPatternFormatHistoryToken historyToken = this.createHistoryToken();
         assertSame(
                 historyToken,
                 historyToken.setPatternKind(Optional.empty())
@@ -86,7 +86,7 @@ public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends S
         this.setPatternKindAndCheck(
                 this.createHistoryToken(),
                 Optional.empty(),
-                SpreadsheetCellPatternToolbarFormatHistoryToken.with(
+                SpreadsheetCellPatternFormatHistoryToken.with(
                         ID,
                         NAME,
                         SELECTION
@@ -95,7 +95,7 @@ public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends S
     }
 
     private void setPatternKindAndCheck(
-            final SpreadsheetCellPatternToolbarFormatHistoryToken historyToken,
+            final SpreadsheetCellPatternFormatHistoryToken historyToken,
             final Optional<SpreadsheetPatternKind> kind,
             final HistoryToken expected) {
         this.checkEquals(
@@ -137,10 +137,10 @@ public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends S
     }
 
     @Override
-    SpreadsheetCellPatternToolbarFormatHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                                 final SpreadsheetName name,
-                                                                 final AnchoredSpreadsheetSelection selection) {
-        return SpreadsheetCellPatternToolbarFormatHistoryToken.with(
+    SpreadsheetCellPatternFormatHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                final SpreadsheetName name,
+                                                                final AnchoredSpreadsheetSelection selection) {
+        return SpreadsheetCellPatternFormatHistoryToken.with(
                 id,
                 name,
                 selection
@@ -148,7 +148,7 @@ public final class SpreadsheetCellPatternToolbarFormatHistoryTokenTest extends S
     }
 
     @Override
-    public Class<SpreadsheetCellPatternToolbarFormatHistoryToken> type() {
-        return SpreadsheetCellPatternToolbarFormatHistoryToken.class;
+    public Class<SpreadsheetCellPatternFormatHistoryToken> type() {
+        return SpreadsheetCellPatternFormatHistoryToken.class;
     }
 }

@@ -95,7 +95,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
                         SELECTION,
                         SpreadsheetPatternKind.DATE_FORMAT_PATTERN
                 ),
-                HistoryToken.cellFormatPatternToolbar(
+                HistoryToken.cellFormatPattern(
                         ID,
                         NAME,
                         SELECTION
@@ -165,7 +165,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
                         formatPattern.kind(),
                         Optional.of(formatPattern)
                 ),
-                HistoryToken.cellFormatPatternToolbar(
+                HistoryToken.cellFormatPattern(
                         ID,
                         NAME,
                         SELECTION

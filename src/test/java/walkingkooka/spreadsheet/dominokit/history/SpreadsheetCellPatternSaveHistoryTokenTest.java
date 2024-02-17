@@ -127,7 +127,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
                         formatPattern.kind(),
                         Optional.of(formatPattern)
                 ),
-                HistoryToken.cellFormatPatternToolbar(
+                HistoryToken.cellFormatPattern(
                         ID,
                         NAME,
                         SELECTION

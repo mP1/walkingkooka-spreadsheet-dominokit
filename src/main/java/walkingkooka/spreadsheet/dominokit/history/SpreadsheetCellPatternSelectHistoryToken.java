@@ -103,7 +103,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                 this.patternKind()
                         .get()
                         .isFormatPattern() ?
-                        cellFormatPatternToolbar(
+                        cellFormatPattern(
                                 id,
                                 name,
                                 anchoredSelection
