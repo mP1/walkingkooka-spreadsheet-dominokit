@@ -147,7 +147,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
                         parsePattern.kind(),
                         Optional.of(parsePattern)
                 ),
-                HistoryToken.cellParsePatternToolbar(
+                HistoryToken.cellParsePattern(
                         ID,
                         NAME,
                         SELECTION

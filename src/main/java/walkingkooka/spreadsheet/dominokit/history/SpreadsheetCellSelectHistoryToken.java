@@ -93,7 +93,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
     @Override
     public HistoryToken setParsePattern() {
-        return cellParsePatternToolbar(
+        return cellParsePattern(
                 this.id(),
                 this.name(),
                 this.anchoredSelection()
