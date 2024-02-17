@@ -108,7 +108,7 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                                 name,
                                 anchoredSelection
                         ) :
-                        cellParsePatternToolbar(
+                        cellParsePattern(
                                 id,
                                 name,
                                 anchoredSelection

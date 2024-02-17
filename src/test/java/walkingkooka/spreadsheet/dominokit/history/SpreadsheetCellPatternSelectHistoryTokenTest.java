@@ -112,7 +112,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
                         SELECTION,
                         SpreadsheetPatternKind.DATE_PARSE_PATTERN
                 ),
-                HistoryToken.cellParsePatternToolbar(
+                HistoryToken.cellParsePattern(
                         ID,
                         NAME,
                         SELECTION
@@ -185,7 +185,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
                         parsePattern.kind(),
                         Optional.of(parsePattern)
                 ),
-                HistoryToken.cellParsePatternToolbar(
+                HistoryToken.cellParsePattern(
                         ID,
                         NAME,
                         SELECTION

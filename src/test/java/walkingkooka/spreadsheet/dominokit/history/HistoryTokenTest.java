@@ -2595,7 +2595,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellParsePatternMissingPatternKind() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/parse-pattern",
-                HistoryToken.cellParsePatternToolbar(
+                HistoryToken.cellParsePattern(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()

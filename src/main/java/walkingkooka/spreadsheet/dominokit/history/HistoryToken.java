@@ -237,12 +237,12 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetCellPatternToolbarParseHistoryToken}
+     * {@see SpreadsheetCellPatternParseHistoryToken}
      */
-    public static SpreadsheetCellPatternToolbarHistoryToken cellParsePatternToolbar(final SpreadsheetId id,
-                                                                                    final SpreadsheetName name,
-                                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellPatternToolbarParseHistoryToken.with(
+    public static SpreadsheetCellPatternToolbarHistoryToken cellParsePattern(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellPatternParseHistoryToken.with(
                 id,
                 name,
                 anchoredSelection
@@ -839,7 +839,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     name,
                                     anchoredSelection
                             ) :
-                            cellParsePatternToolbar(
+                            cellParsePattern(
                                     id,
                                     name,
                                     anchoredSelection
