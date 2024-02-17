@@ -1596,7 +1596,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         CELL.setDefaultAnchor(),
                         SpreadsheetPatternKind.TEXT_FORMAT_PATTERN
                 ).clearPatternKind(),
-                HistoryToken.cellFormatPatternToolbar(
+                HistoryToken.cellFormatPattern(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()
@@ -2583,7 +2583,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellFormatPatternMissingPatternKind() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/format-pattern",
-                HistoryToken.cellFormatPatternToolbar(
+                HistoryToken.cellFormatPattern(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()
@@ -2607,7 +2607,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellFormatPatternInvalidPatternKind() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/format-pattern/!invalid",
-                HistoryToken.cellFormatPatternToolbar(
+                HistoryToken.cellFormatPattern(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()
