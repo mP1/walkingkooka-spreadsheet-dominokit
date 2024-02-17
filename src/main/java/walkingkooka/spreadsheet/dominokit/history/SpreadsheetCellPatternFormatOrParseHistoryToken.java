@@ -24,11 +24,11 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
-public abstract class SpreadsheetCellPatternToolbarHistoryToken extends SpreadsheetCellPatternHistoryToken {
+public abstract class SpreadsheetCellPatternFormatOrParseHistoryToken extends SpreadsheetCellPatternHistoryToken {
 
-    SpreadsheetCellPatternToolbarHistoryToken(final SpreadsheetId id,
-                                              final SpreadsheetName name,
-                                              final AnchoredSpreadsheetSelection anchoredSelection) {
+    SpreadsheetCellPatternFormatOrParseHistoryToken(final SpreadsheetId id,
+                                                    final SpreadsheetName name,
+                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
