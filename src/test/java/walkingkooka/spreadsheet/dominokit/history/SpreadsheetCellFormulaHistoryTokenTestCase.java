@@ -60,7 +60,25 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
     }
 
     @Test
-    public void testSetMenuWithCell() {
+    public final void testSetAnchoredSelectionDifferentCell() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
+                .setDefaultAnchor();
+
+        this.setAnchoredSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                this.createHistoryToken(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    // setMenu..........................................................................................................
+
+    @Test
+    public final void testSetMenuWithCell() {
         this.setMenuWithCellAndCheck();
     }
 
