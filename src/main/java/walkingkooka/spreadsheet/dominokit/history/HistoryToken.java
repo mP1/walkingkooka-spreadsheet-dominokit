@@ -736,6 +736,18 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * Consumes all remaining text into a {@link String}.
+     */
+    static String parseAll(final TextCursor cursor) {
+        final TextCursorSavePoint save = cursor.save();
+        cursor.end();
+        return save.textBetween()
+                .toString()
+                .substring(1); // drops assumed leading slash
+
+    }
+
+    /**
      * Consumes a path ui within the {@link TextCursor}.
      */
     static Optional<String> parseComponent(final TextCursor cursor) {
@@ -744,15 +756,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                         .value()
                         .substring(1)
                 );
-    }
-
-    static String parseAll(final TextCursor cursor) {
-        final TextCursorSavePoint save = cursor.save();
-        cursor.end();
-        return save.textBetween()
-                .toString()
-                .substring(1); // drops assumed leading slash
-
     }
 
     /**
@@ -767,8 +770,11 @@ public abstract class HistoryToken implements HasUrlFragment,
             MAX_LENGTH
     );
 
-    final static ParserContext CONTEXT = ParserContexts.fake();
+    private final static ParserContext CONTEXT = ParserContexts.fake();
 
+    /**
+     * Package private to limit sub-classing
+     */
     HistoryToken() {
         super();
     }
