@@ -26,9 +26,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class AnchoredSpreadsheetSelectionHistoryTokenTestCase<T extends AnchoredSpreadsheetSelectionHistoryToken> extends SpreadsheetSelectionHistoryTokenTestCase<T> {
+public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends SpreadsheetAnchoredSelectionHistoryToken> extends SpreadsheetSelectionHistoryTokenTestCase<T> {
 
-    AnchoredSpreadsheetSelectionHistoryTokenTestCase() {
+    SpreadsheetAnchoredSelectionHistoryTokenTestCase() {
         super();
     }
 
@@ -53,7 +53,7 @@ public abstract class AnchoredSpreadsheetSelectionHistoryTokenTestCase<T extends
 
     final void freezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                      final Optional<HistoryToken> expected) {
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 anchoredSelection
@@ -103,7 +103,7 @@ public abstract class AnchoredSpreadsheetSelectionHistoryTokenTestCase<T extends
 
     final void unfreezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                        final Optional<HistoryToken> expected) {
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 anchoredSelection

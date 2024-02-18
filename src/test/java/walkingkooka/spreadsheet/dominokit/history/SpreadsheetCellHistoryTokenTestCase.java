@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
-public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends AnchoredSpreadsheetSelectionHistoryTokenTestCase<T> {
+public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends SpreadsheetAnchoredSelectionHistoryTokenTestCase<T> {
 
     final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
