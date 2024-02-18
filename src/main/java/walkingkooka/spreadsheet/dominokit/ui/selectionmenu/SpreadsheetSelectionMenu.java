@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
-import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
@@ -62,7 +62,7 @@ public class SpreadsheetSelectionMenu {
      * Renders a drop down menu attaching the context menu to the given {@link DominoElement}.
      * This should make it possible to attach a context menu to the cell in the viewport and the formula component.
      */
-    public static void render(final AnchoredSpreadsheetSelectionHistoryToken historyToken,
+    public static void render(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                               final DominoElement<?> element,
                               final SpreadsheetSelectionMenuContext context) {
         // show context menu

@@ -1779,7 +1779,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testViewportCell() {
         final AnchoredSpreadsheetSelection cell = CELL.setDefaultAnchor();
 
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 cell
@@ -1799,7 +1799,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testViewportCellRange() {
         final AnchoredSpreadsheetSelection cell = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 cell
@@ -1819,7 +1819,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testViewportLabel() {
         final AnchoredSpreadsheetSelection cell = LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 cell
@@ -1839,7 +1839,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testViewportColumn() {
         final AnchoredSpreadsheetSelection column = COLUMN.setDefaultAnchor();
 
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 column
@@ -1859,7 +1859,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testViewportColumnRange() {
         final AnchoredSpreadsheetSelection column = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 column
@@ -1879,7 +1879,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testViewportRow() {
         final AnchoredSpreadsheetSelection row = ROW.setDefaultAnchor();
 
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 row
@@ -1899,7 +1899,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testViewportRowRange() {
         final AnchoredSpreadsheetSelection row = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
-        final AnchoredSpreadsheetSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
                 ID,
                 NAME,
                 row

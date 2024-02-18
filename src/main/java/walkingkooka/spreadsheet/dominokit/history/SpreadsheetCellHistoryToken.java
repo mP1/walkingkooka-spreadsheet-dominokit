@@ -26,7 +26,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.OptionalInt;
 
-abstract public class SpreadsheetCellHistoryToken extends AnchoredSpreadsheetSelectionHistoryToken {
+abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
     SpreadsheetCellHistoryToken(final SpreadsheetId id,
                                 final SpreadsheetName name,

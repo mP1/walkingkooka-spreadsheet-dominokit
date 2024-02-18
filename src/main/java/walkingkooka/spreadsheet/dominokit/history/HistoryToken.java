@@ -616,14 +616,14 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
-    public static AnchoredSpreadsheetSelectionHistoryToken selection(final SpreadsheetId id,
+    public static SpreadsheetAnchoredSelectionHistoryToken selection(final SpreadsheetId id,
                                                                      final SpreadsheetName name,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(name, "name");
         Objects.requireNonNull(anchoredSelection, "anchoredSelection");
 
-        AnchoredSpreadsheetSelectionHistoryToken historyToken;
+        SpreadsheetAnchoredSelectionHistoryToken historyToken;
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
 
@@ -882,14 +882,14 @@ public abstract class HistoryToken implements HasUrlFragment,
         Objects.requireNonNull(anchor, "anchor");
         HistoryToken token = this;
 
-        if (this instanceof AnchoredSpreadsheetSelectionHistoryToken) {
-            final AnchoredSpreadsheetSelectionHistoryToken anchoredSpreadsheetSelectionHistoryToken = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class);
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
             try {
                 token = HistoryToken.selection(
-                        anchoredSpreadsheetSelectionHistoryToken.id(),
-                        anchoredSpreadsheetSelectionHistoryToken.name(),
-                        anchoredSpreadsheetSelectionHistoryToken.anchoredSelection()
+                        spreadsheetAnchoredSelectionHistoryToken.id(),
+                        spreadsheetAnchoredSelectionHistoryToken.name(),
+                        spreadsheetAnchoredSelectionHistoryToken.anchoredSelection()
                                 .selection()
                                 .setAnchor(anchor)
                 );
@@ -1253,8 +1253,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (selection.isPresent()) {
             result = this.setMenu0(selection.get());
         } else {
-            if (this instanceof AnchoredSpreadsheetSelectionHistoryToken) {
-                result = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class)
+            if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                result = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                         .setMenu1();
             }
         }
@@ -1276,7 +1276,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                 // right mouse happened over already selected selection...
                 if (anchored.selection().test(selection)) {
-                    menu = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class)
+                    menu = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                             .setMenu1();
                 }
             }
@@ -1595,8 +1595,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (maybeAnchoredSelection.isPresent()) {
             final AnchoredSpreadsheetSelection anchoredSelection = maybeAnchoredSelection.get();
 
-            if (this instanceof AnchoredSpreadsheetSelectionHistoryToken) {
-                final AnchoredSpreadsheetSelectionHistoryToken anchored = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class);
+            if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                final SpreadsheetAnchoredSelectionHistoryToken anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
                 token = anchored.setDifferentAnchoredSelection(anchoredSelection);
             } else {
                 if (this instanceof SpreadsheetNameHistoryToken) {
@@ -1621,18 +1621,18 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Returns a {@link AnchoredSpreadsheetSelectionHistoryToken} using the id, name and {@link AnchoredSpreadsheetSelection}.
+     * Returns a {@link SpreadsheetAnchoredSelectionHistoryToken} using the id, name and {@link AnchoredSpreadsheetSelection}.
      */
     public final Optional<HistoryToken> anchoredSelectionHistoryTokenOrEmpty() {
         HistoryToken result = null;
 
-        if (this instanceof AnchoredSpreadsheetSelectionHistoryToken) {
-            final AnchoredSpreadsheetSelectionHistoryToken AnchoredSpreadsheetSelectionHistoryToken = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class);
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken SpreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
             result = HistoryToken.selection(
-                    AnchoredSpreadsheetSelectionHistoryToken.id(),
-                    AnchoredSpreadsheetSelectionHistoryToken.name(),
-                    AnchoredSpreadsheetSelectionHistoryToken.anchoredSelection()
+                    SpreadsheetAnchoredSelectionHistoryToken.id(),
+                    SpreadsheetAnchoredSelectionHistoryToken.name(),
+                    SpreadsheetAnchoredSelectionHistoryToken.anchoredSelection()
             );
 
             if (this.equals(result)) {
@@ -1649,8 +1649,8 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final Optional<AnchoredSpreadsheetSelection> anchoredSelectionOrEmpty() {
         AnchoredSpreadsheetSelection anchoredSelection = null;
 
-        if (this instanceof AnchoredSpreadsheetSelectionHistoryToken) {
-            anchoredSelection = this.cast(AnchoredSpreadsheetSelectionHistoryToken.class)
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                     .anchoredSelection();
         }
 

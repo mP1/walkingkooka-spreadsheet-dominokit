@@ -160,7 +160,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         );
     }
 
-    final void setMenuAndCheck(final AnchoredSpreadsheetSelectionHistoryToken token,
+    final void setMenuAndCheck(final SpreadsheetAnchoredSelectionHistoryToken token,
                                final SpreadsheetSelection selection) {
         this.setMenuAndCheck(
                 token,
@@ -171,7 +171,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
 
     final void setMenuAndCheck(final SpreadsheetNameHistoryToken before,
                                final SpreadsheetSelection selection,
-                               final AnchoredSpreadsheetSelectionHistoryToken expected) {
+                               final SpreadsheetAnchoredSelectionHistoryToken expected) {
         this.checkEquals(
                 expected,
                 before.setMenu2(selection),

@@ -61,9 +61,9 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
-import walkingkooka.spreadsheet.dominokit.history.AnchoredSpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
@@ -458,7 +458,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     /**
      * Renders a drop down menu, provided the selection is in the current viewport TABLE.
      */
-    private void renderContextMenu(final AnchoredSpreadsheetSelectionHistoryToken historyToken,
+    private void renderContextMenu(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                    final AppContext context) {
         final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchored.selection();
@@ -889,7 +889,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
                 historyToken instanceof SpreadsheetRowSelectHistoryToken) {
             this.giveViewportSelectionFocus(
-                    historyToken.cast(AnchoredSpreadsheetSelectionHistoryToken.class)
+                    historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                             .anchoredSelection(),
                     context
             );
@@ -899,7 +899,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
                 historyToken instanceof SpreadsheetRowMenuHistoryToken) {
             this.renderContextMenu(
-                    historyToken.cast(AnchoredSpreadsheetSelectionHistoryToken.class),
+                    historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
                     context
             );
         }

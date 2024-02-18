@@ -27,9 +27,9 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Objects;
 
-public abstract class AnchoredSpreadsheetSelectionHistoryToken extends SpreadsheetSelectionHistoryToken {
+public abstract class SpreadsheetAnchoredSelectionHistoryToken extends SpreadsheetSelectionHistoryToken {
 
-    AnchoredSpreadsheetSelectionHistoryToken(final SpreadsheetId id,
+    SpreadsheetAnchoredSelectionHistoryToken(final SpreadsheetId id,
                                              final SpreadsheetName name,
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
