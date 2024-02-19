@@ -218,9 +218,12 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     final HistoryToken parseSave(final TextCursor cursor) {
-        return this.setSave(
-                parseAll(cursor)
-        );
+        return this instanceof SpreadsheetCellSelectHistoryToken ?
+                this.cast(SpreadsheetCellSelectHistoryToken.class)
+                        .parseCellSave(cursor) :
+                this.setSave(
+                        parseAll(cursor)
+                );
     }
 
     final HistoryToken parseStyle(final TextCursor cursor) {

@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Cast;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.predicate.character.CharPredicates;
@@ -35,6 +36,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -52,6 +54,7 @@ import walkingkooka.text.cursor.parser.Parsers;
 import walkingkooka.text.cursor.parser.StringParserToken;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -246,6 +249,21 @@ public abstract class HistoryToken implements HasUrlFragment,
                 id,
                 name,
                 anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellSaveFormulaHistoryToken}
+     */
+    public static SpreadsheetCellSaveFormulaHistoryToken cellSaveFormula(final SpreadsheetId id,
+                                                                         final SpreadsheetName name,
+                                                                         final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                         final Map<SpreadsheetCellReference, String> formulas) {
+        return SpreadsheetCellSaveFormulaHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                formulas
         );
     }
 
@@ -771,6 +789,42 @@ public abstract class HistoryToken implements HasUrlFragment,
     );
 
     private final static ParserContext CONTEXT = ParserContexts.fake();
+
+    /**
+     * Used to consume the cursor, where each component is either a {@link SpreadsheetCellReference} or
+     * value with each separated by slashes. Note the value will be URL decoded before being passed to the
+     * value parser.
+     */
+    static <V> Map<SpreadsheetCellReference, V> parseMap(final TextCursor cursor,
+                                                         final Function<String, V> valueParser) {
+        final Map<SpreadsheetCellReference, V> cellToValue = Maps.sorted();
+
+        for (; ; ) {
+            final Optional<String> maybeCell = parseComponent(cursor);
+
+            if (maybeCell.isPresent()) {
+                final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell(
+                        maybeCell.get()
+                );
+
+                final Optional<String> maybeValue = parseComponent(cursor);
+                if (maybeValue.isPresent()) {
+                    cellToValue.put(
+                            cell,
+                            valueParser.apply(
+                                    maybeValue.get()
+                            )
+                    );
+                } else {
+                    break; // value is empty then exit
+                }
+            } else {
+                break; // nothing after cell then exit
+            }
+        }
+
+        return cellToValue;
+    }
 
     /**
      * Package private to limit sub-classing

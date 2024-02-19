@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Optional;
 
@@ -125,5 +126,38 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     public void onHistoryTokenChange0(final HistoryToken previous,
                                       final AppContext context) {
         // SpreadsheetViewportComponent will give focus to cell
+    }
+
+    /**
+     * Handles parsing /cell/save tokens.
+     */
+    HistoryToken parseCellSave(final TextCursor cursor) {
+        HistoryToken result = this;
+
+        final Optional<String> maybeComponent = parseComponent(cursor);
+        if (maybeComponent.isPresent()) {
+            final String component = maybeComponent.get();
+
+            // there will be more such as cell/pattern-format/pattern-parse/style
+            switch (component) {
+                case "formula":
+                    result = cellSaveFormula(
+                            this.id(),
+                            this.name(),
+                            this.anchoredSelection(),
+                            SpreadsheetCellSaveHistoryToken.parseMap(
+                                    cursor,
+                                    (s) -> s
+                            )
+                    );
+                    break;
+                default:
+                    cursor.end();
+                    result = this; // ignore
+                    break;
+            }
+        }
+
+        return result;
     }
 }
