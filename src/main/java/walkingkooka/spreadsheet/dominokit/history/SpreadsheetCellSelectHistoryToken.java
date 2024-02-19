@@ -145,9 +145,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             this.id(),
                             this.name(),
                             this.anchoredSelection(),
-                            SpreadsheetCellSaveHistoryToken.parseMap(
+                            SpreadsheetCellSaveHistoryToken.parseJson(
                                     cursor,
-                                    (s) -> s
+                                    String.class
                             )
                     );
                     break;

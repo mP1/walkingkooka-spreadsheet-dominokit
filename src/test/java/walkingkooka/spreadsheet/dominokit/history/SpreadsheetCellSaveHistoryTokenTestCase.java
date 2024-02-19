@@ -18,6 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends SpreadsheetCellSaveHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
@@ -30,6 +35,19 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
         this.setMenuWithCellAndCheck();
     }
 
+    static String toJson(final Map<SpreadsheetCellReference, ?> cellToValue) {
+        return JsonNodeMarshallContexts.basic()
+                .marshallMap(
+                        cellToValue.entrySet()
+                                .stream()
+                                .collect(
+                                        Collectors.toMap(
+                                                entry -> entry.getKey().toString(),
+                                                entry -> entry.getValue()
+                                        )
+                                )
+                ).toString();
+    }
 
     // patternKind......................................................................................................
 
