@@ -55,6 +55,7 @@ import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.math.MathContext;
@@ -268,6 +269,21 @@ public abstract class HistoryToken implements HasUrlFragment,
                 name,
                 anchoredSelection,
                 formulas
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellSaveStyleHistoryToken}
+     */
+    public static SpreadsheetCellSaveStyleHistoryToken cellSaveStyle(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                     final Map<SpreadsheetCellReference, TextStyle> styles) {
+        return SpreadsheetCellSaveStyleHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                styles
         );
     }
 
@@ -1730,7 +1746,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Creates a {@link SpreadsheetContextMenuItem} with the given id & text and this {@link HistoryToken}.
      */
     public final SpreadsheetContextMenuItem contextMenuItem(final String id,
-                                                      final String text) {
+                                                            final String text) {
         return SpreadsheetContextMenuItem.with(
                 id,
                 text
