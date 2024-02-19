@@ -24,13 +24,9 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursors;
 
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * This {@link HistoryToken} is used by to paste a formula over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRange}.
@@ -40,41 +36,26 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     static SpreadsheetCellSaveFormulaHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                       final Map<SpreadsheetCellReference, String> formulas) {
+                                                       final Map<SpreadsheetCellReference, String> value) {
         return new SpreadsheetCellSaveFormulaHistoryToken(
                 id,
                 name,
                 anchoredSelection,
-                Maps.immutable(formulas)
+                Maps.immutable(value)
         );
     }
 
     private SpreadsheetCellSaveFormulaHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final Map<SpreadsheetCellReference, String> formulas) {
-        super(id, name, anchoredSelection);
-        this.formulas = formulas;
-
-        // complain if any of the same formulas are outside the selection range.
-        final SpreadsheetSelection selection = anchoredSelection.selection();
-        if (false == selection.isLabelName()) {
-            final String outside = formulas.keySet()
-                    .stream()
-                    .filter(selection.negate())
-                    .map(SpreadsheetSelection::toString)
-                    .collect(Collectors.joining(", "));
-            if (false == outside.isEmpty()) {
-                throw new IllegalArgumentException("Save formulas includes cells " + outside + " outside " + selection);
-            }
-        }
+                                                   final Map<SpreadsheetCellReference, String> value) {
+        super(
+                id,
+                name,
+                anchoredSelection,
+                value
+        );
     }
-
-    public Map<SpreadsheetCellReference, String> formulas() {
-        return this.formulas;
-    }
-
-    private final Map<SpreadsheetCellReference, String> formulas;
 
     @Override
     HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
@@ -82,7 +63,7 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
                 this.id(),
                 this.name(),
                 anchoredSelection,
-                this.formulas
+                this.value
         );
     }
 
@@ -93,36 +74,16 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
                 id,
                 name,
                 this.anchoredSelection(),
-                this.formulas
+                this.value
         );
     }
 
     @Override
     UrlFragment cellSaveUrlFragment() {
-        return FORMULA.append(
-                UrlFragment.with(
-                        this.formulas.entrySet()
-                                .stream()
-                                .map(SpreadsheetCellSaveFormulaHistoryToken::cellToFormula)
-                                .collect(
-                                        Collectors.joining(
-                                                UrlFragment.SLASH.value()
-                                        )
-                                )
-                )
-        );
+        return FORMULA;
     }
 
-    private final static UrlFragment FORMULA = UrlFragment.parse("formula/");
-
-    // /A1/=1+2
-    // /B2/=3
-    private static String cellToFormula(final Entry<SpreadsheetCellReference, String> cellAndFormula) {
-        return cellAndFormula.getKey()
-                .toStringMaybeStar() +
-                '/' +
-                cellAndFormula.getValue();
-    }
+    private final static UrlFragment FORMULA = UrlFragment.parse("formula");
 
     @Override
     HistoryToken setSave0(final String value) {
@@ -130,9 +91,9 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                parseMap(
+                parseJson(
                         TextCursors.charSequence(value),
-                        Function.identity() // note the formula text is not validated for correctness.
+                        String.class // value type must be string
                 )
         );
     }
