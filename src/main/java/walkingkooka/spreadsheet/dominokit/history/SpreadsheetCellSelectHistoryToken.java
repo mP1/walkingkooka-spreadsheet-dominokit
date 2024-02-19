@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
 
@@ -148,6 +149,17 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             SpreadsheetCellSaveHistoryToken.parseJson(
                                     cursor,
                                     String.class
+                            )
+                    );
+                    break;
+                case "style":
+                    result = cellSaveStyle(
+                            this.id(),
+                            this.name(),
+                            this.anchoredSelection(),
+                            SpreadsheetCellSaveHistoryToken.parseJson(
+                                    cursor,
+                                    TextStyle.class
                             )
                     );
                     break;
