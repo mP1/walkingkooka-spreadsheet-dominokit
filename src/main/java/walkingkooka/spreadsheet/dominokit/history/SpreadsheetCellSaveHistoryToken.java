@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -202,10 +203,14 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     @Override//
     final UrlFragment cellUrlFragment() {
         // convert Map to JsonObject, marshall that into a String
+        final Function<V, JsonNode> marshall = this.valueType().isPresent() ?
+                this::marshallMapEntry :
+                this::marshallMapEntryWithType;
+
         final List<JsonNode> children = Lists.array();
         for (final Entry<SpreadsheetCellReference, V> cellAndValue : this.value().entrySet()) {
             children.add(
-                    MARSHALL_CONTEXT.marshall(
+                    marshall.apply(
                             cellAndValue.getValue()
                     ).setName(
                             JsonPropertyName.with(
