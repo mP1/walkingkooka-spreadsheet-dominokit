@@ -24,14 +24,13 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.text.cursor.TextCursors;
 
 import java.util.Map;
 
 /**
  * This {@link HistoryToken} is used by to paste a formula over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRange}.
  */
-public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCellSaveHistoryToken {
+public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCellSaveHistoryToken<String> {
 
     static SpreadsheetCellSaveFormulaHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
@@ -58,25 +57,24 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return new SpreadsheetCellSaveFormulaHistoryToken(
-                this.id(),
-                this.name(),
-                anchoredSelection,
-                this.value
-        );
+    Class<String> valueType() {
+        return String.class;
     }
 
     @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
+    SpreadsheetCellSaveFormulaHistoryToken replace(final SpreadsheetId id,
+                                                   final SpreadsheetName name,
+                                                   final AnchoredSpreadsheetSelection anchoredSelection,
+                                                   final Map<SpreadsheetCellReference, String> value) {
         return new SpreadsheetCellSaveFormulaHistoryToken(
                 id,
                 name,
-                this.anchoredSelection(),
-                this.value
+                anchoredSelection,
+                value
         );
     }
+
+    // HasUrlFragment...................................................................................................
 
     @Override
     UrlFragment cellSaveUrlFragment() {
@@ -84,19 +82,6 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     }
 
     private final static UrlFragment FORMULA = UrlFragment.parse("formula");
-
-    @Override
-    HistoryToken setSave0(final String value) {
-        return new SpreadsheetCellSaveFormulaHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                parseJson(
-                        TextCursors.charSequence(value),
-                        String.class // value type must be string
-                )
-        );
-    }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

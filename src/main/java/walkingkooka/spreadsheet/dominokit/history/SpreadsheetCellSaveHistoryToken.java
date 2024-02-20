@@ -26,11 +26,17 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.TextCursors;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
+import java.math.MathContext;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -86,6 +92,16 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
+    @Override //
+    final HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
+        return this.replace(
+                this.id(),
+                this.name(),
+                anchoredSelection,
+                this.value
+        );
+    }
+
     @Override
     public final HistoryToken setFormula() {
         return setFormula0();
@@ -94,6 +110,17 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     @Override //
     final HistoryToken setFormatPattern() {
         return this;
+    }
+
+    @Override
+    public final HistoryToken setIdAndName(final SpreadsheetId id,
+                                           final SpreadsheetName name) {
+        return this.replace(
+                id,
+                name,
+                this.anchoredSelection(),
+                this.value
+        );
     }
 
     @Override //
@@ -105,6 +132,56 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
+
+    @Override //
+    final HistoryToken setSave0(final String value) {
+        return this.replace(
+                this.id(),
+                this.name(),
+                this.anchoredSelection(),
+                SpreadsheetCellSaveHistoryToken.<V>parseJson(
+                        TextCursors.charSequence(value),
+                        this.valueType()
+                )
+        );
+    }
+
+    /**
+     * Used to consume the remainder of the {@link TextCursor} text giving some JSON where individual cells are mapped
+     * to a value. The type parameter will be used to unmarshall the value into a java object.
+     */
+    static <VV> Map<SpreadsheetCellReference, VV> parseJson(final TextCursor cursor,
+                                                            final Class<VV> valueType) {
+        return UNMARSHALL_CONTEXT.unmarshallMap(
+                JsonNode.parse(
+                        parseAll(cursor)
+                ),
+                SpreadsheetCellReference.class, // key is always a cell
+                valueType
+        );
+    }
+
+    private final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
+            ExpressionNumberKind.BIG_DECIMAL,
+            MathContext.DECIMAL64
+    );
+
+
+    /**
+     * Getter that returns the {@link Class} of the {@link Map} value.
+     */
+    abstract Class<V> valueType();
+
+    /**
+     * Factory method used by various would be setters when one or more components have changed and a new instance needs
+     * to be created.
+     */
+    abstract SpreadsheetCellSaveHistoryToken<V> replace(final SpreadsheetId id,
+                                                        final SpreadsheetName name,
+                                                        final AnchoredSpreadsheetSelection anchoredSelection,
+                                                        final Map<SpreadsheetCellReference, V> values);
+
+    // HasUrlFragment...................................................................................................
 
     @Override//
     final UrlFragment cellUrlFragment() {

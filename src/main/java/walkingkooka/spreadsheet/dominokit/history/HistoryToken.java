@@ -51,14 +51,9 @@ import walkingkooka.text.cursor.parser.ParserContext;
 import walkingkooka.text.cursor.parser.ParserContexts;
 import walkingkooka.text.cursor.parser.Parsers;
 import walkingkooka.text.cursor.parser.StringParserToken;
-import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.math.MathContext;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -809,26 +804,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     );
 
     private final static ParserContext CONTEXT = ParserContexts.fake();
-
-    /**
-     * Used to consume the remainder of the {@link TextCursor} text giving some JSON where individual cells are mapped
-     * to a value. The type parameter will be used to unmarshall the value into a java object.
-     */
-    static <V> Map<SpreadsheetCellReference, V> parseJson(final TextCursor cursor,
-                                                          final Class<V> valueType) {
-        return UNMARSHALL_CONTEXT.unmarshallMap(
-                JsonNode.parse(
-                        parseAll(cursor)
-                ),
-                SpreadsheetCellReference.class, // key is always a cell
-                valueType
-        );
-    }
-
-    private final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
-            ExpressionNumberKind.BIG_DECIMAL,
-            MathContext.DECIMAL64
-    );
 
     /**
      * Package private to limit sub-classing
