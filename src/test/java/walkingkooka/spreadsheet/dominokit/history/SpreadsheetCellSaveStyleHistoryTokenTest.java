@@ -157,7 +157,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
                         SELECTION,
                         cellToStyle
                 ),
-                "/123/SpreadsheetName456/cell/A1/save/style/" + toJson(cellToStyle)
+                "/123/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
         );
     }
 
@@ -178,7 +178,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
                         SELECTION,
                         cellToStyle
                 ),
-                "/123/SpreadsheetName456/cell/A1/save/style/" + toJson(cellToStyle)
+                "/123/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
         );
     }
 
@@ -210,7 +210,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
                                 .setDefaultAnchor(),
                         cellToStyle
                 ),
-                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/style/" + toJson(cellToStyle)
+                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/style/" + marshallMap(cellToStyle)
         );
     }
 

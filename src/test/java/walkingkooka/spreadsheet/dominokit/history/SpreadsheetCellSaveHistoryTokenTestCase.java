@@ -35,7 +35,7 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
         this.setMenuWithCellAndCheck();
     }
 
-    static String toJson(final Map<SpreadsheetCellReference, ?> cellToValue) {
+    static String marshallMap(final Map<SpreadsheetCellReference, ?> cellToValue) {
         return JsonNodeMarshallContexts.basic()
                 .marshallMap(
                         cellToValue.entrySet()
@@ -46,6 +46,13 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
                                                 entry -> entry.getValue()
                                         )
                                 )
+                ).toString();
+    }
+
+    static String marshallMapWithTypes(final Map<SpreadsheetCellReference, ?> cellToValue) {
+        return JsonNodeMarshallContexts.basic()
+                .marshallWithTypeMap(
+                        cellToValue
                 ).toString();
     }
 

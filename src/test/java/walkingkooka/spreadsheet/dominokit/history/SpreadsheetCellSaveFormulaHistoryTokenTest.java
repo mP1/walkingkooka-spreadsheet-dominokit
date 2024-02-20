@@ -141,7 +141,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
                         SELECTION,
                         cellToFormulaText
                 ),
-                "/123/SpreadsheetName456/cell/A1/save/formula/" + toJson(cellToFormulaText)
+                "/123/SpreadsheetName456/cell/A1/save/formula/" + marshallMap(cellToFormulaText)
         );
     }
 
@@ -159,7 +159,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
                         SELECTION,
                         cellToFormulaText
                 ),
-                "/123/SpreadsheetName456/cell/A1/save/formula/" + toJson(cellToFormulaText)
+                "/123/SpreadsheetName456/cell/A1/save/formula/" + marshallMap(cellToFormulaText)
         );
     }
 
@@ -182,7 +182,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
                                 .setDefaultAnchor(),
                         cellToFormulaText
                 ),
-                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formula/" + toJson(cellToFormulaText)
+                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formula/" + marshallMap(cellToFormulaText)
         );
     }
 
