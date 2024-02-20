@@ -135,14 +135,21 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
 
     @Override //
     final HistoryToken setSave0(final String value) {
+        final TextCursor cursor = TextCursors.charSequence(value);
+        final Optional<Class<V>> valueType = this.valueType();
+
         return this.replace(
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                SpreadsheetCellSaveHistoryToken.<V>parseJson(
-                        TextCursors.charSequence(value),
-                        this.valueType()
-                )
+                valueType.isEmpty() ?
+                        SpreadsheetCellSaveHistoryToken.parseMapWithTypes(
+                                cursor
+                        ) :
+                        SpreadsheetCellSaveHistoryToken.parseMap(
+                                cursor,
+                                valueType.get()
+                        )
         );
     }
 
@@ -150,14 +157,22 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
      * Used to consume the remainder of the {@link TextCursor} text giving some JSON where individual cells are mapped
      * to a value. The type parameter will be used to unmarshall the value into a java object.
      */
-    static <VV> Map<SpreadsheetCellReference, VV> parseJson(final TextCursor cursor,
-                                                            final Class<VV> valueType) {
+    static <VV> Map<SpreadsheetCellReference, VV> parseMap(final TextCursor cursor,
+                                                           final Class<VV> valueType) {
         return UNMARSHALL_CONTEXT.unmarshallMap(
                 JsonNode.parse(
                         parseAll(cursor)
                 ),
                 SpreadsheetCellReference.class, // key is always a cell
                 valueType
+        );
+    }
+
+    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithTypes(final TextCursor cursor) {
+        return UNMARSHALL_CONTEXT.unmarshallWithTypeMap(
+                JsonNode.parse(
+                        parseAll(cursor)
+                )
         );
     }
 
@@ -168,9 +183,10 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
 
 
     /**
-     * Getter that returns the {@link Class} of the {@link Map} value.
+     * Getter that returns the {@link Class} of the {@link Map} value. If empty the value is polymorphic, and
+     * marshalling and unmarshalling must include the type in the final JSON form.
      */
-    abstract Class<V> valueType();
+    abstract Optional<Class<V>> valueType();
 
     /**
      * Factory method used by various would be setters when one or more components have changed and a new instance needs
@@ -210,6 +226,25 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
                                 .setChildren(children)
                                 .toString()
                 )
+        );
+    }
+
+    /**
+     * Some {@lin Map} values are not polymorphic, eg formulas are always {@link String strings}.
+     */
+    final JsonNode marshallMapEntry(final V value) {
+        return MARSHALL_CONTEXT.marshall(
+                value
+        );
+    }
+
+    /**
+     * Some {@link Map} values are polymorphic, eg {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern patterns},
+     * and require the type to be recorded along with the marshalled JSON-form.
+     */
+    final JsonNode marshallMapEntryWithType(final V value) {
+        return MARSHALL_CONTEXT.marshallWithType(
+                value
         );
     }
 
