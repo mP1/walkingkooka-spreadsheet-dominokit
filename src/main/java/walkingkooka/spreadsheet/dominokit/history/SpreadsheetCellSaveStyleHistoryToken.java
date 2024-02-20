@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Map;
@@ -59,25 +58,25 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     }
 
     @Override
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return new SpreadsheetCellSaveStyleHistoryToken(
-                this.id(),
-                this.name(),
-                anchoredSelection,
-                this.value
-        );
+    Class<TextStyle> valueType() {
+        return TextStyle.class;
     }
 
     @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
+    SpreadsheetCellSaveStyleHistoryToken replace(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final AnchoredSpreadsheetSelection anchoredSelection,
+                                                 final Map<SpreadsheetCellReference, TextStyle> value) {
         return new SpreadsheetCellSaveStyleHistoryToken(
                 id,
                 name,
-                this.anchoredSelection(),
-                this.value
+                anchoredSelection,
+                value
         );
     }
+
+    // HasUrlFragment...................................................................................................
+
 
     @Override
     UrlFragment cellSaveUrlFragment() {
@@ -85,19 +84,6 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     }
 
     private final static UrlFragment STYLE = UrlFragment.parse("style");
-
-    @Override
-    HistoryToken setSave0(final String value) {
-        return new SpreadsheetCellSaveStyleHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                HistoryToken.parseJson(
-                        TextCursors.charSequence(value),
-                        TextStyle.class
-                )
-        );
-    }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
