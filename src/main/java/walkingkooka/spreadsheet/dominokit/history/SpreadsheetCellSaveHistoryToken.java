@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -144,7 +145,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
                 this.name(),
                 this.anchoredSelection(),
                 valueType.isEmpty() ?
-                        SpreadsheetCellSaveHistoryToken.parseMapWithTypes(
+                        SpreadsheetCellSaveHistoryToken.parseMapWithTypedValues(
                                 cursor
                         ) :
                         SpreadsheetCellSaveHistoryToken.parseMap(
@@ -169,12 +170,20 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
-    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithTypes(final TextCursor cursor) {
-        return UNMARSHALL_CONTEXT.unmarshallWithTypeMap(
-                JsonNode.parse(
-                        parseAll(cursor)
+    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithTypedValues(final TextCursor cursor) {
+        final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
+
+        for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
+                .objectOrFail().children()) {
+            values.put(
+                    SpreadsheetSelection.parseCell(keyAndValue.name().value()),
+                    UNMARSHALL_CONTEXT.unmarshallWithType(
+                            keyAndValue
                 )
         );
+    }
+
+        return values;
     }
 
     private final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
