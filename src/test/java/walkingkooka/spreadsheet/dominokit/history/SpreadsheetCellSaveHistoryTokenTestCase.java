@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 import java.util.Map;
@@ -36,8 +37,7 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
     }
 
     static String marshallMap(final Map<SpreadsheetCellReference, ?> cellToValue) {
-        return JsonNodeMarshallContexts.basic()
-                .marshallMap(
+        return MARSHALL_CONTEXT.marshallMap(
                         cellToValue.entrySet()
                                 .stream()
                                 .collect(
@@ -49,12 +49,22 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
                 ).toString();
     }
 
-    static String marshallMapWithTypes(final Map<SpreadsheetCellReference, ?> cellToValue) {
-        return JsonNodeMarshallContexts.basic()
-                .marshallWithTypeMap(
-                        cellToValue
+    static String marshallMapWithTypedValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
+        return MARSHALL_CONTEXT.marshallMap(
+                cellToValue.entrySet()
+                        .stream()
+                        .collect(
+                                Collectors.toMap(
+                                        entry -> entry.getKey().toString(),
+                                        entry -> MARSHALL_CONTEXT.marshallWithType(
+                                                entry.getValue()
+                                        )
+                                )
+                        )
                 ).toString();
     }
+
+    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     // patternKind......................................................................................................
 
