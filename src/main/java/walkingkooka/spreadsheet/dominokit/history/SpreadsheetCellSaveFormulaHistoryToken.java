@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * This {@link HistoryToken} is used by to paste a formula over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRange}.
@@ -57,8 +58,8 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    Class<String> valueType() {
-        return String.class;
+    Optional<Class<String>> valueType() {
+        return Optional.of(String.class);
     }
 
     @Override

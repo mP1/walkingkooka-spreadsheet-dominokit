@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * This {@link HistoryToken} is used by to paste a styles for many cells over another range.
@@ -58,8 +59,8 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     }
 
     @Override
-    Class<TextStyle> valueType() {
-        return TextStyle.class;
+    Optional<Class<TextStyle>> valueType() {
+        return Optional.of(TextStyle.class);
     }
 
     @Override
