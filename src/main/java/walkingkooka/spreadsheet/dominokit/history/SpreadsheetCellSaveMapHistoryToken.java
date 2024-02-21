@@ -17,92 +17,88 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
 import java.math.MathContext;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Base {@link HistoryToken} for several tokens that support saving or patching individual properties for a range of cells,
  * including formulas, style and more. This will be useful when PASTE functionality is added to the UI, so the user
  * can PASTE formulas, or style over a range of selected cells.
  */
-public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCellHistoryToken implements Value<V> {
+public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetCellSaveHistoryToken<Map<SpreadsheetCellReference, V>> {
 
-    SpreadsheetCellSaveHistoryToken(final SpreadsheetId id,
-                                    final SpreadsheetName name,
-                                    final AnchoredSpreadsheetSelection anchoredSelection) {
+    SpreadsheetCellSaveMapHistoryToken(final SpreadsheetId id,
+                                       final SpreadsheetName name,
+                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                       final Map<SpreadsheetCellReference, V> values) {
         super(
                 id,
                 name,
                 anchoredSelection
         );
+
+        // complain if any of the same formulas are outside the selection range.
+        final SpreadsheetSelection selection = anchoredSelection.selection();
+        if (false == selection.isLabelName()) {
+            final String outside = values.keySet()
+                    .stream()
+                    .filter(selection.negate())
+                    .map(SpreadsheetSelection::toString)
+                    .collect(Collectors.joining(", "));
+            if (false == outside.isEmpty()) {
+                throw new IllegalArgumentException("Save value includes cells " + outside + " outside " + selection);
+            }
+        }
+
+        this.value = values;
     }
 
     @Override
-    public final HistoryToken clearAction() {
-        return HistoryToken.cell(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
+    public final Map<SpreadsheetCellReference, V> value() {
+        return this.value;
     }
 
+    final Map<SpreadsheetCellReference, V> value;
+
     @Override //
-    final HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
+    final HistoryToken setSave0(final String value) {
+        final TextCursor cursor = TextCursors.charSequence(value);
+        final Optional<Class<V>> valueType = this.valueType();
+
         return this.replace(
                 this.id(),
                 this.name(),
-                anchoredSelection,
-                this.value()
-        );
-    }
-
-    @Override
-    public final HistoryToken setFormula() {
-        return setFormula0();
-    }
-
-    @Override //
-    final HistoryToken setFormatPattern() {
-        return this;
-    }
-
-    @Override
-    public final HistoryToken setIdAndName(final SpreadsheetId id,
-                                           final SpreadsheetName name) {
-        return this.replace(
-                id,
-                name,
                 this.anchoredSelection(),
-                this.value()
+                valueType.isEmpty() ?
+                        SpreadsheetCellSaveMapHistoryToken.parseMapWithTypedValues(
+                                cursor
+                        ) :
+                        SpreadsheetCellSaveMapHistoryToken.parseMap(
+                                cursor,
+                                valueType.get()
+                        )
         );
-    }
-
-    @Override //
-    final HistoryToken setParsePattern() {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
     }
 
     /**
@@ -142,52 +138,46 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     );
 
     /**
+     * Getter that returns the {@link Class} of the {@link Map} value. If empty the value is polymorphic, and
+     * marshalling and unmarshalling must include the type in the final JSON form.
+     */
+    abstract Optional<Class<V>> valueType();
+
+    /**
      * Factory method used by various would be setters when one or more components have changed and a new instance needs
      * to be created.
      */
-    abstract SpreadsheetCellSaveHistoryToken<V> replace(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final V value);
+    abstract SpreadsheetCellSaveMapHistoryToken<V> replace(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final AnchoredSpreadsheetSelection anchoredSelection,
+                                                           final Map<SpreadsheetCellReference, V> values);
 
     // HasUrlFragment...................................................................................................
 
     @Override//
-    final UrlFragment cellUrlFragment() {
-        return SAVE.append(
-                this.saveEntityUrlFragment()
-        ).append(
-                UrlFragment.SLASH
-        ).append(
-                this.saveValueUrlFragment()
+    final UrlFragment saveValueUrlFragment() {
+        final Function<V, JsonNode> marshall = this.valueType().isPresent() ?
+                this::marshallValue :
+                this::marshallValueWithType;
+
+        final List<JsonNode> children = Lists.array();
+        for (final Entry<SpreadsheetCellReference, V> cellAndValue : this.value().entrySet()) {
+            children.add(
+                    marshall.apply(
+                            cellAndValue.getValue()
+                    ).setName(
+                            JsonPropertyName.with(
+                                    cellAndValue.getKey()
+                                            .toStringMaybeStar()
+                            )
+                    )
+            );
+        }
+
+        return UrlFragment.with(
+                JsonNode.object()
+                        .setChildren(children)
+                        .toString()
         );
     }
-
-    /**
-     * This is a single word such as formula/cell etc. The values will be converted into JSON and appended.
-     */
-    abstract UrlFragment saveEntityUrlFragment();
-
-    abstract UrlFragment saveValueUrlFragment();
-
-    /**
-     * Some {@lin Map} values are not polymorphic, eg formulas are always {@link String strings}.
-     */
-    final JsonNode marshallValue(final Object value) {
-        return MARSHALL_CONTEXT.marshall(
-                value
-        );
-    }
-
-    /**
-     * Some {@link Map} values are polymorphic, eg {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern patterns},
-     * and require the type to be recorded along with the marshalled JSON-form.
-     */
-    final JsonNode marshallValueWithType(final Object value) {
-        return MARSHALL_CONTEXT.marshallWithType(
-                value
-        );
-    }
-
-    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 }

@@ -33,7 +33,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetCellSaveHistoryTokenTestCase<SpreadsheetCellSaveStyleHistoryToken> {
+public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveStyleHistoryToken> {
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {

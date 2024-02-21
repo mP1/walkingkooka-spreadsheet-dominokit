@@ -31,7 +31,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellSaveFormatPatternHistoryTokenTest extends SpreadsheetCellSaveHistoryTokenTestCase<SpreadsheetCellSaveFormatPatternHistoryToken> {
+public final class SpreadsheetCellSaveFormatPatternHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveFormatPatternHistoryToken> {
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {

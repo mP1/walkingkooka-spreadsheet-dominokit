@@ -32,7 +32,7 @@ import java.util.Optional;
 /**
  * This {@link HistoryToken} is used by to paste a {@link SpreadsheetParsePattern} for many cells over another range.
  */
-public final class SpreadsheetCellSaveParsePatternHistoryToken extends SpreadsheetCellSaveHistoryToken<SpreadsheetParsePattern> {
+public final class SpreadsheetCellSaveParsePatternHistoryToken extends SpreadsheetCellSaveMapHistoryToken<SpreadsheetParsePattern> {
 
     static SpreadsheetCellSaveParsePatternHistoryToken with(final SpreadsheetId id,
                                                             final SpreadsheetName name,
@@ -79,7 +79,7 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     // HasUrlFragment..................................................................................................
 
     @Override
-    UrlFragment cellSaveUrlFragment() {
+    UrlFragment saveEntityUrlFragment() {
         return PARSE_PATTERN;
     }
 
