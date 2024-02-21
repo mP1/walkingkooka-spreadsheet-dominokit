@@ -31,7 +31,7 @@ import java.util.Optional;
 /**
  * This {@link HistoryToken} is used by to paste a formula over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRange}.
  */
-public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCellSaveHistoryToken<String> {
+public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCellSaveMapHistoryToken<String> {
 
     static SpreadsheetCellSaveFormulaHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
@@ -78,7 +78,7 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     // HasUrlFragment...................................................................................................
 
     @Override
-    UrlFragment cellSaveUrlFragment() {
+    UrlFragment saveEntityUrlFragment() {
         return FORMULA;
     }
 

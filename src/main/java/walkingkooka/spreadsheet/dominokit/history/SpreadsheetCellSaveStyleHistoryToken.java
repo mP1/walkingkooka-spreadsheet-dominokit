@@ -32,7 +32,7 @@ import java.util.Optional;
 /**
  * This {@link HistoryToken} is used by to paste a styles for many cells over another range.
  */
-public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellSaveHistoryToken<TextStyle> {
+public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellSaveMapHistoryToken<TextStyle> {
 
     static SpreadsheetCellSaveStyleHistoryToken with(final SpreadsheetId id,
                                                      final SpreadsheetName name,
@@ -80,7 +80,7 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
 
 
     @Override
-    UrlFragment cellSaveUrlFragment() {
+    UrlFragment saveEntityUrlFragment() {
         return STYLE;
     }
 

@@ -29,7 +29,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends SpreadsheetCellSaveHistoryTokenTestCase<SpreadsheetCellSaveFormulaHistoryToken> {
+public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveFormulaHistoryToken> {
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {

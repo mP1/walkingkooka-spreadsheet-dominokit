@@ -18,12 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
-
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends SpreadsheetCellSaveHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
@@ -32,39 +28,11 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
     }
 
     @Test
-    public void testSetMenuWithCell() {
+    public final void testSetMenuWithCell() {
         this.setMenuWithCellAndCheck();
     }
 
-    static String marshallMap(final Map<SpreadsheetCellReference, ?> cellToValue) {
-        return MARSHALL_CONTEXT.marshallMap(
-                        cellToValue.entrySet()
-                                .stream()
-                                .collect(
-                                        Collectors.toMap(
-                                                entry -> entry.getKey().toString(),
-                                                entry -> entry.getValue()
-                                        )
-                                )
-                ).toString();
-    }
-
-    static String marshallMapWithTypedValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
-        return MARSHALL_CONTEXT.marshallMap(
-                cellToValue.entrySet()
-                        .stream()
-                        .collect(
-                                Collectors.toMap(
-                                        entry -> entry.getKey().toString(),
-                                        entry -> MARSHALL_CONTEXT.marshallWithType(
-                                                entry.getValue()
-                                        )
-                                )
-                        )
-                ).toString();
-    }
-
-    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
+    final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     // patternKind......................................................................................................
 
