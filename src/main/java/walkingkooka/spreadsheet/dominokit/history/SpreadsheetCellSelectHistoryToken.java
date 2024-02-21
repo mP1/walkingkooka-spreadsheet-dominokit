@@ -141,6 +141,16 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
             // there will be more such as cell/pattern-format/pattern-parse/style
             switch (component) {
+                case "cell":
+                    result = cellSaveCell(
+                            this.id(),
+                            this.name(),
+                            this.anchoredSelection(),
+                            SpreadsheetCellSaveHistoryToken.parseCells(
+                                    cursor
+                            )
+                    );
+                    break;
                 case "format-pattern":
                     result = cellSaveFormatPattern(
                             this.id(),

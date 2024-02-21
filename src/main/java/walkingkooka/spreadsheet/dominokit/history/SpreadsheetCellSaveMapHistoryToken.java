@@ -27,13 +27,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursors;
-import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
-import java.math.MathContext;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -131,11 +127,6 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
 
         return values;
     }
-
-    private final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
-            ExpressionNumberKind.BIG_DECIMAL,
-            MathContext.DECIMAL64
-    );
 
     /**
      * Getter that returns the {@link Class} of the {@link Map} value. If empty the value is polymorphic, and

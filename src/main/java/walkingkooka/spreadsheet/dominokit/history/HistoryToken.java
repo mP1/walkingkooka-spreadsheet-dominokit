@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.predicate.character.CharPredicates;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -60,6 +61,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -251,6 +253,21 @@ public abstract class HistoryToken implements HasUrlFragment,
                 id,
                 name,
                 anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellSaveCellHistoryToken}
+     */
+    public static SpreadsheetCellSaveCellHistoryToken cellSaveCell(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                   final Set<SpreadsheetCell> value) {
+        return SpreadsheetCellSaveCellHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                value
         );
     }
 
