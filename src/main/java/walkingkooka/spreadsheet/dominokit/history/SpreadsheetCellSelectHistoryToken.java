@@ -162,6 +162,16 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             )
                     );
                     break;
+                case "parse-pattern":
+                    result = cellSaveParsePattern(
+                            this.id(),
+                            this.name(),
+                            this.anchoredSelection(),
+                            SpreadsheetCellSaveHistoryToken.parseMapWithTypedValues(
+                                    cursor
+                            )
+                    );
+                    break;
                 case "style":
                     result = cellSaveStyle(
                             this.id(),

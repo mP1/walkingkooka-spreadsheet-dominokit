@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -281,6 +282,21 @@ public abstract class HistoryToken implements HasUrlFragment,
                 name,
                 anchoredSelection,
                 formulas
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellSaveParsePatternHistoryToken}
+     */
+    public static SpreadsheetCellSaveParsePatternHistoryToken cellSaveParsePattern(final SpreadsheetId id,
+                                                                                   final SpreadsheetName name,
+                                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                                   final Map<SpreadsheetCellReference, SpreadsheetParsePattern> value) {
+        return SpreadsheetCellSaveParsePatternHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                value
         );
     }
 
