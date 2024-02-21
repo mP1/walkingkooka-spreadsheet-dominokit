@@ -213,8 +213,8 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     final UrlFragment cellUrlFragment() {
         // convert Map to JsonObject, marshall that into a String
         final Function<V, JsonNode> marshall = this.valueType().isPresent() ?
-                this::marshallMapEntry :
-                this::marshallMapEntryWithType;
+                this::marshallValue :
+                this::marshallValueWithType;
 
         final List<JsonNode> children = Lists.array();
         for (final Entry<SpreadsheetCellReference, V> cellAndValue : this.value().entrySet()) {
@@ -246,7 +246,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     /**
      * Some {@lin Map} values are not polymorphic, eg formulas are always {@link String strings}.
      */
-    final JsonNode marshallMapEntry(final V value) {
+    final JsonNode marshallValue(final V value) {
         return MARSHALL_CONTEXT.marshall(
                 value
         );
@@ -256,7 +256,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
      * Some {@link Map} values are polymorphic, eg {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern patterns},
      * and require the type to be recorded along with the marshalled JSON-form.
      */
-    final JsonNode marshallMapEntryWithType(final V value) {
+    final JsonNode marshallValueWithType(final V value) {
         return MARSHALL_CONTEXT.marshallWithType(
                 value
         );
