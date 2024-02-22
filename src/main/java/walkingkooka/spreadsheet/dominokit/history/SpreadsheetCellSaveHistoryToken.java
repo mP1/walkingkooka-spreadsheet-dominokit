@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.Value;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -37,6 +38,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import java.math.MathContext;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Base {@link HistoryToken} for several tokens that support saving or patching individual properties for a range of cells,
@@ -105,6 +107,15 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         return this;
     }
 
+    static Set<SpreadsheetCell> parseCells(final TextCursor cursor) {
+        return UNMARSHALL_CONTEXT.unmarshallSet(
+                JsonNode.parse(
+                        parseAll(cursor)
+                ),
+                SpreadsheetCell.class
+        );
+    }
+
     /**
      * Used to consume the remainder of the {@link TextCursor} text giving some JSON where individual cells are mapped
      * to a value. The type parameter will be used to unmarshall the value into a java object.
@@ -136,7 +147,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         return values;
     }
 
-    private final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
+    final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
             ExpressionNumberKind.BIG_DECIMAL,
             MathContext.DECIMAL64
     );
@@ -189,5 +200,5 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
-    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
+    final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 }
