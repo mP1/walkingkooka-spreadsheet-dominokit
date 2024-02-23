@@ -25,11 +25,16 @@ import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -37,6 +42,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Map;
@@ -52,6 +58,7 @@ import java.util.stream.Collectors;
  * for the cells in the spreadsheet viewport TABLE.
  */
 public final class SpreadsheetViewportCache implements NopFetcherWatcher,
+        HistoryTokenWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 
@@ -70,6 +77,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     private SpreadsheetViewportCache(final AppContext context) {
         super();
 
+        context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
     }
@@ -274,6 +282,98 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     private OptionalInt rowCount = OptionalInt.empty();
 
     /**
+     * Returns a {@link SpreadsheetSelectionSummary} that is up-to-date for the current selection and present cells.
+     * If a value is present the menu item or icon will be ticked/selected otherwise it will be clear.
+     */
+    public SpreadsheetSelectionSummary selectionSummary() {
+        if (null == this.selectionSummary) {
+            final SpreadsheetSelection selectionNotLabel = this.selectionNotLabel.orElse(null);
+            SpreadsheetSelectionSummary selectionSummary = SpreadsheetSelectionSummary.EMPTY;
+
+            if (null != selectionNotLabel) {
+                final Set<SpreadsheetFormatPattern> formatPatterns = Sets.hash();
+                final Set<SpreadsheetParsePattern> parsePatterns = Sets.hash();
+                final Map<TextStylePropertyName<?>, Set<Object>> styleNameToValues = Maps.sorted();
+
+                for (final SpreadsheetCell cell : this.cells.values()) {
+                    if (selectionNotLabel.test(cell.reference())) {
+                        final SpreadsheetFormatPattern formatPattern = cell.formatPattern()
+                                .orElse(null);
+                        if (null != formatPattern) {
+                            formatPatterns.add(formatPattern);
+                        }
+
+                        final SpreadsheetParsePattern parsePattern = cell.parsePattern()
+                                .orElse(null);
+                        if (null != parsePattern) {
+                            parsePatterns.add(parsePattern);
+                        }
+
+                        for (final Entry<TextStylePropertyName<?>, Object> styleNameAndValue : cell.style().value().entrySet()) {
+                            final TextStylePropertyName<?> styleName = styleNameAndValue.getKey();
+
+                            Set<Object> values = styleNameToValues.get(styleName);
+                            if (null == values) {
+                                values = Sets.hash();
+                                styleNameToValues.put(
+                                        styleName,
+                                        values
+                                );
+                            }
+
+                            values.add(
+                                    styleNameAndValue.getValue()
+                            );
+                        }
+                    }
+                }
+
+                final SpreadsheetFormatPattern formatPattern = formatPatterns.size() == 1 ?
+                        formatPatterns.iterator().next() :
+                        null;
+
+                final SpreadsheetParsePattern parsePattern = parsePatterns.size() == 1 ?
+                        parsePatterns.iterator().next() :
+                        null;
+
+                final Map<TextStylePropertyName<?>, Object> styleNameToValue = Maps.sorted();
+                for (final Entry<TextStylePropertyName<?>, Set<Object>> styleNameAndValue : styleNameToValues.entrySet()) {
+                    final Set<Object> values = styleNameAndValue.getValue();
+
+                    if (values.size() == 1) {
+                        styleNameToValue.put(
+                                styleNameAndValue.getKey(),
+                                values.iterator().next()
+                        );
+                    }
+                }
+
+                if (formatPatterns.size() + parsePatterns.size() + styleNameToValues.size() > 0) {
+                    selectionSummary = SpreadsheetSelectionSummary.with(
+                            Optional.ofNullable(formatPattern), // format
+                            Optional.ofNullable(parsePattern), // parse
+                            TextStyle.EMPTY.setValues(styleNameToValue) // style
+                    );
+                }
+            }
+
+            this.selectionSummary = selectionSummary;
+        }
+        return this.selectionSummary;
+    }
+
+    private SpreadsheetSelectionSummary selectionSummary = SpreadsheetSelectionSummary.with(
+            Optional.empty(),
+            Optional.empty(),
+            TextStyle.EMPTY
+    );
+
+    /**
+     * The {@link SpreadsheetSelection} for the given currently cached {@link #selectionSummary}.
+     */
+    private Optional<SpreadsheetSelection> selectionNotLabel = Optional.empty();
+
+    /**
      * Sets a new {@link SpreadsheetViewportWindows}.
      */
     public void setWindows(final SpreadsheetViewportWindows windows) {
@@ -311,6 +411,30 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * The viewport. This is used to filter cells and labels in the cache.
      */
     private SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.EMPTY;
+
+    // HistoryTokenWatcher..............................................................................................
+
+    @Override
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
+        final Optional<SpreadsheetSelection> maybeSelectionNotLabel = context.historyToken()
+                .anchoredSelectionOrEmpty()
+                .map(AnchoredSpreadsheetSelection::selection)
+                .flatMap(this::nonLabelSelection);
+
+        // clear the cached #selectionSummary if there is no active selection or it changed.
+        if (maybeSelectionNotLabel.isPresent()) {
+            final SpreadsheetSelection selectionNotLabel = maybeSelectionNotLabel.get();
+
+            if (false == selectionNotLabel.equals(this.selectionNotLabel)) {
+                this.selectionSummary = null;
+            }
+        } else {
+            this.selectionSummary = null;
+        }
+
+        this.selectionNotLabel = maybeSelectionNotLabel;
+    }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
 

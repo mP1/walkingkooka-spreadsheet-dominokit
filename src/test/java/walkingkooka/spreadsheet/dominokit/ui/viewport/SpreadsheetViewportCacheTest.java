@@ -20,18 +20,28 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.color.Color;
+import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
@@ -42,6 +52,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -2107,25 +2118,656 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    // selectionSummary.................................................................................................
+
+    @Test
+    public void testSelectionSummaryNoSelection() {
+        final AppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.EMPTY
+        );
+    }
+
+    private final static SpreadsheetId ID = SpreadsheetId.with(1);
+
+    private final static SpreadsheetName NAME = SpreadsheetName.with("Spreadsheet123");
+
+    @Test
+    public void testSelectionSummaryChangeClearsSelection() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.unknown(
+                        UrlFragment.with("/hello")
+                )
+        );
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                )
+        );
+
+        context.pushHistoryToken(
+                HistoryToken.unknown(
+                        UrlFragment.with("/hello")
+                )
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.EMPTY
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryFormatPatterns() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final SpreadsheetFormatPattern date = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd");
+        final SpreadsheetFormatPattern text = SpreadsheetPattern.parseTextFormatPattern("@@@");
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setFormatPattern(
+                                        Optional.of(
+                                                date
+                                        )
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(
+                                                        date
+                                                )
+                                        ),
+                                SpreadsheetSelection.parseCell("B1")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ),
+                                SpreadsheetSelection.parseCell("C3")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(text)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.of(date), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY // style
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryFormatPatternsClash() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final SpreadsheetFormatPattern date = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd");
+        final SpreadsheetFormatPattern text = SpreadsheetPattern.parseTextFormatPattern("@@@");
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setFormatPattern(
+                                        Optional.of(
+                                                date
+                                        )
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(
+                                                        text
+                                                )
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.empty(), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY // style
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryParsePatterns() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final SpreadsheetParsePattern date = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd");
+        final SpreadsheetParsePattern time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss");
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setParsePattern(
+                                        Optional.of(
+                                                date
+                                        )
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setParsePattern(
+                                                Optional.of(
+                                                        date
+                                                )
+                                        ),
+                                SpreadsheetSelection.parseCell("B1")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ),
+                                SpreadsheetSelection.parseCell("C3")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setParsePattern(
+                                                Optional.of(time)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.empty(), // format
+                        Optional.of(date), // parse
+                        TextStyle.EMPTY // style
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryParsePatternsClash() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final SpreadsheetParsePattern date = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd");
+        final SpreadsheetParsePattern time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss");
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setParsePattern(
+                                        Optional.of(
+                                                date
+                                        )
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setParsePattern(
+                                                Optional.of(
+                                                        time
+                                                )
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.empty(), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY // style
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryStyle() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
+        final Color color1 = Color.parse("#111");
+        final Color color2 = Color.parse("#222");
+
+        final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
+        final TextAlign align1 = TextAlign.LEFT;
+        final TextAlign align2 = TextAlign.RIGHT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(colorName, color1)
+                                                .set(textAlign, align1)
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color1)
+                                                        .set(textAlign, align1)
+                                        ),
+                                SpreadsheetSelection.parseCell("B1")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setStyle(
+                                                TextStyle.EMPTY
+                                        ),
+                                SpreadsheetSelection.parseCell("C3")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color2)
+                                                        .set(textAlign, align2)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.empty(), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY.set(
+                                colorName,
+                                color1
+                        ).set(
+                                textAlign,
+                                align1
+                        ) // style
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryStyleAllClash() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
+        final Color color1 = Color.parse("#111");
+        final Color color2 = Color.parse("#222");
+
+        final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
+        final TextAlign align1 = TextAlign.LEFT;
+        final TextAlign align2 = TextAlign.RIGHT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(colorName, color1)
+                                                .set(textAlign, align1)
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color2)
+                                                        .set(textAlign, align2)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.empty(), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY // style
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryStyleSomeClashes() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
+        final Color color1 = Color.parse("#111");
+
+        final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
+        final TextAlign align1 = TextAlign.LEFT;
+        final TextAlign align2 = TextAlign.RIGHT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(colorName, color1)
+                                                .set(textAlign, align1)
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color1)
+                                                        .set(textAlign, align2)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.empty(), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY.set(
+                                colorName,
+                                color1
+                        ) // style
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryHistoryTokenDeltaHistoryTokenDifferentSelection() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final SpreadsheetFormatPattern format1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetFormatPattern format2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00");
+
+        final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
+        final Color color1 = Color.parse("#111");
+
+        final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
+        final TextAlign align1 = TextAlign.LEFT;
+        final TextAlign align2 = TextAlign.RIGHT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setFormatPattern(
+                                        Optional.of(format1)
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(colorName, color1)
+                                                .set(textAlign, align1)
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(format2)
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color1)
+                                                        .set(textAlign, align2)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A2:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.of(format2), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY.set(
+                                colorName,
+                                color1
+                        ).set(
+                                textAlign,
+                                align2
+                        ) // style
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryHistoryTokenDeltaHistoryTokenClearSelection() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final SpreadsheetFormatPattern format1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetFormatPattern format2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00");
+
+        final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
+        final Color color1 = Color.parse("#111");
+
+        final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
+        final TextAlign align1 = TextAlign.LEFT;
+        final TextAlign align2 = TextAlign.RIGHT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setFormatPattern(
+                                        Optional.of(format1)
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(colorName, color1)
+                                                .set(textAlign, align1)
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(format2)
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color1)
+                                                        .set(textAlign, align2)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        context.pushHistoryToken(
+                HistoryToken.labelMapping(
+                        ID,
+                        NAME,
+                        Optional.of(
+                                SpreadsheetSelection.labelName("Label123")
+                        )
+                )
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.EMPTY
+        );
+    }
+
+    private void selectionSummaryAndCheck(final SpreadsheetViewportCache cache,
+                                          final SpreadsheetSelectionSummary expected) {
+        this.checkEquals(
+                expected,
+                cache.selectionSummary(),
+                () -> cache.toString()
+        );
+    }
+
+    // helpers..........................................................................................................
+
     private SpreadsheetViewportCache viewportCache() {
-        return new FakeAppContext() {
-            @Override
-            public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-                return null;
-            }
+        return this.context()
+                .viewportCache();
+    }
 
-            @Override
-            public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-                return null;
-            }
+    private TestAppContext context() {
+        return new TestAppContext();
+    }
 
-            @Override
-            public SpreadsheetViewportCache viewportCache() {
-                return this.viewportCache;
-            }
+    static final class TestAppContext extends FakeAppContext {
 
-            private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
-        }.viewportCache();
+        @Override
+        public void pushHistoryToken(final HistoryToken token) {
+            final HistoryToken previous = this.historyToken;
+            this.historyToken = token;
+
+            this.historyTokenWatchers.onHistoryTokenChange(
+                    previous,
+                    this
+            );
+        }
+
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return this.historyTokenWatchers.add(watcher);
+        }
+
+        private HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+
+        @Override
+        public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return null;
+        }
+
+        @Override
+        public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            return null;
+        }
+
+        @Override
+        public HistoryToken historyToken() {
+            return this.historyToken;
+        }
+
+        private HistoryToken historyToken;
+
+        @Override
+        public SpreadsheetViewportCache viewportCache() {
+            return this.viewportCache;
+        }
+
+        private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
     }
 
     private void checkCells(final SpreadsheetViewportCache cache,
