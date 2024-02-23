@@ -103,6 +103,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.lock_remove_outline();
     }
 
+    public static MdiIcon checked() {
+        return SpreadsheetIcons.checked();
+    }
+
     public static MdiIcon clearStyle() {
         return Icons.format_clear();
     }
