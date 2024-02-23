@@ -260,6 +260,18 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_letter_case_upper();
     }
 
+    public static MdiIcon textWrappingClip() {
+        return Icons.format_text_wrapping_clip();
+    }
+
+    public static MdiIcon textWrappingOverflow() {
+        return Icons.format_text_wrapping_overflow();
+    }
+
+    public static MdiIcon textWrappingWrap() {
+        return Icons.format_text_wrapping_wrap();
+    }
+
     public static MdiIcon underline() {
         return Icons.format_underline();
     }
