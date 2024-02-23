@@ -58,15 +58,20 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     /**
      * Creates a new cache with no cells or labels present.
      */
-    public static SpreadsheetViewportCache empty() {
-        return new SpreadsheetViewportCache();
+    public static SpreadsheetViewportCache empty(final AppContext context) {
+        return new SpreadsheetViewportCache(
+                Objects.requireNonNull(context, "context")
+        );
     }
 
     /**
      * Private ctor use static factory
      */
-    private SpreadsheetViewportCache() {
+    private SpreadsheetViewportCache(final AppContext context) {
         super();
+
+        context.addSpreadsheetDeltaWatcher(this);
+        context.addSpreadsheetMetadataWatcher(this);
     }
 
     /**
