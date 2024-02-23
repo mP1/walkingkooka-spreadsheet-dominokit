@@ -140,7 +140,7 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
                         PARSE,
                         STYLE
                 ),
-                FORMAT + " " + PARSE + " " + STYLE
+                FORMAT.get() + " " + PARSE.get() + " " + STYLE
         );
     }
 
