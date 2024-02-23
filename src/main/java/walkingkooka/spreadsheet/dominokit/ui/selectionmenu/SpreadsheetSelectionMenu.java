@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.Overflow;
+import walkingkooka.tree.text.OverflowWrap;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -192,6 +194,7 @@ public class SpreadsheetSelectionMenu {
     // STRIKE THRU
     // UNDERLINE
     // CASE
+    // WRAPPING
     // CLEAR STYLE
     private static void renderStyle(final HistoryToken historyToken,
                                     final SpreadsheetContextMenu menu,
@@ -204,6 +207,7 @@ public class SpreadsheetSelectionMenu {
         renderFontStyle(historyToken, menu, context);
         renderTextDecoration(historyToken, menu, context);
         renderTextCase(historyToken, menu, context);
+        renderTextWrapping(historyToken, menu, context);
         renderClearStyle(historyToken, menu, context);
 
         menu.separator();
@@ -429,6 +433,48 @@ public class SpreadsheetSelectionMenu {
                         ).icon(
                                 Optional.of(
                                         SpreadsheetIcons.textCaseUpper()
+                                )
+                        )
+        );
+    }
+
+    private static void renderTextWrapping(final HistoryToken historyToken,
+                                           final SpreadsheetContextMenu menu,
+                                           final SpreadsheetSelectionMenuContext context) {
+        menu.subMenu(
+                context.idPrefix() + "text-wrapping" + SpreadsheetIds.SUB_MENU,
+                "Wrapping"
+        ).item(
+                historyToken.setStyle(TextStylePropertyName.OVERFLOW_WRAP)
+                        .setSave(OverflowWrap.NORMAL)
+                        .contextMenuItem(
+                                context.idPrefix() + "clip" + SpreadsheetIds.MENU_ITEM,
+                                "Clip"
+                        ).icon(
+                                Optional.of(
+                                        SpreadsheetIcons.textWrappingClip()
+                                )
+                        )
+        ).item(
+                historyToken.setStyle(TextStylePropertyName.OVERFLOW_X)
+                        .setSave(Overflow.VISIBLE)
+                        .contextMenuItem(
+                                context.idPrefix() + "overflow" + SpreadsheetIds.MENU_ITEM,
+                                "Overflow"
+                        ).icon(
+                                Optional.of(
+                                        SpreadsheetIcons.textWrappingOverflow()
+                                )
+                        )
+        ).item(
+                historyToken.setStyle(TextStylePropertyName.OVERFLOW_X)
+                        .setSave(Overflow.HIDDEN)
+                        .contextMenuItem(
+                                context.idPrefix() + "wrap" + SpreadsheetIds.MENU_ITEM,
+                                "Wrap"
+                        ).icon(
+                                Optional.of(
+                                        SpreadsheetIcons.textWrappingClip()
                                 )
                         )
         );
