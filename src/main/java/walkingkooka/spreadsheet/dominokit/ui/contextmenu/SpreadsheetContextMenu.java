@@ -31,6 +31,7 @@ import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -197,6 +198,14 @@ public class SpreadsheetContextMenu {
             menuItem.appendChild(
                     PostfixAddOn.of(
                             item.badge.get()
+                    )
+            );
+        }
+
+        if (item.checked) {
+            menuItem.appendChild(
+                    PostfixAddOn.of(
+                            SpreadsheetIcons.checked()
                     )
             );
         }

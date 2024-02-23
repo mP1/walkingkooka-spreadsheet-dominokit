@@ -51,7 +51,8 @@ public final class SpreadsheetContextMenuItem {
                 text,
                 Optional.empty(), // badge
                 Optional.empty(), // historyToken
-                Optional.empty() // icon
+                Optional.empty(), // icon
+                false // checked
         );
     }
 
@@ -59,12 +60,14 @@ public final class SpreadsheetContextMenuItem {
                                final String text,
                                final Optional<Badge> badge,
                                final Optional<HistoryToken> historyToken,
-                               final Optional<Icon<?>> icon) {
+                               final Optional<Icon<?>> icon,
+                               final boolean checked) {
         this.id = id;
         this.text = text;
         this.badge = badge;
         this.historyToken = historyToken;
         this.icon = icon;
+        this.checked = checked;
     }
 
     final String id;
@@ -81,7 +84,8 @@ public final class SpreadsheetContextMenuItem {
                         this.text,
                         badge,
                         this.historyToken,
-                        this.icon
+                        this.icon,
+                        this.checked
                 );
     }
 
@@ -97,7 +101,8 @@ public final class SpreadsheetContextMenuItem {
                         this.text,
                         this.badge,
                         historyToken,
-                        this.icon
+                        this.icon,
+                        this.checked
                 );
     }
 
@@ -113,11 +118,28 @@ public final class SpreadsheetContextMenuItem {
                         this.text,
                         this.badge,
                         this.historyToken,
-                        icon
+                        icon,
+                        this.checked
                 );
     }
 
     final Optional<Icon<?>> icon;
+
+    public SpreadsheetContextMenuItem checked(final boolean checked) {
+
+        return this.checked == checked ?
+                this :
+                new SpreadsheetContextMenuItem(
+                        this.id,
+                        this.text,
+                        this.badge,
+                        this.historyToken,
+                        this.icon,
+                        checked
+                );
+    }
+
+    final boolean checked;
 
     @Override
     public String toString() {
@@ -130,6 +152,8 @@ public final class SpreadsheetContextMenuItem {
                 .value(this.badge)
                 .value(this.historyToken)
                 .value(this.icon)
+                .label("checked")
+                .value(this.checked)
                 .build();
     }
 }
