@@ -25,7 +25,10 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -110,14 +113,15 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testNonLabelSelectionLabel() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final AppContext context = this.appContext();
+        final SpreadsheetViewportCache cache = context.viewportCache();
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 LABEL.mapping(CELL)
                         )
                 ),
-                new FakeAppContext()
+                context
         );
 
         this.nonLabelSelectionAndCheck(
@@ -133,7 +137,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testNonLabelSelectionUnknownLabel() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.appContext()
+                .viewportCache();
 
         this.nonLabelSelectionAndCheck(
                 HistoryToken.cell(
@@ -172,7 +177,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         NAME,
                         selection.setDefaultAnchor()
                 ),
-                SpreadsheetViewportCache.empty(),
+                this.appContext()
+                        .viewportCache(),
                 selection
         );
     }
@@ -3811,5 +3817,26 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Override
     public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
         throw new UnsupportedOperationException();
+    }
+
+    private AppContext appContext() {
+        return new FakeAppContext() {
+            @Override
+            public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public SpreadsheetViewportCache viewportCache() {
+                return this.viewportCache;
+            }
+
+            private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
+        };
     }
 }

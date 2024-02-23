@@ -29,6 +29,8 @@ import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -111,7 +113,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testEmpty() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         this.checkCells(
                 cache
@@ -139,13 +141,13 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testClear() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
         cache.clear();
     }
 
     @Test
     public void testClearOnSpreadsheetMetadata() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
         cache.clear();
 
         final double width = 100;
@@ -176,7 +178,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testClearOnSpreadsheetDelta() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.clear();
 
@@ -260,7 +262,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         final double width = 123;
         final double height = 456;
 
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY
@@ -287,7 +289,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaFirstWithoutWindow() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -346,7 +348,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaFirstWithWindow() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -406,7 +408,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaFirstLabelToRange() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -436,7 +438,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaFirstLabelToRangeOutsideWindow() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         final SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.parse("A1:A2");
 
@@ -474,7 +476,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceCellReplaced() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -525,7 +527,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceColumnsReplaced() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -563,7 +565,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceColumnsReplaced2() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -600,7 +602,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceColumnsDeleted() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -636,7 +638,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceLabelsReplaced() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -677,7 +679,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceLabelsReplaced2() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -714,7 +716,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceDeletedCell() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -758,7 +760,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceMergedDifferentNoWindow() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -817,7 +819,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceSecondEmpty() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -861,7 +863,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceSecondDeletedCells() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -913,7 +915,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceMergedDifferentSameWindows() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -973,7 +975,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceRowsReplaced() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1011,7 +1013,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceRowsReplaced2() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1048,7 +1050,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaTwiceRowsDeleted() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1086,7 +1088,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaColumnWidths() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1110,7 +1112,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaColumnWidthsUpdates() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1149,14 +1151,14 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     public void testColumnWidthNullFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetViewportCache.empty()
+                () -> this.viewportCache()
                         .columnWidth(null)
         );
     }
 
     @Test
     public void testColumnWidthMissingDefaulted() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1200,7 +1202,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaLabelMappings() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1224,7 +1226,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaLabelMappingsReplaces() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1263,7 +1265,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaRowHeights() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1287,7 +1289,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testOnSpreadsheetDeltaRowHeightsUpdates() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1326,14 +1328,14 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     public void testRowHeightNullFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetViewportCache.empty()
+                () -> this.viewportCache()
                         .rowHeight(null)
         );
     }
 
     @Test
     public void testRowHeightMissingDefaulted() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1374,7 +1376,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLost() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setLabels(
@@ -1402,7 +1404,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionCell() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setLabels(
@@ -1475,7 +1477,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     }
 
     private void testNonLabelSelectionCellRange(final SpreadsheetSelection nonLabel) {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1511,7 +1513,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLabelToCell() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1547,7 +1549,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLabelToCell2() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1597,7 +1599,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLabelToCellRange() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1655,7 +1657,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLabelToLabelToCell() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY,
@@ -1704,7 +1706,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLabelToLabelToCellRange() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY,
@@ -1760,7 +1762,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLabelToLabelToCell2() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY,
@@ -1809,7 +1811,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLabelToLabelToCell3() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1882,7 +1884,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testNonLabelSelectionLabelToLabelToLabelToCell() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1968,14 +1970,14 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     @Test
     public void testLabelMappingsEmpty() {
         this.labelMappingsAndCheck(
-                SpreadsheetViewportCache.empty(),
+                this.viewportCache(),
                 SpreadsheetSelection.A1
         );
     }
 
     @Test
     public void testLabelMappingsOutside() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setLabels(
@@ -1994,7 +1996,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testLabelMappingsCell() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setLabels(
@@ -2016,7 +2018,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testLabelMappingsCellRange() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setLabels(
@@ -2039,7 +2041,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testLabelMappingsCellRange2() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setLabels(
@@ -2059,7 +2061,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testLabelMappingsLabel() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
 
         final SpreadsheetLabelMapping labelToLabel = LABEL999.mapping(
                 LABEL_MAPPINGA1A.label()
@@ -2103,6 +2105,27 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 cache.labelMappings(selection),
                 () -> cache + " labelMappings " + selection
         );
+    }
+
+    private SpreadsheetViewportCache viewportCache() {
+        return new FakeAppContext() {
+            @Override
+            public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public SpreadsheetViewportCache viewportCache() {
+                return this.viewportCache;
+            }
+
+            private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
+        }.viewportCache();
     }
 
     private void checkCells(final SpreadsheetViewportCache cache,
@@ -2438,7 +2461,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     @Test
     public void testIsColumnHiddenAbsent() {
         this.isColumnHiddenAndCheck(
-                SpreadsheetViewportCache.empty(),
+                this.viewportCache(),
                 A,
                 false
         );
@@ -2446,7 +2469,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testIsColumnHiddenPresent() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setColumns(
                         Sets.of(COLUMN_A)
@@ -2462,7 +2485,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testIsColumnHiddenPresentAndHidden() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setColumns(
                         Sets.of(COLUMN_A.setHidden(true))
@@ -2491,7 +2514,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
     @Test
     public void testIsRowHiddenAbsent() {
         this.isRowHiddenAndCheck(
-                SpreadsheetViewportCache.empty(),
+                this.viewportCache(),
                 ROW_REF_1,
                 false
         );
@@ -2499,7 +2522,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testIsRowHiddenPresent() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setRows(
                         Sets.of(ROW_1)
@@ -2515,7 +2538,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
 
     @Test
     public void testIsRowHiddenPresentAndHidden() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty();
+        final SpreadsheetViewportCache cache = this.viewportCache();
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setRows(
                         Sets.of(ROW_1.setHidden(true))

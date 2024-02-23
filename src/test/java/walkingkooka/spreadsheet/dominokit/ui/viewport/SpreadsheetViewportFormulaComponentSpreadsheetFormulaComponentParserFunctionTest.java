@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -68,7 +70,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 () -> SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.labelName("Unknown"),
-                                SpreadsheetViewportCache.empty(),
                                 SpreadsheetMetadata.EMPTY
                         )
                 ).apply("=1")
@@ -83,7 +84,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                SpreadsheetViewportCache.empty(),
                                 METADATA
                         )
                 ),
@@ -103,7 +103,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                SpreadsheetViewportCache.empty(),
                                 METADATA
                         )
                 ),
@@ -117,7 +116,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                SpreadsheetViewportCache.empty(),
                                 METADATA
                         )
                 ),
@@ -131,7 +129,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                SpreadsheetViewportCache.empty(),
                                 METADATA
                         )
                 ),
@@ -145,7 +142,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                SpreadsheetViewportCache.empty(),
                                 METADATA
                         )
                 ),
@@ -159,7 +155,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                SpreadsheetViewportCache.empty(),
                                 METADATA
                         )
                 ),
@@ -173,7 +168,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                SpreadsheetViewportCache.empty(),
                                 METADATA
                         )
                 ),
@@ -187,7 +181,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                SpreadsheetViewportCache.empty(),
                                 METADATA
                         )
                 ),
@@ -198,7 +191,12 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     @Test
     public void testCellPresentWithoutParsePattern() {
         final SpreadsheetCellReference cellReference = SpreadsheetSelection.parseCell("B2");
-        final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty();
+        final AppContext context = this.appContext(
+                cellReference,
+                METADATA
+        );
+        final SpreadsheetViewportCache viewportCache = context.viewportCache();
+
         viewportCache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
@@ -221,7 +219,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 cellReference,
-                                viewportCache,
                                 metadata
                         )
                 ),
@@ -237,7 +234,11 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     @Test
     public void testCellPresentUsingParsePattern() {
         final SpreadsheetCellReference cellReference = SpreadsheetSelection.parseCell("B2");
-        final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty();
+        final AppContext context = this.appContext(
+                cellReference,
+                METADATA
+        );
+        final SpreadsheetViewportCache viewportCache = context.viewportCache();
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         viewportCache.onSpreadsheetDelta(
@@ -259,11 +260,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
         this.applyAndCheck(
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                        this.appContext(
-                                cellReference,
-                                viewportCache,
-                                METADATA
-                        )
+                        context
                 ),
                 text,
                 SpreadsheetFormula.parse(
@@ -279,7 +276,11 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         final SpreadsheetCellReference cellReference = SpreadsheetSelection.parseCell("B2");
         final SpreadsheetLabelName label = SpreadsheetSelection.labelName("Label123");
 
-        final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty();
+        final AppContext context = this.appContext(
+                label,
+                METADATA
+        );
+        final SpreadsheetViewportCache viewportCache = context.viewportCache();
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         viewportCache.onSpreadsheetDelta(
@@ -302,11 +303,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
         this.applyAndCheck(
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                        this.appContext(
-                                label,
-                                viewportCache,
-                                METADATA
-                        )
+                        context
                 ),
                 text,
                 SpreadsheetFormula.parse(
@@ -338,9 +335,19 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     }
 
     private AppContext appContext(final SpreadsheetSelection selection,
-                                  final SpreadsheetViewportCache viewportCache,
                                   final SpreadsheetMetadata metadata) {
         return new FakeAppContext() {
+
+            @Override
+            public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                return null;
+            }
+
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.selection(
@@ -359,6 +366,8 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             public SpreadsheetViewportCache viewportCache() {
                 return viewportCache;
             }
+
+            private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
         };
     }
 

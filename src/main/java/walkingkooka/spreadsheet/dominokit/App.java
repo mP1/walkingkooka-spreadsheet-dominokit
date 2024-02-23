@@ -143,9 +143,7 @@ public class App implements EntryPoint,
 
         this.registerWindowResizeListener();
 
-        this.viewportCache = SpreadsheetViewportCache.empty();
-        this.addSpreadsheetMetadataWatcher(this.viewportCache);
-        this.addSpreadsheetDeltaWatcher(this.viewportCache);
+        this.viewportCache = SpreadsheetViewportCache.empty(this);
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
 
