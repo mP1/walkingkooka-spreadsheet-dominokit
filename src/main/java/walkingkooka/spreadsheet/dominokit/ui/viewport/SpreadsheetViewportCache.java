@@ -97,131 +97,6 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         this.windows = SpreadsheetViewportWindows.EMPTY;
     }
 
-    /**
-     * Captures the default width and height which will be used when rendering
-     */
-    @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
-        this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH);
-        this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT);
-    }
-
-    // @VisibleForTesting
-    Length<?> defaultWidth;
-
-    // @VisibleForTesting
-    Length<?> defaultHeight;
-
-    /**
-     * Basically adds/removes cells, labels, column, rows from the fields in this cache.
-     * Note the cache is only cleared when the windows changes, as {@link SpreadsheetDelta} are mostly changes and not
-     * all values for a window.
-     */
-    @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
-                                   final AppContext context) {
-        this.setWindows(delta.window());
-
-        {
-            final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
-
-            final Set<SpreadsheetCellReference> matchedCells = this.matchedCells;
-
-            final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
-            final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = this.labelToNonLabel;
-
-            // while removing deleted cells also remove cell-> labels, any labels will be (re)-added a few lines below.
-            for (final SpreadsheetCellReference cell : delta.deletedCells()) {
-                cells.remove(cell);
-                matchedCells.remove(cell);
-                cellToLabels.remove(cell);
-            }
-
-            // while adding cells also remove cell -> label, ditto.
-            for (final SpreadsheetCell cell : delta.cells()) {
-                final SpreadsheetCellReference cellReference = cell.reference();
-                cells.put(
-                        cellReference,
-                        cell
-                );
-                cellToLabels.remove(cellReference);
-            }
-
-            matchedCells.addAll(delta.matchedCells());
-
-            this.labelMappings = delta.labels();
-
-            // expands a Map holding cells to labels, the visitor is mostly used to add cell -> labels for all cells in a range,
-            // as well as handling multiple label to label mappings eventually to cells.
-            SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
-                    delta.labels(),
-                    cellToLabels,
-                    labelToNonLabel,
-                    this.windows
-            );
-        }
-
-        // columns.....................................................................................................
-        {
-            final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
-            final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
-
-            for (final SpreadsheetColumnReference column : delta.deletedColumns()) {
-                columns.remove(column);
-                columnWidths.remove(column);
-            }
-
-            for (final SpreadsheetColumn column : delta.columns()) {
-                columns.put(
-                        column.reference(),
-                        column
-                );
-            }
-
-            for (final Entry<SpreadsheetColumnReference, Double> width : delta.columnWidths().entrySet()) {
-                columnWidths.put(
-                        width.getKey(),
-                        Length.pixel(width.getValue())
-                );
-            }
-
-            final OptionalInt columnCount = delta.columnCount();
-            if (columnCount.isPresent()) {
-                this.columnCount = columnCount;
-            }
-        }
-
-        // rows.........................................................................................................
-
-        final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
-        final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
-
-        for (final SpreadsheetRowReference row : delta.deletedRows()) {
-            rows.remove(row);
-            rowHeights.remove(row);
-        }
-
-        for (final SpreadsheetRow row : delta.rows()) {
-            rows.put(
-                    row.reference(),
-                    row
-            );
-        }
-
-        for (final Entry<SpreadsheetRowReference, Double> height : delta.rowHeights().entrySet()) {
-            rowHeights.put(
-                    height.getKey(),
-                    Length.pixel(height.getValue())
-            );
-        }
-
-        final OptionalInt rowCount = delta.rowCount();
-        if (rowCount.isPresent()) {
-            this.rowCount = rowCount;
-        }
-    }
-
     public Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
         return Optional.ofNullable(this.cells.get(cell));
     }
@@ -436,6 +311,137 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * The viewport. This is used to filter cells and labels in the cache.
      */
     private SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.EMPTY;
+
+    // SpreadsheetMetadataFetcherWatcher................................................................................
+
+    /**
+     * Captures the default width and height which will be used when rendering
+     */
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH);
+        this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT);
+    }
+
+    // @VisibleForTesting
+    Length<?> defaultWidth;
+
+    // @VisibleForTesting
+    Length<?> defaultHeight;
+
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
+
+    /**
+     * Basically adds/removes cells, labels, column, rows from the fields in this cache.
+     * Note the cache is only cleared when the windows changes, as {@link SpreadsheetDelta} are mostly changes and not
+     * all values for a window.
+     */
+    @Override
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        this.setWindows(delta.window());
+
+        {
+            final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
+
+            final Set<SpreadsheetCellReference> matchedCells = this.matchedCells;
+
+            final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
+            final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = this.labelToNonLabel;
+
+            // while removing deleted cells also remove cell-> labels, any labels will be (re)-added a few lines below.
+            for (final SpreadsheetCellReference cell : delta.deletedCells()) {
+                cells.remove(cell);
+                matchedCells.remove(cell);
+                cellToLabels.remove(cell);
+            }
+
+            // while adding cells also remove cell -> label, ditto.
+            for (final SpreadsheetCell cell : delta.cells()) {
+                final SpreadsheetCellReference cellReference = cell.reference();
+                cells.put(
+                        cellReference,
+                        cell
+                );
+                cellToLabels.remove(cellReference);
+            }
+
+            matchedCells.addAll(delta.matchedCells());
+
+            this.labelMappings = delta.labels();
+
+            // expands a Map holding cells to labels, the visitor is mostly used to add cell -> labels for all cells in a range,
+            // as well as handling multiple label to label mappings eventually to cells.
+            SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
+                    delta.labels(),
+                    cellToLabels,
+                    labelToNonLabel,
+                    this.windows
+            );
+        }
+
+        // columns.....................................................................................................
+        {
+            final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = this.columns;
+            final Map<SpreadsheetColumnReference, Length<?>> columnWidths = this.columnWidths;
+
+            for (final SpreadsheetColumnReference column : delta.deletedColumns()) {
+                columns.remove(column);
+                columnWidths.remove(column);
+            }
+
+            for (final SpreadsheetColumn column : delta.columns()) {
+                columns.put(
+                        column.reference(),
+                        column
+                );
+            }
+
+            for (final Entry<SpreadsheetColumnReference, Double> width : delta.columnWidths().entrySet()) {
+                columnWidths.put(
+                        width.getKey(),
+                        Length.pixel(width.getValue())
+                );
+            }
+
+            final OptionalInt columnCount = delta.columnCount();
+            if (columnCount.isPresent()) {
+                this.columnCount = columnCount;
+            }
+        }
+
+        // rows.........................................................................................................
+
+        final Map<SpreadsheetRowReference, SpreadsheetRow> rows = this.rows;
+        final Map<SpreadsheetRowReference, Length<?>> rowHeights = this.rowHeights;
+
+        for (final SpreadsheetRowReference row : delta.deletedRows()) {
+            rows.remove(row);
+            rowHeights.remove(row);
+        }
+
+        for (final SpreadsheetRow row : delta.rows()) {
+            rows.put(
+                    row.reference(),
+                    row
+            );
+        }
+
+        for (final Entry<SpreadsheetRowReference, Double> height : delta.rowHeights().entrySet()) {
+            rowHeights.put(
+                    height.getKey(),
+                    Length.pixel(height.getValue())
+            );
+        }
+
+        final OptionalInt rowCount = delta.rowCount();
+        if (rowCount.isPresent()) {
+            this.rowCount = rowCount;
+        }
+    }
+
+    // Object...........................................................................................................
 
     @Override
     public String toString() {
