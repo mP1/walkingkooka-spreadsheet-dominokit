@@ -128,7 +128,7 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
                         contextMenu = contextMenu.item(
                                 historyToken.setSave(newPattern)
                                         .contextMenuItem(
-                                                SpreadsheetPatternComponent.ID_PREFIX + "alternative-" + j,
+                                                SpreadsheetPatternComponent.ID_PREFIX + "alternative-" + j + SpreadsheetIds.MENU_ITEM,
                                                 alternative
                                         )
                         );
