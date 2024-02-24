@@ -33,6 +33,15 @@ import java.util.Optional;
  */
 public final class SpreadsheetSelectionSummary {
 
+    /**
+     * An empty {@link SpreadsheetSelectionSummary} which may be useful when a {@link SpreadsheetViewportCache} has no cells.
+     */
+    public final static SpreadsheetSelectionSummary EMPTY = new SpreadsheetSelectionSummary(
+            Optional.empty(),
+            Optional.empty(),
+            TextStyle.EMPTY
+    );
+
     public static SpreadsheetSelectionSummary with(final Optional<SpreadsheetFormatPattern> formatPattern,
                                                    final Optional<SpreadsheetParsePattern> parsePattern,
                                                    final TextStyle style) {
