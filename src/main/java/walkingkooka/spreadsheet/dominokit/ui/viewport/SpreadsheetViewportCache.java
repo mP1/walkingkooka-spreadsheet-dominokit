@@ -563,6 +563,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         if (rowCount.isPresent()) {
             this.rowCount = rowCount;
         }
+
+        this.selectionSummary = null; // clear cache force recompute
     }
 
     // Object...........................................................................................................

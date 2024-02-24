@@ -2705,6 +2705,169 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         );
     }
 
+    @Test
+    public void testSelectionSummaryHistoryTokenDeltaDelta() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final SpreadsheetFormatPattern format1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetFormatPattern format2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00");
+
+        final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
+        final Color color1 = Color.parse("#111");
+
+        final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
+        final TextAlign align1 = TextAlign.LEFT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setFormatPattern(
+                                        Optional.of(format1)
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(colorName, color1)
+                                                .set(textAlign, align1)
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(format2)
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color1)
+                                                        .set(textAlign, align1)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        final TextAlign align2 = TextAlign.RIGHT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setFormatPattern(
+                                        Optional.of(format1)
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(colorName, color1)
+                                                .set(textAlign, align2)
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(format2)
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color1)
+                                                        .set(textAlign, align2)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.empty(), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align2)
+                )
+        );
+    }
+
+    @Test
+    public void testSelectionSummaryHistoryTokenDeltaDelta2() {
+        final TestAppContext context = this.context();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+
+        context.pushHistoryToken(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        SpreadsheetSelection.parseCellRange("A1:B2")
+                                .setDefaultAnchor()
+                )
+        );
+
+        final SpreadsheetFormatPattern format1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetFormatPattern format2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00");
+
+        final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
+        final Color color1 = Color.parse("#111");
+
+        final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
+        final TextAlign align1 = TextAlign.LEFT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY
+                                ).setFormatPattern(
+                                        Optional.of(format1)
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(colorName, color1)
+                                ),
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(format2)
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color1)
+                                                        .set(textAlign, align1)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        final TextAlign align2 = TextAlign.RIGHT;
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.parseCell("A2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY
+                                        ).setFormatPattern(
+                                                Optional.of(format2)
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(colorName, color1)
+                                                        .set(textAlign, align2)
+                                        )
+                        )
+                ),
+                context
+        );
+
+        this.selectionSummaryAndCheck(
+                cache,
+                SpreadsheetSelectionSummary.with(
+                        Optional.empty(), // format
+                        Optional.empty(), // parse
+                        TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align2)
+                )
+        );
+    }
+
     private void selectionSummaryAndCheck(final SpreadsheetViewportCache cache,
                                           final SpreadsheetSelectionSummary expected) {
         this.checkEquals(
