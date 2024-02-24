@@ -18,12 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -85,45 +83,15 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
                 ).ifPresent(context::pushHistoryToken);
     }
 
-    @Override
-    void onToolbarRefreshBegin() {
-        this.cellsWithNonEmptyStyleCounter = 0;
-    }
-
-    /**
-     * Counts the number of cells in the selection with non empty {@link TextStyle}
-     */
-    private int cellsWithNonEmptyStyleCounter;
-
-    /**
-     * Increment the {@link #cellsWithNonEmptyStyleCounter} if the given cell has non-empty {@link TextStyle}.
-     */
-    @Override
-    void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                      final AppContext context) {
-        final Optional<TextNode> maybeFormatted = cell.formatted();
-        if (maybeFormatted.isPresent()) {
-            if (false == cell.style().isEmpty()) {
-                this.cellsWithNonEmptyStyleCounter++;
-            }
-        }
-    }
-
     /**
      * Counts the number of cells with non empty {@link TextStyle}.
      */
     @Override
-    void onToolbarRefreshEnd(final int cellPresentCount,
-                             final AppContext context) {
-        final int setCellCounter = this.cellsWithNonEmptyStyleCounter;
-        final boolean selected = setCellCounter == cellPresentCount;
-
+    public void refresh(final AppContext context) {
         this.setButtonSelected(
-                selected,
+                true,
                 SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
         );
-
-        context.debug("SpreadsheetToolbarComponentItemButtonTextStyleClear.onToolbarRefreshEnd " + PROPERTY + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected);
     }
 
     private static final TextStylePropertyName<Void> PROPERTY = TextStylePropertyName.ALL;

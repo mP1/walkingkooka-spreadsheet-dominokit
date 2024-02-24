@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightHistoryToken;
@@ -56,7 +55,7 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
         );
         this.context = context;
 
-        this.refreshButton(context);
+        this.refresh(context);
     }
 
     private final AppContext context;
@@ -110,24 +109,8 @@ final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends Sprea
         // do nothing, do not update history token.
     }
 
-    @Override //
-    void onToolbarRefreshBegin() {
-        // dont care
-    }
-
-    @Override //
-    void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                      final AppContext context) {
-        // dont care
-    }
-
-    @Override //
-    void onToolbarRefreshEnd(final int cellPresentCount,
-                             final AppContext context) {
-        this.refreshButton(context);
-    }
-
-    private void refreshButton(final AppContext context) {
+    @Override
+    public void refresh(final AppContext context) {
         final boolean enabled = context.isViewportHighlightEnabled();
 
         this.setButtonSelected(

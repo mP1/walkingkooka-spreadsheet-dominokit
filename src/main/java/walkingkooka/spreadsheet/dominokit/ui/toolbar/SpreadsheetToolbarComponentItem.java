@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
@@ -246,24 +245,6 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
      */
     public abstract HTMLElement element();
 
-    // onToolbarRefresh.................................................................................................
-
-    /**
-     * Fired at the beginning of a selection or cell change.
-     * This should be used to reset counters etc.
-     */
-    abstract void onToolbarRefreshBegin();
-
-    /**
-     * Fired for each cell within the current selection.
-     */
-    abstract void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                               final AppContext context);
-
-    /**
-     * Fired after receiving all cell {@link walkingkooka.tree.text.TextStyle}.
-     */
-    abstract void onToolbarRefreshEnd(final int cellPresentCount,
-                                      final AppContext context);
-
+    @Override
+    public abstract void refresh(final AppContext context);
 }
