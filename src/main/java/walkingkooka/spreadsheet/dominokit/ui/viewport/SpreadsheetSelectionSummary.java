@@ -52,7 +52,7 @@ public final class SpreadsheetSelectionSummary {
         );
     }
 
-    public SpreadsheetSelectionSummary(final Optional<SpreadsheetFormatPattern> formatPattern,
+    private SpreadsheetSelectionSummary(final Optional<SpreadsheetFormatPattern> formatPattern,
                                        final Optional<SpreadsheetParsePattern> parsePattern,
                                        final TextStyle style) {
         this.formatPattern = formatPattern;
@@ -62,7 +62,7 @@ public final class SpreadsheetSelectionSummary {
 
     private final Optional<SpreadsheetFormatPattern> formatPattern;
 
-    private final Optional<SpreadsheetFormatPattern> formatPattern() {
+    public Optional<SpreadsheetFormatPattern> formatPattern() {
         return this.formatPattern;
     }
 
