@@ -18,10 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
@@ -30,9 +27,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.FlexLayout;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -168,8 +163,6 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
 
     @Override
     public void refresh(final AppContext context) {
-        context.debug("SpreadsheetToolbarComponent.refresh BEGIN");
-
         final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.historyToken()
                 .nonLabelSelection(
                         context.viewportCache()
@@ -177,57 +170,13 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
         if (maybeNonLabelSelection.isPresent()) {
             final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
             if (nonLabelSelection.isCellReference() || nonLabelSelection.isCellRange()) {
-                this.refreshItems(
-                        nonLabelSelection,
-                        context
-                );
-            }
-        }
-
-        context.debug("SpreadsheetToolbarComponent.refresh END");
-    }
-
-    /**
-     * Refreshes the individual components aka icons in the toolbar.
-     */
-    private void refreshItems(final SpreadsheetSelection selection,
-                              final AppContext context) {
-        final SpreadsheetViewportCache cache = context.viewportCache();
-        final SpreadsheetViewportWindows window = cache.windows();
-        context.debug("SpreadsheetToolbarComponent.refreshItems begin " + selection + " window: " + window);
-
-        final List<SpreadsheetToolbarComponentItem> components = this.components;
-        for (final SpreadsheetToolbarComponentItem component : components) {
-            component.onToolbarRefreshBegin();
-        }
-
-        int cellCount = 0;
-
-        for (final SpreadsheetCellReference cellReference : Iterables.iterator(window.cells(selection))) {
-            final Optional<SpreadsheetCell> maybeCell = context.viewportCell(cellReference);
-            context.debug("SpreadsheetToolbarComponent.refreshItems " + cellReference, maybeCell.orElse(null));
-            if (maybeCell.isPresent()) {
-                final SpreadsheetCell cell = maybeCell.get();
-
-                for (final SpreadsheetToolbarComponentItem component : components) {
-                    component.onToolbarRefreshSelectedCell(
-                            cell,
+                for (final SpreadsheetToolbarComponentItem component : this.components) {
+                    component.refresh(
                             context
                     );
                 }
             }
-
-            cellCount++;
         }
-
-        for (final SpreadsheetToolbarComponentItem component : components) {
-            component.onToolbarRefreshEnd(
-                    cellCount,
-                    context
-            );
-        }
-
-        context.debug("SpreadsheetToolbarComponent.refreshItems end " + selection);
     }
 
     @Override

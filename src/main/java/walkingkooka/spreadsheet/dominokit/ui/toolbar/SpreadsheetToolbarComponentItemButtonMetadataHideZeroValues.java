@@ -47,7 +47,7 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
                 "",
                 context
         );
-        this.refreshButton(context);
+        this.refresh(context);
     }
 
     @Override
@@ -71,7 +71,7 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
     }
 
     @Override
-    void refreshButton(final AppContext context) {
+    public void refresh(final AppContext context) {
         final boolean hide = this.isHideZeroValues(context);
 
         this.setButtonSelected(

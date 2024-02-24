@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import walkingkooka.collect.map.Maps;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -30,15 +28,10 @@ import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.tree.text.TextStyle;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
 
 /**
@@ -73,9 +66,7 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setPatternKind(
-                                Optional.of(
-                                        this.spreadsheetPatternKind()
-                                )
+                                this.patternKind
                         )
                 ).ifPresent(context::pushHistoryToken);
     }
@@ -88,111 +79,40 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setPatternKind(
-                                Optional.of(
-                                        this.spreadsheetPatternKind()
-                                )
+                                this.patternKind
                         ).clearPatternKind()
                 )
                 .ifPresent(context::pushHistoryToken);
     }
 
-    @Override final void onToolbarRefreshBegin() {
-        this.patternKindToCount.clear();
-    }
+    @Override
+    public final void refresh(final AppContext context) {
+        final Optional<SpreadsheetPatternKind> patternKind = this.pattern(
+                context.viewportCache()
+                        .selectionSummary()
+        ).flatMap(SpreadsheetPattern::patternKind);
 
-
-    /**
-     * Increment counters using the {@link SpreadsheetPattern#kind()} as the key.
-     * This will be used as the target of the format/parse button when clicked.
-     */
-    @Override //
-    final void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                            final AppContext context) {
-        final Map<SpreadsheetPatternKind, Integer> patternKindToCount = this.patternKindToCount;
-
-        SpreadsheetPatternKind kind = null;
-        final Optional<T> maybeFormatPattern = this.pattern(cell);
-        if (maybeFormatPattern.isPresent()) {
-            kind = maybeFormatPattern.get()
-                    .kind();
-        } else {
-            final Optional<Object> maybeValue = cell.formula()
-                    .value();
-            if (maybeValue.isPresent()) {
-                final Object value = maybeValue.get();
-
-                kind = SpreadsheetPatternKind.TEXT_FORMAT_PATTERN; // default to text
-                if (value instanceof LocalDate) {
-                    kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
-                }
-                if (value instanceof LocalDateTime) {
-                    kind = SpreadsheetPatternKind.DATE_TIME_FORMAT_PATTERN;
-                }
-                if (value instanceof LocalTime) {
-                    kind = SpreadsheetPatternKind.TIME_FORMAT_PATTERN;
-                }
-                if (value instanceof Number) {
-                    kind = SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN;
-                }
-
-                if (this instanceof SpreadsheetToolbarComponentItemButtonPatternParse) {
-                    kind = kind.toParse()
-                            .orElse(SpreadsheetPatternKind.NUMBER_PARSE_PATTERN);
-                }
-            }
-        }
-
-        if (null != kind) {
-            Integer count = patternKindToCount.get(kind);
-            if (null == count) {
-                count = 0;
-            }
-            count++;
-            patternKindToCount.put(
-                    kind,
-                    count
-            );
-        }
-    }
-
-    /**
-     * Extracts a pattern from the cell.
-     */
-    abstract Optional<T> pattern(final SpreadsheetCell cell);
-
-    /**
-     * Counts the number of cells with non empty {@link TextStyle}.
-     */
-    @Override //
-    final void onToolbarRefreshEnd(final int cellPresentCount,
-                                   final AppContext context) {
-        final Map<SpreadsheetPatternKind, Integer> patternKindToCount = this.patternKindToCount;
-        final boolean selected = false == patternKindToCount.isEmpty();
+        final boolean selected = patternKind.isPresent();
 
         this.setButtonSelected(
                 selected,
                 SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
         );
 
-        context.debug(this.getClass().getSimpleName() + ".onToolbarRefreshEnd selected: " + selected + " patternToKindCount: " + patternKindToCount);
+        this.patternKind = patternKind.isPresent() ?
+                patternKind :
+                Optional.of(
+                        this.defaultSpreadsheetPatternKind()
+                );
     }
 
-    final SpreadsheetPatternKind spreadsheetPatternKind() {
-        SpreadsheetPatternKind kind = this.defaultSpreadsheetPatternKind();
-        int count = 0;
+    abstract Optional<T> pattern(final SpreadsheetSelectionSummary summary);
 
-        for (final Entry<SpreadsheetPatternKind, Integer> kindAndCount : this.patternKindToCount.entrySet()) {
-            final Integer possibleCount = kindAndCount.getValue();
-            if (possibleCount > count) {
-                count = 0;
-                kind = kindAndCount.getKey();
-            }
-        }
-
-        return kind;
-    }
+    /**
+     * This is updated by {@link #refresh(AppContext)} and will contain the best {@link SpreadsheetPatternKind} to open
+     * when this button is clicked.
+     */
+    private Optional<SpreadsheetPatternKind> patternKind = Optional.empty();
 
     abstract SpreadsheetPatternKind defaultSpreadsheetPatternKind();
-
-    final Map<SpreadsheetPatternKind, Integer> patternKindToCount = Maps.sorted();
 }

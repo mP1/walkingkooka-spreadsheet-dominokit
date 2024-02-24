@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
@@ -48,25 +47,6 @@ abstract class SpreadsheetToolbarComponentItemButtonMetadata extends Spreadsheet
         );
         this.context = context;
     }
-
-    @Override //
-    final void onToolbarRefreshBegin() {
-
-    }
-
-    @Override //
-    final void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                            final AppContext context) {
-
-    }
-
-    @Override //
-    final void onToolbarRefreshEnd(final int cellPresentCount,
-                                   final AppContext context) {
-        this.refreshButton(context);
-    }
-
-    abstract void refreshButton(final AppContext context);
 
     /**
      * {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} properties are always shown.

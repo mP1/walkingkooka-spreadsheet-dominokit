@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -48,9 +48,9 @@ final class SpreadsheetToolbarComponentItemButtonPatternFormat extends Spreadshe
         );
     }
 
-    @Override //
-    Optional<SpreadsheetFormatPattern> pattern(final SpreadsheetCell cell) {
-        return cell.formatPattern();
+    @Override
+    Optional<SpreadsheetFormatPattern> pattern(final SpreadsheetSelectionSummary summary) {
+        return summary.formatPattern();
     }
 
     @Override//

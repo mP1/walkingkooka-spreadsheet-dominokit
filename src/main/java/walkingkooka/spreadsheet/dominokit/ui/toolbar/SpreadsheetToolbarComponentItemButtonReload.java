@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -71,24 +70,12 @@ final class SpreadsheetToolbarComponentItemButtonReload extends SpreadsheetToolb
         // do nothing, do not update history token.
     }
 
-    @Override //
-    void onToolbarRefreshBegin() {
-        // dont care
-    }
-
-    @Override //
-    void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                      final AppContext context) {
-        // dont care
-    }
-
-    @Override //
-    void onToolbarRefreshEnd(final int cellPresentCount,
-                             final AppContext context) {
-        // dont care
-    }
-
     // ComponentLifecycle...............................................................................................
+
+    @Override
+    public void refresh(final AppContext context) {
+        // nop
+    }
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {

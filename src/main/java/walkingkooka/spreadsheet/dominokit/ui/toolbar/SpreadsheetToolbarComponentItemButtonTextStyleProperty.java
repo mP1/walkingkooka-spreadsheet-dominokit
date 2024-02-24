@@ -19,12 +19,10 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -109,79 +107,30 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends Sp
                 ).ifPresent(context::pushHistoryToken);
     }
 
-    private final TextStylePropertyName<T> propertyName;
-
-    private final T propertyValue;
-
     @Override
-    void onToolbarRefreshBegin() {
-        this.setCellCounter = 0;
-    }
+    public void refresh(final AppContext context) {
+        final T saveValue = context.viewportCache()
+                .selectionSummary()
+                .style()
+                .get(this.propertyName)
+                .orElse(null);
 
-    /**
-     * Counts the number of cells in the selection that have this {@link #propertyName} and {@link #propertyValue}.
-     */
-    private int setCellCounter;
-
-    @Override
-    void onToolbarRefreshSelectedCell(final SpreadsheetCell cell,
-                                      final AppContext context) {
-        final TextStylePropertyName<T> propertyName = this.propertyName;
-        final T effectiveValue;
-
-        final Optional<TextNode> maybeFormatted = cell.formatted();
-        if (maybeFormatted.isPresent()) {
-            final Optional<T> maybeStyleValue = cell.style()
-                    .get(propertyName);
-            if (maybeStyleValue.isPresent()) {
-                effectiveValue = maybeStyleValue.get();
-            } else {
-                effectiveValue = context.spreadsheetMetadata()
-                        .getEffectiveStyleProperty(propertyName)
-                        .orElse(null);
-            }
-        } else {
-            effectiveValue = context.spreadsheetMetadata()
-                    .getEffectiveStyleProperty(propertyName)
-                    .orElse(null);
-        }
-
-        if (Objects.equals(this.propertyValue, effectiveValue)) {
-            this.setCellCounter++;
-        }
-    }
-
-    /**
-     * Counts the number of cells with this {@link #propertyName} and {@link #propertyValue}.
-     * - If {@link #setCellCounter} is 0 then the button will not be highlighted other values will highlight the button.
-     * - if {@link #setCellCounter} is equal to the cellPresentCount then the {@link #saveValue} will be null otherwise it will be
-     * {@link #propertyValue}.
-     */
-    @Override
-    void onToolbarRefreshEnd(final int cellPresentCount,
-                             final AppContext context) {
-        final T propertyValue = this.propertyValue;
-
-        final int setCellCounter = this.setCellCounter;
-
-        final boolean selected = setCellCounter == cellPresentCount;
-        final T saveValue = setCellCounter == cellPresentCount ?
-                null :
-                propertyValue;
+        final boolean selected = this.propertyValue.equals(saveValue);
 
         this.setButtonSelected(
                 selected,
                 SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
         );
 
-        this.setSaveValue(saveValue);
-
-        context.debug("SpreadsheetToolbarComponentItemButtonTextStyleProperty.onToolbarRefreshEnd " + this.propertyName + "=" + propertyValue + " " + setCellCounter + "/" + cellPresentCount + " selected: " + selected + " saveValue: " + saveValue);
+        this.saveValue =
+                selected ?
+                        null :
+                        this.propertyValue;
     }
 
-    private void setSaveValue(final T saveValue) {
-        this.saveValue = saveValue;
-    }
+    private final TextStylePropertyName<T> propertyName;
+
+    private final T propertyValue;
 
     /**
      * This is the value used when the button is clicked. Each time the selection changes this is recomputed,
