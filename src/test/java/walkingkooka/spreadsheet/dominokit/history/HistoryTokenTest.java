@@ -3822,6 +3822,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private AppContext appContext() {
         return new FakeAppContext() {
             @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
             public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
                 return null;
             }
