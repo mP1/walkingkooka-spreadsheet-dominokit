@@ -24,8 +24,10 @@ import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummar
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -59,4 +61,21 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns the active {@link SpreadsheetSelectionSummary}
      */
     SpreadsheetSelectionSummary selectionSummary();
+
+    /**
+     * Used to test if a style is present with the given value. This will typically be used to include a check mark
+     * for a style menu item.
+     */
+    default <T> boolean isChecked(final TextStylePropertyName<T> stylePropertyName,
+                                  final T value) {
+        Objects.requireNonNull(stylePropertyName, "stylePropertyName");
+        Objects.requireNonNull(value, "value");
+
+        return value.equals(
+                this.selectionSummary()
+                        .style()
+                        .get(stylePropertyName)
+                        .orElse(null)
+        );
+    }
 }
