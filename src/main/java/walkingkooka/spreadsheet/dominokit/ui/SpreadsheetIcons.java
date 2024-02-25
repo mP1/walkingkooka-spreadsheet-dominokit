@@ -104,7 +104,7 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
     }
 
     public static MdiIcon checked() {
-        return SpreadsheetIcons.checked();
+        return Icons.check();
     }
 
     public static MdiIcon clearStyle() {
