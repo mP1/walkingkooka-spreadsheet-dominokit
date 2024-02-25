@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
+import walkingkooka.spreadsheet.dominokit.ui.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
@@ -122,6 +123,11 @@ public class SpreadsheetSelectionMenu {
                     menu,
                     context
             );
+            renderHideIfZero(
+                    historyToken,
+                    menu,
+                    context
+            );
             menu.separator();
         }
         menu.separator();
@@ -182,6 +188,30 @@ public class SpreadsheetSelectionMenu {
                         "Format",
                         SpreadsheetIcons.formatPattern()
                 )
+        );
+    }
+
+    private static void renderHideIfZero(final HistoryToken historyToken,
+                                         final SpreadsheetContextMenu menu,
+                                         final SpreadsheetSelectionMenuContext context) {
+        final boolean hidden = HideZeroValues.isHideZeroValues(context);
+
+        menu.item(
+                SpreadsheetContextMenuItem.with(
+                                context.idPrefix() + "hideIfZero" + SpreadsheetIds.MENU_ITEM,
+                                HideZeroValues.label(hidden)
+                        ).icon(
+                                Optional.of(
+                                        SpreadsheetIcons.hideZeroValues()
+                                )
+                        )
+                        .historyToken(
+                                Optional.of(
+                                        historyToken.setMetadataPropertyName(
+                                                SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES
+                                        ).setSave(false == hidden)
+                                )
+                        ).checked(hidden)
         );
     }
 
