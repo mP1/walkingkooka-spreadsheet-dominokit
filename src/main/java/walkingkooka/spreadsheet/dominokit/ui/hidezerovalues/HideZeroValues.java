@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.hidezerovalues;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
@@ -28,7 +28,7 @@ import java.util.Objects;
  */
 public final class HideZeroValues implements PublicStaticHelper {
 
-    public static boolean isHideZeroValues(final AppContext context) {
+    public static boolean isHideZeroValues(final HasSpreadsheetMetadata context) {
         Objects.requireNonNull(context, "context");
 
         return context.spreadsheetMetadata()
