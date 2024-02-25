@@ -145,7 +145,10 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
                 anchor.setTextContent(text);
                 anchor.setHistoryToken(
                         Optional.of(
-                                token.setSave(color)
+                                token.setSave(
+                                        Optional.of(color
+                                        )
+                                )
                         )
                 );
             }

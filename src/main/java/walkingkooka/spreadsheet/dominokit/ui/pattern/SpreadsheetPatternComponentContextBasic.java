@@ -69,7 +69,9 @@ abstract class SpreadsheetPatternComponentContextBasic implements SpreadsheetPat
     public final void save(final SpreadsheetPattern pattern) {
         this.pushHistoryToken(
                 this.historyToken()
-                        .setSave(pattern)
+                        .setSave(
+                                Optional.of(pattern)
+                        )
         );
     }
 

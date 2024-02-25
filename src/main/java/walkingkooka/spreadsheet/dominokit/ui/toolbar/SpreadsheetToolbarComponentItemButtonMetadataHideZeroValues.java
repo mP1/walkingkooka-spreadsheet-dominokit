@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.ui.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * When clicked, updates the {@link SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES} with the opposite of its current value.
@@ -59,7 +60,9 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
                 context.historyToken()
                         .setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
                         .setSave(
+                                Optional.of(
                                 false == HideZeroValues.isHideZeroValues(context) // if hide=true then click makes hide=false
+                                )
                         )
         );
     }

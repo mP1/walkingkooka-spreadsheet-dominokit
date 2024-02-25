@@ -105,7 +105,9 @@ final class AppContextSpreadsheetLabelMappingComponentContext implements Spreads
                                         mapping.label()
                                 )
                         ).setSave(
-                                mapping.target()
+                                Optional.of(
+                                        mapping.target()
+                                )
                         )
         );
     }

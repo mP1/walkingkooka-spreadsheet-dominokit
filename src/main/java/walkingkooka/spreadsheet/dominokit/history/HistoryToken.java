@@ -1527,30 +1527,31 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * if possible creates a save, otherwise returns this.
      */
-    public final HistoryToken setSave(final Object value) {
+    public final HistoryToken setSave(final Optional<Object> value) {
         Objects.requireNonNull(value, "value");
 
-        final HistoryToken result;
+        String stringValue = "";
 
-        if (value instanceof String) {
-            result = this.setSave((String) value);
-        } else {
-            if (value instanceof HasText) {
-                result = this.setSave(
-                        (HasText) value
-                );
+        if (value.isPresent()) {
+            final Object valueNotNull = value.get();
+            if (valueNotNull instanceof String) {
+                stringValue = (String) valueNotNull;
             } else {
-                if (value instanceof Enum) {
-                    result = this.setSave(
-                            (Enum<?>) value
-                    );
+                if (valueNotNull instanceof HasText) {
+                    final HasText hasText = (HasText) valueNotNull;
+                    stringValue = hasText.text();
                 } else {
-                    result = this.setSave(value.toString());
+                    if (valueNotNull instanceof Enum) {
+                        final Enum<?> enumm = (Enum<?>) valueNotNull;
+                        stringValue = enumm.name();
+                    } else {
+                        stringValue = valueNotNull.toString();
+                    }
                 }
             }
         }
 
-        return result;
+        return this.setSave(stringValue);
     }
 
     /**
@@ -1562,29 +1563,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         return this.setIfSpreadsheetNameHistoryTokenWithValue(
                 SpreadsheetNameHistoryToken::setSave0,
                 text
-        );
-    }
-
-
-    /**
-     * Overload that accepts a value with {@link walkingkooka.text.HasText} such as {@link SpreadsheetPattern}.
-     */
-    public final HistoryToken setSave(final HasText text) {
-        Objects.requireNonNull(text, "text");
-
-        return this.setSave(
-                text.text()
-        );
-    }
-
-    /**
-     * Overload that accepts a value with {@link walkingkooka.text.HasText} such as {@link SpreadsheetPattern}.
-     */
-    public final HistoryToken setSave(final Enum<?> value) {
-        Objects.requireNonNull(value, "value");
-
-        return this.setSave(
-                value.name()
         );
     }
 

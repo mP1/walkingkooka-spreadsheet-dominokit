@@ -131,7 +131,9 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
             anchor.setHistoryToken(
                     Optional.of(
                             token.setSave(
-                                    valueAndAnchor.getKey()
+                                    Optional.of(
+                                            valueAndAnchor.getKey()
+                                    )
                             )
                     )
             );

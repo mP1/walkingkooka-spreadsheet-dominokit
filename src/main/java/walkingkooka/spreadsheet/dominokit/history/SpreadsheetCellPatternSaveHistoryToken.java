@@ -88,7 +88,11 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
                 anchoredSelection
         ).setPatternKind(
                 this.patternKind()
-        ).setSave(this.pattern());
+        ).setSave(
+                Optional.of(
+                        this.pattern()
+                )
+        );
     }
 
     @Override

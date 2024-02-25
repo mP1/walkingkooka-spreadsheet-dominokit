@@ -117,7 +117,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
         for (final Long value : Lists.of(_1900, _1904)) {
             final HistoryTokenAnchorComponent anchor = token
-                    .setSave(value)
+                    .setSave(Optional.of(value))
                     .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value)
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
@@ -185,7 +185,9 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
             anchor.setHistoryToken(
                     Optional.of(
-                            token.setSave(value)
+                            token.setSave(
+                                    Optional.of(value)
+                            )
                     )
             );
             anchor.setDisabled(
