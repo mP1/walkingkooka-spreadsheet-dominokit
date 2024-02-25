@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
@@ -54,12 +55,11 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
     void onClick(final Event event) {
         final AppContext context = this.context;
 
-        final HistoryToken historyToken = context.historyToken();
-        final boolean hide = this.isHideZeroValues(context);
         context.pushHistoryToken(
-                historyToken.setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
+                context.historyToken()
+                        .setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
                         .setSave(
-                                false == hide // if hide=true then click makes hide=false
+                                false == HideZeroValues.isHideZeroValues(context) // if hide=true then click makes hide=false
                         )
         );
     }
@@ -71,7 +71,7 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
 
     @Override
     public void refresh(final AppContext context) {
-        final boolean hide = this.isHideZeroValues(context);
+        final boolean hide = HideZeroValues.isHideZeroValues(context);
 
         this.setButtonSelected(
                 hide,
@@ -79,16 +79,8 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
         );
 
         this.setTooltipText(
-                hide ?
-                        "Show Zero Values" :
-                        "Hide Zero Values"
+                HideZeroValues.label(hide)
         );
-    }
-
-    private boolean isHideZeroValues(final AppContext context) {
-        return context.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
-                .orElse(false);
     }
 
     // ComponentLifecycle...............................................................................................
