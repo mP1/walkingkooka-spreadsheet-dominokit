@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -53,4 +54,9 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns the id prefix which should be assigned to items in the menu.
      */
     String idPrefix();
+
+    /**
+     * Returns the active {@link SpreadsheetSelectionSummary}
+     */
+    SpreadsheetSelectionSummary selectionSummary();
 }

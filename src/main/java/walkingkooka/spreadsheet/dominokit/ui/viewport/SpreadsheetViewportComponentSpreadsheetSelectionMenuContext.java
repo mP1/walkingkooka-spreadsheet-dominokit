@@ -108,6 +108,12 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         return this.context.spreadsheetMetadata();
     }
 
+    @Override
+    public SpreadsheetSelectionSummary selectionSummary() {
+        return this.context.viewportCache()
+                .selectionSummary();
+    }
+
     private final AppContext context;
 
     public String toString() {
