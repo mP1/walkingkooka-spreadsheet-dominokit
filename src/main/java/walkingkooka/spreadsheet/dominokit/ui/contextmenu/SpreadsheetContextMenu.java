@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.badges.Badge;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import org.dominokit.domino.ui.menu.Menu;
@@ -32,7 +33,9 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenuContext;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -174,6 +177,36 @@ public class SpreadsheetContextMenu {
     }
 
     private final static String SUB_MENU_ID_SUFFIX = "-SubMenu";
+
+    /**
+     * Adds a checked menu item, conditionally setting the check mark and conditional clearing/saving the value.
+     */
+    public <T> SpreadsheetContextMenu checkedItem(final String id,
+                                                  final String text,
+                                                  final Optional<Icon<?>> icon,
+                                                  final TextStylePropertyName<T> stylePropertyName,
+                                                  final T stylePropertyValue,
+                                                  final SpreadsheetSelectionMenuContext context) {
+        final boolean set = context.isChecked(
+                stylePropertyName,
+                stylePropertyValue
+        );
+        return this.item(
+                this.context.historyToken()
+                        .setStyle(stylePropertyName)
+                        .setSave(
+                                Optional.ofNullable(
+                                        set ?
+                                                null :
+                                                stylePropertyValue
+                                )
+                        ).contextMenuItem(
+                                id,
+                                text
+                        ).icon(icon)
+                        .checked(set)
+        );
+    }
 
     public SpreadsheetContextMenu item(final SpreadsheetContextMenuItem item) {
         Objects.requireNonNull(item, "item");
