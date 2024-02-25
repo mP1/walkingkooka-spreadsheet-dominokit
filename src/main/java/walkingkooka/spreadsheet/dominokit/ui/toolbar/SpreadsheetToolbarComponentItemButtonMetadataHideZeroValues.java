@@ -56,7 +56,10 @@ final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends 
 
         final HistoryToken historyToken = context.historyToken();
         final boolean hide = this.isHideZeroValues(context);
-
+        context.debug("@hide " + historyToken + "\n" + historyToken.setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES) + "\n" + historyToken.setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
+                .setSave(
+                        false == hide // if hide=true then click makes hide=false
+                ));
         context.pushHistoryToken(
                 historyToken.setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
                         .setSave(

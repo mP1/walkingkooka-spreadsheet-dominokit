@@ -42,12 +42,15 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
 
     @Test
     public void testSetMetadataPropertyName() {
-        final SpreadsheetReloadHistoryToken token = this.createHistoryToken();
+        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.LOCALE;
 
         this.setMetadataPropertyNameAndCheck(
-                token,
-                SpreadsheetMetadataPropertyName.LOCALE,
-                token
+                propertyName,
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        propertyName
+                )
         );
     }
 

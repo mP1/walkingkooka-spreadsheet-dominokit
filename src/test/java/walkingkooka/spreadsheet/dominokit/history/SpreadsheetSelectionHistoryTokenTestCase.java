@@ -63,13 +63,16 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     // setMetadataPropertyName..........................................................................................
 
     @Test
-    public final void testSetMetadataPropertyName2() {
-        final HistoryToken token = this.createHistoryToken();
+    public void testSetMetadataPropertyName() {
+        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.LOCALE;
 
         this.setMetadataPropertyNameAndCheck(
-                token,
-                SpreadsheetMetadataPropertyName.LOCALE,
-                token
+                propertyName,
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        propertyName
+                )
         );
     }
 }
