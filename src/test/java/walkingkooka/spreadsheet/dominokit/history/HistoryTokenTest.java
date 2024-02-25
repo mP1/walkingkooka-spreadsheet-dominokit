@@ -1451,6 +1451,26 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setMetadataPropertyName..........................................................................................
+
+    @Test
+    public void testSetMetadataPropertyName() {
+        final SpreadsheetMetadataPropertyName<?> metadataProperty = SpreadsheetMetadataPropertyName.GROUP_SEPARATOR;
+
+        this.checkEquals(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        metadataProperty
+                ),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                ).setMetadataPropertyName(metadataProperty)
+        );
+    }
+
     // HasSpreadsheetPatternKind........................................................................................
 
     @Test
