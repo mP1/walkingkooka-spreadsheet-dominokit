@@ -160,7 +160,9 @@ public class SpreadsheetSelectionMenu {
                 historyToken,
                 locale,
                 recents,
-                idPrefix
+                idPrefix,
+                context.selectionSummary()
+                        .parsePattern()
         ).build(
                 menu.subMenu(
                         idPrefix + SpreadsheetIds.SUB_MENU,
@@ -181,7 +183,9 @@ public class SpreadsheetSelectionMenu {
                 historyToken,
                 locale,
                 recents,
-                idPrefix
+                idPrefix,
+                context.selectionSummary()
+                        .formatPattern()
         ).build(
                 menu.subMenu(
                         idPrefix + SpreadsheetIds.SUB_MENU,

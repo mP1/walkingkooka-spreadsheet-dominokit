@@ -28,6 +28,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -38,24 +39,28 @@ final class SpreadsheetSelectionMenuPatternParse extends SpreadsheetSelectionMen
     static SpreadsheetSelectionMenuPatternParse with(final HistoryToken historyToken,
                                                      final Locale locale,
                                                      final List<SpreadsheetParsePattern> recents,
-                                                     final String idPrefix) {
+                                                     final String idPrefix,
+                                                     final Optional<SpreadsheetParsePattern> pattern) {
         return new SpreadsheetSelectionMenuPatternParse(
                 historyToken,
                 locale,
                 recents,
-                idPrefix
+                idPrefix,
+                pattern
         );
     }
 
     private SpreadsheetSelectionMenuPatternParse(final HistoryToken historyToken,
                                                  final Locale locale,
                                                  final List<SpreadsheetParsePattern> recents,
-                                                 final String idPrefix) {
+                                                 final String idPrefix,
+                                                 final Optional<SpreadsheetParsePattern> pattern) {
         super(
                 historyToken,
                 locale,
                 recents,
-                idPrefix
+                idPrefix,
+                pattern
         );
     }
 
