@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
@@ -86,6 +87,13 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
                         "Time"
                 )
         );
+
+        menu.separator();
+
+        this.removeHistoryToken(
+                menu
+        );
+
 
         this.buildRecents(menu);
     }
@@ -387,6 +395,30 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
     }
 
     abstract boolean isFormat();
+
+    /**
+     * If the cell selection has a format/parse pattern add a remove menu item followed by a separator.
+     */
+    private void removeHistoryToken(final SpreadsheetContextMenu menu) {
+        final Optional<P> pattern = this.pattern;
+        if (pattern.isPresent()) {
+            menu.item(
+                    this.historyToken.setPattern(
+                                    pattern.get()
+                            ).setDelete()
+                            .contextMenuItem(
+                                    this.idPrefix + "remove-" + (this.isFormat() ? "format" : "parse") + SpreadsheetIds.MENU_ITEM, // id
+                                    "Remove" // text
+                            ).icon(
+                                    this.removeIcon()
+                            )
+            );
+
+            menu.separator();
+        }
+    }
+
+    abstract Optional<Icon<?>> removeIcon();
 
     final HistoryToken historyToken;
 

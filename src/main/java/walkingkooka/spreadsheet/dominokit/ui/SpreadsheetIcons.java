@@ -155,6 +155,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_text();
     }
 
+    public static MdiIcon formatPatternRemove() {
+        return Icons.format_clear();
+    }
+
     public static MdiIcon hideZeroValues() {
         return Icons.star();
     }
@@ -177,6 +181,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
 
     public static MdiIcon parsePattern() {
         return Icons.format_text();
+    }
+
+    public static MdiIcon parsePatternRemove() {
+        return Icons.format_clear();
     }
 
     public static MdiIcon paste() {
