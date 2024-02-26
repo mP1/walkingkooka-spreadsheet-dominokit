@@ -231,15 +231,15 @@ public class SpreadsheetSelectionMenu {
     private static void renderStyle(final HistoryToken historyToken,
                                     final SpreadsheetContextMenu menu,
                                     final SpreadsheetSelectionMenuContext context) {
-        renderAlignment(historyToken, menu, context);
-        renderVerticalAlignment(historyToken, menu, context);
+        renderAlignment(menu, context);
+        renderVerticalAlignment(menu, context);
         renderColor(historyToken, menu, context);
         renderBackgroundColor(historyToken, menu, context);
         renderFontWeight(historyToken, menu, context);
-        renderFontStyle(historyToken, menu, context);
-        renderTextDecoration(historyToken, menu, context);
+        renderFontStyle(menu, context);
+        renderTextDecoration(menu, context);
         renderTextCase(historyToken, menu, context);
-        renderTextWrapping(historyToken, menu, context);
+        renderTextWrapping(menu, context);
         renderClearStyle(historyToken, menu, context);
 
         menu.separator();
@@ -356,67 +356,52 @@ public class SpreadsheetSelectionMenu {
     private static void renderFontWeight(final HistoryToken historyToken,
                                          final SpreadsheetContextMenu menu,
                                          final SpreadsheetSelectionMenuContext context) {
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.FONT_WEIGHT)
-                        .setSave(
-                                Optional.of(FontWeight.BOLD)
-                        ).contextMenuItem(
-                                context.idPrefix() + "bold" + SpreadsheetIds.MENU_ITEM,
-                                "Bold"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.bold()
-                                )
-                        )
+        menu.checkedItem(
+                context.idPrefix() + "bold" + SpreadsheetIds.MENU_ITEM, // id
+                "Bold", // text
+                Optional.of(
+                        SpreadsheetIcons.bold()
+                ), // icons
+                TextStylePropertyName.FONT_WEIGHT,
+                FontWeight.BOLD,
+                context
         );
     }
 
-    private static void renderFontStyle(final HistoryToken historyToken,
-                                        final SpreadsheetContextMenu menu,
+    private static void renderFontStyle(final SpreadsheetContextMenu menu,
                                         final SpreadsheetSelectionMenuContext context) {
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.FONT_STYLE)
-                        .setSave(Optional.of(FontStyle.ITALIC))
-                        .contextMenuItem(
-                                context.idPrefix() + "italics" + SpreadsheetIds.MENU_ITEM,
-                                "Italics"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.italics()
-                                )
-                        )
+        menu.checkedItem(
+                context.idPrefix() + "italics" + SpreadsheetIds.MENU_ITEM,
+                "Italics", // text
+                Optional.of(
+                        SpreadsheetIcons.italics()
+                ), // icons
+                TextStylePropertyName.FONT_STYLE,
+                FontStyle.ITALIC,
+                context
         );
     }
 
-    private static void renderTextDecoration(final HistoryToken historyToken,
-                                             final SpreadsheetContextMenu menu,
+    private static void renderTextDecoration(final SpreadsheetContextMenu menu,
                                              final SpreadsheetSelectionMenuContext context) {
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
-                        .setSave(
-                                Optional.of(TextDecorationLine.LINE_THROUGH)
-                        ).contextMenuItem(
-                                context.idPrefix() + "strike-thru" + SpreadsheetIds.MENU_ITEM,
-                                "Strike-thru"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.strikethrough()
-                                )
-                        )
-        );
-
-        menu.item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_DECORATION_LINE)
-                        .setSave(
-                                Optional.of(TextDecorationLine.UNDERLINE)
-                        ).contextMenuItem(
-                                context.idPrefix() + "underline" + SpreadsheetIds.MENU_ITEM,
-                                "Underline"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.underline()
-                                )
-                        )
+        menu.checkedItem(
+                context.idPrefix() + "strike-thru" + SpreadsheetIds.MENU_ITEM, // id
+                "Strike-thru", // text
+                Optional.of(
+                        SpreadsheetIcons.strikethrough()
+                ), // icons
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                TextDecorationLine.LINE_THROUGH,
+                context
+        ).checkedItem(
+                context.idPrefix() + "underline" + SpreadsheetIds.MENU_ITEM, // id
+                "Underline", // text
+                Optional.of(
+                        SpreadsheetIcons.underline()
+                ), // icons
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                TextDecorationLine.UNDERLINE,
+                context
         );
     }
 
@@ -437,196 +422,147 @@ public class SpreadsheetSelectionMenu {
                                         SpreadsheetIcons.textCaseUpper()
                                 )
                         )
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
-                        .setSave(
-                                Optional.of(TextTransform.CAPITALIZE)
-                        ).contextMenuItem(
-                                context.idPrefix() + "capitalize" + SpreadsheetIds.MENU_ITEM,
-                                "Capitalize"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textCaseCapitalize()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
-                        .setSave(
-                                Optional.of(TextTransform.LOWERCASE)
-                        ).contextMenuItem(
-                                context.idPrefix() + "lower" + SpreadsheetIds.MENU_ITEM,
-                                "Lower case"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textCaseLower()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.TEXT_TRANSFORM)
-                        .setSave(
-                                Optional.of(TextTransform.UPPERCASE)
-                        ).contextMenuItem(
-                                context.idPrefix() + "upper" + SpreadsheetIds.MENU_ITEM,
-                                "Upper case"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textCaseUpper()
-                                )
-                        )
+        ).checkedItem(
+                context.idPrefix() + "capitalize" + SpreadsheetIds.MENU_ITEM, // id
+                "Capitalize", // text
+                Optional.of(
+                        SpreadsheetIcons.textCaseCapitalize()
+                ), // icons
+                TextStylePropertyName.TEXT_TRANSFORM,
+                TextTransform.CAPITALIZE,
+                context
+        ).checkedItem(
+                context.idPrefix() + "lower" + SpreadsheetIds.MENU_ITEM, // id
+                "Lower case", // text
+                Optional.of(
+                        SpreadsheetIcons.textCaseLower()
+                ), // icons
+                TextStylePropertyName.TEXT_TRANSFORM,
+                TextTransform.LOWERCASE,
+                context
+        ).checkedItem(
+                context.idPrefix() + "upper" + SpreadsheetIds.MENU_ITEM, // id
+                "Upper case", // text
+                Optional.of(
+                        SpreadsheetIcons.textCaseUpper()
+                ), // icons
+                TextStylePropertyName.TEXT_TRANSFORM,
+                TextTransform.UPPERCASE,
+                context
         );
     }
 
-    private static void renderTextWrapping(final HistoryToken historyToken,
-                                           final SpreadsheetContextMenu menu,
+    private static void renderTextWrapping(final SpreadsheetContextMenu menu,
                                            final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
                 context.idPrefix() + "text-wrapping" + SpreadsheetIds.SUB_MENU,
                 "Wrapping"
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.OVERFLOW_WRAP)
-                        .setSave(
-                                Optional.of(OverflowWrap.NORMAL)
-                        ).contextMenuItem(
-                                context.idPrefix() + "clip" + SpreadsheetIds.MENU_ITEM,
-                                "Clip"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textWrappingClip()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.OVERFLOW_X)
-                        .setSave(
-                                Optional.of(Overflow.VISIBLE)
-                        ).contextMenuItem(
-                                context.idPrefix() + "overflow" + SpreadsheetIds.MENU_ITEM,
-                                "Overflow"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textWrappingOverflow()
-                                )
-                        )
-        ).item(
-                historyToken.setStyle(TextStylePropertyName.OVERFLOW_X)
-                        .setSave(
-                                Optional.of(Overflow.HIDDEN)
-                        ).contextMenuItem(
-                                context.idPrefix() + "wrap" + SpreadsheetIds.MENU_ITEM,
-                                "Wrap"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textWrappingClip()
-                                )
-                        )
+        ).checkedItem(
+                context.idPrefix() + "clip" + SpreadsheetIds.MENU_ITEM, // id
+                "Clip", // text
+                Optional.of(
+                        SpreadsheetIcons.textWrappingClip()
+                ), // icons
+                TextStylePropertyName.OVERFLOW_WRAP,
+                OverflowWrap.NORMAL,
+                context
+        ).checkedItem(
+                context.idPrefix() + "overflow" + SpreadsheetIds.MENU_ITEM,
+                "Overflow", // text
+                Optional.of(
+                        SpreadsheetIcons.textWrappingOverflow()
+                ), // icons
+                TextStylePropertyName.OVERFLOW_X,
+                Overflow.VISIBLE,
+                context
+        ).checkedItem(
+                context.idPrefix() + "wrap" + SpreadsheetIds.MENU_ITEM, // id
+                "Wrap", // text
+                Optional.of(
+                        SpreadsheetIcons.textWrappingWrap()
+                ), // icons
+                TextStylePropertyName.OVERFLOW_X,
+                Overflow.HIDDEN,
+                context
         );
     }
 
-    private static void renderAlignment(final HistoryToken historyToken,
-                                        final SpreadsheetContextMenu menu,
+    private static void renderAlignment(final SpreadsheetContextMenu menu,
                                         final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
                 context.idPrefix() + "alignment" + SpreadsheetIds.SUB_MENU,
                 "Alignment"
-        ).item(
-                historyToken.setStyle(
-                        TextStylePropertyName.TEXT_ALIGN
-                ).setSave(
-                        Optional.of(TextAlign.LEFT)
-                ).contextMenuItem(
-                        context.idPrefix() + "left" + SpreadsheetIds.MENU_ITEM,
-                        "Left"
-                ).icon(
-                        Optional.of(
-                                SpreadsheetIcons.alignLeft()
-                        )
-                )
-        ).item(
-                historyToken.setStyle(
-                        TextStylePropertyName.TEXT_ALIGN
-                ).setSave(
-                        Optional.of(TextAlign.CENTER)
-                ).contextMenuItem(
-                        context.idPrefix() + "center" + SpreadsheetIds.MENU_ITEM,
-                        "Center"
-                ).icon(
-                        Optional.of(
-                                SpreadsheetIcons.alignCenter()
-                        )
-                )
-        ).item(
-                historyToken.setStyle(
-                        TextStylePropertyName.TEXT_ALIGN
-                ).setSave(
-                        Optional.of(TextAlign.RIGHT)
-                ).contextMenuItem(
-                        context.idPrefix() + "right" + SpreadsheetIds.MENU_ITEM,
-                        "Right"
-                ).icon(
-                        Optional.of(
-                                SpreadsheetIcons.alignRight()
-                        )
-                )
-        ).item(
-                historyToken.setStyle(
-                        TextStylePropertyName.TEXT_ALIGN
-                ).setSave(
-                        Optional.of(TextAlign.JUSTIFY)
-                ).contextMenuItem(
-                        context.idPrefix() + "justify" + SpreadsheetIds.MENU_ITEM,
-                        "Justify"
-                ).icon(
-                        Optional.of(
-                                SpreadsheetIcons.alignJustify()
-                        )
-                )
+        ).checkedItem(
+                context.idPrefix() + "left" + SpreadsheetIds.MENU_ITEM, // id
+                "Left", // text
+                Optional.of(
+                        SpreadsheetIcons.alignLeft()
+                ), // icons
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.LEFT,
+                context
+        ).checkedItem(
+                context.idPrefix() + "center" + SpreadsheetIds.MENU_ITEM, // id
+                "Center", // text
+                Optional.of(
+                        SpreadsheetIcons.alignCenter()
+                ), // icons
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.CENTER,
+                context
+        ).checkedItem(
+                context.idPrefix() + "right" + SpreadsheetIds.MENU_ITEM, // id
+                "Right", // text
+                Optional.of(
+                        SpreadsheetIcons.alignRight()
+                ), // icons
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.RIGHT,
+                context
+        ).checkedItem(
+                context.idPrefix() + "justify" + SpreadsheetIds.MENU_ITEM, // id
+                "Justify", // text
+                Optional.of(
+                        SpreadsheetIcons.alignJustify()
+                ), // icons
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.JUSTIFY,
+                context
         );
     }
 
-    private static void renderVerticalAlignment(final HistoryToken historyToken,
-                                                final SpreadsheetContextMenu menu,
+    private static void renderVerticalAlignment(final SpreadsheetContextMenu menu,
                                                 final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
                 context.idPrefix() + "vertical-alignment" + SpreadsheetIds.SUB_MENU,
                 "Vertical Alignment"
-        ).item(
-                historyToken.setStyle(
-                        TextStylePropertyName.VERTICAL_ALIGN
-                ).setSave(
-                        Optional.of(VerticalAlign.TOP)
-                ).contextMenuItem(
-                        context.idPrefix() + "top" + SpreadsheetIds.MENU_ITEM,
-                        "Top"
-                ).icon(
-                        Optional.of(
-                                SpreadsheetIcons.verticalAlignTop()
-                        )
-                )
-        ).item(
-                historyToken.setStyle(
-                        TextStylePropertyName.VERTICAL_ALIGN
-                ).setSave(
-                        Optional.of(VerticalAlign.MIDDLE)
-                ).contextMenuItem(
-                        context.idPrefix() + "middle" + SpreadsheetIds.MENU_ITEM,
-                        "Middle"
-                ).icon(
-                        Optional.of(
-                                SpreadsheetIcons.verticalAlignMiddle()
-                        )
-                )
-        ).item(
-                historyToken.setStyle(
-                        TextStylePropertyName.VERTICAL_ALIGN
-                ).setSave(
-                        Optional.of(VerticalAlign.BOTTOM)
-                ).contextMenuItem(
-                        context.idPrefix() + "bottom" + SpreadsheetIds.MENU_ITEM,
-                        "Bottom"
-                ).icon(
-                        Optional.of(
-                                SpreadsheetIcons.verticalAlignBottom()
-                        )
-                )
+        ).checkedItem(
+                context.idPrefix() + "top" + SpreadsheetIds.MENU_ITEM, // id
+                "Top", // text
+                Optional.of(
+                        SpreadsheetIcons.verticalAlignTop()
+                ), // icons
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.TOP,
+                context
+        ).checkedItem(
+                context.idPrefix() + "middle" + SpreadsheetIds.MENU_ITEM, // id
+                "Middle", // text
+                Optional.of(
+                        SpreadsheetIcons.verticalAlignMiddle()
+                ), // icons
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.MIDDLE,
+                context
+        ).checkedItem(
+                context.idPrefix() + "bottom" + SpreadsheetIds.MENU_ITEM, // id
+                "Bottom", // text
+                Optional.of(
+                        SpreadsheetIcons.verticalAlignBottom()
+                ), // icons
+                TextStylePropertyName.VERTICAL_ALIGN,
+                VerticalAlign.BOTTOM,
+                context
         );
     }
 
