@@ -42,12 +42,14 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
     SpreadsheetSelectionMenuPattern(final HistoryToken historyToken,
                                     final Locale locale,
                                     final List<P> recents,
-                                    final String idPrefix) {
+                                    final String idPrefix,
+                                    final Optional<P> pattern) {
         this.historyToken = historyToken.clearAction();
         this.locale = locale;
 
         this.recents = recents;
         this.idPrefix = idPrefix;
+        this.pattern = pattern;
     }
 
     void build(final SpreadsheetContextMenu menu) {
@@ -130,6 +132,8 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
                         .contextMenuItem(
                                 this.idPrefix + "date-" + id + SpreadsheetIds.MENU_ITEM,
                                 label + " " + pattern
+                        ).checked(
+                                this.checked(pattern)
                         )
         );
     }
@@ -181,6 +185,8 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
                         .contextMenuItem(
                                 this.idPrefix + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
                                 label + " " + pattern
+                        ).checked(
+                                this.checked(pattern)
                         )
         );
     }
@@ -264,17 +270,23 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
                         .contextMenuItem(
                                 this.idPrefix + "number-" + id + SpreadsheetIds.MENU_ITEM,
                                 label + " " + pattern
+                        ).checked(
+                                this.checked(pattern)
                         )
         );
     }
 
     private void text(final SpreadsheetContextMenu menu) {
+        final SpreadsheetFormatPattern pattern = SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN;
+
         menu.item(
                 this.historyToken.setPattern(
-                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                        pattern
                 ).contextMenuItem(
                         this.idPrefix + "text-default" + SpreadsheetIds.MENU_ITEM,
                         "Default " + SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                ).checked(
+                        this.checked(pattern)
                 )
         );
 
@@ -326,6 +338,8 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
                         .contextMenuItem(
                                 this.idPrefix + "time-" + id + SpreadsheetIds.MENU_ITEM,
                                 label + " " + pattern
+                        ).checked(
+                                this.checked(pattern)
                         )
         );
     }
@@ -375,6 +389,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
     abstract boolean isFormat();
 
     final HistoryToken historyToken;
+
     final Locale locale;
 
     /**
@@ -383,6 +398,14 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
     private final List<P> recents;
 
     private final String idPrefix;
+
+    private boolean checked(final SpreadsheetPattern pattern) {
+        return pattern.equals(
+                this.pattern.orElse(null)
+        );
+    }
+
+    private final Optional<P> pattern;
 
     @Override
     public final String toString() {
