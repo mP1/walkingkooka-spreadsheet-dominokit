@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -131,5 +133,12 @@ final class SpreadsheetSelectionMenuPatternParse extends SpreadsheetSelectionMen
     @Override
     boolean isFormat() {
         return false;
+    }
+
+    @Override
+    Optional<Icon<?>> removeIcon() {
+        return Optional.of(
+                SpreadsheetIcons.parsePatternRemove()
+        );
     }
 }
