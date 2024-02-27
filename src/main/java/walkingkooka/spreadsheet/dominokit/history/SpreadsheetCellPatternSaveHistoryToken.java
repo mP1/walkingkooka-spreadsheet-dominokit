@@ -135,7 +135,19 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
     @Override
     HistoryToken setSave0(final String value) {
-        return this;
+        final SpreadsheetPatternKind kind = this.patternKind()
+                .get();
+        return new SpreadsheetCellPatternSaveHistoryToken(
+                this.id(),
+                this.name(),
+                this.anchoredSelection(),
+                kind,
+                Optional.ofNullable(
+                        value.isEmpty() ?
+                                null :
+                                kind.parse(value)
+                )
+        );
     }
 
     @Override

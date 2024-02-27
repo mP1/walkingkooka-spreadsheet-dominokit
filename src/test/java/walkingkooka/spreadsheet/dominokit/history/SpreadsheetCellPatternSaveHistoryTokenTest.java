@@ -155,6 +155,50 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
         );
     }
 
+    // setSave..........................................................................................................
+
+    @Test
+    public void testSetSave() {
+        final HistoryToken token = this.createHistoryToken();
+        final SpreadsheetPatternKind kind = token.patternKind()
+                .get();
+        final String pattern = "dd/mm/yyyy";
+
+        this.setSaveAndCheck(
+                token,
+                pattern,
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        kind,
+                        Optional.of(
+                                kind.parse(pattern)
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testSetSaveEmpty() {
+        final HistoryToken token = this.createHistoryToken();
+        final SpreadsheetPatternKind kind = token.patternKind()
+                .get();
+        final String pattern = "";
+
+        this.setSaveAndCheck(
+                token,
+                pattern,
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        kind,
+                        Optional.empty()
+                )
+        );
+    }
+
     @Override
     SpreadsheetCellPatternSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,
