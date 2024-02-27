@@ -73,14 +73,13 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
 
-        this.checkEquals(
+        this.setDeleteAndCheck(
+                token,
                 HistoryToken.labelMappingDelete(
                         token.id(),
                         token.name(),
                         labelName.get()
-                ),
-                this.createHistoryToken()
-                        .setDelete()
+                )
         );
     }
 

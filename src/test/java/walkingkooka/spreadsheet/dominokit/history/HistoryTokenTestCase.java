@@ -89,6 +89,17 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // setDelete..........................................................................................................
+
+    final void setDeleteAndCheck(final HistoryToken token,
+                                 final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setDelete(),
+                () -> token + " setDelete"
+        );
+    }
+    
     // setFind..........................................................................................................
 
     final void setFindAndCheck(final HistoryToken token,
