@@ -86,6 +86,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -181,15 +182,49 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     private HistoryTokenRecorder recentPatternSaves(final boolean format,
                                                     final HistoryTokenContext context) {
         final HistoryTokenRecorder recorder = HistoryTokenRecorder.with(
-                (t) -> t instanceof SpreadsheetCellPatternSaveHistoryToken &&
-                        t.cast(SpreadsheetCellPatternSaveHistoryToken.class)
-                                .patternKind()
-                                .map(k -> k.isFormatPattern() == format)
-                                .orElse(false),
+                format ?
+                        SpreadsheetViewportComponent::isFormatPatternSave :
+                        SpreadsheetViewportComponent::isParsePatternSave,
                 3 // max recents kept
         );
         context.addHistoryTokenWatcher(recorder);
         return recorder;
+    }
+
+    private static boolean isFormatPatternSave(final HistoryToken token) {
+        return isPatternSave(
+                token,
+                true // is format
+        );
+    }
+
+    private static boolean isParsePatternSave(final HistoryToken token) {
+        return isPatternSave(
+                token,
+                false // is parse
+        );
+    }
+
+    /**
+     * Because there are two {@link HistoryTokenRecorder} one for format patterns and the other for parse patterns,
+     * a {@link Predicate} is required to filter just the one type for each recorder.
+     */
+    private static boolean isPatternSave(final HistoryToken token,
+                                         final boolean format) {
+        boolean keep = false;
+
+        if (token instanceof SpreadsheetCellPatternSaveHistoryToken) {
+            final SpreadsheetCellPatternSaveHistoryToken patternSaveHistoryToken = token.cast(SpreadsheetCellPatternSaveHistoryToken.class);
+
+            final SpreadsheetPatternKind kind = patternSaveHistoryToken.patternKind().get();
+            if (kind.isFormatPattern() == format) {
+                if (patternSaveHistoryToken.pattern().isPresent()) {
+                    keep = true;
+                }
+            }
+        }
+
+        return keep;
     }
 
     // root.............................................................................................................
