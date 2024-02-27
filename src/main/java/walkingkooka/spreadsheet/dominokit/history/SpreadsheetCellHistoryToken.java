@@ -57,11 +57,15 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
     @Override //
     final HistoryToken setDelete0() {
-        return cellDelete(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
+
+        // deleting a pattern will create a save pattern with empty string.
+        return this instanceof SpreadsheetCellPatternHistoryToken ?
+                this.setSave("") :
+                cellDelete(
+                        this.id(),
+                        this.name(),
+                        this.anchoredSelection()
+                );
     }
 
     final HistoryToken setFormula0() {
