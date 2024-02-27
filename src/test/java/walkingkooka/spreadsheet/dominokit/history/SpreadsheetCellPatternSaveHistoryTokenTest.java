@@ -155,6 +155,25 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
         );
     }
 
+    // setDelete........................................................................................................
+
+    @Test
+    public void testSetDelete() {
+        final HistoryToken token = this.createHistoryToken();
+
+        this.setDeleteAndCheck(
+                token,
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        SELECTION,
+                        token.patternKind()
+                                .get(),
+                        Optional.empty()
+                )
+        );
+    }
+
     // setSave..........................................................................................................
 
     @Test
