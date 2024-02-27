@@ -38,8 +38,6 @@ import java.util.function.Function;
  */
 abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
 
-    private final static int MAX_RECENT_COUNT = 3;
-
     SpreadsheetSelectionMenuPattern(final HistoryToken historyToken,
                                     final Locale locale,
                                     final List<P> recents,
