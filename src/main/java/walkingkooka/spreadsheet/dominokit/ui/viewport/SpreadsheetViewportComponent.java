@@ -136,6 +136,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle {
 
+    /**
+     * The maximum number of recent format / parse pattern saves.
+     */
+    final static int MAX_RECENT_COUNT = 3;
+
     public static SpreadsheetViewportComponent empty(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
@@ -185,7 +190,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 format ?
                         SpreadsheetViewportComponent::isFormatPatternSave :
                         SpreadsheetViewportComponent::isParsePatternSave,
-                3 // max recents kept
+                MAX_RECENT_COUNT
         );
         context.addHistoryTokenWatcher(recorder);
         return recorder;
