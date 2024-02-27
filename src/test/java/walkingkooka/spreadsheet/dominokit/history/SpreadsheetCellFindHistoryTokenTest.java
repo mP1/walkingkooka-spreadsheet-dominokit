@@ -55,7 +55,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     }
 
     @Test
-    public void testSetPathSame() {
+    public void testSetFindSame() {
         final SpreadsheetCellFindHistoryToken token = this.createHistoryToken();
 
         assertSame(
