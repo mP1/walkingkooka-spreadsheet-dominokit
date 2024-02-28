@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;

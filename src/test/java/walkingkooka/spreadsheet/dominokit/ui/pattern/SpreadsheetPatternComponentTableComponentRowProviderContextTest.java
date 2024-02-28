@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import walkingkooka.Context;
 import walkingkooka.ContextTesting;
 import walkingkooka.Either;
