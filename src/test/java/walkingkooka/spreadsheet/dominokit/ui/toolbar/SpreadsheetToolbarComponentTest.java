@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;

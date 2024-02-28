@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;

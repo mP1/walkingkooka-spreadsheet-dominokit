@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public final class SpreadsheetPatternComponentTableComponentRowProviderEmptyTest extends SpreadsheetPatternComponentTableComponentRowProviderTestCase<SpreadsheetPatternComponentTableComponentRowProviderEmpty> {
 

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;

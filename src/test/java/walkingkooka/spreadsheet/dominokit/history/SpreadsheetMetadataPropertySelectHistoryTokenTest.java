@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import walkingkooka.Cast;
 import walkingkooka.convert.Converters;
 import walkingkooka.spreadsheet.SpreadsheetId;

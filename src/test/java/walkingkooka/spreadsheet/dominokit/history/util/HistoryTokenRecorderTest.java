@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history.util;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
