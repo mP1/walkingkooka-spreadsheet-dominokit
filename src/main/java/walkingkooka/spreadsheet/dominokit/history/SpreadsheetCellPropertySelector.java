@@ -19,6 +19,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.text.CharSequences;
+
+import java.util.Arrays;
+import java.util.Objects;
 
 public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
 
@@ -44,4 +48,13 @@ public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
     }
 
     private final UrlFragment urlFragment;
+
+    public static SpreadsheetCellPropertySelector parse(final String string) {
+        Objects.requireNonNull(string, "string");
+
+        return Arrays.stream(values())
+                .filter(e -> e.urlFragment.value().equals(string))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid property selector: " + CharSequences.quote(string)));
+    }
 }
