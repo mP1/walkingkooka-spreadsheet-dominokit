@@ -17,17 +17,31 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-public enum SpreadsheetCellPropertySelector {
+import walkingkooka.net.HasUrlFragment;
+import walkingkooka.net.UrlFragment;
 
-    ALL,
+public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
 
-    FORMULA,
+    ALL("/*"),
 
-    FORMAT_PATTERN,
+    FORMULA("/formula"),
 
-    PARSE_PATTERN,
+    FORMAT_PATTERN("/format-pattern"),
 
-    STYLE,
+    PARSE_PATTERN("/parse-pattern"),
 
-    VALUE
+    STYLE("/style"),
+
+    VALUE("/value");
+
+    SpreadsheetCellPropertySelector(final String urlFragment) {
+        this.urlFragment = UrlFragment.parse(urlFragment);
+    }
+
+    @Override
+    public UrlFragment urlFragment() {
+        return this.urlFragment;
+    }
+
+    private final UrlFragment urlFragment;
 }

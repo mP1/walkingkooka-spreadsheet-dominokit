@@ -17,10 +17,50 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.net.HasUrlFragmentTesting;
+import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<SpreadsheetCellPropertySelector> {
+public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<SpreadsheetCellPropertySelector>,
+        HasUrlFragmentTesting {
+
+    // HasUrlFragment...................................................................................................
+
+    @Test
+    public void testUrlFragmentAll() {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellPropertySelector.ALL,
+                UrlFragment.with("/*")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentFormula() {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellPropertySelector.FORMULA,
+                UrlFragment.with("/formula")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentFormatPattern() {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellPropertySelector.FORMAT_PATTERN,
+                UrlFragment.with("/format-pattern")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentStyle() {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellPropertySelector.STYLE,
+                UrlFragment.with("/style")
+        );
+    }
+
+    // ClassTesting.....................................................................................................
 
     @Override
     public Class<SpreadsheetCellPropertySelector> type() {
