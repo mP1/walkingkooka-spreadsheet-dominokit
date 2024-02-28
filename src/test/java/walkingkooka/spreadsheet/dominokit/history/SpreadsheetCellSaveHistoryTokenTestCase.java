@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
-public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends SpreadsheetCellSaveHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
+public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends SpreadsheetCellSaveHistoryToken<?>> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     SpreadsheetCellSaveHistoryTokenTestCase() {
         super();
