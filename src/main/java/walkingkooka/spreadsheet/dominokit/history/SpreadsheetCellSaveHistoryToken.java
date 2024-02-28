@@ -182,7 +182,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     abstract UrlFragment saveValueUrlFragment();
 
     /**
-     * Some {@lin Map} values are not polymorphic, eg formulas are always {@link String strings}.
+     * Some values are not polymorphic, eg formulas are always {@link String strings}.
      */
     final JsonNode marshallValue(final Object value) {
         return MARSHALL_CONTEXT.marshall(
