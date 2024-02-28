@@ -2906,7 +2906,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
             return this.historyTokenWatchers.add(watcher);
         }
 
-        private HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
 
         @Override
         public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
