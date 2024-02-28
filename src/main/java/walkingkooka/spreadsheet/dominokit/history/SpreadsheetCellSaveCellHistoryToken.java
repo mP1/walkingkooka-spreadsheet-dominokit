@@ -95,7 +95,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     }
 
     @Override //
-    final HistoryToken setSave0(final String value) {
+    HistoryToken setSave0(final String value) {
         final TextCursor cursor = TextCursors.charSequence(value);
 
         return this.replace(
