@@ -17,14 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetSelectionMenuPatternTest implements ClassTesting<SpreadsheetSelectionMenuPattern> {
+public final class SpreadsheetSelectionMenuPatternTest implements ClassTesting<SpreadsheetSelectionMenuPattern<?>> {
 
     @Override
-    public Class<SpreadsheetSelectionMenuPattern> type() {
-        return SpreadsheetSelectionMenuPattern.class;
+    public Class<SpreadsheetSelectionMenuPattern<?>> type() {
+        return Cast.to(SpreadsheetSelectionMenuPattern.class);
     }
 
     @Override

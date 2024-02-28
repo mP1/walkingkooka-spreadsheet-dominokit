@@ -1384,7 +1384,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         HistoryToken token = this;
 
         if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
-            final SpreadsheetMetadataPropertyHistoryToken metadataHistoryToken = this.cast(SpreadsheetMetadataPropertyHistoryToken.class);
+            final SpreadsheetMetadataPropertyHistoryToken<?> metadataHistoryToken = this.cast(SpreadsheetMetadataPropertyHistoryToken.class);
             if (false == propertyName.equals(metadataHistoryToken.propertyName())) {
                 token = HistoryToken.metadataPropertySelect(
                         metadataHistoryToken.id(),
