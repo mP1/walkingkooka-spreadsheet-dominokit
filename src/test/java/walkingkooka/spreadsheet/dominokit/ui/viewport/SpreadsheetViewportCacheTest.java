@@ -2873,7 +2873,7 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
         this.checkEquals(
                 expected,
                 cache.selectionSummary(),
-                () -> cache.toString()
+                cache::toString
         );
     }
 
