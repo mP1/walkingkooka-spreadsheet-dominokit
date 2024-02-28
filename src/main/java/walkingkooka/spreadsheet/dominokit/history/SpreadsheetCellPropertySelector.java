@@ -25,7 +25,7 @@ public enum SpreadsheetCellPropertySelector {
 
     FORMAT_PATTERN,
 
-    PARSE_PATTER,
+    PARSE_PATTERN,
 
     STYLE,
 
