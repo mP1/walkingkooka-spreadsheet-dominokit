@@ -32,7 +32,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     public void testUrlFragmentAll() {
         this.urlFragmentAndCheck(
                 SpreadsheetCellPropertySelector.ALL,
-                UrlFragment.with("/*")
+                UrlFragment.with("*")
         );
     }
 
@@ -40,7 +40,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     public void testUrlFragmentFormula() {
         this.urlFragmentAndCheck(
                 SpreadsheetCellPropertySelector.FORMULA,
-                UrlFragment.with("/formula")
+                UrlFragment.with("formula")
         );
     }
 
@@ -48,7 +48,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     public void testUrlFragmentFormatPattern() {
         this.urlFragmentAndCheck(
                 SpreadsheetCellPropertySelector.FORMAT_PATTERN,
-                UrlFragment.with("/format-pattern")
+                UrlFragment.with("format-pattern")
         );
     }
 
@@ -56,7 +56,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     public void testUrlFragmentStyle() {
         this.urlFragmentAndCheck(
                 SpreadsheetCellPropertySelector.STYLE,
-                UrlFragment.with("/style")
+                UrlFragment.with("style")
         );
     }
 
