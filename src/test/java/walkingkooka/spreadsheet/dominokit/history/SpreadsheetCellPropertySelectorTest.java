@@ -22,9 +22,44 @@ import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.test.ParseStringTesting;
 
 public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<SpreadsheetCellPropertySelector>,
-        HasUrlFragmentTesting {
+        HasUrlFragmentTesting,
+        ParseStringTesting<SpreadsheetCellPropertySelector> {
+
+    // parse............................................................................................................
+
+    @Test
+    public void testParseStar() {
+        this.parseStringAndCheck(
+                "*",
+                SpreadsheetCellPropertySelector.ALL
+        );
+    }
+
+    @Test
+    public void testParseFormula() {
+        this.parseStringAndCheck(
+                "formula",
+                SpreadsheetCellPropertySelector.FORMULA
+        );
+    }
+
+    @Override //
+    public SpreadsheetCellPropertySelector parseString(final String string) {
+        return SpreadsheetCellPropertySelector.parse(string);
+    }
+
+    @Override
+    public Class<? extends RuntimeException> parseStringFailedExpected(final Class<? extends RuntimeException> thrown) {
+        return thrown;
+    }
+
+    @Override
+    public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
+        return thrown;
+    }
 
     // HasUrlFragment...................................................................................................
 
