@@ -22,17 +22,17 @@ import walkingkooka.net.UrlFragment;
 
 public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
 
-    ALL("/*"),
+    ALL("*"),
 
-    FORMULA("/formula"),
+    FORMULA("formula"),
 
-    FORMAT_PATTERN("/format-pattern"),
+    FORMAT_PATTERN("format-pattern"),
 
-    PARSE_PATTERN("/parse-pattern"),
+    PARSE_PATTERN("parse-pattern"),
 
-    STYLE("/style"),
+    STYLE("style"),
 
-    VALUE("/value");
+    VALUE("value");
 
     SpreadsheetCellPropertySelector(final String urlFragment) {
         this.urlFragment = UrlFragment.parse(urlFragment);
