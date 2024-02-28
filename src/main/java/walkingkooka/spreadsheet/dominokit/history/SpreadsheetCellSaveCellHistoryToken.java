@@ -62,7 +62,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
         final SpreadsheetSelection selection = anchoredSelection.selection();
         if (false == selection.isLabelName()) {
             final String outside = value.stream()
-                    .map(c -> c.reference())
+                    .map(SpreadsheetCell::reference)
                     .filter(selection.negate())
                     .map(SpreadsheetSelection::toString)
                     .collect(Collectors.joining(", "));

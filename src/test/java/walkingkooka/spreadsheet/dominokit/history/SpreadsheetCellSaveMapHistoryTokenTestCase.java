@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends SpreadsheetCellSaveMapHistoryToken<?>> extends SpreadsheetCellSaveHistoryTokenTestCase<T> {
@@ -35,7 +36,7 @@ public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends Sprea
                         .collect(
                                 Collectors.toMap(
                                         entry -> entry.getKey().toString(),
-                                        entry -> entry.getValue()
+                                        Entry::getValue
                                 )
                         )
         ).toString();
