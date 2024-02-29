@@ -24,7 +24,7 @@ import walkingkooka.text.CharSequences;
 import java.util.Arrays;
 import java.util.Objects;
 
-public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
+public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
 
     CELL("cell"),
 
@@ -38,7 +38,7 @@ public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
 
     FORMATTED_TEXT("formatted-text");
 
-    SpreadsheetCellPropertySelector(final String urlFragment) {
+    SpreadsheetCellClipboardValueSelector(final String urlFragment) {
         this.urlFragment = UrlFragment.parse(urlFragment);
     }
 
@@ -49,7 +49,7 @@ public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
 
     private final UrlFragment urlFragment;
 
-    public static SpreadsheetCellPropertySelector parse(final String string) {
+    public static SpreadsheetCellClipboardValueSelector parse(final String string) {
         Objects.requireNonNull(string, "string");
 
         return Arrays.stream(values())
