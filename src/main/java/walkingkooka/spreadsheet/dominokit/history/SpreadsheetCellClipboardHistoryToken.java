@@ -28,12 +28,12 @@ import java.util.Objects;
 /**
  * Base class for clipboard operations for a cell/cell-range.
  */
-public abstract class SpreadsheetCellClipboardHistoryToken<V> extends SpreadsheetCellHistoryToken implements Value<V> {
+public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCellHistoryToken implements Value<Object> {
     SpreadsheetCellClipboardHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                          final SpreadsheetCellClipboardValueSelector clipboardValueSelector,
-                                         final V value) {
+                                         final Object value) {
         super(
                 id,
                 name,
@@ -46,7 +46,7 @@ public abstract class SpreadsheetCellClipboardHistoryToken<V> extends Spreadshee
     /**
      * Sub-classes should make a defensive copy of any Collection instance and also check the elements/values within.
      */
-    abstract V checkValue(final V value);
+    abstract Object checkValue(final Object value);
 
     public final SpreadsheetCellClipboardValueSelector clipboardValueSelector() {
         return this.clipboardValueSelector;
@@ -55,11 +55,11 @@ public abstract class SpreadsheetCellClipboardHistoryToken<V> extends Spreadshee
     private final SpreadsheetCellClipboardValueSelector clipboardValueSelector;
 
     @Override
-    public final V value() {
+    public final Object value() {
         return this.value;
     }
 
-    private final V value;
+    private final Object value;
 
     // /cell/a1:A2/cut/style/{color:"#123456"}
     @Override //
