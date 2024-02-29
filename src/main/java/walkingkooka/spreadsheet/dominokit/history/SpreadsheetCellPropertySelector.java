@@ -26,7 +26,7 @@ import java.util.Objects;
 
 public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
 
-    ALL("*"),
+    CELL("cell"),
 
     FORMULA("formula"),
 
