@@ -31,10 +31,10 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     // parse............................................................................................................
 
     @Test
-    public void testParseStar() {
+    public void testParseCell() {
         this.parseStringAndCheck(
-                "*",
-                SpreadsheetCellPropertySelector.ALL
+                "cell",
+                SpreadsheetCellPropertySelector.CELL
         );
     }
 
@@ -64,10 +64,10 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     // HasUrlFragment...................................................................................................
 
     @Test
-    public void testUrlFragmentAll() {
+    public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellPropertySelector.ALL,
-                UrlFragment.with("*")
+                SpreadsheetCellPropertySelector.CELL,
+                UrlFragment.with("cell")
         );
     }
 
