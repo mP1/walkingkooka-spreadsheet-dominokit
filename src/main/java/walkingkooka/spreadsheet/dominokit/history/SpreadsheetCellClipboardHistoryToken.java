@@ -40,7 +40,7 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
                 anchoredSelection
         );
         this.clipboardValueSelector = Objects.requireNonNull(clipboardValueSelector, "clipboardValueSelector");
-        this.value = this.checkValue(value);
+        this.value = clipboardValueSelector.checkValue(value);
     }
 
     /**
