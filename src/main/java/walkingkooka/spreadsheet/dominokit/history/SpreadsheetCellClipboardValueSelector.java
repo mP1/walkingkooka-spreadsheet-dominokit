@@ -76,6 +76,6 @@ public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
         return Arrays.stream(values())
                 .filter(e -> e.urlFragment.value().equals(string))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Invalid property selector: " + CharSequences.quote(string)));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid cell clipboard selector: " + CharSequences.quote(string)));
     }
 }
