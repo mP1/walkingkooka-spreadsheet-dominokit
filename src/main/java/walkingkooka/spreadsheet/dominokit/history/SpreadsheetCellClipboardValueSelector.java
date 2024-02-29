@@ -24,18 +24,39 @@ import walkingkooka.text.CharSequences;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Used to mark the tyoe of a clipboard value in a {@link SpreadsheetCellClipboardHistoryToken}.
+ */
 public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
 
+    /**
+     * The clipboard value is a {@link java.util.Set} of {@link walkingkooka.spreadsheet.SpreadsheetCell}.
+     */
     CELL("cell"),
 
+    /**
+     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link String formula text}.
+     */
     FORMULA("formula"),
 
+    /**
+     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern}.
+     */
     FORMAT_PATTERN("format-pattern"),
 
+    /**
+     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern}.
+     */
     PARSE_PATTERN("parse-pattern"),
 
+    /**
+     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link walkingkooka.tree.text.TextStyle}.
+     */
     STYLE("style"),
 
+    /**
+     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link String formatted text}.
+     */
     FORMATTED_TEXT("formatted-text");
 
     SpreadsheetCellClipboardValueSelector(final String urlFragment) {
