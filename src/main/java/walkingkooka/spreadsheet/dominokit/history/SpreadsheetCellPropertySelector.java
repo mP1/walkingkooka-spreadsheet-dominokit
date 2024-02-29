@@ -36,7 +36,7 @@ public enum SpreadsheetCellPropertySelector implements HasUrlFragment {
 
     STYLE("style"),
 
-    VALUE("value");
+    FORMATTED_TEXT("formatted-text");
 
     SpreadsheetCellPropertySelector(final String urlFragment) {
         this.urlFragment = UrlFragment.parse(urlFragment);
