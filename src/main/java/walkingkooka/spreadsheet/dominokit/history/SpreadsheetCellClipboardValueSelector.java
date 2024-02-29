@@ -139,8 +139,15 @@ public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
         this.urlFragment = UrlFragment.parse(urlFragment);
     }
 
+    /**
+     * Verifies the value such as a {@link Map} or {@link Set} contains values of the correct type.
+     */
     abstract Object checkValue(final Object value);
 
+    /**
+     * Verifies that the {@link Map} keys are a {@link SpreadsheetCellReference} and the values are of the correct type
+     * using the {@link Predicate}.
+     */
     final Object checkMap(final Object map,
                           final Predicate<Object> valueTypeTester,
                           final Class<?> valueType) {
