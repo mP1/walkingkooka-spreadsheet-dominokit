@@ -57,7 +57,7 @@ public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
     /**
      * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link String formatted text}.
      */
-    FORMATTED_TEXT("formatted-text");
+    FORMATTED("formatted");
 
     SpreadsheetCellClipboardValueSelector(final String urlFragment) {
         this.urlFragment = UrlFragment.parse(urlFragment);
