@@ -24,9 +24,9 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.test.ParseStringTesting;
 
-public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<SpreadsheetCellPropertySelector>,
+public final class SpreadsheetCellClipboardValueSelectorTest implements ClassTesting<SpreadsheetCellClipboardValueSelector>,
         HasUrlFragmentTesting,
-        ParseStringTesting<SpreadsheetCellPropertySelector> {
+        ParseStringTesting<SpreadsheetCellClipboardValueSelector> {
 
     // parse............................................................................................................
 
@@ -34,7 +34,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     public void testParseCell() {
         this.parseStringAndCheck(
                 "cell",
-                SpreadsheetCellPropertySelector.CELL
+                SpreadsheetCellClipboardValueSelector.CELL
         );
     }
 
@@ -42,13 +42,13 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     public void testParseFormula() {
         this.parseStringAndCheck(
                 "formula",
-                SpreadsheetCellPropertySelector.FORMULA
+                SpreadsheetCellClipboardValueSelector.FORMULA
         );
     }
 
     @Override //
-    public SpreadsheetCellPropertySelector parseString(final String string) {
-        return SpreadsheetCellPropertySelector.parse(string);
+    public SpreadsheetCellClipboardValueSelector parseString(final String string) {
+        return SpreadsheetCellClipboardValueSelector.parse(string);
     }
 
     @Override
@@ -66,7 +66,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellPropertySelector.CELL,
+                SpreadsheetCellClipboardValueSelector.CELL,
                 UrlFragment.with("cell")
         );
     }
@@ -74,7 +74,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     @Test
     public void testUrlFragmentFormula() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellPropertySelector.FORMULA,
+                SpreadsheetCellClipboardValueSelector.FORMULA,
                 UrlFragment.with("formula")
         );
     }
@@ -82,7 +82,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     @Test
     public void testUrlFragmentFormatPattern() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellPropertySelector.FORMAT_PATTERN,
+                SpreadsheetCellClipboardValueSelector.FORMAT_PATTERN,
                 UrlFragment.with("format-pattern")
         );
     }
@@ -90,7 +90,7 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     @Test
     public void testUrlFragmentStyle() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellPropertySelector.STYLE,
+                SpreadsheetCellClipboardValueSelector.STYLE,
                 UrlFragment.with("style")
         );
     }
@@ -98,8 +98,8 @@ public final class SpreadsheetCellPropertySelectorTest implements ClassTesting<S
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetCellPropertySelector> type() {
-        return SpreadsheetCellPropertySelector.class;
+    public Class<SpreadsheetCellClipboardValueSelector> type() {
+        return SpreadsheetCellClipboardValueSelector.class;
     }
 
     @Override

@@ -32,14 +32,14 @@ public abstract class SpreadsheetCellClipboardHistoryToken<V> extends Spreadshee
     SpreadsheetCellClipboardHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                         final SpreadsheetCellPropertySelector propertySelector,
+                                         final SpreadsheetCellClipboardValueSelector clipboardValueSelector,
                                          final V value) {
         super(
                 id,
                 name,
                 anchoredSelection
         );
-        this.propertySelector = Objects.requireNonNull(propertySelector, "propertySelector");
+        this.clipboardValueSelector = Objects.requireNonNull(clipboardValueSelector, "clipboardValueSelector");
         this.value = this.checkValue(value);
     }
 
@@ -48,11 +48,11 @@ public abstract class SpreadsheetCellClipboardHistoryToken<V> extends Spreadshee
      */
     abstract V checkValue(final V value);
 
-    public final SpreadsheetCellPropertySelector propertySelector() {
-        return this.propertySelector;
+    public final SpreadsheetCellClipboardValueSelector clipboardValueSelector() {
+        return this.clipboardValueSelector;
     }
 
-    private final SpreadsheetCellPropertySelector propertySelector;
+    private final SpreadsheetCellClipboardValueSelector clipboardValueSelector;
 
     @Override
     public final V value() {
@@ -67,6 +67,6 @@ public abstract class SpreadsheetCellClipboardHistoryToken<V> extends Spreadshee
         return this.clipboardUrlFragment();
     }
 
-    // cut | copy | paste SLASH propertySelector SLASH serialized-value
+    // cut | copy | paste SLASH clipboardValueSelector SLASH serialized-value
     abstract UrlFragment clipboardUrlFragment();
 }
