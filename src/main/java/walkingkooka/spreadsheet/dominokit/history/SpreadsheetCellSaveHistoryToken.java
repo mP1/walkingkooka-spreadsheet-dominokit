@@ -30,8 +30,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
@@ -199,6 +197,4 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
                 value
         );
     }
-
-    final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 }

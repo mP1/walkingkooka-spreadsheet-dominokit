@@ -54,6 +54,8 @@ import walkingkooka.text.cursor.parser.ParserContext;
 import walkingkooka.text.cursor.parser.ParserContexts;
 import walkingkooka.text.cursor.parser.Parsers;
 import walkingkooka.text.cursor.parser.StringParserToken;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -74,6 +76,8 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final static String DISABLE = "disable";
 
     public final static String ENABLE = "enable";
+
+    final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     /**
      * {@see SpreadsheetCellSelectHistoryToken}
