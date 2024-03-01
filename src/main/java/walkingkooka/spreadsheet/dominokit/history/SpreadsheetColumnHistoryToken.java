@@ -141,12 +141,12 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
     }
 
     @Override //
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this; // TODO
     }
 
     @Override //
-    HistoryToken setSave0(final String value) {
+    final HistoryToken setSave0(final String value) {
         return this;
     }
 
