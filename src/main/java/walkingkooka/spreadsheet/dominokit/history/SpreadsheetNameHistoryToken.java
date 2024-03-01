@@ -45,7 +45,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return this.name;
     }
 
-    final HistoryToken setName0(final SpreadsheetName name) {
+    final HistoryToken replaceName(final SpreadsheetName name) {
         return this.setIdAndName(
                 this.id(),
                 name

@@ -1306,7 +1306,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         Objects.requireNonNull(name, "name");
 
         return this instanceof SpreadsheetNameHistoryToken ?
-                this.cast(SpreadsheetNameHistoryToken.class).setName0(name) :
+                this.cast(SpreadsheetNameHistoryToken.class).replaceName(name) :
                 this;
     }
 
