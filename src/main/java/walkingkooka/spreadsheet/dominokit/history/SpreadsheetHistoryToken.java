@@ -29,6 +29,8 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment CLEAR = UrlFragment.parse("/clear");
 
+    final static UrlFragment CUT = UrlFragment.parse("/cut");
+
     final static UrlFragment DELETE = UrlFragment.parse("/delete");
 
     final static UrlFragment FIND = UrlFragment.parse("/find");
