@@ -84,9 +84,9 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         return this;
     }
 
-    @Override
-    public final HistoryToken setIdAndName(final SpreadsheetId id,
-                                           final SpreadsheetName name) {
+    @Override //
+    final HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                        final SpreadsheetName name) {
         return this.replace(
                 id,
                 name,

@@ -95,9 +95,9 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         );
     }
 
-    @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
+    @Override //
+    HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                  final SpreadsheetName name) {
         return with(
                 id,
                 name,

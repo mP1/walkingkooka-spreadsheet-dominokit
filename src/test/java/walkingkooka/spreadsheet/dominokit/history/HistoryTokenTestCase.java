@@ -118,10 +118,11 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     public final void testSetIdAndNameNullIdFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> this.createHistoryToken().setIdAndName(
-                        null,
-                        NAME
-                )
+                () -> this.createHistoryToken()
+                        .setIdAndName(
+                                null,
+                                NAME
+                        )
         );
     }
 
@@ -129,10 +130,11 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     public final void testSetIdAndNameNullNameFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> this.createHistoryToken().setIdAndName(
-                        ID,
-                        null
-                )
+                () -> this.createHistoryToken()
+                        .setIdAndName(
+                                ID,
+                                null
+                        )
         );
     }
 
