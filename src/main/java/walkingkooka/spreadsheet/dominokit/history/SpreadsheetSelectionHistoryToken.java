@@ -98,6 +98,9 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             case "parse-pattern":
                 result = this.parseParsePattern(cursor);
                 break;
+            case "paste":
+                result = this.parsePaste(cursor);
+                break;
             case "save":
                 result = this.parseSave(cursor);
                 break;
@@ -145,6 +148,26 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cellClipboardCopy(
+                        spreadsheetCellSelectHistoryToken.id(),
+                        spreadsheetCellSelectHistoryToken.name(),
+                        spreadsheetCellSelectHistoryToken.anchoredSelection(),
+                        SpreadsheetCellClipboardValueSelector.parse(component)
+                );
+            }
+        }
+
+        return token;
+    }
+
+    private HistoryToken parsePaste(final TextCursor cursor) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken) {
+            final SpreadsheetCellSelectHistoryToken spreadsheetCellSelectHistoryToken = this.cast(SpreadsheetCellSelectHistoryToken.class);
+
+            String component = parseComponentOrNull(cursor);
+            if (null != component) {
+                token = cellClipboardPaste(
                         spreadsheetCellSelectHistoryToken.id(),
                         spreadsheetCellSelectHistoryToken.name(),
                         spreadsheetCellSelectHistoryToken.anchoredSelection(),

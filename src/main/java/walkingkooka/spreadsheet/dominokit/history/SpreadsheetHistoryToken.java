@@ -47,6 +47,8 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment MENU = UrlFragment.parse("/menu");
 
+    final static UrlFragment PASTE = UrlFragment.parse("/paste");
+
     final static UrlFragment SELECT = UrlFragment.EMPTY;
 
     final static UrlFragment SAVE = UrlFragment.parse("/save/");
