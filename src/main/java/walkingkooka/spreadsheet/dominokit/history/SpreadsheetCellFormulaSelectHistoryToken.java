@@ -55,28 +55,20 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
         return this;
     }
 
-    @Override //
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        ).setFormula();
-    }
-
     @Override
     public HistoryToken setFormula() {
         return this;
     }
 
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
-        return with(
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+        return selection(
                 id,
                 name,
-                this.anchoredSelection()
-        );
+                anchoredSelection
+        ).setFormula();
     }
 
     @Override

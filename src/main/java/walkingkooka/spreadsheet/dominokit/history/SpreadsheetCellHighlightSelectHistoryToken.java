@@ -45,33 +45,25 @@ public final class SpreadsheetCellHighlightSelectHistoryToken extends Spreadshee
         );
     }
 
-    @Override //
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        ).setHighlight();
-    }
-
     @Override
     public HistoryToken clearAction() {
         return this;
     }
 
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
-        return new SpreadsheetCellHighlightSelectHistoryToken(
-                id,
-                name,
-                this.anchoredSelection()
-        );
+    UrlFragment highlightUrlFragment() {
+        return SELECT;
     }
 
     @Override //
-    UrlFragment highlightUrlFragment() {
-        return SELECT;
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+        return selection(
+                id,
+                name,
+                anchoredSelection
+        ).setHighlight();
     }
 
     @Override

@@ -60,22 +60,14 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
     }
 
     @Override //
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        ).setFreeze();
-    }
-
-    @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
-        return with(
                 id,
                 name,
-                this.anchoredSelection()
-        );
+                anchoredSelection
+        ).setFreeze();
     }
 
     @Override
