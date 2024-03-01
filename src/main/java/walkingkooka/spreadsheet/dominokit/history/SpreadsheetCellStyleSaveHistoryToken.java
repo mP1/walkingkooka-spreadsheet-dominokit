@@ -69,10 +69,12 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     }
 
     @Override //
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                this.id(),
-                this.name(),
+                id,
+                name,
                 anchoredSelection
         ).setStyle(
                 this.propertyName()
@@ -80,18 +82,6 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                 Optional.of(
                         this.propertyValue()
                 )
-        );
-    }
-
-    @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
-        return with(
-                id,
-                name,
-                this.anchoredSelection(),
-                this.propertyName(),
-                this.propertyValue()
         );
     }
 

@@ -58,15 +58,6 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
         return this.selectionSelect();
     }
 
-    @Override //
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        ).setMenu1();
-    }
-
     @Override
     public HistoryToken setFormatPattern() {
         return this;
@@ -78,13 +69,14 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
-        return with(
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+        return selection(
                 id,
                 name,
-                this.anchoredSelection()
-        );
+                anchoredSelection
+        ).setMenu1();
     }
 
     @Override

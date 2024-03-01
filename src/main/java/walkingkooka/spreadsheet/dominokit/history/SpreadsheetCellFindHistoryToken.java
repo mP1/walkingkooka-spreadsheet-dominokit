@@ -84,15 +84,6 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         return this.selectionSelect();
     }
 
-    @Override //
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        ).setFind(this.find);
-    }
-
     @Override
     public HistoryToken setFormatPattern() {
         return this;
@@ -104,14 +95,14 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
-        return with(
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+        return selection(
                 id,
                 name,
-                this.anchoredSelection(),
-                this.find
-        );
+                anchoredSelection
+        ).setFind(this.find);
     }
 
     @Override

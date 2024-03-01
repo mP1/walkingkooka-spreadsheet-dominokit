@@ -60,23 +60,14 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
     }
 
     @Override //
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        ).setInsertAfter(
-                this.count()
-        );
-    }
-
-    @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
-        return with(
                 id,
                 name,
-                this.anchoredSelection(),
+                anchoredSelection
+        ).setInsertAfter(
                 this.count()
         );
     }

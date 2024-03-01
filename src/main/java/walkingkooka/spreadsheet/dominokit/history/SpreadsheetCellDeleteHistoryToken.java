@@ -58,15 +58,6 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
         return this.selectionSelect();
     }
 
-    @Override //
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        ).setDelete();
-    }
-
     @Override
     public HistoryToken setFormatPattern() {
         return this;
@@ -78,13 +69,14 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return with(
                 id,
                 name,
-                this.anchoredSelection()
-        );
+                anchoredSelection
+        ).setDelete();
     }
 
     @Override

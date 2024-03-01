@@ -64,16 +64,6 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
-    @Override //
-    final HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return this.replace(
-                this.id(),
-                this.name(),
-                anchoredSelection,
-                this.value()
-        );
-    }
-
     @Override
     public final HistoryToken setFormula() {
         return setFormula0();
@@ -85,12 +75,13 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     }
 
     @Override //
-    final HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                        final SpreadsheetName name) {
+    final HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                      final SpreadsheetName name,
+                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.replace(
                 id,
                 name,
-                this.anchoredSelection(),
+                anchoredSelection,
                 this.value()
         );
     }

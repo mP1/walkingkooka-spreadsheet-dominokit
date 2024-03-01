@@ -69,19 +69,6 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
 
     private final static UrlFragment ENABLE_FRAGMENT = UrlFragment.with(ENABLE);
 
-    HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        ).setHighlight()
-                .setSave(
-                        this.value ?
-                                ENABLE :
-                                DISABLE
-                );
-    }
-
     @Override
     public HistoryToken clearAction() {
         return cellHighlightSelect(
@@ -92,14 +79,19 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
     }
 
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
-        return new SpreadsheetCellHighlightSaveHistoryToken(
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+        return selection(
                 id,
                 name,
-                this.anchoredSelection(),
-                this.value
-        );
+                anchoredSelection
+        ).setHighlight()
+                .setSave(
+                        this.value ?
+                                ENABLE :
+                                DISABLE
+                );
     }
 
     @Override
