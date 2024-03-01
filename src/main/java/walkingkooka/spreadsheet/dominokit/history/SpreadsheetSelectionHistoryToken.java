@@ -38,12 +38,16 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         );
     }
 
+    // HasUrlFragment...................................................................................................
+
     @Override //
     final UrlFragment spreadsheetUrlFragment() {
         return this.selectionUrlFragment();
     }
 
     abstract UrlFragment selectionUrlFragment();
+
+    // parse............................................................................................................
 
     @Override
     HistoryToken parse0(final String component,
