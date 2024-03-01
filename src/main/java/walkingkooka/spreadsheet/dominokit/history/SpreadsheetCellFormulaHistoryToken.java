@@ -37,7 +37,8 @@ abstract public class SpreadsheetCellFormulaHistoryToken extends SpreadsheetCell
         );
     }
 
-    @Override final UrlFragment cellUrlFragment() {
+    @Override //
+    final UrlFragment cellUrlFragment() {
         return FORMULA.append(this.formulaUrlFragment());
     }
 
@@ -56,7 +57,8 @@ abstract public class SpreadsheetCellFormulaHistoryToken extends SpreadsheetCell
         return this;
     }
 
-    @Override final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+    @Override //
+    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this; // ignore extra pattern
     }
 }
