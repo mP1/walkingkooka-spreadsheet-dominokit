@@ -54,18 +54,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     private final SpreadsheetName name;
 
-    @Override
-    final UrlFragment spreadsheetIdUrlFragment() {
-        return UrlFragment.SLASH.append(
-                        this.name.urlFragment()
-                )
-                .append(
-                        this.spreadsheetUrlFragment()
-                );
-    }
-
-    abstract UrlFragment spreadsheetUrlFragment();
-
     /**
      * Creates a clear {@link SpreadsheetNameHistoryToken}.
      */
@@ -239,6 +227,19 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         }
         return result;
     }
+
+    // HasUrlFragment...................................................................................................
+
+    @Override final UrlFragment spreadsheetIdUrlFragment() {
+        return UrlFragment.SLASH.append(
+                        this.name.urlFragment()
+                )
+                .append(
+                        this.spreadsheetUrlFragment()
+                );
+    }
+
+    abstract UrlFragment spreadsheetUrlFragment();
 
     // onHistoryTokenChange.............................................................................................
 
