@@ -20,9 +20,11 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Base class for clipboard operations for a cell/cell-range. This represents a clipboard action the value is not
@@ -47,10 +49,59 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
 
     private final SpreadsheetCellClipboardValueSelector clipboardValueSelector;
 
-    // /cell/a1:A2/cut/style/{color:"#123456"}
+    @Override
+    public final HistoryToken clearAction() {
+        return cell(
+                this.id(),
+                this.name(),
+                this.anchoredSelection()
+        );
+    }
+
+    @Override
+    public final HistoryToken setFormula() {
+        return formula(
+                this.id(),
+                this.name(),
+                this.anchoredSelection()
+        );
+    }
+
+    @Override final HistoryToken setFormatPattern() {
+        return cellFormatPattern(
+                this.id(),
+                this.name(),
+                this.anchoredSelection()
+        );
+    }
+
+    @Override //
+    final HistoryToken setParsePattern() {
+        return cellParsePattern(
+                this.id(),
+                this.name(),
+                this.anchoredSelection()
+        );
+    }
+
+    @Override //
+    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+        return this;
+    }
+
+    @Override //
+    final HistoryToken setSave0(final String value) {
+        return this;
+    }
+
+    // HasUrlFragment...................................................................................................
+
+    // /cell/a1:A2/cut/cell
     @Override //
     final UrlFragment cellUrlFragment() {
-        return this.clipboardUrlFragment();
+        return this.clipboardUrlFragment()
+                .append(UrlFragment.SLASH)
+                .append(this.clipboardValueSelector.urlFragment());
     }
 
     // cut | copy | paste SLASH clipboardValueSelector SLASH serialized-value

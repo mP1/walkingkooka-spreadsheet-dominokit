@@ -121,6 +121,21 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellClipboardCutHistoryToken}
+     */
+    public static SpreadsheetCellClipboardCutHistoryToken cellClipboardCut(final SpreadsheetId id,
+                                                                           final SpreadsheetName name,
+                                                                           final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                           final SpreadsheetCellClipboardValueSelector clipboardValueSelector) {
+        return SpreadsheetCellClipboardCutHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                clipboardValueSelector
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellDeleteHistoryToken}
      */
     public static SpreadsheetCellDeleteHistoryToken cellDelete(final SpreadsheetId id,

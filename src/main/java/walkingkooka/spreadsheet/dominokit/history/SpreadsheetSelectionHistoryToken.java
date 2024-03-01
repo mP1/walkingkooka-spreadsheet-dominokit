@@ -58,6 +58,9 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             case "clear":
                 result = this.setClear();
                 break;
+            case "cut":
+                result = this.parseCut(cursor);
+                break;
             case "delete":
                 result = this.setDelete();
                 break;
@@ -128,6 +131,26 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         }
 
         return count;
+    }
+
+    private HistoryToken parseCut(final TextCursor cursor) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken) {
+            final SpreadsheetCellSelectHistoryToken spreadsheetCellSelectHistoryToken = this.cast(SpreadsheetCellSelectHistoryToken.class);
+
+            String component = parseComponentOrNull(cursor);
+            if (null != component) {
+                token = cellClipboardCut(
+                        spreadsheetCellSelectHistoryToken.id(),
+                        spreadsheetCellSelectHistoryToken.name(),
+                        spreadsheetCellSelectHistoryToken.anchoredSelection(),
+                        SpreadsheetCellClipboardValueSelector.parse(component)
+                );
+            }
+        }
+
+        return token;
     }
 
     private HistoryToken parseFind(final TextCursor cursor) {
