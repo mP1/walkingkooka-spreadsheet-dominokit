@@ -61,9 +61,9 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
         return this; // should not happen
     }
 
-    @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
+    @Override //
+    HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                  final SpreadsheetName name) {
         return spreadsheetSelect(
                 id,
                 name

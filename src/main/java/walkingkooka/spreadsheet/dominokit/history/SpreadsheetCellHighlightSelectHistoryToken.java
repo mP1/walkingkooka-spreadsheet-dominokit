@@ -59,9 +59,9 @@ public final class SpreadsheetCellHighlightSelectHistoryToken extends Spreadshee
         return this;
     }
 
-    @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
+    @Override //
+    HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                  final SpreadsheetName name) {
         return new SpreadsheetCellHighlightSelectHistoryToken(
                 id,
                 name,

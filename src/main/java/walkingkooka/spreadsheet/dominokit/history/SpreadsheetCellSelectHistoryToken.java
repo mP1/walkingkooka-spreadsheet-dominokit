@@ -83,9 +83,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         return setFormula0();
     }
 
-    @Override
-    public HistoryToken setIdAndName(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
+    @Override //
+    HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                  final SpreadsheetName name) {
         return with(
                 id,
                 name,
