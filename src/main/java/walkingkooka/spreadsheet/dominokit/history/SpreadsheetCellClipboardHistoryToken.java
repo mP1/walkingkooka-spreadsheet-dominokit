@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -26,40 +25,27 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import java.util.Objects;
 
 /**
- * Base class for clipboard operations for a cell/cell-range.
+ * Base class for clipboard operations for a cell/cell-range. This represents a clipboard action the value is not
+ * held in the token.
  */
-public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCellHistoryToken implements Value<Object> {
+public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCellHistoryToken {
     SpreadsheetCellClipboardHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                         final SpreadsheetCellClipboardValueSelector clipboardValueSelector,
-                                         final Object value) {
+                                         final SpreadsheetCellClipboardValueSelector clipboardValueSelector) {
         super(
                 id,
                 name,
                 anchoredSelection
         );
         this.clipboardValueSelector = Objects.requireNonNull(clipboardValueSelector, "clipboardValueSelector");
-        this.value = clipboardValueSelector.checkValue(value);
     }
-
-    /**
-     * Sub-classes should make a defensive copy of any Collection instance and also check the elements/values within.
-     */
-    abstract Object checkValue(final Object value);
 
     public final SpreadsheetCellClipboardValueSelector clipboardValueSelector() {
         return this.clipboardValueSelector;
     }
 
     private final SpreadsheetCellClipboardValueSelector clipboardValueSelector;
-
-    @Override
-    public final Object value() {
-        return this.value;
-    }
-
-    private final Object value;
 
     // /cell/a1:A2/cut/style/{color:"#123456"}
     @Override //

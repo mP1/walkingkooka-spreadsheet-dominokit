@@ -17,159 +17,55 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Cast;
-import walkingkooka.collect.map.Maps;
-import walkingkooka.collect.set.Sets;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Arrays;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
-import java.util.function.Predicate;
 
 
 /**
- * Used to mark the tyoe of a clipboard value in a {@link SpreadsheetCellClipboardHistoryToken}.
+ * Used to mark the type of the clipboard value in a {@link SpreadsheetCellClipboardHistoryToken}.
  */
 public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
 
     /**
-     * The clipboard value is a {@link java.util.Set} of {@link walkingkooka.spreadsheet.SpreadsheetCell}.
+     * The clipboard value is {@link SpreadsheetCell}.
      */
-    CELL("cell") {
-        @Override
-        Object checkValue(final Object value) {
-            if (false == value instanceof Set) {
-                throw new IllegalArgumentException("Expected a Set of cell but got a " + value.getClass().getSimpleName());
-            }
-            final Set<Object> cells = Sets.immutable(
-                    Cast.to(value)
-            );
-
-            for (final Object cell : cells) {
-                if (false == cell instanceof SpreadsheetCell) {
-                    throw new IllegalArgumentException("Set should only have cells but got " + cell.getClass().getSimpleName());
-                }
-            }
-
-            return cells;
-        }
-    },
+    CELL("cell"),
 
     /**
-     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link String formula text}.
+     * The clipboard value is cells to {@link String formula text}.
      */
-    FORMULA("formula") {
-        @Override
-        Object checkValue(final Object value) {
-            return this.checkMap(
-                    value,
-                    (v) -> v instanceof String,
-                    String.class
-            );
-        }
-    },
+    FORMULA("formula"),
 
     /**
-     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern}.
+     * The clipboard value is cells to {@link SpreadsheetFormatPattern}.
      */
-    FORMAT_PATTERN("format-pattern") {
-        @Override
-        Object checkValue(final Object value) {
-            return this.checkMap(
-                    value,
-                    (v) -> v instanceof SpreadsheetFormatPattern,
-                    SpreadsheetFormatPattern.class
-            );
-        }
-    },
+    FORMAT_PATTERN("format-pattern"),
 
     /**
-     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern}.
+     * The clipboard value is a cells to {@link SpreadsheetParsePattern}.
      */
-    PARSE_PATTERN("parse-pattern") {
-        @Override
-        Object checkValue(final Object value) {
-            return this.checkMap(
-                    value,
-                    (v) -> v instanceof SpreadsheetParsePattern,
-                    SpreadsheetParsePattern.class
-            );
-        }
-    },
+    PARSE_PATTERN("parse-pattern"),
 
     /**
-     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link walkingkooka.tree.text.TextStyle}.
+     * The clipboard value is cells to {@link TextStyle}.
      */
-    STYLE("style") {
-        @Override
-        Object checkValue(final Object value) {
-            return this.checkMap(
-                    value,
-                    (v) -> v instanceof TextStyle,
-                    TextStyle.class
-            );
-        }
-    },
+    STYLE("style"),
 
     /**
-     * The clipboard value is a {@link java.util.Map} of {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} to {@link String formatted text}.
+     * The clipboard value is a formatted text.
      */
-    FORMATTED("formatted") {
-        @Override
-        Object checkValue(final Object value) {
-            return this.checkMap(
-                    value,
-                    (v) -> v instanceof String,
-                    String.class
-            );
-        }
-    };
+    FORMATTED("formatted");
 
     SpreadsheetCellClipboardValueSelector(final String urlFragment) {
         this.urlFragment = UrlFragment.parse(urlFragment);
-    }
-
-    /**
-     * Verifies the value such as a {@link Map} or {@link Set} contains values of the correct type.
-     */
-    abstract Object checkValue(final Object value);
-
-    /**
-     * Verifies that the {@link Map} keys are a {@link SpreadsheetCellReference} and the values are of the correct type
-     * using the {@link Predicate}.
-     */
-    final Object checkMap(final Object map,
-                          final Predicate<Object> valueTypeTester,
-                          final Class<?> valueType) {
-        if (false == map instanceof Map) {
-            throw new IllegalArgumentException("Expected a Map of cell-references to " + valueType.getSimpleName() + " but got " + map.getClass().getSimpleName());
-        }
-        final Map<Object, Object> cellToValue = Maps.immutable(
-                Cast.to(map)
-        );
-
-        for (final Entry<Object, Object> cellAndValue : cellToValue.entrySet()) {
-            final Object cell = cellAndValue.getKey();
-            if (false == cell instanceof SpreadsheetCellReference) {
-                throw new IllegalArgumentException("Map should only have keys of type cell but got " + cell.getClass().getSimpleName());
-            }
-            final Object value = cellAndValue.getValue();
-            if (false == valueTypeTester.test(value)) {
-                throw new IllegalArgumentException("Map should only have values of type " + valueType.getSimpleName() + " but got " + value.getClass().getSimpleName());
-            }
-        }
-
-        return cellToValue;
     }
 
     // HasUrlFragment...................................................................................................
