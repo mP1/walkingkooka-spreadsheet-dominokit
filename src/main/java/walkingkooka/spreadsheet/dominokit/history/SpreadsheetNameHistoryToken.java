@@ -42,6 +42,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         this.name = Objects.requireNonNull(name, "name");
     }
 
+    @Override
     public final SpreadsheetName name() {
         return this.name;
     }
