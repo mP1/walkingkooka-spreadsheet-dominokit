@@ -1530,13 +1530,9 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     @Override
     public void refresh(final AppContext context) {
-        context.debug("SpreadsheetViewportComponent.refresh BEGIN window: " + context.viewportCache().windows());
-
         this.render(
                 context
         );
-
-        context.debug("SpreadsheetViewportComponent.refresh END");
     }
 
     @Override
