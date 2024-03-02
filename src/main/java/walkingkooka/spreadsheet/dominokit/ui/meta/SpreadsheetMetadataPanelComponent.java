@@ -482,8 +482,6 @@ public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTa
         if (context.spreadsheetMetadata()
                 .get(SpreadsheetMetadataPropertyName.LOCALE)
                 .isPresent()) {
-            context.debug(this.getClass().getSimpleName() + ".refresh");
-
             this.items.forEach(i -> i.refresh(context));
         } else {
             context.debug(this.getClass().getSimpleName() + ".refresh metadata missing " + SpreadsheetMetadataPropertyName.LOCALE + " skip until loaded.");
