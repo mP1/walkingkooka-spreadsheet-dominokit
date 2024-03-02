@@ -445,8 +445,6 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      */
     @Override
     public void refresh(final AppContext context) {
-        context.debug("SpreadsheetFindComponent.refresh " + context.historyToken());
-
         final SpreadsheetCellFindHistoryToken token = context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class);
         context.debug("SpreadsheetFindComponent.refresh " + token);
