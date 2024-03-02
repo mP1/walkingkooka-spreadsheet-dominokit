@@ -470,7 +470,6 @@ public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTa
     @Override
     public void open(final AppContext context) {
         this.drawer.open(context);
-        this.refresh(context);
     }
 
     @Override
