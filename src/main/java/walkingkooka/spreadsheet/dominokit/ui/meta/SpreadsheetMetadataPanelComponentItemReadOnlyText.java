@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -77,8 +76,6 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         final String text = metadata.get(propertyName)
                 .map(this.formatter)
                 .orElse("");
-        context.debug(this.getClass().getSimpleName() + ".refresh " + propertyName + "=" + CharSequences.quoteAndEscape(text));
-
         this.element.setTextContent(text);
     }
 
