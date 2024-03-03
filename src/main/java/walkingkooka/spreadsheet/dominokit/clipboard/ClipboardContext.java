@@ -21,7 +21,6 @@ import walkingkooka.Context;
 import walkingkooka.net.header.MediaType;
 
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 /**
@@ -32,10 +31,10 @@ public interface ClipboardContext extends Context {
 
     /**
      * Reads selected clipboard items first using the {@link Predicate} and then because clipboard operations involve
-     * Promises, eventually delivers the selected clipboard items to the {@link Consumer}.
+     * Promises, eventually delivers the selected clipboard items to the {@link ClipboardContextReadWatcher}.
      */
     void read(final Predicate<MediaType> filter,
-              final Consumer<ClipboardTextItem> items);
+              final ClipboardContextReadWatcher watcher);
 
     /**
      * Writes the given {@link ClipboardTextItem} to the clipboard, and because this is async, notifies the

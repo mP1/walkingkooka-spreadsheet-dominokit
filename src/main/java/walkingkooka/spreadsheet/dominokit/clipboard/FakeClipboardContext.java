@@ -20,13 +20,12 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 import walkingkooka.net.header.MediaType;
 
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class FakeClipboardContext implements ClipboardContext {
     @Override
     public void read(final Predicate<MediaType> filter,
-                     final Consumer<ClipboardTextItem> items) {
+                     final ClipboardContextReadWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
