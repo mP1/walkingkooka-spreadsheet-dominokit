@@ -243,8 +243,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>9</source>
+                    <target>9</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>walkingkooka</groupId>
@@ -314,7 +314,7 @@
                 <version>1.0.0</version>
                 <configuration>
                     <moduleName>walkingkooka.spreadsheet.dominokit.App</moduleName>
-                    <sourceLevel>11</sourceLevel>
+                    <sourceLevel>9</sourceLevel>
                     <failOnError>true</failOnError>
                     <logLevel>DEBUG</logLevel>
                     <launcherDir>${project.build.directory}/gwt/launcherDir</launcherDir>
