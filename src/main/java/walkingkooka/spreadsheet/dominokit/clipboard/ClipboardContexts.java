@@ -22,6 +22,13 @@ import walkingkooka.reflect.PublicStaticHelper;
 public final class ClipboardContexts implements PublicStaticHelper {
 
     /**
+     * {@see ElementalClipboardContext}
+     */
+    public static ClipboardContext elemental() {
+        return ElementalClipboardContext.empty();
+    }
+
+    /**
      * {@see FakeClipboardContext}
      */
     public static FakeClipboardContext fake() {
