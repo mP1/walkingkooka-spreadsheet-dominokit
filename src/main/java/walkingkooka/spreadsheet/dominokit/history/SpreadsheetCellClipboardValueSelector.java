@@ -75,7 +75,7 @@ public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
         return this.urlFragment;
     }
 
-    private final UrlFragment urlFragment;
+    private final transient UrlFragment urlFragment;
 
     public static SpreadsheetCellClipboardValueSelector parse(final String string) {
         Objects.requireNonNull(string, "string");
