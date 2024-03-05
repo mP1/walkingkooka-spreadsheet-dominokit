@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 import walkingkooka.Context;
 import walkingkooka.net.header.MediaType;
 
-import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -40,6 +39,6 @@ public interface ClipboardContext extends Context {
      * Writes the given {@link ClipboardTextItem} to the clipboard, and because this is async, notifies the
      * {@link ClipboardContextWriteWatcher} with the outcome.
      */
-    void write(final List<ClipboardTextItem> items,
+    void write(final ClipboardTextItem item,
                final ClipboardContextWriteWatcher watcher);
 }
