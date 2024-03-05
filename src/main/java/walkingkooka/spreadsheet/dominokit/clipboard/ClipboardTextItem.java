@@ -17,37 +17,41 @@
 
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
+import walkingkooka.ToStringBuilder;
 import walkingkooka.net.header.MediaType;
-import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
  * Represents text with a {@link MediaType} which can be read or written to the clipboard.
  */
 public final class ClipboardTextItem {
-    public static ClipboardTextItem with(final MediaType type,
+    public static ClipboardTextItem with(final List<MediaType> types,
                                          final String text) {
-        Objects.requireNonNull(type, "type");
+        Objects.requireNonNull(types, "types");
+        if (types.isEmpty()) {
+            throw new IllegalArgumentException("Types must not be empty");
+        }
         Objects.requireNonNull(text, "text");
 
         return new ClipboardTextItem(
-                type,
+                types,
                 text
         );
     }
 
-    private ClipboardTextItem(final MediaType type,
+    private ClipboardTextItem(final List<MediaType> types,
                               final String text) {
-        this.type = type;
+        this.types = types;
         this.text = text;
     }
 
-    public MediaType type() {
-        return this.type;
+    public List<MediaType> types() {
+        return this.types;
     }
 
-    private MediaType type;
+    private List<MediaType> types;
 
     public String text() {
         return this.text;
@@ -59,7 +63,7 @@ public final class ClipboardTextItem {
 
     public int hashCode() {
         return Objects.hash(
-                this.type,
+                this.types,
                 this.text
         );
     }
@@ -69,12 +73,15 @@ public final class ClipboardTextItem {
     }
 
     private boolean equals0(final ClipboardTextItem other) {
-        return this.type.equals(other.type) &&
+        return this.types.equals(other.types) &&
                 this.text.equals(other.text);
     }
 
     @Override
     public String toString() {
-        return this.type + " " + CharSequences.quoteAndEscape(this.text);
+        return ToStringBuilder.empty()
+                .value(this.types)
+                .value(this.text)
+                .build();
     }
 }

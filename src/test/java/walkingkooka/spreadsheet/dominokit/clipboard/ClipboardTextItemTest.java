@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -42,21 +43,36 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
+    public void testWithEmptyMediaTypeFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> ClipboardTextItem.with(
+                        Lists.empty(),
+                        "abc123"
+                )
+        );
+    }
+
+    @Test
     public void testWithNullTextFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> ClipboardTextItem.with(
-                        MediaType.TEXT_PLAIN,
+                        Lists.of(
+                                MediaType.TEXT_PLAIN
+                        ),
                         null
                 )
         );
     }
 
     @Test
-    public void testEqualsDifferentType() {
+    public void testEqualsDifferentTypes() {
         this.checkNotEquals(
                 ClipboardTextItem.with(
-                        MediaType.parse("text/different"),
+                        Lists.of(
+                                MediaType.parse("text/different")
+                        ),
                         "Text123"
                 )
         );
@@ -66,7 +82,9 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     public void testEqualsDifferentText() {
         this.checkNotEquals(
                 ClipboardTextItem.with(
-                        MediaType.TEXT_PLAIN,
+                        Lists.of(
+                                MediaType.TEXT_PLAIN
+                        ),
                         "different"
                 )
         );
@@ -79,7 +97,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
 
         this.toStringAndCheck(
                 ClipboardTextItem.with(
-                        type,
+                        Lists.of(type),
                         text
                 ),
                 type + " \"" + text + "\""
@@ -103,7 +121,9 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Override
     public ClipboardTextItem createObject() {
         return ClipboardTextItem.with(
-                MediaType.TEXT_PLAIN,
+                Lists.of(
+                        MediaType.TEXT_PLAIN
+                ),
                 "Text123"
         );
     }
