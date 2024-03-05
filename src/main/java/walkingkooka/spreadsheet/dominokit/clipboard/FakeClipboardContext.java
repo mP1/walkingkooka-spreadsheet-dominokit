@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.net.header.MediaType;
 
-import java.util.List;
 import java.util.function.Predicate;
 
 public class FakeClipboardContext implements ClipboardContext {
@@ -30,7 +29,7 @@ public class FakeClipboardContext implements ClipboardContext {
     }
 
     @Override
-    public void write(final List<ClipboardTextItem> items,
+    public void write(final ClipboardTextItem item,
                       final ClipboardContextWriteWatcher watcher) {
         throw new UnsupportedOperationException();
     }
