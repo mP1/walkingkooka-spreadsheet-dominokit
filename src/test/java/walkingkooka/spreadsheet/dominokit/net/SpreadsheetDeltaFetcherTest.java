@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;

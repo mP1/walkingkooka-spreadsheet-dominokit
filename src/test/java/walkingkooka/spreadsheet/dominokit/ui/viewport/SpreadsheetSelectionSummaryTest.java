@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.color.Color;

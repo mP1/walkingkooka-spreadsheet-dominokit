@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;

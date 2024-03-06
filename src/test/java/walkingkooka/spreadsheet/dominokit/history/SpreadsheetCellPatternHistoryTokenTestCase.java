@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class SpreadsheetCellPatternHistoryTokenTestCase<T extends SpreadsheetCellPatternHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 

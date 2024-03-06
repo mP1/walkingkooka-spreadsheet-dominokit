@@ -55,8 +55,8 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                this.id(),
-                this.name(),
+                id,
+                name,
                 anchoredSelection
         ).setMenu1();
     }

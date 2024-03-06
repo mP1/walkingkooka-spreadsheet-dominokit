@@ -79,9 +79,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
         ).setStyle(
                 this.propertyName()
         ).setSave(
-                Optional.of(
-                        this.propertyValue()
-                )
+                this.propertyValue()
         );
     }
 

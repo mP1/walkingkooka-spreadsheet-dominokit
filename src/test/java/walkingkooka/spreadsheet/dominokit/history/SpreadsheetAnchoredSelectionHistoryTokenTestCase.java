@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -38,7 +38,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
     public final void testAnchoredSelection() {
         final T token = this.createHistoryToken();
         this.checkEquals(
-                Optional.of(token.anchoredSelection()),
+                token.anchoredSelection(),
                 token.anchoredSelection()
         );
     }
