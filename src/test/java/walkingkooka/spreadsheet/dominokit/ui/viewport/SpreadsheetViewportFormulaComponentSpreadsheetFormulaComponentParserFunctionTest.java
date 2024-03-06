@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
 import walkingkooka.spreadsheet.SpreadsheetFormula;

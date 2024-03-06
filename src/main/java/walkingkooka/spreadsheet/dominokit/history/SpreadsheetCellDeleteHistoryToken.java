@@ -72,7 +72,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return with(
+        return selection(
                 id,
                 name,
                 anchoredSelection

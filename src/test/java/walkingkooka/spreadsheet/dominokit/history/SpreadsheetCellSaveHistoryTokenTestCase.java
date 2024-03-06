@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 

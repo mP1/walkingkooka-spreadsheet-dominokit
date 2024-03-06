@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;

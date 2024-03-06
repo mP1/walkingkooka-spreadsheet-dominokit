@@ -55,8 +55,8 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                this.id(),
-                this.name(),
+                id,
+                name,
                 anchoredSelection
         );
     }

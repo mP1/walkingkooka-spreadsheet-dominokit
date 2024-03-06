@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;

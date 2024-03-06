@@ -88,8 +88,8 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                this.id(),
-                this.name(),
+                id,
+                name,
                 anchoredSelection
         ).setFreeze();
     }
