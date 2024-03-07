@@ -230,7 +230,9 @@ public class SpreadsheetContextMenu {
         if (item.badge.isPresent()) {
             menuItem.appendChild(
                     PostfixAddOn.of(
-                            item.badge.get()
+                            Badge.create(
+                                    item.badge.get()
+                            )
                     )
             );
         }

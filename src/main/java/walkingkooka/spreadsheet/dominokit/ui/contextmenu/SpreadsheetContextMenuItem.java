@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
-import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
@@ -58,7 +57,7 @@ public final class SpreadsheetContextMenuItem {
 
     SpreadsheetContextMenuItem(final String id,
                                final String text,
-                               final Optional<Badge> badge,
+                               final Optional<String> badge,
                                final Optional<HistoryToken> historyToken,
                                final Optional<Icon<?>> icon,
                                final boolean checked) {
@@ -74,7 +73,7 @@ public final class SpreadsheetContextMenuItem {
 
     final String text;
 
-    public SpreadsheetContextMenuItem badge(final Optional<Badge> badge) {
+    public SpreadsheetContextMenuItem badge(final Optional<String> badge) {
         Objects.requireNonNull(badge, "badge");
 
         return this.badge.equals(badge) ?
@@ -89,7 +88,7 @@ public final class SpreadsheetContextMenuItem {
                 );
     }
 
-    final Optional<Badge> badge;
+    final Optional<String> badge;
 
     public SpreadsheetContextMenuItem historyToken(final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
