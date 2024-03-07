@@ -165,6 +165,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         this.root = this.root();
 
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetLabelMappingWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
 
