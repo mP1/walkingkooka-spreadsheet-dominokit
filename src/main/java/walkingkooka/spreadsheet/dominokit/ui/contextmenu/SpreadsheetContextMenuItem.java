@@ -150,7 +150,7 @@ public final class SpreadsheetContextMenuItem {
                 .disable(ToStringBuilderOption.QUOTE)
                 .value(this.badge)
                 .value(this.historyToken)
-                .value(this.icon)
+                .value(this.icon.map(Icon::getName))
                 .label("checked")
                 .value(this.checked)
                 .build();
