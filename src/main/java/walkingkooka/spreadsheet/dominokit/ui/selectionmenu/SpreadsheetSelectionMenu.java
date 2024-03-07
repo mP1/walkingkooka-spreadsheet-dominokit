@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
-import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -52,9 +51,6 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
-
-import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
-import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
 
 /**
  * Builds a context menu for any given {@link SpreadsheetSelection}.
@@ -670,11 +666,8 @@ public class SpreadsheetSelectionMenu {
         SpreadsheetContextMenu sub = menu.subMenu(
                 context.idPrefix() + "label" + SpreadsheetIds.SUB_MENU,
                 "Labels",
-                Badge.create(
-                        String.valueOf(labelMappings.size())
-                ).addCss(
-                        dui_bg_orange,
-                        dui_rounded_full
+                String.valueOf(
+                        labelMappings.size()
                 )
         );
 

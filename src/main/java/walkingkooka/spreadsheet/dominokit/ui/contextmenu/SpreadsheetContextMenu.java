@@ -40,7 +40,9 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
+import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
 import static org.dominokit.domino.ui.style.SpacingCss.dui_font_size_5;
+import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
 
 /**
  * Abstraction for building a context menu.
@@ -114,7 +116,7 @@ public class SpreadsheetContextMenu {
      */
     public SpreadsheetContextMenu subMenu(final String id,
                                           final String text,
-                                          final Badge badge) {
+                                          final String badge) {
         return this.subMenu(
                 id,
                 text,
@@ -129,7 +131,7 @@ public class SpreadsheetContextMenu {
     public SpreadsheetContextMenu subMenu(final String id,
                                           final String text,
                                           final Optional<MdiIcon> icon,
-                                          final Optional<Badge> badge) {
+                                          final Optional<String> badge) {
         CharSequences.failIfNullOrEmpty(id, "id");
         if (false == id.endsWith(SUB_MENU_ID_SUFFIX)) {
             throw new IllegalArgumentException(
@@ -160,7 +162,12 @@ public class SpreadsheetContextMenu {
         if (badge.isPresent()) {
             menuItem.appendChild(
                     PostfixAddOn.of(
-                            badge.get()
+                            Badge.create(
+                                    badge.get()
+                            ).addCss(
+                                    dui_bg_orange,
+                                    dui_rounded_full
+                            )
                     )
             );
         }
