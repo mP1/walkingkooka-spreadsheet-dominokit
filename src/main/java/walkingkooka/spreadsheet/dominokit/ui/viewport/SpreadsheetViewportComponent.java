@@ -266,7 +266,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     private SpreadsheetViewportFormulaComponent formula() {
         return SpreadsheetViewportFormulaComponent.with(this.context);
-        //.helperTextAlwaysExpanded();
     }
 
     private final SpreadsheetViewportFormulaComponent formulaComponent;
