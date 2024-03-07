@@ -17,10 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
+import elemental2.dom.Element;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.chips.Chip;
-import org.dominokit.domino.ui.menu.Menu;
+import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
@@ -110,15 +111,14 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
 
                 if (false == alternatives.isEmpty()) {
                     final HistoryToken historyToken = context.historyToken();
-                    final Menu<Void> menu = Menu.create();
-                    SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.menu(
-                            menu,
+                    SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.empty(
+                            new DominoElement<Element>(chip.element()),
                             context
                     );
 
+
                     final int ii = i;
                     int j = 0;
-                    int selectedItem = -1;
                     for (final String alternative : alternatives) {
 
                         final String newPattern = IntStream.range(0, texts.size())
@@ -133,18 +133,8 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
                                         )
                         );
 
-                        if (alternative.equalsIgnoreCase(text)) {
-                            selectedItem = j;
-                        }
-
                         j++;
                     }
-
-                    chip.setDropMenu(menu);
-                    menu.selectAt(
-                            selectedItem,
-                            true // silent = dont fire selection events
-                    );
                 }
                 parent.appendChild(chip);
 
