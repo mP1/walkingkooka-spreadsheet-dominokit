@@ -18,21 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import org.dominokit.domino.ui.menu.Menu;
-import org.dominokit.domino.ui.menu.MenuItem;
-import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
-import org.dominokit.domino.ui.utils.DominoElement;
-import org.dominokit.domino.ui.utils.PostfixAddOn;
-import org.dominokit.domino.ui.utils.PrefixAddOn;
-import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenuContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -40,26 +31,13 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
-import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
-import static org.dominokit.domino.ui.style.SpacingCss.dui_font_size_5;
-import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
-
 /**
  * Abstraction for building a context menu.
  */
-public class SpreadsheetContextMenu {
+public final class SpreadsheetContextMenu {
 
-    public static SpreadsheetContextMenu empty(final DominoElement<?> element,
-                                               final HistoryTokenContext context) {
-        Objects.requireNonNull(element, "element");
-        Objects.requireNonNull(context, "context");
-
-        final Menu<Void> menu = Menu.<Void>create()
-                .setContextMenu(true)
-                .setDropDirection(new MouseBestFitDirection())
-                .setTargetElement(element);
-        element.setDropMenu(menu);
-
+    static SpreadsheetContextMenu with(final Menu<Void> menu,
+                                       final HistoryTokenContext context) {
         return new SpreadsheetContextMenu(
                 menu,
                 context
@@ -135,34 +113,12 @@ public class SpreadsheetContextMenu {
 
         this.addSeparatorIfNecessary();
 
-        final Menu<Void> subMenu = Menu.create();
-
-        AbstractMenuItem<Void> menuItem = MenuItem.<Void>create(text)
-                .setId(id);
-        if (icon.isPresent()) {
-            menuItem = menuItem.appendChild(
-                    PrefixAddOn.of(
-                            icon.get()
-                                    .addCss(dui_font_size_5)
-                    )
-            );
-        }
-
-        if (badge.isPresent()) {
-            menuItem.appendChild(
-                    PostfixAddOn.of(
-                            Badge.create(
-                                    badge.get()
-                            ).addCss(
-                                    dui_bg_orange,
-                                    dui_rounded_full
-                            )
-                    )
-            );
-        }
-
-        this.menu.appendChild(
-                menuItem.setMenu(subMenu)
+        final Menu<Void> subMenu = SpreadsheetContextMenuNative.addSubMenu(
+                id,
+                text,
+                icon,
+                badge,
+                this
         );
         this.allowSeparator = true;
 
@@ -212,39 +168,10 @@ public class SpreadsheetContextMenu {
 
         this.addSeparatorIfNecessary();
 
-        AbstractMenuItem<Void> menuItem = this.context.menuItem(
-                item.id,
-                item.text,
-                item.historyToken
+        SpreadsheetContextMenuNative.menuAppendChildSpreadsheetContextMenuItem(
+                item,
+                this
         );
-        if (item.icon.isPresent()) {
-            menuItem = menuItem.appendChild(
-                    PrefixAddOn.of(
-                            item.icon.get()
-                                    .addCss(dui_font_size_5)
-                    )
-            );
-        }
-
-        if (item.badge.isPresent()) {
-            menuItem.appendChild(
-                    PostfixAddOn.of(
-                            Badge.create(
-                                    item.badge.get()
-                            )
-                    )
-            );
-        }
-
-        if (item.checked) {
-            menuItem.appendChild(
-                    PostfixAddOn.of(
-                            SpreadsheetIcons.checked()
-                    )
-            );
-        }
-
-        this.menu.appendChild(menuItem);
         this.allowSeparator = true;
 
         return this;
@@ -258,9 +185,11 @@ public class SpreadsheetContextMenu {
 
         this.addSeparatorIfNecessary();
 
-        this.menu.appendChild(
-                component.element()
+        SpreadsheetContextMenuNative.menuAppendChildIsElement(
+                component,
+                this
         );
+
         this.allowSeparator = true;
         return this;
     }
@@ -275,7 +204,7 @@ public class SpreadsheetContextMenu {
      */
     private void addSeparatorIfNecessary() {
         if (this.addSeparator) {
-            this.menu.appendChild(new Separator());
+            SpreadsheetContextMenuNative.menuAppendChildSeparator(this);
             this.addSeparator = false;
             this.allowSeparator = false;
         }
@@ -318,9 +247,9 @@ public class SpreadsheetContextMenu {
         this.menu.close();
     }
 
-    private final Menu<Void> menu;
+    final Menu<Void> menu;
 
-    private final HistoryTokenContext context;
+    final HistoryTokenContext context;
 
     @Override
     public String toString() {
