@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.CharSequences;
@@ -111,7 +112,7 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
 
                 if (false == alternatives.isEmpty()) {
                     final HistoryToken historyToken = context.historyToken();
-                    SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.empty(
+                    SpreadsheetContextMenu contextMenu = SpreadsheetContextMenuNative.empty(
                             new DominoElement<Element>(chip.element()),
                             context
                     );

@@ -17,22 +17,124 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
+import elemental2.dom.Element;
+import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.Optional;
 
 public final class SpreadsheetContextMenuTest implements ClassTesting<SpreadsheetContextMenu> {
 
     @Test
-    public void testEmptyWithNullElementFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetContextMenu.empty(
-                        null,
+    public void testItemSpreadsheetContextMenuItem() {
+        SpreadsheetContextMenu.with(
+                new Menu<>(),
+                HistoryTokenContexts.fake()
+        ).item(
+                SpreadsheetContextMenuItem.with(
+                        "id-MenuItem",
+                        "SubMenuText"
+                )
+        );
+    }
+
+    @Test
+    public void testItemIsElement() {
+        SpreadsheetContextMenu.with(
+                        new Menu<>(),
                         HistoryTokenContexts.fake()
+                ).separator()
+                .item(
+                        new IsElement<Element>() {
+                            @Override
+                            public Element element() {
+                                throw new UnsupportedOperationException();
+                            }
+                        }
+                );
+    }
+
+    @Test
+    public void testSeparatorThenItem() {
+        SpreadsheetContextMenu.with(
+                        new Menu<>(),
+                        HistoryTokenContexts.fake()
+                ).separator()
+                .item(
+                        SpreadsheetContextMenuItem.with(
+                                "id-MenuItem",
+                                "SubMenuText"
+                        )
+                );
+    }
+
+    @Test
+    public void testSubMenuIdText() {
+        SpreadsheetContextMenu.with(
+                new Menu<>(),
+                HistoryTokenContexts.fake()
+        ).subMenu(
+                "id-SubMenu",
+                "SubMenu"
+        );
+    }
+
+    @Test
+    public void testSubMenuIdTextBadge() {
+        SpreadsheetContextMenu.with(
+                new Menu<>(),
+                HistoryTokenContexts.fake()
+        ).subMenu(
+                "id-SubMenu",
+                "SubMenu",
+                "Badge-text-123"
+        );
+    }
+
+    @Test
+    public void testSubMenuIdTextIcon() {
+        SpreadsheetContextMenu.with(
+                new Menu<>(),
+                HistoryTokenContexts.fake()
+        ).subMenu(
+                "id-SubMenu",
+                "SubMenu",
+                MdiIcon.create("Icon-123")
+        );
+    }
+
+    @Test
+    public void testSubMenuIdTextIconBadge() {
+        SpreadsheetContextMenu.with(
+                new Menu<>(),
+                HistoryTokenContexts.fake()
+        ).subMenu(
+                "id-SubMenu",
+                "SubMenu",
+                Optional.of(
+                        MdiIcon.create("Icon-123")
+                ),
+                Optional.of("Badge-text-123")
+        );
+    }
+
+    @Test
+    public void testSubMenuIdTextThenItem() {
+        SpreadsheetContextMenu.with(
+                new Menu<>(),
+                HistoryTokenContexts.fake()
+        ).subMenu(
+                "id-SubMenu",
+                "SubMenu"
+        ).item(
+                SpreadsheetContextMenuItem.with(
+                        "id-MenuItem",
+                        "item-text-123"
                 )
         );
     }

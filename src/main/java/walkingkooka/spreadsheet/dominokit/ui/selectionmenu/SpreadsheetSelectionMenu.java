@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
 import walkingkooka.spreadsheet.dominokit.ui.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -80,7 +81,7 @@ public class SpreadsheetSelectionMenu {
         // UNFREEZE
         // -------
         // LABELS
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenu.empty(
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuNative.empty(
                 element,
                 context
         );
