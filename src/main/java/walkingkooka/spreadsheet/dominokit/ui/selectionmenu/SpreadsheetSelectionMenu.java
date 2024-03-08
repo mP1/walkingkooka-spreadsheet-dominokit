@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
-import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
 import walkingkooka.spreadsheet.dominokit.ui.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -63,7 +62,7 @@ public class SpreadsheetSelectionMenu {
      * This should make it possible to attach a context menu to the cell in the viewport and the formula component.
      */
     public static void render(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
-                              final DominoElement<?> element,
+                              final SpreadsheetContextMenu menu,
                               final SpreadsheetSelectionMenuContext context) {
         // show context menu
         final SpreadsheetSelection selection = historyToken.anchoredSelection()
@@ -81,10 +80,10 @@ public class SpreadsheetSelectionMenu {
         // UNFREEZE
         // -------
         // LABELS
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenuNative.empty(
-                element,
-                context
-        );
+//        final SpreadsheetContextMenu menu = SpreadsheetContextMenuNative.empty(
+//                element,
+//                context
+//        );
 
         // TODO add tick if already selected
         if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
@@ -142,8 +141,6 @@ public class SpreadsheetSelectionMenu {
             menu.separator();
             renderLabel(historyToken, selection, menu, context);
         }
-
-        menu.focus();
     }
 
     private static void renderParse(final HistoryToken historyToken,
