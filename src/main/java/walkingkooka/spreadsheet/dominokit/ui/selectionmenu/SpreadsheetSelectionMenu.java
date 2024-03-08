@@ -279,7 +279,6 @@ public class SpreadsheetSelectionMenu {
         );
 
         final SpreadsheetMetadataColorPickerComponent colors = SpreadsheetMetadataColorPickerComponent.with(historyToken);
-        colors.element().className = "dui dui-menu-item";
 
         colors.refreshAll(
                 historyToken,
