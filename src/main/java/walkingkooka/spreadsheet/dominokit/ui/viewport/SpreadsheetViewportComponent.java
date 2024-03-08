@@ -83,6 +83,8 @@ import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -508,15 +510,22 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         );
 
         if (maybeElement.isPresent()) {
+            final SpreadsheetContextMenu menu = SpreadsheetContextMenuNative.empty(
+                    new DominoElement<>(maybeElement.get()),
+                    context
+            );
+
             SpreadsheetSelectionMenu.render(
                     historyToken,
-                    new DominoElement<>(maybeElement.get()),
+                    menu,
                     SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
                             this.recentFormatPatterns.tokens(),
                             this.recentParsePatterns.tokens(),
                             context
                     )
             );
+
+            menu.focus();
         }
     }
 
