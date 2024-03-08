@@ -204,6 +204,9 @@ public class SpreadsheetContextMenu {
         );
     }
 
+    /**
+     * Adds the given {@link SpreadsheetContextMenuItem} to this menu.
+     */
     public SpreadsheetContextMenu item(final SpreadsheetContextMenuItem item) {
         Objects.requireNonNull(item, "item");
 
@@ -266,6 +269,10 @@ public class SpreadsheetContextMenu {
         return CharSequences.failIfNullOrEmpty(text, "text");
     }
 
+    /**
+     * This method is used to lazily add a separator if one was added recently. This includes smarts so multiple
+     * separators are not added in series or a separator with no items afterwards is also not possible.
+     */
     private void addSeparatorIfNecessary() {
         if (this.addSeparator) {
             this.menu.appendChild(new Separator());
@@ -304,6 +311,9 @@ public class SpreadsheetContextMenu {
         return this;
     }
 
+    /**
+     * Closes the menu if it is open.
+     */
     public void close() {
         this.menu.close();
     }
