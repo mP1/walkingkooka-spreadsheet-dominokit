@@ -111,6 +111,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
         final TableElement tableElement = ElementsFactory.elements.table();
         tableElement.setId(ID);
         tableElement.appendChild(tbody);
+        tableElement.element().className = "dui dui-menu-item";
 
         this.table = tableElement;
 
