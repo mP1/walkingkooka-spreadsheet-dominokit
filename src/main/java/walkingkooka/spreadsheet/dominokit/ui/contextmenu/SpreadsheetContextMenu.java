@@ -265,7 +265,7 @@ public class SpreadsheetContextMenu {
         return this;
     }
 
-    private String checkText(final String text) {
+    private static String checkText(final String text) {
         return CharSequences.failIfNullOrEmpty(text, "text");
     }
 
