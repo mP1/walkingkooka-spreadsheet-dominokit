@@ -29,6 +29,7 @@ import java.util.Optional;
  */
 @GwtIncompatible
 public class SpreadsheetContextMenuNative {
+
     static Menu<Void> addSubMenu(final String id,
                                  final String text,
                                  final Optional<Icon<?>> icon,
