@@ -23,6 +23,8 @@ import walkingkooka.ToStringBuilderOption;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -30,7 +32,7 @@ import java.util.Optional;
 /**
  * Captures the properties used to build a single context menu item.
  */
-public final class SpreadsheetContextMenuItem {
+public final class SpreadsheetContextMenuItem implements TreePrintable {
 
     public static SpreadsheetContextMenuItem with(final String id,
                                                   final String text) {
@@ -140,6 +142,8 @@ public final class SpreadsheetContextMenuItem {
 
     final boolean checked;
 
+    // Object...........................................................................................................
+
     @Override
     public String toString() {
         return ToStringBuilder.empty()
@@ -154,5 +158,41 @@ public final class SpreadsheetContextMenuItem {
                 .label("checked")
                 .value(this.checked)
                 .build();
+    }
+
+    // TreePrintable...................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        final Optional<Icon<?>> icon = this.icon;
+        if (icon.isPresent()) {
+            printer.print("(");
+            printer.print(icon.get().getName());
+            printer.print(") ");
+        }
+
+        printer.print(this.id);
+        printer.print(" ");
+        printer.print(CharSequences.quoteAndEscape(this.text));
+
+        final Optional<HistoryToken> token = this.historyToken;
+        if (token.isPresent()) {
+            printer.print(" [");
+            printer.print(token.get().urlFragment().toString());
+            printer.print("]");
+        }
+
+        if (this.checked) {
+            printer.print(" v/");
+        }
+
+        final Optional<String> badge = this.badge;
+        if (badge.isPresent()) {
+            printer.print(" [");
+            printer.print(badge.get());
+            printer.print("]");
+        }
+
+        printer.println();
     }
 }

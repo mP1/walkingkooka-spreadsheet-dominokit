@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.gwtproject.core.shared.GwtIncompatible;
 
@@ -31,11 +31,13 @@ import java.util.Optional;
 public class SpreadsheetContextMenuNative {
     static Menu<Void> addSubMenu(final String id,
                                  final String text,
-                                 final Optional<MdiIcon> icon,
+                                 final Optional<Icon<?>> icon,
                                  final Optional<String> badge,
                                  final SpreadsheetContextMenu menu) {
-        // nop
-        return new Menu<>();
+
+        final Menu<Void> subMenu = Menu.create(id, text, icon, badge);
+        menu.menu.appendChild(subMenu);
+        return subMenu;
     }
 
     static void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem item,

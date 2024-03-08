@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenuContext;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -34,7 +36,7 @@ import java.util.Optional;
 /**
  * Abstraction for building a context menu.
  */
-public final class SpreadsheetContextMenu {
+public final class SpreadsheetContextMenu implements TreePrintable {
 
     static SpreadsheetContextMenu with(final Menu<Void> menu,
                                        final HistoryTokenContext context) {
@@ -251,8 +253,20 @@ public final class SpreadsheetContextMenu {
 
     final HistoryTokenContext context;
 
+    // Object...........................................................................................................
+
     @Override
     public String toString() {
         return this.menu.toString();
+    }
+
+    // TreePrintable...................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        TreePrintable.printTreeOrToString(
+                this.menu,
+                printer
+        );
     }
 }
