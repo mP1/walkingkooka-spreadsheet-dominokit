@@ -229,7 +229,7 @@ public class SpreadsheetSelectionMenu {
         verticalAlignment(menu, context);
         color(historyToken, menu, context);
         backgroundColor(historyToken, menu, context);
-        fontWeight(historyToken, menu, context);
+        fontWeight(menu, context);
         fontStyle(menu, context);
         textDecoration(menu, context);
         textCase(historyToken, menu, context);
@@ -346,8 +346,7 @@ public class SpreadsheetSelectionMenu {
         ).separator();
     }
 
-    private static void fontWeight(final HistoryToken historyToken,
-                                   final SpreadsheetContextMenu menu,
+    private static void fontWeight(final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
         menu.checkedItem(
                 context.idPrefix() + "bold" + SpreadsheetIds.MENU_ITEM, // id
