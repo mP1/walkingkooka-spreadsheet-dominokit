@@ -115,7 +115,7 @@ public final class SpreadsheetSelectionMenuPatternTest implements ClassTesting<S
                 context
         );
 
-        SpreadsheetSelectionMenu.render(
+        SpreadsheetSelectionMenu.build(
                 token,
                 menu,
                 context
@@ -286,7 +286,7 @@ public final class SpreadsheetSelectionMenuPatternTest implements ClassTesting<S
                 context
         );
 
-        SpreadsheetSelectionMenu.render(
+        SpreadsheetSelectionMenu.build(
                 token,
                 menu,
                 context
@@ -355,7 +355,7 @@ public final class SpreadsheetSelectionMenuPatternTest implements ClassTesting<S
                 context
         );
 
-        SpreadsheetSelectionMenu.render(
+        SpreadsheetSelectionMenu.build(
                 token,
                 menu,
                 context

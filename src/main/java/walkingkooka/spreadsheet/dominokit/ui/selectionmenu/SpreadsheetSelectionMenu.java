@@ -61,9 +61,9 @@ public class SpreadsheetSelectionMenu {
      * Renders a drop down menu attaching the context menu to the given {@link DominoElement}.
      * This should make it possible to attach a context menu to the cell in the viewport and the formula component.
      */
-    public static void render(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
-                              final SpreadsheetContextMenu menu,
-                              final SpreadsheetSelectionMenuContext context) {
+    public static void build(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                             final SpreadsheetContextMenu menu,
+                             final SpreadsheetSelectionMenuContext context) {
         // show context menu
         final SpreadsheetSelection selection = historyToken.anchoredSelection()
                 .selection();
@@ -83,7 +83,7 @@ public class SpreadsheetSelectionMenu {
 
         // TODO add tick if already selected
         if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
-            renderStyle(
+            style(
                     historyToken,
                     menu.subMenu(
                             context.idPrefix() + "style" + SpreadsheetIds.SUB_MENU,
@@ -95,7 +95,7 @@ public class SpreadsheetSelectionMenu {
             final Locale locale = context.spreadsheetMetadata()
                     .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
 
-            renderFormat(
+            format(
                     historyToken,
                     locale,
                     context.recentFormatPatterns()
@@ -105,7 +105,7 @@ public class SpreadsheetSelectionMenu {
                     menu,
                     context
             );
-            renderParse(
+            parse(
                     historyToken,
                     locale,
                     context.recentParsePatterns()
@@ -115,7 +115,7 @@ public class SpreadsheetSelectionMenu {
                     menu,
                     context
             );
-            renderHideIfZero(
+            hideIfZero(
                     historyToken,
                     menu,
                     context
@@ -124,26 +124,26 @@ public class SpreadsheetSelectionMenu {
         }
         menu.separator();
 
-        renderClearDelete(
+        clearDelete(
                 historyToken,
                 menu,
                 context
         );
-        renderInsertColumns(historyToken, selection, menu, context);
-        renderInsertRows(historyToken, selection, menu, context);
-        renderFreezeUnfreeze(historyToken, menu, context);
+        insertColumns(historyToken, selection, menu, context);
+        insertRows(historyToken, selection, menu, context);
+        freezeUnfreeze(historyToken, menu, context);
 
         if (selection.isCellReference() || selection.isCellRange()) {
             menu.separator();
-            renderLabel(historyToken, selection, menu, context);
+            label(historyToken, selection, menu, context);
         }
     }
 
-    private static void renderParse(final HistoryToken historyToken,
-                                    final Locale locale,
-                                    final List<SpreadsheetParsePattern> recents,
-                                    final SpreadsheetContextMenu menu,
-                                    final SpreadsheetSelectionMenuContext context) {
+    private static void parse(final HistoryToken historyToken,
+                              final Locale locale,
+                              final List<SpreadsheetParsePattern> recents,
+                              final SpreadsheetContextMenu menu,
+                              final SpreadsheetSelectionMenuContext context) {
         final String idPrefix = context.idPrefix() + "parse-";
 
         SpreadsheetSelectionMenuPatternParse.with(
@@ -162,11 +162,11 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderFormat(final HistoryToken historyToken,
-                                     final Locale locale,
-                                     final List<SpreadsheetFormatPattern> recents,
-                                     final SpreadsheetContextMenu menu,
-                                     final SpreadsheetSelectionMenuContext context) {
+    private static void format(final HistoryToken historyToken,
+                               final Locale locale,
+                               final List<SpreadsheetFormatPattern> recents,
+                               final SpreadsheetContextMenu menu,
+                               final SpreadsheetSelectionMenuContext context) {
         final String idPrefix = context.idPrefix() + "format-";
 
         SpreadsheetSelectionMenuPatternFormat.with(
@@ -185,9 +185,9 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderHideIfZero(final HistoryToken historyToken,
-                                         final SpreadsheetContextMenu menu,
-                                         final SpreadsheetSelectionMenuContext context) {
+    private static void hideIfZero(final HistoryToken historyToken,
+                                   final SpreadsheetContextMenu menu,
+                                   final SpreadsheetSelectionMenuContext context) {
         final boolean hidden = HideZeroValues.isHideZeroValues(context);
 
         menu.item(
@@ -222,27 +222,27 @@ public class SpreadsheetSelectionMenu {
     // CASE
     // WRAPPING
     // CLEAR STYLE
-    private static void renderStyle(final HistoryToken historyToken,
-                                    final SpreadsheetContextMenu menu,
-                                    final SpreadsheetSelectionMenuContext context) {
-        renderAlignment(menu, context);
-        renderVerticalAlignment(menu, context);
-        renderColor(historyToken, menu, context);
-        renderBackgroundColor(historyToken, menu, context);
-        renderFontWeight(historyToken, menu, context);
-        renderFontStyle(menu, context);
-        renderTextDecoration(menu, context);
-        renderTextCase(historyToken, menu, context);
-        renderTextWrapping(menu, context);
-        renderClearStyle(historyToken, menu, context);
+    private static void style(final HistoryToken historyToken,
+                              final SpreadsheetContextMenu menu,
+                              final SpreadsheetSelectionMenuContext context) {
+        alignment(menu, context);
+        verticalAlignment(menu, context);
+        color(historyToken, menu, context);
+        backgroundColor(historyToken, menu, context);
+        fontWeight(historyToken, menu, context);
+        fontStyle(menu, context);
+        textDecoration(menu, context);
+        textCase(historyToken, menu, context);
+        textWrapping(menu, context);
+        clearStyle(historyToken, menu, context);
 
         menu.separator();
     }
 
-    private static void renderColor(final HistoryToken historyToken,
-                                    final SpreadsheetContextMenu menu,
-                                    final SpreadsheetSelectionMenuContext context) {
-        renderColorItem(
+    private static void color(final HistoryToken historyToken,
+                              final SpreadsheetContextMenu menu,
+                              final SpreadsheetSelectionMenuContext context) {
+        colorItem(
                 "color",
                 "Color",
                 historyToken.setStyle(TextStylePropertyName.COLOR),
@@ -251,10 +251,10 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderBackgroundColor(final HistoryToken historyToken,
-                                              final SpreadsheetContextMenu menu,
-                                              final SpreadsheetSelectionMenuContext context) {
-        renderColorItem(
+    private static void backgroundColor(final HistoryToken historyToken,
+                                        final SpreadsheetContextMenu menu,
+                                        final SpreadsheetSelectionMenuContext context) {
+        colorItem(
                 "background-color",
                 "Background color",
                 historyToken.setStyle(TextStylePropertyName.BACKGROUND_COLOR),
@@ -263,11 +263,11 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderColorItem(final String id,
-                                        final String text,
-                                        final HistoryToken historyToken,
-                                        final SpreadsheetContextMenu menu,
-                                        final SpreadsheetSelectionMenuContext context) {
+    private static void colorItem(final String id,
+                                  final String text,
+                                  final HistoryToken historyToken,
+                                  final SpreadsheetContextMenu menu,
+                                  final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu sub = menu.subMenu(
                 context.idPrefix() + id + SpreadsheetIds.SUB_MENU,
                 text,
@@ -283,9 +283,9 @@ public class SpreadsheetSelectionMenu {
         sub.item(colors);
     }
 
-    private static void renderClearStyle(final HistoryToken historyToken,
-                                         final SpreadsheetContextMenu menu,
-                                         final SpreadsheetSelectionMenuContext context) {
+    private static void clearStyle(final HistoryToken historyToken,
+                                   final SpreadsheetContextMenu menu,
+                                   final SpreadsheetSelectionMenuContext context) {
         menu.item(
                 historyToken.setStyle(TextStylePropertyName.ALL)
                         .clearSave()
@@ -300,9 +300,9 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderClearDelete(final HistoryToken historyToken,
-                                          final SpreadsheetContextMenu menu,
-                                          final SpreadsheetSelectionMenuContext context) {
+    private static void clearDelete(final HistoryToken historyToken,
+                                    final SpreadsheetContextMenu menu,
+                                    final SpreadsheetSelectionMenuContext context) {
         menu.separator();
 
         final SpreadsheetSelection selection = historyToken.anchoredSelectionOrEmpty()
@@ -346,9 +346,9 @@ public class SpreadsheetSelectionMenu {
         ).separator();
     }
 
-    private static void renderFontWeight(final HistoryToken historyToken,
-                                         final SpreadsheetContextMenu menu,
-                                         final SpreadsheetSelectionMenuContext context) {
+    private static void fontWeight(final HistoryToken historyToken,
+                                   final SpreadsheetContextMenu menu,
+                                   final SpreadsheetSelectionMenuContext context) {
         menu.checkedItem(
                 context.idPrefix() + "bold" + SpreadsheetIds.MENU_ITEM, // id
                 "Bold", // text
@@ -361,8 +361,8 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderFontStyle(final SpreadsheetContextMenu menu,
-                                        final SpreadsheetSelectionMenuContext context) {
+    private static void fontStyle(final SpreadsheetContextMenu menu,
+                                  final SpreadsheetSelectionMenuContext context) {
         menu.checkedItem(
                 context.idPrefix() + "italics" + SpreadsheetIds.MENU_ITEM,
                 "Italics", // text
@@ -375,8 +375,8 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderTextDecoration(final SpreadsheetContextMenu menu,
-                                             final SpreadsheetSelectionMenuContext context) {
+    private static void textDecoration(final SpreadsheetContextMenu menu,
+                                       final SpreadsheetSelectionMenuContext context) {
         menu.checkedItem(
                 context.idPrefix() + "strike-thru" + SpreadsheetIds.MENU_ITEM, // id
                 "Strike-thru", // text
@@ -398,9 +398,9 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderTextCase(final HistoryToken historyToken,
-                                       final SpreadsheetContextMenu menu,
-                                       final SpreadsheetSelectionMenuContext context) {
+    private static void textCase(final HistoryToken historyToken,
+                                 final SpreadsheetContextMenu menu,
+                                 final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
                 context.idPrefix() + "text-case" + SpreadsheetIds.SUB_MENU,
                 "Text case"
@@ -445,8 +445,8 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderTextWrapping(final SpreadsheetContextMenu menu,
-                                           final SpreadsheetSelectionMenuContext context) {
+    private static void textWrapping(final SpreadsheetContextMenu menu,
+                                     final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
                 context.idPrefix() + "text-wrapping" + SpreadsheetIds.SUB_MENU,
                 "Wrapping"
@@ -480,8 +480,8 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderAlignment(final SpreadsheetContextMenu menu,
-                                        final SpreadsheetSelectionMenuContext context) {
+    private static void alignment(final SpreadsheetContextMenu menu,
+                                  final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
                 context.idPrefix() + "alignment" + SpreadsheetIds.SUB_MENU,
                 "Alignment"
@@ -524,8 +524,8 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderVerticalAlignment(final SpreadsheetContextMenu menu,
-                                                final SpreadsheetSelectionMenuContext context) {
+    private static void verticalAlignment(final SpreadsheetContextMenu menu,
+                                          final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
                 context.idPrefix() + "vertical-alignment" + SpreadsheetIds.SUB_MENU,
                 "Vertical Alignment"
@@ -559,10 +559,10 @@ public class SpreadsheetSelectionMenu {
         );
     }
 
-    private static void renderInsertColumns(final HistoryToken historyToken,
-                                            final SpreadsheetSelection selection,
-                                            final SpreadsheetContextMenu menu,
-                                            final SpreadsheetSelectionMenuContext context) {
+    private static void insertColumns(final HistoryToken historyToken,
+                                      final SpreadsheetSelection selection,
+                                      final SpreadsheetContextMenu menu,
+                                      final SpreadsheetSelectionMenuContext context) {
         if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
             menu.separator();
 
@@ -591,10 +591,10 @@ public class SpreadsheetSelectionMenu {
         }
     }
 
-    private static void renderInsertRows(final HistoryToken historyToken,
-                                         final SpreadsheetSelection selection,
-                                         final SpreadsheetContextMenu menu,
-                                         final SpreadsheetSelectionMenuContext context) {
+    private static void insertRows(final HistoryToken historyToken,
+                                   final SpreadsheetSelection selection,
+                                   final SpreadsheetContextMenu menu,
+                                   final SpreadsheetSelectionMenuContext context) {
         if (selection.isRowReference() | selection.isRowReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
             menu.separator();
 
@@ -624,9 +624,9 @@ public class SpreadsheetSelectionMenu {
         }
     }
 
-    private static void renderFreezeUnfreeze(final HistoryToken historyToken,
-                                             final SpreadsheetContextMenu menu,
-                                             final SpreadsheetSelectionMenuContext context) {
+    private static void freezeUnfreeze(final HistoryToken historyToken,
+                                       final SpreadsheetContextMenu menu,
+                                       final SpreadsheetSelectionMenuContext context) {
         menu.separator();
 
         menu.item(
@@ -648,10 +648,10 @@ public class SpreadsheetSelectionMenu {
         menu.separator();
     }
 
-    private static void renderLabel(final HistoryToken historyToken,
-                                    final SpreadsheetSelection selection,
-                                    final SpreadsheetContextMenu menu,
-                                    final SpreadsheetSelectionMenuContext context) {
+    private static void label(final HistoryToken historyToken,
+                              final SpreadsheetSelection selection,
+                              final SpreadsheetContextMenu menu,
+                              final SpreadsheetSelectionMenuContext context) {
         menu.separator();
 
         final Set<SpreadsheetLabelMapping> labelMappings = context.labelMappings(selection);
