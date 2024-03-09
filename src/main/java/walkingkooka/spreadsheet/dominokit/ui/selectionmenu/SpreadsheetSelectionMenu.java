@@ -80,10 +80,6 @@ public class SpreadsheetSelectionMenu {
         // UNFREEZE
         // -------
         // LABELS
-//        final SpreadsheetContextMenu menu = SpreadsheetContextMenuNative.empty(
-//                element,
-//                context
-//        );
 
         // TODO add tick if already selected
         if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
