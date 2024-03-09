@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
+import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -55,7 +56,7 @@ import java.util.stream.Collectors;
 /**
  * Builds a context menu for any given {@link SpreadsheetSelection}.
  */
-public class SpreadsheetSelectionMenu {
+public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
     /**
      * Renders a drop down menu attaching the context menu to the given {@link DominoElement}.
@@ -715,5 +716,12 @@ public class SpreadsheetSelectionMenu {
                         "..."
                 )
         );
+    }
+
+    /**
+     * Stop creation
+     */
+    private SpreadsheetSelectionMenu() {
+        throw new UnsupportedOperationException();
     }
 }
