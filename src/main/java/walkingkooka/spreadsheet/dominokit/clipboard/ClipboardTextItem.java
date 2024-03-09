@@ -51,13 +51,13 @@ public final class ClipboardTextItem {
         return this.types;
     }
 
-    private List<MediaType> types;
+    private final List<MediaType> types;
 
     public String text() {
         return this.text;
     }
 
-    private String text;
+    private final String text;
 
     // Object...........................................................................................................
 
