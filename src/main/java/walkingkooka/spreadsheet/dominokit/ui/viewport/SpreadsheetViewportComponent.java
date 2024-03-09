@@ -515,7 +515,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                     context
             );
 
-            SpreadsheetSelectionMenu.render(
+            SpreadsheetSelectionMenu.build(
                     historyToken,
                     menu,
                     SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
