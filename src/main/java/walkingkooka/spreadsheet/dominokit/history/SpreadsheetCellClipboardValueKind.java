@@ -32,7 +32,7 @@ import java.util.Objects;
 /**
  * Used to mark the type of the clipboard value in a {@link SpreadsheetCellClipboardHistoryToken}.
  */
-public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
+public enum SpreadsheetCellClipboardValueKind implements HasUrlFragment {
 
     /**
      * The clipboard value is {@link SpreadsheetCell}.
@@ -64,7 +64,7 @@ public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
      */
     FORMATTED("formatted");
 
-    SpreadsheetCellClipboardValueSelector(final String urlFragment) {
+    SpreadsheetCellClipboardValueKind(final String urlFragment) {
         this.urlFragment = UrlFragment.parse(urlFragment);
     }
 
@@ -77,7 +77,7 @@ public enum SpreadsheetCellClipboardValueSelector implements HasUrlFragment {
 
     private final transient UrlFragment urlFragment;
 
-    public static SpreadsheetCellClipboardValueSelector parse(final String string) {
+    public static SpreadsheetCellClipboardValueKind parse(final String string) {
         Objects.requireNonNull(string, "string");
 
         return Arrays.stream(values())

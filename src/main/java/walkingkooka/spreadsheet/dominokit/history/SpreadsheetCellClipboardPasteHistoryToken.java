@@ -31,24 +31,24 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     public static SpreadsheetCellClipboardPasteHistoryToken with(final SpreadsheetId id,
                                                                  final SpreadsheetName name,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                 final SpreadsheetCellClipboardValueSelector clipboardValueSelector) {
+                                                                 final SpreadsheetCellClipboardValueKind kind) {
         return new SpreadsheetCellClipboardPasteHistoryToken(
                 id,
                 name,
                 anchoredSelection,
-                clipboardValueSelector
+                kind
         );
     }
 
     private SpreadsheetCellClipboardPasteHistoryToken(final SpreadsheetId id,
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                      final SpreadsheetCellClipboardValueSelector clipboardValueSelector) {
+                                                      final SpreadsheetCellClipboardValueKind kind) {
         super(
                 id,
                 name,
                 anchoredSelection,
-                clipboardValueSelector
+                kind
         );
     }
 
@@ -60,7 +60,7 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
                 id,
                 name,
                 anchoredSelection,
-                this.clipboardValueSelector()
+                this.kind()
         );
     }
 

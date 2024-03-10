@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends SpreadsheetCellClipboardHistoryTokenTestCase<SpreadsheetCellClipboardCopyHistoryToken> {
 
     @Test
-    public void testParseUnknownSpreadsheetCellClipboardValueSelector() {
+    public void testParseUnknownKind() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/cell/A1/copy/?unknown",
                 HistoryToken.cell(
@@ -53,7 +53,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueSelector.CELL
+                        SpreadsheetCellClipboardValueKind.CELL
                 )
         );
     }
@@ -66,7 +66,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueSelector.FORMULA
+                        SpreadsheetCellClipboardValueKind.FORMULA
                 )
         );
     }
@@ -86,7 +86,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueSelector.FORMULA
+                        SpreadsheetCellClipboardValueKind.FORMULA
                 ),
                 "/123/SpreadsheetName456/cell/A1/copy/formula"
         );
@@ -99,7 +99,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueSelector.FORMAT_PATTERN
+                        SpreadsheetCellClipboardValueKind.FORMAT_PATTERN
                 ),
                 "/123/SpreadsheetName456/cell/A1/copy/format-pattern"
         );
@@ -109,12 +109,12 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
     SpreadsheetCellClipboardCopyHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,
                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                final SpreadsheetCellClipboardValueSelector valueSelector) {
+                                                                final SpreadsheetCellClipboardValueKind kind) {
         return SpreadsheetCellClipboardCopyHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
-                valueSelector
+                kind
         );
     }
 
