@@ -151,7 +151,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                         spreadsheetCellSelectHistoryToken.id(),
                         spreadsheetCellSelectHistoryToken.name(),
                         spreadsheetCellSelectHistoryToken.anchoredSelection(),
-                        SpreadsheetCellClipboardValueSelector.parse(component)
+                        SpreadsheetCellClipboardValueKind.parse(component)
                 );
             }
         }
@@ -171,7 +171,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                         spreadsheetCellSelectHistoryToken.id(),
                         spreadsheetCellSelectHistoryToken.name(),
                         spreadsheetCellSelectHistoryToken.anchoredSelection(),
-                        SpreadsheetCellClipboardValueSelector.parse(component)
+                        SpreadsheetCellClipboardValueKind.parse(component)
                 );
             }
         }
@@ -191,7 +191,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                         spreadsheetCellSelectHistoryToken.id(),
                         spreadsheetCellSelectHistoryToken.name(),
                         spreadsheetCellSelectHistoryToken.anchoredSelection(),
-                        SpreadsheetCellClipboardValueSelector.parse(component)
+                        SpreadsheetCellClipboardValueKind.parse(component)
                 );
             }
         }

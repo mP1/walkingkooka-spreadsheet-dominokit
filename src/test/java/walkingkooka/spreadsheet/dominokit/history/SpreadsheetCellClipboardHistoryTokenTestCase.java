@@ -27,14 +27,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends SpreadsheetCellClipboardHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
-    final static SpreadsheetCellClipboardValueSelector CLIPBOARD_VALUE_SELECTOR = SpreadsheetCellClipboardValueSelector.CELL;
+    final static SpreadsheetCellClipboardValueKind KIND = SpreadsheetCellClipboardValueKind.CELL;
 
     SpreadsheetCellClipboardHistoryTokenTestCase() {
         super();
     }
 
     @Test
-    public final void testWithNullSpreadsheetCellClipboardValueSelectorFails() {
+    public final void testWithNullKindFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> this.createHistoryToken(
@@ -54,12 +54,12 @@ public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends Spr
                 id,
                 name,
                 anchoredSelection,
-                CLIPBOARD_VALUE_SELECTOR
+                KIND
         );
     }
 
     abstract T createHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name,
                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                  final SpreadsheetCellClipboardValueSelector valueSelector);
+                                  final SpreadsheetCellClipboardValueKind kind);
 }

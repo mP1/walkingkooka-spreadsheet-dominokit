@@ -126,12 +126,12 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellClipboardCopyHistoryToken cellClipboardCopy(final SpreadsheetId id,
                                                                              final SpreadsheetName name,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                             final SpreadsheetCellClipboardValueSelector clipboardValueSelector) {
+                                                                             final SpreadsheetCellClipboardValueKind kind) {
         return SpreadsheetCellClipboardCopyHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
-                clipboardValueSelector
+                kind
         );
     }
 
@@ -141,12 +141,12 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellClipboardCutHistoryToken cellClipboardCut(final SpreadsheetId id,
                                                                            final SpreadsheetName name,
                                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                           final SpreadsheetCellClipboardValueSelector clipboardValueSelector) {
+                                                                           final SpreadsheetCellClipboardValueKind kind) {
         return SpreadsheetCellClipboardCutHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
-                clipboardValueSelector
+                kind
         );
     }
 
@@ -156,12 +156,12 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellClipboardPasteHistoryToken cellClipboardPaste(final SpreadsheetId id,
                                                                                final SpreadsheetName name,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                               final SpreadsheetCellClipboardValueSelector clipboardValueSelector) {
+                                                                               final SpreadsheetCellClipboardValueKind kind) {
         return SpreadsheetCellClipboardPasteHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
-                clipboardValueSelector
+                kind
         );
     }
 

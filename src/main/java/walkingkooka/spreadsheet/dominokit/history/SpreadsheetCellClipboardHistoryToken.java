@@ -34,20 +34,20 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     SpreadsheetCellClipboardHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                         final SpreadsheetCellClipboardValueSelector clipboardValueSelector) {
+                                         final SpreadsheetCellClipboardValueKind kind) {
         super(
                 id,
                 name,
                 anchoredSelection
         );
-        this.clipboardValueSelector = Objects.requireNonNull(clipboardValueSelector, "clipboardValueSelector");
+        this.kind = Objects.requireNonNull(kind, "kind");
     }
 
-    public final SpreadsheetCellClipboardValueSelector clipboardValueSelector() {
-        return this.clipboardValueSelector;
+    public final SpreadsheetCellClipboardValueKind kind() {
+        return this.kind;
     }
 
-    private final SpreadsheetCellClipboardValueSelector clipboardValueSelector;
+    private final SpreadsheetCellClipboardValueKind kind;
 
     @Override
     public final HistoryToken clearAction() {
@@ -101,9 +101,9 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     final UrlFragment cellUrlFragment() {
         return this.clipboardUrlFragment()
                 .append(UrlFragment.SLASH)
-                .append(this.clipboardValueSelector.urlFragment());
+                .append(this.kind.urlFragment());
     }
 
-    // cut | copy | paste SLASH clipboardValueSelector SLASH serialized-value
+    // cut | copy | paste SLASH kind SLASH serialized-value
     abstract UrlFragment clipboardUrlFragment();
 }
