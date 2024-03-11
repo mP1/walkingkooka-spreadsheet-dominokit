@@ -129,6 +129,12 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // TODO PATCH cell text
+        context.spreadsheetDeltaFetcher()
+                .saveCells(
+                        this.id(),
+                        this.anchoredSelection().selection(),
+                        this.value()
+                );
+        context.pushHistoryToken(previous);
     }
 }
