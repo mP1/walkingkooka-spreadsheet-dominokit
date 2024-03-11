@@ -26,6 +26,7 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
@@ -50,6 +51,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 
 public final class SpreadsheetDeltaFetcher implements Fetcher {
 
@@ -425,6 +427,23 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                     CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
             )
     );
+
+    public void saveCells(final SpreadsheetId id,
+                          final SpreadsheetSelection selection,
+                          final Set<SpreadsheetCell> cells) {
+        final AppContext context = this.context();
+
+        this.postDelta(
+                this.url(
+                        id,
+                        selection,
+                        Optional.empty() // no extra path
+                ).setQuery(
+                        context.lastCellFindAndViewportAndWindowQueryString()
+                ),
+                SpreadsheetDelta.EMPTY.setCells(cells)
+        );
+    }
 
     public void saveFormulaText(final SpreadsheetId id,
                                 final SpreadsheetSelection selection,
