@@ -95,15 +95,12 @@ public final class SpreadsheetCellSaveParsePatternHistoryTokenTest extends Sprea
         );
     }
 
-    // [
-    //   {
-    //      {
-    //      "A1": {
-    //        "type": "spreadsheet-number-parse-pattern",
-    //        "value": "0.00"
-    //      }
-    //    }
-    // ]
+    // {
+    //   "A1": {
+    //     "type": "spreadsheet-number-parse-pattern",
+    //     "value": "0.00"
+    //   }
+    // }
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
