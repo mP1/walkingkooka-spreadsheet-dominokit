@@ -497,7 +497,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     private void patchDelta(final Url url,
-                           final SpreadsheetDelta delta) {
+                            final SpreadsheetDelta delta) {
         this.patch(
                 url,
                 this.toJson(delta)
@@ -505,7 +505,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     private void postDelta(final Url url,
-                          final SpreadsheetDelta delta) {
+                           final SpreadsheetDelta delta) {
         this.post(
                 url,
                 this.toJson(delta)
