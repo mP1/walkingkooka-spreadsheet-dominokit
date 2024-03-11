@@ -95,15 +95,12 @@ public final class SpreadsheetCellSaveFormatPatternHistoryTokenTest extends Spre
         );
     }
 
-    // [
-    //   {
-    //      {
-    //      "A1": {
-    //        "type": "spreadsheet-text-format-pattern",
-    //        "value": "@"
-    //      }
-    //    }
-    // ]
+    // {
+    //   "A1": {
+    //     "type": "spreadsheet-text-format-pattern",
+    //     "value": "@"
+    //   }
+    // }
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
