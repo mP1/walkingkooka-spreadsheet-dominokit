@@ -15,11 +15,12 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history;
+package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.text.CharSequences;
