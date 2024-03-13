@@ -32,12 +32,12 @@ import java.util.Optional;
 /**
  * This {@link HistoryToken} is used by to paste a {@link SpreadsheetParsePattern} for many cells over another range.
  */
-public final class SpreadsheetCellSaveParsePatternHistoryToken extends SpreadsheetCellSaveMapHistoryToken<SpreadsheetParsePattern> {
+public final class SpreadsheetCellSaveParsePatternHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetParsePattern>> {
 
     static SpreadsheetCellSaveParsePatternHistoryToken with(final SpreadsheetId id,
                                                             final SpreadsheetName name,
                                                             final AnchoredSpreadsheetSelection anchoredSelection,
-                                                            final Map<SpreadsheetCellReference, SpreadsheetParsePattern> value) {
+                                                            final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
         return new SpreadsheetCellSaveParsePatternHistoryToken(
                 id,
                 name,
@@ -49,7 +49,7 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     private SpreadsheetCellSaveParsePatternHistoryToken(final SpreadsheetId id,
                                                         final SpreadsheetName name,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final Map<SpreadsheetCellReference, SpreadsheetParsePattern> value) {
+                                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
         super(
                 id,
                 name,
@@ -59,7 +59,7 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     }
 
     @Override //
-    Optional<Class<SpreadsheetParsePattern>> valueType() {
+    Optional<Class<Optional<SpreadsheetParsePattern>>> valueType() {
         return Optional.empty(); // polumorphic not fixed
     }
 
@@ -67,7 +67,7 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     SpreadsheetCellSaveParsePatternHistoryToken replace(final SpreadsheetId id,
                                                         final SpreadsheetName name,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final Map<SpreadsheetCellReference, SpreadsheetParsePattern> value) {
+                                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
         return new SpreadsheetCellSaveParsePatternHistoryToken(
                 id,
                 name,
