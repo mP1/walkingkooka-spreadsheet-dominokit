@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -49,6 +50,7 @@ import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -428,6 +430,26 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                     CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
             )
     );
+
+    public void patchCellsFormula(final SpreadsheetId id,
+                                  final SpreadsheetSelection selection,
+                                  final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormulas) {
+        final AppContext context = this.context();
+
+        this.post(
+                this.url(
+                        id,
+                        selection,
+                        Optional.empty() // no extra path
+                ).setQuery(
+                        context.lastCellFindAndViewportAndWindowQueryString()
+                ),
+                SpreadsheetDelta.cellsFormulaPatch(
+                        cellToFormulas,
+                        this.context.marshallContext()
+                ).toString()
+        );
+    }
 
     public void saveCells(final SpreadsheetId id,
                           final SpreadsheetSelection selection,
