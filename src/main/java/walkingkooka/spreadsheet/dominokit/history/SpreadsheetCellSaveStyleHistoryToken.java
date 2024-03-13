@@ -89,6 +89,12 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // TODO PATCH cell to styles
+        context.spreadsheetDeltaFetcher()
+                .patchCellsStylePatch(
+                        this.id(),
+                        this.anchoredSelection().selection(),
+                        this.value()
+                );
+        context.pushHistoryToken(previous);
     }
 }
