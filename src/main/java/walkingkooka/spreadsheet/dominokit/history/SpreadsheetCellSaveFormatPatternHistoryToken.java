@@ -90,6 +90,12 @@ public final class SpreadsheetCellSaveFormatPatternHistoryToken extends Spreadsh
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // TODO PATCH cell to format-patterns
+        context.spreadsheetDeltaFetcher()
+                .patchCellsFormatPattern(
+                        this.id(),
+                        this.anchoredSelection().selection(),
+                        this.value()
+                );
+        context.pushHistoryToken(previous);
     }
 }
