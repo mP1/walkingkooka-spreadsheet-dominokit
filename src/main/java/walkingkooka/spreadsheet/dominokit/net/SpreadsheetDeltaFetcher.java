@@ -494,9 +494,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public void patchCellsStylePatch(final SpreadsheetId id,
-                                     final SpreadsheetSelection selection,
-                                     final Map<SpreadsheetCellReference, TextStyle> cellToStyles) {
+    public void patchCellsStyle(final SpreadsheetId id,
+                                final SpreadsheetSelection selection,
+                                final Map<SpreadsheetCellReference, TextStyle> cellToStyles) {
         final AppContext context = this.context();
 
         this.post(
