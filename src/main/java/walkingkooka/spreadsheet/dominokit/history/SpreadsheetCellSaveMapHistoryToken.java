@@ -87,7 +87,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                 this.name(),
                 this.anchoredSelection(),
                 valueType.isEmpty() ?
-                        SpreadsheetCellSaveMapHistoryToken.parseMapWithTypedValues(
+                        SpreadsheetCellSaveMapHistoryToken.parseMapWithOptionalTypedValues(
                                 cursor
                         ) :
                         SpreadsheetCellSaveMapHistoryToken.parseMap(
@@ -112,15 +112,20 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
         );
     }
 
-    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithTypedValues(final TextCursor cursor) {
+    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithOptionalTypedValues(final TextCursor cursor) {
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
                 .objectOrFail().children()) {
             values.put(
-                    SpreadsheetSelection.parseCell(keyAndValue.name().value()),
-                    UNMARSHALL_CONTEXT.unmarshallWithType(
-                            keyAndValue
+                    SpreadsheetSelection.parseCell(
+                            keyAndValue.name()
+                                    .value()
+                    ),
+                    (VV) Optional.ofNullable(
+                            UNMARSHALL_CONTEXT.unmarshallWithType(
+                                    keyAndValue
+                            )
                     )
             );
         }
@@ -147,14 +152,15 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
 
     @Override//
     final UrlFragment saveValueUrlFragment() {
-        final Function<V, JsonNode> marshall = this.valueType().isPresent() ?
+        final Function<V, JsonNode> valueMarshaller = this.valueType()
+                .isPresent() ?
                 this::marshallValue :
                 this::marshallValueWithType;
 
         final List<JsonNode> children = Lists.array();
         for (final Entry<SpreadsheetCellReference, V> cellAndValue : this.value().entrySet()) {
             children.add(
-                    marshall.apply(
+                    valueMarshaller.apply(
                             cellAndValue.getValue()
                     ).setName(
                             JsonPropertyName.with(

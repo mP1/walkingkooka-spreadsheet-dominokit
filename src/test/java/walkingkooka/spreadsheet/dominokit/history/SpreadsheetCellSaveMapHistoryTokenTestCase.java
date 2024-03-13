@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends SpreadsheetCellSaveMapHistoryToken<?>> extends SpreadsheetCellSaveHistoryTokenTestCase<T> {
@@ -42,7 +43,7 @@ public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends Sprea
         ).toString();
     }
 
-    static String marshallMapWithTypedValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
+    static String marshallMapWithOptionalTypedValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
         return MARSHALL_CONTEXT.marshallMap(
                 cellToValue.entrySet()
                         .stream()
@@ -50,7 +51,8 @@ public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends Sprea
                                 Collectors.toMap(
                                         entry -> entry.getKey().toString(),
                                         entry -> MARSHALL_CONTEXT.marshallWithType(
-                                                entry.getValue()
+                                                Optional.class.cast(entry.getValue())
+                                                        .orElse(null)
                                         )
                                 )
                         )

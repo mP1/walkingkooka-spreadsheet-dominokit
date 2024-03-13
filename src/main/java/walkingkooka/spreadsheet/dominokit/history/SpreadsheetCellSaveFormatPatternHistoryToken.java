@@ -32,12 +32,12 @@ import java.util.Optional;
 /**
  * This {@link HistoryToken} is used by to paste a {@link SpreadsheetFormatPattern} for many cells over another range.
  */
-public final class SpreadsheetCellSaveFormatPatternHistoryToken extends SpreadsheetCellSaveMapHistoryToken<SpreadsheetFormatPattern> {
+public final class SpreadsheetCellSaveFormatPatternHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetFormatPattern>> {
 
     static SpreadsheetCellSaveFormatPatternHistoryToken with(final SpreadsheetId id,
                                                              final SpreadsheetName name,
                                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                                             final Map<SpreadsheetCellReference, SpreadsheetFormatPattern> value) {
+                                                             final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatPattern>> value) {
         return new SpreadsheetCellSaveFormatPatternHistoryToken(
                 id,
                 name,
@@ -49,7 +49,7 @@ public final class SpreadsheetCellSaveFormatPatternHistoryToken extends Spreadsh
     private SpreadsheetCellSaveFormatPatternHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                         final Map<SpreadsheetCellReference, SpreadsheetFormatPattern> value) {
+                                                         final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatPattern>> value) {
         super(
                 id,
                 name,
@@ -59,7 +59,7 @@ public final class SpreadsheetCellSaveFormatPatternHistoryToken extends Spreadsh
     }
 
     @Override //
-    Optional<Class<SpreadsheetFormatPattern>> valueType() {
+    Optional<Class<Optional<SpreadsheetFormatPattern>>> valueType() {
         return Optional.empty(); // polumorphic not fixed
     }
 
@@ -67,7 +67,7 @@ public final class SpreadsheetCellSaveFormatPatternHistoryToken extends Spreadsh
     SpreadsheetCellSaveFormatPatternHistoryToken replace(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                         final Map<SpreadsheetCellReference, SpreadsheetFormatPattern> value) {
+                                                         final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatPattern>> value) {
         return new SpreadsheetCellSaveFormatPatternHistoryToken(
                 id,
                 name,

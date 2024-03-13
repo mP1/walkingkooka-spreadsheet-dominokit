@@ -148,7 +148,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             this.id(),
                             this.name(),
                             this.anchoredSelection(),
-                            SpreadsheetCellSaveHistoryToken.parseMapWithTypedValues(
+                            SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
                                     cursor
                             )
                     );
@@ -169,7 +169,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             this.id(),
                             this.name(),
                             this.anchoredSelection(),
-                            SpreadsheetCellSaveHistoryToken.parseMapWithTypedValues(
+                            SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
                                     cursor
                             )
                     );

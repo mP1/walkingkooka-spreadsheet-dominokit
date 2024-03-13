@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.Value;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
@@ -120,15 +121,17 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
-    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithTypedValues(final TextCursor cursor) {
+    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithNullableTypedValues(final TextCursor cursor) {
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
                 .objectOrFail().children()) {
             values.put(
                     SpreadsheetSelection.parseCell(keyAndValue.name().value()),
-                    UNMARSHALL_CONTEXT.unmarshallWithType(
-                            keyAndValue
+                    (VV) Optional.ofNullable(
+                            UNMARSHALL_CONTEXT.unmarshallWithType(
+                                    keyAndValue
+                            )
                     )
             );
         }
@@ -184,8 +187,10 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
      * and require the type to be recorded along with the marshalled JSON-form.
      */
     final JsonNode marshallValueWithType(final Object value) {
+        final Optional<?> optionalValue = Cast.to(value);
+        
         return MARSHALL_CONTEXT.marshallWithType(
-                value
+                optionalValue.orElse(null)
         );
     }
 }
