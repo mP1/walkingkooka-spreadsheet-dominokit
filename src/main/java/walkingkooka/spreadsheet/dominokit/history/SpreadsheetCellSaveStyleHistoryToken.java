@@ -90,7 +90,7 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .patchCellsStylePatch(
+                .patchCellsStyle(
                         this.id(),
                         this.anchoredSelection().selection(),
                         this.value()
