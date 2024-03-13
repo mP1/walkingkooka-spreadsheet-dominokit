@@ -90,6 +90,12 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // TODO PATCH cell to parse-patterns
+        context.spreadsheetDeltaFetcher()
+                .patchCellsParsePattern(
+                        this.id(),
+                        this.anchoredSelection().selection(),
+                        this.value()
+                );
+        context.pushHistoryToken(previous);
     }
 }
