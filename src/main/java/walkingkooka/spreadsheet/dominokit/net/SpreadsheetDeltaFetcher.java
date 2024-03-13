@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.json.JsonNode;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -58,6 +59,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
+import java.util.function.BiFunction;
 
 public final class SpreadsheetDeltaFetcher implements Fetcher {
 
@@ -437,66 +439,51 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public void patchCellsFormula(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,
                                   final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormulas) {
-        final AppContext context = this.context();
-
-        this.post(
-                this.url(
-                        id,
-                        selection,
-                        Optional.empty() // no extra path
-                ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.cellsFormulaPatch(
-                        cellToFormulas,
-                        this.context.marshallContext()
-                ).toString()
+        this.patchCellsWithMap(
+                id,
+                selection,
+                cellToFormulas,
+                SpreadsheetDelta::cellsFormulaPatch
         );
     }
 
     public void patchCellsFormatPattern(final SpreadsheetId id,
                                         final SpreadsheetSelection selection,
                                         final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatPattern>> cellToFormatPatterns) {
-        final AppContext context = this.context();
-
-        this.post(
-                this.url(
-                        id,
-                        selection,
-                        Optional.empty() // no extra path
-                ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.cellsFormatPatternPatch(
-                        cellToFormatPatterns,
-                        this.context.marshallContext()
-                ).toString()
+        this.patchCellsWithMap(
+                id,
+                selection,
+                cellToFormatPatterns,
+                SpreadsheetDelta::cellsFormatPatternPatch
         );
     }
 
     public void patchCellsParsePattern(final SpreadsheetId id,
                                        final SpreadsheetSelection selection,
                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> cellToParsePatterns) {
-        final AppContext context = this.context();
-
-        this.post(
-                this.url(
-                        id,
-                        selection,
-                        Optional.empty() // no extra path
-                ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.cellsParsePatternPatch(
-                        cellToParsePatterns,
-                        this.context.marshallContext()
-                ).toString()
+        this.patchCellsWithMap(
+                id,
+                selection,
+                cellToParsePatterns,
+                SpreadsheetDelta::cellsParsePatternPatch
         );
     }
 
     public void patchCellsStyle(final SpreadsheetId id,
                                 final SpreadsheetSelection selection,
                                 final Map<SpreadsheetCellReference, TextStyle> cellToStyles) {
+        this.patchCellsWithMap(
+                id,
+                selection,
+                cellToStyles,
+                SpreadsheetDelta::cellsStylePatch
+        );
+    }
+
+    private <T> void patchCellsWithMap(final SpreadsheetId id,
+                                       final SpreadsheetSelection selection,
+                                       final Map<SpreadsheetCellReference, T> cellToStyles,
+                                       final BiFunction<Map<SpreadsheetCellReference, T>, JsonNodeMarshallContext, JsonNode> patcher) {
         final AppContext context = this.context();
 
         this.post(
@@ -507,7 +494,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
-                SpreadsheetDelta.cellsStylePatch(
+                patcher.apply(
                         cellToStyles,
                         this.context.marshallContext()
                 ).toString()
