@@ -488,7 +488,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
                 kind.patternPatch(
-                        pattern.orElse(null),
+                        pattern,
                         context.marshallContext()
                 )
         );
