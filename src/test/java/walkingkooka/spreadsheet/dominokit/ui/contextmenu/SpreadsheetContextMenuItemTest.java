@@ -54,6 +54,15 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
         );
     }
 
+    @Test
+    public void testToStringWithKey() {
+        this.toStringAndCheck(
+                SpreadsheetContextMenuItem.with("id3-MenuItem", "text3")
+                        .key("A"),
+                "id3-MenuItem \"A\" \"text3\""
+        );
+    }
+
     @Override
     public Class<SpreadsheetContextMenuItem> type() {
         return SpreadsheetContextMenuItem.class;
