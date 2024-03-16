@@ -68,6 +68,37 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+/**
+ * A {@link HistoryToken} represents a simple summary of the spreadsheet or an action. Every action performed by the user,
+ * by clicking a button or link actually results in that component pushing a {@link HistoryToken} to the application's
+ * history. The application has several {@link HistoryTokenWatcher watchers} one which may perform some action, or
+ * {@link HistoryToken} themselves can also execute some real action.
+ * <br>
+ * A sample history token is {@link SpreadsheetCellFormulaSaveHistoryToken}, this includes the spreadsheet-id, cell and formula text.
+ * It is thus possible to command the web-app to save a new formula text for any cell in a spreadsheet by updating the URL
+ * and hitting enter.
+ * <br>
+ * The two url hash updates below will replace the formula for the A1 and B2 cells with the expressions given.
+ * <pre>
+ *     #/1/Untitled/cell/A1/formula/save/=1+2 ENTER
+ *     #/1/Untitled/cell/B2/formula/save/=3+A1 ENTER
+ * </pre>
+ * Another example of using history token is to select and open a context menu for the same or different column.
+ * <pre>
+ *     #/1/Untitled/column/A/menu
+ * </pre>
+ * All context menu items action items for column A are themselves links with a history token.
+ * <pre>
+ *     #/1/Untitled/column/B/clear
+ * </pre>
+ * This history token will clear column B for spreadsheet with ID=1.
+ * <br>
+ * A final example is changing the format pattern for a cell to DD/MM/YYYY. This is accomplished by entering the following hash.
+ * <pre>
+ *     #/1/Untitled/cell/D4/format-pattern/date/save/DD/MM/YYYY
+ * </pre>
+ * This architecture makes it possible to program a macro system, manipulating a browser by simply sending new hash tokens.
+ */
 public abstract class HistoryToken implements HasUrlFragment,
         HasSpreadsheetPattern,
         HasSpreadsheetPatternKind {
