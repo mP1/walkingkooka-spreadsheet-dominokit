@@ -32,6 +32,8 @@ import java.util.Objects;
 
 /**
  * Used to mark the type of the clipboard value in a {@link SpreadsheetCellClipboardHistoryToken}.
+ * For the moment this only supports possible cell values from the {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent},
+ * which means the clipboard can only holds cells or components of a cell such as the formula text.
  */
 public enum SpreadsheetCellClipboardValueKind implements HasUrlFragment {
 
