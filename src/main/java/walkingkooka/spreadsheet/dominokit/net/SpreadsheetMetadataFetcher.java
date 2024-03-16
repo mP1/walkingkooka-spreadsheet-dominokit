@@ -31,6 +31,31 @@ import walkingkooka.tree.json.JsonNode;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * A specialised Fetcher that supports all typical CRUD operations relating to a {@link SpreadsheetMetadata}.
+ * <br>
+ * To create a new spreadsheet, simply call {@link SpreadsheetMetadataFetcher#createSpreadsheetMetadata()}. This will
+ * POST an empty body to the server which will create a new spreadsheet with a new unique {@link SpreadsheetId}.
+ * The locale in the request sent by the browser will be used as the {@link java.util.Locale} of the spreadsheet.
+ * The response will contain a {@link SpreadsheetMetadata} in JSON form, and will include numerous default properties
+ * of which there are many. These properties include:
+ * <ul>
+ *     <li>Audit info such as create/last updated author and timestamps</li>
+ *     <li>Various mathematical properties which control precision and size of number calculations in expressions</li>
+ *     <li>Default format patterns for all basic spreadsheet values</li>
+ *     <li>Many more properties are available {@link SpreadsheetMetadataPropertyName}</li>
+ * </ul>
+ * <br>
+ * It is possible to overwrite or set any of these properties by doing a PATCH with the new property name and value in
+ * JSON form.
+ * </br>
+ * <br>
+ * Loading a different spreadsheet is as simple as {@link SpreadsheetMetadataFetcher#loadSpreadsheetMetadata(SpreadsheetId)}.
+ * </br>
+ * <br>
+ * Deletion of spreadsheets is accomplished by simplying call {@link SpreadsheetMetadataFetcher#deleteSpreadsheetMetadata(Url)}.
+ * </br>
+ */
 public final class SpreadsheetMetadataFetcher implements Fetcher {
 
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataFetcherWatcher watcher,
