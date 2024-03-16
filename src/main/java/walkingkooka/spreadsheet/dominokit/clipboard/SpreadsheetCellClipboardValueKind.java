@@ -99,6 +99,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                         type.getName()
                 )
         );
+        this.mediaTypeClass = type;
         this.urlFragment = UrlFragment.parse(urlFragment);
     }
 
@@ -110,6 +111,15 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     }
 
     private final MediaType mediaType;
+
+    /**
+     * Getter that returns the class type for this {@link MediaType}.
+     */
+    public Class<?> mediaTypeClass() {
+        return this.mediaTypeClass;
+    }
+
+    private Class<?> mediaTypeClass;
 
     // HasUrlFragment...................................................................................................
 
