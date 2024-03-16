@@ -61,6 +61,28 @@ import java.util.OptionalInt;
 import java.util.Set;
 import java.util.function.BiFunction;
 
+/**
+ * A Fetcher (yes as in the Browser's fetch object) that provides numerous CRUD and PATCH operations for a {@link SpreadsheetDelta}.
+ * <br>
+ * A {@link SpreadsheetDelta} is a payload representing cells belonging to a spreadsheet.
+ * Deleting a cell, could trigger re-calculation of other cells that reference directly or indirectly the deleted cell.
+ * The response for such an operation will contain the deleted cell in {@link SpreadsheetDelta#deletedCells()}, and the
+ * updated cells in {@link SpreadsheetDelta#cells()}.
+ * <br>
+ * Note a window may be sent in the request which limits the items (cells, columns, rows etc) that appear in the response.
+ * This is useful for example if the viewport only shows A1:D4, and A1 is updated, it might not be required to want cells
+ * outside this viewport to be returned. They will be re-evaluated but their updated cells wont be returned.
+ * Frozen columns and rows updates are implemented by the web-app by sending multiple windows.
+ * <br>
+ * Several components such as the {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportFormulaComponent} and
+ * {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent} are all {@link SpreadsheetDeltaFetcherWatcher},
+ * so any new responses that concern them will trigger an update.
+ * <br>
+ * This means that only changes following an operation are returned, and not the entire viewport window or the entire spreadsheet.
+ * <br>
+ * Since a spreadsheet is mostly about updating cells in some way that means {@link SpreadsheetDelta} is the primary mechanism
+ * to send payloads to the server and receiving the updates from that processing.
+ */
 public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     /**
