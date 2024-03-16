@@ -20,13 +20,48 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.net.header.HasMediaTypeTesting;
+import walkingkooka.net.header.MediaType;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.test.ParseStringTesting;
 
+import java.util.List;
+
 public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting<SpreadsheetCellClipboardValueKind>,
+        HasMediaTypeTesting,
         HasUrlFragmentTesting,
         ParseStringTesting<SpreadsheetCellClipboardValueKind> {
+
+    // HasMediaType......................................................................................................
+
+    @Test
+    public void testMediaTypeCell() {
+        this.mediaTypeAndCheck(
+                SpreadsheetCellClipboardValueKind.CELL,
+                MediaType.APPLICATION_JSON.setSuffixes(
+                        List.of(
+                                "walkingkooka.spreadsheet.dominokit",
+                                SpreadsheetCell.class.getName()
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testMediaTypeFormula() {
+        this.mediaTypeAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA,
+                MediaType.APPLICATION_JSON.setSuffixes(
+                        List.of(
+                                "walkingkooka.spreadsheet.dominokit",
+                                SpreadsheetFormula.class.getName()
+                        )
+                )
+        );
+    }
 
     // parse............................................................................................................
 

@@ -17,13 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.net.header.HasMediaType;
+import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Arrays;
@@ -35,41 +40,76 @@ import java.util.Objects;
  * For the moment this only supports possible cell values from the {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent},
  * which means the clipboard can only holds cells or components of a cell such as the formula text.
  */
-public enum SpreadsheetCellClipboardValueKind implements HasUrlFragment {
+public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
+        HasUrlFragment {
 
     /**
      * The clipboard value is {@link SpreadsheetCell}.
      */
-    CELL("cell"),
+    CELL(
+            SpreadsheetCell.class,
+            "cell"
+    ),
 
     /**
      * The clipboard value is cells to {@link String formula text}.
      */
-    FORMULA("formula"),
+    FORMULA(
+            SpreadsheetFormula.class,
+            "formula"
+    ),
 
     /**
      * The clipboard value is cells to {@link SpreadsheetFormatPattern}.
      */
-    FORMAT_PATTERN("format-pattern"),
+    FORMAT_PATTERN(
+            SpreadsheetFormatPattern.class,
+            "format-pattern"
+    ),
 
     /**
      * The clipboard value is a cells to {@link SpreadsheetParsePattern}.
      */
-    PARSE_PATTERN("parse-pattern"),
+    PARSE_PATTERN(
+            SpreadsheetParsePattern.class,
+            "parse-pattern"
+    ),
 
     /**
      * The clipboard value is cells to {@link TextStyle}.
      */
-    STYLE("style"),
+    STYLE(
+            TextStyle.class,
+            "style"
+    ),
 
     /**
      * The clipboard value is a formatted text.
      */
-    FORMATTED("formatted");
+    FORMATTED(
+            TextNode.class,
+            "formatted"
+    );
 
-    SpreadsheetCellClipboardValueKind(final String urlFragment) {
+    SpreadsheetCellClipboardValueKind(final Class<?> type,
+                                      final String urlFragment) {
+        this.mediaType = MediaType.APPLICATION_JSON.setSuffixes(
+                Lists.of(
+                        "walkingkooka.spreadsheet.dominokit",
+                        type.getName()
+                )
+        );
         this.urlFragment = UrlFragment.parse(urlFragment);
     }
+
+    // HasMediaType.....................................................................................................
+
+    @Override
+    public MediaType mediaType() {
+        return this.mediaType;
+    }
+
+    private final MediaType mediaType;
 
     // HasUrlFragment...................................................................................................
 
