@@ -22,6 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.color.Color;
+import walkingkooka.net.header.HasMediaTypeTesting;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -35,6 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellClipboardValueTest implements ClassTesting<SpreadsheetCellClipboardValue<TextStyle>>,
         HashCodeEqualsDefinedTesting2<SpreadsheetCellClipboardValue<TextStyle>>,
+        HasMediaTypeTesting,
         ToStringTesting<SpreadsheetCellClipboardValue<TextStyle>> {
 
     private final static MediaType MEDIA_TYPE = MediaType.APPLICATION_JSON;
@@ -69,7 +71,7 @@ public final class SpreadsheetCellClipboardValueTest implements ClassTesting<Spr
     @Test
     public void testWith() {
         final SpreadsheetCellClipboardValue<TextStyle> clipboardValue = this.createObject();
-        this.checkMediaType(clipboardValue);
+        this.mediaTypeAndCheck(clipboardValue);
         this.checkValue(clipboardValue);
     }
 
@@ -103,10 +105,10 @@ public final class SpreadsheetCellClipboardValueTest implements ClassTesting<Spr
                 different
         );
 
-        this.checkMediaType(clipboardValue);
+        this.mediaTypeAndCheck(clipboardValue);
         this.checkValue(clipboardValue);
 
-        this.checkMediaType(different, differentMediaType);
+        this.mediaTypeAndCheck(different, differentMediaType);
         this.checkValue(different);
     }
 
@@ -144,26 +146,17 @@ public final class SpreadsheetCellClipboardValueTest implements ClassTesting<Spr
                 different
         );
 
-        this.checkMediaType(clipboardValue);
+        this.mediaTypeAndCheck(clipboardValue);
         this.checkValue(clipboardValue);
 
-        this.checkMediaType(different);
+        this.mediaTypeAndCheck(different);
         this.checkValue(different, differentValue);
     }
 
-    private void checkMediaType(final SpreadsheetCellClipboardValue<TextStyle> clipboardValue) {
-        this.checkMediaType(
+    private void mediaTypeAndCheck(final SpreadsheetCellClipboardValue<TextStyle> clipboardValue) {
+        this.mediaTypeAndCheck(
                 clipboardValue,
                 MEDIA_TYPE
-        );
-    }
-
-    private void checkMediaType(final SpreadsheetCellClipboardValue<TextStyle> clipboardValue,
-                                final MediaType expected) {
-        this.checkEquals(
-                expected,
-                clipboardValue.mediaType(),
-                "mediaType"
         );
     }
 
