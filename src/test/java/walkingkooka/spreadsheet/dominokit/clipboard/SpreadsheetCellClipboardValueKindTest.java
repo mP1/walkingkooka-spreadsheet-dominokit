@@ -27,6 +27,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.test.ParseStringTesting;
+import walkingkooka.tree.text.TextStyle;
 
 import java.util.List;
 
@@ -60,6 +61,40 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
                                 SpreadsheetFormula.class.getName()
                         )
                 )
+        );
+    }
+
+    // mediaTypeClass...................................................................................................
+
+    @Test
+    public void testMediaTypeClassCell() {
+        this.mediaTypeClassAndCheck(
+                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCell.class
+        );
+    }
+
+    @Test
+    public void testMediaTypeClassFormula() {
+        this.mediaTypeClassAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetFormula.class
+        );
+    }
+
+    @Test
+    public void testMediaTypeClassStyle() {
+        this.mediaTypeClassAndCheck(
+                SpreadsheetCellClipboardValueKind.STYLE,
+                TextStyle.class
+        );
+    }
+
+    private void mediaTypeClassAndCheck(final SpreadsheetCellClipboardValueKind kind,
+                                        final Class<?> type) {
+        this.checkEquals(
+                type,
+                kind.mediaTypeClass()
         );
     }
 
