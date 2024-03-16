@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.Value;
+import walkingkooka.net.header.HasMediaType;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.text.CharSequences;
 
@@ -28,7 +29,8 @@ import java.util.Objects;
  * Paste operations such as pasting styles from a clipboard holding cells into a range will use a {@link walkingkooka.convert.Converter}
  * to perform the conversion if possible.
  */
-public final class SpreadsheetCellClipboardValue<T> implements Value<T> {
+public final class SpreadsheetCellClipboardValue<T> implements Value<T>,
+        HasMediaType {
 
     public static <T> SpreadsheetCellClipboardValue with(final MediaType mediaType,
                                                          final T value) {
@@ -44,6 +46,7 @@ public final class SpreadsheetCellClipboardValue<T> implements Value<T> {
         this.value = value;
     }
 
+    @Override
     public MediaType mediaType() {
         return this.mediaType;
     }
