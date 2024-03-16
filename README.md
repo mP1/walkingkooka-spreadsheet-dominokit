@@ -29,3 +29,4 @@ http://localhost:12345/walkingkooka.spreadsheet.dominokit.App/index.html
 # Architecture | Design
 
 - [HistoryToken](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/blob/master/src/main/java/walkingkooka/spreadsheet/dominokit/history/HistoryToken.java#L71)
+- [SpreadsheetMetadataFetcher](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/blob/master/src/main/java/walkingkooka/spreadsheet/dominokit/net/SpreadsheetMetadataFetcher.java#L34)
