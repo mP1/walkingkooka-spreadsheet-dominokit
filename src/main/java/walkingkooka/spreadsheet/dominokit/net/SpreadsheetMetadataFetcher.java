@@ -61,6 +61,15 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     /**
+     * DELETE an existing spreadsheet
+     */
+    public void deleteSpreadsheetMetadata(final SpreadsheetId id) {
+        this.delete(
+                this.url(id)
+        );
+    }
+
+    /**
      * Loads an existing spreadsheet
      */
     public void loadSpreadsheetMetadata(final SpreadsheetId id) {
