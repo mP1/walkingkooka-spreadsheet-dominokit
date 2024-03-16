@@ -919,7 +919,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Consumes a path ui within the {@link TextCursor}.
+     * Consumes a path component within a {@link TextCursor}.
      */
     static Optional<String> parseComponent(final TextCursor cursor) {
         return COMPONENT.parse(cursor, CONTEXT)
@@ -930,7 +930,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * A {@link Parser} that consumes a path ui within an {@link UrlFragment}.
+     * A {@link Parser} that consumes a path component within an {@link UrlFragment}.
      */
     private final static Parser<ParserContext> COMPONENT = Parsers.stringInitialAndPartCharPredicate(
             CharPredicates.is('/'),
