@@ -721,6 +721,98 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setCopy..........................................................................................................
+
+    @Test
+    public void testSetCopyWithNullKindFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> HistoryToken.unknown(UrlFragment.SLASH).setCopy(null)
+        );
+    }
+
+    @Test
+    public void testSetCopyWithNonCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setCopy(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetCopyWithCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+        );
+
+        this.checkEquals(
+                HistoryToken.cellClipboardCopy(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        SpreadsheetCellClipboardValueKind.CELL
+                ),
+                historyToken.setCopy(SpreadsheetCellClipboardValueKind.CELL)
+        );
+    }
+
+    @Test
+    public void testSetCopyWithCellHistoryToken2() {
+        final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
+                .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+
+        final HistoryToken historyToken = HistoryToken.cell(
+                ID,
+                NAME,
+                cell
+        );
+
+        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+            this.checkEquals(
+                    HistoryToken.cellClipboardCopy(
+                            ID,
+                            NAME,
+                            cell,
+                            kind
+                    ),
+                    historyToken.setCopy(kind)
+            );
+        }
+        ;
+    }
+
+    @Test
+    public void testSetCopyWithColumnHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+        );
+
+        assertSame(
+                historyToken.setCopy(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetCopyWithRowHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+        );
+
+        assertSame(
+                historyToken.setCopy(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken
+        );
+    }
+
     // setCut...........................................................................................................
 
     @Test
