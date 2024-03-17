@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
@@ -717,6 +718,98 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         NAME,
                         COLUMN.setDefaultAnchor()
                 )
+        );
+    }
+
+    // setCut...........................................................................................................
+
+    @Test
+    public void testSetCutWithNullKindFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> HistoryToken.unknown(UrlFragment.SLASH).setCut(null)
+        );
+    }
+
+    @Test
+    public void testSetCutWithNonCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+                historyToken.setCut(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetCutWithCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+        );
+
+        this.checkEquals(
+                HistoryToken.cellClipboardCut(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        SpreadsheetCellClipboardValueKind.CELL
+                ),
+                historyToken.setCut(SpreadsheetCellClipboardValueKind.CELL)
+        );
+    }
+
+    @Test
+    public void testSetCutWithCellHistoryToken2() {
+        final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
+                .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+
+        final HistoryToken historyToken = HistoryToken.cell(
+                ID,
+                NAME,
+                cell
+        );
+
+        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+            this.checkEquals(
+                    HistoryToken.cellClipboardCut(
+                            ID,
+                            NAME,
+                            cell,
+                            kind
+                    ),
+                    historyToken.setCut(kind)
+            );
+        }
+        ;
+    }
+
+    @Test
+    public void testSetCutWithColumnHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+        );
+
+        assertSame(
+                historyToken.setCut(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken
+        );
+    }
+
+    @Test
+    public void testSetCutWithRowHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+        );
+
+        assertSame(
+                historyToken.setCut(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken
         );
     }
 
