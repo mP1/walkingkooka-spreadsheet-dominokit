@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -34,6 +35,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.Overflow;
@@ -69,6 +71,10 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final SpreadsheetSelection selection = historyToken.anchoredSelection()
                 .selection();
 
+        // CUT
+        // COPY
+        // PASTE
+        // -----
         // STYLE
         // ----
         // FORMAT
@@ -84,6 +90,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         // TODO add tick if already selected
         if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
+            clipboard(
+                    historyToken,
+                    menu,
+                    context
+            );
+
             style(
                     historyToken,
                     menu.subMenu(
@@ -137,6 +149,86 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         if (selection.isCellReference() || selection.isCellRange()) {
             menu.separator();
             label(historyToken, selection, menu, context);
+        }
+    }
+
+    private static void clipboard(final HistoryToken historyToken,
+                                  final SpreadsheetContextMenu menu,
+                                  final SpreadsheetSelectionMenuContext context) {
+        final String idPrefix = context.idPrefix() + "clipboard-";
+
+        {
+            final String itemIdPrefix = idPrefix + "cut";
+
+            clipboardCutCopyPaste(
+                    menu.subMenu(
+                            itemIdPrefix + SpreadsheetIds.SUB_MENU,
+                            "Cut",
+                            SpreadsheetIcons.cut()
+                    ),
+                    itemIdPrefix + '-',
+                    (k) -> historyToken.setCellCut(k)
+            );
+        }
+
+        {
+            final String itemIdPrefix = idPrefix + "copy";
+
+            clipboardCutCopyPaste(
+                    menu.subMenu(
+                            itemIdPrefix + SpreadsheetIds.SUB_MENU,
+                            "Copy",
+                            SpreadsheetIcons.copy()
+                    ),
+                    itemIdPrefix + '-',
+                    (k) -> historyToken.setCellCopy(k)
+            );
+        }
+
+        {
+            final String itemIdPrefix = idPrefix + "paste";
+
+            clipboardCutCopyPaste(
+                    menu.subMenu(
+                            itemIdPrefix + SpreadsheetIds.SUB_MENU,
+                            "Paste",
+                            SpreadsheetIcons.paste()
+                    ),
+                    itemIdPrefix + '-',
+                    (k) -> historyToken.setCellPaste(k)
+            );
+
+            // PASTE items are initially disabled and then async enabled after the clipboard is examined.
+        }
+
+        menu.separator();
+    }
+
+    private static void clipboardCutCopyPaste(final SpreadsheetContextMenu menu,
+                                              final String idPrefix,
+                                              final Function<SpreadsheetCellClipboardValueKind, HistoryToken> historyToken) {
+        SpreadsheetContextMenu menu2 = menu;
+
+        // Cut > Cell
+        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+            menu2 = menu2.item(
+                    SpreadsheetContextMenuItem.with(
+                            idPrefix +
+                                    CaseKind.SNAKE.change(
+                                            kind.name().toLowerCase(),
+                                            CaseKind.KEBAB
+                                    ) +
+                                    SpreadsheetIds.MENU_ITEM,
+                            CaseKind.SNAKE.change(
+                                    kind.name().toLowerCase(),
+                                    CaseKind.TITLE
+                            )  // "Cell" | "Format pattern"
+                    ).historyToken(
+                            Optional.of(
+                                    historyToken.apply(kind)
+                            )
+                    )
+            );
         }
     }
 
