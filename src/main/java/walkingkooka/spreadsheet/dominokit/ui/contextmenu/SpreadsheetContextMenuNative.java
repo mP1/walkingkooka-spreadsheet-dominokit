@@ -30,6 +30,7 @@ import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenmenuitem.HistoryTokenMenuItem;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -105,7 +106,7 @@ public final class SpreadsheetContextMenuNative {
 
     static void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem item,
                                                           final SpreadsheetContextMenu menu) {
-        AbstractMenuItem<Void> menuItem = menu.context.menuItem(
+        HistoryTokenMenuItem menuItem = menu.context.menuItem(
                 item.id,
                 item.text,
                 item.historyToken
@@ -136,9 +137,8 @@ public final class SpreadsheetContextMenuNative {
                     )
             );
         }
-        if (false == item.enabled) {
-            // TODO https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2019 anchor.setDisabled(true)
-        }
+
+        menuItem.setDisabled(false == item.enabled);
 
         menu.menu.appendChild(menuItem);
     }
