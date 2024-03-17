@@ -88,7 +88,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // -------
         // LABELS
 
-        // TODO add tick if already selected
         if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
             clipboard(
                     historyToken,

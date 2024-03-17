@@ -140,7 +140,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
 
     @Override //
     final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this; // TODO
+        return this;
     }
 
     @Override //
