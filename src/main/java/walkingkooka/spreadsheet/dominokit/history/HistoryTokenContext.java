@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenmenuitem.HistoryTokenMenuItem;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -60,32 +60,24 @@ public interface HistoryTokenContext extends Context {
      * Creates an ANCHOR with the given text and if a {@link HistoryToken} is passed, it will be pushed that if this
      * menu item clicked or selected with ENTER.
      */
-    default AbstractMenuItem<Void> menuItem(final String id,
-                                            final String text,
-                                            final Optional<HistoryToken> historyToken) {
+    default HistoryTokenMenuItem menuItem(final String id,
+                                          final String text,
+                                          final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
-        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
-                .setId(id)
-                .setHistoryToken(historyToken)
-                .setTextContent(text);
+        final HistoryTokenMenuItem menu = new HistoryTokenMenuItem(
+                HistoryTokenAnchorComponent.empty()
+                        .setId(id)
+                        .setHistoryToken(historyToken)
+                        .setTextContent(text)
+        );
 
-        final AbstractMenuItem<Void> menu = new AbstractMenuItem<>() {
+        menu.addSelectionHandler(
+                (ignored) -> this.pushHistoryToken(
+                        historyToken.get()
+                )
+        );
 
-        };
-        menu.appendChild(anchor);
-
-        if (historyToken.isPresent()) {
-            menu.addSelectionHandler(
-                    (ignored) -> this.pushHistoryToken(
-                            historyToken.get()
-                    )
-            );
-            // need to kill margin other menu items with links wont line up with text-only menu items.
-            anchor.element()
-                    .style
-                    .setProperty("margin-left", "0");
-        }
         return menu;
     }
 }
