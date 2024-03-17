@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
+import walkingkooka.Cast;
 import walkingkooka.Value;
 import walkingkooka.net.header.HasMediaType;
 import walkingkooka.net.header.MediaType;
@@ -32,8 +33,8 @@ import java.util.Objects;
 public final class SpreadsheetCellClipboardValue<T> implements Value<T>,
         HasMediaType {
 
-    public static <T> SpreadsheetCellClipboardValue with(final MediaType mediaType,
-                                                         final T value) {
+    public static <T> SpreadsheetCellClipboardValue<T> with(final MediaType mediaType,
+                                                            final T value) {
         return new SpreadsheetCellClipboardValue<>(
                 checkMediaType(mediaType),
                 checkValue(value)
@@ -55,7 +56,7 @@ public final class SpreadsheetCellClipboardValue<T> implements Value<T>,
         checkMediaType(mediaType);
         return this.mediaType.equals(mediaType) ?
                 this :
-                new SpreadsheetCellClipboardValue(mediaType, this.value);
+                new SpreadsheetCellClipboardValue<>(mediaType, this.value);
     }
 
     private final MediaType mediaType;
@@ -101,10 +102,10 @@ public final class SpreadsheetCellClipboardValue<T> implements Value<T>,
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-                (other instanceof SpreadsheetCellClipboardValue && this.equals0((SpreadsheetCellClipboardValue) other));
+                (other instanceof SpreadsheetCellClipboardValue && this.equals0(Cast.to(other)));
     }
 
-    private boolean equals0(final SpreadsheetCellClipboardValue other) {
+    private boolean equals0(final SpreadsheetCellClipboardValue<?> other) {
         return this.mediaType.equals(other.mediaType) &&
                 this.value.equals(other.value);
     }
