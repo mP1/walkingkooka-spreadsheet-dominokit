@@ -1139,6 +1139,29 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * If possible creates a {@link SpreadsheetCellClipboardPasteHistoryToken} token.
+     */
+    public final HistoryToken setCellPaste(final SpreadsheetCellClipboardValueKind kind) {
+        Objects.requireNonNull(kind, "kind");
+
+        final HistoryToken token;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            token = HistoryToken.cellClipboardPaste(
+                    cell.id(),
+                    cell.name(),
+                    cell.anchoredSelection(),
+                    kind
+            );
+        } else {
+            token = this;
+        }
+
+        return token;
+    }
+
+    /**
      * Returns true for any cell format pattern {@link HistoryToken}.
      */
     public final boolean isCellFormatPattern() {
