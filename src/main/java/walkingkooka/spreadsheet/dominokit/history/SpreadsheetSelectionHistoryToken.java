@@ -144,14 +144,11 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         HistoryToken token = this;
 
         if (this instanceof SpreadsheetCellSelectHistoryToken) {
-            final SpreadsheetCellSelectHistoryToken spreadsheetCellSelectHistoryToken = this.cast(SpreadsheetCellSelectHistoryToken.class);
+            final SpreadsheetCellSelectHistoryToken cell = this.cast(SpreadsheetCellSelectHistoryToken.class);
 
             String component = parseComponentOrNull(cursor);
             if (null != component) {
-                token = cellClipboardCopy(
-                        spreadsheetCellSelectHistoryToken.id(),
-                        spreadsheetCellSelectHistoryToken.name(),
-                        spreadsheetCellSelectHistoryToken.anchoredSelection(),
+                token = cell.setCellCopy(
                         SpreadsheetCellClipboardValueKind.parse(component)
                 );
             }
