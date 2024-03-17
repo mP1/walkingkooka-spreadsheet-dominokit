@@ -22,6 +22,7 @@ import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasMediaType;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
@@ -34,6 +35,7 @@ import walkingkooka.tree.text.TextStyle;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 
 /**
@@ -110,6 +112,10 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
         this.mediaTypeClass = type;
         this.valueExtractor = valueExtractor;
         this.urlFragment = UrlFragment.parse(urlFragment);
+
+        this.predicate = this.name().equals("CELL") ?
+                Predicates.always() :
+                Predicate.isEqual(this);
     }
 
     /**
@@ -124,6 +130,17 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     }
 
     private final Function<SpreadsheetCell, Object> valueExtractor;
+
+    /**
+     * All {@Link SpreadsheetCellClipboardValueKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.
+     * If the clipboard value is a {@link SpreadsheetCell} all PASTE menu items will be enabled, while other value types will only enable themselves,
+     * eg if clipboard value is a {@link TextStyle} only PASTE STYLE will be enabled.
+     */
+    public Predicate<SpreadsheetCellClipboardValueKind> predicate() {
+        return predicate;
+    }
+
+    private final Predicate<SpreadsheetCellClipboardValueKind> predicate;
 
     // HasMediaType.....................................................................................................
 

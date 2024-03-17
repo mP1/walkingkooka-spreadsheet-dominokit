@@ -18,11 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasMediaTypeTesting;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.predicate.PredicateTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -37,11 +39,14 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.function.Predicate;
 
 public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting<SpreadsheetCellClipboardValueKind>,
         HasMediaTypeTesting,
         HasUrlFragmentTesting,
-        ParseStringTesting<SpreadsheetCellClipboardValueKind> {
+        ParseStringTesting<SpreadsheetCellClipboardValueKind>,
+        PredicateTesting {
 
     private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
             SpreadsheetFormula.EMPTY.setText("=1+2")
@@ -63,6 +68,79 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
                     TextNode.text("Formatted - Hello123")
             )
     );
+
+    // predicate........................................................................................................
+
+    @Test
+    public void testPredicateCell() {
+        this.predicateAndCheck(
+                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardValueKind.values()
+        );
+    }
+
+    @Test
+    public void testPredicateFormula() {
+        this.predicateAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA
+        );
+    }
+
+    @Test
+    public void testPredicateFormatPattern() {
+        this.predicateAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN
+        );
+    }
+
+    @Test
+    public void testPredicateParsePattern() {
+        this.predicateAndCheck(
+                SpreadsheetCellClipboardValueKind.PARSE_PATTERN
+        );
+    }
+
+    @Test
+    public void testPredicateStyle() {
+        this.predicateAndCheck(
+                SpreadsheetCellClipboardValueKind.STYLE
+        );
+    }
+
+    @Test
+    public void testPredicateFormatted() {
+        this.predicateAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMATTED
+        );
+    }
+
+    private void predicateAndCheck(final SpreadsheetCellClipboardValueKind kind) {
+        this.predicateAndCheck(
+                kind,
+                kind
+        );
+    }
+
+    private void predicateAndCheck(final SpreadsheetCellClipboardValueKind kind,
+                                   final SpreadsheetCellClipboardValueKind... trueKinds) {
+        this.predicateAndCheck(
+                kind,
+                Sets.of(trueKinds)
+        );
+    }
+
+    private void predicateAndCheck(final SpreadsheetCellClipboardValueKind kind,
+                                   final Set<SpreadsheetCellClipboardValueKind> trueKinds) {
+        final Predicate<SpreadsheetCellClipboardValueKind> predicate = kind.predicate();
+
+        for (final SpreadsheetCellClipboardValueKind possible : SpreadsheetCellClipboardValueKind.values()) {
+            this.testAndCheck(
+                    predicate,
+                    possible,
+                    trueKinds.contains(possible)
+            );
+        }
+    }
 
     // toValue..........................................................................................................
 
