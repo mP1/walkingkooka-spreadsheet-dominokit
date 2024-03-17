@@ -124,6 +124,28 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         this.treePrintAndCheck(
                 menu,
                 "Cell-MenuId \"Cell A1 Menu\"\n" +
+                        "  (mdi-content-cut) test-clipboard-cut-SubMenu \"Cut\"\n" +
+                        "    test-clipboard-cut-cell-MenuItem \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell]\n" +
+                        "    test-clipboard-cut-formula-MenuItem \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula]\n" +
+                        "    test-clipboard-cut-format-pattern-MenuItem \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/format-pattern]\n" +
+                        "    test-clipboard-cut-parse-pattern-MenuItem \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/parse-pattern]\n" +
+                        "    test-clipboard-cut-style-MenuItem \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style]\n" +
+                        "    test-clipboard-cut-formatted-MenuItem \"Formatted\" [/1/SpreadsheetName-1/cell/A1/cut/formatted]\n" +
+                        "  (mdi-content-copy) test-clipboard-copy-SubMenu \"Copy\"\n" +
+                        "    test-clipboard-copy-cell-MenuItem \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell]\n" +
+                        "    test-clipboard-copy-formula-MenuItem \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula]\n" +
+                        "    test-clipboard-copy-format-pattern-MenuItem \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/format-pattern]\n" +
+                        "    test-clipboard-copy-parse-pattern-MenuItem \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/parse-pattern]\n" +
+                        "    test-clipboard-copy-style-MenuItem \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style]\n" +
+                        "    test-clipboard-copy-formatted-MenuItem \"Formatted\" [/1/SpreadsheetName-1/cell/A1/copy/formatted]\n" +
+                        "  (mdi-content-paste) test-clipboard-paste-SubMenu \"Paste\"\n" +
+                        "    test-clipboard-paste-cell-MenuItem \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell]\n" +
+                        "    test-clipboard-paste-formula-MenuItem \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula]\n" +
+                        "    test-clipboard-paste-format-pattern-MenuItem \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/paste/format-pattern]\n" +
+                        "    test-clipboard-paste-parse-pattern-MenuItem \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/paste/parse-pattern]\n" +
+                        "    test-clipboard-paste-style-MenuItem \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style]\n" +
+                        "    test-clipboard-paste-formatted-MenuItem \"Formatted\" [/1/SpreadsheetName-1/cell/A1/paste/formatted]\n" +
+                        "  -----\n" +
                         "  test-style-SubMenu \"Style\"\n" +
                         "    test-alignment-SubMenu \"Alignment\"\n" +
                         "      (mdi-format-align-left) test-left-MenuItem \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT]\n" +
