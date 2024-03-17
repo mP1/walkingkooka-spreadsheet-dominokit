@@ -1243,7 +1243,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
     
     /**
-     * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
+     * If possible creates a {@link SpreadsheetCellClipboardCutHistoryToken} token.
      */
     public final HistoryToken setCut(final SpreadsheetCellClipboardValueKind kind) {
         Objects.requireNonNull(kind, "kind");
