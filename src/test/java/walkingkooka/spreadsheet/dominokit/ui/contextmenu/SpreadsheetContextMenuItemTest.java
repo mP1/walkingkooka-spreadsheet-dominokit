@@ -19,14 +19,98 @@ package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
+import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
 public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetContextMenuItem>,
+        TreePrintableTesting,
         ToStringTesting<SpreadsheetContextMenuItem> {
+
+    // TreePrintable....................................................................................................
+
+    @Test
+    public void testTreePrint() {
+        this.treePrintAndCheck(
+                SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123"),
+                "id1-MenuItem \"text-123\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintBadge() {
+        this.treePrintAndCheck(
+                SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
+                        .badge(
+                                Optional.of("Badge-123")
+                        ),
+                "id1-MenuItem \"text-123\" [Badge-123]\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintChecked() {
+        this.treePrintAndCheck(
+                SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
+                        .checked(true),
+                "id1-MenuItem \"text-123\" v/\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintHistoryToken() {
+        this.treePrintAndCheck(
+                SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
+                        .historyToken(
+                                Optional.of(
+                                        HistoryToken.parse(UrlFragment.with("/1/Spreadsheet-name-2/cell/A1:B2/cell"))
+                                )
+                        ),
+                "id1-MenuItem \"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right]\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintIcon() {
+        this.treePrintAndCheck(
+                SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
+                        .icon(
+                                Optional.of(
+                                        SpreadsheetIcons.alignLeft()
+                                )
+                        ),
+                "(mdi-format-align-left) id1-MenuItem \"text-123\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintEverything() {
+        this.treePrintAndCheck(
+                SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
+                        .badge(
+                                Optional.of("123")
+                        ).checked(true)
+                        .historyToken(
+                                Optional.of(
+                                        HistoryToken.parse(UrlFragment.with("/1/Spreadsheet-name-2/cell/A1:B2/cell"))
+                                )
+                        ).icon(
+                                Optional.of(
+                                        SpreadsheetIcons.alignLeft()
+                                )
+                        ).key(
+                                "Key1"
+                        ),
+                "(mdi-format-align-left) id1-MenuItem Key1 \"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] v/ [123]\n"
+        );
+    }
+
+    // ToString.........................................................................................................
 
     @Test
     public void testToStringWithBadge() {
