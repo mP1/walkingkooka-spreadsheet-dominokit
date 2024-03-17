@@ -22,8 +22,11 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
@@ -59,6 +62,20 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                 SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
                         .checked(true),
                 "id1-MenuItem \"text-123\" v/\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintDisabledHistoryToken() {
+        this.treePrintAndCheck(
+                SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
+                        .enabled(false)
+                        .historyToken(
+                                Optional.of(
+                                        HistoryToken.parse(UrlFragment.with("/1/Spreadsheet-name-2/cell/A1:B2/cell"))
+                                )
+                        ),
+                "id1-MenuItem \"text-123\" [disabled /1/Spreadsheet-name-2/cell/A1:B2/bottom-right]\n"
         );
     }
 
@@ -135,6 +152,33 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                                 )
                         ),
                 "id1-MenuItem \"text2\" mdi-check"
+        );
+    }
+
+    @Test
+    public void testToStringWithDisabledNoHistory() {
+        this.toStringAndCheck(
+                SpreadsheetContextMenuItem.with("id4-MenuItem", "text4")
+                        .enabled(false),
+                "id4-MenuItem \"text4\" disabled=true"
+        );
+    }
+
+    @Test
+    public void testToStringWithDisabledAndHistory() {
+        this.toStringAndCheck(
+                SpreadsheetContextMenuItem.with("id5-MenuItem", "text5")
+                        .enabled(false)
+                        .historyToken(
+                                Optional.of(
+                                        HistoryToken.cellDelete(
+                                                SpreadsheetId.with(1),
+                                                SpreadsheetName.with("SpreadsheetName2"),
+                                                SpreadsheetSelection.A1.setDefaultAnchor()
+                                        )
+                                )
+                        ),
+                "id5-MenuItem \"text5\" SpreadsheetCellDeleteHistoryToken \"/1/SpreadsheetName2/cell/A1/delete\" disabled=true"
         );
     }
 

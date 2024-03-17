@@ -136,6 +136,9 @@ public final class SpreadsheetContextMenuNative {
                     )
             );
         }
+        if (false == item.enabled) {
+            // TODO https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2019 anchor.setDisabled(true)
+        }
 
         menu.menu.appendChild(menuItem);
     }

@@ -54,7 +54,8 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                 Optional.empty(), // historyToken
                 Optional.empty(), // icon
                 "", // key
-                false // checked
+                false, // checked
+                true // enabled
         );
     }
 
@@ -64,7 +65,8 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                                final Optional<HistoryToken> historyToken,
                                final Optional<Icon<?>> icon,
                                final String key,
-                               final boolean checked) {
+                               final boolean checked,
+                               final boolean enabled) {
         this.id = id;
         this.text = text;
         this.badge = badge;
@@ -72,6 +74,7 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         this.icon = icon;
         this.key = key;
         this.checked = checked;
+        this.enabled = enabled;
     }
 
     final String id;
@@ -90,7 +93,8 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                         this.historyToken,
                         this.icon,
                         this.key,
-                        this.checked
+                        this.checked,
+                        this.enabled
                 );
     }
 
@@ -108,7 +112,8 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                         historyToken,
                         this.icon,
                         this.key,
-                        this.checked
+                        this.checked,
+                        this.enabled
                 );
     }
 
@@ -126,7 +131,8 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                         this.historyToken,
                         icon,
                         this.key,
-                        this.checked
+                        this.checked,
+                        this.enabled
                 );
     }
 
@@ -144,7 +150,8 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                         this.historyToken,
                         this.icon,
                         key,
-                        this.checked
+                        this.checked,
+                        this.enabled
                 );
     }
 
@@ -161,11 +168,32 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                         this.historyToken,
                         this.icon,
                         this.key,
-                        checked
+                        checked,
+                        this.enabled
                 );
     }
 
     final boolean checked;
+
+    /**
+     * May be used to enable/disable a {@link SpreadsheetContextMenuItem}.
+     */
+    public SpreadsheetContextMenuItem enabled(final boolean enabled) {
+        return this.enabled == enabled ?
+                this :
+                new SpreadsheetContextMenuItem(
+                        this.id,
+                        this.text,
+                        this.badge,
+                        this.historyToken,
+                        this.icon,
+                        this.key,
+                        this.checked,
+                        enabled
+                );
+    }
+
+    final boolean enabled;
 
     // Object...........................................................................................................
 
@@ -182,6 +210,9 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                 .value(this.badge)
                 .value(this.historyToken)
                 .value(this.icon.map(Icon::getName))
+                .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
+                .label("disabled")
+                .value(false == this.enabled)
                 .label("checked")
                 .value(this.checked)
                 .build();
@@ -212,6 +243,11 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         final Optional<HistoryToken> token = this.historyToken;
         if (token.isPresent()) {
             printer.print(" [");
+
+            if (false == this.enabled) {
+                printer.print("disabled ");
+            }
+
             printer.print(token.get().urlFragment().toString());
             printer.print("]");
         }
