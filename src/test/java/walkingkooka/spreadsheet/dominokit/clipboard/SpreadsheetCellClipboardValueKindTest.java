@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.color.Color;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasMediaTypeTesting;
@@ -26,15 +27,175 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.ParseStringTesting;
+import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
+import java.util.Optional;
 
 public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting<SpreadsheetCellClipboardValueKind>,
         HasMediaTypeTesting,
         HasUrlFragmentTesting,
         ParseStringTesting<SpreadsheetCellClipboardValueKind> {
+
+    private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
+            SpreadsheetFormula.EMPTY.setText("=1+2")
+    ).setFormatPattern(
+            Optional.of(
+                    SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+            )
+    ).setParsePattern(
+            Optional.of(
+                    SpreadsheetPattern.parseNumberParsePattern("$0.00")
+            )
+    ).setStyle(
+            TextStyle.EMPTY.set(
+                    TextStylePropertyName.COLOR,
+                    Color.BLACK
+            )
+    ).setFormatted(
+            Optional.of(
+                    TextNode.text("Formatted - Hello123")
+            )
+    );
+
+    // toValue..........................................................................................................
+
+    @Test
+    public void testToValueCell() {
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.CELL,
+                CELL,
+                CELL
+        );
+    }
+
+    @Test
+    public void testToValueFormula() {
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA,
+                CELL,
+                CELL.formula()
+        );
+    }
+
+    @Test
+    public void testToValueFormulaEmptyFormula() {
+        final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY);
+
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA,
+                cell,
+                cell.formula()
+        );
+    }
+
+    @Test
+    public void testToValueFormatPattern() {
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                CELL,
+                CELL.formatPattern()
+        );
+    }
+
+    @Test
+    public void testToValueFormatPatternEmpty() {
+        final SpreadsheetCell cell = CELL.setFormatPattern(SpreadsheetCell.NO_FORMAT_PATTERN);
+
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                cell,
+                cell.formatPattern()
+        );
+    }
+
+    @Test
+    public void testToValueParsePattern() {
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                CELL,
+                CELL.parsePattern()
+        );
+    }
+
+    @Test
+    public void testToValueParsePatternEmpty() {
+        final SpreadsheetCell cell = CELL.setParsePattern(SpreadsheetCell.NO_PARSE_PATTERN);
+
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                cell,
+                cell.parsePattern()
+        );
+    }
+
+    @Test
+    public void testToValueStyle() {
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.STYLE,
+                CELL,
+                CELL.style()
+        );
+    }
+
+    @Test
+    public void testToValueStyleEmpty() {
+        final SpreadsheetCell cell = CELL.setStyle(TextStyle.EMPTY);
+
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.STYLE,
+                cell,
+                cell.style()
+        );
+    }
+
+    @Test
+    public void testToValueFormatted() {
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMATTED,
+                CELL,
+                CELL.formatted()
+        );
+    }
+
+    @Test
+    public void testToValueFormattedEmpty() {
+        final SpreadsheetCell cell = CELL.setFormatted(SpreadsheetCell.NO_FORMATTED_CELL);
+
+        this.toValueAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMATTED,
+                cell,
+                cell.formatted()
+        );
+    }
+
+    private void toValueAndCheck(final SpreadsheetCellClipboardValueKind kind,
+                                 final SpreadsheetCell cell,
+                                 final Object expected) {
+        final Object value = kind.toValue(cell);
+
+        this.checkEquals(
+                expected,
+                value,
+                () -> kind + " toValue " + cell
+        );
+
+        final Object valueOrNull = value instanceof Optional ?
+                Optional.class.cast(value).orElse(null) :
+                value;
+        final Class<?> type = kind.mediaTypeClass();
+        this.checkEquals(
+                null != valueOrNull,
+                type.isInstance(valueOrNull),
+                () -> kind + " toValue " + CharSequences.quoteIfChars(value) + " is not instanceof " + type.getName()
+        );
+    }
 
     // HasMediaType......................................................................................................
 

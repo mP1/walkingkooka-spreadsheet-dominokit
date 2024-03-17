@@ -33,6 +33,7 @@ import walkingkooka.tree.text.TextStyle;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.function.Function;
 
 
 /**
@@ -48,6 +49,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
      */
     CELL(
             SpreadsheetCell.class,
+            (c) -> c, // returns the entire cell
             "cell"
     ),
 
@@ -56,6 +58,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
      */
     FORMULA(
             SpreadsheetFormula.class,
+            SpreadsheetCell::formula,
             "formula"
     ),
 
@@ -64,6 +67,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
      */
     FORMAT_PATTERN(
             SpreadsheetFormatPattern.class,
+            SpreadsheetCell::formatPattern,
             "format-pattern"
     ),
 
@@ -72,6 +76,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
      */
     PARSE_PATTERN(
             SpreadsheetParsePattern.class,
+            SpreadsheetCell::parsePattern,
             "parse-pattern"
     ),
 
@@ -80,6 +85,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
      */
     STYLE(
             TextStyle.class,
+            SpreadsheetCell::style,
             "style"
     ),
 
@@ -88,10 +94,12 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
      */
     FORMATTED(
             TextNode.class,
+            SpreadsheetCell::formatted,
             "formatted"
     );
 
     SpreadsheetCellClipboardValueKind(final Class<?> type,
+                                      final Function<SpreadsheetCell, Object> valueExtractor,
                                       final String urlFragment) {
         this.mediaType = MediaType.APPLICATION_JSON.setSuffixes(
                 Lists.of(
@@ -100,8 +108,22 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                 )
         );
         this.mediaTypeClass = type;
+        this.valueExtractor = valueExtractor;
         this.urlFragment = UrlFragment.parse(urlFragment);
     }
+
+    /**
+     * Extracts the cell or cell property selected by this {@link SpreadsheetCellClipboardValueKind}. Some values will be wrapped inside an {@link java.util.Optional}.
+     * This will be used by the {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardCopyHistoryToken} and {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardCutHistoryToken}
+     * to convert cells to the required value before they are serialized to the clipboard as text.
+     */
+    public Object toValue(final SpreadsheetCell cell) {
+        Objects.requireNonNull(cell, "cell");
+
+        return this.valueExtractor.apply(cell);
+    }
+
+    private final Function<SpreadsheetCell, Object> valueExtractor;
 
     // HasMediaType.....................................................................................................
 
