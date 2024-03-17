@@ -21,7 +21,10 @@ import elemental2.core.JsArray;
 import elemental2.dom.Blob;
 import elemental2.dom.Blob.ConstructorBlobPartsArrayUnionType;
 import elemental2.dom.BlobPropertyBag;
+import elemental2.dom.DomGlobal;
 import elemental2.promise.Promise;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.header.MediaType;
 
@@ -44,7 +47,7 @@ final class ElementalClipboardContext implements ClipboardContext {
     }
 
     private ElementalClipboardContext() {
-        this.clipboard = new ElementalClipboard();
+        this.clipboard = Js.<ElementalNavigator>uncheckedCast(DomGlobal.window.navigator).clipboard;
     }
 
     @Override
@@ -114,10 +117,39 @@ final class ElementalClipboardContext implements ClipboardContext {
         Objects.requireNonNull(item, "item");
         Objects.requireNonNull(watcher, "watcher");
 
+        final JsArray<ElementalClipboardItem> clipboardItems = JsArray.of();
+
+        for (final MediaType mediaType : item.types()) {
+            final String type = MediaType.TEXT_PLAIN.toString(); // even suffix are not supported.
+
+            final BlobPropertyBag options = BlobPropertyBag.create();
+            options.setType(type);
+
+            final Blob blob = new Blob(
+                    JsArray.of(
+                            ConstructorBlobPartsArrayUnionType.of(
+                                    item.text()
+                            )
+                    ),
+                    options
+            );
+
+            clipboardItems.push(
+                    new ElementalClipboardItem(
+                            Js.uncheckedCast(
+                                    JsPropertyMap.of(
+                                            type,
+                                            blob
+                                    )
+                            )
+                    )
+            );
+
+            break; // since only text/plain is the only type written to the clipboard ignore others.
+        }
+
         this.clipboard.write(
-                new JsArray<>(
-                        toElementalClipboardItem(item)
-                )
+                clipboardItems
         ).then(
                 (ignored) -> {
                     watcher.onSuccess();
@@ -128,30 +160,6 @@ final class ElementalClipboardContext implements ClipboardContext {
                     watcher.onFailure(rejected);
                     return null;
                 }
-        );
-    }
-
-    private static ElementalClipboardItem toElementalClipboardItem(final ClipboardTextItem item) {
-        final BlobPropertyBag options = BlobPropertyBag.create();
-        options.setType(
-                item.text()
-        );
-
-        return new ElementalClipboardItem(
-                JsArray.of(
-                        item.types()
-                                .stream()
-                                .map(MediaType::toString)
-                                .toArray(String[]::new)
-                ),
-                new Blob(
-                        JsArray.of(
-                                ConstructorBlobPartsArrayUnionType.of(
-                                        item.text()
-                                )
-                        ),
-                        options
-                )
         );
     }
 

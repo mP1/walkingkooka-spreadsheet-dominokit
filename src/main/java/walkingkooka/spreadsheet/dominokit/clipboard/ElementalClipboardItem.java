@@ -17,11 +17,11 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import elemental2.core.JsArray;
+import elemental2.core.JsObject;
 import elemental2.dom.Blob;
 import elemental2.promise.Promise;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
@@ -32,19 +32,15 @@ import jsinterop.annotations.JsType;
  * Documentation</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "ClipboardItem")
-public class ElementalClipboardItem {
+public final class ElementalClipboardItem {
 
     @JsConstructor
-    public ElementalClipboardItem(final JsArray<String> mimeTypes,
-                                  final Blob blob) {
+    public ElementalClipboardItem(final JsObject object) {
     }
 
-    @JsProperty
     public native JsArray<String> types();
 
-    @JsProperty
     public native String presentationStyle();
 
-    @JsProperty
     public native Promise<Blob> getType(final String type);
 }
