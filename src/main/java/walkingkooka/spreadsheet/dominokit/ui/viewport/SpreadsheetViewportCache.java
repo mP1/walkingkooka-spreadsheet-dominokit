@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -45,12 +46,14 @@ import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.stream.Collectors;
 
 /**
@@ -223,10 +226,18 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     /**
+     * Returns an {@link Iterator} that will return all cells in the given {@link SpreadsheetCellRange}.
+     */
+    public Iterator<SpreadsheetCell> cells(final SpreadsheetCellRange range) {
+        Objects.requireNonNull(range, "range");
+        return range.cellsIterator(this.cells);
+    }
+
+    /**
      * A cache of cells, this allows partial updates such as a single cell and still be able to render a complete viewport.
      */
     // VisibleForTesting
-    final Map<SpreadsheetCellReference, SpreadsheetCell> cells = Maps.sorted();
+    final SortedMap<SpreadsheetCellReference, SpreadsheetCell> cells = Maps.sorted();
 
     /**
      * A cache of all matched cells. Anytime the window or {link SpreadsheetCellFind} changes this entire cache needs
