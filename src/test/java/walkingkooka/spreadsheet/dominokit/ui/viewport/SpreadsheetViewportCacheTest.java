@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.iterator.IteratorTesting;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
@@ -63,7 +64,8 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetViewportCacheTest implements ClassTesting<SpreadsheetViewportCache> {
+public final class SpreadsheetViewportCacheTest implements IteratorTesting,
+        ClassTesting<SpreadsheetViewportCache> {
 
     private final static SpreadsheetCellReference A1 = SpreadsheetCellReference.A1;
     private final static SpreadsheetCellReference A2 = SpreadsheetSelection.parseCell("A2");
@@ -1157,6 +1159,75 @@ public final class SpreadsheetViewportCacheTest implements ClassTesting<Spreadsh
                 )
         );
     }
+
+    // cells............................................................................................................
+
+    @Test
+    public void testCellsWithNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.viewportCache()
+                        .cells(null)
+        );
+    }
+
+    @Test
+    public void testCells() {
+        final SpreadsheetViewportCache cache = this.viewportCache();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1_CELL,
+                                        A2_CELL,
+                                        A3_CELL
+                                )
+                        ).setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3
+                                )
+                        ).setRows(
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                A1_CELL,
+                A2_CELL,
+                A3_CELL
+        );
+
+        this.iterateAndCheck(
+                cache.cells(
+                        SpreadsheetSelection.parseCellRange("A1:A2")
+                ),
+                A1_CELL,
+                A2_CELL
+        );
+
+        this.iterateAndCheck(
+                cache.cells(
+                        SpreadsheetSelection.parseCellRange("A2:A3")
+                ),
+                A2_CELL,
+                A3_CELL
+        );
+    }
+
+    // columnWidth......................................................................................................
 
     @Test
     public void testColumnWidthNullFails() {
