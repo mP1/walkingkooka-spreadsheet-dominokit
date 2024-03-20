@@ -36,9 +36,15 @@ import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContexts;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -90,6 +96,7 @@ import java.math.MathContext;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 @LocaleAware
 public class App implements EntryPoint,
@@ -300,6 +307,28 @@ public class App implements EntryPoint,
                 newHeight
         );
     }
+
+    // ClipboardContext.................................................................................................
+
+    @Override
+    public void readClipboardItem(final Predicate<MediaType> filter,
+                                  final ClipboardContextReadWatcher watcher) {
+        this.readClipboardItem(
+                filter,
+                watcher
+        );
+    }
+
+    @Override
+    public void writeClipboardItem(final ClipboardTextItem item,
+                                   final ClipboardContextWriteWatcher watcher) {
+        this.clipboardContext.writeClipboardItem(
+                item,
+                watcher
+        );
+    }
+
+    private final ClipboardContext clipboardContext = ClipboardContexts.elemental();
 
     // SpreadsheetDelta.................................................................................................
 

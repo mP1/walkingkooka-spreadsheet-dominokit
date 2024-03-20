@@ -21,6 +21,7 @@ import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
@@ -40,6 +41,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import java.util.Optional;
 
 public interface AppContext extends CanGiveFocus,
+        ClipboardContext,
         HasNow,
         HasSpreadsheetDeltaFetcher,
         HasSpreadsheetLabelMappingFetcher,

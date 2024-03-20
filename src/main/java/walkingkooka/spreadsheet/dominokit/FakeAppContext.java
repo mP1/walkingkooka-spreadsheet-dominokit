@@ -17,7 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -37,8 +41,23 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class FakeAppContext implements AppContext {
+
+    @Override
+    public void readClipboardItem(final Predicate<MediaType> filter,
+                                  final ClipboardContextReadWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void writeClipboardItem(final ClipboardTextItem item,
+                                   final ClipboardContextWriteWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetDeltaWatcher.........................................................................................
 
     @Override
     public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
