@@ -23,14 +23,14 @@ import java.util.function.Predicate;
 
 public class FakeClipboardContext implements ClipboardContext {
     @Override
-    public void read(final Predicate<MediaType> filter,
-                     final ClipboardContextReadWatcher watcher) {
+    public void readClipboardItem(final Predicate<MediaType> filter,
+                                  final ClipboardContextReadWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void write(final ClipboardTextItem item,
-                      final ClipboardContextWriteWatcher watcher) {
+    public void writeClipboardItem(final ClipboardTextItem item,
+                                   final ClipboardContextWriteWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 }

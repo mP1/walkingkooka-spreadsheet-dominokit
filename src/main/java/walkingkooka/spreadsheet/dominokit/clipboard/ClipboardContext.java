@@ -32,13 +32,13 @@ public interface ClipboardContext extends Context {
      * Reads selected clipboard items first using the {@link Predicate} and then because clipboard operations involve
      * Promises, eventually delivers the selected clipboard items to the {@link ClipboardContextReadWatcher}.
      */
-    void read(final Predicate<MediaType> filter,
-              final ClipboardContextReadWatcher watcher);
+    void readClipboardItem(final Predicate<MediaType> filter,
+                           final ClipboardContextReadWatcher watcher);
 
     /**
      * Writes the given {@link ClipboardTextItem} to the clipboard, and because this is async, notifies the
      * {@link ClipboardContextWriteWatcher} with the outcome.
      */
-    void write(final ClipboardTextItem item,
-               final ClipboardContextWriteWatcher watcher);
+    void writeClipboardItem(final ClipboardTextItem item,
+                            final ClipboardContextWriteWatcher watcher);
 }

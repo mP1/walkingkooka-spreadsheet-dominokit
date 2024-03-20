@@ -24,7 +24,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Any;
 
 /**
- * A class for interacting with the clipboard to read and write data.
+ * A class for interacting with the clipboard to readClipboardItem and writeClipboardItem data.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API" target="_blank">MDN
  * Documentation</a>
@@ -49,7 +49,7 @@ public class ElementalClipboard {
     /**
      * Writes data to the clipboard.
      *
-     * @param item The ElementalClipboardItem to write to the clipboard.
+     * @param item The ElementalClipboardItem to writeClipboardItem to the clipboard.
      * @return A promise that resolves when the data is successfully written to the clipboard.
      */
     public native Promise<Any> write(JsArray<ElementalClipboardItem> items);
@@ -57,7 +57,7 @@ public class ElementalClipboard {
     /**
      * Writes text data to the clipboard.
      *
-     * @param text The text data to write to the clipboard.
+     * @param text The text data to writeClipboardItem to the clipboard.
      * @return A promise that resolves when the text data is successfully written to the clipboard.
      */
     public native Promise<Any> writeText(String text);
