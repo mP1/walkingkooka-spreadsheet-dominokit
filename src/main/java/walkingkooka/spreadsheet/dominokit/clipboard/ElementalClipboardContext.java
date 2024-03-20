@@ -48,8 +48,8 @@ final class ElementalClipboardContext implements ClipboardContext {
     }
 
     @Override
-    public void read(final Predicate<MediaType> filter,
-                     final ClipboardContextReadWatcher watcher) {
+    public void readClipboardItem(final Predicate<MediaType> filter,
+                                  final ClipboardContextReadWatcher watcher) {
         Objects.requireNonNull(filter, "filter");
         Objects.requireNonNull(watcher, "watcher");
 
@@ -109,8 +109,8 @@ final class ElementalClipboardContext implements ClipboardContext {
     }
 
     @Override
-    public void write(final ClipboardTextItem item,
-                      final ClipboardContextWriteWatcher watcher) {
+    public void writeClipboardItem(final ClipboardTextItem item,
+                                   final ClipboardContextWriteWatcher watcher) {
         Objects.requireNonNull(item, "item");
         Objects.requireNonNull(watcher, "watcher");
 
