@@ -22,6 +22,8 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -34,7 +36,7 @@ import java.util.stream.StreamSupport;
 /**
  * Represents text with a {@link MediaType} which can be readClipboardItem or written to the clipboard.
  */
-public final class ClipboardTextItem {
+public final class ClipboardTextItem implements TreePrintable {
 
     /**
      * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardValueKind} to JSON.
@@ -123,5 +125,27 @@ public final class ClipboardTextItem {
                 .value(this.types)
                 .value(this.text)
                 .build();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println("types");
+
+        printer.indent();
+        {
+            for (final MediaType type : this.types) {
+                printer.println(type.toString());
+            }
+        }
+        printer.outdent();
+
+        printer.println("text");
+        printer.indent();
+        {
+            printer.println(this.text);
+        }
+        printer.outdent();
     }
 }

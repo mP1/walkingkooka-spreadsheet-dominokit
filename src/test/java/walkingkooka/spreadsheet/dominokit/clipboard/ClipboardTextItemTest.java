@@ -24,12 +24,14 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.text.printer.TreePrintableTesting;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextItem>,
         HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
-        ToStringTesting<ClipboardTextItem> {
+        ToStringTesting<ClipboardTextItem>,
+        TreePrintableTesting {
 
     @Test
     public void testWithNullMediaTypeFails() {
@@ -101,6 +103,42 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         text
                 ),
                 type + " \"" + text + "\""
+        );
+    }
+
+    // TreePrinterTesting...............................................................................................
+
+    @Test
+    public void testTreePrint() {
+        this.treePrintAndCheck(
+                ClipboardTextItem.with(
+                        Lists.of(
+                                MediaType.TEXT_PLAIN
+                        ),
+                        "123"
+                ),
+                "types\n" +
+                        "  text/plain\n" +
+                        "text\n" +
+                        "  123\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintSeveralMediaTypes() {
+        this.treePrintAndCheck(
+                ClipboardTextItem.with(
+                        Lists.of(
+                                MediaType.TEXT_PLAIN,
+                                MediaType.APPLICATION_JSON
+                        ),
+                        "123"
+                ),
+                "types\n" +
+                        "  text/plain\n" +
+                        "  application/json\n" +
+                        "text\n" +
+                        "  123\n"
         );
     }
 
