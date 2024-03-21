@@ -26,6 +26,7 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
@@ -749,10 +750,11 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         final SpreadsheetDeltaFetcher fetcher = SpreadsheetDeltaFetcher.with(
                 new FakeSpreadsheetDeltaFetcherWatcher(),
                 new FakeAppContext() {
+
                     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
                         return SpreadsheetMetadataFetcher.with(
                                 new FakeSpreadsheetMetadataFetcherWatcher(),
-                                new FakeAppContext()
+                                AppContexts.fake()
                         );
                     }
                 }
@@ -811,7 +813,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
                         return SpreadsheetMetadataFetcher.with(
                                 new FakeSpreadsheetMetadataFetcherWatcher(),
-                                new FakeAppContext()
+                                AppContexts.fake()
                         );
                     }
                 }

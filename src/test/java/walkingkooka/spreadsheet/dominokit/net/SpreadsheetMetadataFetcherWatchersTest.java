@@ -24,7 +24,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Optional;
@@ -36,7 +36,7 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
         this.fired = 0;
 
         final SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
-        final AppContext appContext = new FakeAppContext();
+        final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(
@@ -62,7 +62,7 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
         final HttpMethod method = HttpMethod.with("CustomHttpMethod");
         final Url url = Url.parseAbsolute("https://example/");
         final Optional<String> body = Optional.of("Body123");
-        final AppContext appContext = new FakeAppContext();
+        final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(
@@ -96,7 +96,7 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
         this.fired = 0;
 
         final Object cause = "cause-123";
-        final AppContext appContext = new FakeAppContext();
+        final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(
@@ -127,7 +127,7 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
         final HttpStatus status = HttpStatusCode.withCode(123).setMessage("status message 456");
         final Headers headers = null;
         final String body = "Body-failure-789";
-        final AppContext appContext = new FakeAppContext();
+        final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(

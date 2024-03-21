@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -206,7 +207,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                                 )
                         )
                 ),
-                new FakeAppContext()
+                AppContexts.fake()
         );
 
         final SpreadsheetMetadata metadata = METADATA.set(
@@ -254,7 +255,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                                 )
                         )
                 ),
-                new FakeAppContext()
+                AppContexts.fake()
         );
 
         final String text = "$4.56";
@@ -298,7 +299,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                                 label.mapping(cellReference)
                         )
                 ),
-                new FakeAppContext()
+                AppContexts.fake()
         );
         final String text = "$7.89";
 
@@ -331,7 +332,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     @Override
     public SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction createFunction() {
         return SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                new FakeAppContext()
+                AppContexts.fake()
         );
     }
 
