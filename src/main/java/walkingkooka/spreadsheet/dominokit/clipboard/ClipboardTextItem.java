@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.ToStringBuilder;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.header.MediaType;
 
 import java.util.List;
@@ -36,7 +37,7 @@ public final class ClipboardTextItem {
         Objects.requireNonNull(text, "text");
 
         return new ClipboardTextItem(
-                types,
+                Lists.immutable(types),
                 text
         );
     }
