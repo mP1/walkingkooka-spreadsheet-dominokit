@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -27,11 +25,6 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-
-import java.util.Collection;
-import java.util.Spliterators;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * A {@link HistoryToken} that represents a COPY to the clipboard of a cell or cell range.
@@ -83,32 +76,15 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         final SpreadsheetCellClipboardValueKind kind = this.kind();
-
-        final Collection<Object> payload = StreamSupport.stream(
-                Spliterators
-                        .spliteratorUnknownSize(
-                                context.viewportCache()
-                                        .cells(
-                                                this.anchoredSelection()
-                                                        .selection()
-                                                        .toCellRange()
-                                        ),
-                                0 // characteristics
-                        ),
-                false
-        ).map(
-                kind::toValue
-        ).collect(Collectors.toList());
-
-        final MediaType mediaType = kind.mediaType();
-        final String text = context.marshallContext()
-                .marshallCollection(payload)
-                .toString();
-        final ClipboardTextItem clipboardTextItem = ClipboardTextItem.with(
-                Lists.of(mediaType),
-                text
+        final ClipboardTextItem clipboardTextItem = ClipboardTextItem.prepare(
+                context.viewportCache().cells(
+                        this.anchoredSelection()
+                                .selection()
+                                .toCellRange()
+                ),
+                kind,
+                context
         );
-
         context.debug("Copying " + clipboardTextItem);
 
         context.writeClipboardItem(
@@ -116,12 +92,12 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
                 new ClipboardContextWriteWatcher() {
                     @Override
                     public void onSuccess() {
-                        context.debug("Copied " + payload.size() + " " + kind + " to clipboard with " + clipboardTextItem);
+                        context.debug("Copied " + kind + " to clipboard", clipboardTextItem);
                     }
 
                     @Override
                     public void onFailure(final Object cause) {
-                        context.error("Copy " + payload.size() + " " + kind + " failed.", cause);
+                        context.error("Copy failed " + kind + " failed.", cause);
                     }
                 }
         );
