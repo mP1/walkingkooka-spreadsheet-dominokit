@@ -27,7 +27,7 @@ import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import java.util.Optional;
 
@@ -39,7 +39,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFireSuccess() {
         final TestFetcherWatchers watchers = new TestFetcherWatchers();
 
-        final AppContext context = new FakeAppContext();
+        final AppContext context = AppContexts.fake();
 
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.addOnce(watcher);
@@ -59,7 +59,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFireSuccess2() {
         final TestFetcherWatchers watchers = new TestFetcherWatchers();
 
-        final AppContext context = new FakeAppContext();
+        final AppContext context = AppContexts.fake();
 
         final TestFetcherWatcher onceWatcher = new TestFetcherWatcher();
         watchers.addOnce(onceWatcher);
@@ -84,7 +84,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFireFailure() {
         final TestFetcherWatchers watchers = new TestFetcherWatchers();
 
-        final AppContext context = new FakeAppContext();
+        final AppContext context = AppContexts.fake();
 
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.addOnce(watcher);
@@ -104,7 +104,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFireError() {
         final TestFetcherWatchers watchers = new TestFetcherWatchers();
 
-        final AppContext context = new FakeAppContext();
+        final AppContext context = AppContexts.fake();
 
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.addOnce(watcher);
@@ -192,7 +192,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFirePriority() {
         final TestFetcherWatchers2 watchers = new TestFetcherWatchers2();
 
-        final AppContext context = new FakeAppContext();
+        final AppContext context = AppContexts.fake();
 
         final StringBuilder b = new StringBuilder();
 

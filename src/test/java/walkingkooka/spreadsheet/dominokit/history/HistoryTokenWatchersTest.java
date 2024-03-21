@@ -22,14 +22,14 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 public final class HistoryTokenWatchersTest implements ClassTesting<HistoryTokenWatchers> {
 
     @Test
     public void testAddThenFire() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.EMPTY);
-        final AppContext appContext = new FakeAppContext();
+        final AppContext appContext = AppContexts.fake();
 
         final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
         watchers.add(

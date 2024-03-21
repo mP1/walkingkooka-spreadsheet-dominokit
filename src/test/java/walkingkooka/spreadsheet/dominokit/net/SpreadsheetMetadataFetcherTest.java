@@ -22,7 +22,7 @@ import walkingkooka.net.Url;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -32,7 +32,7 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
     public void testUrlWithNullFails() {
         final SpreadsheetMetadataFetcher fetcher = SpreadsheetMetadataFetcher.with(
                 new FakeSpreadsheetMetadataFetcherWatcher(),
-                new FakeAppContext()
+                AppContexts.fake()
         );
 
         assertThrows(
@@ -45,7 +45,7 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
     public void testUrl() {
         final SpreadsheetMetadataFetcher fetcher = SpreadsheetMetadataFetcher.with(
                 new FakeSpreadsheetMetadataFetcherWatcher(),
-                new FakeAppContext()
+                AppContexts.fake()
         );
 
         this.checkEquals(
