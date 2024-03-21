@@ -20,14 +20,53 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Spliterators;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Represents text with a {@link MediaType} which can be readClipboardItem or written to the clipboard.
  */
 public final class ClipboardTextItem {
+
+    /**
+     * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardValueKind} to JSON.
+     */
+    public static ClipboardTextItem prepare(final Iterator<SpreadsheetCell> cells,
+                                            final SpreadsheetCellClipboardValueKind kind,
+                                            final AppContext context) {
+        Objects.requireNonNull(cells, "cells");
+        Objects.requireNonNull(kind, "kind");
+        Objects.requireNonNull(context, "context");
+
+        final Collection<Object> payload = StreamSupport.stream(
+                Spliterators
+                        .spliteratorUnknownSize(
+                                cells,
+                                0 // characteristics
+                        ),
+                false
+        ).map(
+                kind::toValue
+        ).collect(Collectors.toList());
+
+        final MediaType mediaType = kind.mediaType();
+        final String text = context.marshallContext()
+                .marshallCollection(payload)
+                .toString();
+        return ClipboardTextItem.with(
+                Lists.of(mediaType),
+                text
+        );
+    }
+
     public static ClipboardTextItem with(final List<MediaType> types,
                                          final String text) {
         Objects.requireNonNull(types, "types");
