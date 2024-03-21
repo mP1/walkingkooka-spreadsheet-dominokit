@@ -29,11 +29,15 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistor
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.json.JsonNode;
+import walkingkooka.tree.json.JsonPropertyName;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -53,7 +57,15 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
             SpreadsheetCell.class,
             (c) -> c, // returns the entire cell
             "cell"
-    ),
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return context.marshall(cell)
+                    .children()
+                    .get(0);
+        }
+    },
 
     /**
      * The clipboard value is cells to {@link String formula text}.
@@ -62,7 +74,18 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
             SpreadsheetFormula.class,
             SpreadsheetCell::formula,
             "formula"
-    ),
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return JsonNode.string(
+                    cell.formula()
+                            .text()
+            ).setName(
+                    propertyName(cell)
+            );
+        }
+    },
 
     /**
      * The clipboard value is cells to {@link SpreadsheetFormatPattern}.
@@ -71,7 +94,17 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
             SpreadsheetFormatPattern.class,
             SpreadsheetCell::formatPattern,
             "format-pattern"
-    ),
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                    cell,
+                    cell.formatPattern(),
+                    context
+            );
+        }
+    },
 
     /**
      * The clipboard value is a cells to {@link SpreadsheetParsePattern}.
@@ -80,7 +113,17 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
             SpreadsheetParsePattern.class,
             SpreadsheetCell::parsePattern,
             "parse-pattern"
-    ),
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                    cell,
+                    cell.parsePattern(),
+                    context
+            );
+        }
+    },
 
     /**
      * The clipboard value is cells to {@link TextStyle}.
@@ -89,7 +132,14 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
             TextStyle.class,
             SpreadsheetCell::style,
             "style"
-    ),
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return context.marshall(cell.style())
+                    .setName(propertyName(cell));
+        }
+    },
 
     /**
      * The clipboard value is a formatted text.
@@ -98,7 +148,31 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
             TextNode.class,
             SpreadsheetCell::formatted,
             "formatted"
-    );
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                    cell,
+                    cell.formatted(),
+                    context
+            );
+        }
+    };
+
+    private static JsonNode marshallCellToOptionalValue(final SpreadsheetCell cell,
+                                                        final Optional<?> value,
+                                                        final JsonNodeMarshallContext context) {
+        return value.map(p -> context.marshallWithType(p))
+                .orElse(JsonNode.nullNode())
+                .setName(propertyName(cell));
+    }
+
+    private static JsonPropertyName propertyName(final SpreadsheetCell cell) {
+        return JsonPropertyName.with(
+                cell.reference().toString()
+        );
+    }
 
     SpreadsheetCellClipboardValueKind(final Class<?> type,
                                       final Function<SpreadsheetCell, Object> valueExtractor,
@@ -109,7 +183,9 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                 )
         );
         this.mediaTypeClass = type;
+
         this.valueExtractor = valueExtractor;
+
         this.urlFragment = UrlFragment.parse(urlFragment);
 
         this.predicate = this.name().equals("CELL") ?
@@ -129,6 +205,13 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     }
 
     private final Function<SpreadsheetCell, Object> valueExtractor;
+
+    /**
+     * Marshalls a single cell or cell property ready for inclusion in the array of selected cells.
+     * Note {@link Optional#empty()} will have a null value, this means pasting a null value for a cell should clear that property.
+     */
+    abstract JsonNode marshall(final SpreadsheetCell cell,
+                               final JsonNodeMarshallContext context);
 
     /**
      * All {@Link SpreadsheetCellClipboardValueKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.
