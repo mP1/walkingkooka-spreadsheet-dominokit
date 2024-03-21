@@ -68,7 +68,8 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
         );
     }
 
-    @Override final HistoryToken setFormatPattern() {
+    @Override //
+    final HistoryToken setFormatPattern() {
         return cellFormatPattern(
                 this.id(),
                 this.name(),
