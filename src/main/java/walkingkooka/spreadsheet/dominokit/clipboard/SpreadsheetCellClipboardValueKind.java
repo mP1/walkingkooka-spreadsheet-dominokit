@@ -105,7 +105,6 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                                       final String urlFragment) {
         this.mediaType = MediaType.APPLICATION_JSON.setSuffixes(
                 Lists.of(
-                        "walkingkooka.spreadsheet.dominokit",
                         type.getName()
                 )
         );

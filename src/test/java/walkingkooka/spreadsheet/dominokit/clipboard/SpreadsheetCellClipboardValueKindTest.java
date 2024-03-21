@@ -283,7 +283,6 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
                 SpreadsheetCellClipboardValueKind.CELL,
                 MediaType.APPLICATION_JSON.setSuffixes(
                         List.of(
-                                "walkingkooka.spreadsheet.dominokit",
                                 SpreadsheetCell.class.getName()
                         )
                 )
@@ -296,7 +295,6 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
                 SpreadsheetCellClipboardValueKind.FORMULA,
                 MediaType.APPLICATION_JSON.setSuffixes(
                         List.of(
-                                "walkingkooka.spreadsheet.dominokit",
                                 SpreadsheetFormula.class.getName()
                         )
                 )
