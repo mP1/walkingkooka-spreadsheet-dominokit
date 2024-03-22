@@ -109,4 +109,9 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
     default void close(final AppContext context) {
         this.dialog().close();
     }
+
+    @Override
+    default boolean shouldLogLifecycleChanges() {
+        return false; // no need to log, dialog will disappear/appear is enough
+    }
 }

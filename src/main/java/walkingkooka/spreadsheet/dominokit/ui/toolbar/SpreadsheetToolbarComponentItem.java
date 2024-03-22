@@ -247,4 +247,9 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
 
     @Override
     public abstract void refresh(final AppContext context);
+    
+    @Override
+    public final boolean shouldLogLifecycleChanges() {
+        return false;
+    }
 }
