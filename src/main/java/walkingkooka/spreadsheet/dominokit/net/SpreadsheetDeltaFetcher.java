@@ -714,11 +714,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     @Override
-    public void fetchLog(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
     public void onSuccess(final String body) {
         this.watcher.onSpreadsheetDelta(
                 this.parse(

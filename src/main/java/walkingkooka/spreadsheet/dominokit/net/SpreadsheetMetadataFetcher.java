@@ -147,11 +147,6 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     @Override
-    public void fetchLog(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
     public void onBegin(final HttpMethod method,
                         final Url url,
                         final Optional<String> body) {
