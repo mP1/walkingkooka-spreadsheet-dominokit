@@ -17,11 +17,19 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import elemental2.dom.Headers;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.cursor.TextCursor;
+
+import java.util.Optional;
 
 public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken {
 
@@ -71,6 +79,41 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
+        context.addSpreadsheetMetadataWatcherOnce(
+                new SpreadsheetMetadataFetcherWatcher() {
+                    @Override
+                    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                                      final AppContext context) {
+                        // nop
+                    }
+
+                    @Override
+                    public void onBegin(final HttpMethod method,
+                                        final Url url,
+                                        final Optional<String> body,
+                                        final AppContext context) {
+                        // nop
+                    }
+
+                    @Override
+                    public void onFailure(final HttpStatus status,
+                                          final Headers headers,
+                                          final String body,
+                                          final AppContext context) {
+                        context.pushHistoryToken(
+                                previous.clearAction()
+                        );
+                    }
+
+                    @Override
+                    public void onError(final Object cause,
+                                        final AppContext context) {
+                        context.pushHistoryToken(
+                                previous.clearAction()
+                        );
+                    }
+                }
+        );
         context.spreadsheetMetadataFetcher()
                 .loadSpreadsheetMetadata(this.id());
     }
