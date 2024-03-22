@@ -133,10 +133,6 @@ public interface Fetcher {
                                         } else {
                                             final HttpStatus status = HttpStatusCode.withCode(response.status)
                                                     .setMessage(response.statusText);
-                                            this.fetchLog(
-                                                    this.getClass().getSimpleName() + ".failure " + status,
-                                                    text
-                                            );
                                             this.onFailure(
                                                     status,
                                                     response.headers,
