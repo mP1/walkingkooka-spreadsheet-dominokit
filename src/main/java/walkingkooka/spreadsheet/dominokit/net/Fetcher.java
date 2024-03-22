@@ -129,17 +129,6 @@ public interface Fetcher {
                             .then(
                                     text -> {
                                         if (response.ok) {
-                                            Object responseJson = text;
-
-                                            try {
-                                                responseJson = Global.JSON.parse(text);
-                                            } catch (final Exception fail) {
-                                                // ignore
-                                            }
-                                            this.fetchLog(
-                                                    this.getClass().getSimpleName() + ".success",
-                                                    responseJson
-                                            );
                                             this.onSuccess(text);
                                         } else {
                                             final HttpStatus status = HttpStatusCode.withCode(response.status)
