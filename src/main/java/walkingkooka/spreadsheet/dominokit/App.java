@@ -105,6 +105,7 @@ import java.util.function.Predicate;
 public class App implements EntryPoint,
         AppContext,
         HistoryTokenWatcher,
+        SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler {
 
@@ -136,6 +137,7 @@ public class App implements EntryPoint,
                 this.spreadsheetDeltaWatchers,
                 this
         );
+        this.addSpreadsheetDeltaWatcher(this);
 
         // labelMapping
         this.spreadsheetLabelMappingFetcherWatchers = SpreadsheetLabelMappingFetcherWatchers.empty();
@@ -380,6 +382,12 @@ public class App implements EntryPoint,
      * A collection of listeners for {@link SpreadsheetDeltaFetcherWatcher}
      */
     private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaWatchers;
+
+    @Override
+    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        // nop
+    }
 
     // SpreadsheetLabelMapping..........................................................................................
 
