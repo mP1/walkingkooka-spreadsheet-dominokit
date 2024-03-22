@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import elemental2.core.Global;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
@@ -99,11 +98,6 @@ public interface Fetcher {
             );
 
             if (body.isPresent()) {
-                try {
-                    bodyJson = Global.JSON.parse(body.get());
-                } catch (final Exception fail) {
-                    bodyJson = null;
-                }
                 requestInit.setBody(body.get());
             }
         }
