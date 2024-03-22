@@ -1554,6 +1554,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         // nop
     }
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return true;
+    }
+
     // FetcherWatcher...................................................................................................
 
     @Override

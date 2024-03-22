@@ -518,6 +518,11 @@ public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTa
      */
     private final OpenableComponent drawer;
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return true;
+    }
+
     // SpreadsheetMetadataFetcherWatcher.............................................,.........................................
 
     @Override

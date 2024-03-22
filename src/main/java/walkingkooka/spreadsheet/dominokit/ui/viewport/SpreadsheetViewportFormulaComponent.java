@@ -229,6 +229,11 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
 
     private SpreadsheetSelection selection;
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return false;
+    }
+
     // SpreadsheetDeltaWatcher..........................................................................................
 
     @Override

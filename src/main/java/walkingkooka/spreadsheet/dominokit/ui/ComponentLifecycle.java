@@ -41,7 +41,10 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
     default void refreshIfOpen(final AppContext context) {
         // extra isMatch, which should avoid ClassCastExceptions for Components that have delayed closes.
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1468
-        context.debug(this.getClass().getSimpleName() + ".refreshIfOpen isOpen: " + this.isOpen() + " isMatch: " + this.isMatch(context.historyToken()));
+        if (this.shouldLogLifecycleChanges()) {
+            context.debug(this.getClass().getSimpleName() + ".refreshIfOpen isOpen: " + this.isOpen() + " isMatch: " + this.isMatch(context.historyToken()));
+        }
+
         if (this.isOpen() && this.isMatch(context.historyToken())) {
             this.refresh(context);
         }
@@ -59,7 +62,9 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
         final String prefix = this.getClass().getSimpleName();
         
         if (this.shouldIgnore(token)) {
-            context.debug(prefix + ".ignored");
+            if (this.shouldLogLifecycleChanges()) {
+                context.debug(prefix + ".ignored");
+            }
         } else {
             final boolean nextOpen = this.isMatch(token);
 
@@ -67,28 +72,40 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
                 if (nextOpen) {
                     // open -> open -> refresh
 
-                    context.debug(prefix + ".refresh");
+                    if (this.shouldLogLifecycleChanges()) {
+                        context.debug(prefix + ".refresh");
+                    }
                     this.refresh(context);
                 } else {
                     // open -> close -> close
 
-                    context.debug(prefix + ".close");
+                    if (this.shouldLogLifecycleChanges()) {
+                        context.debug(prefix + ".close");
+                    }
                     this.close(context);
                 }
             } else {
                 if (nextOpen) {
                     // close -> open -> open
-                    context.debug(prefix + ".open");
+                    if (this.shouldLogLifecycleChanges()) {
+                        context.debug(prefix + ".open");
+                    }
                     this.open(context);
 
-                    context.debug(prefix + ".refresh");
+                    if (this.shouldLogLifecycleChanges()) {
+                        context.debug(prefix + ".refresh");
+                    }
                     this.refresh(context);
 
-                    context.debug(prefix + ".openGiveFocus");
+                    if (this.shouldLogLifecycleChanges()) {
+                        context.debug(prefix + ".openGiveFocus");
+                    }
                     this.openGiveFocus(context);
                 }
                 // close -> close -> do nothing
             }
         }
     }
+
+    boolean shouldLogLifecycleChanges();
 }

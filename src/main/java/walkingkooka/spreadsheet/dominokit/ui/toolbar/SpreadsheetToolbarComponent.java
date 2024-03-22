@@ -184,6 +184,11 @@ public final class SpreadsheetToolbarComponent implements Component<HTMLDivEleme
         // nop
     }
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return true; // child items return false
+    }
+
     // element..........................................................................................................
 
     // viewport-column-A
