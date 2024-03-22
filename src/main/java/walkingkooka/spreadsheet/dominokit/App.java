@@ -23,6 +23,7 @@ import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
+import elemental2.dom.Headers;
 import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
@@ -35,8 +36,11 @@ import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import walkingkooka.j2cl.locale.LocaleAware;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -54,7 +58,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
-import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
@@ -102,7 +105,6 @@ import java.util.function.Predicate;
 public class App implements EntryPoint,
         AppContext,
         HistoryTokenWatcher,
-        NopFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler {
 
@@ -329,6 +331,31 @@ public class App implements EntryPoint,
     }
 
     private final ClipboardContext clipboardContext = ClipboardContexts.elemental();
+
+    // Fetcher..........................................................................................................
+
+    @Override
+    public void onBegin(final HttpMethod method,
+                        final Url url,
+                        final Optional<String> body,
+                        final AppContext context) {
+        context.debug(method + " " + url, body.orElse(null));
+    }
+
+    @Override
+    public void onFailure(final HttpStatus status,
+                          final Headers headers,
+                          final String body,
+                          final AppContext context) {
+        context.error(status, body);
+    }
+
+    @Override
+    public void onError(final Object cause,
+                        final AppContext context) {
+        context.error(cause);
+    }
+
 
     // SpreadsheetDelta.................................................................................................
 
