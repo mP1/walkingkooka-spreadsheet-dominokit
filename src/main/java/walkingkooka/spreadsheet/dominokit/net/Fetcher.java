@@ -154,11 +154,6 @@ public interface Fetcher {
                  final Optional<String> body);
 
     /**
-     * Opportunity for sub classes to log any fetches.
-     */
-    void fetchLog(final Object... values);
-
-    /**
      * Success assumes a json response.
      */
     void onSuccess(final String body);

@@ -118,11 +118,6 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     private final static UrlPath LABEL = UrlPath.parse("/label");
 
     @Override
-    public void fetchLog(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
     public void onBegin(final HttpMethod method,
                         final Url url,
                         final Optional<String> body) {
