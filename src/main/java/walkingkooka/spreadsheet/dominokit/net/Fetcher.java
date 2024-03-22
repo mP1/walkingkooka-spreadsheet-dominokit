@@ -110,11 +110,6 @@ public interface Fetcher {
 
         requestInit.setHeaders(headers);
 
-        this.fetchLog(
-                this.getClass().getSimpleName() + " " + method + " " + url,
-                bodyJson
-        );
-
         this.onBegin(
                 method,
                 url,
