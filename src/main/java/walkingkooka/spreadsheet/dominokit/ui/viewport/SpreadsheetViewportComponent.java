@@ -880,14 +880,28 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * is rendered again!
      */
     private void render(final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
-        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = historyToken.anchoredSelectionOrEmpty();
+        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = context.historyToken()
+                .anchoredSelectionOrEmpty();
         this.setSelected(maybeAnchored);
 
         final TableElement tableElement = this.tableElement;
-
         tableElement.clearElement();
 
+        final boolean empty = context.spreadsheetMetadata()
+                .isEmpty();
+
+        this.root.element()
+                .style
+                .visibility = empty ?
+                "hidden" :
+                "visible";
+
+        if (false == empty) {
+            this.renderTable(context);
+        }
+    }
+
+    private void renderTable(final AppContext context) {
         final SpreadsheetViewportCache cache = context.viewportCache();
         // "window": "A1:B12,WI1:WW12"
         //    A1:B12,
@@ -917,6 +931,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             }
         }
 
+        final TableElement tableElement = this.tableElement;
+
         // top row of column headers
         tableElement.appendChild(
                 renderColumnHeaders(
@@ -934,6 +950,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 )
         );
 
+        final HistoryToken historyToken = context.historyToken();
         if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
                 historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
                 historyToken instanceof SpreadsheetRowSelectHistoryToken) {
