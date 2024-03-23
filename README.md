@@ -37,6 +37,7 @@ http://localhost:12345/walkingkooka.spreadsheet.dominokit.App/index.html
 
 # Architecture | Design
 
+- [Clipboard JSON Format](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/blob/master/src/main/java/walkingkooka/spreadsheet/dominokit/clipboard/ClipboardTextItem.java).
 - [HistoryToken](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/blob/master/src/main/java/walkingkooka/spreadsheet/dominokit/history/HistoryToken.java#L71)
 - [SpreadsheetDeltaFetcher](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/blob/master/src/main/java/walkingkooka/spreadsheet/dominokit/net/SpreadsheetDeltaFetcher.java#L34)
 - [SpreadsheetMetadataFetcher](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/blob/master/src/main/java/walkingkooka/spreadsheet/dominokit/net/SpreadsheetMetadataFetcher.java#L34)
@@ -65,7 +66,7 @@ Individual issues that breakdown outstanding tasks will be added.
 - Many attributes of a cell or cell-range are available via the context menu, such as making formatted output BOLD, set
   format pattern etc *DONE*
 - Context menu to sort a selection [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2060)
-- Clipboard CUT | COPY | PASTE. The goal is provide CUT | COPY to numerous formats such as CSV, JSON, XML and
+- Clipboard CUT | COPY | PASTE. The goal is provide CUT | COPY to numerous text formats such as CSV, JSON, XML and
   more. [WIP](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues?q=is%3Aissue+is%3Aopen+clipboard)
 
 ## Toolbar
