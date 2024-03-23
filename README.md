@@ -9,11 +9,11 @@ workers.
 
 ## Server
 
-Run jetty server
+Run jetty server [HERE](https://github.com/mP1/walkingkooka-spreadsheet-server-platform)
 ```
 git clone walkingkooka-spreadsheet-server-platform
 
-java walkingkooka.spreadsheet.server.platfor.JettyHttpServerSpreadsheetHttpServer2
+java walkingkooka.spreadsheet.server.platform.JettyHttpServerSpreadsheetHttpServer2
 ```
 
 This will provide a variety of services that are consumed by the rich web (this repo).
