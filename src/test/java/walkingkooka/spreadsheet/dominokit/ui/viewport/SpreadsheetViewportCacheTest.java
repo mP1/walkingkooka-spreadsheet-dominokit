@@ -301,6 +301,135 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
+    public void testOnSpreadsheetMetadataSpreadsheetIdChange() {
+        final SpreadsheetViewportCache cache = this.viewportCache();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY.setText("will be lost")
+                                )
+                        )
+                ),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetMetadata(
+                SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetId.with(1)
+                ).set(
+                        SpreadsheetMetadataPropertyName.STYLE,
+                        TextStyle.EMPTY
+                                .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
+                                .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
+                ),
+                CONTEXT
+        );
+
+        final SpreadsheetCell b2 = SpreadsheetSelection.parseCell("B2")
+                .setFormula(
+                        SpreadsheetFormula.EMPTY.setText("kept")
+                );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                b2
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                b2
+        );
+    }
+
+    @Test
+    public void testOnSpreadsheetMetadataSpreadsheetIdChangeTwice() {
+        final SpreadsheetViewportCache cache = this.viewportCache();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.A1.setFormula(
+                                        SpreadsheetFormula.EMPTY.setText("will be lost")
+                                )
+                        )
+                ),
+                CONTEXT
+        );
+
+        cache.onSpreadsheetMetadata(
+                SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetId.with(1)
+                ).set(
+                        SpreadsheetMetadataPropertyName.STYLE,
+                        TextStyle.EMPTY
+                                .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
+                                .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
+                ),
+                CONTEXT
+        );
+
+        final SpreadsheetCell b2 = SpreadsheetSelection.parseCell("B2")
+                .setFormula(
+                        SpreadsheetFormula.EMPTY.setText("will be lost")
+                );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(
+                                SpreadsheetSelection.parseCell("B2")
+                                        .setFormula(
+                                                SpreadsheetFormula.EMPTY.setText("will be lost")
+                                        )
+                        )
+                ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                b2
+        );
+
+        cache.onSpreadsheetMetadata(
+                SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetId.with(2)
+                ).set(
+                        SpreadsheetMetadataPropertyName.STYLE,
+                        TextStyle.EMPTY
+                                .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
+                                .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
+                ),
+                CONTEXT
+        );
+
+        final SpreadsheetCell c3 = SpreadsheetSelection.parseCell("c3")
+                .setFormula(
+                        SpreadsheetFormula.EMPTY.setText("kept!")
+                );
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY.setCells(
+                        Sets.of(c3)
+                ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                c3
+        );
+    }
+
+    @Test
     public void testOnSpreadsheetDeltaFirstWithoutWindow() {
         final SpreadsheetViewportCache cache = this.viewportCache();
 
