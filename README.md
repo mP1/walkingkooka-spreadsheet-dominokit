@@ -4,8 +4,8 @@ A fat browser spreadsheet using the wonderful dominoKit library.
 # Client / Server
 
 The spreadsheet is a combination of a rich web application which executes in the browser and a variety of services
-provided
-by a server. All the server code transpiles to javascript so it should be possible to move the server into web workers.
+provided by a server. All the server code transpiles to javascript so it should be possible to move the server into web
+workers.
 
 ## Server
 
