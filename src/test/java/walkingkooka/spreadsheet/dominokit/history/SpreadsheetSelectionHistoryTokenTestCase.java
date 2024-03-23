@@ -19,9 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-
-import java.util.Optional;
 
 public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends SpreadsheetSelectionHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
@@ -44,20 +41,6 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
     @Test
     public void testSetMenuWithRow() {
         this.setMenuWithRowAndCheck();
-    }
-
-    final void setAnchoredSelectionAndCheck(final T token,
-                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                            final HistoryToken expected) {
-        this.checkEquals(
-                expected,
-                token.setAnchoredSelection(
-                        Optional.of(
-                                anchoredSelection
-                        )
-                ),
-                () -> token + " setAnchoredSelection " + anchoredSelection
-        );
     }
 
     // setMetadataPropertyName..........................................................................................
