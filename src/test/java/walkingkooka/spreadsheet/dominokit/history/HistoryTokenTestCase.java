@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -66,6 +67,50 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                 expected,
                 token.clearAction(),
                 () -> token + " clearAction"
+        );
+    }
+
+    // setAnchoredSelection............................................................................................
+
+    @Test
+    public final void setAnchoredSelectionWithNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createHistoryToken()
+                        .setAnchoredSelection(
+                                null
+                        )
+        );
+    }
+
+    final void setAnchoredSelectionAndCheck(final T token,
+                                            final HistoryToken expected) {
+        this.setAnchoredSelectionAndCheck(
+                token,
+                Optional.empty(),
+                expected
+        );
+    }
+
+    final void setAnchoredSelectionAndCheck(final T token,
+                                            final AnchoredSpreadsheetSelection anchoredSelection,
+                                            final HistoryToken expected) {
+        this.setAnchoredSelectionAndCheck(
+                token,
+                Optional.of(anchoredSelection),
+                expected
+        );
+    }
+
+    final void setAnchoredSelectionAndCheck(final T token,
+                                            final Optional<AnchoredSpreadsheetSelection> anchoredSelection,
+                                            final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setAnchoredSelection(
+                        anchoredSelection
+                ),
+                () -> token + " setAnchoredSelection " + anchoredSelection
         );
     }
 

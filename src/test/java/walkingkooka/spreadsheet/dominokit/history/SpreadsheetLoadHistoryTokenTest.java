@@ -23,8 +23,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Optional;
-
 public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetLoadHistoryToken> {
 
     @Test
@@ -42,11 +40,9 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
         final AnchoredSpreadsheetSelection anchored = SpreadsheetSelection.A1.setDefaultAnchor();
         final SpreadsheetLoadHistoryToken token = this.createHistoryToken();
 
-        this.checkEquals(
+        this.setAnchoredSelectionAndCheck(
                 token,
-                token.setAnchoredSelection(
-                        Optional.of(anchored)
-                )
+                token
         );
     }
 
