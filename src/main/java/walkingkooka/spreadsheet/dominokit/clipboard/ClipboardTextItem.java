@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**
- * Represents text with a {@link MediaType} which can be readClipboardItem or written to the clipboard.
+ * Represents text with a {@link MediaType} which can be read or written to the clipboard.
  */
 public final class ClipboardTextItem implements TreePrintable {
 
