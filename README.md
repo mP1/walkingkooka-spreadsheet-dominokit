@@ -18,6 +18,11 @@ java walkingkooka.spreadsheet.server.platfor.JettyHttpServerSpreadsheetHttpServe
 
 This will provide a variety of services that are consumed by the rich web (this repo).
 
+### Expression Functions
+
+- About 150 functions are available within an expression. They are logically grouped and made by found within the
+  following repos. [HERE](https://github.com/mP1?tab=repositories&q=expression+function&type=&language=&sort=)
+
 ## Client
 
 Run GWT code server.
