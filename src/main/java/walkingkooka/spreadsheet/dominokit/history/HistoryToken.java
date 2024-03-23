@@ -1854,7 +1854,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     private HistoryToken setDifferentAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSelection) {
-        HistoryToken token = null;
+        HistoryToken token = this;
 
         if (maybeAnchoredSelection.isPresent()) {
             final AnchoredSpreadsheetSelection anchoredSelection = maybeAnchoredSelection.get();
