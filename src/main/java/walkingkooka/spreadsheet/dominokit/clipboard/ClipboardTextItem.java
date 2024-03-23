@@ -34,7 +34,38 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**
- * Represents text with a {@link MediaType} which can be read or written to the clipboard.
+ * Represents text with a {@link MediaType} which can be read or written to the clipboard with {@link MediaType} set
+ * to text/plain. Unfortunately all current browsers only support three media types (text/plain, text/html, image/png)
+ * and no suffixes therefore it is not possible to set a true mime type, thus the need for an envelope shown below.
+ * <br>
+ * JSON holding a range of cells
+ * <pre>
+ * {
+ *     "mediaType": "application/json+walkingkooka.spreadsheet.cell"
+ *     "value": [
+ *         "A1": {
+ *             "formula": ...
+ *         },
+ *         "B2": {
+ *             "formula": ...
+ *         }
+ *     ]
+ * }
+ * </pre>
+ * JSON holding a range of cells styles
+ * <pre>
+ * {
+ *     "mediaType": "application/json+walkingkooka.spreadsheet.cell"
+ *     "value": [
+ *         "A1": {
+ *             "color": "#000"
+ *         },
+ *         "B2": {
+ *             "font-weight": "bold"
+ *         }
+ *     ]
+ * }
+ * </pre>
  */
 public final class ClipboardTextItem implements TreePrintable {
 
