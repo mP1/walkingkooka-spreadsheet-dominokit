@@ -24,14 +24,14 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.tree.json.JsonNode;
+import walkingkooka.tree.json.JsonObject;
+import walkingkooka.tree.json.JsonPropertyName;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-import java.util.Spliterators;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * Represents text with a {@link MediaType} which can be read or written to the clipboard with {@link MediaType} set
@@ -79,26 +79,40 @@ public final class ClipboardTextItem implements TreePrintable {
         Objects.requireNonNull(kind, "kind");
         Objects.requireNonNull(context, "context");
 
-        final Collection<Object> payload = StreamSupport.stream(
-                Spliterators
-                        .spliteratorUnknownSize(
-                                cells,
-                                0 // characteristics
-                        ),
-                false
-        ).map(
-                kind::toValue
-        ).collect(Collectors.toList());
-
         final MediaType mediaType = kind.mediaType();
-        final String text = context.marshallContext()
-                .marshallCollection(payload)
-                .toString();
+        final JsonNodeMarshallContext marshallContext = context.marshallContext();
+
+        final List<JsonNode> value = Lists.array();
+
+        while (cells.hasNext()) {
+            final SpreadsheetCell cell = cells.next();
+            final JsonNode json = kind.marshall(
+                    cell,
+                    marshallContext
+            );
+            value.add(json);
+        }
+
+        final JsonObject envelope = JsonNode.object()
+                .set(
+                        MEDIA_TYPE,
+                        JsonNode.string(
+                                        mediaType.value()
+                        )
+                ).set(
+                        VALUE,
+                        JsonNode.object()
+                                .setChildren(value)
+                );
+
         return ClipboardTextItem.with(
-                Lists.of(mediaType),
-                text
+                Lists.of(MediaType.TEXT_PLAIN),
+                envelope.toString()
         );
     }
+
+    private final static JsonPropertyName MEDIA_TYPE = JsonPropertyName.with("mediaType");
+    private final static JsonPropertyName VALUE = JsonPropertyName.with("value");
 
     public static ClipboardTextItem with(final List<MediaType> types,
                                          final String text) {
