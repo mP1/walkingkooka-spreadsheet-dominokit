@@ -71,8 +71,6 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        context.viewportCache()
-                .clear();
         context.spreadsheetMetadataFetcher()
                 .loadSpreadsheetMetadata(this.id());
     }

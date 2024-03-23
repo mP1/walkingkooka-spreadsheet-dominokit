@@ -22,6 +22,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetRow;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -83,6 +84,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
+
+        this.id = Optional.empty();
     }
 
     /**
@@ -457,7 +460,20 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                                       final AppContext context) {
         this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH);
         this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT);
+
+        // clear the cache if a different spreadsheet
+        final Optional<SpreadsheetId> id = metadata.id();
+        final Optional<SpreadsheetId> currentId = this.id;
+        if (false == currentId.equals(id)) {
+            this.clear();
+
+            context.debug("SpreadsheetViewportCache.onSpreadsheetMetadata id changed from " + currentId + " to " + id);
+
+            this.id = id;
+        }
     }
+
+    private Optional<SpreadsheetId> id;
 
     // @VisibleForTesting
     Length<?> defaultWidth;

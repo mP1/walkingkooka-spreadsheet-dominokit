@@ -73,8 +73,6 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        context.viewportCache()
-                .clear();
         context.spreadsheetMetadataFetcher()
                 .createSpreadsheetMetadata();
     }
