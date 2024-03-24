@@ -212,16 +212,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
             menu2 = menu2.item(
                     SpreadsheetContextMenuItem.with(
-                            idPrefix +
-                                    CaseKind.SNAKE.change(
-                                            kind.name().toLowerCase(),
-                                            CaseKind.KEBAB
-                                    ) +
-                                    SpreadsheetIds.MENU_ITEM,
-                            CaseKind.SNAKE.change(
-                                    kind.name().toLowerCase(),
-                                    CaseKind.TITLE
-                            )  // "Cell" | "Format pattern"
+                            clipboardCutCopyPasteMenuItemId(
+                                    idPrefix,
+                                    kind
+                            ),
+                            clipboardCutCopyPasteMenuItemText(kind)
                     ).historyToken(
                             Optional.of(
                                     historyToken.apply(kind)
@@ -229,6 +224,24 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     )
             );
         }
+    }
+
+    private static String clipboardCutCopyPasteMenuItemId(final String idPrefix,
+                                                          final SpreadsheetCellClipboardValueKind kind) {
+        return idPrefix +
+                CaseKind.SNAKE.change(
+                        kind.name().toLowerCase(),
+                        CaseKind.KEBAB
+                ) +
+                SpreadsheetIds.MENU_ITEM;
+    }
+
+    // "Cell" | "Format pattern"
+    private static String clipboardCutCopyPasteMenuItemText(final SpreadsheetCellClipboardValueKind kind) {
+        return CaseKind.SNAKE.change(
+                kind.name().toLowerCase(),
+                CaseKind.TITLE
+        );
     }
 
     private static void parse(final HistoryToken historyToken,
