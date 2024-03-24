@@ -1,5 +1,6 @@
 # walkingkooka-spreadsheet-dominokit
-A fat browser spreadsheet using the wonderful dominoKit library.
+
+A fat browser spreadsheet using the wonderful [dominoKit](https://github.com/DominoKit/domino-ui) library.
 
 # Client / Server
 
