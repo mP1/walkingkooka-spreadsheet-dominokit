@@ -31,10 +31,10 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 
-    public static SpreadsheetCellClipboardCopyHistoryToken with(final SpreadsheetId id,
-                                                                final SpreadsheetName name,
-                                                                final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                final SpreadsheetCellClipboardValueKind kind) {
+    static SpreadsheetCellClipboardCopyHistoryToken with(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final AnchoredSpreadsheetSelection anchoredSelection,
+                                                         final SpreadsheetCellClipboardValueKind kind) {
         return new SpreadsheetCellClipboardCopyHistoryToken(
                 id,
                 name,
