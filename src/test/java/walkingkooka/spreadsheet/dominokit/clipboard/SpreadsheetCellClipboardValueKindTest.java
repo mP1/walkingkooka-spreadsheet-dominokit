@@ -42,6 +42,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting<SpreadsheetCellClipboardValueKind>,
         HasMediaTypeTesting,
         HasUrlFragmentTesting,
@@ -399,6 +401,51 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         this.urlFragmentAndCheck(
                 SpreadsheetCellClipboardValueKind.STYLE,
                 UrlFragment.with("style")
+        );
+    }
+
+    // fromMediaType....................................................................................................
+
+    @Test
+    public void testFromMediaTypeNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetCellClipboardValueKind.fromMediaType(null)
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeUnknownFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> SpreadsheetCellClipboardValueKind.fromMediaType(MediaType.TEXT_PLAIN)
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeCell() {
+        this.fromMediaTypeAndCheck(
+                SpreadsheetCellClipboardValueKind.CELL.mediaType(),
+                SpreadsheetCellClipboardValueKind.CELL
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeAllValues() {
+        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+            this.fromMediaTypeAndCheck(
+                    kind.mediaType(),
+                    kind
+            );
+        }
+    }
+
+    private void fromMediaTypeAndCheck(final MediaType mediaType,
+                                       final SpreadsheetCellClipboardValueKind expected) {
+        this.checkEquals(
+                expected,
+                SpreadsheetCellClipboardValueKind.fromMediaType(mediaType),
+                () -> "fromMediaType " + mediaType
         );
     }
 
