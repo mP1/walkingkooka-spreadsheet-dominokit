@@ -251,6 +251,9 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
 
     private final transient UrlFragment urlFragment;
 
+    /**
+     * Parses the given {@link UrlFragment} component attempting to match the equivalent {@link SpreadsheetCellClipboardValueKind}.
+     */
     public static SpreadsheetCellClipboardValueKind parse(final String string) {
         Objects.requireNonNull(string, "string");
 
