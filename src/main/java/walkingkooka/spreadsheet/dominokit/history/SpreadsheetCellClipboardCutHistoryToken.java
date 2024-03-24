@@ -18,11 +18,20 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.json.JsonNode;
+
+import java.util.Optional;
 
 /**
  * A {@link HistoryToken} that represents a CUT to the clipboard of a cell or cell range.
@@ -73,6 +82,81 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // TODO CUT selected cells and push onto clipboard
+        final SpreadsheetCellClipboardValueKind kind = this.kind();
+        final ClipboardTextItem clipboardTextItem = ClipboardTextItem.prepare(
+                context.viewportCache().cells(
+                        this.anchoredSelection()
+                                .selection()
+                                .toCellRange()
+                ),
+                kind,
+                context
+        );
+        context.debug("Cutting " + clipboardTextItem);
+
+        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+        final SpreadsheetId id = this.id();
+        final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();
+        final SpreadsheetSelection selection = anchoredSelection.selection();
+
+        context.writeClipboardItem(
+                clipboardTextItem,
+                new ClipboardContextWriteWatcher() {
+                    @Override
+                    public void onSuccess() {
+                        switch (kind) {
+                            case CELL:
+                                fetcher.deleteCells(
+                                        id,
+                                        context.viewport(
+                                                Optional.of(
+                                                        anchoredSelection
+                                                )
+                                        )
+                                );
+                                break;
+                            case FORMULA:
+                                fetcher.patchFormula(
+                                        id,
+                                        selection,
+                                        SpreadsheetFormula.EMPTY // delete formulas
+                                );
+                                break;
+                            case FORMAT_PATTERN:
+                                fetcher.patchFormatPattern(
+                                        id,
+                                        selection,
+                                        SpreadsheetCell.NO_FORMAT_PATTERN
+                                );
+                                break;
+                            case PARSE_PATTERN:
+                                fetcher.patchParsePattern(
+                                        id,
+                                        selection,
+                                        SpreadsheetCell.NO_PARSE_PATTERN
+                                );
+                                break;
+                            case STYLE:
+                                fetcher.patchStyle(
+                                        id,
+                                        selection,
+                                        JsonNode.nullNode()
+                                );
+                                break;
+                            case FORMATTED_VALUE:
+                                throw new UnsupportedOperationException("Cut formatted-value is not supported");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(final Object cause) {
+
+                    }
+                }
+        );
+
+        context.pushHistoryToken(
+                previous
+        );
     }
 }
