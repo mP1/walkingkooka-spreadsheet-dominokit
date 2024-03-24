@@ -24,7 +24,7 @@ import java.util.Objects;
 /**
  * A {@link ClipboardContextWriteWatcher} that logs messages for success or failure.
  */
-public final class LoggingClipboardContextWriteWatcher implements ClipboardContextWriteWatcher {
+final class LoggingClipboardContextWriteWatcher implements ClipboardContextWriteWatcher {
 
     static LoggingClipboardContextWriteWatcher with(final ClipboardTextItem clipboardTextItem,
                                                     final LoggingContext context) {
