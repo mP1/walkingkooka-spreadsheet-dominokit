@@ -980,7 +980,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                                                         final AppContext context) {
         final TableRowElement tr = ElementsFactory.elements.tr()
                 .appendChild(
-                        this.renderSelectAllCells(context)
+                        this.renderSelectAllCells()
                 );
 
         for (final SpreadsheetColumnReference column : columns) {
@@ -1001,7 +1001,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * Factory that creates the element that appears in the top left and may be used to select the entire spreadsheet.
      */
     // TODO add link
-    private HTMLTableCellElement renderSelectAllCells(final AppContext context) {
+    private HTMLTableCellElement renderSelectAllCells() {
         return ElementsFactory.elements.th()
                 .id(SELECT_ALL_CELLS_ID)
                 .appendChild("ALL")
