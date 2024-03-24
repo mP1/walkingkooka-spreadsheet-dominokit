@@ -261,7 +261,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
         return Arrays.stream(values())
                 .filter(e -> e.urlFragment.value().equals(string))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Invalid cell clipboard selector: " + CharSequences.quote(string)));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid SpreadsheetCellClipboardValueKind: " + CharSequences.quote(string)));
     }
 
     /**
