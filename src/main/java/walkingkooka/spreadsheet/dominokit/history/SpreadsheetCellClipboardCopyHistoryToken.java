@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatchers;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -89,17 +89,10 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
 
         context.writeClipboardItem(
                 clipboardTextItem,
-                new ClipboardContextWriteWatcher() {
-                    @Override
-                    public void onSuccess() {
-                        context.debug("Copied " + kind + " to clipboard", clipboardTextItem);
-                    }
-
-                    @Override
-                    public void onFailure(final Object cause) {
-                        context.error("Copy failed " + kind + " failed.", cause);
-                    }
-                }
+                ClipboardContextWriteWatchers.logging(
+                        clipboardTextItem,
+                        context
+                )
         );
 
         context.pushHistoryToken(

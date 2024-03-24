@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 public final class ClipboardContextWriteWatchers implements PublicStaticHelper {
 
@@ -26,6 +27,17 @@ public final class ClipboardContextWriteWatchers implements PublicStaticHelper {
      */
     public static ClipboardContextWriteWatcher fake() {
         return new FakeClipboardContextWriteWatcher();
+    }
+
+    /**
+     * {@see LoggingClipboardContextWriteWatcher}
+     */
+    public static ClipboardContextWriteWatcher logging(final ClipboardTextItem clipboardTextItem,
+                                                       final LoggingContext context) {
+        return LoggingClipboardContextWriteWatcher.with(
+                clipboardTextItem,
+                context
+        );
     }
 
     /**
