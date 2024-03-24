@@ -20,11 +20,13 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.MethodAttributes;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
@@ -32,7 +34,9 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+import java.util.Arrays;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -48,6 +52,18 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
 
     HistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testWithNotPublic() {
+        this.checkEquals(
+                Lists.empty(),
+                Arrays.stream(
+                                this.type().getMethods()
+                        ).filter(MethodAttributes.STATIC::is)
+                        .filter(m -> m.getName().startsWith("with"))
+                        .collect(Collectors.toList())
+        );
     }
 
     // clearAction......................................................................................................
