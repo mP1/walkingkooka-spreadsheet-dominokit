@@ -254,7 +254,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     /**
      * Parses the given {@link UrlFragment} component attempting to match the equivalent {@link SpreadsheetCellClipboardValueKind}.
      */
-    public static SpreadsheetCellClipboardValueKind parse(final String string) {
+    public static SpreadsheetCellClipboardValueKind parseUrlFragment(final String string) {
         Objects.requireNonNull(string, "string");
 
         return Arrays.stream(values())
