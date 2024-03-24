@@ -89,7 +89,7 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
     // equals...........................................................................................................
 
     @Test
-    public void testDifferentFormatPattern() {
+    public void testEqualsDifferentFormatPattern() {
         this.checkNotEquals(
                 SpreadsheetSelectionSummary.with(
                         Optional.empty(),
@@ -100,7 +100,7 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
     }
 
     @Test
-    public void testDifferentParsePattern() {
+    public void testEqualsDifferentParsePattern() {
         this.checkNotEquals(
                 SpreadsheetSelectionSummary.with(
                         FORMAT,
@@ -111,7 +111,7 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
     }
 
     @Test
-    public void testDifferentStyle() {
+    public void testEqualsDifferentStyle() {
         this.checkNotEquals(
                 SpreadsheetSelectionSummary.with(
                         FORMAT,
