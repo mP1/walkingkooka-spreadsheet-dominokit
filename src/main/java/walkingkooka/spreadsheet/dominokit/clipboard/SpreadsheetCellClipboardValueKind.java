@@ -263,4 +263,17 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Invalid cell clipboard selector: " + CharSequences.quote(string)));
     }
+
+    /**
+     * Scans the current {@link MediaType} for the equivalent {@link SpreadsheetCellClipboardValueKind}. This is used
+     * to determine the type of a json payload written to the clipboard.
+     */
+    public static SpreadsheetCellClipboardValueKind fromMediaType(final MediaType mediaType) {
+        Objects.requireNonNull(mediaType, "mediaType");
+
+        return Arrays.stream(values())
+                .filter(e -> e.mediaType.equals(mediaType))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Unknown MediaType: " + mediaType));
+    }
 }
