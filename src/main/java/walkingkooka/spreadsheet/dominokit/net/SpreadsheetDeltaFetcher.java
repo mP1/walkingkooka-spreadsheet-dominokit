@@ -424,6 +424,36 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     /**
+     * Deletes the cells also passing the viewport.
+     */
+    public void deleteCells(final SpreadsheetId id,
+                            final SpreadsheetViewport viewport) {
+        checkId(id);
+        checkViewport(viewport);
+
+        final AppContext context = this.context;
+
+        context.debug("SpreadsheetDeltaFetcher.deleteCells " + id + " " + viewport);
+
+        // DELETE http://localhost:3000/api/spreadsheet/1f/cell/$cells
+        this.delete(
+                this.url(
+                        id,
+                        viewport.anchoredSelection()
+                                .get()
+                                .selection(),
+                        Optional.empty() // path
+                ).setQuery(
+                        viewportQueryString(
+                                viewport
+                        ).addParameters(
+                                context.lastCellFindQueryString()
+                        )
+                )
+        );
+    }
+
+    /**
      * Loads the cells to fill the given rectangular area typically a viewport.
      */
     public void loadCells(final SpreadsheetId id,
