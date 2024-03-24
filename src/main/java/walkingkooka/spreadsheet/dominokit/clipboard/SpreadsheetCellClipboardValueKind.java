@@ -253,6 +253,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
 
     /**
      * Parses the given {@link UrlFragment} component attempting to match the equivalent {@link SpreadsheetCellClipboardValueKind}.
+     * This is used to turn a history token fragment into a {@link SpreadsheetCellClipboardHistoryToken} such as CUT | COPY | PASTE.
      */
     public static SpreadsheetCellClipboardValueKind parseUrlFragment(final String string) {
         Objects.requireNonNull(string, "string");
