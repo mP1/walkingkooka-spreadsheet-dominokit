@@ -103,7 +103,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
             throw new IllegalArgumentException("Expected cell, column or row but got " + selection);
         }
 
-        HistoryToken token;
+        final HistoryToken token;
 
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
