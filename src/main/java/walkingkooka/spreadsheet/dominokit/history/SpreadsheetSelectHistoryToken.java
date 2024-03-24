@@ -73,6 +73,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                         cursor
                 );
                 break;
+            case "delete":
+                result = this.parseDelete(cursor);
+                break;
             case "label":
                 result = this.parseLabel(cursor);
                 break;
@@ -168,6 +171,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         );
     }
 
+    private HistoryToken parseDelete(final TextCursor cursor) {
+        return this.setDelete();
+    }
+
     private HistoryToken parseMetadata(final TextCursor cursor) {
         HistoryToken result = null;
 
@@ -219,7 +226,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     @Override
     HistoryToken setDelete0() {
-        return this;
+        return HistoryToken.spreadsheetDelete(
+                this.id(),
+                this.name()
+        );
     }
 
     @Override

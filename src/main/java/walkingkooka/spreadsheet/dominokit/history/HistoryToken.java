@@ -838,6 +838,17 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetDeleteHistoryToken}
+     */
+    public static SpreadsheetDeleteHistoryToken spreadsheetDelete(final SpreadsheetId id,
+                                                                  final SpreadsheetName name) {
+        return SpreadsheetDeleteHistoryToken.with(
+                id,
+                name
+        );
+    }
+
+    /**
      * {@see SpreadsheetLoadHistoryToken}
      */
     public static SpreadsheetLoadHistoryToken spreadsheetLoad(final SpreadsheetId id) {
