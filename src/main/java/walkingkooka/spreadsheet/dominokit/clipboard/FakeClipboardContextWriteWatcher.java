@@ -17,21 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
-import walkingkooka.reflect.PublicStaticHelper;
-
-public final class ClipboardContextWriteWatchers implements PublicStaticHelper {
-
-    /**
-     * {@see FakeClipboardContextWriteWatcher}
-     */
-    public static ClipboardContextWriteWatcher fake() {
-        return new FakeClipboardContextWriteWatcher();
+public class FakeClipboardContextWriteWatcher implements ClipboardContextWriteWatcher {
+    @Override
+    public void onSuccess() {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * Stop creation
-     */
-    private ClipboardContextWriteWatchers() {
+    @Override
+    public void onFailure(final Object cause) {
         throw new UnsupportedOperationException();
     }
 }
