@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetLoadHistoryToken> {
 
@@ -37,7 +35,6 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
 
     @Test
     public void testSetAnchoredSelection() {
-        final AnchoredSpreadsheetSelection anchored = SpreadsheetSelection.A1.setDefaultAnchor();
         final SpreadsheetLoadHistoryToken token = this.createHistoryToken();
 
         this.setAnchoredSelectionAndCheck(
