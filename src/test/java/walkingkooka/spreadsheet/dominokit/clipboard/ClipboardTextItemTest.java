@@ -632,7 +632,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         this.prepareAndCheck(
                 Iterators.array(
                 ),
-                SpreadsheetCellClipboardValueKind.FORMATTED,
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
                         Lists.of(
                                 MediaType.TEXT_PLAIN
@@ -651,7 +651,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
                                 SpreadsheetFormula.EMPTY.setText("=1")
-                        ).setFormatted(
+                        ).setFormattedValue(
                                 Optional.of(
                                         TextNode.text("111")
                                 )
@@ -659,13 +659,13 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         SpreadsheetSelection.parseCell("B2")
                                 .setFormula(
                                         SpreadsheetFormula.EMPTY.setText("=2")
-                                ).setFormatted(
+                                ).setFormattedValue(
                                         Optional.of(
                                                 TextNode.text("222")
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.FORMATTED,
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
                         Lists.of(
                                 MediaType.TEXT_PLAIN
@@ -693,7 +693,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
-                SpreadsheetCellClipboardValueKind.FORMATTED,
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
                         Lists.of(
                                 MediaType.TEXT_PLAIN

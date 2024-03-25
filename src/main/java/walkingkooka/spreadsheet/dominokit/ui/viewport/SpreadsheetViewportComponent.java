@@ -1262,7 +1262,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             }
 
             if (false == hide) {
-                final Optional<TextNode> maybeFormatted = cell.formatted();
+                final Optional<TextNode> maybeFormatted = cell.formattedValue();
                 if (maybeFormatted.isPresent()) {
                     content = maybeFormatted.get();
                 }

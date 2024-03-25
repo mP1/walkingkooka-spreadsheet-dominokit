@@ -162,7 +162,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
                         columnConfig(
                                 "Formatted",
                                 CellTextAlign.LEFT,
-                                this::renderCellFormatted
+                                this::renderCellFormattedValue
                         )
                 ).addColumn(
                         columnConfig(
@@ -210,10 +210,10 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
                 ).element();
     }
 
-    private Node renderCellFormatted(final CellInfo<SpreadsheetCell> cell) {
+    private Node renderCellFormattedValue(final CellInfo<SpreadsheetCell> cell) {
         return Doms.node(
                 cell.getRecord()
-                        .formatted()
+                        .formattedValue()
                         .orElse(TextNode.EMPTY_TEXT)
         );
     }
