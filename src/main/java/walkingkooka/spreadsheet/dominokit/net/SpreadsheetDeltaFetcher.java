@@ -288,8 +288,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.delete(
                 this.url(
                         id,
-                        selection,
-                        Optional.empty()
+                        selection
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 )
@@ -441,8 +440,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         id,
                         viewport.anchoredSelection()
                                 .get()
-                                .selection(),
-                        Optional.empty() // path
+                                .selection()
                 ).setQuery(
                         viewportQueryString(
                                 viewport
@@ -541,8 +539,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.post(
                 this.url(
                         id,
-                        selection,
-                        Optional.empty() // no extra path
+                        selection
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
@@ -559,8 +556,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.patchDelta(
                 this.url(
                         id,
-                        selection,
-                        Optional.empty() // no patch
+                        selection
                 ),
                 SpreadsheetDelta.formulaPatch(
                         formula,
@@ -577,8 +573,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.postDelta(
                 this.url(
                         id,
-                        selection,
-                        Optional.empty() // no extra path
+                        selection
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
@@ -595,8 +590,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.patchDelta(
                 this.url(
                         id,
-                        selection,
-                        Optional.empty() // no extra path
+                        selection
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
@@ -622,8 +616,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.patchDelta(
                 this.url(
                         id,
-                        selection,
-                        Optional.empty() // no extra path
+                        selection
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
@@ -643,8 +636,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.patchDelta(
                 this.url(
                         id,
-                        selection,
-                        Optional.empty() // no extra path
+                        selection
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
@@ -677,6 +669,16 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.post(
                 url,
                 this.toJson(delta)
+        );
+    }
+
+    // @VisibleForTesting
+    RelativeUrl url(final SpreadsheetId id,
+                    final SpreadsheetSelection selection) {
+        return this.url(
+                id,
+                selection,
+                Optional.empty() // no patch
         );
     }
 
