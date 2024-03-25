@@ -565,6 +565,21 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
+    public void patchFormatPattern(final SpreadsheetId id,
+                                   final SpreadsheetSelection selection,
+                                   final Optional<SpreadsheetFormatPattern> pattern) {
+        this.patchDelta(
+                this.url(
+                        id,
+                        selection
+                ),
+                SpreadsheetDelta.formatPatternPatch(
+                        pattern,
+                        this.context.marshallContext()
+                )
+        );
+    }
+
     public void saveCells(final SpreadsheetId id,
                           final SpreadsheetSelection selection,
                           final Set<SpreadsheetCell> cells) {
