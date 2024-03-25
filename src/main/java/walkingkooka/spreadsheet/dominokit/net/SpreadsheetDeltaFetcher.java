@@ -595,6 +595,20 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
+    public void patchStyle(final SpreadsheetId id,
+                           final SpreadsheetSelection selection,
+                           final JsonNode style) {
+        this.patchDelta(
+                this.url(
+                        id,
+                        selection
+                ),
+                SpreadsheetDelta.stylePatch(
+                        style
+                )
+        );
+    }
+
     public void saveCells(final SpreadsheetId id,
                           final SpreadsheetSelection selection,
                           final Set<SpreadsheetCell> cells) {
