@@ -65,9 +65,9 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
                     TextStylePropertyName.COLOR,
                     Color.BLACK
             )
-    ).setFormatted(
+    ).setFormattedValue(
             Optional.of(
-                    TextNode.text("Formatted - Hello123")
+                    TextNode.text("Formatted-value - Hello123")
             )
     );
 
@@ -112,7 +112,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testPredicateFormatted() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE
         );
     }
 
@@ -236,22 +236,22 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     }
 
     @Test
-    public void testToValueFormatted() {
+    public void testToValueFormattedValue() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED,
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
                 CELL,
-                CELL.formatted()
+                CELL.formattedValue()
         );
     }
 
     @Test
-    public void testToValueFormattedEmpty() {
-        final SpreadsheetCell cell = CELL.setFormatted(SpreadsheetCell.NO_FORMATTED_CELL);
+    public void testToValueFormattedValueEmpty() {
+        final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE_CELL);
 
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED,
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
                 cell,
-                cell.formatted()
+                cell.formattedValue()
         );
     }
 

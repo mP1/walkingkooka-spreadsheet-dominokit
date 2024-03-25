@@ -144,17 +144,17 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     /**
      * The clipboard value is a formatted text.
      */
-    FORMATTED(
+    FORMATTED_VALUE(
             TextNode.class,
-            SpreadsheetCell::formatted,
-            "formatted"
+            SpreadsheetCell::formattedValue,
+            "formatted-value"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
             return marshallCellToOptionalValue(
                     cell,
-                    cell.formatted(),
+                    cell.formattedValue(),
                     context
             );
         }
