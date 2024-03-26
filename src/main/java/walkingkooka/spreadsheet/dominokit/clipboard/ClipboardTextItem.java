@@ -19,9 +19,12 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.json.JsonNode;
@@ -32,6 +35,8 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Represents text with a {@link MediaType} which can be read or written to the clipboard with {@link MediaType} set
@@ -72,25 +77,53 @@ public final class ClipboardTextItem implements TreePrintable {
     /**
      * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardValueKind} to JSON.
      */
-    public static ClipboardTextItem prepare(final Iterator<SpreadsheetCell> cells,
+    public static ClipboardTextItem prepare(final SpreadsheetCellRange range,
+                                            final Iterator<SpreadsheetCell> cells,
                                             final SpreadsheetCellClipboardValueKind kind,
                                             final AppContext context) {
+        Objects.requireNonNull(range, "range");
         Objects.requireNonNull(cells, "cells");
         Objects.requireNonNull(kind, "kind");
         Objects.requireNonNull(context, "context");
 
         final MediaType mediaType = kind.mediaType();
+
+
         final JsonNodeMarshallContext marshallContext = context.marshallContext();
 
         final List<JsonNode> value = Lists.array();
+        final Set<SpreadsheetCellReference> outside = Sets.sorted();
 
         while (cells.hasNext()) {
             final SpreadsheetCell cell = cells.next();
-            final JsonNode json = kind.marshall(
-                    cell,
-                    marshallContext
+            final SpreadsheetCellReference reference = cell.reference();
+            if (range.testCell(reference)) {
+
+                if (outside.isEmpty()) {
+                    value.add(
+                            kind.marshall(
+                                    cell,
+                                    marshallContext
+                            )
+                    );
+                }
+            } else {
+                outside.add(reference);
+            }
+        }
+
+        final int count = outside.size();
+        if (count > 0) {
+            throw new IllegalArgumentException(
+                    "Required all cells to be within range " +
+                            range +
+                            " but got " +
+                            count +
+                            " cells: " +
+                            outside.stream()
+                                    .map(Object::toString)
+                                    .collect(Collectors.joining(", "))
             );
-            value.add(json);
         }
 
         final JsonObject envelope = JsonNode.object()
@@ -98,6 +131,11 @@ public final class ClipboardTextItem implements TreePrintable {
                         MEDIA_TYPE,
                         JsonNode.string(
                                         mediaType.value()
+                        )
+                ).set(
+                        CELL_RANGE,
+                        JsonNode.string(
+                                range.toStringMaybeStar()
                         )
                 ).set(
                         VALUE,
@@ -112,6 +150,8 @@ public final class ClipboardTextItem implements TreePrintable {
     }
 
     private final static JsonPropertyName MEDIA_TYPE = JsonPropertyName.with("mediaType");
+
+    private final static JsonPropertyName CELL_RANGE = JsonPropertyName.with("cell-range");
     private final static JsonPropertyName VALUE = JsonPropertyName.with("value");
 
     public static ClipboardTextItem with(final List<MediaType> types,

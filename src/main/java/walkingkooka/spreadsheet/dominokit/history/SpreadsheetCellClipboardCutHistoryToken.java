@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.json.JsonNode;
 
@@ -83,12 +84,16 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         final SpreadsheetCellClipboardValueKind kind = this.kind();
+        final SpreadsheetCellRange range = this.anchoredSelection()
+                .selection()
+                .toCellRange();
+
         final ClipboardTextItem clipboardTextItem = ClipboardTextItem.prepare(
-                context.viewportCache().cells(
-                        this.anchoredSelection()
-                                .selection()
-                                .toCellRange()
-                ),
+                range,
+                context.viewportCache()
+                        .cells(
+                                range
+                        ),
                 kind,
                 context
         );

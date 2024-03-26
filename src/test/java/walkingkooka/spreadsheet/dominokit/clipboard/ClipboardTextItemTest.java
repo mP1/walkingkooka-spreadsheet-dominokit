@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -89,10 +90,24 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     // prepare.........................................................................................................
 
     @Test
+    public void testPrepareWIthNullRangeFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> ClipboardTextItem.prepare(
+                        null, // cell-range
+                        Iterators.fake(), // cells,
+                        SpreadsheetCellClipboardValueKind.CELL,
+                        AppContexts.fake()
+                )
+        );
+    }
+
+    @Test
     public void testPrepareWIthNullCellsFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> ClipboardTextItem.prepare(
+                        SpreadsheetSelection.ALL_CELLS,
                         null, // cells,
                         SpreadsheetCellClipboardValueKind.CELL,
                         AppContexts.fake()
@@ -105,6 +120,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         assertThrows(
                 NullPointerException.class,
                 () -> ClipboardTextItem.prepare(
+                        SpreadsheetSelection.ALL_CELLS,
                         Iterators.fake(), // cells,
                         null,
                         AppContexts.fake()
@@ -117,6 +133,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         assertThrows(
                 NullPointerException.class,
                 () -> ClipboardTextItem.prepare(
+                        SpreadsheetSelection.ALL_CELLS,
                         null, // cells,
                         SpreadsheetCellClipboardValueKind.CELL,
                         null
@@ -125,8 +142,41 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
+    public void testPrepareCellsCellsOutsideFails() {
+        final IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> ClipboardTextItem.prepare(
+                        SpreadsheetSelection.parseCellRange("B2:C3"),
+                        Iterators.array(
+                                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                                SpreadsheetSelection.parseCell("B2")
+                                        .setFormula(SpreadsheetFormula.EMPTY),
+                                SpreadsheetSelection.parseCell("C3")
+                                        .setFormula(SpreadsheetFormula.EMPTY),
+                                SpreadsheetSelection.parseCell("D4")
+                                        .setFormula(SpreadsheetFormula.EMPTY)
+                        ), // cells,
+                        SpreadsheetCellClipboardValueKind.CELL,
+                        new FakeAppContext() {
+                            @Override
+                            public JsonNodeMarshallContext marshallContext() {
+                                return JsonNodeMarshallContexts.basic();
+                            }
+                        }
+                )
+        );
+
+        this.checkEquals(
+                "Required all cells to be within range B2:C3 but got 2 cells: A1, D4",
+                thrown.getMessage(),
+                "message"
+        );
+    }
+
+    @Test
     public void testPrepareCellsWithCellsNone() {
         this.prepareAndCheck(
+                "A1",
                 Iterators.empty(),
                 SpreadsheetCellClipboardValueKind.CELL,
                 ClipboardTextItem.with(
@@ -135,6 +185,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                                "  \"cell-range\": \"A1\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
                 )
@@ -144,6 +195,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsWithCellsOne() {
         this.prepareAndCheck(
+                "A1",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
                                 SpreadsheetFormula.EMPTY.setText("=1")
@@ -161,6 +213,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                                "  \"cell-range\": \"A1\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": {\n" +
                                 "      \"formula\": {\n" +
@@ -179,6 +232,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsWithCellsSeveral() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
                                 SpreadsheetFormula.EMPTY.setText("=1")
@@ -204,6 +258,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": {\n" +
                                 "      \"formula\": {\n" +
@@ -231,6 +286,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormulaNone() {
         this.prepareAndCheck(
+                "A1",
                 Iterators.array(
                 ),
                 SpreadsheetCellClipboardValueKind.FORMULA,
@@ -240,6 +296,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                                "  \"cell-range\": \"A1\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
                 )
@@ -249,6 +306,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormulaSeveral() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
                                 SpreadsheetFormula.EMPTY.setText("=1")
@@ -265,6 +323,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": \"=1\",\n" +
                                 "    \"B2\": \"=22\"\n" +
@@ -277,6 +336,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormulaEmpty() {
         this.prepareAndCheck(
+                "A1",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
@@ -287,6 +347,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                                "  \"cell-range\": \"A1\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": \"\"\n" +
                                 "  }\n" +
@@ -298,6 +359,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormatPatternNone() {
         this.prepareAndCheck(
+                "A1",
                 Iterators.array(
                 ),
                 SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
@@ -307,6 +369,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                                "  \"cell-range\": \"A1\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
                 )
@@ -316,6 +379,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormatPatternMissing() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
@@ -326,6 +390,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null\n" +
                                 "  }\n" +
@@ -337,6 +402,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormatPatternSomeMissing() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                         SpreadsheetSelection.parseCell("B2")
@@ -354,6 +420,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null,\n" +
                                 "    \"B2\": {\n" +
@@ -369,6 +436,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormatPattern() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                                 .setFormatPattern(
@@ -389,6 +457,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": {\n" +
                                 "      \"type\": \"spreadsheet-text-format-pattern\",\n" +
@@ -407,6 +476,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsParsePatternNone() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                 ),
                 SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
@@ -416,6 +486,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
                 )
@@ -425,6 +496,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsParsePatternMissing() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
@@ -435,6 +507,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null\n" +
                                 "  }\n" +
@@ -446,6 +519,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsParsePatternSomeMissing() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                         SpreadsheetSelection.parseCell("B2")
@@ -463,6 +537,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null,\n" +
                                 "    \"B2\": {\n" +
@@ -478,6 +553,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsParsePattern() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                                 .setParsePattern(
@@ -500,6 +576,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": {\n" +
                                 "      \"type\": \"spreadsheet-date-parse-pattern\",\n" +
@@ -518,6 +595,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsStyleNone() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                 ),
                 SpreadsheetCellClipboardValueKind.STYLE,
@@ -527,6 +605,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
                 )
@@ -536,6 +615,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsStyleEmpty() {
         this.prepareAndCheck(
+                "A1:C3",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
@@ -546,6 +626,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                                "  \"cell-range\": \"A1:C3\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": {}\n" +
                                 "  }\n" +
@@ -557,6 +638,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsStyleSomeEmpty() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                         SpreadsheetSelection.parseCell("B2")
@@ -575,6 +657,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": {},\n" +
                                 "    \"B2\": {\n" +
@@ -589,6 +672,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsStyle() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1
                                 .setFormula(SpreadsheetFormula.EMPTY)
@@ -614,6 +698,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": {\n" +
                                 "      \"font-style\": \"ITALIC\"\n" +
@@ -630,6 +715,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormattedNone() {
         this.prepareAndCheck(
+                "*",
                 Iterators.array(
                 ),
                 SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
@@ -639,6 +725,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                                "  \"cell-range\": \"*\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
                 )
@@ -648,6 +735,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormattedSeveral() {
         this.prepareAndCheck(
+                "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
                                 SpreadsheetFormula.EMPTY.setText("=1")
@@ -672,6 +760,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                                "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": {\n" +
                                 "      \"type\": \"text\",\n" +
@@ -690,6 +779,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testPrepareCellsFormattedMissing() {
         this.prepareAndCheck(
+                "A1",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
@@ -700,6 +790,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         ),
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                                "  \"cell-range\": \"A1\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null\n" +
                                 "  }\n" +
@@ -708,10 +799,12 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
-    private void prepareAndCheck(final Iterator<SpreadsheetCell> cells,
+    private void prepareAndCheck(final String range,
+                                 final Iterator<SpreadsheetCell> cells,
                                  final SpreadsheetCellClipboardValueKind kind,
                                  final ClipboardTextItem expected) {
         this.prepareAndCheck(
+                SpreadsheetSelection.parseCellRange(range),
                 cells,
                 kind,
                 new FakeAppContext() {
@@ -724,13 +817,15 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
-    private void prepareAndCheck(final Iterator<SpreadsheetCell> cells,
+    private void prepareAndCheck(final SpreadsheetCellRange range,
+                                 final Iterator<SpreadsheetCell> cells,
                                  final SpreadsheetCellClipboardValueKind kind,
                                  final AppContext context,
                                  final ClipboardTextItem expected) {
         this.checkEquals(
                 expected,
                 ClipboardTextItem.prepare(
+                        range,
                         cells,
                         kind,
                         context
