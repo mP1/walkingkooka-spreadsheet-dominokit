@@ -27,7 +27,7 @@ import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -104,15 +104,19 @@ public final class HistoryTokenAnchorComponent implements Component<HTMLAnchorEl
 
     // historyToken....................................................................................................
 
+    /**
+     * If the HREF contains a url with a fragment it will be parsed into a {@link HistoryToken} otherwise
+     * an {@link Optional#empty()} will be returned.
+     */
     public Optional<HistoryToken> historyToken() {
-        final AbsoluteOrRelativeUrl url = this.href();
+        final Url url = this.href();
 
         return Optional.ofNullable(
-                null == url ?
-                        null :
+                url instanceof HasUrlFragment ?
                         HistoryToken.parse(
-                                url.fragment()
-                        )
+                                ((HasUrlFragment) url).urlFragment()
+                        ) :
+                        null
         );
     }
 
@@ -146,7 +150,7 @@ public final class HistoryTokenAnchorComponent implements Component<HTMLAnchorEl
 
     // href.............................................................................................................
 
-    public AbsoluteOrRelativeUrl href() {
+    public Url href() {
         final String href = this.element().href;
         return CharSequences.isNullOrEmpty(href) ?
                 null :
