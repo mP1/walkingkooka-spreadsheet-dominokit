@@ -47,6 +47,7 @@ import java.util.stream.Collectors;
  * <pre>
  * {
  *     "mediaType": "application/json+walkingkooka.spreadsheet.cell"
+ *     "cell-range": "A1:C3",
  *     "value": [
  *         "A1": {
  *             "formula": ...
@@ -61,6 +62,7 @@ import java.util.stream.Collectors;
  * <pre>
  * {
  *     "mediaType": "application/json+walkingkooka.spreadsheet.cell"
+ *     "cell-range": "A1",
  *     "value": [
  *         "A1": {
  *             "color": "#000"
