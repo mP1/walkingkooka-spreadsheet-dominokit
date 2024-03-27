@@ -234,6 +234,7 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
 
         final String key = this.key;
         if (false == key.isEmpty()) {
+            printer.print("key=");
             printer.print(key);
             printer.print(" ");
         }

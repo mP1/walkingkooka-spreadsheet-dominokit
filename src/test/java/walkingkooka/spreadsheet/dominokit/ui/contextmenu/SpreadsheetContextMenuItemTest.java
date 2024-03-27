@@ -123,7 +123,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                         ).key(
                                 "Key1"
                         ),
-                "(mdi-format-align-left) id1-MenuItem Key1 \"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] v/ [123]\n"
+                "(mdi-format-align-left) id1-MenuItem key=Key1 \"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] v/ [123]\n"
         );
     }
 
