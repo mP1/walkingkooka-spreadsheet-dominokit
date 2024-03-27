@@ -21,13 +21,13 @@ import walkingkooka.reflect.PublicStaticHelper;
 
 public final class SpreadsheetHotKeys implements PublicStaticHelper {
 
-    public final static char BOLD = 'b';
+    public final static String BOLD = "b";
 
-    public final static char ITALICS = 'i';
+    public final static String ITALICS = "i";
 
-    public final static char STRIKETHRU = 's';
+    public final static String STRIKETHRU = "s";
 
-    public final static char UNDERLINE = 'u';
+    public final static String UNDERLINE = "u";
 
     /**
      * Stop creation
