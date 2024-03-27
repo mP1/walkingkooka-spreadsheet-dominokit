@@ -54,7 +54,7 @@ abstract class SpreadsheetPatternComponentContextBasic implements SpreadsheetPat
     public final void setPatternKind(final SpreadsheetPatternKind patternKind) {
         final AppContext context = this.context;
 
-        context.debug("SpreadsheetPatternComponentContextBasicCell.setPatternKind " + patternKind);
+        context.debug(this.getClass().getSimpleName() + ".setPatternKind " + patternKind);
         context.pushHistoryToken(
                 this.historyToken()
                         .setPatternKind(
