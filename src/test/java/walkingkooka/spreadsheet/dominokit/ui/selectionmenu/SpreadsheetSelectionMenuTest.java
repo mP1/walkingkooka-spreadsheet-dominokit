@@ -160,10 +160,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      metadata color picker\n" +
                         "    (mdi-palette) test-background-color-SubMenu \"Background color\"\n" +
                         "      metadata color picker\n" +
-                        "    (mdi-format-bold) test-bold-MenuItem \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold]\n" +
-                        "    (mdi-format-italic) test-italics-MenuItem \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC]\n" +
-                        "    (mdi-format-strikethrough) test-strike-thru-MenuItem \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH]\n" +
-                        "    (mdi-format-underline) test-underline-MenuItem \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE]\n" +
+                        "    (mdi-format-bold) test-bold-MenuItem key=b \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold]\n" +
+                        "    (mdi-format-italic) test-italics-MenuItem key=i \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC]\n" +
+                        "    (mdi-format-strikethrough) test-strike-thru-MenuItem key=s \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH]\n" +
+                        "    (mdi-format-underline) test-underline-MenuItem key=u \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE]\n" +
                         "    test-text-case-SubMenu \"Text case\"\n" +
                         "      (mdi-format-letter-case-upper) test-normal-MenuItem \"Normal\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/]\n" +
                         "      (mdi-format-letter-case) test-capitalize-MenuItem \"Capitalize\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/CAPITALIZE]\n" +

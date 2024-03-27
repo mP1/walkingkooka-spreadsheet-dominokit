@@ -140,6 +140,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                                                   final Optional<Icon<?>> icon,
                                                   final TextStylePropertyName<T> stylePropertyName,
                                                   final T stylePropertyValue,
+                                                  final String key,
                                                   final SpreadsheetSelectionMenuContext context) {
         final boolean set = context.isChecked(
                 stylePropertyName,
@@ -159,6 +160,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                                 text
                         ).icon(icon)
                         .checked(set)
+                        .key(key)
         );
     }
 
