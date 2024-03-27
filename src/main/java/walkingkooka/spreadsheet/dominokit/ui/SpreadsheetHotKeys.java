@@ -29,6 +29,32 @@ public final class SpreadsheetHotKeys implements PublicStaticHelper {
 
     public final static String UNDERLINE = "u";
 
+    public final static String ALIGNMENT_LEFT = "";
+
+    public final static String ALIGNMENT_CENTER = "";
+
+    public final static String ALIGNMENT_RIGHT = "";
+
+    public final static String ALIGNMENT_JUSTIFY = "";
+
+    public final static String TEXT_TRANSFORM_CAPITALIZE = "";
+
+    public final static String TEXT_TRANSFORM_LOWERCASE = "";
+
+    public final static String TEXT_TRANSFORM_UPPERCASE = "";
+
+    public final static String TEXT_WRAPPING_NORMAL = "";
+
+    public final static String TEXT_WRAPPING_OVERFLOW = "";
+
+    public final static String TEXT_WRAPPING_WRAP = "";
+
+    public final static String VERTICAL_ALIGNMENT_TOP = "";
+
+    public final static String VERTICAL_ALIGNMENT_MIDDLE = "";
+
+    public final static String VERTICAL_ALIGNMENT_BOTTOM = "";
+
     /**
      * Stop creation
      */
