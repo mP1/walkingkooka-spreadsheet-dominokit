@@ -50,6 +50,7 @@ abstract class SpreadsheetPatternComponentContextBasic implements SpreadsheetPat
     /**
      * Switches the editor to the given {@link SpreadsheetPatternKind}.
      */
+    @Override
     public final void setPatternKind(final SpreadsheetPatternKind patternKind) {
         final AppContext context = this.context;
 
