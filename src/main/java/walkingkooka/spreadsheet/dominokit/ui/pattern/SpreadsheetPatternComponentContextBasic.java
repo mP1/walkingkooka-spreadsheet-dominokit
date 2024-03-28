@@ -23,11 +23,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 /**
  * A mostly complete {@link SpreadsheetPatternComponentContext}.
@@ -45,19 +43,6 @@ abstract class SpreadsheetPatternComponentContextBasic implements SpreadsheetPat
         return this.historyToken()
                 .patternKind()
                 .get();
-    }
-
-    /**
-     * Save the pattern and push the new {@link HistoryToken}
-     */
-    @Override
-    public final void save(final SpreadsheetPattern pattern) {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .setSave(
-                                Optional.of(pattern)
-                        )
-        );
     }
 
     @Override
