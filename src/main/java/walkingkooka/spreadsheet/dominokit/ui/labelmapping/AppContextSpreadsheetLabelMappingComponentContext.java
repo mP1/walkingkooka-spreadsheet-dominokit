@@ -21,12 +21,10 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * A basic implementation of {@link SpreadsheetLabelMappingComponentContext}.
@@ -82,15 +80,6 @@ final class AppContextSpreadsheetLabelMappingComponentContext implements Spreads
     @Override
     public void fireCurrentHistoryToken() {
         this.context.fireCurrentHistoryToken();
-    }
-
-    @Override
-    public Optional<SpreadsheetLabelName> label() {
-        final HistoryToken token = this.historyToken();
-
-        return token instanceof SpreadsheetLabelMappingHistoryToken ?
-                token.cast(SpreadsheetLabelMappingHistoryToken.class).labelName() :
-                Optional.empty();
     }
 
     // LoggingContext...................................................................................................

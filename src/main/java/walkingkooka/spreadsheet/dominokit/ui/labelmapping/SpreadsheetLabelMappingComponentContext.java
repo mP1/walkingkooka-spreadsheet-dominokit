@@ -21,8 +21,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatc
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
-import java.util.Optional;
-
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingComponent}.
  */
@@ -37,9 +35,4 @@ public interface SpreadsheetLabelMappingComponentContext extends SpreadsheetDial
      * Adds the given {@link SpreadsheetLabelMappingFetcherWatcher}.
      */
     void addLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher);
-
-    /**
-     * The original or loaded {@link SpreadsheetLabelName}. Used by UNDO to reload the label name text box.
-     */
-    Optional<SpreadsheetLabelName> label();
 }
