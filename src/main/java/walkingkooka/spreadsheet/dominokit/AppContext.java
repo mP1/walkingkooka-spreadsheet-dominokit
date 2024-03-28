@@ -21,8 +21,11 @@ import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetLabelMappingFetcher;
@@ -50,6 +53,25 @@ public interface AppContext extends CanGiveFocus,
         HistoryTokenContext,
         LoggingContext,
         Context {
+
+    /**
+     * If the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to be loaded then fire history token again.
+     */
+    default boolean isSpreadsheetMetadataReady() {
+        final SpreadsheetId id;
+
+        final HistoryToken token = this.historyToken();
+        if (token instanceof SpreadsheetNameHistoryToken) {
+            id = token.cast(SpreadsheetNameHistoryToken.class).id();
+        } else {
+            id = null;
+        }
+
+        final SpreadsheetId previousId = this.spreadsheetMetadata()
+                .id()
+                .orElse(null);
+        return id.equals(previousId);
+    }
 
     // json............................................................................................................
 
