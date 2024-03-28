@@ -130,6 +130,12 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
         return this;
     }
 
+    @Override
+    public SpreadsheetExpressionReferenceComponent addKeyupListener(final EventListener listener) {
+        this.textBox.addKeyupListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

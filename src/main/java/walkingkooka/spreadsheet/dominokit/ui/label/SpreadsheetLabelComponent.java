@@ -177,6 +177,17 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         return this;
     }
 
+    @Override
+    public SpreadsheetLabelComponent addKeyupListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.suggestBox.addEventListener(
+                EventType.keyup,
+                listener
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

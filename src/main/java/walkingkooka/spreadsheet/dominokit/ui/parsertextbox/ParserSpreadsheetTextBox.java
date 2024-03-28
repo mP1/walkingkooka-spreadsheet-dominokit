@@ -168,6 +168,12 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
         return this;
     }
 
+    @Override
+    public ParserSpreadsheetTextBox<T> addKeyupListener(final EventListener listener) {
+        this.textBox.addKeyupListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

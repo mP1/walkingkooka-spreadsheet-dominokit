@@ -57,6 +57,8 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
 
     ValueComponent<E, V> addKeydownListener(final EventListener listener);
 
+    ValueComponent<E, V> addKeyupListener(final EventListener listener);
+
     /**
      * The normal domino-kit behaviour is to only show helper text where validation error text appears, as necessary.
      * When a component has no helper text to show the helper text space is auto hidden.

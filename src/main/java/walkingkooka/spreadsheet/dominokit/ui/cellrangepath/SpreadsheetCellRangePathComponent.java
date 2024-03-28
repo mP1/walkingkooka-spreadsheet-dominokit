@@ -136,6 +136,12 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
         return this;
     }
 
+    @Override
+    public SpreadsheetCellRangePathComponent addKeyupListener(final EventListener listener) {
+        this.select.addKeyupListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

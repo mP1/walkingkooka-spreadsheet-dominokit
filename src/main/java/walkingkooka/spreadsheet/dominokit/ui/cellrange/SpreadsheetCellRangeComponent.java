@@ -130,6 +130,12 @@ public final class SpreadsheetCellRangeComponent implements ValueComponent<HTMLF
         return this;
     }
 
+    @Override
+    public SpreadsheetCellRangeComponent addKeyupListener(final EventListener listener) {
+        this.textBox.addKeyupListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override
