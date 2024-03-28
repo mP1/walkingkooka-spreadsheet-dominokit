@@ -23,7 +23,7 @@ import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
 
-public interface SpreadsheetDialogContentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends Testing {
+public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends Testing {
 
     default void historyTokenCloseDialogAndCheck(final HistoryToken opened,
                                                  final HistoryToken closed) {
