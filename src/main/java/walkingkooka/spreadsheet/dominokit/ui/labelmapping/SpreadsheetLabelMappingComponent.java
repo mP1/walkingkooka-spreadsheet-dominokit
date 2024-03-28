@@ -62,12 +62,9 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         this.label = label(context);
         this.target = this.target();
 
-        this.save = this.anchor("Save")
-                .setDisabled(true);
-        this.undo = this.anchor("Undo")
-                .setDisabled(true);
-        this.delete = this.anchor("Delete")
-                .setDisabled(true);
+        this.save = this.anchor("Save");
+        this.undo = this.anchor("Undo");
+        this.delete = this.anchor("Delete");
 
         this.dialog = this.dialogCreate();
 
