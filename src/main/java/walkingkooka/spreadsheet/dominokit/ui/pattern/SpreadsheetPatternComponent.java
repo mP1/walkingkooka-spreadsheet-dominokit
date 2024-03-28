@@ -355,37 +355,18 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 componentContext
         );
 
-        final String patternText = componentContext.loaded();
-        this.setPatternText(patternText);
-
-        this.refreshUndo(
-                patternText,
-                componentContext.patternKind(),
-                context
+        final Optional<SpreadsheetPattern> pattern = componentContext.undo();
+        this.setPatternText(pattern.map(
+                        SpreadsheetPattern::text)
+                .orElse("")
         );
-    }
 
-    private void refreshUndo(final String patternText,
-                             final SpreadsheetPatternKind patternKind,
-                             final AppContext context) {
-        try {
-            SpreadsheetPattern pattern = null;
-
-            if (false == patternText.isEmpty()) {
-                pattern = patternKind.parse(patternText);
-            }
-
-            this.undo.setHistoryToken(
-                    Optional.of(
-                            context.historyToken()
-                                    .setSave(
-                                            Optional.ofNullable(pattern)
-                                    )
-                    )
-            );
-        } catch (final Exception ignore) {
-            context.debug(this.getClass().getSimpleName() + ".refresh Unable to update UNDO link " + CharSequences.quoteAndEscape(patternText), ignore);
-        }
+        this.undo.setHistoryToken(
+                Optional.of(
+                        context.historyToken()
+                                .setSave(pattern)
+                )
+        );
     }
 
     abstract SpreadsheetPatternKind[] spreadsheetPatternKinds();
