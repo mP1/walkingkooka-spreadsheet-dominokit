@@ -159,8 +159,10 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 .setId(ID_PREFIX + "TextBox")
                 .disableSpellcheck()
                 .clearIcon()
-                .addKeydownListener(
+                .addKeyupListener(
                         (e) -> this.onPatternTextBox(this.patternText())
+                ).addChangeListener(
+                        (oldValue, newValue) -> this.onPatternTextBox(this.patternText())
                 );
     }
 
@@ -238,7 +240,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      */
     private String patternText() {
         return this.patternTextBox.value()
-                .get();
+                .orElse("");
     }
 
     private void setPatternText(final String patternText) {
