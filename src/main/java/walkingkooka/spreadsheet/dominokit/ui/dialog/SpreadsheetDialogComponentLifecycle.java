@@ -26,9 +26,12 @@ import org.dominokit.domino.ui.style.Elevation;
 import org.dominokit.domino.ui.style.StyleType;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+
+import java.util.Optional;
 
 /**
  * A specialized {@link ComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
@@ -94,6 +97,18 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
         return HistoryTokenAnchorComponent.empty()
                 .setId(this.idPrefix() + text.toLowerCase() + SpreadsheetIds.LINK)
                 .setTextContent(text);
+    }
+
+    /**
+     * Factory that creates a Anchor which will close this dialog by pushing a {@link HistoryToken#close()}.
+     */
+    default HistoryTokenAnchorComponent closeAnchor(final HistoryToken historyToken) {
+        return this.anchor("Close")
+                .setHistoryToken(
+                        Optional.of(
+                                historyToken.close()
+                        )
+                );
     }
 
     // ComponentLifecycle..............................................................................................
