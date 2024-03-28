@@ -79,7 +79,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.appendLinks = SpreadsheetPatternComponentAppenderComponent.empty();
 
-        this.table = SpreadsheetPatternComponentTableComponent.empty();
+        this.table = SpreadsheetPatternComponentTable.empty();
 
         this.dialog = this.dialogCreate();
     }
@@ -139,7 +139,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     // sample...........................................................................................................
 
-    private final SpreadsheetPatternComponentTableComponent table;
+    private final SpreadsheetPatternComponentTable table;
 
     // componentChips...................................................................................................
 
