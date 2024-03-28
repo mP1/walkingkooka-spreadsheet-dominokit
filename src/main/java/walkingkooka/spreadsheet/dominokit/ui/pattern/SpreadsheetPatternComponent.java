@@ -66,7 +66,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         context.addSpreadsheetDeltaWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
 
-        this.tabs = SpreadsheetPatternComponentTabsComponent.empty(
+        this.tabs = SpreadsheetPatternComponentTabs.empty(
                 this.spreadsheetPatternKinds(),
                 context
         );
@@ -158,7 +158,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     // tabs............................................................................................................
 
-    private final SpreadsheetPatternComponentTabsComponent tabs;
+    private final SpreadsheetPatternComponentTabs tabs;
 
     // sample...........................................................................................................
 

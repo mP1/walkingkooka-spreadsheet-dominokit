@@ -32,21 +32,21 @@ import java.util.Optional;
 /**
  * Capture the tabs functionality within a {@link SpreadsheetPatternComponent}.
  */
-final class SpreadsheetPatternComponentTabsComponent implements Component<HTMLDivElement> {
+final class SpreadsheetPatternComponentTabs implements Component<HTMLDivElement> {
 
     /**
-     * Creates an empty {@link SpreadsheetPatternComponentTabsComponent}.
+     * Creates an empty {@link SpreadsheetPatternComponentTabs}.
      */
-    static SpreadsheetPatternComponentTabsComponent empty(final SpreadsheetPatternKind[] kinds,
-                                                          final SpreadsheetPatternComponentContext context) {
-        return new SpreadsheetPatternComponentTabsComponent(
+    static SpreadsheetPatternComponentTabs empty(final SpreadsheetPatternKind[] kinds,
+                                                 final SpreadsheetPatternComponentContext context) {
+        return new SpreadsheetPatternComponentTabs(
                 kinds,
                 context
         );
     }
 
-    private SpreadsheetPatternComponentTabsComponent(final SpreadsheetPatternKind[] kinds,
-                                                     final SpreadsheetPatternComponentContext context) {
+    private SpreadsheetPatternComponentTabs(final SpreadsheetPatternKind[] kinds,
+                                            final SpreadsheetPatternComponentContext context) {
         this.tabs = this.patternKindTabs(
                 kinds,
                 context
