@@ -99,6 +99,17 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         return this;
     }
 
+    @Override
+    public SpreadsheetIntegerBox addKeyupListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.integerBox.addEventListener(
+                EventType.keyup,
+                listener
+        );
+        return this;
+    }
+
     public SpreadsheetIntegerBox clearIcon() {
         this.integerBox.apply(
                 self -> self.appendChild(

@@ -120,6 +120,12 @@ public final class SpreadsheetFormulaComponent implements ValueComponent<HTMLFie
         return this;
     }
 
+    @Override
+    public SpreadsheetFormulaComponent addKeyupListener(final EventListener listener) {
+        this.textBox.addKeyupListener(listener);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

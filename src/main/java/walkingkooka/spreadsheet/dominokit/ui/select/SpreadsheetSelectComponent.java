@@ -149,6 +149,17 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         return this;
     }
 
+    @Override
+    public SpreadsheetSelectComponent<T> addKeyupListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.select.addEventListener(
+                EventType.keyup,
+                listener
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override
