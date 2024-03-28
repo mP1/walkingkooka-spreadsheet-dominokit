@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 
 /**
  * A specialized {@link ComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
@@ -84,6 +85,15 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
         );
 
         return button;
+    }
+
+    /**
+     * Creates a {@link HistoryTokenAnchorComponent} with the given text and also generates an ID.
+     */
+    default HistoryTokenAnchorComponent anchor(final String text) {
+        return HistoryTokenAnchorComponent.empty()
+                .setId(this.idPrefix() + text.toLowerCase() + SpreadsheetIds.LINK)
+                .setTextContent(text);
     }
 
     // ComponentLifecycle..............................................................................................
