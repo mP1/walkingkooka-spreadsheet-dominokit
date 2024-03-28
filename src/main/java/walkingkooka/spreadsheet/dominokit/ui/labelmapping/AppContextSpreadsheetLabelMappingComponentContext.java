@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
@@ -92,24 +91,6 @@ final class AppContextSpreadsheetLabelMappingComponentContext implements Spreads
         return token instanceof SpreadsheetLabelMappingHistoryToken ?
                 token.cast(SpreadsheetLabelMappingHistoryToken.class).labelName() :
                 Optional.empty();
-    }
-
-    // Crud...................................................................................................
-
-    @Override
-    public void save(final SpreadsheetLabelMapping mapping) {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .setLabelName(
-                                Optional.of(
-                                        mapping.label()
-                                )
-                        ).setSave(
-                                Optional.of(
-                                        mapping.target()
-                                )
-                        )
-        );
     }
 
     // LoggingContext...................................................................................................
