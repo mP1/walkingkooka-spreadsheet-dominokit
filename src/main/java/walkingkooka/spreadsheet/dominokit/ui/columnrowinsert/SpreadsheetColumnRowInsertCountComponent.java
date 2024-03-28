@@ -17,9 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.columnrowinsert;
 
-import elemental2.dom.Event;
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
@@ -27,10 +24,12 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.integerbox.SpreadsheetIntegerBox;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * A model dialog with a text field which accepts a count value, and when entered trigger the inserting of columns and rows.
@@ -51,7 +50,7 @@ public final class SpreadsheetColumnRowInsertCountComponent implements Spreadshe
         this.context = context;
 
         this.count = this.count();
-        this.goButton = this.goButton();
+        this.go = this.anchor("Go");
 
         this.dialog = this.dialogCreate();
 
@@ -73,8 +72,12 @@ public final class SpreadsheetColumnRowInsertCountComponent implements Spreadshe
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
-                        .appendChild(goButton)
-                        .appendChild(this.closeButton())
+                        .appendChild(this.go)
+                        .appendChild(
+                                this.closeAnchor(
+                                        context.historyToken()
+                                )
+                        )
         );
 
         return dialog;
@@ -106,43 +109,31 @@ public final class SpreadsheetColumnRowInsertCountComponent implements Spreadshe
                 .setId(ID_PREFIX + "count-TextBox")
                 .min(1)
                 .setLabel("Count")
-                .required();
+                .required()
+                .addKeyupListener(
+                        (e) -> this.refreshGo()
+                ).addChangeListener(
+                        (oldValue, newValue) -> this.refreshGo()
+                );
     }
 
     private final SpreadsheetIntegerBox count;
 
-    // buttons..........................................................................................................
-
-    /**
-     * When clicked the GO button pushes a {@link HistoryToken} which performs the insert the requested column/rows
-     */
-    private Button goButton() {
-        return this.button(
-                "Go",
-                StyleType.DEFAULT,
-                this::onGoButtonClick
+    private void refreshGo() {
+        this.go.setHistoryToken(
+                Optional.of(
+                        this.context.historyToken()
+                                .setCount(
+                                        OptionalInt.of(
+                                                this.count.value()
+                                                        .orElse(0)
+                                        )
+                                )
+                )
         );
     }
 
-    private void onGoButtonClick(final Event event) {
-        final SpreadsheetColumnRowInsertCountComponentContext context = this.context;
-        final SpreadsheetIntegerBox count = this.count;
-        count.validate();
-
-        final Optional<Integer> value = count.value();
-
-        if (value.isPresent()) {
-            try {
-                context.save(
-                        value.get()
-                );
-            } catch (final Exception cause) {
-                context.error(cause.getMessage());
-            }
-        }
-    }
-
-    private final Button goButton;
+    private final HistoryTokenAnchorComponent go;
 
     // ComponentLifecycle...............................................................................................
 
