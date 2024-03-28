@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
+import walkingkooka.Cast;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -46,11 +47,11 @@ abstract class SpreadsheetPatternComponentContextBasicCell extends SpreadsheetPa
     // SpreadsheetPatternComponentContext.........................................................................
 
     /**
-     * Returns the pattern text for the current {@link #patternKind()}.
+     * Returns the {@link SpreadsheetPattern} for the cell.
      */
     @Override
-    public final String loaded() {
-        String loaded = ""; // if cell is absent or missing this property use a default of empty pattern.
+    public Optional<SpreadsheetPattern> undo() {
+        Optional<SpreadsheetPattern> pattern = Optional.empty();
 
         final Optional<SpreadsheetCell> maybeCell = this.context.viewportCell(
                 this.historyToken()
@@ -62,17 +63,13 @@ abstract class SpreadsheetPatternComponentContextBasicCell extends SpreadsheetPa
             final SpreadsheetCell cell = maybeCell.get();
             final SpreadsheetPatternKind patternKind = this.patternKind();
 
-            final Optional<? extends SpreadsheetPattern> maybePattern = patternKind.isFormatPattern() ?
+            pattern = Cast.to(
+                    patternKind.isFormatPattern() ?
                     cell.formatPattern() :
-                    cell.parsePattern();
-            if (maybePattern.isPresent()) {
-                final SpreadsheetPattern pattern = maybePattern.get();
-                if (patternKind == pattern.kind()) {
-                    loaded = pattern.text();
-                }
-            }
+                            cell.parsePattern()
+            );
         }
 
-        return loaded;
+        return pattern;
     }
 }

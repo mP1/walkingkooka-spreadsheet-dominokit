@@ -21,7 +21,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetPatternComponentContext} for editing patterns for the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
@@ -42,18 +43,16 @@ abstract class SpreadsheetPatternComponentContextBasicMetadata extends Spreadshe
     // SpreadsheetPatternComponentContext.........................................................................
 
     /**
-     * Returns the pattern text for the selected {@link SpreadsheetPatternKind} from the current {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}
+     * Returns the {@link SpreadsheetPattern} from the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
      */
     @Override
-    public final String loaded() {
+    public Optional<SpreadsheetPattern> undo() {
         return this.context.spreadsheetMetadata()
                 .getIgnoringDefaults(
                         this.historyToken()
                                 .patternKind()
                                 .get()
                                 .spreadsheetMetadataPropertyName()
-                )
-                .map(SpreadsheetPattern::text)
-                .orElse("");
+                );
     }
 }
