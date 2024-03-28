@@ -17,21 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import walkingkooka.spreadsheet.dominokit.history.CrudHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternComponent} provided various inputs.
  */
 public interface SpreadsheetPatternComponentContext extends CanGiveFocus,
-        CrudHistoryTokenContext<SpreadsheetPattern>,
         ComponentLifecycleMatcher,
         SpreadsheetDialogComponentContext {
 
