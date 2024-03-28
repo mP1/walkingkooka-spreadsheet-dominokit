@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 
 /**
- * Interface that provides simple operations to update the visual state of a ui.
+ * Interface that provides simple operations to update the visual state of the ui.
  * Dont forget to register this {@link HistoryTokenWatcher}.
  */
 public interface ComponentLifecycle extends HistoryTokenWatcher,
