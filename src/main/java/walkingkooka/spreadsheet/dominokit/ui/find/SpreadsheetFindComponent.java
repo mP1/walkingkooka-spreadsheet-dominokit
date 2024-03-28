@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -68,6 +69,7 @@ import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
  */
 public final class SpreadsheetFindComponent implements SpreadsheetDialogComponentLifecycle,
+        LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher {
 

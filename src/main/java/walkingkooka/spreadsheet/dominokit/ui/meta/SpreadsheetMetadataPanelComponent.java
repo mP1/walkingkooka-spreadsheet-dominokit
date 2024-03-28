@@ -26,6 +26,7 @@ import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
@@ -62,6 +63,7 @@ import java.util.function.Function;
  */
 public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTableElement>,
         ComponentLifecycle,
+        LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 

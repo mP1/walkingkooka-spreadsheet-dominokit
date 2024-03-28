@@ -63,6 +63,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
@@ -136,7 +137,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetLabelMappingFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
-        ComponentLifecycle {
+        ComponentLifecycle,
+        LoadedSpreadsheetMetadataRequired {
 
     /**
      * The maximum number of recent format / parse pattern saves.

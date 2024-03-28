@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -40,6 +41,7 @@ import java.util.Optional;
  */
 public final class SpreadsheetToolbarComponent implements Component<HTMLDivElement>,
         ComponentLifecycle,
+        LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher {
 

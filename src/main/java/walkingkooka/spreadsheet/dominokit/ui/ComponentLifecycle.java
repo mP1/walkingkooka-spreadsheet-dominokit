@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 
 /**
  * Interface that provides simple operations to update the visual state of a ui.
@@ -70,43 +71,60 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
                 context.debug(prefix + ".ignored");
             }
         } else {
-            final boolean nextOpen = this.isMatch(token);
+            boolean canOpen = true;
 
-            if (this.isOpen()) {
-                if (nextOpen) {
-                    // open -> open -> refresh
-
-                    if (this.shouldLogLifecycleChanges()) {
-                        context.debug(prefix + ".refresh");
-                    }
-                    this.refresh(context);
+            // some dialogs will NOT work if the SpreadsheetMetadata is not loaded.
+            if (this instanceof LoadedSpreadsheetMetadataRequired) {
+                if (context.isSpreadsheetMetadataReady()) {
+                    canOpen = true;
                 } else {
-                    // open -> close -> close
-
+                    canOpen = false;
                     if (this.shouldLogLifecycleChanges()) {
                         context.debug(prefix + ".close");
                     }
                     this.close(context);
                 }
-            } else {
-                if (nextOpen) {
-                    // close -> open -> open
-                    if (this.shouldLogLifecycleChanges()) {
-                        context.debug(prefix + ".open");
-                    }
-                    this.open(context);
+            }
 
-                    if (this.shouldLogLifecycleChanges()) {
-                        context.debug(prefix + ".refresh");
-                    }
-                    this.refresh(context);
+            if (canOpen) {
+                final boolean nextOpen = this.isMatch(token);
 
-                    if (this.shouldLogLifecycleChanges()) {
-                        context.debug(prefix + ".openGiveFocus");
+                if (this.isOpen()) {
+                    if (nextOpen) {
+                        // open -> open -> refresh
+
+                        if (this.shouldLogLifecycleChanges()) {
+                            context.debug(prefix + ".refresh");
+                        }
+                        this.refresh(context);
+                    } else {
+                        // open -> close -> close
+
+                        if (this.shouldLogLifecycleChanges()) {
+                            context.debug(prefix + ".close");
+                        }
+                        this.close(context);
                     }
-                    this.openGiveFocus(context);
+                } else {
+                    if (nextOpen) {
+                        // close -> open -> open
+                        if (this.shouldLogLifecycleChanges()) {
+                            context.debug(prefix + ".open");
+                        }
+                        this.open(context);
+
+                        if (this.shouldLogLifecycleChanges()) {
+                            context.debug(prefix + ".refresh");
+                        }
+                        this.refresh(context);
+
+                        if (this.shouldLogLifecycleChanges()) {
+                            context.debug(prefix + ".openGiveFocus");
+                        }
+                        this.openGiveFocus(context);
+                    }
+                    // close -> close -> do nothing
                 }
-                // close -> close -> do nothing
             }
         }
     }
