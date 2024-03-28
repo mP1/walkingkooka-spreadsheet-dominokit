@@ -41,11 +41,6 @@ public interface SpreadsheetPatternComponentContext extends CanGiveFocus,
     SpreadsheetPatternKind patternKind();
 
     /**
-     * Switches the editor to the given {@link SpreadsheetPatternKind}.
-     */
-    void setPatternKind(final SpreadsheetPatternKind patternKind);
-
-    /**
      * Provides the UNDO or loaded text.
      */
     String loaded();
