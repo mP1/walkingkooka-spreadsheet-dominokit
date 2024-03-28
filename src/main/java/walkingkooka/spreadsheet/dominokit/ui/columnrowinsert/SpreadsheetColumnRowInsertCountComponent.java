@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.integerbox.SpreadsheetIntegerBox;
@@ -34,7 +35,8 @@ import java.util.Optional;
 /**
  * A model dialog with a text field which accepts a count value, and when entered trigger the inserting of columns and rows.
  */
-public final class SpreadsheetColumnRowInsertCountComponent implements SpreadsheetDialogComponentLifecycle {
+public final class SpreadsheetColumnRowInsertCountComponent implements SpreadsheetDialogComponentLifecycle,
+        LoadedSpreadsheetMetadataRequired {
 
     /**
      * Creates a new {@link SpreadsheetColumnRowInsertCountComponent}.

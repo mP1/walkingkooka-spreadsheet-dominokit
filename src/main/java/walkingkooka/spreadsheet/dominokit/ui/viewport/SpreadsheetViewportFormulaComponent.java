@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
@@ -46,7 +47,8 @@ import java.util.Optional;
 public final class SpreadsheetViewportFormulaComponent implements Component<HTMLFieldSetElement>,
         ComponentLifecycle,
         NopFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher {
+        SpreadsheetDeltaFetcherWatcher,
+        LoadedSpreadsheetMetadataRequired {
 
     public static SpreadsheetViewportFormulaComponent with(final AppContext context) {
         return new SpreadsheetViewportFormulaComponent(

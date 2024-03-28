@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -35,7 +36,8 @@ import walkingkooka.tree.text.VerticalAlign;
  * A ui such as an icon within a {@link SpreadsheetToolbarComponent}.
  */
 abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>,
-        ComponentLifecycle {
+        ComponentLifecycle,
+        LoadedSpreadsheetMetadataRequired {
 
     static SpreadsheetToolbarComponentItem bold(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
