@@ -17,9 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import elemental2.dom.Event;
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
@@ -29,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -81,6 +79,12 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.table = SpreadsheetPatternComponentTable.empty();
 
+        this.save = this.anchor("Save")
+                .setDisabled(true);
+        this.undo = this.anchor("Undo")
+                .setDisabled(true);
+
+
         this.dialog = this.dialogCreate();
     }
 
@@ -90,7 +94,9 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(this.context);
+        final SpreadsheetPatternComponentContext context = this.context;
+
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(context);
         dialog.id(ID);
 
         dialog.appendChild(this.tabs);
@@ -101,14 +107,31 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         dialog.appendChild(this.chips);
         dialog.appendChild(this.appendLinks);
-        dialog.appendChild(this.patternTextBox);
+
+        final SpreadsheetTextBox patternTextBox = this.patternTextBox;
+        dialog.appendChild(patternTextBox);
+
+        final HistoryToken historyToken = context.historyToken();
+        final HistoryTokenAnchorComponent clear = this.anchor("Clear")
+                .setHistoryToken(
+                        Optional.of(
+                                historyToken.clearSave()
+                        )
+                );
+
+        final HistoryTokenAnchorComponent close = this.anchor("Close")
+                .setHistoryToken(
+                        Optional.of(
+                                historyToken.close()
+                        )
+                );
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
-                        .appendChild(this.saveButton())
-                        .appendChild(this.undoButton())
-                        .appendChild(this.removeButton())
-                        .appendChild(this.closeButton())
+                        .appendChild(this.save)
+                        .appendChild(this.undo)
+                        .appendChild(clear)
+                        .appendChild(close)
         );
 
         return dialog;
@@ -233,6 +256,16 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 this::setPatternText,
                 context
         );
+
+        final HistoryToken historyToken = context.historyToken();
+
+        this.save.setHistoryToken(
+                Optional.of(
+                        historyToken.setSave(
+                                Optional.ofNullable(pattern)
+                        )
+                )
+        );
     }
 
     /**
@@ -255,72 +288,15 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      */
     private final SpreadsheetTextBox patternTextBox;
 
-    // buttons..........................................................................................................
+    /**
+     * A SAVE link which will be updated each time the pattern box is also updated.
+     */
+    private HistoryTokenAnchorComponent save;
 
     /**
-     * When clicked the SAVE button invokes {@link SpreadsheetPatternComponentContext#save(Object)}.
+     * A UNDO link which will be updated each time the pattern is saved.
      */
-    private Button saveButton() {
-        return this.button(
-                "Save",
-                StyleType.DEFAULT,
-                this::onSaveButtonClick
-        );
-    }
-
-    private void onSaveButtonClick(final Event event) {
-        final String patternText = this.patternText();
-        final SpreadsheetPatternComponentContext context = this.context;
-
-        try {
-            final SpreadsheetPattern pattern = context.patternKind().parse(patternText);
-            context.debug(this.getClass().getSimpleName() + ".onSaveButtonClick " + CharSequences.quoteAndEscape(patternText));
-            context.save(pattern);
-        } catch (final Exception cause) {
-            this.context.error(cause.getMessage());
-        }
-    }
-
-    /**
-     * When clicked the undo button invokes {@link #onUndoButtonClick}.
-     */
-    private Button undoButton() {
-        return this.button(
-                "undo",
-                StyleType.PRIMARY,
-                this::onUndoButtonClick
-        );
-    }
-
-    /**
-     * Reloads the last saved pattern text.
-     */
-    private void onUndoButtonClick(final Event event) {
-        final SpreadsheetPatternComponentContext context = this.context;
-
-        final String patternText = context.loaded();
-        context.debug(this.getClass().getSimpleName() + ".onUndoButtonClick " + CharSequences.quoteAndEscape(patternText));
-
-        this.setPatternText(patternText);
-    }
-
-    /**
-     * When clicked the REMOVE button invokes {@link SpreadsheetPatternComponentContext#delete()}.
-     */
-    private Button removeButton() {
-        return this.button(
-                "Remove",
-                StyleType.DANGER,
-                this::onRemoveButtonClick
-        );
-    }
-
-    private void onRemoveButtonClick(final Event event) {
-        final SpreadsheetPatternComponentContext context = this.context;
-
-        context.debug(this.getClass().getSimpleName() + ".onRemoveButtonClick");
-        context.delete();
-    }
+    private final HistoryTokenAnchorComponent undo;
 
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
@@ -378,7 +354,38 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 this::setPatternText,
                 componentContext
         );
-        this.setPatternText(componentContext.loaded());
+
+        final String patternText = componentContext.loaded();
+        this.setPatternText(patternText);
+
+        this.refreshUndo(
+                patternText,
+                componentContext.patternKind(),
+                context
+        );
+    }
+
+    private void refreshUndo(final String patternText,
+                             final SpreadsheetPatternKind patternKind,
+                             final AppContext context) {
+        try {
+            SpreadsheetPattern pattern = null;
+
+            if (false == patternText.isEmpty()) {
+                pattern = patternKind.parse(patternText);
+            }
+
+            this.undo.setHistoryToken(
+                    Optional.of(
+                            context.historyToken()
+                                    .setSave(
+                                            Optional.ofNullable(pattern)
+                                    )
+                    )
+            );
+        } catch (final Exception ignore) {
+            context.debug(this.getClass().getSimpleName() + ".refresh Unable to update UNDO link " + CharSequences.quoteAndEscape(patternText), ignore);
+        }
     }
 
     abstract SpreadsheetPatternKind[] spreadsheetPatternKinds();
