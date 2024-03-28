@@ -17,9 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.labelmapping;
 
-import elemental2.dom.Event;
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -32,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -64,13 +62,22 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         this.label = label(context);
         this.target = this.target();
 
-        this.saveButton = this.saveButton();
-        this.deleteButton = this.deleteButton();
+        this.save = this.anchor("Save")
+                .setDisabled(true);
+        this.undo = this.anchor("Undo")
+                .setDisabled(true);
+        this.delete = this.anchor("Delete")
+                .setDisabled(true);
 
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
         context.addLabelMappingWatcher(this);
+
+        this.undoLabel = Optional.empty();
+        this.undoTarget = Optional.empty();
+
+        this.loadLabel = false;
     }
 
     // dialog...........................................................................................................
@@ -79,7 +86,9 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
      * Creates the modal dialog, which includes a few text boxes to edit the label and the target.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(this.context);
+        final SpreadsheetLabelMappingComponentContext context = this.context;
+
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(context);
         dialog.setTitle("Label");
         dialog.id(ID);
 
@@ -88,10 +97,14 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
-                        .appendChild(this.saveButton)
-                        .appendChild(this.undoButton())
-                        .appendChild(this.deleteButton)
-                        .appendChild(this.closeButton())
+                        .appendChild(this.save)
+                        .appendChild(this.undo)
+                        .appendChild(this.delete)
+                        .appendChild(
+                                this.closeAnchor(
+                                        context.historyToken()
+                                )
+                        )
         );
 
         return dialog;
@@ -124,21 +137,8 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
                 .setLabel("Label")
                 .required()
                 .addChangeListener(
-                        (oldValue, newValue) ->
-                                this.onLabel(newValue)
+                        (oldValue, newValue) -> this.refresh()
                 );
-    }
-
-    private void onLabel(final Optional<SpreadsheetLabelName> label) {
-        this.refreshSaveAndDeleteButtons(
-                label,
-                this.target.value()
-        );
-    }
-
-    private void setLabel(final Optional<SpreadsheetLabelName> label) {
-        this.label.setValue(label);
-        this.onLabel(label);
     }
 
     private final SpreadsheetLabelComponent label;
@@ -153,120 +153,68 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
                 .setId(ID_PREFIX + "target-TextBox")
                 .setLabel("Cell, cell range or Label")
                 .addChangeListener(
-                        (oldValue, newValue) -> this.onTarget(newValue)
+                        (oldValue, newValue) -> this.refresh()
+                ).addKeyupListener(
+                        (e) -> this.refreshUndo()
                 );
-    }
-
-    private void onTarget(final Optional<SpreadsheetExpressionReference> expressionReference) {
-        this.refreshSaveAndDeleteButtons(
-                this.label.value(),
-                expressionReference
-        );
-    }
-
-    private void setTarget(final Optional<SpreadsheetExpressionReference> expressionReference) {
-        this.target.setValue(expressionReference);
-        this.onTarget(expressionReference);
     }
 
     private final SpreadsheetExpressionReferenceComponent target;
 
-    // buttons..........................................................................................................
-
-    /**
-     * When clicked the SAVE button pushes a {@link HistoryToken} which saves the {@link SpreadsheetLabelMapping}.
-     */
-    private Button saveButton() {
-        return this.button(
-                "Save",
-                StyleType.DEFAULT,
-                this::onSaveButtonClick
-        );
-    }
-
-    private void onSaveButtonClick(final Event event) {
-        final SpreadsheetLabelMappingComponentContext context = this.context;
-
-        final Optional<SpreadsheetLabelName> labelName = this.label.value();
+    private void refreshSave() {
+        final Optional<SpreadsheetLabelName> label = this.label.value();
         final Optional<SpreadsheetExpressionReference> target = this.target.value();
 
-        context.debug("SpreadsheetLabelMappingComponent.onSaveButtonClick labelName: " +
-                labelName.map(Object::toString)
-                        .orElse("") +
-                " target: " +
-                target.map(Object::toString)
-                        .orElse("")
-        );
-
-        if (labelName.isPresent() && target.isPresent()) {
-            try {
-                context.save(
-                        labelName.get()
-                                .mapping(target.get())
-                );
-            } catch (final Exception cause) {
-                context.error(cause.getMessage());
-            }
-        }
-    }
-
-    private final Button saveButton;
-
-    /**
-     * When clicked the undo button reloads the last loaded/saved label and target textboxes.
-     */
-    private Button undoButton() {
-        return this.button(
-                "undo",
-                StyleType.PRIMARY,
-                this::onUndoButtonClick
+        this.save.setHistoryToken(
+                Optional.ofNullable(
+                        label.isPresent() && target.isPresent() ?
+                                this.context.historyToken()
+                                        .setLabelName(label)
+                                        .setSave(target) :
+                                null
+                )
         );
     }
 
-    /**
-     * Reloads both the label and target text boxes.
-     */
-    private void onUndoButtonClick(final Event event) {
-        final SpreadsheetLabelMappingComponentContext context = this.context;
-
-        final Optional<SpreadsheetLabelName> label = context.label();
-        final Optional<SpreadsheetExpressionReference> target = this.loadedTarget;
-        context.debug("SpreadsheetLabelMappingComponent.onUndoButtonClick " + label + " " + target);
-
-        this.setLabel(label);
-        this.setTarget(target);
-    }
-
-    private Optional<SpreadsheetExpressionReference> loadedTarget;
+    private HistoryTokenAnchorComponent save;
 
     /**
-     * When clicked the REMOVE button invokes {@link SpreadsheetLabelMappingComponentContext#delete()} ()}.
+     * Refreshes the UNDO link with the undo label + target.
      */
-    private Button deleteButton() {
-        return this.button(
-                "Delete",
-                StyleType.DANGER,
-                this::onDeleteButtonClick
+    private void refreshUndo() {
+        this.undo.setHistoryToken(
+                Optional.of(
+                        this.context.historyToken()
+                                .setLabelName(
+                                        this.undoLabel
+                                ).setSave(
+                                        this.undoTarget
+                                )
+                )
         );
     }
 
-    private void onDeleteButtonClick(final Event event) {
-        final SpreadsheetLabelMappingComponentContext context = this.context;
+    private HistoryTokenAnchorComponent undo;
 
-        context.debug("SpreadsheetLabelMappingComponent.onDeleteButtonClick");
-        context.delete();
+    private Optional<SpreadsheetLabelName> undoLabel;
+
+    private Optional<SpreadsheetExpressionReference> undoTarget;
+
+    private void refreshDelete() {
+        final Optional<SpreadsheetLabelName> label = this.label.value();
+
+        this.delete.setHistoryToken(
+                Optional.ofNullable(
+                        label.isPresent() ?
+                                this.context.historyToken()
+                                        .setLabelName(label)
+                                        .setDelete() :
+                                null
+                )
+        );
     }
 
-    private final Button deleteButton;
-
-    /**
-     * Refreshes or enable/disables the SAVE and DELETE buttons.
-     */
-    private void refreshSaveAndDeleteButtons(final Optional<SpreadsheetLabelName> labelName,
-                                             final Optional<SpreadsheetExpressionReference> target) {
-        this.deleteButton.setDisabled(false == labelName.isPresent());
-        this.saveButton.setDisabled(false == labelName.isPresent() || false == target.isPresent());
-    }
+    private HistoryTokenAnchorComponent delete;
 
     // ComponentLifecycle...............................................................................................
 
@@ -293,38 +241,49 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
      */
     @Override
     public void refresh(final AppContext context) {
-        final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
-                .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
-        final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
-        if (maybeLabelName.isPresent()) {
-            this.setLabel(maybeLabelName);
+        this.refresh();
+    }
+
+    private void refresh() {
+        this.refreshSave();
+        this.refreshUndo();
+        this.refreshDelete();
+
+        loadLabelIfNecessary();
+    }
+
+    private void loadLabelIfNecessary() {
+        if (this.loadLabel) {
+            this.loadLabel = false;
+
+            final SpreadsheetLabelMappingComponentContext context = this.context;
+            SpreadsheetLabelName labelName = null;
             try {
-                this.context.loadLabel(
-                        maybeLabelName.get()
-                );
+                final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
+                        .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
+                final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
+                if (maybeLabelName.isPresent()) {
+                    labelName = maybeLabelName.get();
+
+                    context.loadLabel(labelName);
+                }
+
             } catch (final RuntimeException ignore) {
-                this.context.error("Unable to load label " + maybeLabelName);
+                context.error("Unable to load label " + labelName);
             }
         }
     }
 
+    private boolean loadLabel;
+
     // SpreadsheetLabelMappingFetcherWatcher...................................................................................
 
     @Override
-    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> maybeMapping,
+    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
-        if(maybeMapping.isPresent()) {
-            final SpreadsheetLabelMapping mapping = maybeMapping.get();
-
-            // same label update target
-            if (this.label.value()
-                    .equals(mapping.label())
-            ) {
-                final Optional<SpreadsheetExpressionReference> target = Optional.of(mapping.target());
-                this.setTarget(target);
-                this.loadedTarget = target;
-            }
-        }
+        this.undoLabel = mapping.map(SpreadsheetLabelMapping::label);
+        this.undoTarget = mapping.map(SpreadsheetLabelMapping::target);
+        this.refresh();
     }
 
     // UI...............................................................................................................
