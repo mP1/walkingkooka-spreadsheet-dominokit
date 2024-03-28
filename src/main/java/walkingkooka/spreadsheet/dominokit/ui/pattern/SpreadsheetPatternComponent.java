@@ -121,19 +121,12 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                         )
                 );
 
-        final HistoryTokenAnchorComponent close = this.anchor("Close")
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.close()
-                        )
-                );
-
         dialog.appendChild(
                 ElementsFactory.elements.div()
                         .appendChild(this.save)
                         .appendChild(this.undo)
                         .appendChild(clear)
-                        .appendChild(close)
+                        .appendChild(this.closeAnchor(historyToken))
         );
 
         return dialog;
