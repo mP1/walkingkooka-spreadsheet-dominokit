@@ -111,5 +111,8 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
         }
     }
 
+    /**
+     * When true the {@link #onHistoryTokenChange(HistoryToken, AppContext)} messages will be logged.
+     */
     boolean shouldLogLifecycleChanges();
 }
