@@ -2397,7 +2397,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseEmpty() {
         this.parseStringAndCheck(
                 "",
-                HistoryToken.spreadsheetCreate()
+                HistoryToken.unknown(
+                        UrlFragment.with("")
+                )
         );
     }
 
@@ -2405,7 +2407,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSlash() {
         this.parseStringAndCheck(
                 "/",
-                HistoryToken.spreadsheetCreate()
+                HistoryToken.unknown(
+                        UrlFragment.with("/")
+                )
         );
     }
 
@@ -2418,7 +2422,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseInvalidSpreadsheetId() {
         this.parseStringAndCheck(
                 "/XYZ",
-                HistoryToken.spreadsheetCreate()
+                HistoryToken.unknown(
+                        UrlFragment.with("/XYZ")
+                )
         );
     }
 

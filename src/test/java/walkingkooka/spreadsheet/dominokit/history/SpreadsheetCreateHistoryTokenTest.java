@@ -26,7 +26,7 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/");
+        this.urlFragmentAndCheck("/create");
     }
 
     @Test

@@ -892,25 +892,34 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static HistoryToken parse(final UrlFragment fragment) {
         Objects.requireNonNull(fragment, "fragment");
 
-        HistoryToken token;
+        HistoryToken token = null;
 
         final TextCursor cursor = TextCursors.charSequence(fragment.value());
 
         try {
-            if (false == cursor.isEmpty()) {
-                final char c = cursor.at();
-                switch (c) {
-                    case '/':
+            final Optional<String> maybeComponent = parseComponent(cursor);
+
+            if (maybeComponent.isPresent()) {
+                final String component = maybeComponent.get();
+                switch (component) {
+                    case "":
+                        token = UnknownHistoryToken.with(fragment);
+                        break;
+                    case "create":
                         token = HistoryToken.spreadsheetCreate()
                                 .parse(cursor);
                         break;
                     default:
-                        token = UnknownHistoryToken.with(fragment);
+                        token = spreadsheetLoad(
+                                SpreadsheetId.parse(component)
+                        ).parse(cursor);
                 }
-            } else {
-                token = HistoryToken.spreadsheetCreate();
             }
         } catch (final RuntimeException ignore) {
+            // nop
+        }
+
+        if (null == token) {
             token = UnknownHistoryToken.with(fragment);
         }
 
