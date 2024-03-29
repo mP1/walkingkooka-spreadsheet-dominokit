@@ -21,7 +21,6 @@ import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -58,19 +57,21 @@ public interface AppContext extends CanGiveFocus,
      * If the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to be loaded then fire history token again.
      */
     default boolean isSpreadsheetMetadataReady() {
-        final SpreadsheetId id;
+        final boolean loaded;
 
         final HistoryToken token = this.historyToken();
         if (token instanceof SpreadsheetNameHistoryToken) {
-            id = token.cast(SpreadsheetNameHistoryToken.class).id();
+            loaded = token.cast(SpreadsheetNameHistoryToken.class).id()
+                    .equals(
+                            this.spreadsheetMetadata()
+                                    .id()
+                                    .orElse(null)
+                    );
         } else {
-            id = null;
+            loaded = false;
         }
 
-        final SpreadsheetId previousId = this.spreadsheetMetadata()
-                .id()
-                .orElse(null);
-        return null != id && id.equals(previousId);
+        return loaded;
     }
 
     // json............................................................................................................
