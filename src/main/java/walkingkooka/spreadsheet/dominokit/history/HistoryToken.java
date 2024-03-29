@@ -849,6 +849,13 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetListHistoryToken}
+     */
+    public static SpreadsheetListHistoryToken spreadsheetList() {
+        return SpreadsheetListHistoryToken.with();
+    }
+
+    /**
      * {@see SpreadsheetLoadHistoryToken}
      */
     public static SpreadsheetLoadHistoryToken spreadsheetLoad(final SpreadsheetId id) {
@@ -903,7 +910,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final String component = maybeComponent.get();
                 switch (component) {
                     case "":
-                        token = UnknownHistoryToken.with(fragment);
+                        token = HistoryToken.spreadsheetList();
                         break;
                     case "create":
                         token = HistoryToken.spreadsheetCreate()
