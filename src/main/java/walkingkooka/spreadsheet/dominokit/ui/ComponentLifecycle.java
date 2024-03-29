@@ -75,7 +75,7 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
 
             // some dialogs will NOT work if the SpreadsheetMetadata is not loaded.
             if (this instanceof LoadedSpreadsheetMetadataRequired) {
-                if (context.isSpreadsheetMetadataReady()) {
+                if (context.isSpreadsheetMetadataLoaded()) {
                     canOpen = true;
                 } else {
                     canOpen = false;
