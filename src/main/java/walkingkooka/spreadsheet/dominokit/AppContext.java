@@ -70,7 +70,7 @@ public interface AppContext extends CanGiveFocus,
         final SpreadsheetId previousId = this.spreadsheetMetadata()
                 .id()
                 .orElse(null);
-        return id.equals(previousId);
+        return null != id && id.equals(previousId);
     }
 
     // json............................................................................................................
