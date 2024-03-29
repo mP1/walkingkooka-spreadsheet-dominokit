@@ -38,17 +38,13 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
 
     @Override
     public UrlFragment urlFragment() {
-        return UrlFragment.SLASH;
+        return CREATE;
     }
 
     @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
-        return component.isEmpty() ?
-                this :
-                spreadsheetLoad(
-                        SpreadsheetId.parse(component)
-                ).parse(cursor);
+        return this;
     }
 
     @Override

@@ -31,6 +31,8 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment COPY = UrlFragment.parse("/copy");
 
+    final static UrlFragment CREATE = UrlFragment.parse("/create");
+
     final static UrlFragment CUT = UrlFragment.parse("/cut");
 
     final static UrlFragment DELETE = UrlFragment.parse("/delete");
