@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.find;
 
-import elemental2.dom.Event;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.datatable.CellRenderer;
 import org.dominokit.domino.ui.datatable.CellRenderer.CellInfo;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
@@ -28,7 +26,6 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -90,6 +87,9 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         this.query = this.query();
         this.valueType = this.valueType();
 
+        this.find = this.anchor("Find");
+        this.reset = this.anchor("Reset");
+
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
@@ -102,7 +102,9 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      * Creates the modal dialog, with a form to perform a FIND.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(this.context);
+        final CloseableHistoryTokenContext context = this.context;
+
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(context);
         dialog.setTitle("Find");
         dialog.id(ID);
 
@@ -113,9 +115,13 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
-                        .appendChild(this.findButton())
-                        .appendChild(this.resetButton())
-                        .appendChild(this.closeButton())
+                        .appendChild(this.find)
+                        .appendChild(this.reset)
+                        .appendChild(
+                                this.closeAnchor(
+                                        context.historyToken()
+                                )
+                        )
         );
 
         dialog.appendChild(
@@ -263,7 +269,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      */
     private void onCellRangeValueChange(final Optional<SpreadsheetCellRange> oldCellRange,
                                         final Optional<SpreadsheetCellRange> newCellRange) {
-        this.historyTokenSetAndPush(
+        this.setAndRefresh(
                 t -> t.setAnchoredSelection(
                         newCellRange.map(
                                 SpreadsheetSelection::setDefaultAnchor
@@ -285,7 +291,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
     private void onCellRangePathValueChange(final Optional<SpreadsheetCellRangePath> oldPath,
                                             final Optional<SpreadsheetCellRangePath> newPath) {
-        this.historyTokenSetAndPush(
+        this.setAndRefresh(
                 t -> t.setFind(
                         t.find()
                                 .setPath(newPath)
@@ -310,7 +316,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
     private void onQueryChange(final Optional<SpreadsheetFormula> oldFormula,
                                final Optional<SpreadsheetFormula> newFormula) {
-        this.historyTokenSetAndPush(
+        this.setAndRefresh(
                 t -> t.setFind(
                         t.find()
                                 .setQuery(newFormula.map(SpreadsheetFormula::text)
@@ -335,7 +341,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
     private void onValueTypeChange(final Optional<String> oldValue,
                                    final Optional<String> newValue) {
-        this.historyTokenSetAndPush(
+        this.setAndRefresh(
                 t -> t.setFind(
                         t.find()
                                 .setValueType(newValue)
@@ -345,68 +351,54 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
     private final SpreadsheetValueTypeComponent valueType;
 
-    // buttons..........................................................................................................
-
     /**
-     * When clicked initiates a find cells using the given parameters.
+     * Each time a component of the find is updated, a new {@link HistoryToken} is pushed, which will cause a search
+     * and refresh of the UI.
      */
-    private Button findButton() {
-        return this.button(
-                "Find",
-                StyleType.DEFAULT,
-                this::onFindButtonClick
-        );
-    }
-
-    private void onFindButtonClick(final Event event) {
-        this.find();
-    }
-
-    /**
-     * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellFindHistoryToken}
-     * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRange, SpreadsheetCellFind)}.
-     */
-    private void find() {
+    private void setAndRefresh(final Function<SpreadsheetCellFindHistoryToken, HistoryToken> updater) {
         final SpreadsheetFindComponentContext context = this.context;
 
-        final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
-                .cast(SpreadsheetCellFindHistoryToken.class);
+        // if setter failed ignore, validation will eventually show an error for the field.
+        HistoryToken token = null;
+        try {
+            token = updater.apply(
+                    context.historyToken()
+                            .cast(SpreadsheetCellFindHistoryToken.class)
+            );
+        } catch (final Exception ignore) {
+            token = null;
+        }
 
-        final SpreadsheetId id = historyToken.id();
-        final SpreadsheetCellRange cells = historyToken.anchoredSelection()
-                .selection()
-                .toCellRange();
-
-        context.spreadsheetDeltaFetcher()
-                .findCells(
-                        id,
-                        cells,
-                        historyToken.find()
-                );
+        // only update history token if setter was successful.
+        if (token instanceof SpreadsheetCellFindHistoryToken) {
+            this.context.pushHistoryToken(token);
+        }
     }
 
-    /**
-     * When clicked the RESET button invokes {@link #onResetButtonClick}.
-     */
-    private Button resetButton() {
-        return this.button(
-                "reset",
-                StyleType.PRIMARY,
-                this::onResetButtonClick
+    private void refreshFind(final SpreadsheetCellFindHistoryToken token) {
+        this.find.setHistoryToken(
+                Optional.of(token)
         );
     }
 
-    /**
-     * Resets the form.
-     */
-    private void onResetButtonClick(final Event event) {
-        this.resetForm();
+    private HistoryTokenAnchorComponent find;
+
+    private void refreshReset(final SpreadsheetCellFindHistoryToken token) {
+        this.reset.setHistoryToken(
+                Optional.of(
+                        token.setFind(
+                                token.find()
+                                        .setPath(
+                                                Optional.empty()
+                                        ).setValueType(
+                                                Optional.empty()
+                                        )
+                        )
+                )
+        );
     }
 
-    private void resetForm() {
-        this.path.setValue(Optional.empty());
-        this.valueType.setValue(Optional.empty());
-    }
+    private HistoryTokenAnchorComponent reset;
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
@@ -471,29 +463,33 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
                 find.query()
         );
 
-        this.find();
+        this.refreshFind(token);
+        this.refreshReset(token);
+
+        this.findCells();
     }
 
-    // History.........................................................................................................
-
-    private void historyTokenSetAndPush(final Function<SpreadsheetCellFindHistoryToken, HistoryToken> updater) {
+    /**
+     * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellFindHistoryToken}
+     * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRange, SpreadsheetCellFind)}.
+     */
+    private void findCells() {
         final SpreadsheetFindComponentContext context = this.context;
 
-        // if setter failed ignore, validation will eventually show an error for the field.
-        HistoryToken token = null;
-        try {
-            token = updater.apply(
-                    context.historyToken()
-                            .cast(SpreadsheetCellFindHistoryToken.class)
-            );
-        } catch (final Exception ignore) {
-            token = null;
-        }
+        final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
+                .cast(SpreadsheetCellFindHistoryToken.class);
 
-        // only update history token if setter was successful.
-        if (token instanceof SpreadsheetCellFindHistoryToken) {
-            context.pushHistoryToken(token);
-        }
+        final SpreadsheetId id = historyToken.id();
+        final SpreadsheetCellRange cells = historyToken.anchoredSelection()
+                .selection()
+                .toCellRange();
+
+        context.spreadsheetDeltaFetcher()
+                .findCells(
+                        id,
+                        cells,
+                        historyToken.find()
+                );
     }
 
     // UI...............................................................................................................
