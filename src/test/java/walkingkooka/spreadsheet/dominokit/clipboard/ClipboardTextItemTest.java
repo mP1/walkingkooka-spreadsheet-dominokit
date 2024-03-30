@@ -87,13 +87,13 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
-    // prepare.........................................................................................................
+    // toJson.........................................................................................................
 
     @Test
-    public void testPrepareWIthNullRangeFails() {
+    public void testToJsonWithNullRangeFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ClipboardTextItem.prepare(
+                () -> ClipboardTextItem.toJson(
                         null, // cell-range
                         Iterators.fake(), // cells,
                         SpreadsheetCellClipboardValueKind.CELL,
@@ -103,10 +103,10 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareWIthNullCellsFails() {
+    public void testToJsonWithNullCellsFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ClipboardTextItem.prepare(
+                () -> ClipboardTextItem.toJson(
                         SpreadsheetSelection.ALL_CELLS,
                         null, // cells,
                         SpreadsheetCellClipboardValueKind.CELL,
@@ -116,10 +116,10 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareWIthNullKindFails() {
+    public void testToJsonWithNullKindFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ClipboardTextItem.prepare(
+                () -> ClipboardTextItem.toJson(
                         SpreadsheetSelection.ALL_CELLS,
                         Iterators.fake(), // cells,
                         null,
@@ -129,10 +129,10 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareWIthNullContextFails() {
+    public void testToJsonWithNullContextFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ClipboardTextItem.prepare(
+                () -> ClipboardTextItem.toJson(
                         SpreadsheetSelection.ALL_CELLS,
                         null, // cells,
                         SpreadsheetCellClipboardValueKind.CELL,
@@ -142,10 +142,10 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsCellsOutsideFails() {
+    public void testToJsonCellsCellsOutsideFails() {
         final IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
-                () -> ClipboardTextItem.prepare(
+                () -> ClipboardTextItem.toJson(
                         SpreadsheetSelection.parseCellRange("B2:C3"),
                         Iterators.array(
                                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
@@ -174,8 +174,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsWithCellsNone() {
-        this.prepareAndCheck(
+    public void testToJsonCellsWithCellsNone() {
+        this.toJsonAndCheck(
                 "A1",
                 Iterators.empty(),
                 SpreadsheetCellClipboardValueKind.CELL,
@@ -193,8 +193,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsWithCellsOne() {
-        this.prepareAndCheck(
+    public void testToJsonCellsWithCellsOne() {
+        this.toJsonAndCheck(
                 "A1",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
@@ -230,8 +230,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsWithCellsSeveral() {
-        this.prepareAndCheck(
+    public void testToJsonCellsWithCellsSeveral() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
@@ -284,8 +284,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormulaNone() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormulaNone() {
+        this.toJsonAndCheck(
                 "A1",
                 Iterators.array(
                 ),
@@ -304,8 +304,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormulaSeveral() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormulaSeveral() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
@@ -334,8 +334,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormulaEmpty() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormulaEmpty() {
+        this.toJsonAndCheck(
                 "A1",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -357,8 +357,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormatPatternNone() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormatPatternNone() {
+        this.toJsonAndCheck(
                 "A1",
                 Iterators.array(
                 ),
@@ -377,8 +377,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormatPatternMissing() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormatPatternMissing() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -400,8 +400,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormatPatternSomeMissing() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormatPatternSomeMissing() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
@@ -434,8 +434,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormatPattern() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormatPattern() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -474,8 +474,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsParsePatternNone() {
-        this.prepareAndCheck(
+    public void testToJsonCellsParsePatternNone() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                 ),
@@ -494,8 +494,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsParsePatternMissing() {
-        this.prepareAndCheck(
+    public void testToJsonCellsParsePatternMissing() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -517,8 +517,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsParsePatternSomeMissing() {
-        this.prepareAndCheck(
+    public void testToJsonCellsParsePatternSomeMissing() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
@@ -551,8 +551,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsParsePattern() {
-        this.prepareAndCheck(
+    public void testToJsonCellsParsePattern() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -593,8 +593,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsStyleNone() {
-        this.prepareAndCheck(
+    public void testToJsonCellsStyleNone() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                 ),
@@ -613,8 +613,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsStyleEmpty() {
-        this.prepareAndCheck(
+    public void testToJsonCellsStyleEmpty() {
+        this.toJsonAndCheck(
                 "A1:C3",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -636,8 +636,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsStyleSomeEmpty() {
-        this.prepareAndCheck(
+    public void testToJsonCellsStyleSomeEmpty() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
@@ -670,8 +670,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsStyle() {
-        this.prepareAndCheck(
+    public void testToJsonCellsStyle() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1
@@ -713,8 +713,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormattedNone() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormattedNone() {
+        this.toJsonAndCheck(
                 "*",
                 Iterators.array(
                 ),
@@ -733,8 +733,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormattedSeveral() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormattedSeveral() {
+        this.toJsonAndCheck(
                 "A1:B2",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(
@@ -777,8 +777,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testPrepareCellsFormattedMissing() {
-        this.prepareAndCheck(
+    public void testToJsonCellsFormattedMissing() {
+        this.toJsonAndCheck(
                 "A1",
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -799,11 +799,11 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
-    private void prepareAndCheck(final String range,
-                                 final Iterator<SpreadsheetCell> cells,
-                                 final SpreadsheetCellClipboardValueKind kind,
-                                 final ClipboardTextItem expected) {
-        this.prepareAndCheck(
+    private void toJsonAndCheck(final String range,
+                                final Iterator<SpreadsheetCell> cells,
+                                final SpreadsheetCellClipboardValueKind kind,
+                                final ClipboardTextItem expected) {
+        this.toJsonAndCheck(
                 SpreadsheetSelection.parseCellRange(range),
                 cells,
                 kind,
@@ -817,14 +817,14 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
-    private void prepareAndCheck(final SpreadsheetCellRange range,
-                                 final Iterator<SpreadsheetCell> cells,
-                                 final SpreadsheetCellClipboardValueKind kind,
-                                 final AppContext context,
-                                 final ClipboardTextItem expected) {
+    private void toJsonAndCheck(final SpreadsheetCellRange range,
+                                final Iterator<SpreadsheetCell> cells,
+                                final SpreadsheetCellClipboardValueKind kind,
+                                final AppContext context,
+                                final ClipboardTextItem expected) {
         this.checkEquals(
                 expected,
-                ClipboardTextItem.prepare(
+                ClipboardTextItem.toJson(
                         range,
                         cells,
                         kind,

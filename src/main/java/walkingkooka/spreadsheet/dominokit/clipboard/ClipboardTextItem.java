@@ -79,10 +79,10 @@ public final class ClipboardTextItem implements TreePrintable {
     /**
      * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardValueKind} to JSON.
      */
-    public static ClipboardTextItem prepare(final SpreadsheetCellRange range,
-                                            final Iterator<SpreadsheetCell> cells,
-                                            final SpreadsheetCellClipboardValueKind kind,
-                                            final AppContext context) {
+    public static ClipboardTextItem toJson(final SpreadsheetCellRange range,
+                                           final Iterator<SpreadsheetCell> cells,
+                                           final SpreadsheetCellClipboardValueKind kind,
+                                           final AppContext context) {
         Objects.requireNonNull(range, "range");
         Objects.requireNonNull(cells, "cells");
         Objects.requireNonNull(kind, "kind");
