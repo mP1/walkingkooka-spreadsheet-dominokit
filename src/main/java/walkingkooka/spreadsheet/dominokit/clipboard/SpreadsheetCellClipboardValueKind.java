@@ -235,7 +235,8 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     private final MediaType mediaType;
 
     /**
-     * Getter that returns the class type for this {@link MediaType}.
+     * Getter that returns the class type for this {@link MediaType}. This can be used to unmarshall values from a clipboard,
+     * when in JSON form.
      */
     public Class<?> mediaTypeClass() {
         return this.mediaTypeClass;
