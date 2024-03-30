@@ -143,10 +143,15 @@ public final class ClipboardTextItem implements TreePrintable {
                 );
 
         return ClipboardTextItem.with(
-                Lists.of(MediaType.TEXT_PLAIN),
+                Lists.of(MEDIA_TYPE),
                 envelope.toString()
         );
     }
+
+    /**
+     * Because of clipboard API limitations text/plain is used even for JSON.
+     */
+    private final static MediaType MEDIA_TYPE = MediaType.TEXT_PLAIN;
 
     private final static JsonPropertyName MEDIA_TYPE_PROPERTY_NAME = JsonPropertyName.with("mediaType");
 
