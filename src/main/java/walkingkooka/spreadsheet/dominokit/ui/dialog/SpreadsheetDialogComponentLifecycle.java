@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
 import org.dominokit.domino.ui.dialogs.Dialog;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
@@ -36,12 +35,6 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
      * Getter that returns the {@link SpreadsheetDialogComponent}. This is required by the other default methods.
      */
     SpreadsheetDialogComponent dialog();
-
-    /**
-     * Returns a {@link CloseableHistoryTokenContext}, this will be used by any close button.
-     */
-    CloseableHistoryTokenContext closeableHistoryTokenContext();
-
 
     /**
      * Base id that should be used for all components within this dialog.

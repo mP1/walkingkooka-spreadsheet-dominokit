@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
@@ -138,11 +137,6 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     }
 
     private final SpreadsheetDialogComponent dialog;
-
-    @Override
-    public final CloseableHistoryTokenContext closeableHistoryTokenContext() {
-        return this.context;
-    }
 
     private final SpreadsheetPatternComponentContext context;
 
