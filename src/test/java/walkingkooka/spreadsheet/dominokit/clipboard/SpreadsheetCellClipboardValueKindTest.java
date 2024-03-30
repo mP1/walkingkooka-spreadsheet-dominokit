@@ -357,7 +357,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
 
     @Override //
     public SpreadsheetCellClipboardValueKind parseString(final String string) {
-        return SpreadsheetCellClipboardValueKind.parseUrlFragment(string);
+        return SpreadsheetCellClipboardValueKind.parse(string);
     }
 
     @Override

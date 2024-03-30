@@ -149,7 +149,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellCopy(
-                        SpreadsheetCellClipboardValueKind.parseUrlFragment(component)
+                        SpreadsheetCellClipboardValueKind.parse(component)
                 );
             }
         }
@@ -166,7 +166,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellPaste(
-                        SpreadsheetCellClipboardValueKind.parseUrlFragment(component)
+                        SpreadsheetCellClipboardValueKind.parse(component)
                 );
             }
         }
@@ -183,7 +183,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellCut(
-                        SpreadsheetCellClipboardValueKind.parseUrlFragment(component)
+                        SpreadsheetCellClipboardValueKind.parse(component)
                 );
             }
         }
