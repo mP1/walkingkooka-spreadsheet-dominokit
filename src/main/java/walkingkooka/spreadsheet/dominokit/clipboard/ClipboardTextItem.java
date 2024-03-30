@@ -127,17 +127,17 @@ public final class ClipboardTextItem implements TreePrintable {
 
         final JsonObject envelope = JsonNode.object()
                 .set(
-                        MEDIA_TYPE,
+                        MEDIA_TYPE_PROPERTY_NAME,
                         JsonNode.string(
                                         mediaType.value()
                         )
                 ).set(
-                        CELL_RANGE,
+                        CELL_RANGE_PROPERTY_NAME,
                         JsonNode.string(
                                 range.toStringMaybeStar()
                         )
                 ).set(
-                        VALUE,
+                        VALUE_PROPERTY_NAME,
                         JsonNode.object()
                                 .setChildren(value)
                 );
@@ -148,10 +148,11 @@ public final class ClipboardTextItem implements TreePrintable {
         );
     }
 
-    private final static JsonPropertyName MEDIA_TYPE = JsonPropertyName.with("mediaType");
+    private final static JsonPropertyName MEDIA_TYPE_PROPERTY_NAME = JsonPropertyName.with("mediaType");
 
-    private final static JsonPropertyName CELL_RANGE = JsonPropertyName.with("cell-range");
-    private final static JsonPropertyName VALUE = JsonPropertyName.with("value");
+    private final static JsonPropertyName CELL_RANGE_PROPERTY_NAME = JsonPropertyName.with("cell-range");
+
+    private final static JsonPropertyName VALUE_PROPERTY_NAME = JsonPropertyName.with("value");
 
     public static ClipboardTextItem with(final List<MediaType> types,
                                          final String text) {
