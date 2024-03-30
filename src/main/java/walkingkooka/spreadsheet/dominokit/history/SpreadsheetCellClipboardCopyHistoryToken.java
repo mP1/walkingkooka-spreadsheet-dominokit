@@ -81,7 +81,7 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
                 .selection()
                 .toCellRange();
 
-        final ClipboardTextItem clipboardTextItem = ClipboardTextItem.prepare(
+        final ClipboardTextItem clipboardTextItem = ClipboardTextItem.toJson(
                 range,
                 context.viewportCache()
                         .cells(

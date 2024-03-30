@@ -33,7 +33,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * A provider that uses the user's {@link java.util.Locale} and active {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} to prepare rows
+ * A provider that uses the user's {@link java.util.Locale} and active {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} to toJson rows
  * for the sample.
  */
 abstract class SpreadsheetPatternComponentTableRowProvider implements BiFunction<String, SpreadsheetPatternComponentTableRowProviderContext, List<SpreadsheetPatternComponentTableRow>> {
