@@ -33,8 +33,8 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
-import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
@@ -102,7 +102,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      * Creates the modal dialog, with a form to perform a FIND.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final CloseableHistoryTokenContext context = this.context;
+        final HistoryTokenContext context = this.context;
 
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(context);
         dialog.setTitle("Find");
