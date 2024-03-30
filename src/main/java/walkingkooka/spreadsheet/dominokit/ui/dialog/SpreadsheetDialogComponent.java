@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
-import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 
 import java.util.Objects;
@@ -35,13 +35,13 @@ public class SpreadsheetDialogComponent {
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
      */
-    public static SpreadsheetDialogComponent create(final CloseableHistoryTokenContext context) {
+    public static SpreadsheetDialogComponent create(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetDialogComponent(context);
     }
 
-    private SpreadsheetDialogComponent(final CloseableHistoryTokenContext context) {
+    private SpreadsheetDialogComponent(final HistoryTokenContext context) {
         this.context = context;
 
         final NavBar navBar = this.dialogNavBar();
@@ -82,10 +82,11 @@ public class SpreadsheetDialogComponent {
     }
 
     private void fireClose() {
-        this.context.close();
+        this.context.historyToken()
+                .close();
     }
 
-    private final CloseableHistoryTokenContext context;
+    private final HistoryTokenContext context;
 
     public SpreadsheetDialogComponent id(final String id) {
         this.dialog.id(id);
