@@ -17,12 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
-import elemental2.dom.EventListener;
-import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.dialogs.Dialog;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.style.Elevation;
-import org.dominokit.domino.ui.style.StyleType;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -52,26 +47,6 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
      * Base id that should be used for all components within this dialog.
      */
     String idPrefix();
-
-    /**
-     * Creates one of the modal action buttons that appear at the bottom of the modal dialog.
-     */
-    default Button button(final String text,
-                          final StyleType type,
-                          final EventListener listener) {
-        final Button button = new Button(text);
-
-        button.id(this.idPrefix() + text.toLowerCase() + SpreadsheetIds.BUTTON);
-        button.addCss("dui-" + type.getStyle());
-        button.elevate(Elevation.LEVEL_1);
-
-        button.addEventListener(
-                EventType.click,
-                listener
-        );
-
-        return button;
-    }
 
     /**
      * Creates a {@link HistoryTokenAnchorComponent} with the given text and also generates an ID.
