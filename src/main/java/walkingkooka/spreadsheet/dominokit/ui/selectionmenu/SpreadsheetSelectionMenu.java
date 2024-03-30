@@ -210,7 +210,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         SpreadsheetContextMenu menu2 = menu;
 
         // Cut > Cell
-        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.menuItemValues()) {
             menu2 = menu2.item(
                     SpreadsheetContextMenuItem.with(
                             clipboardCutCopyPasteMenuItemId(
