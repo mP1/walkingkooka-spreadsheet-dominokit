@@ -27,9 +27,6 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -97,7 +94,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         null, // cell-range
                         Iterators.fake(), // cells,
                         SpreadsheetCellClipboardValueKind.CELL,
-                        AppContexts.fake()
+                        JsonNodeMarshallContexts.fake()
                 )
         );
     }
@@ -110,7 +107,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         SpreadsheetSelection.ALL_CELLS,
                         null, // cells,
                         SpreadsheetCellClipboardValueKind.CELL,
-                        AppContexts.fake()
+                        JsonNodeMarshallContexts.fake()
                 )
         );
     }
@@ -123,13 +120,13 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         SpreadsheetSelection.ALL_CELLS,
                         Iterators.fake(), // cells,
                         null,
-                        AppContexts.fake()
+                        JsonNodeMarshallContexts.fake()
                 )
         );
     }
 
     @Test
-    public void testToJsonWithNullContextFails() {
+    public void testToJsonWithNullJsonNodeMarshallContextFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> ClipboardTextItem.toJson(
@@ -157,12 +154,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         .setFormula(SpreadsheetFormula.EMPTY)
                         ), // cells,
                         SpreadsheetCellClipboardValueKind.CELL,
-                        new FakeAppContext() {
-                            @Override
-                            public JsonNodeMarshallContext marshallContext() {
-                                return JsonNodeMarshallContexts.basic();
-                            }
-                        }
+                        JsonNodeMarshallContexts.basic()
                 )
         );
 
@@ -807,12 +799,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 SpreadsheetSelection.parseCellRange(range),
                 cells,
                 kind,
-                new FakeAppContext() {
-                    @Override
-                    public JsonNodeMarshallContext marshallContext() {
-                        return JsonNodeMarshallContexts.basic();
-                    }
-                },
+                JsonNodeMarshallContexts.basic(),
                 expected
         );
     }
@@ -820,7 +807,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     private void toJsonAndCheck(final SpreadsheetCellRange range,
                                 final Iterator<SpreadsheetCell> cells,
                                 final SpreadsheetCellClipboardValueKind kind,
-                                final AppContext context,
+                                final JsonNodeMarshallContext context,
                                 final ClipboardTextItem expected) {
         this.checkEquals(
                 expected,
