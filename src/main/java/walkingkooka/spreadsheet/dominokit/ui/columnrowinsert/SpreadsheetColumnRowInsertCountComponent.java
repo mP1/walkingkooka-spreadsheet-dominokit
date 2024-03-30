@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.columnrowinsert;
 
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.CloseableHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
@@ -90,11 +89,6 @@ public final class SpreadsheetColumnRowInsertCountComponent implements Spreadshe
     @Override
     public SpreadsheetDialogComponent dialog() {
         return this.dialog;
-    }
-
-    @Override
-    public CloseableHistoryTokenContext closeableHistoryTokenContext() {
-        return this.context;
     }
 
     @Override

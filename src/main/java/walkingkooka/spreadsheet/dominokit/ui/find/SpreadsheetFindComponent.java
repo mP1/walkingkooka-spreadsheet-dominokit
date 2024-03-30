@@ -408,11 +408,6 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     }
 
     @Override
-    public CloseableHistoryTokenContext closeableHistoryTokenContext() {
-        return this.context;
-    }
-
-    @Override
     public String idPrefix() {
         return ID_PREFIX;
     }
