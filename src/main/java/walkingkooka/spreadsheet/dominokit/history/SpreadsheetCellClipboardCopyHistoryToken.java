@@ -88,7 +88,7 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
                                 range
                         ),
                 kind,
-                context
+                context.marshallContext()
         );
         context.debug("Copying " + clipboardTextItem);
 

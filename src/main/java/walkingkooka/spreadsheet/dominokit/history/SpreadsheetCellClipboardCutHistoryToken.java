@@ -95,7 +95,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                                 range
                         ),
                 kind,
-                context
+                context.marshallContext()
         );
         context.debug("Cutting " + clipboardTextItem);
 

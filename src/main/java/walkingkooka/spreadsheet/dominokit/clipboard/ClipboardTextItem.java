@@ -22,7 +22,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -82,7 +81,7 @@ public final class ClipboardTextItem implements TreePrintable {
     public static ClipboardTextItem toJson(final SpreadsheetCellRange range,
                                            final Iterator<SpreadsheetCell> cells,
                                            final SpreadsheetCellClipboardValueKind kind,
-                                           final AppContext context) {
+                                           final JsonNodeMarshallContext context) {
         Objects.requireNonNull(range, "range");
         Objects.requireNonNull(cells, "cells");
         Objects.requireNonNull(kind, "kind");
@@ -90,8 +89,6 @@ public final class ClipboardTextItem implements TreePrintable {
 
         final MediaType mediaType = kind.mediaType();
 
-
-        final JsonNodeMarshallContext marshallContext = context.marshallContext();
 
         final List<JsonNode> value = Lists.array();
         final Set<SpreadsheetCellReference> outside = Sets.sorted();
@@ -105,7 +102,7 @@ public final class ClipboardTextItem implements TreePrintable {
                     value.add(
                             kind.marshall(
                                     cell,
-                                    marshallContext
+                                    context
                             )
                     );
                 }
