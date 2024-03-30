@@ -36,6 +36,7 @@ import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
@@ -276,4 +277,20 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Unknown MediaType: " + mediaType));
     }
+
+    /**
+     * Because {@link SpreadsheetCellClipboardValueKind#values} ordering is not guaranteed this getter is provided.
+     */
+    public static List<SpreadsheetCellClipboardValueKind> menuItemValues() {
+        return VALUES;
+    }
+
+    private final static List<SpreadsheetCellClipboardValueKind> VALUES = Lists.of(
+            CELL,
+            FORMULA,
+            FORMAT_PATTERN,
+            PARSE_PATTERN,
+            STYLE,
+            FORMATTED_VALUE
+    );
 }
