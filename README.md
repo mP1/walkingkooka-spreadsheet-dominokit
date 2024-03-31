@@ -65,8 +65,22 @@ Individual issues that breakdown outstanding tasks will be added.
 - Mouse click to select cell *DONE*
 - Support dragging mouse to select a range of
   cells [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2063)
-- Many attributes of a cell or cell-range are available via the context menu, such as making formatted output BOLD, set
-  format pattern etc *DONE*
+- Cell formatting:
+  - Alignment: Left, Center, Right, Justify *DONE*
+  - Vertical alignment: Top, Middle, Bottom *DONE*
+  - Text Color *DONE*
+  - Background color *DONE*
+  - Bold *DONE*
+  - Italics *DONE*
+  - Strikethru *DONE*
+  - Underline *DONE*
+  - Format patterns Date, DateTime, Number, Text, Time *DONE*
+  - Parse patterns Date, DateTime, Number, Text, Time *DONE*
+- Column, Row, Cell actions:
+  - Insert columns before *DONE*
+  - Insert columns after *DONE*
+  - Clear *DONE*
+  - Delete *DONE*
 - Context menu to sort a selection [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2060)
 - Clipboard CUT | COPY | PASTE. The goal is provide CUT | COPY to numerous text formats such as CSV, JSON, XML and
   more. [WIP](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues?q=is%3Aissue+is%3Aopen+clipboard)
