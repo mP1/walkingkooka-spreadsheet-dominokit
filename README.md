@@ -86,7 +86,7 @@ Individual issues that breakdown outstanding tasks will be added.
   - CUT *DONE*
   - COPY *DONE*
   - PASTE [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2181)
-  - Additional clipboard patterns such as
+  - Additional clipboard text formats such as
     CSV [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2182)
 
 ## Toolbar
