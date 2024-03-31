@@ -82,8 +82,12 @@ Individual issues that breakdown outstanding tasks will be added.
   - Clear *DONE*
   - Delete *DONE*
 - Context menu to sort a selection [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2060)
-- Clipboard CUT | COPY | PASTE. The goal is provide CUT | COPY to numerous text formats such as CSV, JSON, XML and
-  more. [WIP](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues?q=is%3Aissue+is%3Aopen+clipboard)
+- Clipboard cell, formula, format-pattern, parse-pattern, formatted-value
+  - CUT *DONE*
+  - COPY *DONE*
+  - PASTE [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2181)
+  - Additional clipboard patterns such as
+    CSV [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2182)
 
 ## Toolbar
 
