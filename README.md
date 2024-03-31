@@ -74,8 +74,10 @@ Individual issues that breakdown outstanding tasks will be added.
   - Italics *DONE*
   - Strikethru *DONE*
   - Underline *DONE*
-  - Format patterns Date, DateTime, Number, Text, Time *DONE*
-  - Parse patterns Date, DateTime, Number, Text, Time *DONE*
+  - Format patterns: select & edit Date, DateTime, Number, Text, Time *DONE*
+  - Parse patterns: select & edit Date, DateTime, Number, Text, Time *DONE*
+  - Text case: Normal, Capitalize, Lowercase, Uppercase
+  - Wrapping: clip, Overflow, Wrap
 - Column, Row, Cell actions:
   - Insert columns before *DONE*
   - Insert columns after *DONE*
