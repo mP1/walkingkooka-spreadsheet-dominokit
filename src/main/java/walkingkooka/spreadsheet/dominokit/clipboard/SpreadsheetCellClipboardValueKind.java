@@ -25,10 +25,13 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -66,6 +69,38 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                     .children()
                     .get(0);
         }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            SpreadsheetCell cell = context.unmarshallContext()
+                    .unmarshall(
+                            node,
+                            SpreadsheetCell.class
+                    );
+            final SpreadsheetFormula formula = cell.formula();
+
+            // if theres no token try and parse the formula text. This will be necessary because PASTE will
+            // need to update relative references.
+            if (false == formula.token().isPresent()) {
+                try {
+                    final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+
+                    cell = cell.setFormula(
+                            SpreadsheetFormula.parse(
+                                    TextCursors.charSequence(
+                                            formula.text()
+                                    ),
+                                    metadata.parser(),
+                                    metadata.parserContext(context::now)
+                            )
+                    );
+                } catch (final RuntimeException ignore) {
+
+                }
+            }
+            return cell;
+        }
     },
 
     /**
@@ -84,6 +119,22 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                             .text()
             ).setName(
                     propertyName(cell)
+            );
+        }
+
+        @Override //
+        SpreadsheetFormula unmarshall(final JsonNode node,
+                                      final AppContext context) {
+            final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+
+            return SpreadsheetFormula.parse(
+                    TextCursors.charSequence(
+                            node.stringOrFail()
+                    ),
+                    metadata.parser(), // parser
+                    metadata.parserContext(
+                            context::now
+                    )// parser context
             );
         }
     },
@@ -105,6 +156,15 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                     context
             );
         }
+
+        @Override //
+        Optional<SpreadsheetFormatPattern> unmarshall(final JsonNode node,
+                                                      final AppContext context) {
+            return Optional.ofNullable(
+                    context.unmarshallContext()
+                            .unmarshallWithType(node)
+            );
+        }
     },
 
     /**
@@ -124,6 +184,15 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                     context
             );
         }
+
+        @Override //
+        Optional<SpreadsheetParsePattern> unmarshall(final JsonNode node,
+                                                     final AppContext context) {
+            return Optional.ofNullable(
+                    context.unmarshallContext()
+                            .unmarshallWithType(node)
+            );
+        }
     },
 
     /**
@@ -139,6 +208,16 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                           final JsonNodeMarshallContext context) {
             return context.marshall(cell.style())
                     .setName(propertyName(cell));
+        }
+
+        @Override //
+        TextStyle unmarshall(final JsonNode node,
+                             final AppContext context) {
+            return context.unmarshallContext()
+                    .unmarshall(
+                            node,
+                            TextStyle.class
+                    );
         }
     },
 
@@ -157,6 +236,15 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                     cell,
                     cell.formattedValue(),
                     context
+            );
+        }
+
+        @Override //
+        Optional<Object> unmarshall(final JsonNode node,
+                                    final AppContext context) {
+            return Optional.ofNullable(
+                    context.unmarshallContext()
+                            .unmarshallWithType(node)
             );
         }
     };
@@ -213,6 +301,12 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
      */
     abstract JsonNode marshall(final SpreadsheetCell cell,
                                final JsonNodeMarshallContext context);
+
+    /**
+     * Internal method used because each of the different types clipboard values are marshalled differently.
+     */
+    abstract Object unmarshall(final JsonNode node,
+                               final AppContext context);
 
     /**
      * All {@Link SpreadsheetCellClipboardValueKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.

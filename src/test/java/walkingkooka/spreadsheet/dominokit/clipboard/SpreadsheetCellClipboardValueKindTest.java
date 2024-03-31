@@ -29,18 +29,31 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.cursor.TextCursors;
+import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -52,7 +65,9 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         HasMediaTypeTesting,
         HasUrlFragmentTesting,
         ParseStringTesting<SpreadsheetCellClipboardValueKind>,
-        PredicateTesting {
+        PredicateTesting,
+        SpreadsheetMetadataTesting,
+        TreePrintableTesting {
 
     private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
             SpreadsheetFormula.EMPTY.setText("=1+2")
@@ -637,6 +652,278 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
                 () -> kind + " " + cell
         );
     }
+
+    // unmarshall.......................................................................................................
+
+    @Test
+    public void testUnmarshallCellFormulaEmpty() {
+        this.unmarshallAndCheck(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+        );
+    }
+
+    @Test
+    public void testUnmarshallCellFormula() {
+        final String formula = "=1+2";
+
+        this.unmarshallAndCheck(
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText(formula)
+                ),
+                SpreadsheetSelection.A1.setFormula(
+                        parseFormula(formula)
+                )
+        );
+    }
+
+    @Test
+    public void testUnmarshallCellFormatPattern() {
+        final String formula = "=1+2";
+
+        final Optional<SpreadsheetFormatPattern> formatPattern = Optional.of(
+                SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+        );
+
+        this.unmarshallAndCheck(
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText(formula)
+                ).setFormatPattern(formatPattern),
+                SpreadsheetSelection.A1.setFormula(
+                        parseFormula(formula)
+                ).setFormatPattern(formatPattern)
+        );
+    }
+
+    @Test
+    public void testUnmarshallCellParsePattern() {
+        final String formula = "=1+2+333";
+
+        final Optional<SpreadsheetParsePattern> parsePattern = Optional.of(
+                SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+        );
+
+        this.unmarshallAndCheck(
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText(formula)
+                ).setParsePattern(parsePattern),
+                SpreadsheetSelection.A1.setFormula(
+                                SpreadsheetFormula.EMPTY.setText(formula)
+                        ).setParsePattern(parsePattern)
+                        .setFormula(
+                                parseFormula(formula)
+                        )
+        );
+    }
+
+    @Test
+    public void testUnmarshallCellStyle() {
+        final String formula = "=1+2";
+
+        final TextStyle style = TextStyle.EMPTY.set(
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.CENTER
+        );
+
+        this.unmarshallAndCheck(
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText(formula)
+                ).setStyle(style),
+                SpreadsheetSelection.A1.setFormula(
+                        parseFormula(formula)
+                ).setStyle(style)
+        );
+    }
+
+    @Test
+    public void testUnmarshallCellFormattedValue() {
+        final String formula = "=1+2";
+        final Optional<TextNode> formattedValue = Optional.of(
+                TextNode.text("3")
+        );
+
+        this.unmarshallAndCheck(
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText(formula)
+                ).setFormattedValue(formattedValue),
+                SpreadsheetSelection.A1.setFormula(
+                                SpreadsheetFormula.EMPTY.setText(formula)
+                        ).setFormattedValue(formattedValue)
+                        .setFormula(
+                                parseFormula(formula)
+                        )
+        );
+    }
+
+    @Test
+    public void testUnmarshallFormulaEmpty() {
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA,
+                JsonNode.string(""),
+                SpreadsheetFormula.EMPTY
+        );
+    }
+
+    @Test
+    public void testUnmarshallFormula() {
+        final String formula = "=1+2";
+
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA,
+                JsonNode.string(formula),
+                parseFormula(formula)
+        );
+    }
+
+    @Test
+    public void testUnmarshallFormatPatternEmpty() {
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                JsonNode.nullNode(),
+                Optional.empty()
+        );
+    }
+
+    @Test
+    public void testUnmarshallFormatPattern() {
+        final SpreadsheetDateFormatPattern pattern = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd");
+
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                APP_CONTEXT.marshallContext()
+                        .marshallWithType(pattern),
+                Optional.of(pattern)
+        );
+    }
+
+    @Test
+    public void testUnmarshallParsePatternEmpty() {
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                JsonNode.nullNode(),
+                Optional.empty()
+        );
+    }
+
+    @Test
+    public void testUnmarshallParsePattern() {
+        final SpreadsheetDateParsePattern pattern = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd");
+
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                APP_CONTEXT.marshallContext()
+                        .marshallWithType(pattern),
+                Optional.of(pattern)
+        );
+    }
+
+    @Test
+    public void testUnmarshallStyleEmpty() {
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.STYLE,
+                JsonNode.object(),
+                TextStyle.EMPTY
+        );
+    }
+
+    @Test
+    public void testUnmarshallStyleNotEmpty() {
+        final TextStyle style = TextStyle.EMPTY.set(
+                TextStylePropertyName.TEXT_ALIGN,
+                TextAlign.CENTER
+        );
+
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.STYLE,
+                APP_CONTEXT.marshallContext()
+                        .marshall(style),
+                style
+        );
+    }
+
+    @Test
+    public void testUnmarshallFormattedValueEmpty() {
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                JsonNode.nullNode(),
+                Optional.empty()
+        );
+    }
+
+    @Test
+    public void testUnmarshallFormattedValue() {
+        final String value = "Text123";
+
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                APP_CONTEXT.marshallContext()
+                        .marshallWithType(value),
+                Optional.of(value)
+        );
+    }
+
+    private void unmarshallAndCheck(final SpreadsheetCell cell) {
+        this.unmarshallAndCheck(
+                cell,
+                cell
+        );
+    }
+
+    private void unmarshallAndCheck(final SpreadsheetCell cell,
+                                    final SpreadsheetCell expected) {
+        this.unmarshallAndCheck(
+                SpreadsheetCellClipboardValueKind.CELL,
+                JsonNode.object()
+                        .appendChild(
+                                SpreadsheetCellClipboardValueKind.CELL.marshall(
+                                        cell,
+                                        APP_CONTEXT.marshallContext()
+                                )
+                        ),
+                expected
+        );
+    }
+
+    private void unmarshallAndCheck(final SpreadsheetCellClipboardValueKind kind,
+                                    final JsonNode node,
+                                    final Object expected) {
+        this.checkEquals(
+                expected,
+                kind.unmarshall(
+                        node,
+                        APP_CONTEXT
+                ),
+                () -> kind + " " + node
+        );
+    }
+
+    private static SpreadsheetFormula parseFormula(final String text) {
+        return SpreadsheetFormula.parse(
+                TextCursors.charSequence(text),
+                METADATA_EN_AU
+                        .parser(),
+                METADATA_EN_AU
+                        .parserContext(LocalDateTime::now)
+        );
+    }
+
+    private final static AppContext APP_CONTEXT = new FakeAppContext() {
+        @Override
+        public SpreadsheetMetadata spreadsheetMetadata() {
+            return METADATA_EN_AU;
+        }
+
+        @Override
+        public JsonNodeMarshallContext marshallContext() {
+            return this.spreadsheetMetadata()
+                    .jsonNodeMarshallContext();
+        }
+
+        @Override
+        public JsonNodeUnmarshallContext unmarshallContext() {
+            return this.spreadsheetMetadata()
+                    .jsonNodeUnmarshallContext();
+        }
+    };
 
     // ClassTesting.....................................................................................................
 
