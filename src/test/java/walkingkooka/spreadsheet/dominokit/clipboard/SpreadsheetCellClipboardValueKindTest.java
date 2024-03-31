@@ -33,6 +33,10 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.json.JsonNode;
+import walkingkooka.tree.json.JsonPropertyName;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -446,6 +450,191 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
                 expected,
                 SpreadsheetCellClipboardValueKind.fromMediaType(mediaType),
                 () -> "fromMediaType " + mediaType
+        );
+    }
+
+    // marshall.........................................................................................................
+
+    @Test
+    public void testMarshallCell() {
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=1+2")
+                ).setFormatPattern(
+                        Optional.of(
+                                SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                        )
+                ).setParsePattern(
+                        Optional.of(
+                                SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                        )
+                ).setStyle(
+                        TextStyle.EMPTY.set(
+                                TextStylePropertyName.TEXT_ALIGN,
+                                TextAlign.CENTER
+                        )
+                ),
+                "{\n" +
+                        "  \"formula\": {\n" +
+                        "    \"text\": \"=1+2\"\n" +
+                        "  },\n" +
+                        "  \"style\": {\n" +
+                        "    \"text-align\": \"CENTER\"\n" +
+                        "  },\n" +
+                        "  \"parse-pattern\": {\n" +
+                        "    \"type\": \"spreadsheet-number-parse-pattern\",\n" +
+                        "    \"value\": \"$0.00\"\n" +
+                        "  },\n" +
+                        "  \"format-pattern\": {\n" +
+                        "    \"type\": \"spreadsheet-date-format-pattern\",\n" +
+                        "    \"value\": \"yyyy/mm/dd\"\n" +
+                        "  }\n" +
+                        "}"
+        );
+    }
+
+    @Test
+    public void testMarshallFormulaEmpty() {
+        final String formula = "";
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText(formula)
+                ),
+                JsonNode.string(formula)
+        );
+    }
+
+    @Test
+    public void testMarshallFormula() {
+        final String formula = "=1+2+3";
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText(formula)
+                ),
+                JsonNode.string(formula)
+        );
+    }
+
+    @Test
+    public void testMarshallFormatPatternEmpty() {
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                JsonNode.nullNode()
+        );
+    }
+
+    @Test
+    public void testMarshallFormatPattern() {
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                        .setFormatPattern(
+                                Optional.of(
+                                        SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                                )
+                        ),
+                "{\n" +
+                        "  \"type\": \"spreadsheet-date-format-pattern\",\n" +
+                        "  \"value\": \"yyyy/mm/dd\"\n" +
+                        "}"
+        );
+    }
+
+    @Test
+    public void testMarshallParsePatternEmpty() {
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                JsonNode.nullNode()
+        );
+    }
+
+    @Test
+    public void testMarshallParsePattern() {
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                        .setParsePattern(
+                                Optional.of(
+                                        SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
+                                )
+                        ),
+                "{\n" +
+                        "  \"type\": \"spreadsheet-date-parse-pattern\",\n" +
+                        "  \"value\": \"yyyy/mm/dd\"\n" +
+                        "}"
+        );
+    }
+
+    @Test
+    public void testMarshallStyle() {
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                        .setStyle(
+                                TextStyle.EMPTY.set(
+                                        TextStylePropertyName.TEXT_ALIGN,
+                                        TextAlign.CENTER
+                                )
+                        ),
+                "{\n" +
+                        "  \"text-align\": \"CENTER\"\n" +
+                        "}"
+        );
+    }
+
+    @Test
+    public void testMarshallFormattedValueEmpty() {
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                JsonNode.nullNode()
+        );
+    }
+
+    @Test
+    public void testMarshallFormattedValue() {
+        this.marshallAndCheck(
+                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                        .setFormattedValue(
+                                Optional.of(
+                                        TextNode.text("Hello")
+                                )
+                        ),
+                "{\n" +
+                        "  \"type\": \"text\",\n" +
+                        "  \"value\": \"Hello\"\n" +
+                        "}"
+        );
+    }
+
+    private void marshallAndCheck(final SpreadsheetCellClipboardValueKind kind,
+                                  final SpreadsheetCell cell,
+                                  final String expected) {
+        this.marshallAndCheck(
+                kind,
+                cell,
+                JsonNode.parse(expected)
+        );
+    }
+
+    private void marshallAndCheck(final SpreadsheetCellClipboardValueKind kind,
+                                  final SpreadsheetCell cell,
+                                  final JsonNode expected) {
+        this.checkEquals(
+                expected.setName(
+                        JsonPropertyName.with("A1")
+                ),
+                kind.marshall(
+                        cell,
+                        JsonNodeMarshallContexts.basic()
+                ),
+                () -> kind + " " + cell
         );
     }
 
