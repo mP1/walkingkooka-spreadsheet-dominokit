@@ -22,24 +22,34 @@ import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.iterator.Iterators;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
+import walkingkooka.color.Color;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasTextTesting;
+import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.FontStyle;
+import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -51,6 +61,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextItem>,
         HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
         HasTextTesting,
+        SpreadsheetMetadataTesting,
         ToStringTesting<ClipboardTextItem>,
         TreePrintableTesting {
 
@@ -874,6 +885,318 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
+    // toSpreadsheetCellClipboardRange........................................................................................
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeNullContextFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createObject().toSpreadsheetCellClipboardRange(null)
+        );
+    }
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeInvalidMediaType() {
+        final IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> ClipboardTextItem.with(
+                                Lists.of(
+                                        MediaType.IMAGE_BMP
+                                ),
+                                "{\n" +
+                                        "  \"mediaType\": \"text/invalid123\",\n" +
+                                        "  \"cell-range\": \"A1:B2\",\n" +
+                                        "  \"value\": true\n" +
+                                        "}"
+                        )
+                        .toSpreadsheetCellClipboardRange(
+                                new FakeAppContext() {
+                                    @Override
+                                    public JsonNodeUnmarshallContext unmarshallContext() {
+                                        return METADATA_EN_AU.jsonNodeUnmarshallContext();
+                                    }
+                                })
+        );
+
+        this.checkEquals(
+                "Unsupported clipboard media type image/bmp expected text/plain",
+                thrown.getMessage()
+        );
+    }
+
+    private final static SpreadsheetCellReference B2 = SpreadsheetSelection.parseCell("b2");
+    private final static SpreadsheetCellReference C3 = SpreadsheetSelection.parseCell("C3");
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeCell() {
+        this.toSpreadsheetCellClipboardRangeAndCheck(
+                "{\n" +
+                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                        "  \"cell-range\": \"A1:B2\",\n" +
+                        "  \"value\": {\n" +
+                        "    \"A1\": {\n" +
+                        "      \"formula\": {\n" +
+                        "        \"text\": \"=1\"\n" +
+                        "      },\n" +
+                        "      \"style\": {\n" +
+                        "        \"text-align\": \"CENTER\"\n" +
+                        "      }\n" +
+                        "    }\n" +
+                        "  }\n" +
+                        "}",
+                SpreadsheetCellClipboardRange.with(
+                        SpreadsheetSelection.parseCellRange("A1:B2"),
+                        Maps.of(
+                                SpreadsheetSelection.A1,
+                                SpreadsheetSelection.A1.setFormula(
+                                        parseFormula("=1")
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(
+                                                TextStylePropertyName.TEXT_ALIGN,
+                                                TextAlign.CENTER
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeCell2() {
+        this.toSpreadsheetCellClipboardRangeAndCheck(
+                "{\n" +
+                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                        "  \"cell-range\": \"A1:B2\",\n" +
+                        "  \"value\": {\n" +
+                        "    \"A1\": {\n" +
+                        "      \"formula\": {\n" +
+                        "        \"text\": \"=1\"\n" +
+                        "      },\n" +
+                        "      \"style\": {\n" +
+                        "        \"text-align\": \"CENTER\"\n" +
+                        "      }\n" +
+                        "    },\n" +
+                        "    \"B2\": {\n" +
+                        "      \"formula\": {\n" +
+                        "        \"text\": \"=22\"\n" +
+                        "      },\n" +
+                        "      \"format-pattern\": {\n" +
+                        "        \"type\": \"spreadsheet-text-format-pattern\",\n" +
+                        "        \"value\": \"@\"\n" +
+                        "      }\n" +
+                        "    }\n" +
+                        "  }\n" +
+                        "}",
+                SpreadsheetCellClipboardRange.with(
+                        SpreadsheetSelection.parseCellRange("A1:B2"),
+                        Maps.of(
+                                SpreadsheetSelection.A1,
+                                SpreadsheetSelection.A1.setFormula(
+                                        parseFormula("=1")
+                                ).setStyle(
+                                        TextStyle.EMPTY.set(
+                                                TextStylePropertyName.TEXT_ALIGN,
+                                                TextAlign.CENTER
+                                        )
+                                ),
+                                B2,
+                                B2.setFormula(
+                                        parseFormula("=22")
+                                ).setFormatPattern(
+                                        Optional.of(
+                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeFormula() {
+        this.toSpreadsheetCellClipboardRangeAndCheck(
+                "{\n" +
+                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                        "  \"cell-range\": \"A1:B2\",\n" +
+                        "  \"value\": {\n" +
+                        "    \"A1\": \"=1\",\n" +
+                        "    \"B2\": \"=2+33\"\n" +
+                        "  }\n" +
+                        "}",
+                SpreadsheetCellClipboardRange.with(
+                        SpreadsheetSelection.parseCellRange("A1:B2"),
+                        Maps.of(
+                                SpreadsheetSelection.A1,
+                                parseFormula("=1"),
+                                B2,
+                                parseFormula("=2+33")
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeFormatPattern() {
+        this.toSpreadsheetCellClipboardRangeAndCheck(
+                "{\n" +
+                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                        "  \"cell-range\": \"A1:B2\",\n" +
+                        "  \"value\": {\n" +
+                        "    \"A1\": {\n" +
+                        "      \"type\": \"spreadsheet-date-format-pattern\",\n" +
+                        "      \"value\": \"dd/mm/yyyy\"\n" +
+                        "    },\n" +
+                        "    \"B2\": {\n" +
+                        "      \"type\": \"spreadsheet-number-format-pattern\",\n" +
+                        "      \"value\": \"$0.00\"\n" +
+                        "    }\n" +
+                        "  }\n" +
+                        "}",
+                SpreadsheetCellClipboardRange.with(
+                        SpreadsheetSelection.parseCellRange("A1:B2"),
+                        Maps.of(
+                                SpreadsheetSelection.A1,
+                                Optional.of(
+                                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                                ),
+                                B2,
+                                Optional.of(
+                                        SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                                )
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeParsePattern() {
+        this.toSpreadsheetCellClipboardRangeAndCheck(
+                "{\n" +
+                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                        "  \"cell-range\": \"A1:B2\",\n" +
+                        "  \"value\": {\n" +
+                        "    \"A1\": {\n" +
+                        "      \"type\": \"spreadsheet-date-parse-pattern\",\n" +
+                        "      \"value\": \"dd/mm/yyyy\"\n" +
+                        "    },\n" +
+                        "    \"B2\": {\n" +
+                        "      \"type\": \"spreadsheet-number-parse-pattern\",\n" +
+                        "      \"value\": \"$0.00\"\n" +
+                        "    }\n" +
+                        "  }\n" +
+                        "}",
+                SpreadsheetCellClipboardRange.with(
+                        SpreadsheetSelection.parseCellRange("A1:B2"),
+                        Maps.of(
+                                SpreadsheetSelection.A1,
+                                Optional.of(
+                                        SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                                ),
+                                B2,
+                                Optional.of(
+                                        SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                                )
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeStyle() {
+        this.toSpreadsheetCellClipboardRangeAndCheck(
+                "{\n" +
+                        "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                        "  \"cell-range\": \"A1:B2\",\n" +
+                        "  \"value\": {\n" +
+                        "    \"A1\": {\n" +
+                        "      \"color\": \"#000\"\n" +
+                        "    },\n" +
+                        "    \"B2\": {\n" +
+                        "      \"font-weight\": \"bold\",\n" +
+                        "      \"text-align\": \"LEFT\"\n" +
+                        "    }\n" +
+                        "  }\n" +
+                        "}",
+                SpreadsheetCellClipboardRange.with(
+                        SpreadsheetSelection.parseCellRange("A1:B2"),
+                        Maps.of(
+                                SpreadsheetSelection.A1,
+                                TextStyle.EMPTY.set(
+                                        TextStylePropertyName.COLOR,
+                                        Color.BLACK
+                                ),
+                                B2,
+                                TextStyle.EMPTY.set(
+                                        TextStylePropertyName.FONT_WEIGHT,
+                                        FontWeight.BOLD
+                                ).set(
+                                        TextStylePropertyName.TEXT_ALIGN,
+                                        TextAlign.LEFT
+                                )
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testToSpreadsheetCellClipboardRangeFormattedValue() {
+        this.toSpreadsheetCellClipboardRangeAndCheck(
+                "{\n" +
+                        "     \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                        "     \"cell-range\": \"A1:C3\",\n" +
+                        "     \"value\": {\n" +
+                        "         \"A1\": {\n" +
+                        "             \"type\": \"text\",\n" +
+                        "             \"value\": \"111\"\n" +
+                        "           },\n" +
+                        "         \"B2\": {\n" +
+                        "             \"type\": \"text\",\n" +
+                        "             \"value\": \"222bbb\"\n" +
+                        "           },\n" +
+                        "         \"C3\": null\n" +
+                        "       }\n" +
+                        "   }",
+                SpreadsheetCellClipboardRange.with(
+                        SpreadsheetSelection.parseCellRange("A1:C3"),
+                        Maps.of(
+                                SpreadsheetSelection.A1,
+                                Optional.of(
+                                        TextNode.text("111")
+                                ),
+                                B2,
+                                Optional.of(
+                                        TextNode.text("222bbb")
+                                ),
+                                C3,
+                                Optional.empty()
+                        )
+                )
+        );
+    }
+
+    private void toSpreadsheetCellClipboardRangeAndCheck(final String text,
+                                                         final SpreadsheetCellClipboardRange<?> expected) {
+        this.checkEquals(
+                expected,
+                ClipboardTextItem.with(
+                                Lists.of(ClipboardTextItem.MEDIA_TYPE),
+                                text
+                        )
+                        .toSpreadsheetCellClipboardRange(
+                                new FakeAppContext() {
+                                    @Override
+                                    public JsonNodeUnmarshallContext unmarshallContext() {
+                                        return METADATA_EN_AU.jsonNodeUnmarshallContext();
+                                    }
+
+                                    @Override
+                                    public SpreadsheetMetadata spreadsheetMetadata() {
+                                        return METADATA_EN_AU;
+                                    }
+                                })
+        );
+    }
+
     // equals...........................................................................................................
 
     @Test
@@ -997,6 +1320,16 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 expected,
                 clipboardTextItem.text(),
                 "text"
+        );
+    }
+
+    private static SpreadsheetFormula parseFormula(final String text) {
+        return SpreadsheetFormula.parse(
+                TextCursors.charSequence(text),
+                METADATA_EN_AU
+                        .parser(),
+                METADATA_EN_AU
+                        .parserContext(LocalDateTime::now)
         );
     }
 }

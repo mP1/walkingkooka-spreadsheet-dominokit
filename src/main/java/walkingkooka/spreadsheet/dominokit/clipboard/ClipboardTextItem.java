@@ -19,11 +19,14 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -34,6 +37,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -226,7 +230,8 @@ public final class ClipboardTextItem implements HasText,
     /**
      * Because of clipboard API limitations text/plain is used even for JSON.
      */
-    private final static MediaType MEDIA_TYPE = MediaType.TEXT_PLAIN;
+    // @VisibleForTesting
+    final static MediaType MEDIA_TYPE = MediaType.TEXT_PLAIN;
 
     private final static JsonPropertyName MEDIA_TYPE_PROPERTY_NAME = JsonPropertyName.with("mediaType");
 
@@ -289,6 +294,78 @@ public final class ClipboardTextItem implements HasText,
     }
 
     private final String text;
+
+    /**
+     * Verifies the type and reads the values from the JSON payload. This is typically an intermediate step
+     * before moving relative references in any formulas and then patching the target range.
+     */
+    public SpreadsheetCellClipboardRange<?> toSpreadsheetCellClipboardRange(final AppContext context) {
+        Objects.requireNonNull(context, "context");
+
+        this.checkMediaType();
+
+        final JsonObject json = this.readJson();
+
+        final SpreadsheetCellClipboardValueKind kind = SpreadsheetCellClipboardValueKind.fromMediaType(
+                MediaType.parse(
+                        json.getOrFail(MEDIA_TYPE_PROPERTY_NAME)
+                                .stringOrFail()
+                )
+        );
+
+        final SpreadsheetCellRange range = SpreadsheetSelection.parseCellRange(
+                json.getOrFail(CELL_RANGE_PROPERTY_NAME)
+                        .stringOrFail()
+        );
+
+        final Map<SpreadsheetCellReference, Object> values = Maps.sorted();
+
+        for (final JsonNode value : json.getOrFail(VALUE_PROPERTY_NAME)
+                .objectOrFail()
+                .children()) {
+            final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell(
+                    value.name()
+                            .value()
+            );
+
+            values.put(
+                    cell,
+                    kind.unmarshall(
+                            value,
+                            context
+                    )
+            );
+        }
+
+        return SpreadsheetCellClipboardRange.with(
+                range,
+                values
+        );
+    }
+
+    private void checkMediaType() {
+        final List<MediaType> types = this.types;
+        if (types.stream()
+                .noneMatch(MEDIA_TYPE::equals)) {
+            throw new IllegalArgumentException(
+                    "Unsupported clipboard media type " +
+                            types.stream()
+                                    .map(Object::toString)
+                                    .collect(Collectors.joining(", ")) +
+                            " expected " +
+                            MEDIA_TYPE
+            );
+        }
+    }
+
+    private JsonObject readJson() {
+        try {
+            return JsonNode.parse(this.text())
+                    .objectOrFail();
+        } catch (final RuntimeException cause) {
+            throw new IllegalArgumentException("Invalid json: " + cause.getMessage(), cause);
+        }
+    }
 
     // Object...........................................................................................................
 
