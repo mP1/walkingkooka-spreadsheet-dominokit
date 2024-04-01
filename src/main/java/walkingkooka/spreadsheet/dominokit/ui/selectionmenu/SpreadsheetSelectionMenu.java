@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -53,6 +54,8 @@ import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
@@ -624,7 +627,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         final String borderIdPrefix = context.idPrefix() + "border-";
 
-        for (final BoxEdge boxEdge : BORDER_BOX_EDGE) {
+        for (final Entry<BoxEdge, MdiIcon> boxEdgeAndIcon : BORDER_BOX_EDGE_AND_ICONS.entrySet()) {
+            final BoxEdge boxEdge = boxEdgeAndIcon.getKey();
+
             final String enumName = boxEdge.name();
             final String idPrefix = borderIdPrefix + enumName.toLowerCase() + '-';
 
@@ -635,7 +640,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             CaseKind.SNAKE.change(
                                     enumName,
                                     CaseKind.TITLE
-                            ) // label
+                            ), // label
+                            boxEdgeAndIcon.getValue() // icon
                     ),
                     boxEdge,
                     context
@@ -643,11 +649,15 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         }
     }
 
-    private final static List<BoxEdge> BORDER_BOX_EDGE = Lists.of(
+    private final static Map<BoxEdge, MdiIcon> BORDER_BOX_EDGE_AND_ICONS = Maps.of(
             BoxEdge.TOP,
+            SpreadsheetIcons.borderTop(),
             BoxEdge.LEFT,
+            SpreadsheetIcons.borderLeft(),
             BoxEdge.RIGHT,
-            BoxEdge.BOTTOM
+            SpreadsheetIcons.borderRight(),
+            BoxEdge.BOTTOM,
+            SpreadsheetIcons.borderBottom()
     );
 
     // COLOR
