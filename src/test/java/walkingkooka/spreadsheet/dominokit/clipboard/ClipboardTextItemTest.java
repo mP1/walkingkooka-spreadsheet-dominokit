@@ -43,6 +43,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextItem>,
@@ -96,6 +98,46 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
         this.checkTypes(clipboardTextItem);
         this.checkText(clipboardTextItem);
+    }
+
+    // setTypes.........................................................................................................
+
+    @Test
+    public void testSetTypesWithNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createObject().setTypes(null)
+        );
+    }
+
+    @Test
+    public void testSetTypesWithSame() {
+        final ClipboardTextItem clipboard = this.createObject();
+        assertSame(
+                clipboard,
+                clipboard.setTypes(TYPES)
+        );
+    }
+
+    @Test
+    public void testSetTypesWithDifferent() {
+        final ClipboardTextItem clipboard = this.createObject();
+
+        final List<MediaType> differentTypes = Lists.of(
+                MediaType.ANY_TEXT
+        );
+        final ClipboardTextItem different = clipboard.setTypes(differentTypes);
+
+        assertNotSame(
+                clipboard,
+                different
+        );
+
+        this.checkTypes(clipboard);
+        this.checkText(clipboard);
+
+        this.checkTypes(different, differentTypes);
+        this.checkText(different);
     }
 
     // toJson.........................................................................................................

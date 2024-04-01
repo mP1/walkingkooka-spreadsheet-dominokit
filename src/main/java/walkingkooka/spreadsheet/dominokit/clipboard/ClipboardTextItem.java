@@ -183,6 +183,18 @@ public final class ClipboardTextItem implements TreePrintable {
         return this.types;
     }
 
+    public ClipboardTextItem setTypes(final List<MediaType> types) {
+        Objects.requireNonNull(types, "types");
+
+        final List<MediaType> copy = Lists.immutable(types);
+        return this.types.equals(copy) ?
+                this :
+                new ClipboardTextItem(
+                        copy,
+                        this.text
+                );
+    }
+
     private final List<MediaType> types;
 
     public String text() {
