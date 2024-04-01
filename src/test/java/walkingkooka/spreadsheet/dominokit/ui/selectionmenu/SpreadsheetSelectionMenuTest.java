@@ -189,6 +189,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-top-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px]\n" +
                         "          test-border-top-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px]\n" +
                         "          test-border-top-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px]\n" +
+                        "          (mdi-format-clear) test-border-top-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/]\n" +
                         "      test-border-left--SubMenu \"Left\"\n" +
                         "        (mdi-palette) test-test-border-left-color-SubMenu \"Color\"\n" +
                         "          metadata color picker\n" +
@@ -204,6 +205,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-left-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px]\n" +
                         "          test-border-left-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px]\n" +
                         "          test-border-left-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px]\n" +
+                        "          (mdi-format-clear) test-border-left-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/]\n" +
                         "      test-border-right--SubMenu \"Right\"\n" +
                         "        (mdi-palette) test-test-border-right-color-SubMenu \"Color\"\n" +
                         "          metadata color picker\n" +
@@ -219,6 +221,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-right-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px]\n" +
                         "          test-border-right-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px]\n" +
                         "          test-border-right-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px]\n" +
+                        "          (mdi-format-clear) test-border-right-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/]\n" +
                         "      test-border-bottom--SubMenu \"Bottom\"\n" +
                         "        (mdi-palette) test-test-border-bottom-color-SubMenu \"Color\"\n" +
                         "          metadata color picker\n" +
@@ -234,6 +237,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-bottom-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px]\n" +
                         "          test-border-bottom-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px]\n" +
                         "          test-border-bottom-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px]\n" +
+                        "          (mdi-format-clear) test-border-bottom-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/]\n" +
                         "    (mdi-format-clear) test-clear-style-MenuItem \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/]\n" +
                         "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
                         "    test-format-date-SubMenu \"Date\"\n" +

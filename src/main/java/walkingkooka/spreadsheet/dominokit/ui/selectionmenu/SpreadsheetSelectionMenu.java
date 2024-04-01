@@ -768,6 +768,21 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     context
             );
         }
+
+        // clear
+        borderWidthSubMenu.item(
+                context.historyToken()
+                        .setStyle(propertyName)
+                        .clearSave()
+                        .contextMenuItem(
+                                idPrefix + "-clear" + SpreadsheetIds.MENU_ITEM, // id
+                                "Clear"
+                        ).icon(
+                                Optional.of(
+                                        SpreadsheetIcons.borderStyleClear()
+                                )
+                        )
+        );
     }
 
     // alignment........................................................................................................
