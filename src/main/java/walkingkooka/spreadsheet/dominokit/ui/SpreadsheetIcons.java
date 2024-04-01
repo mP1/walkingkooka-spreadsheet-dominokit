@@ -83,6 +83,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.border_style();
     }
 
+    public static MdiIcon borderStyleClear() {
+        return Icons.format_clear();
+    }
+
     public static MdiIcon borderTop() {
         return Icons.border_top_variant();
     }
