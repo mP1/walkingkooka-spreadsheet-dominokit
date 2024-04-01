@@ -201,6 +201,17 @@ public final class ClipboardTextItem implements TreePrintable {
         return this.text;
     }
 
+    public ClipboardTextItem setText(final String text) {
+        Objects.requireNonNull(text, "text");
+
+        return this.text.equals(text) ?
+                this :
+                new ClipboardTextItem(
+                        this.types,
+                        text
+                );
+    }
+
     private final String text;
 
     // Object...........................................................................................................

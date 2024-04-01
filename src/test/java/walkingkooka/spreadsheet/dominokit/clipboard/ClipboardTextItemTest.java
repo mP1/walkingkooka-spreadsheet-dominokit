@@ -140,6 +140,44 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         this.checkText(different);
     }
 
+    // setTexts.........................................................................................................
+
+    @Test
+    public void testSetTextsWithNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createObject().setText(null)
+        );
+    }
+
+    @Test
+    public void testSetTextsWithSame() {
+        final ClipboardTextItem clipboard = this.createObject();
+        assertSame(
+                clipboard,
+                clipboard.setText(TEXT)
+        );
+    }
+
+    @Test
+    public void testSetTextWithDifferent() {
+        final ClipboardTextItem clipboard = this.createObject();
+
+        final String differentText = "different";
+        final ClipboardTextItem different = clipboard.setText(differentText);
+
+        assertNotSame(
+                clipboard,
+                different
+        );
+
+        this.checkTypes(clipboard);
+        this.checkText(clipboard);
+
+        this.checkTypes(different);
+        this.checkText(different, differentText);
+    }
+
     // toJson.........................................................................................................
 
     @Test
