@@ -305,23 +305,23 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    test-column-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1]\n" +
                         "    test-column-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2]\n" +
                         "    test-column-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3]\n" +
-                        "    test-column-insert-before-MenuItem \"...\" [/1/SpreadsheetName-1/column/A/insertBefore]\n" +
+                        "    test-column-insert-before-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/column/A/insertBefore]\n" +
                         "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
                         "    test-column-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1]\n" +
                         "    test-column-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2]\n" +
                         "    test-column-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3]\n" +
-                        "    test-column-insert-after-MenuItem \"...\" [/1/SpreadsheetName-1/column/A/insertAfter]\n" +
+                        "    test-column-insert-after-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/column/A/insertAfter]\n" +
                         "  -----\n" +
                         "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
                         "    test-row-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1]\n" +
                         "    test-row-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2]\n" +
                         "    test-row-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3]\n" +
-                        "    test-row-insert-before-MenuItem \"...\" [/1/SpreadsheetName-1/row/1/insertBefore]\n" +
+                        "    test-row-insert-before-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/row/1/insertBefore]\n" +
                         "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
                         "    test-row-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1]\n" +
                         "    test-row-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2]\n" +
                         "    test-row-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3]\n" +
-                        "    test-row-insert-after-MenuItem \"...\" [/1/SpreadsheetName-1/row/1/insertAfter]\n" +
+                        "    test-row-insert-after-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/row/1/insertAfter]\n" +
                         "  -----\n" +
                         "  test-freeze-MenuItem \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze]\n" +
                         "  test-unfreeze-MenuItem \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze]\n" +
@@ -389,12 +389,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    test-column-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/B/insertBefore/1]\n" +
                         "    test-column-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/B/insertBefore/2]\n" +
                         "    test-column-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/B/insertBefore/3]\n" +
-                        "    test-column-insert-before-MenuItem \"...\" [/1/SpreadsheetName-1/column/B/insertBefore]\n" +
+                        "    test-column-insert-before-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/column/B/insertBefore]\n" +
                         "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
                         "    test-column-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/B/insertAfter/1]\n" +
                         "    test-column-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/B/insertAfter/2]\n" +
                         "    test-column-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/B/insertAfter/3]\n" +
-                        "    test-column-insert-after-MenuItem \"...\" [/1/SpreadsheetName-1/column/B/insertAfter]\n" +
+                        "    test-column-insert-after-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/column/B/insertAfter]\n" +
                         "  -----\n" +
                         "  test-freeze-MenuItem \"Freeze\"\n" +
                         "  test-unfreeze-MenuItem \"Unfreeze\"\n"
@@ -458,12 +458,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    test-row-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3/insertBefore/1]\n" +
                         "    test-row-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3/insertBefore/2]\n" +
                         "    test-row-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3/insertBefore/3]\n" +
-                        "    test-row-insert-before-MenuItem \"...\" [/1/SpreadsheetName-1/row/3/insertBefore]\n" +
+                        "    test-row-insert-before-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/row/3/insertBefore]\n" +
                         "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
                         "    test-row-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3/insertAfter/1]\n" +
                         "    test-row-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3/insertAfter/2]\n" +
                         "    test-row-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3/insertAfter/3]\n" +
-                        "    test-row-insert-after-MenuItem \"...\" [/1/SpreadsheetName-1/row/3/insertAfter]\n" +
+                        "    test-row-insert-after-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/row/3/insertAfter]\n" +
                         "  -----\n" +
                         "  test-freeze-MenuItem \"Freeze\"\n" +
                         "  test-unfreeze-MenuItem \"Unfreeze\"\n"
