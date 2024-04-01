@@ -184,11 +184,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-top-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID]\n" +
                         "          (mdi-format-clear) test-border-top-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/]\n" +
                         "        test-border-top-width-SubMenu \"Width\"\n" +
-                        "          test-border-top-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px]\n" +
-                        "          test-border-top-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px]\n" +
-                        "          test-border-top-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px]\n" +
-                        "          test-border-top-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px]\n" +
-                        "          test-border-top-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px]\n" +
+                        "          test-border-top-width-0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px]\n" +
+                        "          test-border-top-width-1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px]\n" +
+                        "          test-border-top-width-2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px]\n" +
+                        "          test-border-top-width-3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px]\n" +
+                        "          test-border-top-width-4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px]\n" +
                         "          (mdi-format-clear) test-border-top-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/]\n" +
                         "      test-border-left--SubMenu \"Left\"\n" +
                         "        (mdi-palette) test-test-border-left-color-SubMenu \"Color\"\n" +
@@ -200,11 +200,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-left-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID]\n" +
                         "          (mdi-format-clear) test-border-left-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/]\n" +
                         "        test-border-left-width-SubMenu \"Width\"\n" +
-                        "          test-border-left-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px]\n" +
-                        "          test-border-left-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px]\n" +
-                        "          test-border-left-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px]\n" +
-                        "          test-border-left-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px]\n" +
-                        "          test-border-left-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px]\n" +
+                        "          test-border-left-width-0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px]\n" +
+                        "          test-border-left-width-1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px]\n" +
+                        "          test-border-left-width-2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px]\n" +
+                        "          test-border-left-width-3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px]\n" +
+                        "          test-border-left-width-4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px]\n" +
                         "          (mdi-format-clear) test-border-left-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/]\n" +
                         "      test-border-right--SubMenu \"Right\"\n" +
                         "        (mdi-palette) test-test-border-right-color-SubMenu \"Color\"\n" +
@@ -216,11 +216,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-right-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID]\n" +
                         "          (mdi-format-clear) test-border-right-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/]\n" +
                         "        test-border-right-width-SubMenu \"Width\"\n" +
-                        "          test-border-right-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px]\n" +
-                        "          test-border-right-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px]\n" +
-                        "          test-border-right-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px]\n" +
-                        "          test-border-right-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px]\n" +
-                        "          test-border-right-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px]\n" +
+                        "          test-border-right-width-0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px]\n" +
+                        "          test-border-right-width-1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px]\n" +
+                        "          test-border-right-width-2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px]\n" +
+                        "          test-border-right-width-3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px]\n" +
+                        "          test-border-right-width-4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px]\n" +
                         "          (mdi-format-clear) test-border-right-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/]\n" +
                         "      test-border-bottom--SubMenu \"Bottom\"\n" +
                         "        (mdi-palette) test-test-border-bottom-color-SubMenu \"Color\"\n" +
@@ -232,11 +232,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-bottom-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID]\n" +
                         "          (mdi-format-clear) test-border-bottom-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/]\n" +
                         "        test-border-bottom-width-SubMenu \"Width\"\n" +
-                        "          test-border-bottom-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px]\n" +
-                        "          test-border-bottom-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px]\n" +
-                        "          test-border-bottom-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px]\n" +
-                        "          test-border-bottom-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px]\n" +
-                        "          test-border-bottom-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px]\n" +
+                        "          test-border-bottom-width-0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px]\n" +
+                        "          test-border-bottom-width-1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px]\n" +
+                        "          test-border-bottom-width-2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px]\n" +
+                        "          test-border-bottom-width-3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px]\n" +
+                        "          test-border-bottom-width-4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px]\n" +
                         "          (mdi-format-clear) test-border-bottom-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/]\n" +
                         "    (mdi-format-clear) test-clear-style-MenuItem \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/]\n" +
                         "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
