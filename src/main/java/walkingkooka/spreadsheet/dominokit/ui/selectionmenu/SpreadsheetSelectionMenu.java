@@ -883,22 +883,28 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final HistoryToken columnHistoryToken = historyToken.setColumn(
                     selection.toColumnOrColumnRange()
             );
+
+            final String beforeIdPrefix = context.idPrefix() + "column-insert-before";
+
             insertSubMenu(
                     menu.subMenu(
-                            context.idPrefix() + "insert-before-column" + SpreadsheetIds.SUB_MENU,
+                            beforeIdPrefix + SpreadsheetIds.SUB_MENU,
                             "Insert before column",
                             SpreadsheetIcons.columnInsertBefore()
                     ),
-                    context.idPrefix() + "insert-before-column-",
+                    beforeIdPrefix,
                     columnHistoryToken::setInsertBefore
             );
+
+            final String afterIdPrefix = context.idPrefix() + "column-insert-after";
+
             insertSubMenu(
                     menu.subMenu(
-                            context.idPrefix() + "insert-after-column" + SpreadsheetIds.SUB_MENU,
+                            afterIdPrefix + SpreadsheetIds.SUB_MENU,
                             "Insert after column",
                             SpreadsheetIcons.columnInsertAfter()
                     ),
-                    context.idPrefix() + "insert-after-column-",
+                    afterIdPrefix,
                     columnHistoryToken::setInsertAfter
             );
             menu.separator();
@@ -915,22 +921,28 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final HistoryToken rowHistoryToken = historyToken.setRow(
                     selection.toRowOrRowRange()
             );
+
+            final String beforeIdPrefix = context.idPrefix() + "row-insert-before";
+
             insertSubMenu(
                     menu.subMenu(
-                            context.idPrefix() + "insert-row-before" + SpreadsheetIds.SUB_MENU,
+                            beforeIdPrefix + SpreadsheetIds.SUB_MENU,
                             "Insert before row",
                             SpreadsheetIcons.rowInsertBefore()
                     ),
-                    context.idPrefix() + "insert-row-before-",
+                    beforeIdPrefix,
                     rowHistoryToken::setInsertBefore
             );
+
+            final String afterIdPrefix = context.idPrefix() + "row-insert-after";
+
             insertSubMenu(
                     menu.subMenu(
-                            context.idPrefix() + "insert-row-before" + SpreadsheetIds.SUB_MENU,
+                            afterIdPrefix + SpreadsheetIds.SUB_MENU,
                             "Insert after row",
                             SpreadsheetIcons.rowInsertAfter()
                     ),
-                    context.idPrefix() + "insert-row-before-",
+                    afterIdPrefix,
                     rowHistoryToken::setInsertAfter
             );
 
@@ -1015,7 +1027,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     setCount.apply(
                             OptionalInt.of(i)
                     ).contextMenuItem(
-                            idPrefix + "-" + i + SpreadsheetIds.MENU_ITEM,
+                            idPrefix + '-' + i + SpreadsheetIds.MENU_ITEM,
                             String.valueOf(i)
                     )
             );

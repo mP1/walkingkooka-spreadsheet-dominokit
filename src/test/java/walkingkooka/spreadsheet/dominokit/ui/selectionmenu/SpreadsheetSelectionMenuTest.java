@@ -301,27 +301,27 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-close) test-delete-MenuItem \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete]\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-insert-before-column-SubMenu \"Insert before column\"\n" +
-                        "    test-insert-before-column--1-MenuItem \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1]\n" +
-                        "    test-insert-before-column--2-MenuItem \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2]\n" +
-                        "    test-insert-before-column--3-MenuItem \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3]\n" +
-                        "    test-insert-before-column--MenuItem \"...\" [/1/SpreadsheetName-1/column/A/insertBefore]\n" +
-                        "  (mdi-table-column-plus-after) test-insert-after-column-SubMenu \"Insert after column\"\n" +
-                        "    test-insert-after-column--1-MenuItem \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1]\n" +
-                        "    test-insert-after-column--2-MenuItem \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2]\n" +
-                        "    test-insert-after-column--3-MenuItem \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3]\n" +
-                        "    test-insert-after-column--MenuItem \"...\" [/1/SpreadsheetName-1/column/A/insertAfter]\n" +
+                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "    test-column-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1]\n" +
+                        "    test-column-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2]\n" +
+                        "    test-column-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3]\n" +
+                        "    test-column-insert-before-MenuItem \"...\" [/1/SpreadsheetName-1/column/A/insertBefore]\n" +
+                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "    test-column-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1]\n" +
+                        "    test-column-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2]\n" +
+                        "    test-column-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3]\n" +
+                        "    test-column-insert-after-MenuItem \"...\" [/1/SpreadsheetName-1/column/A/insertAfter]\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-insert-row-before-SubMenu \"Insert before row\"\n" +
-                        "    test-insert-row-before--1-MenuItem \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1]\n" +
-                        "    test-insert-row-before--2-MenuItem \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2]\n" +
-                        "    test-insert-row-before--3-MenuItem \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3]\n" +
-                        "    test-insert-row-before--MenuItem \"...\" [/1/SpreadsheetName-1/row/1/insertBefore]\n" +
-                        "  (mdi-table-row-plus-after) test-insert-row-before-SubMenu \"Insert after row\"\n" +
-                        "    test-insert-row-before--1-MenuItem \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1]\n" +
-                        "    test-insert-row-before--2-MenuItem \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2]\n" +
-                        "    test-insert-row-before--3-MenuItem \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3]\n" +
-                        "    test-insert-row-before--MenuItem \"...\" [/1/SpreadsheetName-1/row/1/insertAfter]\n" +
+                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "    test-row-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1]\n" +
+                        "    test-row-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2]\n" +
+                        "    test-row-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3]\n" +
+                        "    test-row-insert-before-MenuItem \"...\" [/1/SpreadsheetName-1/row/1/insertBefore]\n" +
+                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "    test-row-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1]\n" +
+                        "    test-row-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2]\n" +
+                        "    test-row-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3]\n" +
+                        "    test-row-insert-after-MenuItem \"...\" [/1/SpreadsheetName-1/row/1/insertAfter]\n" +
                         "  -----\n" +
                         "  test-freeze-MenuItem \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze]\n" +
                         "  test-unfreeze-MenuItem \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze]\n" +
@@ -385,16 +385,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  test-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/column/B/clear]\n" +
                         "  (mdi-table-column-remove) test-delete-MenuItem \"Delete\" [/1/SpreadsheetName-1/column/B/delete]\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-insert-before-column-SubMenu \"Insert before column\"\n" +
-                        "    test-insert-before-column--1-MenuItem \"1\" [/1/SpreadsheetName-1/column/B/insertBefore/1]\n" +
-                        "    test-insert-before-column--2-MenuItem \"2\" [/1/SpreadsheetName-1/column/B/insertBefore/2]\n" +
-                        "    test-insert-before-column--3-MenuItem \"3\" [/1/SpreadsheetName-1/column/B/insertBefore/3]\n" +
-                        "    test-insert-before-column--MenuItem \"...\" [/1/SpreadsheetName-1/column/B/insertBefore]\n" +
-                        "  (mdi-table-column-plus-after) test-insert-after-column-SubMenu \"Insert after column\"\n" +
-                        "    test-insert-after-column--1-MenuItem \"1\" [/1/SpreadsheetName-1/column/B/insertAfter/1]\n" +
-                        "    test-insert-after-column--2-MenuItem \"2\" [/1/SpreadsheetName-1/column/B/insertAfter/2]\n" +
-                        "    test-insert-after-column--3-MenuItem \"3\" [/1/SpreadsheetName-1/column/B/insertAfter/3]\n" +
-                        "    test-insert-after-column--MenuItem \"...\" [/1/SpreadsheetName-1/column/B/insertAfter]\n" +
+                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "    test-column-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/B/insertBefore/1]\n" +
+                        "    test-column-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/B/insertBefore/2]\n" +
+                        "    test-column-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/B/insertBefore/3]\n" +
+                        "    test-column-insert-before-MenuItem \"...\" [/1/SpreadsheetName-1/column/B/insertBefore]\n" +
+                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "    test-column-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/B/insertAfter/1]\n" +
+                        "    test-column-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/B/insertAfter/2]\n" +
+                        "    test-column-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/B/insertAfter/3]\n" +
+                        "    test-column-insert-after-MenuItem \"...\" [/1/SpreadsheetName-1/column/B/insertAfter]\n" +
                         "  -----\n" +
                         "  test-freeze-MenuItem \"Freeze\"\n" +
                         "  test-unfreeze-MenuItem \"Unfreeze\"\n"
@@ -454,16 +454,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  test-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/row/3/clear]\n" +
                         "  (mdi-table-row-remove) test-delete-MenuItem \"Delete\" [/1/SpreadsheetName-1/row/3/delete]\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-insert-row-before-SubMenu \"Insert before row\"\n" +
-                        "    test-insert-row-before--1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3/insertBefore/1]\n" +
-                        "    test-insert-row-before--2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3/insertBefore/2]\n" +
-                        "    test-insert-row-before--3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3/insertBefore/3]\n" +
-                        "    test-insert-row-before--MenuItem \"...\" [/1/SpreadsheetName-1/row/3/insertBefore]\n" +
-                        "  (mdi-table-row-plus-after) test-insert-row-before-SubMenu \"Insert after row\"\n" +
-                        "    test-insert-row-before--1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3/insertAfter/1]\n" +
-                        "    test-insert-row-before--2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3/insertAfter/2]\n" +
-                        "    test-insert-row-before--3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3/insertAfter/3]\n" +
-                        "    test-insert-row-before--MenuItem \"...\" [/1/SpreadsheetName-1/row/3/insertAfter]\n" +
+                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "    test-row-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3/insertBefore/1]\n" +
+                        "    test-row-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3/insertBefore/2]\n" +
+                        "    test-row-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3/insertBefore/3]\n" +
+                        "    test-row-insert-before-MenuItem \"...\" [/1/SpreadsheetName-1/row/3/insertBefore]\n" +
+                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "    test-row-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3/insertAfter/1]\n" +
+                        "    test-row-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3/insertAfter/2]\n" +
+                        "    test-row-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3/insertAfter/3]\n" +
+                        "    test-row-insert-after-MenuItem \"...\" [/1/SpreadsheetName-1/row/3/insertAfter]\n" +
                         "  -----\n" +
                         "  test-freeze-MenuItem \"Freeze\"\n" +
                         "  test-unfreeze-MenuItem \"Unfreeze\"\n"
