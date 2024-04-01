@@ -46,31 +46,104 @@ import java.util.stream.Collectors;
  * JSON holding a range of cells
  * <pre>
  * {
- *     "mediaType": "application/json+walkingkooka.spreadsheet.cell"
- *     "cell-range": "A1:C3",
- *     "value": [
- *         "A1": {
- *             "formula": ...
- *         },
- *         "B2": {
- *             "formula": ...
- *         }
- *     ]
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.SpreadsheetCell",
+ *   "cell-range": "A1:B2",
+ *   "value": {
+ *     "A1": {
+ *       "formula": {
+ *         "text": "=1"
+ *       },
+ *       "style": {
+ *         "text-align": "CENTER"
+ *       }
+ *     },
+ *     "B2": {
+ *       "formula": {
+ *         "text": "=22"
+ *       },
+ *       "format-pattern": {
+ *         "type": "spreadsheet-text-format-pattern",
+ *         "value": "@"
+ *       }
+ *     }
+ *   }
+ * }
+ * </pre>
+ * JSON Holding formulas
+ * <pre>
+ * {
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.SpreadsheetFormula",
+ *   "cell-range": "A1",
+ *   "value": {
+ *     "A1": ""
+ *   }
+ * }
+ * </pre>
+ * JSON holding format patterns.
+ * <pre>
+ * {
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern",
+ *   "cell-range": "A1:B2",
+ *   "value": {
+ *     "A1": {
+ *       "type": "spreadsheet-date-formt-pattern",
+ *       "value": "dd/mm/yyyy"
+ *     },
+ *     "B2": {
+ *       "type": "spreadsheet-number-format-pattern",
+ *       "value": "$0.00"
+ *     }
+ *   }
+ * }
+ * </pre>
+ * JSON holding parse patterns.
+ * <pre>
+ * {
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern",
+ *   "cell-range": "A1:B2",
+ *   "value": {
+ *     "A1": {
+ *       "type": "spreadsheet-date-parse-pattern",
+ *       "value": "dd/mm/yyyy"
+ *     },
+ *     "B2": {
+ *       "type": "spreadsheet-number-parse-pattern",
+ *       "value": "$0.00"
+ *     }
+ *   }
  * }
  * </pre>
  * JSON holding a range of cells styles
  * <pre>
  * {
- *     "mediaType": "application/json+walkingkooka.spreadsheet.cell"
- *     "cell-range": "A1",
- *     "value": [
- *         "A1": {
- *             "color": "#000"
- *         },
- *         "B2": {
- *             "font-weight": "bold"
- *         }
- *     ]
+ *   "mediaType": "application/json+walkingkooka.tree.text.TextStyle",
+ *   "cell-range": "A1:C3",
+ *   "value": {
+ *     "A1": {
+ *       "color": "#000"
+ *     },
+ *     "B2": {
+ *       "font-weight": "bold",
+ *       "text-align": "left"
+ *     }
+ *   }
+ * }
+ * </pre>
+ * JSON holding formatted values
+ * <pre>
+ *{
+ *   "mediaType": "application/json+walkingkooka.tree.text.TextNode",
+ *   "cell-range": "A1:B2",
+ *   "value": {
+ *     "A1": {
+ *       "type": "text",
+ *       "value": "111"
+ *     },
+ *     "B2": {
+ *       "type": "text",
+ *       "value": "222"
+ *     }
+ *   }
  * }
  * </pre>
  */
