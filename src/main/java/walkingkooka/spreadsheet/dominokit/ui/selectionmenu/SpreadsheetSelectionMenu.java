@@ -759,7 +759,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     String.valueOf(i);
 
             borderWidthSubMenu.checkedItem(
-                    idPrefix + i + SpreadsheetIds.MENU_ITEM, // id
+                    idPrefix + '-' + i + SpreadsheetIds.MENU_ITEM, // id
                     label, // text
                     Optional.empty(), // no icons
                     propertyName, // property name
