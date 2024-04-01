@@ -716,7 +716,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // clear
         styleSubMenu.item(
                 context.historyToken()
-                        .setStyle(TextStylePropertyName.ALL)
+                        .setStyle(propertyName)
                         .clearSave()
                         .contextMenuItem(
                                 idPrefix + "-clear" + SpreadsheetIds.MENU_ITEM, // id
