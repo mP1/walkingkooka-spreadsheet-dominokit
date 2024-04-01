@@ -86,7 +86,7 @@ import java.util.stream.Collectors;
  *   "cell-range": "A1:B2",
  *   "value": {
  *     "A1": {
- *       "type": "spreadsheet-date-formt-pattern",
+ *       "type": "spreadsheet-date-format-pattern",
  *       "value": "dd/mm/yyyy"
  *     },
  *     "B2": {
