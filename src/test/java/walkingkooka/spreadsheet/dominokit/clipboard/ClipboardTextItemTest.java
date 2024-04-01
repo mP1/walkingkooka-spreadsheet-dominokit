@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.HasTextTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -49,6 +50,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextItem>,
         HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
+        HasTextTesting,
         ToStringTesting<ClipboardTextItem>,
         TreePrintableTesting {
 

@@ -24,6 +24,7 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.json.JsonNode;
@@ -73,7 +74,8 @@ import java.util.stream.Collectors;
  * }
  * </pre>
  */
-public final class ClipboardTextItem implements TreePrintable {
+public final class ClipboardTextItem implements HasText,
+        TreePrintable {
 
     /**
      * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardValueKind} to JSON.
@@ -197,6 +199,7 @@ public final class ClipboardTextItem implements TreePrintable {
 
     private final List<MediaType> types;
 
+    @Override
     public String text() {
         return this.text;
     }
