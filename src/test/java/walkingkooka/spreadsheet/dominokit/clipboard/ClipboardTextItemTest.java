@@ -40,6 +40,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -49,13 +50,18 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         ToStringTesting<ClipboardTextItem>,
         TreePrintableTesting {
 
+    private static final List<MediaType> TYPES = Lists.of(
+            MediaType.TEXT_PLAIN
+    );
+    private static final String TEXT = "Text123";
+
     @Test
     public void testWithNullMediaTypeFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> ClipboardTextItem.with(
                         null,
-                        "abc123"
+                        TEXT
                 )
         );
     }
@@ -66,7 +72,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 IllegalArgumentException.class,
                 () -> ClipboardTextItem.with(
                         Lists.empty(),
-                        "abc123"
+                        TEXT
                 )
         );
     }
@@ -76,9 +82,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         assertThrows(
                 NullPointerException.class,
                 () -> ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         null
                 )
         );
@@ -172,9 +176,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 Iterators.empty(),
                 SpreadsheetCellClipboardValueKind.CELL,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
                                 "  \"cell-range\": \"A1\",\n" +
@@ -200,9 +202,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.CELL,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
                                 "  \"cell-range\": \"A1\",\n" +
@@ -245,9 +245,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.CELL,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -283,9 +281,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMULA,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
                                 "  \"cell-range\": \"A1\",\n" +
@@ -310,9 +306,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMULA,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -334,9 +328,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMULA,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
                                 "  \"cell-range\": \"A1\",\n" +
@@ -356,9 +348,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
                                 "  \"cell-range\": \"A1\",\n" +
@@ -377,9 +367,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -407,9 +395,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -444,9 +430,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -473,9 +457,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -494,9 +476,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -524,9 +504,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -563,9 +541,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -592,9 +568,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.STYLE,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -613,9 +587,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.STYLE,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
                                 "  \"cell-range\": \"A1:C3\",\n" +
@@ -644,9 +616,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.STYLE,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -685,9 +655,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.STYLE,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -712,9 +680,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
                                 "  \"cell-range\": \"*\",\n" +
@@ -747,9 +713,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
@@ -777,9 +741,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ),
                 SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "{\n" +
                                 "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
                                 "  \"cell-range\": \"A1\",\n" +
@@ -829,7 +791,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         Lists.of(
                                 MediaType.parse("text/different")
                         ),
-                        "Text123"
+                        TEXT
                 )
         );
     }
@@ -838,9 +800,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     public void testEqualsDifferentText() {
         this.checkNotEquals(
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "different"
                 )
         );
@@ -866,9 +826,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     public void testTreePrint() {
         this.treePrintAndCheck(
                 ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN
-                        ),
+                        TYPES,
                         "123"
                 ),
                 "types\n" +
@@ -913,10 +871,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Override
     public ClipboardTextItem createObject() {
         return ClipboardTextItem.with(
-                Lists.of(
-                        MediaType.TEXT_PLAIN
-                ),
-                "Text123"
+                TYPES,
+                TEXT
         );
     }
 }
