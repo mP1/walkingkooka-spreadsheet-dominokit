@@ -872,13 +872,10 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
                                     final SpreadsheetCell expected) {
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardValueKind.CELL,
-                JsonNode.object()
-                        .appendChild(
-                                SpreadsheetCellClipboardValueKind.CELL.marshall(
-                                        cell,
-                                        APP_CONTEXT.marshallContext()
-                                )
-                        ),
+                SpreadsheetCellClipboardValueKind.CELL.marshall(
+                        cell,
+                        APP_CONTEXT.marshallContext()
+                ),
                 expected
         );
     }

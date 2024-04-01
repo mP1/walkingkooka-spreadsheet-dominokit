@@ -75,7 +75,8 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                                    final AppContext context) {
             SpreadsheetCell cell = context.unmarshallContext()
                     .unmarshall(
-                            node,
+                            JsonNode.object()
+                                    .appendChild(node),
                             SpreadsheetCell.class
                     );
             final SpreadsheetFormula formula = cell.formula();
