@@ -91,6 +91,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.border_top_variant();
     }
 
+    public static MdiIcon borderWidthClear() {
+        return Icons.format_clear();
+    }
+
     public static MdiIcon cellClear() {
         return Icons.close();
     }
