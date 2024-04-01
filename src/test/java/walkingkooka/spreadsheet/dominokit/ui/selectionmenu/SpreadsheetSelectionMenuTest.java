@@ -182,6 +182,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-top-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED]\n" +
                         "          test-border-top-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOTTED]\n" +
                         "          test-border-top-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID]\n" +
+                        "          (mdi-format-clear) test-border-top-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/*/save/]\n" +
                         "        test-border-top-width-SubMenu \"Width\"\n" +
                         "          test-border-top-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px]\n" +
                         "          test-border-top-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px]\n" +
@@ -196,6 +197,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-left-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED]\n" +
                         "          test-border-left-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOTTED]\n" +
                         "          test-border-left-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID]\n" +
+                        "          (mdi-format-clear) test-border-left-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/*/save/]\n" +
                         "        test-border-left-width-SubMenu \"Width\"\n" +
                         "          test-border-left-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px]\n" +
                         "          test-border-left-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px]\n" +
@@ -210,6 +212,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-right-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED]\n" +
                         "          test-border-right-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOTTED]\n" +
                         "          test-border-right-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID]\n" +
+                        "          (mdi-format-clear) test-border-right-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/*/save/]\n" +
                         "        test-border-right-width-SubMenu \"Width\"\n" +
                         "          test-border-right-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px]\n" +
                         "          test-border-right-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px]\n" +
@@ -224,6 +227,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-bottom-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED]\n" +
                         "          test-border-bottom-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOTTED]\n" +
                         "          test-border-bottom-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID]\n" +
+                        "          (mdi-format-clear) test-border-bottom-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/*/save/]\n" +
                         "        test-border-bottom-width-SubMenu \"Width\"\n" +
                         "          test-border-bottom-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px]\n" +
                         "          test-border-bottom-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px]\n" +
