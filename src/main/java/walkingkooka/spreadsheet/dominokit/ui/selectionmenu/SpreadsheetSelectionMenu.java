@@ -1038,7 +1038,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 setCount.apply(
                         OptionalInt.empty()
                 ).contextMenuItem(
-                        idPrefix + SpreadsheetIds.MENU_ITEM,
+                        idPrefix + "-prompt" + SpreadsheetIds.MENU_ITEM,
                         "..."
                 )
         );
