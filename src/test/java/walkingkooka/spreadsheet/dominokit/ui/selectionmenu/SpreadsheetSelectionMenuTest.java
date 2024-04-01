@@ -173,6 +173,63 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      (mdi-format-text-wrapping-clip) test-clip-MenuItem \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL]\n" +
                         "      (mdi-format-text-wrapping-overflow) test-overflow-MenuItem \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE]\n" +
                         "      (mdi-format-text-wrapping-wrap) test-wrap-MenuItem \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN]\n" +
+                        "    test-border--SubMenu \"Border\"\n" +
+                        "      test-border-top--SubMenu \"Top\"\n" +
+                        "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
+                        "          metadata color picker\n" +
+                        "        test-border-top-style-SubMenu \"Style\"\n" +
+                        "          test-border-top-style-none-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE]\n" +
+                        "          test-border-top-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED]\n" +
+                        "          test-border-top-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOTTED]\n" +
+                        "          test-border-top-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID]\n" +
+                        "        test-border-top-width-SubMenu \"Width\"\n" +
+                        "          test-border-top-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px]\n" +
+                        "          test-border-top-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px]\n" +
+                        "          test-border-top-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px]\n" +
+                        "          test-border-top-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px]\n" +
+                        "          test-border-top-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px]\n" +
+                        "      test-border-left--SubMenu \"Left\"\n" +
+                        "        (mdi-palette) test-test-border-left-color-SubMenu \"Color\"\n" +
+                        "          metadata color picker\n" +
+                        "        test-border-left-style-SubMenu \"Style\"\n" +
+                        "          test-border-left-style-none-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE]\n" +
+                        "          test-border-left-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED]\n" +
+                        "          test-border-left-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOTTED]\n" +
+                        "          test-border-left-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID]\n" +
+                        "        test-border-left-width-SubMenu \"Width\"\n" +
+                        "          test-border-left-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px]\n" +
+                        "          test-border-left-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px]\n" +
+                        "          test-border-left-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px]\n" +
+                        "          test-border-left-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px]\n" +
+                        "          test-border-left-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px]\n" +
+                        "      test-border-right--SubMenu \"Right\"\n" +
+                        "        (mdi-palette) test-test-border-right-color-SubMenu \"Color\"\n" +
+                        "          metadata color picker\n" +
+                        "        test-border-right-style-SubMenu \"Style\"\n" +
+                        "          test-border-right-style-none-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE]\n" +
+                        "          test-border-right-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED]\n" +
+                        "          test-border-right-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOTTED]\n" +
+                        "          test-border-right-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID]\n" +
+                        "        test-border-right-width-SubMenu \"Width\"\n" +
+                        "          test-border-right-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px]\n" +
+                        "          test-border-right-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px]\n" +
+                        "          test-border-right-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px]\n" +
+                        "          test-border-right-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px]\n" +
+                        "          test-border-right-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px]\n" +
+                        "      test-border-bottom--SubMenu \"Bottom\"\n" +
+                        "        (mdi-palette) test-test-border-bottom-color-SubMenu \"Color\"\n" +
+                        "          metadata color picker\n" +
+                        "        test-border-bottom-style-SubMenu \"Style\"\n" +
+                        "          test-border-bottom-style-none-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE]\n" +
+                        "          test-border-bottom-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED]\n" +
+                        "          test-border-bottom-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOTTED]\n" +
+                        "          test-border-bottom-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID]\n" +
+                        "        test-border-bottom-width-SubMenu \"Width\"\n" +
+                        "          test-border-bottom-width0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px]\n" +
+                        "          test-border-bottom-width1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px]\n" +
+                        "          test-border-bottom-width2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px]\n" +
+                        "          test-border-bottom-width3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px]\n" +
+                        "          test-border-bottom-width4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px]\n" +
                         "    (mdi-format-clear) test-clear-style-MenuItem \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/]\n" +
                         "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
                         "    test-format-date-SubMenu \"Date\"\n" +

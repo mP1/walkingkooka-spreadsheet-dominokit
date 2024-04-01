@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -37,8 +38,11 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
+import walkingkooka.tree.text.BorderStyle;
+import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Overflow;
 import walkingkooka.tree.text.OverflowWrap;
 import walkingkooka.tree.text.TextAlign;
@@ -327,6 +331,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     // UNDERLINE
     // CASE
     // WRAPPING
+    // BORDER
     // CLEAR STYLE
     private static void style(final HistoryToken historyToken,
                               final SpreadsheetContextMenu menu,
@@ -340,6 +345,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         textDecoration(menu, context);
         textCase(historyToken, menu, context);
         textWrapping(menu, context);
+        border(menu, context);
         clearStyle(historyToken, menu, context);
 
         menu.separator();
@@ -594,6 +600,160 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 context
         );
     }
+
+    // BORDER
+    //   TOP
+    //   LEFT
+    //   RIGHT
+    //   BOTTOM
+    //     COLOR
+    //     STYLE
+    //       NONE
+    //       THIN
+    //     THICKNESS
+    //       NONE
+    //       1
+    //       2
+
+    private static void border(final SpreadsheetContextMenu menu,
+                               final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetContextMenu border = menu.subMenu(
+                context.idPrefix() + "border-" + SpreadsheetIds.SUB_MENU,
+                "Border"
+        );
+
+        final String borderIdPrefix = context.idPrefix() + "border-";
+
+        for (final BoxEdge boxEdge : BORDER_BOX_EDGE) {
+            final String enumName = boxEdge.name();
+            final String idPrefix = borderIdPrefix + enumName.toLowerCase() + '-';
+
+            borderItem(
+                    idPrefix,
+                    border.subMenu(
+                            idPrefix + SpreadsheetIds.SUB_MENU, // id
+                            CaseKind.SNAKE.change(
+                                    enumName,
+                                    CaseKind.TITLE
+                            ) // label
+                    ),
+                    boxEdge,
+                    context
+            );
+        }
+    }
+
+    private final static List<BoxEdge> BORDER_BOX_EDGE = Lists.of(
+            BoxEdge.TOP,
+            BoxEdge.LEFT,
+            BoxEdge.RIGHT,
+            BoxEdge.BOTTOM
+    );
+
+    // COLOR
+    // STYLE
+    // THICKNESS
+    private static void borderItem(final String idPrefix,
+                                   final SpreadsheetContextMenu menu,
+                                   final BoxEdge boxEdge,
+                                   final SpreadsheetSelectionMenuContext context) {
+        final HistoryToken historyToken = context.historyToken();
+
+        colorItem(
+                idPrefix + "color",
+                "Color",
+                historyToken.setStyle(boxEdge.borderColorPropertyName()), // token
+                menu,
+                context
+        );
+
+        borderStyle(
+                idPrefix + "style", // without trailing dash
+                menu,
+                boxEdge,
+                context
+        );
+
+        borderWidth(
+                idPrefix + "width", // without trailing dash
+                menu,
+                boxEdge,
+                context
+        );
+    }
+
+    private static void borderStyle(final String idPrefix,
+                                    final SpreadsheetContextMenu menu,
+                                    final BoxEdge boxEdge,
+                                    final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetContextMenu styleSubMenu = menu.subMenu(
+                idPrefix + SpreadsheetIds.SUB_MENU,
+                "Style"
+        );
+
+        for (final BorderStyle borderStyle : BORDER_STYLE) {
+            final String name = borderStyle.name();
+
+            styleSubMenu.checkedItem(
+                    idPrefix + "-" + CaseKind.SNAKE.change(
+                            name,
+                            CaseKind.KEBAB
+                    ) + SpreadsheetIds.MENU_ITEM, // id
+                    CaseKind.SNAKE.change(
+                            name,
+                            CaseKind.TITLE
+                    ), // text
+                    Optional.empty(), // no icons
+                    boxEdge.borderStylePropertyName(), // property name
+                    borderStyle, // property value
+                    "", // key
+                    context
+            );
+        }
+    }
+
+    // TODO Add more later BorderStyles
+    // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2189
+    private final static List<BorderStyle> BORDER_STYLE = Lists.of(
+            BorderStyle.NONE,
+            BorderStyle.DASHED,
+            BorderStyle.DOTTED,
+            BorderStyle.SOLID
+    );
+
+    // none
+    // 1
+    // 2
+    // clear
+    private static void borderWidth(final String idPrefix,
+                                    final SpreadsheetContextMenu menu,
+                                    final BoxEdge boxEdge,
+                                    final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetContextMenu borderWidthSubMenu = menu.subMenu(
+                idPrefix + SpreadsheetIds.SUB_MENU,
+                "Width"
+        );
+
+        final TextStylePropertyName<Length<?>> propertyName = boxEdge.borderWidthPropertyName();
+
+        for (int i = 0; i < 5; i++) {
+            final String label = 0 == i ?
+                    "None" :
+                    String.valueOf(i);
+
+            borderWidthSubMenu.checkedItem(
+                    idPrefix + i + SpreadsheetIds.MENU_ITEM, // id
+                    label, // text
+                    Optional.empty(), // no icons
+                    propertyName, // property name
+                    Length.pixel((double) i), // property value
+                    "", // key
+                    context
+            );
+        }
+    }
+
+    // alignment........................................................................................................
 
     private static void alignment(final SpreadsheetContextMenu menu,
                                   final SpreadsheetSelectionMenuContext context) {
