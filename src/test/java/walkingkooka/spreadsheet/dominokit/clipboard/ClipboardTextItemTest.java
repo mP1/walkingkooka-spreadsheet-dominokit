@@ -88,6 +88,16 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
+    @Test
+    public void testWith() {
+        final ClipboardTextItem clipboardTextItem = ClipboardTextItem.with(
+                TYPES,
+                TEXT
+        );
+        this.checkTypes(clipboardTextItem);
+        this.checkText(clipboardTextItem);
+    }
+
     // toJson.........................................................................................................
 
     @Test
@@ -873,6 +883,38 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         return ClipboardTextItem.with(
                 TYPES,
                 TEXT
+        );
+    }
+
+    private void checkTypes(final ClipboardTextItem clipboardTextItem) {
+        this.checkTypes(
+                clipboardTextItem,
+                TYPES
+        );
+    }
+
+    private void checkTypes(final ClipboardTextItem clipboardTextItem,
+                            final List<MediaType> expected) {
+        this.checkEquals(
+                expected,
+                clipboardTextItem.types(),
+                "types"
+        );
+    }
+
+    private void checkText(final ClipboardTextItem clipboardTextItem) {
+        this.checkText(
+                clipboardTextItem,
+                TEXT
+        );
+    }
+
+    private void checkText(final ClipboardTextItem clipboardTextItem,
+                           final String expected) {
+        this.checkEquals(
+                expected,
+                clipboardTextItem.text(),
+                "text"
         );
     }
 }
