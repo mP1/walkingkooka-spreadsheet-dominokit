@@ -691,6 +691,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 "Style"
         );
 
+        final TextStylePropertyName<BorderStyle> propertyName = boxEdge.borderStylePropertyName();
+
         for (final BorderStyle borderStyle : BORDER_STYLE) {
             final String name = borderStyle.name();
 
@@ -704,12 +706,27 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             CaseKind.TITLE
                     ), // text
                     Optional.empty(), // no icons
-                    boxEdge.borderStylePropertyName(), // property name
+                    propertyName, // property name
                     borderStyle, // property value
                     "", // key
                     context
             );
         }
+
+        // clear
+        styleSubMenu.item(
+                context.historyToken()
+                        .setStyle(TextStylePropertyName.ALL)
+                        .clearSave()
+                        .contextMenuItem(
+                                idPrefix + "-clear" + SpreadsheetIds.MENU_ITEM, // id
+                                "Clear"
+                        ).icon(
+                                Optional.of(
+                                        SpreadsheetIcons.borderStyleClear()
+                                )
+                        )
+        );
     }
 
     // TODO Add more later BorderStyles
