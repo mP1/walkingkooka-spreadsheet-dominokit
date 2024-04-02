@@ -39,23 +39,12 @@ public final class SpreadsheetCellClipboardRange<T> implements Value<Map<Spreads
 
     public static <T> SpreadsheetCellClipboardRange<T> with(final SpreadsheetCellRange range,
                                                             final Map<SpreadsheetCellReference, T> value) {
-        Objects.requireNonNull(range, "range");
+        checkRange(range);
         Objects.requireNonNull(value, "value");
 
         final Map<SpreadsheetCellReference, T> copy = Maps.immutable(value);
 
-        final Set<SpreadsheetCellReference> outOfBounds = copy.keySet()
-                .stream()
-                .filter(c -> false == range.testCell(c))
-                .collect(Collectors.toCollection(Sets::sorted));
-
-        if (false == outOfBounds.isEmpty()) {
-            throw new IllegalArgumentException("Found " + outOfBounds.size() + " cells out of range " + range + " got " +
-                    outOfBounds.stream()
-                            .map(Object::toString)
-                            .collect(Collectors.joining(", "))
-            );
-        }
+        checkValues(range, copy);
 
         return new SpreadsheetCellClipboardRange<>(
                 range,
@@ -73,7 +62,35 @@ public final class SpreadsheetCellClipboardRange<T> implements Value<Map<Spreads
         return this.range;
     }
 
+    public SpreadsheetCellClipboardRange<T> setRange(final SpreadsheetCellRange range) {
+        checkRange(range);
+
+        return this.range.equals(range) ?
+                this :
+                this.setRange0(range);
+    }
+
+    private SpreadsheetCellClipboardRange<T> setRange0(final SpreadsheetCellRange range) {
+        final Map<SpreadsheetCellReference, T> value = this.value;
+
+        if (false == range.containsAll(this.range)) {
+            checkValues(
+                    range,
+                    value
+            );
+        }
+
+        return new SpreadsheetCellClipboardRange(
+                range,
+                value
+        );
+    }
+
     private final SpreadsheetCellRange range;
+
+    private static SpreadsheetCellRange checkRange(final SpreadsheetCellRange range) {
+        return Objects.requireNonNull(range, "range");
+    }
 
     @Override
     public Map<SpreadsheetCellReference, T> value() {
@@ -81,6 +98,27 @@ public final class SpreadsheetCellClipboardRange<T> implements Value<Map<Spreads
     }
 
     private final Map<SpreadsheetCellReference, T> value;
+
+    private static <T> void checkValues(final SpreadsheetCellRange range,
+                                        final Map<SpreadsheetCellReference, T> value) {
+        final Set<SpreadsheetCellReference> outOfBounds = value.keySet()
+                .stream()
+                .filter(c -> false == range.testCell(c))
+                .collect(Collectors.toCollection(Sets::sorted));
+
+        if (false == outOfBounds.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "Found " +
+                            outOfBounds.size() +
+                            " cells out of range " +
+                            range +
+                            " got " +
+                            outOfBounds.stream()
+                                    .map(Object::toString)
+                                    .collect(Collectors.joining(", "))
+            );
+        }
+    }
 
     // TreePrintable....................................................................................................
 

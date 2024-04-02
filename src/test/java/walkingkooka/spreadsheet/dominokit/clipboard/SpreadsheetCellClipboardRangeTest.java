@@ -36,6 +36,8 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Map;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<SpreadsheetCellClipboardRange<Object>>,
@@ -125,6 +127,82 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
         this.checkRange(spreadsheetCellClipboardRange);
         this.checkValue(spreadsheetCellClipboardRange);
     }
+
+
+    // setRange.........................................................................................................
+
+    @Test
+    public void testSetRangeNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createObject().setRange(null)
+        );
+    }
+
+    @Test
+    public void testSetRangeSame() {
+        final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange = this.createObject();
+
+        assertSame(
+                spreadsheetCellClipboardRange,
+                spreadsheetCellClipboardRange.setRange(RANGE)
+        );
+    }
+
+    @Test
+    public void testSetRangeOutOfBoundsFails() {
+        final IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> this.createObject()
+                        .setRange(SpreadsheetSelection.parseCellRange("A1"))
+        );
+
+        this.checkEquals(
+                "Found 1 cells out of range A1 got B2",
+                thrown.getMessage()
+        );
+    }
+
+    @Test
+    public void testSetRangeDifferentLarger() {
+        final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange = this.createObject();
+        final SpreadsheetCellRange differentRange = SpreadsheetSelection.parseCellRange("A1:C3");
+
+        final SpreadsheetCellClipboardRange<?> different = spreadsheetCellClipboardRange.setRange(differentRange);
+
+        assertNotSame(
+                spreadsheetCellClipboardRange,
+                different
+        );
+
+        this.checkRange(different, differentRange);
+        this.checkValue(different);
+
+        this.checkRange(spreadsheetCellClipboardRange);
+        this.checkValue(spreadsheetCellClipboardRange);
+    }
+
+    @Test
+    public void testSetRangeDifferentSmaller() {
+        final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange = this.createObject();
+        final SpreadsheetCellRange differentRange = SpreadsheetSelection.parseCellRange("A1:C3");
+
+        final SpreadsheetCellClipboardRange<?> different = spreadsheetCellClipboardRange.setRange(differentRange)
+                .setRange(RANGE);
+
+        assertNotSame(
+                spreadsheetCellClipboardRange,
+                different
+        );
+
+        this.checkRange(different);
+        this.checkValue(different);
+
+        this.checkRange(spreadsheetCellClipboardRange);
+        this.checkValue(spreadsheetCellClipboardRange);
+    }
+
+    // helpers..........................................................................................................
 
     private void checkRange(final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange) {
         this.checkRange(
