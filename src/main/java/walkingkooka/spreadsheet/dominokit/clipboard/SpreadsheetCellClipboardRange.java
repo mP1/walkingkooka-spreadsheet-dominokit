@@ -97,6 +97,20 @@ public final class SpreadsheetCellClipboardRange<T> implements Value<Map<Spreads
         return this.value;
     }
 
+    public SpreadsheetCellClipboardRange<T> setValue(final Map<SpreadsheetCellReference, T> value) {
+        checkRange(range);
+
+        final Map<SpreadsheetCellReference, T> copy = Maps.immutable(value);
+        checkValues(this.range, copy);
+
+        return this.value.equals(copy) ?
+                this :
+                new SpreadsheetCellClipboardRange<>(
+                        range,
+                        value
+                );
+    }
+
     private final Map<SpreadsheetCellReference, T> value;
 
     private static <T> void checkValues(final SpreadsheetCellRange range,
