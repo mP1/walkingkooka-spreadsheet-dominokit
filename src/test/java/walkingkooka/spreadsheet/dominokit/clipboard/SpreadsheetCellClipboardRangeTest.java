@@ -202,6 +202,74 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
         this.checkValue(spreadsheetCellClipboardRange);
     }
 
+    // setValue.........................................................................................................
+
+    @Test
+    public void testSetValueNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createObject()
+                        .setValue(null)
+        );
+    }
+
+    @Test
+    public void testSetValueSame() {
+        final SpreadsheetCellClipboardRange<Object> spreadsheetCellClipboardRange = this.createObject();
+
+        assertSame(
+                spreadsheetCellClipboardRange,
+                spreadsheetCellClipboardRange.setValue(VALUE)
+        );
+    }
+
+    @Test
+    public void testSetValueOutOfBoundsFails() {
+        final SpreadsheetCellReference c3 = SpreadsheetSelection.parseCell("C3");
+
+        final IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> this.createObject()
+                        .setValue(
+                                Maps.of(
+                                        SpreadsheetSelection.A1,
+                                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                                        c3,
+                                        c3.setFormula(SpreadsheetFormula.EMPTY.setText("=1"))
+                                )
+                        )
+        );
+
+        this.checkEquals(
+                "Found 1 cells out of range A1:B2 got C3",
+                thrown.getMessage()
+        );
+    }
+
+    @Test
+    public void testSetValueDifferent() {
+        final SpreadsheetCellClipboardRange<Object> spreadsheetCellClipboardRange = this.createObject();
+        final Map<SpreadsheetCellReference, Object> differentValue = Maps.of(
+                SpreadsheetSelection.A1,
+                SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("'different")
+                )
+        );
+
+        final SpreadsheetCellClipboardRange<?> different = spreadsheetCellClipboardRange.setValue(differentValue);
+
+        assertNotSame(
+                spreadsheetCellClipboardRange,
+                different
+        );
+
+        this.checkRange(different);
+        this.checkValue(different, differentValue);
+
+        this.checkRange(spreadsheetCellClipboardRange);
+        this.checkValue(spreadsheetCellClipboardRange);
+    }
+
     // helpers..........................................................................................................
 
     private void checkRange(final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange) {
