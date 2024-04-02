@@ -1175,7 +1175,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     private void toSpreadsheetCellClipboardRangeAndCheck(final String text,
-                                                         final SpreadsheetCellClipboardRange<?> expected) {
+                                                         final SpreadsheetCellClipboardRange expected) {
         this.checkEquals(
                 expected,
                 ClipboardTextItem.with(

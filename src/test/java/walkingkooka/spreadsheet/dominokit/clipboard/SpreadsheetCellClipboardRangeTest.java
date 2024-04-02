@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.Cast;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.ClassTesting;
@@ -40,8 +39,8 @@ import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<SpreadsheetCellClipboardRange<Object>>,
-        HashCodeEqualsDefinedTesting2<SpreadsheetCellClipboardRange<Object>>,
+public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<SpreadsheetCellClipboardRange>,
+        HashCodeEqualsDefinedTesting2<SpreadsheetCellClipboardRange>,
         TreePrintableTesting {
 
     private final static SpreadsheetCellRange RANGE = SpreadsheetSelection.parseCellRange("A1:b2");
@@ -120,7 +119,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
 
     @Test
     public void testWith() {
-        final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange = SpreadsheetCellClipboardRange.with(
+        final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange = SpreadsheetCellClipboardRange.with(
                 RANGE,
                 VALUE
         );
@@ -141,7 +140,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
 
     @Test
     public void testSetRangeSame() {
-        final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange = this.createObject();
+        final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange = this.createObject();
 
         assertSame(
                 spreadsheetCellClipboardRange,
@@ -165,10 +164,10 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
 
     @Test
     public void testSetRangeDifferentLarger() {
-        final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange = this.createObject();
+        final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange = this.createObject();
         final SpreadsheetCellRange differentRange = SpreadsheetSelection.parseCellRange("A1:C3");
 
-        final SpreadsheetCellClipboardRange<?> different = spreadsheetCellClipboardRange.setRange(differentRange);
+        final SpreadsheetCellClipboardRange different = spreadsheetCellClipboardRange.setRange(differentRange);
 
         assertNotSame(
                 spreadsheetCellClipboardRange,
@@ -184,10 +183,10 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
 
     @Test
     public void testSetRangeDifferentSmaller() {
-        final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange = this.createObject();
+        final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange = this.createObject();
         final SpreadsheetCellRange differentRange = SpreadsheetSelection.parseCellRange("A1:C3");
 
-        final SpreadsheetCellClipboardRange<?> different = spreadsheetCellClipboardRange.setRange(differentRange)
+        final SpreadsheetCellClipboardRange different = spreadsheetCellClipboardRange.setRange(differentRange)
                 .setRange(RANGE);
 
         assertNotSame(
@@ -215,7 +214,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
 
     @Test
     public void testSetValueSame() {
-        final SpreadsheetCellClipboardRange<Object> spreadsheetCellClipboardRange = this.createObject();
+        final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange = this.createObject();
 
         assertSame(
                 spreadsheetCellClipboardRange,
@@ -248,7 +247,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
 
     @Test
     public void testSetValueDifferent() {
-        final SpreadsheetCellClipboardRange<Object> spreadsheetCellClipboardRange = this.createObject();
+        final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange = this.createObject();
         final Map<SpreadsheetCellReference, Object> differentValue = Maps.of(
                 SpreadsheetSelection.A1,
                 SpreadsheetSelection.A1.setFormula(
@@ -256,7 +255,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
                 )
         );
 
-        final SpreadsheetCellClipboardRange<?> different = spreadsheetCellClipboardRange.setValue(differentValue);
+        final SpreadsheetCellClipboardRange different = spreadsheetCellClipboardRange.setValue(differentValue);
 
         assertNotSame(
                 spreadsheetCellClipboardRange,
@@ -272,14 +271,14 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
 
     // helpers..........................................................................................................
 
-    private void checkRange(final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange) {
+    private void checkRange(final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange) {
         this.checkRange(
                 spreadsheetCellClipboardRange,
                 RANGE
         );
     }
 
-    private void checkRange(final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange,
+    private void checkRange(final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange,
                             final SpreadsheetCellRange range) {
         this.checkEquals(
                 range,
@@ -287,14 +286,14 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
         );
     }
 
-    private void checkValue(final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange) {
+    private void checkValue(final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange) {
         this.checkValue(
                 spreadsheetCellClipboardRange,
                 VALUE
         );
     }
 
-    private void checkValue(final SpreadsheetCellClipboardRange<?> spreadsheetCellClipboardRange,
+    private void checkValue(final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange,
                             final Map<SpreadsheetCellReference, Object> value) {
         this.checkEquals(
                 value,
@@ -331,8 +330,8 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
     // ClassTesting....................................................................................................
 
     @Override
-    public Class<SpreadsheetCellClipboardRange<Object>> type() {
-        return Cast.to(SpreadsheetCellClipboardRange.class);
+    public Class<SpreadsheetCellClipboardRange> type() {
+        return SpreadsheetCellClipboardRange.class;
     }
 
     @Override
@@ -343,7 +342,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
     // HashCodeEqualsDefinedTesting2...................................................................................
 
     @Override
-    public SpreadsheetCellClipboardRange<Object> createObject() {
+    public SpreadsheetCellClipboardRange createObject() {
         return SpreadsheetCellClipboardRange.with(
                 RANGE,
                 VALUE
