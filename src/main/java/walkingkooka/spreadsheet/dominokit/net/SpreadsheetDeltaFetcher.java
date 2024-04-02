@@ -685,7 +685,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.stylePatch(
-                        name.patch(
+                        name.stylePatch(
                                 value.orElse(null)
                         )
                 )
