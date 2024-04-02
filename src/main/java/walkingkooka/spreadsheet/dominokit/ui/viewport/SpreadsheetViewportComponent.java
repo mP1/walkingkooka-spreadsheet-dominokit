@@ -1205,7 +1205,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                         BORDER_COLOR,
                         BORDER_STYLE,
                         BORDER_LENGTH
-                ).setPadding(
+                ).set(
+                        TextStylePropertyName.PADDING,
                         Length.none()
                 ).setValues(
                         Maps.of(
@@ -1374,7 +1375,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                         BORDER_STYLE,
                         BORDER_LENGTH
 
-                ).setPadding(
+                ).set(
+                        TextStylePropertyName.PADDING,
                         Length.none()
                 ).set(
                         TextStylePropertyName.TEXT_ALIGN,
