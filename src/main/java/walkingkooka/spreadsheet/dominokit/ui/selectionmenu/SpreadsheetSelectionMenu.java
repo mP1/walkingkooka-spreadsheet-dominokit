@@ -657,7 +657,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             BoxEdge.RIGHT,
             SpreadsheetIcons.borderRight(),
             BoxEdge.BOTTOM,
-            SpreadsheetIcons.borderBottom()
+            SpreadsheetIcons.borderBottom(),
+            BoxEdge.ALL,
+            SpreadsheetIcons.borderAll()
     );
 
     // COLOR
