@@ -238,6 +238,22 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          test-border-bottom-width-3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px]\n" +
                         "          test-border-bottom-width-4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px]\n" +
                         "          (mdi-format-clear) test-border-bottom-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/]\n" +
+                        "      (mdi-border-all-variant) test-border-all--SubMenu \"All\"\n" +
+                        "        (mdi-palette) test-test-border-all-color-SubMenu \"Color\"\n" +
+                        "          metadata color picker\n" +
+                        "        test-border-all-style-SubMenu \"Style\"\n" +
+                        "          test-border-all-style-none-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE]\n" +
+                        "          test-border-all-style-dashed-MenuItem \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED]\n" +
+                        "          test-border-all-style-dotted-MenuItem \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DOTTED]\n" +
+                        "          test-border-all-style-solid-MenuItem \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/SOLID]\n" +
+                        "          (mdi-format-clear) test-border-all-style-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/]\n" +
+                        "        test-border-all-width-SubMenu \"Width\"\n" +
+                        "          test-border-all-width-0-MenuItem \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/0px]\n" +
+                        "          test-border-all-width-1-MenuItem \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/1px]\n" +
+                        "          test-border-all-width-2-MenuItem \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px]\n" +
+                        "          test-border-all-width-3-MenuItem \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px]\n" +
+                        "          test-border-all-width-4-MenuItem \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px]\n" +
+                        "          (mdi-format-clear) test-border-all-width-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/]\n" +
                         "    (mdi-format-clear) test-clear-style-MenuItem \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/]\n" +
                         "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
                         "    test-format-date-SubMenu \"Date\"\n" +
