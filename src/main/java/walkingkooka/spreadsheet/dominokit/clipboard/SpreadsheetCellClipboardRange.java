@@ -34,26 +34,26 @@ import java.util.stream.Collectors;
 /**
  * A pair that holds a {@link SpreadsheetCellRange} and Set of values.
  */
-public final class SpreadsheetCellClipboardRange<T> implements Value<Map<SpreadsheetCellReference, T>>,
+public final class SpreadsheetCellClipboardRange implements Value<Map<SpreadsheetCellReference, ?>>,
         TreePrintable {
 
-    public static <T> SpreadsheetCellClipboardRange<T> with(final SpreadsheetCellRange range,
-                                                            final Map<SpreadsheetCellReference, T> value) {
+    public static SpreadsheetCellClipboardRange with(final SpreadsheetCellRange range,
+                                                     final Map<SpreadsheetCellReference, ?> value) {
         checkRange(range);
         Objects.requireNonNull(value, "value");
 
-        final Map<SpreadsheetCellReference, T> copy = Maps.immutable(value);
+        final Map<SpreadsheetCellReference, ?> copy = Maps.immutable(value);
 
         checkValues(range, copy);
 
-        return new SpreadsheetCellClipboardRange<>(
+        return new SpreadsheetCellClipboardRange(
                 range,
                 copy
         );
     }
 
     private SpreadsheetCellClipboardRange(final SpreadsheetCellRange range,
-                                          final Map<SpreadsheetCellReference, T> value) {
+                                          final Map<SpreadsheetCellReference, ?> value) {
         this.range = range;
         this.value = value;
     }
@@ -62,7 +62,7 @@ public final class SpreadsheetCellClipboardRange<T> implements Value<Map<Spreads
         return this.range;
     }
 
-    public SpreadsheetCellClipboardRange<T> setRange(final SpreadsheetCellRange range) {
+    public SpreadsheetCellClipboardRange setRange(final SpreadsheetCellRange range) {
         checkRange(range);
 
         return this.range.equals(range) ?
@@ -70,8 +70,8 @@ public final class SpreadsheetCellClipboardRange<T> implements Value<Map<Spreads
                 this.setRange0(range);
     }
 
-    private SpreadsheetCellClipboardRange<T> setRange0(final SpreadsheetCellRange range) {
-        final Map<SpreadsheetCellReference, T> value = this.value;
+    private SpreadsheetCellClipboardRange setRange0(final SpreadsheetCellRange range) {
+        final Map<SpreadsheetCellReference, ?> value = this.value;
 
         if (false == range.containsAll(this.range)) {
             checkValues(
@@ -93,28 +93,28 @@ public final class SpreadsheetCellClipboardRange<T> implements Value<Map<Spreads
     }
 
     @Override
-    public Map<SpreadsheetCellReference, T> value() {
+    public Map<SpreadsheetCellReference, ?> value() {
         return this.value;
     }
 
-    public SpreadsheetCellClipboardRange<T> setValue(final Map<SpreadsheetCellReference, T> value) {
+    public SpreadsheetCellClipboardRange setValue(final Map<SpreadsheetCellReference, ?> value) {
         checkRange(range);
 
-        final Map<SpreadsheetCellReference, T> copy = Maps.immutable(value);
+        final Map<SpreadsheetCellReference, ?> copy = Maps.immutable(value);
         checkValues(this.range, copy);
 
         return this.value.equals(copy) ?
                 this :
-                new SpreadsheetCellClipboardRange<>(
+                new SpreadsheetCellClipboardRange(
                         range,
                         value
                 );
     }
 
-    private final Map<SpreadsheetCellReference, T> value;
+    private final Map<SpreadsheetCellReference, ?> value;
 
     private static <T> void checkValues(final SpreadsheetCellRange range,
-                                        final Map<SpreadsheetCellReference, T> value) {
+                                        final Map<SpreadsheetCellReference, ?> value) {
         final Set<SpreadsheetCellReference> outOfBounds = value.keySet()
                 .stream()
                 .filter(c -> false == range.testCell(c))
@@ -175,10 +175,10 @@ public final class SpreadsheetCellClipboardRange<T> implements Value<Map<Spreads
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-                other instanceof SpreadsheetCellClipboardRange && this.equals0((SpreadsheetCellClipboardRange<?>) other);
+                other instanceof SpreadsheetCellClipboardRange && this.equals0((SpreadsheetCellClipboardRange) other);
     }
 
-    private boolean equals0(final SpreadsheetCellClipboardRange<?> other) {
+    private boolean equals0(final SpreadsheetCellClipboardRange other) {
         return this.range.equals(other.range) &&
                 this.value.equals(other.value);
     }

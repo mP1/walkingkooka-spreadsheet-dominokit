@@ -299,7 +299,7 @@ public final class ClipboardTextItem implements HasText,
      * Verifies the type and reads the values from the JSON payload. This is typically an intermediate step
      * before moving relative references in any formulas and then patching the target range.
      */
-    public SpreadsheetCellClipboardRange<?> toSpreadsheetCellClipboardRange(final AppContext context) {
+    public SpreadsheetCellClipboardRange toSpreadsheetCellClipboardRange(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
         this.checkMediaType();
