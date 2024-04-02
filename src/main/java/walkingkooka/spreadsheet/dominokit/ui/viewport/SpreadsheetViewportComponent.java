@@ -1198,7 +1198,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     static {
         final TextStyle style = TextStyle.EMPTY
-                .setMargin(
+                .set(
+                        TextStylePropertyName.MARGIN,
                         Length.none()
                 ).setBorder(
                         BORDER_COLOR,
@@ -1365,7 +1366,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     static {
         final TextStyle style = TextStyle.EMPTY
-                .setMargin(
+                .set(
+                        TextStylePropertyName.MARGIN,
                         Length.none()
                 ).setBorder(
                         BORDER_COLOR,

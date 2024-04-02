@@ -87,7 +87,8 @@ abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarC
         );
     }
 
-    private final static TextStyle BUTTON_STYLE = TextStyle.EMPTY.setMargin(
+    private final static TextStyle BUTTON_STYLE = TextStyle.EMPTY.set(
+            TextStylePropertyName.MARGIN,
             Length.pixel(5.0)
     );
 
