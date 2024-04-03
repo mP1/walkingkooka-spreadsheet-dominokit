@@ -782,7 +782,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                     historyToken.setCellCopy(kind)
             );
         }
-        ;
     }
 
     @Test
@@ -874,7 +873,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                     historyToken.setCellCut(kind)
             );
         }
-        ;
     }
 
     @Test
@@ -966,7 +964,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                     historyToken.setCellPaste(kind)
             );
         }
-        ;
     }
 
     @Test
