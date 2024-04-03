@@ -57,7 +57,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
                         HistoryTokenContexts.fake()
                 ).separator()
                 .item(
-                        new IsElement<Element>() {
+                        new IsElement<>() {
                             @Override
                             public Element element() {
                                 throw new UnsupportedOperationException();
