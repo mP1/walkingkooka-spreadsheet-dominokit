@@ -280,7 +280,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     /**
      * A SAVE link which will be updated each time the pattern box is also updated.
      */
-    private HistoryTokenAnchorComponent save;
+    private final HistoryTokenAnchorComponent save;
 
     /**
      * A UNDO link which will be updated each time the pattern is saved.

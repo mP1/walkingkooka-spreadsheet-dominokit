@@ -381,7 +381,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         );
     }
 
-    private HistoryTokenAnchorComponent find;
+    private final HistoryTokenAnchorComponent find;
 
     private void refreshReset(final SpreadsheetCellFindHistoryToken token) {
         this.reset.setHistoryToken(
@@ -398,7 +398,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         );
     }
 
-    private HistoryTokenAnchorComponent reset;
+    private final HistoryTokenAnchorComponent reset;
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 

@@ -167,7 +167,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         );
     }
 
-    private HistoryTokenAnchorComponent save;
+    private final HistoryTokenAnchorComponent save;
 
     /**
      * Refreshes the UNDO link with the undo label + target.
@@ -185,7 +185,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         );
     }
 
-    private HistoryTokenAnchorComponent undo;
+    private final HistoryTokenAnchorComponent undo;
 
     private Optional<SpreadsheetLabelName> undoLabel;
 
@@ -205,7 +205,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         );
     }
 
-    private HistoryTokenAnchorComponent delete;
+    private final HistoryTokenAnchorComponent delete;
 
     // ComponentLifecycle...............................................................................................
 

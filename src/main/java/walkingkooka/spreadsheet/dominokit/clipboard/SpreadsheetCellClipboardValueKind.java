@@ -337,7 +337,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
         return this.mediaTypeClass;
     }
 
-    private Class<?> mediaTypeClass;
+    private final Class<?> mediaTypeClass;
 
     // HasUrlFragment...................................................................................................
 
