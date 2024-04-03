@@ -310,7 +310,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                                final AppContext context);
 
     /**
-     * All {@Link SpreadsheetCellClipboardValueKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.
+     * All {@link SpreadsheetCellClipboardValueKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.
      * If the clipboard value is a {@link SpreadsheetCell} all PASTE menu items will be enabled, while other value types will only enable themselves,
      * eg if clipboard value is a {@link TextStyle} only PASTE STYLE will be enabled.
      */
