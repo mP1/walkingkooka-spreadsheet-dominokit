@@ -575,7 +575,7 @@ public class App implements EntryPoint,
 
         // this check is necessary so when historyToken = something save and that gets pushed again we dont want to reply that again.
         final HistoryToken previous = this.firePrevious;
-        if (null != previous && push.shouldIgnore() && push.equals(previous)) {
+        if (push.shouldIgnore() && push.equals(previous)) {
             push = push.clearAction();
         }
         this.history.pushHistoryToken(push);
