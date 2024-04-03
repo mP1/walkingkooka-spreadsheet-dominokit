@@ -770,7 +770,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     private static SpreadsheetSelection checkColumnOrColumnRange(final SpreadsheetSelection selection) {
         checkSelection(selection);
 
-        if (false == selection.isColumnReference() && false == selection.isColumnReferenceRange()) {
+        if (false == selection.isColumnReference() && false == selection.isColumnRangeReference()) {
             throw new IllegalArgumentException("Expected column or column range but got " + selection);
         }
 
@@ -780,7 +780,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     private static SpreadsheetSelection checkRowOrRowRange(final SpreadsheetSelection selection) {
         checkSelection(selection);
 
-        if (false == selection.isRowReference() && false == selection.isRowReferenceRange()) {
+        if (false == selection.isRowReference() && false == selection.isRowRangeReference()) {
             throw new IllegalArgumentException("Expected row or row range but got " + selection);
         }
 

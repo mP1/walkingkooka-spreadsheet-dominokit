@@ -40,7 +40,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
         );
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
-        if (false == selection.isColumnReference() && false == selection.isColumnReferenceRange()) {
+        if (false == selection.isColumnReference() && false == selection.isColumnRangeReference()) {
             throw new IllegalArgumentException("Got " + selection + " expected column or column-range");
         }
     }

@@ -807,7 +807,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
                 break;
             }
-            if (selection.isColumnReference() || selection.isColumnReferenceRange()) {
+            if (selection.isColumnReference() || selection.isColumnRangeReference()) {
                 historyToken = column(
                         id,
                         name,
@@ -815,7 +815,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
                 break;
             }
-            if (selection.isRowReference() || selection.isRowReferenceRange()) {
+            if (selection.isRowReference() || selection.isRowRangeReference()) {
                 historyToken = row(
                         id,
                         name,
