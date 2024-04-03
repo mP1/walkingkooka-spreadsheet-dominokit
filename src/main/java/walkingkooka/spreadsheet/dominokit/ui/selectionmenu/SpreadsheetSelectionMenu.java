@@ -96,7 +96,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // -------
         // LABELS
 
-        if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
+        if (selection.isCellReference() || selection.isCellRangeReference() || selection.isLabelName()) {
             clipboard(
                     historyToken,
                     menu,
@@ -153,7 +153,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         insertRows(historyToken, selection, menu, context);
         freezeUnfreeze(historyToken, menu, context);
 
-        if (selection.isCellReference() || selection.isCellRange()) {
+        if (selection.isCellReference() || selection.isCellRangeReference()) {
             menu.separator();
             label(historyToken, selection, menu, context);
         }
@@ -889,7 +889,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                       final SpreadsheetSelection selection,
                                       final SpreadsheetContextMenu menu,
                                       final SpreadsheetSelectionMenuContext context) {
-        if (selection.isColumnReference() | selection.isColumnRangeReference() | selection.isCellReference() || selection.isCellRange()) {
+        if (selection.isColumnReference() | selection.isColumnRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
             menu.separator();
 
             final HistoryToken columnHistoryToken = historyToken.setColumn(
@@ -927,7 +927,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetSelection selection,
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
-        if (selection.isRowReference() | selection.isRowRangeReference() | selection.isCellReference() || selection.isCellRange()) {
+        if (selection.isRowReference() | selection.isRowRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
             menu.separator();
 
             final HistoryToken rowHistoryToken = historyToken.setRow(

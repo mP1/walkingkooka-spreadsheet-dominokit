@@ -40,16 +40,16 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
-import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeComponent;
-import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangePathComponent;
+import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangeReferencePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype.SpreadsheetValueTypeComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.Expression;
 import walkingkooka.tree.text.TextNode;
@@ -256,8 +256,8 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
     // path.....................................................................................................
 
-    private SpreadsheetCellRangeComponent cellRange() {
-        return SpreadsheetCellRangeComponent.empty()
+    private SpreadsheetCellRangeReferenceComponent cellRange() {
+        return SpreadsheetCellRangeReferenceComponent.empty()
                 .setId(ID_PREFIX + "-cell-range")
                 .setLabel("Cell Range")
                 .addChangeListener(this::onCellRangeValueChange)
@@ -265,10 +265,10 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     }
 
     /**
-     * Push the new {@link SpreadsheetCellRange}.
+     * Push the new {@link SpreadsheetCellRangeReference}.
      */
-    private void onCellRangeValueChange(final Optional<SpreadsheetCellRange> oldCellRange,
-                                        final Optional<SpreadsheetCellRange> newCellRange) {
+    private void onCellRangeValueChange(final Optional<SpreadsheetCellRangeReference> oldCellRange,
+                                        final Optional<SpreadsheetCellRangeReference> newCellRange) {
         this.setAndRefresh(
                 t -> t.setAnchoredSelection(
                         newCellRange.map(
@@ -278,19 +278,19 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         );
     }
 
-    private final SpreadsheetCellRangeComponent cellRange;
+    private final SpreadsheetCellRangeReferenceComponent cellRange;
 
     // path.............................................................................................................
 
-    private SpreadsheetCellRangePathComponent path() {
-        return SpreadsheetCellRangePathComponent.empty()
+    private SpreadsheetCellRangeReferencePathComponent path() {
+        return SpreadsheetCellRangeReferencePathComponent.empty()
                 .setId(ID_PREFIX + "-cell-range-path-Select")
                 .setLabel("Cell Range Path")
                 .addChangeListener(this::onCellRangePathValueChange);
     }
 
-    private void onCellRangePathValueChange(final Optional<SpreadsheetCellRangePath> oldPath,
-                                            final Optional<SpreadsheetCellRangePath> newPath) {
+    private void onCellRangePathValueChange(final Optional<SpreadsheetCellRangeReferencePath> oldPath,
+                                            final Optional<SpreadsheetCellRangeReferencePath> newPath) {
         this.setAndRefresh(
                 t -> t.setFind(
                         t.find()
@@ -299,7 +299,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         );
     }
 
-    private final SpreadsheetCellRangePathComponent path;
+    private final SpreadsheetCellRangeReferencePathComponent path;
 
     // queryTextBox.....................................................................................................
 
@@ -466,7 +466,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
     /**
      * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellFindHistoryToken}
-     * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRange, SpreadsheetCellFind)}.
+     * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellFind)}.
      */
     private void findCells() {
         final SpreadsheetFindComponentContext context = this.context;
@@ -475,7 +475,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
                 .cast(SpreadsheetCellFindHistoryToken.class);
 
         final SpreadsheetId id = historyToken.id();
-        final SpreadsheetCellRange cells = historyToken.anchoredSelection()
+        final SpreadsheetCellRangeReference cells = historyToken.anchoredSelection()
                 .selection()
                 .toCellRange();
 

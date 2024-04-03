@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -33,7 +33,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
     final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
-    final static SpreadsheetCellRange RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
+    final static SpreadsheetCellRangeReference RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
 
     final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 

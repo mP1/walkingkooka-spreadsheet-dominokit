@@ -24,7 +24,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -157,7 +157,7 @@ public final class ClipboardTextItem implements HasText,
     /**
      * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardValueKind} to JSON.
      */
-    public static ClipboardTextItem toJson(final SpreadsheetCellRange range,
+    public static ClipboardTextItem toJson(final SpreadsheetCellRangeReference range,
                                            final Iterator<SpreadsheetCell> cells,
                                            final SpreadsheetCellClipboardValueKind kind,
                                            final JsonNodeMarshallContext context) {
@@ -313,7 +313,7 @@ public final class ClipboardTextItem implements HasText,
                 )
         );
 
-        final SpreadsheetCellRange range = SpreadsheetSelection.parseCellRange(
+        final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange(
                 json.getOrFail(CELL_RANGE_PROPERTY_NAME)
                         .stringOrFail()
         );

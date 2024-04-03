@@ -32,7 +32,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * This {@link HistoryToken} is used by to paste a cell over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRange}.
+ * This {@link HistoryToken} is used by to paste a cell over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference}.
  */
 public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSaveHistoryToken<Set<SpreadsheetCell>> {
 

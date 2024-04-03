@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -105,7 +105,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     public void testSetSaveCellRange() {
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
-        final SpreadsheetCellRange cells = SpreadsheetSelection.parseCellRange("C3:D4");
+        final SpreadsheetCellRangeReference cells = SpreadsheetSelection.parseCellRange("C3:D4");
 
         this.setSaveAndCheck(
                 this.createHistoryToken(),

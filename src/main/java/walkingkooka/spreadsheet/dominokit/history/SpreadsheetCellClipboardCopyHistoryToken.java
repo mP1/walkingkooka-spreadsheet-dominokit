@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
 /**
  * A {@link HistoryToken} that represents a COPY to the clipboard of a cell or cell range.
@@ -77,7 +77,7 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         final SpreadsheetCellClipboardValueKind kind = this.kind();
-        final SpreadsheetCellRange range = this.anchoredSelection()
+        final SpreadsheetCellRangeReference range = this.anchoredSelection()
                 .selection()
                 .toCellRange();
 

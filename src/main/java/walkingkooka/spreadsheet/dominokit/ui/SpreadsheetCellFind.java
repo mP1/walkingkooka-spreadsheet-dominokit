@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -43,7 +43,7 @@ public final class SpreadsheetCellFind implements HasUrlFragment {
     );
 
     // VisibleForTesting
-    SpreadsheetCellFind(final Optional<SpreadsheetCellRangePath> path,
+    SpreadsheetCellFind(final Optional<SpreadsheetCellRangeReferencePath> path,
                         final OptionalInt offset,
                         final OptionalInt max,
                         final Optional<String> valueType,
@@ -55,11 +55,11 @@ public final class SpreadsheetCellFind implements HasUrlFragment {
         this.query = query;
     }
 
-    public Optional<SpreadsheetCellRangePath> path() {
+    public Optional<SpreadsheetCellRangeReferencePath> path() {
         return this.path;
     }
 
-    public SpreadsheetCellFind setPath(final Optional<SpreadsheetCellRangePath> path) {
+    public SpreadsheetCellFind setPath(final Optional<SpreadsheetCellRangeReferencePath> path) {
         Objects.requireNonNull(path, "path");
 
         return this.path.equals(path) ?
@@ -73,7 +73,7 @@ public final class SpreadsheetCellFind implements HasUrlFragment {
                 );
     }
 
-    private final Optional<SpreadsheetCellRangePath> path;
+    private final Optional<SpreadsheetCellRangeReferencePath> path;
 
     public OptionalInt offset() {
         return this.offset;
@@ -155,7 +155,7 @@ public final class SpreadsheetCellFind implements HasUrlFragment {
 
     private final Optional<String> query;
 
-    private SpreadsheetCellFind replace(final Optional<SpreadsheetCellRangePath> path,
+    private SpreadsheetCellFind replace(final Optional<SpreadsheetCellRangeReferencePath> path,
                                         final OptionalInt offset,
                                         final OptionalInt max,
                                         final Optional<String> valueType,
@@ -185,7 +185,7 @@ public final class SpreadsheetCellFind implements HasUrlFragment {
     public UrlFragment urlFragment() {
         UrlFragment urlFragment = UrlFragment.EMPTY;
 
-        final Optional<SpreadsheetCellRangePath> path = this.path;
+        final Optional<SpreadsheetCellRangeReferencePath> path = this.path;
         if (path.isPresent()) {
             urlFragment = urlFragment.append(PATH)
                     .append(

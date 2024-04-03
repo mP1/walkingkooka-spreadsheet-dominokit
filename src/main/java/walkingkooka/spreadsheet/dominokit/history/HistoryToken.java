@@ -799,7 +799,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         final SpreadsheetSelection selection = anchoredSelection.selection();
 
         for (; ; ) {
-            if (selection.isCellReference() || selection.isCellRange() || selection.isLabelName()) {
+            if (selection.isCellReference() || selection.isCellRangeReference() || selection.isLabelName()) {
                 historyToken = cell(
                         id,
                         name,

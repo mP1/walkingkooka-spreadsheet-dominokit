@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
@@ -37,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellFindHistoryToken> {
     private final static SpreadsheetCellFind FIND = SpreadsheetCellFind.empty()
             .setPath(
-                    Optional.of(SpreadsheetCellRangePath.LRTD)
+                    Optional.of(SpreadsheetCellRangeReferencePath.LRTD)
             ).setOffset(OptionalInt.of(123))
             .setMax(OptionalInt.of(456))
             .setValueType(Optional.of(SpreadsheetValueType.ANY))
@@ -66,8 +66,8 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
     @Test
     public void testSetFindDifferent() {
-        final Optional<SpreadsheetCellRangePath> path = Optional.of(
-                SpreadsheetCellRangePath.BULR
+        final Optional<SpreadsheetCellRangeReferencePath> path = Optional.of(
+                SpreadsheetCellRangeReferencePath.BULR
         );
 
         final SpreadsheetCellFind find = SpreadsheetCellFind.empty()
@@ -173,7 +173,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR",
                 Optional.of(
-                        SpreadsheetCellRangePath.BULR
+                        SpreadsheetCellRangeReferencePath.BULR
                 ), // path
                 OptionalInt.empty(), // offset
                 OptionalInt.empty(), // max
@@ -199,7 +199,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/LRBU/offset/1",
                 Optional.of(
-                        SpreadsheetCellRangePath.LRBU
+                        SpreadsheetCellRangeReferencePath.LRBU
                 ), // path
                 OptionalInt.of(1), // offset
                 OptionalInt.empty(), // max
@@ -225,7 +225,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/12/max/34",
                 Optional.of(
-                        SpreadsheetCellRangePath.BULR
+                        SpreadsheetCellRangeReferencePath.BULR
                 ), // path
                 OptionalInt.of(12), // offset
                 OptionalInt.of(34), // max
@@ -239,7 +239,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/123/max/456/value-type/" + SpreadsheetValueType.NUMBER,
                 Optional.of(
-                        SpreadsheetCellRangePath.BULR
+                        SpreadsheetCellRangeReferencePath.BULR
                 ), // path
                 OptionalInt.of(123), // offset
                 OptionalInt.of(456), // max
@@ -255,7 +255,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/",
                 Optional.of(
-                        SpreadsheetCellRangePath.BULR
+                        SpreadsheetCellRangeReferencePath.BULR
                 ), // path
                 OptionalInt.of(1234), // offset
                 OptionalInt.of(5678), // max
@@ -271,7 +271,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/" + query,
                 Optional.of(
-                        SpreadsheetCellRangePath.BULR
+                        SpreadsheetCellRangeReferencePath.BULR
                 ), // path
                 OptionalInt.of(1234), // offset
                 OptionalInt.of(5678), // max
@@ -287,7 +287,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
                 Optional.of(
-                        SpreadsheetCellRangePath.BULR
+                        SpreadsheetCellRangeReferencePath.BULR
                 ), // path
                 OptionalInt.of(1234), // offset
                 OptionalInt.of(5678), // max
@@ -373,7 +373,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     }
 
     private void parseAndCheck2(final String url,
-                                final Optional<SpreadsheetCellRangePath> path,
+                                final Optional<SpreadsheetCellRangeReferencePath> path,
                                 final OptionalInt offset,
                                 final OptionalInt max,
                                 final Optional<String> valueType,

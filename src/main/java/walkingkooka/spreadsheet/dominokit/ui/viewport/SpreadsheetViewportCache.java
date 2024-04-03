@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -229,9 +229,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     /**
-     * Returns an {@link Iterator} that will return all cells in the given {@link SpreadsheetCellRange}.
+     * Returns an {@link Iterator} that will return all cells in the given {@link SpreadsheetCellRangeReference}.
      */
-    public Iterator<SpreadsheetCell> cells(final SpreadsheetCellRange range) {
+    public Iterator<SpreadsheetCell> cells(final SpreadsheetCellRangeReference range) {
         Objects.requireNonNull(range, "range");
         return range.cellsIterator(this.cells);
     }

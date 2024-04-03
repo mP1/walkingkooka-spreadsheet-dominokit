@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * A {@link SpreadsheetSelectionVisitor} that is used primarily to expand {@link SpreadsheetCellRange} into the individual {@link SpreadsheetCellReference} within any range.
+ * A {@link SpreadsheetSelectionVisitor} that is used primarily to expand {@link SpreadsheetCellRangeReference} into the individual {@link SpreadsheetCellReference} within any range.
  */
 final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends SpreadsheetSelectionVisitor {
 
@@ -85,7 +85,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
                         final SpreadsheetCellReference cell = (SpreadsheetCellReference) nonLabel;
                         cellToLabels.get(cell).add(unknownLabel);
                     } else {
-                        final SpreadsheetCellRange range = (SpreadsheetCellRange) nonLabel;
+                        final SpreadsheetCellRangeReference range = (SpreadsheetCellRangeReference) nonLabel;
                         for (final SpreadsheetCellReference cell : range) {
                             cellToLabels.get(cell).add(unknownLabel);
                         }
@@ -103,12 +103,12 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
     }
 
     @Override
-    protected void visit(final SpreadsheetCellRange range) {
+    protected void visit(final SpreadsheetCellRangeReference range) {
         final SpreadsheetViewportWindows window = this.window;
         if (window.isEmpty()) {
             this.updateCellRange(range);
         } else {
-            for (final SpreadsheetCellRange oneWindow : this.window.cellRanges()) {
+            for (final SpreadsheetCellRangeReference oneWindow : this.window.cellRanges()) {
                 if (oneWindow.testCellRange(range)) {
                     this.updateCellRange(range);
                     break;
@@ -117,7 +117,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
         }
     }
 
-    private void updateCellRange(final SpreadsheetCellRange range) {
+    private void updateCellRange(final SpreadsheetCellRangeReference range) {
         final SpreadsheetLabelName label = this.label;
 
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
@@ -142,7 +142,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
         if (window.isEmpty()) {
             this.updateCell(reference);
         } else {
-            for (final SpreadsheetCellRange oneWindow : window.cellRanges()) {
+            for (final SpreadsheetCellRangeReference oneWindow : window.cellRanges()) {
                 if (oneWindow.testCell(reference)) {
                     this.updateCell(reference);
                     break;

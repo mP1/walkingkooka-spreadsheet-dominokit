@@ -40,8 +40,8 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
@@ -93,7 +93,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         UrlQueryString result = UrlQueryString.EMPTY;
 
-        final Optional<SpreadsheetCellRangePath> path = find.path();
+        final Optional<SpreadsheetCellRangeReferencePath> path = find.path();
         final OptionalInt offset = find.offset();
         final OptionalInt max = find.max();
         final Optional<String> valueType = find.valueType();
@@ -296,7 +296,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     public void findCells(final SpreadsheetId id,
-                          final SpreadsheetCellRange cells,
+                          final SpreadsheetCellRangeReference cells,
                           final SpreadsheetCellFind find) {
         this.get(
                 findCellsUrl(
@@ -309,7 +309,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     // @VisibleForTesting
     static RelativeUrl findCellsUrl(final SpreadsheetId id,
-                                    final SpreadsheetCellRange cells,
+                                    final SpreadsheetCellRangeReference cells,
                                     final SpreadsheetCellFind find) {
         checkId(id);
         Objects.requireNonNull(cells, "cells");

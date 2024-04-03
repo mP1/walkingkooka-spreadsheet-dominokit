@@ -22,24 +22,24 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A drop down that supports picking an optional {@link SpreadsheetCellRangePath}.
+ * A drop down that supports picking an optional {@link SpreadsheetCellRangeReferencePath}.
  */
-public final class SpreadsheetCellRangePathComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangePath> {
+public final class SpreadsheetCellRangeReferencePathComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath> {
 
-    public static SpreadsheetCellRangePathComponent empty() {
-        return new SpreadsheetCellRangePathComponent();
+    public static SpreadsheetCellRangeReferencePathComponent empty() {
+        return new SpreadsheetCellRangeReferencePathComponent();
     }
 
-    private SpreadsheetCellRangePathComponent() {
+    private SpreadsheetCellRangeReferencePathComponent() {
         this.select = SpreadsheetSelectComponent.empty();
 
-        for (final SpreadsheetCellRangePath path : SpreadsheetCellRangePath.values()) {
+        for (final SpreadsheetCellRangeReferencePath path : SpreadsheetCellRangeReferencePath.values()) {
             this.select.appendValue(
                     path.labelText(), // text
                     path // value
@@ -48,13 +48,13 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent setId(final String id) {
+    public SpreadsheetCellRangeReferencePathComponent setId(final String id) {
         this.select.setId(id);
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent setLabel(final String label) {
+    public SpreadsheetCellRangeReferencePathComponent setLabel(final String label) {
         this.select.setLabel(label);
         return this;
     }
@@ -65,79 +65,79 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent setDisabled(final boolean disabled) {
+    public SpreadsheetCellRangeReferencePathComponent setDisabled(final boolean disabled) {
         this.select.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent optional() {
+    public SpreadsheetCellRangeReferencePathComponent optional() {
         this.select.optional();
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent required() {
+    public SpreadsheetCellRangeReferencePathComponent required() {
         this.select.required();
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent validate() {
+    public SpreadsheetCellRangeReferencePathComponent validate() {
         this.select.validate();
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent focus() {
+    public SpreadsheetCellRangeReferencePathComponent focus() {
         this.select.focus();
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent alwaysShowHelperText() {
+    public SpreadsheetCellRangeReferencePathComponent alwaysShowHelperText() {
         this.select.alwaysShowHelperText();
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent setHelperText(final Optional<String> text) {
+    public SpreadsheetCellRangeReferencePathComponent setHelperText(final Optional<String> text) {
         this.select.setHelperText(text);
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent hideMarginBottom() {
+    public SpreadsheetCellRangeReferencePathComponent hideMarginBottom() {
         this.select.hideMarginBottom();
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent removeBorders() {
+    public SpreadsheetCellRangeReferencePathComponent removeBorders() {
         this.select.removeBorders();
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRangePath>> listener) {
+    public SpreadsheetCellRangeReferencePathComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRangeReferencePath>> listener) {
         this.select.addChangeListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent addFocusListener(final EventListener listener) {
+    public SpreadsheetCellRangeReferencePathComponent addFocusListener(final EventListener listener) {
         this.select.addFocusListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent addKeydownListener(final EventListener listener) {
+    public SpreadsheetCellRangeReferencePathComponent addKeydownListener(final EventListener listener) {
         this.select.addKeydownListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetCellRangePathComponent addKeyupListener(final EventListener listener) {
+    public SpreadsheetCellRangeReferencePathComponent addKeyupListener(final EventListener listener) {
         this.select.addKeyupListener(listener);
         return this;
     }
@@ -152,19 +152,19 @@ public final class SpreadsheetCellRangePathComponent implements ValueComponent<H
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetCellRangePathComponent setValue(final Optional<SpreadsheetCellRangePath> spreadsheetCellRangePath) {
-        Objects.requireNonNull(spreadsheetCellRangePath, "spreadsheetCellRangePath");
+    public SpreadsheetCellRangeReferencePathComponent setValue(final Optional<SpreadsheetCellRangeReferencePath> SpreadsheetCellRangeReferencePath) {
+        Objects.requireNonNull(SpreadsheetCellRangeReferencePath, "SpreadsheetCellRangeReferencePath");
 
-        this.select.setValue(spreadsheetCellRangePath);
+        this.select.setValue(SpreadsheetCellRangeReferencePath);
         return this;
     }
 
     @Override //
-    public Optional<SpreadsheetCellRangePath> value() {
+    public Optional<SpreadsheetCellRangeReferencePath> value() {
         return this.select.value();
     }
 
-    private final SpreadsheetSelectComponent<SpreadsheetCellRangePath> select;
+    private final SpreadsheetSelectComponent<SpreadsheetCellRangeReferencePath> select;
 
     // Object...........................................................................................................
 

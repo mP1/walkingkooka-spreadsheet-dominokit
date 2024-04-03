@@ -24,7 +24,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -43,7 +43,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
         HashCodeEqualsDefinedTesting2<SpreadsheetCellClipboardRange>,
         TreePrintableTesting {
 
-    private final static SpreadsheetCellRange RANGE = SpreadsheetSelection.parseCellRange("A1:b2");
+    private final static SpreadsheetCellRangeReference RANGE = SpreadsheetSelection.parseCellRange("A1:b2");
 
     private final static SpreadsheetCellReference B2 = SpreadsheetSelection.parseCell("B2");
 
@@ -165,7 +165,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
     @Test
     public void testSetRangeDifferentLarger() {
         final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange = this.createObject();
-        final SpreadsheetCellRange differentRange = SpreadsheetSelection.parseCellRange("A1:C3");
+        final SpreadsheetCellRangeReference differentRange = SpreadsheetSelection.parseCellRange("A1:C3");
 
         final SpreadsheetCellClipboardRange different = spreadsheetCellClipboardRange.setRange(differentRange);
 
@@ -184,7 +184,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
     @Test
     public void testSetRangeDifferentSmaller() {
         final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange = this.createObject();
-        final SpreadsheetCellRange differentRange = SpreadsheetSelection.parseCellRange("A1:C3");
+        final SpreadsheetCellRangeReference differentRange = SpreadsheetSelection.parseCellRange("A1:C3");
 
         final SpreadsheetCellClipboardRange different = spreadsheetCellClipboardRange.setRange(differentRange)
                 .setRange(RANGE);
@@ -279,7 +279,7 @@ public final class SpreadsheetCellClipboardRangeTest implements ClassTesting<Spr
     }
 
     private void checkRange(final SpreadsheetCellClipboardRange spreadsheetCellClipboardRange,
-                            final SpreadsheetCellRange range) {
+                            final SpreadsheetCellRangeReference range) {
         this.checkEquals(
                 range,
                 spreadsheetCellClipboardRange.range()

@@ -93,7 +93,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -724,7 +724,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     private void renderScrollbars() {
         final AppContext context = this.context;
         final SpreadsheetViewportCache cache = context.viewportCache();
-        final Optional<SpreadsheetCellRange> maybeLast = cache.windows()
+        final Optional<SpreadsheetCellRangeReference> maybeLast = cache.windows()
                 .last();
         final OptionalInt maybeColumnCount = cache.columnCount();
         final OptionalInt maybeRowCount = cache.rowCount();
@@ -733,7 +733,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final DivElement verticalScrollbarThumb = this.verticalScrollbarThumb;
 
         if (maybeLast.isPresent() && maybeColumnCount.isPresent() && maybeRowCount.isPresent()) {
-            final SpreadsheetCellRange last = maybeLast.get();
+            final SpreadsheetCellRangeReference last = maybeLast.get();
             final SpreadsheetCellReference topLeft = last.begin();
 
             final int left = topLeft.column()
@@ -919,7 +919,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final Set<SpreadsheetRowReference> rows = Sets.sorted();
 
         // gather visible columns and rows.
-        for (final SpreadsheetCellRange window : cache.windows().cellRanges()) {
+        for (final SpreadsheetCellRangeReference window : cache.windows().cellRanges()) {
             for (final SpreadsheetColumnReference column : window.columnRange()) {
                 if (false == cache.isColumnHidden(column)) {
                     columns.add(column);
@@ -1696,7 +1696,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
                 // is not cell-range required otherwise select-all-component will always be rendered as selected.
                 predicate = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
-                        (false == s.isCellRange() && selectionNotLabel.test(s));
+                        (false == s.isCellRangeReference() && selectionNotLabel.test(s));
             }
         }
 

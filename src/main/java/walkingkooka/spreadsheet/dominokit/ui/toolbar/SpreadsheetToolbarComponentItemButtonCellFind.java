@@ -68,7 +68,7 @@ final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToo
                 .orElse(null);
         if (null != anchoredSpreadsheetSelection) {
             final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
-            if (false == selection.isCellReference() && false == selection.isCellRange()) {
+            if (false == selection.isCellReference() && false == selection.isCellRangeReference()) {
                 anchoredSpreadsheetSelection = null;
             }
         }
