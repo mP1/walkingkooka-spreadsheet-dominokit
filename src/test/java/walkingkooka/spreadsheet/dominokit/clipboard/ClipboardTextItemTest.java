@@ -28,6 +28,7 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -885,18 +886,18 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
-    // toSpreadsheetCellClipboardRange........................................................................................
+    // toSpreadsheetCellRange........................................................................................
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeNullContextFails() {
+    public void testToSpreadsheetCellRangeNullContextFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> this.createObject().toSpreadsheetCellClipboardRange(null)
+                () -> this.createObject().toSpreadsheetCellRange(null)
         );
     }
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeInvalidMediaType() {
+    public void testToSpreadsheetCellRangeInvalidMediaType() {
         final IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
                 () -> ClipboardTextItem.with(
@@ -909,7 +910,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         "  \"value\": true\n" +
                                         "}"
                         )
-                        .toSpreadsheetCellClipboardRange(
+                        .toSpreadsheetCellRange(
                                 new FakeAppContext() {
                                     @Override
                                     public JsonNodeUnmarshallContext unmarshallContext() {
@@ -928,8 +929,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     private final static SpreadsheetCellReference C3 = SpreadsheetSelection.parseCell("C3");
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeCell() {
-        this.toSpreadsheetCellClipboardRangeAndCheck(
+    public void testToSpreadsheetCellRangeCell() {
+        this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
                         "  \"cell-range\": \"A1:B2\",\n" +
@@ -944,7 +945,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "    }\n" +
                         "  }\n" +
                         "}",
-                SpreadsheetCellClipboardRange.with(
+                SpreadsheetCellRange.with(
                         SpreadsheetSelection.parseCellRange("A1:B2"),
                         Maps.of(
                                 SpreadsheetSelection.A1,
@@ -962,8 +963,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeCell2() {
-        this.toSpreadsheetCellClipboardRangeAndCheck(
+    public void testToSpreadsheetCellRangeCell2() {
+        this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
                         "  \"cell-range\": \"A1:B2\",\n" +
@@ -987,7 +988,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "    }\n" +
                         "  }\n" +
                         "}",
-                SpreadsheetCellClipboardRange.with(
+                SpreadsheetCellRange.with(
                         SpreadsheetSelection.parseCellRange("A1:B2"),
                         Maps.of(
                                 SpreadsheetSelection.A1,
@@ -1013,8 +1014,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeFormula() {
-        this.toSpreadsheetCellClipboardRangeAndCheck(
+    public void testToSpreadsheetCellRangeFormula() {
+        this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
                         "  \"cell-range\": \"A1:B2\",\n" +
@@ -1023,7 +1024,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "    \"B2\": \"=2+33\"\n" +
                         "  }\n" +
                         "}",
-                SpreadsheetCellClipboardRange.with(
+                SpreadsheetCellRange.with(
                         SpreadsheetSelection.parseCellRange("A1:B2"),
                         Maps.of(
                                 SpreadsheetSelection.A1,
@@ -1036,8 +1037,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeFormatPattern() {
-        this.toSpreadsheetCellClipboardRangeAndCheck(
+    public void testToSpreadsheetCellRangeFormatPattern() {
+        this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
                         "  \"cell-range\": \"A1:B2\",\n" +
@@ -1052,7 +1053,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "    }\n" +
                         "  }\n" +
                         "}",
-                SpreadsheetCellClipboardRange.with(
+                SpreadsheetCellRange.with(
                         SpreadsheetSelection.parseCellRange("A1:B2"),
                         Maps.of(
                                 SpreadsheetSelection.A1,
@@ -1069,8 +1070,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeParsePattern() {
-        this.toSpreadsheetCellClipboardRangeAndCheck(
+    public void testToSpreadsheetCellRangeParsePattern() {
+        this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
                         "  \"cell-range\": \"A1:B2\",\n" +
@@ -1085,7 +1086,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "    }\n" +
                         "  }\n" +
                         "}",
-                SpreadsheetCellClipboardRange.with(
+                SpreadsheetCellRange.with(
                         SpreadsheetSelection.parseCellRange("A1:B2"),
                         Maps.of(
                                 SpreadsheetSelection.A1,
@@ -1102,8 +1103,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeStyle() {
-        this.toSpreadsheetCellClipboardRangeAndCheck(
+    public void testToSpreadsheetCellRangeStyle() {
+        this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
                         "  \"cell-range\": \"A1:B2\",\n" +
@@ -1117,7 +1118,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "    }\n" +
                         "  }\n" +
                         "}",
-                SpreadsheetCellClipboardRange.with(
+                SpreadsheetCellRange.with(
                         SpreadsheetSelection.parseCellRange("A1:B2"),
                         Maps.of(
                                 SpreadsheetSelection.A1,
@@ -1139,8 +1140,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToSpreadsheetCellClipboardRangeFormattedValue() {
-        this.toSpreadsheetCellClipboardRangeAndCheck(
+    public void testToSpreadsheetCellRangeFormattedValue() {
+        this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "     \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
                         "     \"cell-range\": \"A1:C3\",\n" +
@@ -1156,7 +1157,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "         \"C3\": null\n" +
                         "       }\n" +
                         "   }",
-                SpreadsheetCellClipboardRange.with(
+                SpreadsheetCellRange.with(
                         SpreadsheetSelection.parseCellRange("A1:C3"),
                         Maps.of(
                                 SpreadsheetSelection.A1,
@@ -1174,15 +1175,15 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
-    private void toSpreadsheetCellClipboardRangeAndCheck(final String text,
-                                                         final SpreadsheetCellClipboardRange expected) {
+    private void toSpreadsheetCellRangeAndCheck(final String text,
+                                                final SpreadsheetCellRange expected) {
         this.checkEquals(
                 expected,
                 ClipboardTextItem.with(
                                 Lists.of(ClipboardTextItem.MEDIA_TYPE),
                                 text
                         )
-                        .toSpreadsheetCellClipboardRange(
+                        .toSpreadsheetCellRange(
                                 new FakeAppContext() {
                                     @Override
                                     public JsonNodeUnmarshallContext unmarshallContext() {
