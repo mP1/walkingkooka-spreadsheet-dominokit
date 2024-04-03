@@ -155,7 +155,7 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
                 );
     }
 
-    String key;
+    final String key;
 
     public SpreadsheetContextMenuItem checked(final boolean checked) {
 
