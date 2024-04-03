@@ -889,7 +889,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                       final SpreadsheetSelection selection,
                                       final SpreadsheetContextMenu menu,
                                       final SpreadsheetSelectionMenuContext context) {
-        if (selection.isColumnReference() | selection.isColumnReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
+        if (selection.isColumnReference() | selection.isColumnRangeReference() | selection.isCellReference() || selection.isCellRange()) {
             menu.separator();
 
             final HistoryToken columnHistoryToken = historyToken.setColumn(
@@ -927,7 +927,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetSelection selection,
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
-        if (selection.isRowReference() | selection.isRowReferenceRange() | selection.isCellReference() || selection.isCellRange()) {
+        if (selection.isRowReference() | selection.isRowRangeReference() | selection.isCellReference() || selection.isCellRange()) {
             menu.separator();
 
             final HistoryToken rowHistoryToken = historyToken.setRow(

@@ -40,7 +40,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
         );
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
-        if (false == selection.isRowReference() && false == selection.isRowReferenceRange()) {
+        if (false == selection.isRowReference() && false == selection.isRowRangeReference()) {
             throw new IllegalArgumentException("Got " + selection + " expected row or row-range");
         }
     }

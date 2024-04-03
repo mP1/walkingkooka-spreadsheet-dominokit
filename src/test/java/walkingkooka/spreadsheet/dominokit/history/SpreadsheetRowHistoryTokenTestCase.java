@@ -21,8 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
@@ -32,7 +32,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
 
     final static SpreadsheetRowReference ROW = SpreadsheetSelection.parseRow("1");
 
-    final static SpreadsheetRowReferenceRange ROW_RANGE = SpreadsheetSelection.parseRowRange("2:3");
+    final static SpreadsheetRowRangeReference ROW_RANGE = SpreadsheetSelection.parseRowRange("2:3");
 
     private final static AnchoredSpreadsheetSelection SELECTION = ROW.setDefaultAnchor();
 
@@ -173,7 +173,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
 
     @Test
     public final void testRowRangeMenuWithRowInside() {
-        final SpreadsheetRowReferenceRange range = SpreadsheetSelection.parseRowRange("1:3");
+        final SpreadsheetRowRangeReference range = SpreadsheetSelection.parseRowRange("1:3");
 
         this.setMenuAndCheck(
                 this.createHistoryToken(
@@ -262,7 +262,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
-    final void urlFragmentAndCheck(final SpreadsheetRowReferenceRange reference,
+    final void urlFragmentAndCheck(final SpreadsheetRowRangeReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
                 this.createHistoryToken(

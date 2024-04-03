@@ -21,8 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
@@ -30,7 +30,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
 
     final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("A");
 
-    final static SpreadsheetColumnReferenceRange COLUMN_RANGE = SpreadsheetSelection.parseColumnRange("B:C");
+    final static SpreadsheetColumnRangeReference COLUMN_RANGE = SpreadsheetSelection.parseColumnRange("B:C");
 
     final static AnchoredSpreadsheetSelection SELECTION = COLUMN.setDefaultAnchor();
 
@@ -248,7 +248,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
-    final void urlFragmentAndCheck(final SpreadsheetColumnReferenceRange reference,
+    final void urlFragmentAndCheck(final SpreadsheetColumnRangeReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
                 this.createHistoryToken(

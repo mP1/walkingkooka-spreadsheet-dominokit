@@ -99,7 +99,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     final HistoryToken setMenu2(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
 
-        if (selection.isCellRange() || selection.isColumnReferenceRange() || selection.isRowReferenceRange()) {
+        if (selection.isCellRange() || selection.isColumnRangeReference() || selection.isRowRangeReference()) {
             throw new IllegalArgumentException("Expected cell, column or row but got " + selection);
         }
 
@@ -117,14 +117,14 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                     this.setMenuSelection(selection)
             );
         } else {
-            if (menuSelection.isColumnReference() || menuSelection.isColumnReferenceRange()) {
+            if (menuSelection.isColumnReference() || menuSelection.isColumnRangeReference()) {
                 token = columnMenu(
                         id,
                         name,
                         anchored
                 );
             } else {
-                if (menuSelection.isRowReference() || menuSelection.isRowReferenceRange()) {
+                if (menuSelection.isRowReference() || menuSelection.isRowRangeReference()) {
                     token = rowMenu(
                             id,
                             name,
