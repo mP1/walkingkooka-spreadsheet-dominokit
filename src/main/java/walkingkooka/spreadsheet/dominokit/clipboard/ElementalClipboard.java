@@ -49,7 +49,7 @@ public class ElementalClipboard {
     /**
      * Writes data to the clipboard.
      *
-     * @param item The ElementalClipboardItem to writeClipboardItem to the clipboard.
+     * @param items The ElementalClipboardItem to writeClipboardItem to the clipboard.
      * @return A promise that resolves when the data is successfully written to the clipboard.
      */
     public native Promise<Any> write(JsArray<ElementalClipboardItem> items);
