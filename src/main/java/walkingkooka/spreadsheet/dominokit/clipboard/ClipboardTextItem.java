@@ -23,6 +23,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -299,7 +300,7 @@ public final class ClipboardTextItem implements HasText,
      * Verifies the type and reads the values from the JSON payload. This is typically an intermediate step
      * before moving relative references in any formulas and then patching the target range.
      */
-    public SpreadsheetCellClipboardRange toSpreadsheetCellClipboardRange(final AppContext context) {
+    public SpreadsheetCellRange toSpreadsheetCellRange(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
         this.checkMediaType();
@@ -337,7 +338,7 @@ public final class ClipboardTextItem implements HasText,
             );
         }
 
-        return SpreadsheetCellClipboardRange.with(
+        return SpreadsheetCellRange.with(
                 range,
                 values
         );
