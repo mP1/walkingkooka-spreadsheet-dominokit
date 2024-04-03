@@ -38,7 +38,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasTextTesting;
-import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -50,7 +49,6 @@ import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -950,7 +948,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         Maps.of(
                                 SpreadsheetSelection.A1,
                                 SpreadsheetSelection.A1.setFormula(
-                                        parseFormula("=1")
+                                        SpreadsheetMetadataTesting.parseFormula("=1")
                                 ).setStyle(
                                         TextStyle.EMPTY.set(
                                                 TextStylePropertyName.TEXT_ALIGN,
@@ -993,7 +991,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         Maps.of(
                                 SpreadsheetSelection.A1,
                                 SpreadsheetSelection.A1.setFormula(
-                                        parseFormula("=1")
+                                        SpreadsheetMetadataTesting.parseFormula("=1")
                                 ).setStyle(
                                         TextStyle.EMPTY.set(
                                                 TextStylePropertyName.TEXT_ALIGN,
@@ -1002,7 +1000,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 ),
                                 B2,
                                 B2.setFormula(
-                                        parseFormula("=22")
+                                        SpreadsheetMetadataTesting.parseFormula("=22")
                                 ).setFormatPattern(
                                         Optional.of(
                                                 SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
@@ -1028,9 +1026,9 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         SpreadsheetSelection.parseCellRange("A1:B2"),
                         Maps.of(
                                 SpreadsheetSelection.A1,
-                                parseFormula("=1"),
+                                SpreadsheetMetadataTesting.parseFormula("=1"),
                                 B2,
-                                parseFormula("=2+33")
+                                SpreadsheetMetadataTesting.parseFormula("=2+33")
                         )
                 )
         );
@@ -1321,16 +1319,6 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 expected,
                 clipboardTextItem.text(),
                 "text"
-        );
-    }
-
-    private static SpreadsheetFormula parseFormula(final String text) {
-        return SpreadsheetFormula.parse(
-                TextCursors.charSequence(text),
-                METADATA_EN_AU
-                        .parser(),
-                METADATA_EN_AU
-                        .parserContext(LocalDateTime::now)
         );
     }
 }
