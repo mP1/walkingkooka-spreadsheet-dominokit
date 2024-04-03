@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 import walkingkooka.Value;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -32,12 +32,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * A pair that holds a {@link SpreadsheetCellRange} and Set of values.
+ * A pair that holds a {@link SpreadsheetCellRangeReference} and Set of values.
  */
 public final class SpreadsheetCellClipboardRange implements Value<Map<SpreadsheetCellReference, ?>>,
         TreePrintable {
 
-    public static SpreadsheetCellClipboardRange with(final SpreadsheetCellRange range,
+    public static SpreadsheetCellClipboardRange with(final SpreadsheetCellRangeReference range,
                                                      final Map<SpreadsheetCellReference, ?> value) {
         checkRange(range);
         Objects.requireNonNull(value, "value");
@@ -52,17 +52,17 @@ public final class SpreadsheetCellClipboardRange implements Value<Map<Spreadshee
         );
     }
 
-    private SpreadsheetCellClipboardRange(final SpreadsheetCellRange range,
+    private SpreadsheetCellClipboardRange(final SpreadsheetCellRangeReference range,
                                           final Map<SpreadsheetCellReference, ?> value) {
         this.range = range;
         this.value = value;
     }
 
-    public SpreadsheetCellRange range() {
+    public SpreadsheetCellRangeReference range() {
         return this.range;
     }
 
-    public SpreadsheetCellClipboardRange setRange(final SpreadsheetCellRange range) {
+    public SpreadsheetCellClipboardRange setRange(final SpreadsheetCellRangeReference range) {
         checkRange(range);
 
         return this.range.equals(range) ?
@@ -70,7 +70,7 @@ public final class SpreadsheetCellClipboardRange implements Value<Map<Spreadshee
                 this.setRange0(range);
     }
 
-    private SpreadsheetCellClipboardRange setRange0(final SpreadsheetCellRange range) {
+    private SpreadsheetCellClipboardRange setRange0(final SpreadsheetCellRangeReference range) {
         final Map<SpreadsheetCellReference, ?> value = this.value;
 
         if (false == range.containsAll(this.range)) {
@@ -86,9 +86,9 @@ public final class SpreadsheetCellClipboardRange implements Value<Map<Spreadshee
         );
     }
 
-    private final SpreadsheetCellRange range;
+    private final SpreadsheetCellRangeReference range;
 
-    private static SpreadsheetCellRange checkRange(final SpreadsheetCellRange range) {
+    private static SpreadsheetCellRangeReference checkRange(final SpreadsheetCellRangeReference range) {
         return Objects.requireNonNull(range, "range");
     }
 
@@ -113,7 +113,7 @@ public final class SpreadsheetCellClipboardRange implements Value<Map<Spreadshee
 
     private final Map<SpreadsheetCellReference, ?> value;
 
-    private static <T> void checkValues(final SpreadsheetCellRange range,
+    private static <T> void checkValues(final SpreadsheetCellRangeReference range,
                                         final Map<SpreadsheetCellReference, ?> value) {
         final Set<SpreadsheetCellReference> outOfBounds = value.keySet()
                 .stream()

@@ -38,7 +38,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         );
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
-        if (false == (selection.isCellReference() || selection.isCellRange() || selection.isLabelName())) {
+        if (false == (selection.isCellReference() || selection.isCellRangeReference() || selection.isLabelName())) {
             throw new IllegalArgumentException("Got " + selection + " expected cell, cell-range or label");
         }
     }

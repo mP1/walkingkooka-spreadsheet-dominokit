@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * This {@link HistoryToken} is used by to paste a formula over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRange}.
+ * This {@link HistoryToken} is used by to paste a formula over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference}.
  */
 public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCellSaveMapHistoryToken<String> {
 

@@ -23,7 +23,7 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -35,8 +35,8 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
         HashCodeEqualsDefinedTesting2<SpreadsheetCellFind>,
         ToStringTesting<SpreadsheetCellFind> {
 
-    private final static Optional<SpreadsheetCellRangePath> PATH = Optional.of(
-            SpreadsheetCellRangePath.LRTD
+    private final static Optional<SpreadsheetCellRangeReferencePath> PATH = Optional.of(
+            SpreadsheetCellRangeReferencePath.LRTD
     );
 
     private final static OptionalInt OFFSET = OptionalInt.of(123);
@@ -85,8 +85,8 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
     @Test
     public void testSetPathDifferent() {
         final SpreadsheetCellFind find = SpreadsheetCellFind.empty();
-        final Optional<SpreadsheetCellRangePath> path = Optional.of(
-                SpreadsheetCellRangePath.RLTD
+        final Optional<SpreadsheetCellRangeReferencePath> path = Optional.of(
+                SpreadsheetCellRangeReferencePath.RLTD
         );
 
         this.checkNotEquals(
@@ -298,7 +298,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
         this.checkNotEquals(
                 new SpreadsheetCellFind(
                         Optional.of(
-                                SpreadsheetCellRangePath.BULR
+                                SpreadsheetCellRangeReferencePath.BULR
                         ),
                         OFFSET,
                         MAX,
@@ -367,7 +367,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
         this.urlFragmentAndCheck(
                 SpreadsheetCellFind.empty()
                         .setPath(
-                                Optional.of(SpreadsheetCellRangePath.BULR)
+                                Optional.of(SpreadsheetCellRangeReferencePath.BULR)
                         ),
                 UrlFragment.parse("/path/BULR")
         );
@@ -439,7 +439,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
     public void testToStringNonEmpty() {
         this.toStringAndCheck(
                 new SpreadsheetCellFind(
-                        Optional.of(SpreadsheetCellRangePath.BULR),
+                        Optional.of(SpreadsheetCellRangeReferencePath.BULR),
                         OptionalInt.of(123), // offset
                         OptionalInt.of(456), // max
                         Optional.of(SpreadsheetValueType.NUMBER),

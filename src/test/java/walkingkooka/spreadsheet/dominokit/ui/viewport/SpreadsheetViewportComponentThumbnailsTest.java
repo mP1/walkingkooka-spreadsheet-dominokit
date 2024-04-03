@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTesting<SpreadsheetViewportComponentThumbnails> {
@@ -142,7 +142,7 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
         );
     }
 
-    private void computeAndCheck(final SpreadsheetCellRange last,
+    private void computeAndCheck(final SpreadsheetCellRangeReference last,
                                  final int columnCount,
                                  final int rowCount,
                                  final SpreadsheetViewportComponentThumbnails expected) {

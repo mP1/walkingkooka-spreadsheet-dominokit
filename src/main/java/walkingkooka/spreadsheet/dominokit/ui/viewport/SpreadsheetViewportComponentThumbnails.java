@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 
 import java.util.Objects;
@@ -27,7 +27,7 @@ import java.util.Objects;
  */
 final class SpreadsheetViewportComponentThumbnails {
 
-    static SpreadsheetViewportComponentThumbnails compute(final SpreadsheetCellRange last,
+    static SpreadsheetViewportComponentThumbnails compute(final SpreadsheetCellRangeReference last,
                                                           final int columnCount,
                                                           final int rowCount) {
         final SpreadsheetCellReference topLeft = last.begin();

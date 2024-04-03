@@ -29,8 +29,8 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -575,10 +575,10 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
     private final static SpreadsheetId ID = SpreadsheetId.parse("1234");
 
-    private final static SpreadsheetCellRange CELLS = SpreadsheetSelection.parseCellRange("A1:B2");
+    private final static SpreadsheetCellRangeReference CELLS = SpreadsheetSelection.parseCellRange("A1:B2");
 
-    private final static Optional<SpreadsheetCellRangePath> PATH = Optional.of(
-            SpreadsheetCellRangePath.BULR
+    private final static Optional<SpreadsheetCellRangeReferencePath> PATH = Optional.of(
+            SpreadsheetCellRangeReferencePath.BULR
     );
 
     private final static OptionalInt OFFSET = OptionalInt.of(12);
@@ -701,7 +701,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     private void findCellsUrlAndCheck(final SpreadsheetId id,
-                                      final SpreadsheetCellRange cells,
+                                      final SpreadsheetCellRangeReference cells,
                                       final SpreadsheetCellFind find,
                                       final RelativeUrl expected) {
         this.checkEquals(

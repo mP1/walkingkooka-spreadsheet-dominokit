@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -56,7 +56,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     }
 
     @Override
-    protected void visit(final SpreadsheetCellRange cell) {
+    protected void visit(final SpreadsheetCellRangeReference cell) {
         this.setSelectionToken(
                 cell,
                 this.token::setCell

@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 
@@ -199,7 +199,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             if ("path".equals(component)) {
                 find = find.setPath(
                         parseComponent(cursor)
-                                .map(SpreadsheetCellRangePath::valueOf)
+                                .map(SpreadsheetCellRangeReferencePath::valueOf)
                 );
 
                 component = parseComponentOrNull(cursor);

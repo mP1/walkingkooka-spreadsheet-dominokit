@@ -45,7 +45,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -103,7 +103,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     private final static SpreadsheetLabelMapping LABEL_MAPPINGB3 = LABEL3.mapping(B3);
     private final static SpreadsheetLabelMapping LABEL999_LABEL_MAPPINGB3 = LABEL999.mapping(LABEL3);
 
-    private final static SpreadsheetCellRange WINDOW1 = SpreadsheetSelection.parseCellRange("A1:B3");
+    private final static SpreadsheetCellRangeReference WINDOW1 = SpreadsheetSelection.parseCellRange("A1:B3");
     private final static SpreadsheetViewportWindows WINDOW = SpreadsheetViewportWindows.with(
             Sets.of(
                     WINDOW1
@@ -1822,7 +1822,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 CONTEXT
         );
 
-        final SpreadsheetCellRange b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
+        final SpreadsheetCellRangeReference b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY
@@ -1924,7 +1924,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 CONTEXT
         );
 
-        final SpreadsheetCellRange b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
+        final SpreadsheetCellRangeReference b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
 
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY

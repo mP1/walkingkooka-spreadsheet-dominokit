@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasTextTesting;
@@ -869,7 +869,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         );
     }
 
-    private void toJsonAndCheck(final SpreadsheetCellRange range,
+    private void toJsonAndCheck(final SpreadsheetCellRangeReference range,
                                 final Iterator<SpreadsheetCell> cells,
                                 final SpreadsheetCellClipboardValueKind kind,
                                 final JsonNodeMarshallContext context,
