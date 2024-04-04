@@ -35,7 +35,6 @@ import walkingkooka.tree.json.JsonObject;
 import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -134,7 +133,7 @@ import java.util.stream.Collectors;
  * </pre>
  * JSON holding formatted values
  * <pre>
- *{
+ * {
  *   "mediaType": "application/json+walkingkooka.tree.text.TextNode",
  *   "cell-range": "A1:B2",
  *   "value": {
@@ -156,63 +155,41 @@ public final class ClipboardTextItem implements HasText,
     /**
      * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardKind} to JSON.
      */
-    public static ClipboardTextItem toJson(final SpreadsheetCellRangeReference range,
-                                           final Iterator<SpreadsheetCell> cells,
+    public static ClipboardTextItem toJson(final SpreadsheetCellRange range,
                                            final SpreadsheetCellClipboardKind kind,
                                            final JsonNodeMarshallContext context) {
         Objects.requireNonNull(range, "range");
-        Objects.requireNonNull(cells, "cells");
         Objects.requireNonNull(kind, "kind");
         Objects.requireNonNull(context, "context");
 
         final MediaType mediaType = kind.mediaType();
-
+        final SpreadsheetCellRangeReference rangeReference = range.range();
 
         final List<JsonNode> value = Lists.array();
-        final Set<SpreadsheetCellReference> outside = Sets.sorted();
 
-        while (cells.hasNext()) {
-            final SpreadsheetCell cell = cells.next();
+        for (final SpreadsheetCell cell : range.value()) {
             final SpreadsheetCellReference reference = cell.reference();
-            if (range.testCell(reference)) {
+            if (rangeReference.testCell(reference)) {
 
-                if (outside.isEmpty()) {
-                    value.add(
-                            kind.marshall(
-                                    cell,
-                                    context
-                            )
-                    );
-                }
-            } else {
-                outside.add(reference);
+                value.add(
+                        kind.marshall(
+                                cell,
+                                context
+                        )
+                );
             }
-        }
-
-        final int count = outside.size();
-        if (count > 0) {
-            throw new IllegalArgumentException(
-                    "Required all cells to be within range " +
-                            range +
-                            " but got " +
-                            count +
-                            " cells: " +
-                            outside.stream()
-                                    .map(Object::toString)
-                                    .collect(Collectors.joining(", "))
-            );
         }
 
         final JsonObject envelope = JsonNode.object()
                 .set(
                         MEDIA_TYPE_PROPERTY_NAME,
                         JsonNode.string(
-                                        mediaType.value()
+                                mediaType.value()
                         )
                 ).set(
                         CELL_RANGE_PROPERTY_NAME,
                         JsonNode.string(
-                                range.toStringMaybeStar()
+                                rangeReference.toStringMaybeStar()
                         )
                 ).set(
                         VALUE_PROPERTY_NAME,
@@ -322,8 +299,6 @@ public final class ClipboardTextItem implements HasText,
         for (final JsonNode value : json.getOrFail(VALUE_PROPERTY_NAME)
                 .objectOrFail()
                 .children()) {
-
-
             values.add(
                     kind.unmarshall(
                             value,
