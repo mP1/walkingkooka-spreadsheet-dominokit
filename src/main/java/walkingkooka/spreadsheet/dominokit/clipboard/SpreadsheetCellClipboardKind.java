@@ -18,18 +18,23 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasMediaType;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursors;
@@ -41,6 +46,7 @@ import walkingkooka.tree.text.TextStyle;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
@@ -103,6 +109,17 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             }
             return cell;
         }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.saveCells(
+                    id,
+                    range.range(),
+                    range.value()
+            );
+        }
     },
 
     /**
@@ -144,6 +161,20 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                     )
             );
         }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsFormula(
+                    id,
+                    range.range(),
+                    toMap(
+                            range,
+                            SpreadsheetCell::formula
+                    )
+            );
+        }
     },
 
     /**
@@ -176,6 +207,20 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                     Optional.ofNullable(
                             context.unmarshallContext()
                                     .unmarshallWithType(node)
+                    )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsFormatPattern(
+                    id,
+                    range.range(),
+                    toMap(
+                            range,
+                            SpreadsheetCell::formatPattern
                     )
             );
         }
@@ -214,6 +259,20 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                     )
             );
         }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsParsePattern(
+                    id,
+                    range.range(),
+                    toMap(
+                            range,
+                            SpreadsheetCell::parsePattern
+                    )
+            );
+        }
     },
 
     /**
@@ -245,6 +304,20 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                     node,
                                     TextStyle.class
                             )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsStyle(
+                    id,
+                    range.range(),
+                    toMap(
+                            range,
+                            SpreadsheetCell::style
+                    )
             );
         }
     },
@@ -281,6 +354,13 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                     .unmarshallWithType(node)
                     )
             );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            throw new UnsupportedOperationException("Pasting formattedValue not supported");
         }
     };
 
@@ -353,6 +433,26 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     }
 
     private final Predicate<SpreadsheetCellClipboardKind> predicate;
+
+    /**
+     * Performs a PATCH using the given {@link SpreadsheetCellRange range}.
+     */
+    public abstract void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                           final SpreadsheetId id,
+                                           final SpreadsheetCellRange range);
+
+    static <T> Map<SpreadsheetCellReference, T> toMap(final SpreadsheetCellRange range,
+                                                      final Function<SpreadsheetCell, T> valueExtractor) {
+        final Map<SpreadsheetCellReference, T> map = Maps.sorted();
+        for (final SpreadsheetCell cell : range.value()) {
+            map.put(
+                    cell.reference(),
+                    valueExtractor.apply(cell)
+            );
+        }
+
+        return map;
+    }
 
     // HasMediaType.....................................................................................................
 

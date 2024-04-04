@@ -18,11 +18,20 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
+import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * A {@link HistoryToken} that represents a PASTE to the clipboard of a cell or cell range.
@@ -73,6 +82,44 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // TODO PASTE selected cells and push onto clipboard
+        context.pushHistoryToken(
+                previous.clearAction()
+        );
+
+        final Optional<SpreadsheetSelection> maybeSelection = context.viewportCache()
+                .nonLabelSelection(
+                        SpreadsheetCellClipboardPasteHistoryToken.this.anchoredSelection()
+                                .selection()
+                );
+        if (maybeSelection.isPresent()) {
+            final SpreadsheetCellRangeReference rangeReference = maybeSelection.get()
+                    .toCellRange();
+            context.readClipboardItem(
+                    Predicates.is(ClipboardTextItem.MEDIA_TYPE),
+                    new ClipboardContextReadWatcher() {
+                        @Override
+                        public void onSuccess(final List<ClipboardTextItem> items) {
+                            final SpreadsheetCellClipboardPasteHistoryToken that = SpreadsheetCellClipboardPasteHistoryToken.this;
+                            final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+                            final SpreadsheetId id = that.id();
+                            final SpreadsheetCellClipboardKind kind = that.kind();
+
+                            for (final ClipboardTextItem item : items) {
+                                kind.saveOrUpdateCells(
+                                        fetcher,
+                                        id,
+                                        item.toSpreadsheetCellRange(context)
+                                                .move(rangeReference)
+                                );
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(final Object cause) {
+                            context.error("Paste failed", cause);
+                        }
+                    }
+            );
+        }
     }
 }
