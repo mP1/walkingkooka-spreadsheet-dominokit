@@ -112,8 +112,9 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
 
     // HistoryToken.....................................................................................................
 
-    @Override final void onHistoryTokenChange0(final HistoryToken previous,
-                                               final AppContext context) {
+    @Override //
+    final void onHistoryTokenChange0(final HistoryToken previous,
+                                     final AppContext context) {
         context.pushHistoryToken(
                 previous
         );
