@@ -94,16 +94,17 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                 context.marshallContext()
         );
 
-        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-        final SpreadsheetId id = this.id();
-        final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();
-        final SpreadsheetSelection selection = anchoredSelection.selection();
-
         context.writeClipboardItem(
                 clipboardTextItem,
                 new ClipboardContextWriteWatcher() {
                     @Override
                     public void onSuccess() {
+                        final SpreadsheetCellClipboardCutHistoryToken that = SpreadsheetCellClipboardCutHistoryToken.this;
+                        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+                        final SpreadsheetId id = that.id();
+                        final AnchoredSpreadsheetSelection anchoredSelection = that.anchoredSelection();
+                        final SpreadsheetSelection selection = anchoredSelection.selection();
+
                         switch (kind) {
                             case CELL:
                                 fetcher.deleteCells(
