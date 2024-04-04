@@ -22,8 +22,7 @@ import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.iterator.Iterators;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.map.Maps;
-import walkingkooka.color.Color;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -43,7 +42,6 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.FontStyle;
-import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -924,10 +922,9 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     private final static SpreadsheetCellReference B2 = SpreadsheetSelection.parseCell("b2");
-    private final static SpreadsheetCellReference C3 = SpreadsheetSelection.parseCell("C3");
 
     @Test
-    public void testToSpreadsheetCellRangeCell() {
+    public void testToSpreadsheetCellRange() {
         this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
@@ -943,25 +940,24 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "    }\n" +
                         "  }\n" +
                         "}",
-                SpreadsheetCellRange.with(
-                        SpreadsheetSelection.parseCellRange("A1:B2"),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetMetadataTesting.parseFormula("=1")
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(
-                                                TextStylePropertyName.TEXT_ALIGN,
-                                                TextAlign.CENTER
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                        .setValue(
+                                Sets.of(
+                                        SpreadsheetSelection.A1.setFormula(
+                                                SpreadsheetMetadataTesting.parseFormula("=1")
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(
+                                                        TextStylePropertyName.TEXT_ALIGN,
+                                                        TextAlign.CENTER
+                                                )
                                         )
                                 )
                         )
-                )
         );
     }
 
     @Test
-    public void testToSpreadsheetCellRangeCell2() {
+    public void testToSpreadsheetCellRange2() {
         this.toSpreadsheetCellRangeAndCheck(
                 "{\n" +
                         "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
@@ -986,190 +982,26 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "    }\n" +
                         "  }\n" +
                         "}",
-                SpreadsheetCellRange.with(
-                        SpreadsheetSelection.parseCellRange("A1:B2"),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetMetadataTesting.parseFormula("=1")
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(
-                                                TextStylePropertyName.TEXT_ALIGN,
-                                                TextAlign.CENTER
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                        .setValue(
+                                Sets.of(
+                                        SpreadsheetSelection.A1.setFormula(
+                                                SpreadsheetMetadataTesting.parseFormula("=1")
+                                        ).setStyle(
+                                                TextStyle.EMPTY.set(
+                                                        TextStylePropertyName.TEXT_ALIGN,
+                                                        TextAlign.CENTER
+                                                )
+                                        ),
+                                        B2.setFormula(
+                                                SpreadsheetMetadataTesting.parseFormula("=22")
+                                        ).setFormatPattern(
+                                                Optional.of(
+                                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                                                )
                                         )
-                                ),
-                                B2,
-                                B2.setFormula(
-                                        SpreadsheetMetadataTesting.parseFormula("=22")
-                                ).setFormatPattern(
-                                        Optional.of(
-                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
-                                        )
                                 )
                         )
-                )
-        );
-    }
-
-    @Test
-    public void testToSpreadsheetCellRangeFormula() {
-        this.toSpreadsheetCellRangeAndCheck(
-                "{\n" +
-                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
-                        "  \"cell-range\": \"A1:B2\",\n" +
-                        "  \"value\": {\n" +
-                        "    \"A1\": \"=1\",\n" +
-                        "    \"B2\": \"=2+33\"\n" +
-                        "  }\n" +
-                        "}",
-                SpreadsheetCellRange.with(
-                        SpreadsheetSelection.parseCellRange("A1:B2"),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                SpreadsheetMetadataTesting.parseFormula("=1"),
-                                B2,
-                                SpreadsheetMetadataTesting.parseFormula("=2+33")
-                        )
-                )
-        );
-    }
-
-    @Test
-    public void testToSpreadsheetCellRangeFormatPattern() {
-        this.toSpreadsheetCellRangeAndCheck(
-                "{\n" +
-                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
-                        "  \"cell-range\": \"A1:B2\",\n" +
-                        "  \"value\": {\n" +
-                        "    \"A1\": {\n" +
-                        "      \"type\": \"spreadsheet-date-format-pattern\",\n" +
-                        "      \"value\": \"dd/mm/yyyy\"\n" +
-                        "    },\n" +
-                        "    \"B2\": {\n" +
-                        "      \"type\": \"spreadsheet-number-format-pattern\",\n" +
-                        "      \"value\": \"$0.00\"\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}",
-                SpreadsheetCellRange.with(
-                        SpreadsheetSelection.parseCellRange("A1:B2"),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                                ),
-                                B2,
-                                Optional.of(
-                                        SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                                )
-                        )
-                )
-        );
-    }
-
-    @Test
-    public void testToSpreadsheetCellRangeParsePattern() {
-        this.toSpreadsheetCellRangeAndCheck(
-                "{\n" +
-                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
-                        "  \"cell-range\": \"A1:B2\",\n" +
-                        "  \"value\": {\n" +
-                        "    \"A1\": {\n" +
-                        "      \"type\": \"spreadsheet-date-parse-pattern\",\n" +
-                        "      \"value\": \"dd/mm/yyyy\"\n" +
-                        "    },\n" +
-                        "    \"B2\": {\n" +
-                        "      \"type\": \"spreadsheet-number-parse-pattern\",\n" +
-                        "      \"value\": \"$0.00\"\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}",
-                SpreadsheetCellRange.with(
-                        SpreadsheetSelection.parseCellRange("A1:B2"),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
-                                ),
-                                B2,
-                                Optional.of(
-                                        SpreadsheetPattern.parseNumberParsePattern("$0.00")
-                                )
-                        )
-                )
-        );
-    }
-
-    @Test
-    public void testToSpreadsheetCellRangeStyle() {
-        this.toSpreadsheetCellRangeAndCheck(
-                "{\n" +
-                        "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
-                        "  \"cell-range\": \"A1:B2\",\n" +
-                        "  \"value\": {\n" +
-                        "    \"A1\": {\n" +
-                        "      \"color\": \"#000\"\n" +
-                        "    },\n" +
-                        "    \"B2\": {\n" +
-                        "      \"font-weight\": \"bold\",\n" +
-                        "      \"text-align\": \"LEFT\"\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}",
-                SpreadsheetCellRange.with(
-                        SpreadsheetSelection.parseCellRange("A1:B2"),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                TextStyle.EMPTY.set(
-                                        TextStylePropertyName.COLOR,
-                                        Color.BLACK
-                                ),
-                                B2,
-                                TextStyle.EMPTY.set(
-                                        TextStylePropertyName.FONT_WEIGHT,
-                                        FontWeight.BOLD
-                                ).set(
-                                        TextStylePropertyName.TEXT_ALIGN,
-                                        TextAlign.LEFT
-                                )
-                        )
-                )
-        );
-    }
-
-    @Test
-    public void testToSpreadsheetCellRangeFormattedValue() {
-        this.toSpreadsheetCellRangeAndCheck(
-                "{\n" +
-                        "     \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
-                        "     \"cell-range\": \"A1:C3\",\n" +
-                        "     \"value\": {\n" +
-                        "         \"A1\": {\n" +
-                        "             \"type\": \"text\",\n" +
-                        "             \"value\": \"111\"\n" +
-                        "           },\n" +
-                        "         \"B2\": {\n" +
-                        "             \"type\": \"text\",\n" +
-                        "             \"value\": \"222bbb\"\n" +
-                        "           },\n" +
-                        "         \"C3\": null\n" +
-                        "       }\n" +
-                        "   }",
-                SpreadsheetCellRange.with(
-                        SpreadsheetSelection.parseCellRange("A1:C3"),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        TextNode.text("111")
-                                ),
-                                B2,
-                                Optional.of(
-                                        TextNode.text("222bbb")
-                                ),
-                                C3,
-                                Optional.empty()
-                        )
-                )
         );
     }
 

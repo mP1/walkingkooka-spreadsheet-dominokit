@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -38,7 +37,6 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -319,18 +317,14 @@ public final class ClipboardTextItem implements HasText,
                         .stringOrFail()
         );
 
-        final Map<SpreadsheetCellReference, Object> values = Maps.sorted();
+        final Set<SpreadsheetCell> values = Sets.sorted();
 
         for (final JsonNode value : json.getOrFail(VALUE_PROPERTY_NAME)
                 .objectOrFail()
                 .children()) {
-            final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell(
-                    value.name()
-                            .value()
-            );
 
-            values.put(
-                    cell,
+
+            values.add(
                     kind.unmarshall(
                             value,
                             context

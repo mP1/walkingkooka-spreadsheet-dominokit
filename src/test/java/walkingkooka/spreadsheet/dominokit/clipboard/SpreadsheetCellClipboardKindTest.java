@@ -655,6 +655,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     // unmarshall.......................................................................................................
 
+    private final static JsonPropertyName A1 = JsonPropertyName.with("A1");
+
     @Test
     public void testUnmarshallCellFormulaEmpty() {
         this.unmarshallAndCheck(
@@ -759,7 +761,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.FORMULA,
                 JsonNode.string(""),
-                SpreadsheetFormula.EMPTY
+                EMPTY_FORMULA
         );
     }
 
@@ -770,16 +772,20 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.FORMULA,
                 JsonNode.string(formula),
-                parseFormula(formula)
+                SpreadsheetSelection.A1.setFormula(
+                        parseFormula(formula)
+                )
         );
     }
+
+    private final static SpreadsheetCell EMPTY_FORMULA = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY);
 
     @Test
     public void testUnmarshallFormatPatternEmpty() {
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 JsonNode.nullNode(),
-                Optional.empty()
+                EMPTY_FORMULA
         );
     }
 
@@ -791,7 +797,9 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 APP_CONTEXT.marshallContext()
                         .marshallWithType(pattern),
-                Optional.of(pattern)
+                EMPTY_FORMULA.setFormatPattern(
+                        Optional.of(pattern)
+                )
         );
     }
 
@@ -800,7 +808,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 JsonNode.nullNode(),
-                Optional.empty()
+                EMPTY_FORMULA
         );
     }
 
@@ -812,7 +820,9 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 APP_CONTEXT.marshallContext()
                         .marshallWithType(pattern),
-                Optional.of(pattern)
+                EMPTY_FORMULA.setParsePattern(
+                        Optional.of(pattern)
+                )
         );
     }
 
@@ -821,7 +831,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.STYLE,
                 JsonNode.object(),
-                TextStyle.EMPTY
+                EMPTY_FORMULA
         );
     }
 
@@ -836,7 +846,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 SpreadsheetCellClipboardKind.STYLE,
                 APP_CONTEXT.marshallContext()
                         .marshall(style),
-                style
+                EMPTY_FORMULA.setStyle(style)
         );
     }
 
@@ -845,19 +855,21 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 JsonNode.nullNode(),
-                Optional.empty()
+                EMPTY_FORMULA
         );
     }
 
     @Test
     public void testUnmarshallFormattedValue() {
-        final String value = "Text123";
+        final TextNode value = TextNode.text("Text123");
 
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 APP_CONTEXT.marshallContext()
                         .marshallWithType(value),
-                Optional.of(value)
+                EMPTY_FORMULA.setFormattedValue(
+                        Optional.of(value)
+                )
         );
     }
 
@@ -882,11 +894,13 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     private void unmarshallAndCheck(final SpreadsheetCellClipboardKind kind,
                                     final JsonNode node,
-                                    final Object expected) {
+                                    final SpreadsheetCell expected) {
         this.checkEquals(
                 expected,
                 kind.unmarshall(
-                        node,
+                        node.setName(
+                                JsonPropertyName.with("A1")
+                        ),
                         APP_CONTEXT
                 ),
                 () -> kind + " " + node
