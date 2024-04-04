@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
@@ -736,7 +736,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setCellCopy(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }
@@ -754,9 +754,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueKind.CELL
+                        SpreadsheetCellClipboardKind.CELL
                 ),
-                historyToken.setCellCopy(SpreadsheetCellClipboardValueKind.CELL)
+                historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
@@ -771,7 +771,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 cell
         );
 
-        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.checkEquals(
                     HistoryToken.cellClipboardCopy(
                             ID,
@@ -793,7 +793,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         assertSame(
-                historyToken.setCellCopy(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }
@@ -807,7 +807,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         assertSame(
-                historyToken.setCellCopy(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }
@@ -827,7 +827,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setCellCut(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }
@@ -845,9 +845,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueKind.CELL
+                        SpreadsheetCellClipboardKind.CELL
                 ),
-                historyToken.setCellCut(SpreadsheetCellClipboardValueKind.CELL)
+                historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
@@ -862,7 +862,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 cell
         );
 
-        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.checkEquals(
                     HistoryToken.cellClipboardCut(
                             ID,
@@ -884,7 +884,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         assertSame(
-                historyToken.setCellCut(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }
@@ -898,7 +898,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         assertSame(
-                historyToken.setCellCut(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }
@@ -918,7 +918,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setCellPaste(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }
@@ -936,9 +936,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueKind.CELL
+                        SpreadsheetCellClipboardKind.CELL
                 ),
-                historyToken.setCellPaste(SpreadsheetCellClipboardValueKind.CELL)
+                historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
@@ -953,7 +953,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 cell
         );
 
-        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.checkEquals(
                     HistoryToken.cellClipboardPaste(
                             ID,
@@ -975,7 +975,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         assertSame(
-                historyToken.setCellPaste(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }
@@ -989,7 +989,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         assertSame(
-                historyToken.setCellPaste(SpreadsheetCellClipboardValueKind.CELL),
+                historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
                 historyToken
         );
     }

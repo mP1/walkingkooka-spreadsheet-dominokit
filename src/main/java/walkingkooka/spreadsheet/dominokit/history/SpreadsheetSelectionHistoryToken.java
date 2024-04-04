@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.cursor.TextCursor;
@@ -149,7 +149,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellCopy(
-                        SpreadsheetCellClipboardValueKind.parse(component)
+                        SpreadsheetCellClipboardKind.parse(component)
                 );
             }
         }
@@ -166,7 +166,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellPaste(
-                        SpreadsheetCellClipboardValueKind.parse(component)
+                        SpreadsheetCellClipboardKind.parse(component)
                 );
             }
         }
@@ -183,7 +183,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellCut(
-                        SpreadsheetCellClipboardValueKind.parse(component)
+                        SpreadsheetCellClipboardKind.parse(component)
                 );
             }
         }
