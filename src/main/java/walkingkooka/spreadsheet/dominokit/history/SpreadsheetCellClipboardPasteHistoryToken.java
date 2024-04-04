@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 /**
@@ -32,7 +32,7 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     static SpreadsheetCellClipboardPasteHistoryToken with(final SpreadsheetId id,
                                                           final SpreadsheetName name,
                                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                                          final SpreadsheetCellClipboardValueKind kind) {
+                                                          final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardPasteHistoryToken(
                 id,
                 name,
@@ -44,7 +44,7 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     private SpreadsheetCellClipboardPasteHistoryToken(final SpreadsheetId id,
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                      final SpreadsheetCellClipboardValueKind kind) {
+                                                      final SpreadsheetCellClipboardKind kind) {
         super(
                 id,
                 name,

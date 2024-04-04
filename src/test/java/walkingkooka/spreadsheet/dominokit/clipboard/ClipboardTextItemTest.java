@@ -199,7 +199,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 () -> ClipboardTextItem.toJson(
                         null, // cell-range
                         Iterators.fake(), // cells,
-                        SpreadsheetCellClipboardValueKind.CELL,
+                        SpreadsheetCellClipboardKind.CELL,
                         JsonNodeMarshallContexts.fake()
                 )
         );
@@ -212,7 +212,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 () -> ClipboardTextItem.toJson(
                         SpreadsheetSelection.ALL_CELLS,
                         null, // cells,
-                        SpreadsheetCellClipboardValueKind.CELL,
+                        SpreadsheetCellClipboardKind.CELL,
                         JsonNodeMarshallContexts.fake()
                 )
         );
@@ -238,7 +238,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 () -> ClipboardTextItem.toJson(
                         SpreadsheetSelection.ALL_CELLS,
                         null, // cells,
-                        SpreadsheetCellClipboardValueKind.CELL,
+                        SpreadsheetCellClipboardKind.CELL,
                         null
                 )
         );
@@ -259,7 +259,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 SpreadsheetSelection.parseCell("D4")
                                         .setFormula(SpreadsheetFormula.EMPTY)
                         ), // cells,
-                        SpreadsheetCellClipboardValueKind.CELL,
+                        SpreadsheetCellClipboardKind.CELL,
                         JsonNodeMarshallContexts.basic()
                 )
         );
@@ -276,7 +276,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         this.toJsonAndCheck(
                 "A1",
                 Iterators.empty(),
-                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardKind.CELL,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -302,7 +302,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 )
                         )
                 ),
-                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardKind.CELL,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -345,7 +345,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardKind.CELL,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -381,7 +381,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 "A1",
                 Iterators.array(
                 ),
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -406,7 +406,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         SpreadsheetFormula.EMPTY.setText("=22")
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -428,7 +428,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -448,7 +448,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 "A1",
                 Iterators.array(
                 ),
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -467,7 +467,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -495,7 +495,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -530,7 +530,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -557,7 +557,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 "A1:B2",
                 Iterators.array(
                 ),
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -576,7 +576,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -604,7 +604,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -641,7 +641,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -668,7 +668,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 "A1:B2",
                 Iterators.array(
                 ),
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -687,7 +687,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -716,7 +716,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -755,7 +755,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -780,7 +780,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 "*",
                 Iterators.array(
                 ),
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -813,7 +813,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -841,7 +841,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 Iterators.array(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
@@ -857,7 +857,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
 
     private void toJsonAndCheck(final String range,
                                 final Iterator<SpreadsheetCell> cells,
-                                final SpreadsheetCellClipboardValueKind kind,
+                                final SpreadsheetCellClipboardKind kind,
                                 final ClipboardTextItem expected) {
         this.toJsonAndCheck(
                 SpreadsheetSelection.parseCellRange(range),
@@ -870,7 +870,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
 
     private void toJsonAndCheck(final SpreadsheetCellRangeReference range,
                                 final Iterator<SpreadsheetCell> cells,
-                                final SpreadsheetCellClipboardValueKind kind,
+                                final SpreadsheetCellClipboardKind kind,
                                 final JsonNodeMarshallContext context,
                                 final ClipboardTextItem expected) {
         this.checkEquals(

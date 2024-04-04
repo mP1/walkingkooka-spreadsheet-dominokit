@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -54,7 +54,7 @@ public final class SpreadsheetCellClipboardPasteHistoryTokenTest extends Spreads
                         ID,
                         NAME,
                         SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueKind.CELL
+                        SpreadsheetCellClipboardKind.CELL
                 )
         );
     }
@@ -67,7 +67,7 @@ public final class SpreadsheetCellClipboardPasteHistoryTokenTest extends Spreads
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueKind.FORMULA
+                        SpreadsheetCellClipboardKind.FORMULA
                 )
         );
     }
@@ -87,7 +87,7 @@ public final class SpreadsheetCellClipboardPasteHistoryTokenTest extends Spreads
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueKind.FORMULA
+                        SpreadsheetCellClipboardKind.FORMULA
                 ),
                 "/123/SpreadsheetName456/cell/A1/paste/formula"
         );
@@ -100,7 +100,7 @@ public final class SpreadsheetCellClipboardPasteHistoryTokenTest extends Spreads
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardValueKind.FORMAT_PATTERN
+                        SpreadsheetCellClipboardKind.FORMAT_PATTERN
                 ),
                 "/123/SpreadsheetName456/cell/A1/paste/format-pattern"
         );
@@ -110,7 +110,7 @@ public final class SpreadsheetCellClipboardPasteHistoryTokenTest extends Spreads
     SpreadsheetCellClipboardPasteHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                  final SpreadsheetName name,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                 final SpreadsheetCellClipboardValueKind kind) {
+                                                                 final SpreadsheetCellClipboardKind kind) {
         return SpreadsheetCellClipboardPasteHistoryToken.with(
                 id,
                 name,

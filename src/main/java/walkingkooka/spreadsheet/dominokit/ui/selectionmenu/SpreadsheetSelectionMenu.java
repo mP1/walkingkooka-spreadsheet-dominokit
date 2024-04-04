@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetHotKeys;
@@ -213,11 +213,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
     private static void clipboardCutCopyPaste(final SpreadsheetContextMenu menu,
                                               final String idPrefix,
-                                              final Function<SpreadsheetCellClipboardValueKind, HistoryToken> historyToken) {
+                                              final Function<SpreadsheetCellClipboardKind, HistoryToken> historyToken) {
         SpreadsheetContextMenu menu2 = menu;
 
         // Cut > Cell
-        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.menuItemValues()) {
+        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.menuItemValues()) {
             menu2 = menu2.item(
                     SpreadsheetContextMenuItem.with(
                             clipboardCutCopyPasteMenuItemId(
@@ -235,7 +235,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     }
 
     private static String clipboardCutCopyPasteMenuItemId(final String idPrefix,
-                                                          final SpreadsheetCellClipboardValueKind kind) {
+                                                          final SpreadsheetCellClipboardKind kind) {
         return idPrefix +
                 CaseKind.SNAKE.change(
                         kind.name().toLowerCase(),
@@ -245,7 +245,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     }
 
     // "Cell" | "Format pattern"
-    private static String clipboardCutCopyPasteMenuItemText(final SpreadsheetCellClipboardValueKind kind) {
+    private static String clipboardCutCopyPasteMenuItemText(final SpreadsheetCellClipboardKind kind) {
         return CaseKind.SNAKE.change(
                 kind.name().toLowerCase(),
                 CaseKind.TITLE

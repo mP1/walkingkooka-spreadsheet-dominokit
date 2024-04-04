@@ -51,7 +51,7 @@ import java.util.function.Predicate;
  * For the moment this only supports possible cell values from the {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent},
  * which means the clipboard can only holds cells or components of a cell such as the formula text.
  */
-public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
+public enum SpreadsheetCellClipboardKind implements HasMediaType,
         HasUrlFragment {
 
     /**
@@ -264,9 +264,9 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
         );
     }
 
-    SpreadsheetCellClipboardValueKind(final Class<?> type,
-                                      final Function<SpreadsheetCell, Object> valueExtractor,
-                                      final String urlFragment) {
+    SpreadsheetCellClipboardKind(final Class<?> type,
+                                 final Function<SpreadsheetCell, Object> valueExtractor,
+                                 final String urlFragment) {
         this.mediaType = MediaType.APPLICATION_JSON.setSuffixes(
                 Lists.of(
                         type.getName()
@@ -284,7 +284,7 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     }
 
     /**
-     * Extracts the cell or cell property selected by this {@link SpreadsheetCellClipboardValueKind}. Some values will be wrapped inside an {@link java.util.Optional}.
+     * Extracts the cell or cell property selected by this {@link SpreadsheetCellClipboardKind}. Some values will be wrapped inside an {@link java.util.Optional}.
      * This will be used by the {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardCopyHistoryToken} and {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardCutHistoryToken}
      * to convert cells to the required value before they are serialized to the clipboard as text.
      */
@@ -310,15 +310,15 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
                                final AppContext context);
 
     /**
-     * All {@link SpreadsheetCellClipboardValueKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.
+     * All {@link SpreadsheetCellClipboardKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.
      * If the clipboard value is a {@link SpreadsheetCell} all PASTE menu items will be enabled, while other value types will only enable themselves,
      * eg if clipboard value is a {@link TextStyle} only PASTE STYLE will be enabled.
      */
-    public Predicate<SpreadsheetCellClipboardValueKind> predicate() {
+    public Predicate<SpreadsheetCellClipboardKind> predicate() {
         return predicate;
     }
 
-    private final Predicate<SpreadsheetCellClipboardValueKind> predicate;
+    private final Predicate<SpreadsheetCellClipboardKind> predicate;
 
     // HasMediaType.....................................................................................................
 
@@ -349,23 +349,23 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     private final transient UrlFragment urlFragment;
 
     /**
-     * Parses the given {@link UrlFragment} component attempting to match the equivalent {@link SpreadsheetCellClipboardValueKind}.
+     * Parses the given {@link UrlFragment} component attempting to match the equivalent {@link SpreadsheetCellClipboardKind}.
      * This is used to turn a history token fragment into a {@link SpreadsheetCellClipboardHistoryToken} such as CUT | COPY | PASTE.
      */
-    public static SpreadsheetCellClipboardValueKind parse(final String string) {
+    public static SpreadsheetCellClipboardKind parse(final String string) {
         Objects.requireNonNull(string, "string");
 
         return Arrays.stream(values())
                 .filter(e -> e.urlFragment.value().equals(string))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Invalid SpreadsheetCellClipboardValueKind: " + CharSequences.quote(string)));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid SpreadsheetCellClipboardKind: " + CharSequences.quote(string)));
     }
 
     /**
-     * Scans the current {@link MediaType} for the equivalent {@link SpreadsheetCellClipboardValueKind}. This is used
+     * Scans the current {@link MediaType} for the equivalent {@link SpreadsheetCellClipboardKind}. This is used
      * to determine the type of a json payload written to the clipboard.
      */
-    public static SpreadsheetCellClipboardValueKind fromMediaType(final MediaType mediaType) {
+    public static SpreadsheetCellClipboardKind fromMediaType(final MediaType mediaType) {
         Objects.requireNonNull(mediaType, "mediaType");
 
         return Arrays.stream(values())
@@ -375,13 +375,13 @@ public enum SpreadsheetCellClipboardValueKind implements HasMediaType,
     }
 
     /**
-     * Because {@link SpreadsheetCellClipboardValueKind#values} ordering is not guaranteed this getter is provided.
+     * Because {@link SpreadsheetCellClipboardKind#values} ordering is not guaranteed this getter is provided.
      */
-    public static List<SpreadsheetCellClipboardValueKind> menuItemValues() {
+    public static List<SpreadsheetCellClipboardKind> menuItemValues() {
         return VALUES;
     }
 
-    private final static List<SpreadsheetCellClipboardValueKind> VALUES = Lists.of(
+    private final static List<SpreadsheetCellClipboardKind> VALUES = Lists.of(
             CELL,
             FORMULA,
             FORMAT_PATTERN,

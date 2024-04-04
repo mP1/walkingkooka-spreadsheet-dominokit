@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
@@ -42,7 +42,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     static SpreadsheetCellClipboardCutHistoryToken with(final SpreadsheetId id,
                                                         final SpreadsheetName name,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final SpreadsheetCellClipboardValueKind kind) {
+                                                        final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardCutHistoryToken(
                 id,
                 name,
@@ -54,7 +54,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     private SpreadsheetCellClipboardCutHistoryToken(final SpreadsheetId id,
                                                     final SpreadsheetName name,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                    final SpreadsheetCellClipboardValueKind kind) {
+                                                    final SpreadsheetCellClipboardKind kind) {
         super(
                 id,
                 name,
@@ -83,7 +83,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final SpreadsheetCellClipboardValueKind kind = this.kind();
+        final SpreadsheetCellClipboardKind kind = this.kind();
         final SpreadsheetCellRangeReference range = this.anchoredSelection()
                 .selection()
                 .toCellRange();

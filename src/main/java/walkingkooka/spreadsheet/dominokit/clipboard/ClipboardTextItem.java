@@ -156,11 +156,11 @@ public final class ClipboardTextItem implements HasText,
         TreePrintable {
 
     /**
-     * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardValueKind} to JSON.
+     * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardKind} to JSON.
      */
     public static ClipboardTextItem toJson(final SpreadsheetCellRangeReference range,
                                            final Iterator<SpreadsheetCell> cells,
-                                           final SpreadsheetCellClipboardValueKind kind,
+                                           final SpreadsheetCellClipboardKind kind,
                                            final JsonNodeMarshallContext context) {
         Objects.requireNonNull(range, "range");
         Objects.requireNonNull(cells, "cells");
@@ -307,7 +307,7 @@ public final class ClipboardTextItem implements HasText,
 
         final JsonObject json = this.readJson();
 
-        final SpreadsheetCellClipboardValueKind kind = SpreadsheetCellClipboardValueKind.fromMediaType(
+        final SpreadsheetCellClipboardKind kind = SpreadsheetCellClipboardKind.fromMediaType(
                 MediaType.parse(
                         json.getOrFail(MEDIA_TYPE_PROPERTY_NAME)
                                 .stringOrFail()

@@ -61,10 +61,10 @@ import java.util.function.Predicate;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting<SpreadsheetCellClipboardValueKind>,
+public final class SpreadsheetCellClipboardKindTest implements ClassTesting<SpreadsheetCellClipboardKind>,
         HasMediaTypeTesting,
         HasUrlFragmentTesting,
-        ParseStringTesting<SpreadsheetCellClipboardValueKind>,
+        ParseStringTesting<SpreadsheetCellClipboardKind>,
         PredicateTesting,
         SpreadsheetMetadataTesting,
         TreePrintableTesting {
@@ -95,66 +95,66 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testPredicateCell() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardValueKind.CELL,
-                SpreadsheetCellClipboardValueKind.values()
+                SpreadsheetCellClipboardKind.CELL,
+                SpreadsheetCellClipboardKind.values()
         );
     }
 
     @Test
     public void testPredicateFormula() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA
+                SpreadsheetCellClipboardKind.FORMULA
         );
     }
 
     @Test
     public void testPredicateFormatPattern() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN
         );
     }
 
     @Test
     public void testPredicateParsePattern() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN
+                SpreadsheetCellClipboardKind.PARSE_PATTERN
         );
     }
 
     @Test
     public void testPredicateStyle() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardValueKind.STYLE
+                SpreadsheetCellClipboardKind.STYLE
         );
     }
 
     @Test
     public void testPredicateFormatted() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE
         );
     }
 
-    private void predicateAndCheck(final SpreadsheetCellClipboardValueKind kind) {
+    private void predicateAndCheck(final SpreadsheetCellClipboardKind kind) {
         this.predicateAndCheck(
                 kind,
                 kind
         );
     }
 
-    private void predicateAndCheck(final SpreadsheetCellClipboardValueKind kind,
-                                   final SpreadsheetCellClipboardValueKind... trueKinds) {
+    private void predicateAndCheck(final SpreadsheetCellClipboardKind kind,
+                                   final SpreadsheetCellClipboardKind... trueKinds) {
         this.predicateAndCheck(
                 kind,
                 Sets.of(trueKinds)
         );
     }
 
-    private void predicateAndCheck(final SpreadsheetCellClipboardValueKind kind,
-                                   final Set<SpreadsheetCellClipboardValueKind> trueKinds) {
-        final Predicate<SpreadsheetCellClipboardValueKind> predicate = kind.predicate();
+    private void predicateAndCheck(final SpreadsheetCellClipboardKind kind,
+                                   final Set<SpreadsheetCellClipboardKind> trueKinds) {
+        final Predicate<SpreadsheetCellClipboardKind> predicate = kind.predicate();
 
-        for (final SpreadsheetCellClipboardValueKind possible : SpreadsheetCellClipboardValueKind.values()) {
+        for (final SpreadsheetCellClipboardKind possible : SpreadsheetCellClipboardKind.values()) {
             this.testAndCheck(
                     predicate,
                     possible,
@@ -168,7 +168,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testToValueCell() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardKind.CELL,
                 CELL,
                 CELL
         );
@@ -177,7 +177,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testToValueFormula() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 CELL,
                 CELL.formula()
         );
@@ -188,7 +188,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY);
 
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 cell,
                 cell.formula()
         );
@@ -197,7 +197,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testToValueFormatPattern() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 CELL,
                 CELL.formatPattern()
         );
@@ -208,7 +208,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final SpreadsheetCell cell = CELL.setFormatPattern(SpreadsheetCell.NO_FORMAT_PATTERN);
 
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 cell,
                 cell.formatPattern()
         );
@@ -217,7 +217,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testToValueParsePattern() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 CELL,
                 CELL.parsePattern()
         );
@@ -228,7 +228,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final SpreadsheetCell cell = CELL.setParsePattern(SpreadsheetCell.NO_PARSE_PATTERN);
 
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 cell,
                 cell.parsePattern()
         );
@@ -237,7 +237,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testToValueStyle() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 CELL,
                 CELL.style()
         );
@@ -248,7 +248,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final SpreadsheetCell cell = CELL.setStyle(TextStyle.EMPTY);
 
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 cell,
                 cell.style()
         );
@@ -257,7 +257,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testToValueFormattedValue() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 CELL,
                 CELL.formattedValue()
         );
@@ -268,13 +268,13 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE_CELL);
 
         this.toValueAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 cell,
                 cell.formattedValue()
         );
     }
 
-    private void toValueAndCheck(final SpreadsheetCellClipboardValueKind kind,
+    private void toValueAndCheck(final SpreadsheetCellClipboardKind kind,
                                  final SpreadsheetCell cell,
                                  final Object expected) {
         final Object value = kind.toValue(cell);
@@ -301,7 +301,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMediaTypeCell() {
         this.mediaTypeAndCheck(
-                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardKind.CELL,
                 MediaType.APPLICATION_JSON.setSuffixes(
                         List.of(
                                 SpreadsheetCell.class.getName()
@@ -313,7 +313,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMediaTypeFormula() {
         this.mediaTypeAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 MediaType.APPLICATION_JSON.setSuffixes(
                         List.of(
                                 SpreadsheetFormula.class.getName()
@@ -327,7 +327,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMediaTypeClassCell() {
         this.mediaTypeClassAndCheck(
-                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardKind.CELL,
                 SpreadsheetCell.class
         );
     }
@@ -335,7 +335,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMediaTypeClassFormula() {
         this.mediaTypeClassAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 SpreadsheetFormula.class
         );
     }
@@ -343,12 +343,12 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMediaTypeClassStyle() {
         this.mediaTypeClassAndCheck(
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 TextStyle.class
         );
     }
 
-    private void mediaTypeClassAndCheck(final SpreadsheetCellClipboardValueKind kind,
+    private void mediaTypeClassAndCheck(final SpreadsheetCellClipboardKind kind,
                                         final Class<?> type) {
         this.checkEquals(
                 type,
@@ -362,7 +362,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     public void testParseCell() {
         this.parseStringAndCheck(
                 "cell",
-                SpreadsheetCellClipboardValueKind.CELL
+                SpreadsheetCellClipboardKind.CELL
         );
     }
 
@@ -370,13 +370,13 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     public void testParseFormula() {
         this.parseStringAndCheck(
                 "formula",
-                SpreadsheetCellClipboardValueKind.FORMULA
+                SpreadsheetCellClipboardKind.FORMULA
         );
     }
 
     @Override //
-    public SpreadsheetCellClipboardValueKind parseString(final String string) {
-        return SpreadsheetCellClipboardValueKind.parse(string);
+    public SpreadsheetCellClipboardKind parseString(final String string) {
+        return SpreadsheetCellClipboardKind.parse(string);
     }
 
     @Override
@@ -394,7 +394,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardKind.CELL,
                 UrlFragment.with("cell")
         );
     }
@@ -402,7 +402,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUrlFragmentFormula() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 UrlFragment.with("formula")
         );
     }
@@ -410,7 +410,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUrlFragmentFormatPattern() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 UrlFragment.with("format-pattern")
         );
     }
@@ -418,7 +418,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUrlFragmentStyle() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 UrlFragment.with("style")
         );
     }
@@ -429,7 +429,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     public void testFromMediaTypeNullFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetCellClipboardValueKind.fromMediaType(null)
+                () -> SpreadsheetCellClipboardKind.fromMediaType(null)
         );
     }
 
@@ -437,21 +437,21 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     public void testFromMediaTypeUnknownFails() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> SpreadsheetCellClipboardValueKind.fromMediaType(MediaType.TEXT_PLAIN)
+                () -> SpreadsheetCellClipboardKind.fromMediaType(MediaType.TEXT_PLAIN)
         );
     }
 
     @Test
     public void testFromMediaTypeCell() {
         this.fromMediaTypeAndCheck(
-                SpreadsheetCellClipboardValueKind.CELL.mediaType(),
-                SpreadsheetCellClipboardValueKind.CELL
+                SpreadsheetCellClipboardKind.CELL.mediaType(),
+                SpreadsheetCellClipboardKind.CELL
         );
     }
 
     @Test
     public void testFromMediaTypeAllValues() {
-        for (final SpreadsheetCellClipboardValueKind kind : SpreadsheetCellClipboardValueKind.values()) {
+        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.fromMediaTypeAndCheck(
                     kind.mediaType(),
                     kind
@@ -460,10 +460,10 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     }
 
     private void fromMediaTypeAndCheck(final MediaType mediaType,
-                                       final SpreadsheetCellClipboardValueKind expected) {
+                                       final SpreadsheetCellClipboardKind expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetCellClipboardValueKind.fromMediaType(mediaType),
+                SpreadsheetCellClipboardKind.fromMediaType(mediaType),
                 () -> "fromMediaType " + mediaType
         );
     }
@@ -473,7 +473,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMarshallCell() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.CELL,
+                SpreadsheetCellClipboardKind.CELL,
                 SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1+2")
                 ).setFormatPattern(
@@ -513,7 +513,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     public void testMarshallFormulaEmpty() {
         final String formula = "";
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText(formula)
                 ),
@@ -525,7 +525,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     public void testMarshallFormula() {
         final String formula = "=1+2+3";
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText(formula)
                 ),
@@ -536,7 +536,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMarshallFormatPatternEmpty() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                 JsonNode.nullNode()
         );
@@ -545,7 +545,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMarshallFormatPattern() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                         .setFormatPattern(
                                 Optional.of(
@@ -562,7 +562,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMarshallParsePatternEmpty() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                 JsonNode.nullNode()
         );
@@ -571,7 +571,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMarshallParsePattern() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                         .setParsePattern(
                                 Optional.of(
@@ -588,7 +588,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMarshallStyle() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                         .setStyle(
                                 TextStyle.EMPTY.set(
@@ -605,7 +605,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMarshallFormattedValueEmpty() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                 JsonNode.nullNode()
         );
@@ -614,7 +614,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testMarshallFormattedValue() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                         .setFormattedValue(
                                 Optional.of(
@@ -628,7 +628,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         );
     }
 
-    private void marshallAndCheck(final SpreadsheetCellClipboardValueKind kind,
+    private void marshallAndCheck(final SpreadsheetCellClipboardKind kind,
                                   final SpreadsheetCell cell,
                                   final String expected) {
         this.marshallAndCheck(
@@ -638,7 +638,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         );
     }
 
-    private void marshallAndCheck(final SpreadsheetCellClipboardValueKind kind,
+    private void marshallAndCheck(final SpreadsheetCellClipboardKind kind,
                                   final SpreadsheetCell cell,
                                   final JsonNode expected) {
         this.checkEquals(
@@ -757,7 +757,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUnmarshallFormulaEmpty() {
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 JsonNode.string(""),
                 SpreadsheetFormula.EMPTY
         );
@@ -768,7 +768,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final String formula = "=1+2";
 
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMULA,
+                SpreadsheetCellClipboardKind.FORMULA,
                 JsonNode.string(formula),
                 parseFormula(formula)
         );
@@ -777,7 +777,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUnmarshallFormatPatternEmpty() {
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 JsonNode.nullNode(),
                 Optional.empty()
         );
@@ -788,7 +788,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final SpreadsheetDateFormatPattern pattern = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd");
 
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
                 APP_CONTEXT.marshallContext()
                         .marshallWithType(pattern),
                 Optional.of(pattern)
@@ -798,7 +798,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUnmarshallParsePatternEmpty() {
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 JsonNode.nullNode(),
                 Optional.empty()
         );
@@ -809,7 +809,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final SpreadsheetDateParsePattern pattern = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd");
 
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSE_PATTERN,
                 APP_CONTEXT.marshallContext()
                         .marshallWithType(pattern),
                 Optional.of(pattern)
@@ -819,7 +819,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUnmarshallStyleEmpty() {
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 JsonNode.object(),
                 TextStyle.EMPTY
         );
@@ -833,7 +833,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         );
 
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.STYLE,
+                SpreadsheetCellClipboardKind.STYLE,
                 APP_CONTEXT.marshallContext()
                         .marshall(style),
                 style
@@ -843,7 +843,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     @Test
     public void testUnmarshallFormattedValueEmpty() {
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 JsonNode.nullNode(),
                 Optional.empty()
         );
@@ -854,7 +854,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         final String value = "Text123";
 
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.FORMATTED_VALUE,
+                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
                 APP_CONTEXT.marshallContext()
                         .marshallWithType(value),
                 Optional.of(value)
@@ -871,8 +871,8 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     private void unmarshallAndCheck(final SpreadsheetCell cell,
                                     final SpreadsheetCell expected) {
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardValueKind.CELL,
-                SpreadsheetCellClipboardValueKind.CELL.marshall(
+                SpreadsheetCellClipboardKind.CELL,
+                SpreadsheetCellClipboardKind.CELL.marshall(
                         cell,
                         APP_CONTEXT.marshallContext()
                 ),
@@ -880,7 +880,7 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
         );
     }
 
-    private void unmarshallAndCheck(final SpreadsheetCellClipboardValueKind kind,
+    private void unmarshallAndCheck(final SpreadsheetCellClipboardKind kind,
                                     final JsonNode node,
                                     final Object expected) {
         this.checkEquals(
@@ -925,8 +925,8 @@ public final class SpreadsheetCellClipboardValueKindTest implements ClassTesting
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetCellClipboardValueKind> type() {
-        return SpreadsheetCellClipboardValueKind.class;
+    public Class<SpreadsheetCellClipboardKind> type() {
+        return SpreadsheetCellClipboardKind.class;
     }
 
     @Override

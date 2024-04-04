@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends SpreadsheetCellClipboardHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
-    final static SpreadsheetCellClipboardValueKind KIND = SpreadsheetCellClipboardValueKind.CELL;
+    final static SpreadsheetCellClipboardKind KIND = SpreadsheetCellClipboardKind.CELL;
 
     SpreadsheetCellClipboardHistoryTokenTestCase() {
         super();
@@ -62,5 +62,5 @@ public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends Spr
     abstract T createHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name,
                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                  final SpreadsheetCellClipboardValueKind kind);
+                                  final SpreadsheetCellClipboardKind kind);
 }

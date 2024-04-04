@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -35,7 +35,7 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     SpreadsheetCellClipboardHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                         final SpreadsheetCellClipboardValueKind kind) {
+                                         final SpreadsheetCellClipboardKind kind) {
         super(
                 id,
                 name,
@@ -44,11 +44,11 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
         this.kind = Objects.requireNonNull(kind, "kind");
     }
 
-    public final SpreadsheetCellClipboardValueKind kind() {
+    public final SpreadsheetCellClipboardKind kind() {
         return this.kind;
     }
 
-    private final SpreadsheetCellClipboardValueKind kind;
+    private final SpreadsheetCellClipboardKind kind;
 
     @Override
     public final HistoryToken clearAction() {

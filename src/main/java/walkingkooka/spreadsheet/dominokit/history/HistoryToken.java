@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardValueKind;
+import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
@@ -165,7 +165,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellClipboardCopyHistoryToken cellClipboardCopy(final SpreadsheetId id,
                                                                              final SpreadsheetName name,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                             final SpreadsheetCellClipboardValueKind kind) {
+                                                                             final SpreadsheetCellClipboardKind kind) {
         return SpreadsheetCellClipboardCopyHistoryToken.with(
                 id,
                 name,
@@ -180,7 +180,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellClipboardCutHistoryToken cellClipboardCut(final SpreadsheetId id,
                                                                            final SpreadsheetName name,
                                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                           final SpreadsheetCellClipboardValueKind kind) {
+                                                                           final SpreadsheetCellClipboardKind kind) {
         return SpreadsheetCellClipboardCutHistoryToken.with(
                 id,
                 name,
@@ -195,7 +195,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellClipboardPasteHistoryToken cellClipboardPaste(final SpreadsheetId id,
                                                                                final SpreadsheetName name,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                               final SpreadsheetCellClipboardValueKind kind) {
+                                                                               final SpreadsheetCellClipboardKind kind) {
         return SpreadsheetCellClipboardPasteHistoryToken.with(
                 id,
                 name,
@@ -1122,7 +1122,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
      */
-    public final HistoryToken setCellCopy(final SpreadsheetCellClipboardValueKind kind) {
+    public final HistoryToken setCellCopy(final SpreadsheetCellClipboardKind kind) {
         Objects.requireNonNull(kind, "kind");
 
         final HistoryToken token;
@@ -1145,7 +1145,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * If possible creates a {@link SpreadsheetCellClipboardCutHistoryToken} token.
      */
-    public final HistoryToken setCellCut(final SpreadsheetCellClipboardValueKind kind) {
+    public final HistoryToken setCellCut(final SpreadsheetCellClipboardKind kind) {
         Objects.requireNonNull(kind, "kind");
 
         final HistoryToken token;
@@ -1168,7 +1168,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * If possible creates a {@link SpreadsheetCellClipboardPasteHistoryToken} token.
      */
-    public final HistoryToken setCellPaste(final SpreadsheetCellClipboardValueKind kind) {
+    public final HistoryToken setCellPaste(final SpreadsheetCellClipboardKind kind) {
         Objects.requireNonNull(kind, "kind");
 
         final HistoryToken token;
