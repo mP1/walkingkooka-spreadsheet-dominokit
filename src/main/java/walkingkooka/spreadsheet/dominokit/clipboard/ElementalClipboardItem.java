@@ -22,6 +22,7 @@ import elemental2.dom.Blob;
 import elemental2.promise.Promise;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
@@ -38,6 +39,7 @@ public final class ElementalClipboardItem {
     public ElementalClipboardItem(final JsObject object) {
     }
 
+    @JsProperty(name = "types")
     public native JsArray<String> types();
 
     public native String presentationStyle();
