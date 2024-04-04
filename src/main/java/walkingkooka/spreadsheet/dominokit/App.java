@@ -317,7 +317,7 @@ public class App implements EntryPoint,
     @Override
     public void readClipboardItem(final Predicate<MediaType> filter,
                                   final ClipboardContextReadWatcher watcher) {
-        this.readClipboardItem(
+        this.clipboardContext.readClipboardItem(
                 filter,
                 watcher
         );
