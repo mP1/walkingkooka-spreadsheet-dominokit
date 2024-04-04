@@ -1413,9 +1413,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 cache,
                 range,
                 range.setValue(
-                        Maps.of(
-                                A1, A1_CELL,
-                                A2, A2_CELL
+                        Sets.of(
+                                A1_CELL,
+                                A2_CELL
                         )
                 )
         );
@@ -1466,10 +1466,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 cache,
                 range,
                 range.setValue(
-                        Maps.of(
-                                A1, A1_CELL,
-                                A2, A2_CELL,
-                                A3, A3_CELL
+                        Sets.of(
+                                A1_CELL,
+                                A2_CELL,
+                                A3_CELL
                         )
                 )
         );
@@ -1520,8 +1520,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 cache,
                 range,
                 range.setValue(
-                        Maps.of(
-                                A2, A2_CELL
+                        Sets.of(
+                                A2_CELL
                         )
                 )
         );
@@ -1572,7 +1572,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 cache,
                 range,
                 range.setValue(
-                        Maps.empty()
+                        Sets.empty()
                 )
         );
     }

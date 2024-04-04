@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistor
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.json.JsonNode;
@@ -124,18 +125,23 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         }
 
         @Override //
-        SpreadsheetFormula unmarshall(final JsonNode node,
-                                      final AppContext context) {
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
             final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
-            return SpreadsheetFormula.parse(
-                    TextCursors.charSequence(
-                            node.stringOrFail()
-                    ),
-                    metadata.parser(), // parser
-                    metadata.parserContext(
-                            context::now
-                    )// parser context
+            return SpreadsheetSelection.parseCell(
+                    node.name()
+                            .value()
+            ).setFormula(
+                    SpreadsheetFormula.parse(
+                            TextCursors.charSequence(
+                                    node.stringOrFail()
+                            ),
+                            metadata.parser(), // parser
+                            metadata.parserContext(
+                                    context::now
+                            )// parser context
+                    )
             );
         }
     },
@@ -159,11 +165,18 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         }
 
         @Override //
-        Optional<SpreadsheetFormatPattern> unmarshall(final JsonNode node,
-                                                      final AppContext context) {
-            return Optional.ofNullable(
-                    context.unmarshallContext()
-                            .unmarshallWithType(node)
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                    node.name()
+                            .value()
+            ).setFormula(
+                    SpreadsheetFormula.EMPTY
+            ).setFormatPattern(
+                    Optional.ofNullable(
+                            context.unmarshallContext()
+                                    .unmarshallWithType(node)
+                    )
             );
         }
     },
@@ -187,11 +200,18 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         }
 
         @Override //
-        Optional<SpreadsheetParsePattern> unmarshall(final JsonNode node,
-                                                     final AppContext context) {
-            return Optional.ofNullable(
-                    context.unmarshallContext()
-                            .unmarshallWithType(node)
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                    node.name()
+                            .value()
+            ).setFormula(
+                    SpreadsheetFormula.EMPTY
+            ).setParsePattern(
+                    Optional.ofNullable(
+                            context.unmarshallContext()
+                                    .unmarshallWithType(node)
+                    )
             );
         }
     },
@@ -212,13 +232,20 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         }
 
         @Override //
-        TextStyle unmarshall(final JsonNode node,
-                             final AppContext context) {
-            return context.unmarshallContext()
-                    .unmarshall(
-                            node,
-                            TextStyle.class
-                    );
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                    node.name()
+                            .value()
+            ).setFormula(
+                    SpreadsheetFormula.EMPTY
+            ).setStyle(
+                    context.unmarshallContext()
+                            .unmarshall(
+                                    node,
+                                    TextStyle.class
+                            )
+            );
         }
     },
 
@@ -241,11 +268,18 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         }
 
         @Override //
-        Optional<Object> unmarshall(final JsonNode node,
-                                    final AppContext context) {
-            return Optional.ofNullable(
-                    context.unmarshallContext()
-                            .unmarshallWithType(node)
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                    node.name()
+                            .value()
+            ).setFormula(
+                    SpreadsheetFormula.EMPTY
+            ).setFormattedValue(
+                    Optional.ofNullable(
+                            context.unmarshallContext()
+                                    .unmarshallWithType(node)
+                    )
             );
         }
     };
@@ -306,8 +340,8 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     /**
      * Internal method used because each of the different types clipboard values are marshalled differently.
      */
-    abstract Object unmarshall(final JsonNode node,
-                               final AppContext context);
+    abstract SpreadsheetCell unmarshall(final JsonNode node,
+                                        final AppContext context);
 
     /**
      * All {@link SpreadsheetCellClipboardKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.
