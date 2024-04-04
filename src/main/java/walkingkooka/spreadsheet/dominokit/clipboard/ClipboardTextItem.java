@@ -207,7 +207,7 @@ public final class ClipboardTextItem implements HasText,
      * Because of clipboard API limitations text/plain is used even for JSON.
      */
     // @VisibleForTesting
-    final static MediaType MEDIA_TYPE = MediaType.TEXT_PLAIN;
+    public final static MediaType MEDIA_TYPE = MediaType.TEXT_PLAIN;
 
     private final static JsonPropertyName MEDIA_TYPE_PROPERTY_NAME = JsonPropertyName.with("mediaType");
 
