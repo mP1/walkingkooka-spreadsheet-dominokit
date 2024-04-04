@@ -93,7 +93,6 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                 kind,
                 context.marshallContext()
         );
-        context.debug("Cutting " + clipboardTextItem);
 
         final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
         final SpreadsheetId id = this.id();
