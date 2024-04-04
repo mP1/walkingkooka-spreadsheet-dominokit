@@ -120,7 +120,7 @@ final class ElementalClipboardContext implements ClipboardContext {
         final JsArray<ElementalClipboardItem> clipboardItems = JsArray.of();
 
         for (final MediaType mediaType : item.types()) {
-            final String type = MediaType.TEXT_PLAIN.toString(); // even suffix are not supported.
+            final String type = mediaType.toString(); // even suffix are not supported.
 
             final BlobPropertyBag options = BlobPropertyBag.create();
             options.setType(type);
