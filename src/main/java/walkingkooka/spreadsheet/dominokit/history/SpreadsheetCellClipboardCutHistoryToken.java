@@ -81,8 +81,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     }
 
     @Override
-    void onHistoryTokenChange0(final HistoryToken previous,
-                               final AppContext context) {
+    void onHistoryTokenChangeClipboard(final AppContext context) {
         final SpreadsheetCellClipboardKind kind = this.kind();
         final SpreadsheetCellRangeReference range = this.anchoredSelection()
                 .selection()
@@ -155,10 +154,6 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
 
                     }
                 }
-        );
-
-        context.pushHistoryToken(
-                previous
         );
     }
 }

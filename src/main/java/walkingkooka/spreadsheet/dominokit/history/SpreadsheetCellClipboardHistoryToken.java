@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -108,4 +109,16 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
 
     // cut | copy | paste SLASH kind SLASH serialized-value
     abstract UrlFragment clipboardUrlFragment();
+
+    // HistoryToken.....................................................................................................
+
+    @Override final void onHistoryTokenChange0(final HistoryToken previous,
+                                               final AppContext context) {
+        context.pushHistoryToken(
+                previous
+        );
+        this.onHistoryTokenChangeClipboard(context);
+    }
+
+    abstract void onHistoryTokenChangeClipboard(final AppContext context);
 }
