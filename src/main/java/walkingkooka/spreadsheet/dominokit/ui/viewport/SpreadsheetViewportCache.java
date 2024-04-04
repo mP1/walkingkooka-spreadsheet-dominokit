@@ -21,6 +21,7 @@ import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetRow;
@@ -234,6 +235,26 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public Iterator<SpreadsheetCell> cells(final SpreadsheetCellRangeReference range) {
         Objects.requireNonNull(range, "range");
         return range.cellsIterator(this.cells);
+    }
+
+    /**
+     * Creates a {@link SpreadsheetCellRange} filled with cells from this {@link SpreadsheetViewportCache}.
+     */
+    public SpreadsheetCellRange cellRange(final SpreadsheetCellRangeReference range) {
+        Objects.requireNonNull(range, "range");
+
+        final Map<SpreadsheetCellReference, Object> referenceToCell = Maps.sorted();
+        final Iterator<SpreadsheetCell> cells = this.cells(range);
+
+        while (cells.hasNext()) {
+            final SpreadsheetCell cell = cells.next();
+            referenceToCell.put(
+                    cell.reference(),
+                    cell
+            );
+        }
+
+        return range.setValue(referenceToCell);
     }
 
     /**

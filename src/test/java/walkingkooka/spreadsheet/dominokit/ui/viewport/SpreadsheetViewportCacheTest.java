@@ -26,6 +26,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -1353,6 +1354,236 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 ),
                 A2_CELL,
                 A3_CELL
+        );
+    }
+
+    // cells............................................................................................................
+
+    @Test
+    public void testCellRangeWithNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.viewportCache()
+                        .cellRange(null)
+        );
+    }
+
+    @Test
+    public void testCellRange() {
+        final SpreadsheetViewportCache cache = this.viewportCache();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1_CELL,
+                                        A2_CELL,
+                                        A3_CELL
+                                )
+                        ).setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3
+                                )
+                        ).setRows(
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                A1_CELL,
+                A2_CELL,
+                A3_CELL
+        );
+
+        final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange("A1:A2");
+
+        this.cellRangeAndCheck(
+                cache,
+                range,
+                range.setValue(
+                        Maps.of(
+                                A1, A1_CELL,
+                                A2, A2_CELL
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testCellRange2() {
+        final SpreadsheetViewportCache cache = this.viewportCache();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1_CELL,
+                                        A2_CELL,
+                                        A3_CELL
+                                )
+                        ).setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3
+                                )
+                        ).setRows(
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                A1_CELL,
+                A2_CELL,
+                A3_CELL
+        );
+
+        final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange("A1:A3");
+
+        this.cellRangeAndCheck(
+                cache,
+                range,
+                range.setValue(
+                        Maps.of(
+                                A1, A1_CELL,
+                                A2, A2_CELL,
+                                A3, A3_CELL
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testCellRange3() {
+        final SpreadsheetViewportCache cache = this.viewportCache();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1_CELL,
+                                        A2_CELL,
+                                        A3_CELL
+                                )
+                        ).setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3
+                                )
+                        ).setRows(
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                A1_CELL,
+                A2_CELL,
+                A3_CELL
+        );
+
+        final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange("A2");
+
+        this.cellRangeAndCheck(
+                cache,
+                range,
+                range.setValue(
+                        Maps.of(
+                                A2, A2_CELL
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testCellRange4() {
+        final SpreadsheetViewportCache cache = this.viewportCache();
+
+        cache.onSpreadsheetDelta(
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1_CELL,
+                                        A2_CELL,
+                                        A3_CELL
+                                )
+                        ).setColumns(
+                                Sets.of(
+                                        COLUMN_A,
+                                        COLUMN_B
+                                )
+                        ).setLabels(
+                                Sets.of(
+                                        LABEL_MAPPINGA1A,
+                                        LABEL_MAPPINGA1B,
+                                        LABEL_MAPPINGB3
+                                )
+                        ).setRows(
+                                Sets.of(
+                                        ROW_1,
+                                        ROW_2
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                A1_CELL,
+                A2_CELL,
+                A3_CELL
+        );
+
+        final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange("B1:Z99");
+
+        this.cellRangeAndCheck(
+                cache,
+                range,
+                range.setValue(
+                        Maps.empty()
+                )
+        );
+    }
+
+    private void cellRangeAndCheck(final SpreadsheetViewportCache cache,
+                                   final SpreadsheetCellRangeReference range,
+                                   final SpreadsheetCellRange expected) {
+        this.checkEquals(
+                expected,
+                cache.cellRange(range),
+                () -> cache + " " + range
         );
     }
 
