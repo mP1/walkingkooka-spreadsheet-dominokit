@@ -74,8 +74,7 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
     }
 
     @Override
-    void onHistoryTokenChange0(final HistoryToken previous,
-                               final AppContext context) {
+    void onHistoryTokenChangeClipboard(final AppContext context) {
         final SpreadsheetCellClipboardKind kind = this.kind();
         final SpreadsheetCellRangeReference range = this.anchoredSelection()
                 .selection()
@@ -95,10 +94,6 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
                         clipboardTextItem,
                         context
                 )
-        );
-
-        context.pushHistoryToken(
-                previous
         );
     }
 }
