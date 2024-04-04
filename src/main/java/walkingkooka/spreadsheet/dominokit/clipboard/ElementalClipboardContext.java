@@ -28,7 +28,6 @@ import jsinterop.base.JsPropertyMap;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.header.MediaType;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
 
@@ -58,57 +57,42 @@ final class ElementalClipboardContext implements ClipboardContext {
 
         this.clipboard.read()
                 .then(
-                        ci -> requestClipboardItems(
-                                ci,
-                                filter
-                        )
+                        items -> {
+                            for (int i = 0; i < items.length; i++) {
+                                final ElementalClipboardItem item = items.getAt(i);
+                                final JsArray<String> types = item.types();
+
+                                for (int j = 0; j < types.length; j++) {
+                                    final String type = types.getAt(j);
+                                    final MediaType mediaType = MediaType.parse(type);
+
+                                    if (filter.test(mediaType)) {
+                                        return item.getType(type)
+                                                .then(blob -> blob.text())
+                                                .then(blobText -> {
+                                                    watcher.onSuccess(
+                                                            Lists.of(
+                                                                    ClipboardTextItem.with(
+                                                                            Lists.of(
+                                                                                    mediaType
+                                                                            ),
+                                                                            blobText
+                                                                    )
+                                                            )
+                                                    );
+                                                    return null;
+                                                });
+                                    }
+                                }
+                            }
+                            throw new RuntimeException("Unhandled ClipboardItems");
+                        }
                 ).catch_(
                         (rejected) -> {
                             watcher.onFailure(rejected);
                             return null;
                         }
                 );
-    }
-
-    private static Promise<ClipboardTextItem[]> requestClipboardItems(final JsArray<ElementalClipboardItem> items,
-                                                                      final Predicate<MediaType> filter) {
-        final List<Promise<ClipboardTextItem>> ctiPromises = Lists.array();
-
-
-        for (int i = 0; i < items.length; i++) {
-            final ElementalClipboardItem item = items.getAt(i);
-            final JsArray<String> types = item.types();
-
-            for (int j = 0; j < types.length; j++) {
-                final String type = types.getAt(j);
-                final MediaType mediaType = MediaType.parse(type);
-
-                if (filter.test(mediaType)) {
-                    ctiPromises.add(
-                            item.getType(type)
-                                    .then(
-                                            b -> b.text()
-                                                    .then(
-                                                            text -> Promise.resolve(
-                                                                    ClipboardTextItem.with(
-                                                                            Lists.of(
-                                                                                    mediaType
-                                                                            ),
-                                                                            text
-                                                                    )
-                                                            )
-                                                    )
-                                    )
-                    );
-                }
-            }
-        }
-
-        return Promise.all(
-                ctiPromises.toArray(
-                        new Promise[ctiPromises.size()]
-                )
-        );
     }
 
     @Override
