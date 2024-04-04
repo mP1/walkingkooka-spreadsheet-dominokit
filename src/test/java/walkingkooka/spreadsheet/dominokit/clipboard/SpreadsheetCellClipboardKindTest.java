@@ -41,7 +41,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
@@ -53,7 +52,6 @@ import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -673,7 +671,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                         SpreadsheetFormula.EMPTY.setText(formula)
                 ),
                 SpreadsheetSelection.A1.setFormula(
-                        parseFormula(formula)
+                        SpreadsheetMetadataTesting.parseFormula(formula)
                 )
         );
     }
@@ -691,7 +689,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                         SpreadsheetFormula.EMPTY.setText(formula)
                 ).setFormatPattern(formatPattern),
                 SpreadsheetSelection.A1.setFormula(
-                        parseFormula(formula)
+                        SpreadsheetMetadataTesting.parseFormula(formula)
                 ).setFormatPattern(formatPattern)
         );
     }
@@ -712,7 +710,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                                 SpreadsheetFormula.EMPTY.setText(formula)
                         ).setParsePattern(parsePattern)
                         .setFormula(
-                                parseFormula(formula)
+                                SpreadsheetMetadataTesting.parseFormula(formula)
                         )
         );
     }
@@ -731,7 +729,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                         SpreadsheetFormula.EMPTY.setText(formula)
                 ).setStyle(style),
                 SpreadsheetSelection.A1.setFormula(
-                        parseFormula(formula)
+                        SpreadsheetMetadataTesting.parseFormula(formula)
                 ).setStyle(style)
         );
     }
@@ -751,7 +749,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                                 SpreadsheetFormula.EMPTY.setText(formula)
                         ).setFormattedValue(formattedValue)
                         .setFormula(
-                                parseFormula(formula)
+                                SpreadsheetMetadataTesting.parseFormula(formula)
                         )
         );
     }
@@ -773,7 +771,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 SpreadsheetCellClipboardKind.FORMULA,
                 JsonNode.string(formula),
                 SpreadsheetSelection.A1.setFormula(
-                        parseFormula(formula)
+                        SpreadsheetMetadataTesting.parseFormula(formula)
                 )
         );
     }
@@ -904,16 +902,6 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                         APP_CONTEXT
                 ),
                 () -> kind + " " + node
-        );
-    }
-
-    private static SpreadsheetFormula parseFormula(final String text) {
-        return SpreadsheetFormula.parse(
-                TextCursors.charSequence(text),
-                METADATA_EN_AU
-                        .parser(),
-                METADATA_EN_AU
-                        .parserContext(LocalDateTime::now)
         );
     }
 
