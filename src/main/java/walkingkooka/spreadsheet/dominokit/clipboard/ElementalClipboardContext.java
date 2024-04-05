@@ -68,7 +68,7 @@ final class ElementalClipboardContext implements ClipboardContext {
 
                                     if (filter.test(mediaType)) {
                                         return item.getType(type)
-                                                .then(blob -> blob.text())
+                                                .then(Blob::text)
                                                 .then(blobText -> {
                                                     watcher.onSuccess(
                                                             Lists.of(

@@ -367,7 +367,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     private static JsonNode marshallCellToOptionalValue(final SpreadsheetCell cell,
                                                         final Optional<?> value,
                                                         final JsonNodeMarshallContext context) {
-        return value.map(p -> context.marshallWithType(p))
+        return value.map(context::marshallWithType)
                 .orElse(JsonNode.nullNode())
                 .setName(propertyName(cell));
     }
