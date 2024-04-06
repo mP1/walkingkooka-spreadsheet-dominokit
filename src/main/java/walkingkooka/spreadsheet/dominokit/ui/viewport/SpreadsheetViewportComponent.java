@@ -973,7 +973,9 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     @Override
     public void refresh(final AppContext context) {
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-        final boolean empty = metadata.isEmpty();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportWindows windows = cache.windows();
+        final boolean empty = metadata.isEmpty() || windows.isEmpty();
 
         this.root.element()
                 .style
@@ -1000,9 +1002,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 }
             }
 
-            final SpreadsheetViewportCache cache = context.viewportCache();
             this.table.refresh(
-                    cache.windows(),
+                    windows,
                     selected,
                     BasicSpreadsheetViewportComponentTableContext.with(
                             context,
