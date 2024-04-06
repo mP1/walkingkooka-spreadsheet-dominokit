@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -85,6 +86,10 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         TextStyle style = context.defaultCellStyle();
         Optional<SpreadsheetError> maybeError = Optional.empty();
 
+        Color mixBackgroundColor = selected.test(cellReference) ?
+                SpreadsheetDominoKitColor.VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR :
+                null;
+
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
 
@@ -97,9 +102,12 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                 if (ExpressionNumber.is(value) &&
                         ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
                     skipFormattedValue = true;
+                    mixBackgroundColor = mixBackgroundColor.mix(
+                            SpreadsheetDominoKitColor.HIGHLIGHT_COLOR,
+                            0.5f
+                    );
                 }
             }
-
 
             if (false == skipFormattedValue) {
                 final Optional<TextNode> maybeFormatted = cell.formattedValue();
@@ -111,21 +119,17 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             }
             style = cell.style()
                     .merge(style);
-
-            if (skipFormattedValue) {
-                style = hideZeroValues(style);
-            }
-
             maybeError = cell.formula()
                     .error();
         }
 
-        if (selected.test(cellReference)) {
+        if (null != mixBackgroundColor) {
+            Color color = style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR);
+
             style = style.set(
                     TextStylePropertyName.BACKGROUND_COLOR,
-                    style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
-                            .mix(
-                                    SpreadsheetDominoKitColor.VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR,
+                    color.mix(
+                            mixBackgroundColor,
                                     0.25f
                             )
             );
@@ -182,17 +186,6 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
     }
 
     private Tooltip tooltip;
-
-    private TextStyle hideZeroValues(final TextStyle style) {
-        return style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
-                        .mix(
-                                SpreadsheetDominoKitColor.HIDE_ZERO_VALUES_COLOR,
-                                0.5f
-                        )
-        );
-    }
 
     // IsElement........................................................................................................
 
