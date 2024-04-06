@@ -79,21 +79,19 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
         final SpreadsheetViewportCache cache = context.viewportCache();
         final SpreadsheetCellReference cellReference = this.cellReference;
-        final TDElement td = this.element;
-        td.clearElement();
 
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
-        TextStyle style = context.defaultCellStyle();
-        Optional<SpreadsheetError> maybeError = Optional.empty();
 
-        Color mixBackgroundColor = selected.test(cellReference) ?
+        final boolean isSelected = selected.test(cellReference);
+        Color mixBackgroundColor = isSelected ?
                 SpreadsheetDominoKitColor.VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR :
                 null;
+
+        boolean hideZeroValues = false;
 
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
 
-            boolean skipFormattedValue = false;
             if (context.hideZeroValues()) {
                 final Object value = cell.formula()
                         .value()
@@ -101,69 +99,89 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
                 if (ExpressionNumber.is(value) &&
                         ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
-                    skipFormattedValue = true;
                     mixBackgroundColor = mixBackgroundColor.mix(
                             SpreadsheetDominoKitColor.HIGHLIGHT_COLOR,
                             0.5f
                     );
-                }
-            }
 
-            if (false == skipFormattedValue) {
-                final Optional<TextNode> maybeFormatted = cell.formattedValue();
-                if (maybeFormatted.isPresent()) {
-                    td.appendChild(
-                            Doms.node(maybeFormatted.get())
-                    );
+                    hideZeroValues = true;
                 }
             }
-            style = cell.style()
-                    .merge(style);
-            maybeError = cell.formula()
-                    .error();
         }
 
-        if (null != mixBackgroundColor) {
-            Color color = style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR);
+        if (false == maybeCell.equals(this.cell) || this.selected != isSelected || this.hideZeroValues != hideZeroValues) {
+            this.cell = maybeCell;
+            this.selected = isSelected;
+            this.hideZeroValues = hideZeroValues;
 
-            style = style.set(
-                    TextStylePropertyName.BACKGROUND_COLOR,
-                    color.mix(
-                            mixBackgroundColor,
-                                    0.25f
-                            )
+            final TDElement td = this.element;
+            td.clearElement();
+
+            TextStyle style = context.defaultCellStyle();
+            Optional<SpreadsheetError> maybeError = Optional.empty();
+
+            if (maybeCell.isPresent()) {
+                final SpreadsheetCell cell = maybeCell.get();
+
+                if (false == hideZeroValues) {
+                    final Optional<TextNode> maybeFormatted = cell.formattedValue();
+                    if (maybeFormatted.isPresent()) {
+                        td.appendChild(
+                                Doms.node(maybeFormatted.get())
+                        );
+                    }
+                }
+                style = cell.style()
+                        .merge(style);
+                maybeError = cell.formula()
+                        .error();
+            }
+
+            if (null != mixBackgroundColor) {
+                Color color = style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR);
+
+                style = style.set(
+                        TextStylePropertyName.BACKGROUND_COLOR,
+                        color.mix(
+                                mixBackgroundColor,
+                                0.25f
+                        )
+                );
+            }
+
+            // copy width/height to MIN to prevent table squashing cells to fit.
+            final Length<?> width = cache.columnWidth(cellReference.column());
+            final Length<?> height = cache.rowHeight(cellReference.row());
+
+            style = style.setValues(
+                    Maps.of(
+                            TextStylePropertyName.WIDTH,
+                            width,
+                            TextStylePropertyName.HEIGHT,
+                            height,
+                            TextStylePropertyName.MIN_WIDTH,
+                            width,
+                            TextStylePropertyName.MIN_HEIGHT,
+                            height
+                    )
             );
+
+            td.style(
+                    style.css() + "box-sizing: border-box;"
+            );
+
+
+            this.tooltipRefresh(maybeError);
         }
-
-        // copy width/height to MIN to prevent table squashing cells to fit.
-        final Length<?> width = cache.columnWidth(cellReference.column());
-        final Length<?> height = cache.rowHeight(cellReference.row());
-
-        style = style.setValues(
-                Maps.of(
-                        TextStylePropertyName.WIDTH,
-                        width,
-                        TextStylePropertyName.HEIGHT,
-                        height,
-                        TextStylePropertyName.MIN_WIDTH,
-                        width,
-                        TextStylePropertyName.MIN_HEIGHT,
-                        height
-                )
-        );
-
-        td.style(
-                style.css() + "box-sizing: border-box;"
-        );
-
-
-        this.tooltipRefresh(maybeError);
     }
 
     private final SpreadsheetCellReference cellReference;
 
-    private SpreadsheetCell cell;
+    private Optional<SpreadsheetCell> cell;
 
+    private boolean selected;
+
+    private boolean hideZeroValues;
 
     private void tooltipRefresh(final Optional<SpreadsheetError> error) {
         if (null != this.tooltip) {
