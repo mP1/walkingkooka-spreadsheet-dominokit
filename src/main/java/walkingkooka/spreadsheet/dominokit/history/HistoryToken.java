@@ -1340,8 +1340,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         Objects.requireNonNull(count, "count");
 
         count.ifPresent(value -> {
-            if (value < 0) {
-                throw new IllegalArgumentException("Invalid count < 0 got " + value);
+            if (value <= 0) {
+                throw new IllegalArgumentException("Invalid count <= 0 got " + value);
             }
         });
 
