@@ -85,12 +85,12 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 break;
             case "insertAfter":
                 result = this.setInsertAfter(
-                        this.parseCount(cursor)
+                        parseCount(cursor)
                 );
                 break;
             case "insertBefore":
                 result = this.setInsertBefore(
-                        this.parseCount(cursor)
+                        parseCount(cursor)
                 );
                 break;
             case "menu":
