@@ -35,14 +35,7 @@ abstract class SpreadsheetColumnInsertHistoryToken extends SpreadsheetColumnHist
                 name,
                 anchoredSelection
         );
-
-        if (count.isPresent()) {
-            final int value = count.getAsInt();
-            if (value <= 0) {
-                throw new IllegalArgumentException("Invalid count " + value + " <= 0");
-            }
-        }
-        this.count = count;
+        this.count = checkCount(count);
     }
 
     final OptionalInt count;
