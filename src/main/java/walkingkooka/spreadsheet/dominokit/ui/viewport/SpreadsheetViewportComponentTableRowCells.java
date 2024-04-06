@@ -31,6 +31,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 
+/**
+ * A single TR with the first column holding the ROW and the remaining TD's the individual cells.
+ */
 final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewportComponentTableRow implements IsElement<HTMLTableRowElement> {
 
     static SpreadsheetViewportComponentTableRowCells empty(final SpreadsheetRowReference row,

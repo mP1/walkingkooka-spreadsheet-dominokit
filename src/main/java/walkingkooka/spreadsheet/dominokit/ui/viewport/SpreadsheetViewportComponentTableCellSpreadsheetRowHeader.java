@@ -27,6 +27,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+/**
+ * A TH that contains the ROW link.
+ */
 final class SpreadsheetViewportComponentTableCellSpreadsheetRowHeader extends SpreadsheetViewportComponentTableCell implements IsElement<HTMLTableCellElement> {
 
     static SpreadsheetViewportComponentTableCellSpreadsheetRowHeader empty(final SpreadsheetRowReference row,

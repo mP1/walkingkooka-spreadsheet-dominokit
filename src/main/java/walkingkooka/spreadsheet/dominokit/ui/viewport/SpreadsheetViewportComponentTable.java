@@ -34,6 +34,9 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
 
+/**
+ * A TABLE which holds all the ROWs that are displayed. It also contains and caches rows.
+ */
 final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElement> {
 
     static SpreadsheetViewportComponentTable empty() {

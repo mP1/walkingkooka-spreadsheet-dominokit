@@ -27,6 +27,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+/**
+ * A TH holding a single COLUMN header.
+ */
 final class SpreadsheetViewportComponentTableCellSpreadsheetColumnHeader extends SpreadsheetViewportComponentTableCell implements IsElement<HTMLTableCellElement> {
 
     static SpreadsheetViewportComponentTableCellSpreadsheetColumnHeader empty(final SpreadsheetColumnReference column,
