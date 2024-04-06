@@ -173,7 +173,8 @@ public final class SpreadsheetViewportFormulaComponent implements Component<HTML
                 );
             }
 
-            final Optional<SpreadsheetCell> cell = context.viewportCell(selection);
+            final Optional<SpreadsheetCell> cell = context.viewportCache()
+                    .cell(selection);
             formula.setStringValue(
                     cell.map(c -> c.formula().text())
             ).setHelperText(

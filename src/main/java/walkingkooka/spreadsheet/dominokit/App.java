@@ -41,7 +41,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
@@ -87,7 +86,6 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -709,11 +707,6 @@ public class App implements EntryPoint,
      * Init here to avoid race conditions with other fields like {@link #metadataWatchers}.
      */
     private final SpreadsheetViewportComponent viewportComponent;
-
-    @Override
-    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
-        return this.viewportComponent.viewportCell(selection);
-    }
 
     /**
      * Returns true if viewport {@link SpreadsheetCellFind} highlighting is enabled.

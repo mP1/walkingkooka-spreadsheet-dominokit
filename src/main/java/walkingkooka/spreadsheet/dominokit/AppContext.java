@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.net.UrlQueryString;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -35,7 +34,6 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
@@ -102,12 +100,6 @@ public interface AppContext extends CanGiveFocus,
      * A cache for the viewport cache.
      */
     SpreadsheetViewportCache viewportCache();
-
-    /**
-     * Getter that returns a {@link SpreadsheetCell} if one exists for the {@link SpreadsheetSelection},
-     * which may be a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}.
-     */
-    Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection);
 
     /**
      * Returns true if viewport {@link SpreadsheetCellFind} highlighting is enabled.

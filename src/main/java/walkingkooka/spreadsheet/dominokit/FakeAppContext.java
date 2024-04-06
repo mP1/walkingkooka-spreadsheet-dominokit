@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.net.header.MediaType;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
@@ -34,7 +33,6 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
@@ -164,11 +162,6 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public SpreadsheetViewportCache viewportCache() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
 
