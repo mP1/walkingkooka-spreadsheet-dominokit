@@ -1242,7 +1242,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         final OptionalInt count;
         if (this instanceof SpreadsheetColumnInsertHistoryToken) {
             count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
-                    .count0();
+                    .count;
         } else {
             if (this instanceof SpreadsheetRowInsertHistoryToken) {
                 count = this.cast(SpreadsheetRowInsertHistoryToken.class)
