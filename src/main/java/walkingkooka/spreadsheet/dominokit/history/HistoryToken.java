@@ -1316,6 +1316,26 @@ public abstract class HistoryToken implements HasUrlFragment,
         return with;
     }
 
+    final OptionalInt parseCount(final TextCursor cursor) {
+        final OptionalInt count;
+
+        final Optional<String> maybeComponent = parseComponent(cursor);
+        if (maybeComponent.isPresent()) {
+            final String string = maybeComponent.get();
+            if (string.isEmpty()) {
+                count = OptionalInt.empty();
+            } else {
+                count = OptionalInt.of(
+                        Integer.parseInt(string)
+                );
+            }
+        } else {
+            count = OptionalInt.empty();
+        }
+
+        return count;
+    }
+
     /**
      * if possible creates a delete.
      */
