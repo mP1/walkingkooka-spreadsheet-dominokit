@@ -303,18 +303,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final TableElement tableElement = ElementsFactory.elements.table();
         tableElement.setId(ID);
         tableElement.style("width: 100%; height: 100%; overflow-x: hidden; overflow-y: hidden;");
-        tableElement.appendChild(
-                ElementsFactory.elements.tbody()
-                        .appendChild(
-                                ElementsFactory.elements.tr()
-                                        .appendChild(
-                                                ElementsFactory.elements.td()
-                                                        .appendChild(
-                                                                "spreadsheet here"
-                                                        ).element()
-                                        ).element()
-                        ).element()
-        );
 
         final HTMLTableElement element = tableElement.element();
 
