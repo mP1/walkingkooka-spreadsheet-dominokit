@@ -1259,7 +1259,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Would be setter that tries to replace the {@link #count()} with new value.
      */
     public final HistoryToken setCount(final OptionalInt count) {
-        Objects.requireNonNull(count, "count");
+        checkCount(count);
 
         final HistoryToken with;
 
@@ -1332,6 +1332,18 @@ public abstract class HistoryToken implements HasUrlFragment,
         } else {
             count = OptionalInt.empty();
         }
+
+        return count;
+    }
+
+    final static OptionalInt checkCount(final OptionalInt count) {
+        Objects.requireNonNull(count, "count");
+
+        count.ifPresent(value -> {
+            if (value < 0) {
+                throw new IllegalArgumentException("Invalid count < 0 got " + value);
+            }
+        });
 
         return count;
     }
