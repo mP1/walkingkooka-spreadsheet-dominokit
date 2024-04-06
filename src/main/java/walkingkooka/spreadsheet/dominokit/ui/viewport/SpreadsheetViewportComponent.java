@@ -763,9 +763,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         this.table.setWidth(this.tableWidth());
         this.table.setHeight(this.tableHeight());
 
-//        this.table.element()
-//                .style.cssText = "width: " + this.tableWidth() + "px; height: " + this.tableHeight() + "px; overflow: hidden";
-
         this.loadViewportCellsIfNecessary(context);
     }
 
@@ -975,13 +972,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     @Override
     public void refresh(final AppContext context) {
-        //final Optional<AnchoredSpreadsheetSelection> maybeAnchored = context.historyToken()
-        //        .anchoredSelectionOrEmpty();
-        //this.setSelected(maybeAnchored);
-
-//        final TableElement tableElement = this.tableElement;
-//        tableElement.clearElement();
-
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         final boolean empty = metadata.isEmpty();
 
@@ -1128,8 +1118,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
         Objects.requireNonNull(metadata, "metadata");
-
-        //this.cellStyleRefresh(metadata);
 
         if (metadata.shouldViewRefresh(this.metadata)) {
             this.reload = true;
