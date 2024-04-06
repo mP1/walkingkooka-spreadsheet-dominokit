@@ -709,7 +709,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * Updates the coordinates and dimensions of both the horizonal and vertical scrollbar thumbs. The calculations are
      * done using the last window.
      */
-    private void renderScrollbars() {
+    private void scrollbarsRefresh() {
         final AppContext context = this.context;
         final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetCellRangeReference> maybeLast = cache.windows()
@@ -764,7 +764,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             this.horizontalScrollbarThumbLeft = hLeft;
             this.verticalScrollbarThumbTop = vTop;
 
-            context.debug("SpreadsheetViewportComponent.renderScrollbars " + last + " left: " + left + " top: " + top + " hLeft: " + hLeft + " hWidth: " + hWidth + " vTop: " + vTop + " vHeight: " + vHeight);
+            context.debug("SpreadsheetViewportComponent.scrollbarsRefresh " + last + " left: " + left + " top: " + top + " hLeft: " + hLeft + " hWidth: " + hWidth + " vTop: " + vTop + " vHeight: " + vHeight);
         } else {
             horizontalScrollbarThumb.setDisplay("hidden");
             verticalScrollbarThumb.setDisplay("hidden");
@@ -887,11 +887,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 "visible";
 
         if (false == empty) {
-            this.renderTable(context);
+            this.tableRefresh(context);
         }
     }
 
-    private void renderTable(final AppContext context) {
+    private void tableRefresh(final AppContext context) {
         final SpreadsheetViewportCache cache = context.viewportCache();
         // "window": "A1:B12,WI1:WW12"
         //    A1:B12,
@@ -925,7 +925,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
         // top row of column headers
         tableElement.appendChild(
-                renderColumnHeaders(
+                columnHeaders(
                         columns,
                         context
                 )
@@ -933,7 +933,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
         // render the rows and cells
         tableElement.appendChild(
-                this.renderRows(
+                this.rows(
                         rows,
                         columns,
                         context
@@ -960,22 +960,22 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             );
         }
 
-        this.renderScrollbars();
+        this.scrollbarsRefresh();
     }
 
     /**
      * Creates a THEAD holding a TR with the SELECT ALL and COLUMN headers.
      */
-    private HTMLTableSectionElement renderColumnHeaders(final Collection<SpreadsheetColumnReference> columns,
-                                                        final AppContext context) {
+    private HTMLTableSectionElement columnHeaders(final Collection<SpreadsheetColumnReference> columns,
+                                                  final AppContext context) {
         final TableRowElement tr = ElementsFactory.elements.tr()
                 .appendChild(
-                        this.renderSelectAllCells()
+                        this.selectAllCells()
                 );
 
         for (final SpreadsheetColumnReference column : columns) {
             tr.appendChild(
-                    this.renderColumnHeader(
+                    this.columnHeader(
                             column,
                             context
                     )
@@ -991,7 +991,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * Factory that creates the element that appears in the top left and may be used to select the entire spreadsheet.
      */
     // TODO add link
-    private HTMLTableCellElement renderSelectAllCells() {
+    private HTMLTableCellElement selectAllCells() {
         return ElementsFactory.elements.th()
                 .id(SELECT_ALL_CELLS_ID)
                 .appendChild("ALL")
@@ -1019,13 +1019,13 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         return this.columnRowHeaderStyle(SpreadsheetSelection.ALL_CELLS);
     }
 
-    // renderColumnHeader | renderRowHeader.............................................................................
+    // columnHeader | rowHeader.............................................................................
 
     /**
      * Creates a TH with the column in UPPER CASE with column width.
      */
-    private HTMLTableCellElement renderColumnHeader(final SpreadsheetColumnReference column,
-                                                    final AppContext context) {
+    private HTMLTableCellElement columnHeader(final SpreadsheetColumnReference column,
+                                              final AppContext context) {
         final Length<?> width = context.viewportCache()
                 .columnWidth(column);
 
@@ -1073,14 +1073,14 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     /**
      * Factory that creates a TABLE CELL for the column header, including a link to select that column when clicked.
      */
-    private HTMLTableSectionElement renderRows(final Set<SpreadsheetRowReference> rows,
-                                               final Set<SpreadsheetColumnReference> columns,
-                                               final AppContext context) {
+    private HTMLTableSectionElement rows(final Set<SpreadsheetRowReference> rows,
+                                         final Set<SpreadsheetColumnReference> columns,
+                                         final AppContext context) {
         final TBodyElement tbody = ElementsFactory.elements.tbody();
 
         for (final SpreadsheetRowReference row : rows) {
             tbody.appendChild(
-                    this.renderRow(
+                    this.row(
                             row,
                             columns,
                             context
@@ -1094,12 +1094,12 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     /**
      * Creates a TR which will hold the ROW and then cells.
      */
-    private HTMLTableRowElement renderRow(final SpreadsheetRowReference row,
-                                          final Collection<SpreadsheetColumnReference> columns,
-                                          final AppContext context) {
+    private HTMLTableRowElement row(final SpreadsheetRowReference row,
+                                    final Collection<SpreadsheetColumnReference> columns,
+                                    final AppContext context) {
         final TableRowElement tr = ElementsFactory.elements.tr()
                 .appendChild(
-                        this.renderRowHeader(
+                        this.rowHeader(
                                 row,
                                 context
                         )
@@ -1107,7 +1107,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
         for (final SpreadsheetColumnReference column : columns) {
             tr.appendChild(
-                    this.renderCell(
+                    this.cell(
                             column.setRow(row),
                             context
                     )
@@ -1117,8 +1117,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         return tr.element();
     }
 
-    private HTMLTableCellElement renderRowHeader(final SpreadsheetRowReference row,
-                                                 final AppContext context) {
+    private HTMLTableCellElement rowHeader(final SpreadsheetRowReference row,
+                                           final AppContext context) {
         final Length<?> height = context.viewportCache()
                 .rowHeight(row);
 
@@ -1216,9 +1216,9 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         );
     }
 
-    // renderCell.......................................................................................................
+    // cell.......................................................................................................
 
-    private void refreshCellStyle(final SpreadsheetMetadata metadata) {
+    private void cellStyleRefresh(final SpreadsheetMetadata metadata) {
         final TextStyle cellStyle = metadata.effectiveStyle();
         this.cellSelectedStyle = cellStyle.merge(CELL_SELECTED_STYLE);
         this.cellUnselectedStyle = cellStyle.merge(CELL_UNSELECTED_STYLE);
@@ -1227,8 +1227,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     /**
      * Renders the given cell, reading the cell contents using {@link AppContext#viewportCache()}.
      */
-    private HTMLTableCellElement renderCell(final SpreadsheetCellReference cellReference,
-                                            final AppContext context) {
+    private HTMLTableCellElement cell(final SpreadsheetCellReference cellReference,
+                                      final AppContext context) {
         final SpreadsheetViewportCache cache = context.viewportCache();
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
 
@@ -1639,7 +1639,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                                       final AppContext context) {
         Objects.requireNonNull(metadata, "metadata");
 
-        this.refreshCellStyle(metadata);
+        this.cellStyleRefresh(metadata);
 
         if (metadata.shouldViewRefresh(this.metadata)) {
             this.reload = true;
