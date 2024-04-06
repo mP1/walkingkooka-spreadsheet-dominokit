@@ -30,6 +30,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 
+/**
+ * A TR holding the select-all and column headers.
+ */
 final class SpreadsheetViewportComponentTableRowColumnHeaders extends SpreadsheetViewportComponentTableRow implements IsElement<HTMLTableRowElement> {
 
     static SpreadsheetViewportComponentTableRowColumnHeaders empty() {

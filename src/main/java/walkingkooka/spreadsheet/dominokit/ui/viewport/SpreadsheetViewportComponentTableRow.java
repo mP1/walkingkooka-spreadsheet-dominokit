@@ -22,6 +22,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.function.Predicate;
 
+/**
+ * Represents a single TR row within the TABLE which contains all rendered column & row headers and cells.
+ */
 abstract class SpreadsheetViewportComponentTableRow {
 
     SpreadsheetViewportComponentTableRow() {

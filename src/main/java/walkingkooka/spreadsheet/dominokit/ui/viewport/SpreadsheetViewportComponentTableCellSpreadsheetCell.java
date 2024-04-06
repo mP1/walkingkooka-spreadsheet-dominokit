@@ -42,6 +42,9 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+/**
+ * A TD which includes a single {@link SpreadsheetCell}.
+ */
 final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends SpreadsheetViewportComponentTableCell
         implements IsElement<HTMLTableCellElement> {
 
