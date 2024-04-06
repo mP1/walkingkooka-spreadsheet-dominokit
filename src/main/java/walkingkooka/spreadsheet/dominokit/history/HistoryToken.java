@@ -1337,8 +1337,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return with;
     }
 
-    final OptionalInt parseCount(final TextCursor cursor) {
-        return this.parseOptionalInt(cursor);
+    static OptionalInt parseCount(final TextCursor cursor) {
+        return parseOptionalInt(cursor);
     }
 
     final static OptionalInt checkCount(final OptionalInt count) {
