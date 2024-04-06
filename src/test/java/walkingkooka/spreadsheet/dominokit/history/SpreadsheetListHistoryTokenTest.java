@@ -22,11 +22,79 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.util.OptionalInt;
+
 public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTokenTestCase<SpreadsheetListHistoryToken> {
+
+    @Test
+    public void testParseInvalidFrom() {
+        this.parseAndCheck(
+                "/from/X",
+                SpreadsheetListHistoryToken.with(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
+    public void testParseFrom() {
+        this.parseAndCheck(
+                "/from/10",
+                SpreadsheetListHistoryToken.with(
+                        OptionalInt.of(10), // from
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
+    public void testParseCount() {
+        this.parseAndCheck(
+                "/count/20",
+                SpreadsheetListHistoryToken.with(
+                        OptionalInt.empty(), // from
+                        OptionalInt.of(20) // count
+                )
+        );
+    }
+
+    @Test
+    public void testParseFromAndCount() {
+        this.parseAndCheck(
+                "/from/10/count/20",
+                SpreadsheetListHistoryToken.with(
+                        OptionalInt.of(10), // from
+                        OptionalInt.of(20) // count
+                )
+        );
+    }
 
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck("/");
+    }
+
+    @Test
+    public void testUrlFragmentFrom() {
+        this.urlFragmentAndCheck(
+                SpreadsheetListHistoryToken.with(
+                        OptionalInt.of(10), // from
+                        OptionalInt.empty() // count
+                ),
+                "/from/10"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentFromAndCount() {
+        this.urlFragmentAndCheck(
+                SpreadsheetListHistoryToken.with(
+                        OptionalInt.of(10), // from
+                        OptionalInt.of(20) // count
+                ),
+                "/from/10/count/20"
+        );
     }
 
     @Test
@@ -81,7 +149,10 @@ public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTok
 
     @Override
     SpreadsheetListHistoryToken createHistoryToken() {
-        return SpreadsheetListHistoryToken.with();
+        return SpreadsheetListHistoryToken.with(
+                OptionalInt.empty(), // from
+                OptionalInt.empty() // count
+        );
     }
 
     @Override

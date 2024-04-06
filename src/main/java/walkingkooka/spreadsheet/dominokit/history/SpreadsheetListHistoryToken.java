@@ -23,28 +23,121 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Objects;
+import java.util.OptionalInt;
+
 /**
  * A token that represents a spreadsheet list files dialog.
  */
 public final class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
 
-    static SpreadsheetListHistoryToken with() {
-        return new SpreadsheetListHistoryToken();
+    static SpreadsheetListHistoryToken with(final OptionalInt from,
+                                            final OptionalInt count) {
+        return new SpreadsheetListHistoryToken(
+                checkFrom(from),
+                count
+        );
     }
 
-    private SpreadsheetListHistoryToken() {
+    private SpreadsheetListHistoryToken(final OptionalInt from,
+                                        final OptionalInt count) {
         super();
+        this.from = from;
+        this.count = count;
     }
+
+    // from.............................................................................................................
+
+    public OptionalInt from() {
+        return this.from;
+    }
+
+    public SpreadsheetListHistoryToken setFrom(final OptionalInt from) {
+        checkFrom(from);
+
+        return this.from.equals(from) ?
+                this :
+                new SpreadsheetListHistoryToken(
+                        from,
+                        this.count
+                );
+    }
+
+    private final OptionalInt from;
+
+    private static OptionalInt checkFrom(final OptionalInt from) {
+        Objects.requireNonNull(from, "from");
+
+        from.ifPresent(value -> {
+            if (value < 0) {
+                throw new IllegalArgumentException("Invalid from < 0 got " + value);
+            }
+        });
+        return from;
+    }
+
+    // count............................................................................................................
+
+    final OptionalInt count;
+
+    // HasUrlFragment...................................................................................................
 
     @Override
     public UrlFragment urlFragment() {
-        return UrlFragment.SLASH;
+        StringBuilder urlFragment = new StringBuilder();
+
+        {
+            final OptionalInt from = this.from;
+            if (from.isPresent()) {
+                urlFragment.append("/from/")
+                        .append(from.getAsInt());
+            }
+        }
+
+        {
+            final OptionalInt count = this.count;
+            if (count.isPresent()) {
+                urlFragment.append("/count/")
+                        .append(count.getAsInt());
+            }
+        }
+
+        return urlFragment.length() == 0 ?
+                UrlFragment.SLASH :
+                UrlFragment.parse(
+                        urlFragment.toString()
+                );
     }
+
+    // HistoryToken.....................................................................................................
 
     @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
-        return this;
+        HistoryToken historyToken = this;
+
+        String nextComponent = component;
+        do {
+            switch (nextComponent) {
+                case "count":
+                    historyToken = historyToken.setCount(
+                            parseCount(cursor)
+                    );
+                    break;
+                case "from":
+                    historyToken = historyToken.cast(SpreadsheetListHistoryToken.class).setFrom(
+                            parseOptionalInt(cursor)
+                    );
+                    break;
+                default:
+                    break;
+            }
+
+            nextComponent = parseComponent(cursor)
+                    .orElse("");
+        } while (false == cursor.isEmpty());
+
+        return historyToken;
     }
 
     @Override

@@ -2404,7 +2404,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSlash() {
         this.parseStringAndCheck(
                 "/",
-                HistoryToken.spreadsheetList()
+                HistoryToken.spreadsheetList(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
+                )
         );
     }
 
