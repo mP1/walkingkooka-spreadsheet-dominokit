@@ -23,37 +23,22 @@ import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableElement;
-import elemental2.dom.HTMLTableRowElement;
-import elemental2.dom.HTMLTableSectionElement;
 import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.DivElement;
-import org.dominokit.domino.ui.elements.TBodyElement;
-import org.dominokit.domino.ui.elements.TDElement;
-import org.dominokit.domino.ui.elements.THElement;
-import org.dominokit.domino.ui.elements.TableElement;
-import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import org.dominokit.domino.ui.menu.direction.DropDirection;
-import org.dominokit.domino.ui.popover.Tooltip;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.map.Maps;
-import walkingkooka.collect.set.Sets;
-import walkingkooka.color.Color;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.predicate.Predicates;
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
@@ -82,7 +67,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
@@ -95,36 +79,16 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
-import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
-import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.ExpressionNumberSign;
-import walkingkooka.tree.text.BorderStyle;
-import walkingkooka.tree.text.FontFamily;
-import walkingkooka.tree.text.FontSize;
-import walkingkooka.tree.text.FontStyle;
-import walkingkooka.tree.text.FontVariant;
-import walkingkooka.tree.text.FontWeight;
-import walkingkooka.tree.text.Hyphens;
 import walkingkooka.tree.text.Length;
-import walkingkooka.tree.text.TextAlign;
-import walkingkooka.tree.text.TextNode;
-import walkingkooka.tree.text.TextStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.tree.text.VerticalAlign;
-import walkingkooka.tree.text.WordBreak;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
-import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -156,7 +120,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
         this.formulaComponent = this.formula();
 
-        this.tableElement = this.table();
+        this.table = this.table();
 
         this.horizontalScrollbarThumb = this.horizontalScrollbarThumb();
         this.horizontalScrollbar = this.horizontalScrollbar();
@@ -252,7 +216,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     }
 
     /**
-     * The root or container that holds the {@link SpreadsheetViewportFormulaComponent} and {@link #tableElement}.
+     * The root or container that holds the {@link SpreadsheetViewportFormulaComponent} and {@link #table}.
      */
     private final DivElement root;
 
@@ -279,7 +243,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     private DivElement tableContainer() {
         final DivElement container = ElementsFactory.elements.div();
         container.style("position: relative; top: 0; left 0px; border: none; margin: 0px; padding: none; width:100%;");
-        container.appendChild(this.tableElement);
+        container.appendChild(this.table);
 
         container.appendChild(this.horizontalScrollbar);
         container.appendChild(this.horizontalScrollbarLeft());
@@ -296,21 +260,16 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     // table............................................................................................................
 
-    /**
-     * Creates an empty table with minimal styling including some placeholder text.
-     */
-    private TableElement table() {
-        final TableElement tableElement = ElementsFactory.elements.table();
-        tableElement.setId(ID);
-        tableElement.style("width: 100%; height: 100%; overflow-x: hidden; overflow-y: hidden;");
+    private SpreadsheetViewportComponentTable table() {
+        final SpreadsheetViewportComponentTable table = SpreadsheetViewportComponentTable.empty();
 
-        final HTMLTableElement element = tableElement.element();
+        final HTMLTableElement element = table.element();
 
         this.addClickEventListener(element);
         this.addKeyDownEventListener(element);
         this.addContextMenuEventListener(element);
 
-        return tableElement;
+        return table;
     }
 
     // click ...........................................................................................................
@@ -526,12 +485,12 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     /**
      * A TABLE that holds the grid of cells including the column and row headers.
      */
-    private final TableElement tableElement;
+    private final SpreadsheetViewportComponentTable table;
 
     /**
      * The ID assigned to the container TABLE element.
      */
-    private final static String ID = "viewport";
+    final static String ID = "viewport";
 
     /**
      * Prefix for any ui within a viewport
@@ -706,7 +665,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     }
 
     /**
-     * Updates the coordinates and dimensions of both the horizonal and vertical scrollbar thumbs. The calculations are
+     * Updates the coordinates and dimensions of both the horizontal and vertical scrollbar thumbs. The calculations are
      * done using the last window.
      */
     private void scrollbarsRefresh() {
@@ -801,8 +760,11 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         this.tableContainer.element()
                 .style.cssText = "width: " + this.width() + "px; height: " + this.height() + "px; overflow: hidden; position: relative;";
 
-        this.tableElement.element()
-                .style.cssText = "width: " + this.tableWidth() + "px; height: " + this.tableHeight() + "px; overflow: hidden";
+        this.table.setWidth(this.tableWidth());
+        this.table.setHeight(this.tableHeight());
+
+//        this.table.element()
+//                .style.cssText = "width: " + this.tableWidth() + "px; height: " + this.tableHeight() + "px; overflow: hidden";
 
         this.loadViewportCellsIfNecessary(context);
     }
@@ -849,6 +811,10 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                 (int) COLUMN_HEIGHT.pixelValue();
     }
 
+    final static Length<?> COLUMN_HEIGHT = Length.pixel(30.0);
+
+    final static Length<?> ROW_WIDTH = Length.pixel(80.0);
+
     private final static int BUTTON_LENGTH = 50;
 
     private final static int SCROLLBAR_LENGTH = 32;
@@ -862,547 +828,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * The height allocated to the widget.
      */
     private int height;
-
-    // render..........................................................................................................
-
-    /**
-     * Renders the TABLE element again using its current state. Note no elements are cached or re-used, everything
-     * is rendered again!
-     */
-    private void render(final AppContext context) {
-        final Optional<AnchoredSpreadsheetSelection> maybeAnchored = context.historyToken()
-                .anchoredSelectionOrEmpty();
-        this.setSelected(maybeAnchored);
-
-        final TableElement tableElement = this.tableElement;
-        tableElement.clearElement();
-
-        final boolean empty = context.spreadsheetMetadata()
-                .isEmpty();
-
-        this.root.element()
-                .style
-                .visibility = empty ?
-                "hidden" :
-                "visible";
-
-        if (false == empty) {
-            this.tableRefresh(context);
-        }
-    }
-
-    private void tableRefresh(final AppContext context) {
-        final SpreadsheetViewportCache cache = context.viewportCache();
-        // "window": "A1:B12,WI1:WW12"
-        //    A1:B12,
-        //    WI1:WW12
-        //
-        // "window": "A1:B2,WI1:WX2,A3:B12,WI3:WX12"
-        //   A1:B2
-        //   WI1:WX2
-        //   A3:B12
-        //   WI3:WX12
-
-        final Set<SpreadsheetColumnReference> columns = Sets.sorted();
-        final Set<SpreadsheetRowReference> rows = Sets.sorted();
-
-        // gather visible columns and rows.
-        for (final SpreadsheetCellRangeReference window : cache.windows().cellRanges()) {
-            for (final SpreadsheetColumnReference column : window.columnRange()) {
-                if (false == cache.isColumnHidden(column)) {
-                    columns.add(column);
-                }
-            }
-
-            for (final SpreadsheetRowReference row : window.rowRange()) {
-                if (false == cache.isRowHidden(row)) {
-                    rows.add(row);
-                }
-            }
-        }
-
-        final TableElement tableElement = this.tableElement;
-
-        // top row of column headers
-        tableElement.appendChild(
-                columnHeaders(
-                        columns,
-                        context
-                )
-        );
-
-        // render the rows and cells
-        tableElement.appendChild(
-                this.rows(
-                        rows,
-                        columns,
-                        context
-                )
-        );
-
-        final HistoryToken historyToken = context.historyToken();
-        if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
-                historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
-                historyToken instanceof SpreadsheetRowSelectHistoryToken) {
-            this.giveViewportSelectionFocus(
-                    historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                            .anchoredSelection(),
-                    context
-            );
-        }
-
-        if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
-                historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
-                historyToken instanceof SpreadsheetRowMenuHistoryToken) {
-            this.renderContextMenu(
-                    historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-                    context
-            );
-        }
-
-        this.scrollbarsRefresh();
-    }
-
-    /**
-     * Creates a THEAD holding a TR with the SELECT ALL and COLUMN headers.
-     */
-    private HTMLTableSectionElement columnHeaders(final Collection<SpreadsheetColumnReference> columns,
-                                                  final AppContext context) {
-        final TableRowElement tr = ElementsFactory.elements.tr()
-                .appendChild(
-                        this.selectAllCells()
-                );
-
-        for (final SpreadsheetColumnReference column : columns) {
-            tr.appendChild(
-                    this.columnHeader(
-                            column,
-                            context
-                    )
-            );
-        }
-
-        return ElementsFactory.elements.thead()
-                .appendChild(tr.element())
-                .element();
-    }
-
-    /**
-     * Factory that creates the element that appears in the top left and may be used to select the entire spreadsheet.
-     */
-    // TODO add link
-    private HTMLTableCellElement selectAllCells() {
-        return ElementsFactory.elements.th()
-                .id(SELECT_ALL_CELLS_ID)
-                .appendChild("ALL")
-                .style(
-                        this.selectAllCellsStyle()
-                                .set(
-                                        TextStylePropertyName.MIN_WIDTH,
-                                        ROW_WIDTH
-                                ).set(
-                                        TextStylePropertyName.WIDTH,
-                                        ROW_WIDTH
-                                ).set(
-                                        TextStylePropertyName.MIN_HEIGHT,
-                                        COLUMN_HEIGHT
-                                ).set(
-                                        TextStylePropertyName.HEIGHT,
-                                        COLUMN_HEIGHT
-                                ).css() + "box-sizing: border-box;")
-                .element();
-    }
-
-    private final static String SELECT_ALL_CELLS_ID = ID_PREFIX + "select-all-cells";
-
-    private TextStyle selectAllCellsStyle() {
-        return this.columnRowHeaderStyle(SpreadsheetSelection.ALL_CELLS);
-    }
-
-    // columnHeader | rowHeader.............................................................................
-
-    /**
-     * Creates a TH with the column in UPPER CASE with column width.
-     */
-    private HTMLTableCellElement columnHeader(final SpreadsheetColumnReference column,
-                                              final AppContext context) {
-        final Length<?> width = context.viewportCache()
-                .columnWidth(column);
-
-        final THElement th = ElementsFactory.elements.th()
-                .id(id(column))
-                .style(
-                        this.columnHeaderStyle(column)
-                                .setValues(
-                                        Maps.of(
-                                                TextStylePropertyName.MIN_WIDTH,
-                                                width,
-                                                TextStylePropertyName.WIDTH,
-                                                width,
-                                                TextStylePropertyName.MIN_HEIGHT,
-                                                COLUMN_HEIGHT,
-                                                TextStylePropertyName.HEIGHT,
-                                                COLUMN_HEIGHT
-                                        )
-                                ).css() + "box-sizing: border-box;"
-                );
-
-        th.appendChild(
-                context.historyToken()
-                        .clearAction()
-                        .setAnchoredSelection(
-                                Optional.of(
-                                        column.setDefaultAnchor()
-                                )
-                        ).link(
-                                id(column)
-                        ).setTabIndex(0)
-                        .addPushHistoryToken(
-                                context
-                        ).setTextContent(
-                                column.toString()
-                                        .toUpperCase()
-                        ).element()
-        );
-
-        return th.element();
-    }
-
-    private final static Length<?> COLUMN_HEIGHT = Length.pixel(30.0);
-
-    /**
-     * Factory that creates a TABLE CELL for the column header, including a link to select that column when clicked.
-     */
-    private HTMLTableSectionElement rows(final Set<SpreadsheetRowReference> rows,
-                                         final Set<SpreadsheetColumnReference> columns,
-                                         final AppContext context) {
-        final TBodyElement tbody = ElementsFactory.elements.tbody();
-
-        for (final SpreadsheetRowReference row : rows) {
-            tbody.appendChild(
-                    this.row(
-                            row,
-                            columns,
-                            context
-                    )
-            );
-        }
-
-        return tbody.element();
-    }
-
-    /**
-     * Creates a TR which will hold the ROW and then cells.
-     */
-    private HTMLTableRowElement row(final SpreadsheetRowReference row,
-                                    final Collection<SpreadsheetColumnReference> columns,
-                                    final AppContext context) {
-        final TableRowElement tr = ElementsFactory.elements.tr()
-                .appendChild(
-                        this.rowHeader(
-                                row,
-                                context
-                        )
-                );
-
-        for (final SpreadsheetColumnReference column : columns) {
-            tr.appendChild(
-                    this.cell(
-                            column.setRow(row),
-                            context
-                    )
-            );
-        }
-
-        return tr.element();
-    }
-
-    private HTMLTableCellElement rowHeader(final SpreadsheetRowReference row,
-                                           final AppContext context) {
-        final Length<?> height = context.viewportCache()
-                .rowHeight(row);
-
-        final TDElement td = ElementsFactory.elements.td()
-                .id(id(row))
-                .style(
-                        this.rowHeaderStyle(row)
-                                .setValues(
-                                        Maps.of(
-                                                TextStylePropertyName.MIN_WIDTH,
-                                                ROW_WIDTH,
-                                                TextStylePropertyName.WIDTH,
-                                                ROW_WIDTH,
-                                                TextStylePropertyName.MIN_HEIGHT,
-                                                height,
-                                                TextStylePropertyName.HEIGHT,
-                                                height
-                                        )
-                                ).css() + "box-sizing: border-box;"
-                );
-
-        td.appendChild(
-                context.historyToken()
-                        .clearAction()
-                        .setAnchoredSelection(
-                                Optional.of(
-                                        row.setDefaultAnchor()
-                                )
-                        ).link(
-                                id(row)
-                        ).setTabIndex(0)
-                        .addPushHistoryToken(
-                                context
-                        ).setTextContent(
-                                row.toString()
-                                        .toUpperCase()
-                        ).element()
-        );
-
-        return td.element();
-    }
-
-    private final static Length<?> ROW_WIDTH = Length.pixel(80.0);
-
-    private TextStyle columnHeaderStyle(final SpreadsheetColumnReference column) {
-        return this.columnRowHeaderStyle(column);
-    }
-
-    private TextStyle rowHeaderStyle(final SpreadsheetRowReference row) {
-        return this.columnRowHeaderStyle(row);
-    }
-
-    private TextStyle columnRowHeaderStyle(final SpreadsheetSelection selection) {
-        return this.isSelected(selection) ?
-                COLUMN_ROW_HEADER_SELECTED_STYLE :
-                COLUMN_ROW_HEADER_UNSELECTED_STYLE;
-    }
-
-    private final static TextStyle COLUMN_ROW_HEADER_SELECTED_STYLE;
-    private final static TextStyle COLUMN_ROW_HEADER_UNSELECTED_STYLE;
-
-    private final static Color BORDER_COLOR = Color.BLACK;
-    private final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
-    private final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
-
-    static {
-        final TextStyle style = TextStyle.EMPTY
-                .set(
-                        TextStylePropertyName.MARGIN,
-                        Length.none()
-                ).setBorder(
-                        BORDER_COLOR,
-                        BORDER_STYLE,
-                        BORDER_LENGTH
-                ).set(
-                        TextStylePropertyName.PADDING,
-                        Length.none()
-                ).setValues(
-                        Maps.of(
-                                TextStylePropertyName.TEXT_ALIGN,
-                                TextAlign.CENTER,
-                                TextStylePropertyName.VERTICAL_ALIGN,
-                                VerticalAlign.MIDDLE,
-                                TextStylePropertyName.FONT_WEIGHT,
-                                FontWeight.NORMAL
-                        )
-                );
-        COLUMN_ROW_HEADER_SELECTED_STYLE = style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR
-        );
-        COLUMN_ROW_HEADER_UNSELECTED_STYLE = style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR
-        );
-    }
-
-    // cell.......................................................................................................
-
-    private void cellStyleRefresh(final SpreadsheetMetadata metadata) {
-        final TextStyle cellStyle = metadata.effectiveStyle();
-        this.cellSelectedStyle = cellStyle.merge(CELL_SELECTED_STYLE);
-        this.cellUnselectedStyle = cellStyle.merge(CELL_UNSELECTED_STYLE);
-    }
-
-    /**
-     * Renders the given cell, reading the cell contents using {@link AppContext#viewportCache()}.
-     */
-    private HTMLTableCellElement cell(final SpreadsheetCellReference cellReference,
-                                      final AppContext context) {
-        final SpreadsheetViewportCache cache = context.viewportCache();
-        final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
-
-        TextStyle style = this.cellStyle(cellReference);
-        TextNode content = null;
-
-        // if an error is present add a tooltip below the cell with the error message.
-        Optional<SpreadsheetError> maybeError = Optional.empty();
-
-        if (maybeCell.isPresent()) {
-            final SpreadsheetCell cell = maybeCell.get();
-
-            boolean hide = false;
-            if (this.hideZeroValues) {
-                final Object value = cell.formula()
-                        .value()
-                        .orElse(null);
-
-                if (ExpressionNumber.is(value) &&
-                        ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
-                    hide = true;
-                }
-            }
-
-            if (false == hide) {
-                final Optional<TextNode> maybeFormatted = cell.formattedValue();
-                if (maybeFormatted.isPresent()) {
-                    content = maybeFormatted.get();
-                }
-            }
-            style = cell.style()
-                    .merge(style);
-
-            if (hide) {
-                style = hideZeroValues(style);
-            }
-
-            maybeError = cell.formula()
-                    .error();
-        }
-
-        // copy width/height to MIN to prevent table squashing cells to fit.
-        style = style.setValues(
-                Maps.of(
-                        TextStylePropertyName.WIDTH,
-                        cache.columnWidth(cellReference.column()),
-                        TextStylePropertyName.HEIGHT,
-                        cache.rowHeight(cellReference.row()),
-                        TextStylePropertyName.MIN_WIDTH,
-                        style.getOrFail(TextStylePropertyName.WIDTH),
-                        TextStylePropertyName.MIN_HEIGHT,
-                        style.getOrFail(TextStylePropertyName.HEIGHT)
-                )
-        );
-
-
-        final TDElement td = ElementsFactory.elements.td()
-                .id(
-                        id(cellReference)
-                ).setTabIndex(0)
-                .style(
-                        style.css() + "box-sizing: border-box;"
-                );
-        if (null != content) {
-            td.appendChild(
-                    Doms.node(content)
-            );
-        }
-
-        final HTMLTableCellElement element = td.element();
-
-        if (maybeError.isPresent()) {
-            final SpreadsheetError error = maybeError.get();
-            final String message = error.message();
-
-            // if theres no message show SpreadsheetError#toString
-            Tooltip.create(
-                    element,
-                    message.isEmpty() ?
-                            error.toString() :
-                            message
-            ).setPosition(DropDirection.BOTTOM_MIDDLE);
-        }
-
-        return element;
-    }
-
-    private TextStyle cellStyle(final SpreadsheetCellReference cell) {
-        TextStyle style = this.isSelected(cell) ?
-                this.cellSelectedStyle :
-                this.cellUnselectedStyle;
-
-        if (this.context.viewportCache()
-                .isMatchedCell(cell)) {
-
-            style = style.set(
-                    TextStylePropertyName.BACKGROUND_COLOR,
-                    style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
-                            .mix(
-                                    SpreadsheetDominoKitColor.HIGHLIGHT_COLOR,
-                                    0.5f
-                            )
-            );
-        }
-
-        return style;
-    }
-
-    private TextStyle hideZeroValues(final TextStyle style) {
-        return style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR)
-                        .mix(
-                                SpreadsheetDominoKitColor.HIDE_ZERO_VALUES_COLOR,
-                                0.5f
-                        )
-        );
-    }
-
-    private TextStyle cellSelectedStyle;
-    private TextStyle cellUnselectedStyle;
-    private final static TextStyle CELL_SELECTED_STYLE;
-    private final static TextStyle CELL_UNSELECTED_STYLE;
-
-    static {
-        final TextStyle style = TextStyle.EMPTY
-                .set(
-                        TextStylePropertyName.MARGIN,
-                        Length.none()
-                ).setBorder(
-                        BORDER_COLOR,
-                        BORDER_STYLE,
-                        BORDER_LENGTH
-
-                ).set(
-                        TextStylePropertyName.PADDING,
-                        Length.none()
-                ).set(
-                        TextStylePropertyName.TEXT_ALIGN,
-                        TextAlign.LEFT
-                ).set(
-                        TextStylePropertyName.VERTICAL_ALIGN,
-                        VerticalAlign.TOP
-                ).set(
-                        TextStylePropertyName.FONT_FAMILY,
-                        FontFamily.with("MS Sans Serif")
-                ).set(
-                        TextStylePropertyName.FONT_SIZE,
-                        FontSize.with(11)
-                ).set(
-                        TextStylePropertyName.FONT_STYLE,
-                        FontStyle.NORMAL
-                ).set(
-                        TextStylePropertyName.FONT_WEIGHT,
-                        FontWeight.NORMAL
-                ).set(
-                        TextStylePropertyName.FONT_VARIANT,
-                        FontVariant.NORMAL
-                ).set(
-                        TextStylePropertyName.HYPHENS,
-                        Hyphens.NONE
-                ).set(
-                        TextStylePropertyName.WORD_BREAK,
-                        WordBreak.NORMAL
-                );
-        CELL_SELECTED_STYLE = style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                SpreadsheetDominoKitColor.VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR
-        );
-        CELL_UNSELECTED_STYLE = style.set(
-                TextStylePropertyName.BACKGROUND_COLOR,
-                SpreadsheetDominoKitColor.VIEWPORT_CELL_UNSELECTED_BACKGROUND_COLOR
-        );
-    }
 
     // giveViewportSelectionFocus......................................................................................
 
@@ -1550,9 +975,74 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
 
     @Override
     public void refresh(final AppContext context) {
-        this.render(
-                context
-        );
+        //final Optional<AnchoredSpreadsheetSelection> maybeAnchored = context.historyToken()
+        //        .anchoredSelectionOrEmpty();
+        //this.setSelected(maybeAnchored);
+
+//        final TableElement tableElement = this.tableElement;
+//        tableElement.clearElement();
+
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final boolean empty = metadata.isEmpty();
+
+        this.root.element()
+                .style
+                .visibility = empty ?
+                "hidden" :
+                "visible";
+
+        if (false == empty) {
+            final HistoryToken historyToken = context.historyToken();
+
+            Predicate<SpreadsheetSelection> selected = Predicates.never();
+
+            final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
+            if (maybeAnchorSelection.isPresent()) {
+                // special case for label
+                final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
+                        .nonLabelSelection(maybeAnchorSelection.get().selection());
+                if (maybeNotLabel.isPresent()) {
+                    final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
+
+                    // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
+                    selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
+                            (false == s.isCellRangeReference() && selectionNotLabel.test(s));
+                }
+            }
+
+            final SpreadsheetViewportCache cache = context.viewportCache();
+            this.table.refresh(
+                    cache.windows(),
+                    selected,
+                    BasicSpreadsheetViewportComponentTableContext.with(
+                            context,
+                            cache,
+                            metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
+                            metadata.effectiveStyle()
+                                    .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE)
+                    )
+            );
+
+            if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
+                    historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
+                    historyToken instanceof SpreadsheetRowSelectHistoryToken) {
+                this.giveViewportSelectionFocus(
+                        maybeAnchorSelection.get(),
+                        context
+                );
+            }
+
+            if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
+                    historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
+                    historyToken instanceof SpreadsheetRowMenuHistoryToken) {
+                this.renderContextMenu(
+                        historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+                        context
+                );
+            }
+
+            this.scrollbarsRefresh();
+        }
     }
 
     @Override
@@ -1639,14 +1129,13 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                                       final AppContext context) {
         Objects.requireNonNull(metadata, "metadata");
 
-        this.cellStyleRefresh(metadata);
+        //this.cellStyleRefresh(metadata);
 
         if (metadata.shouldViewRefresh(this.metadata)) {
             this.reload = true;
         }
 
         this.metadata = metadata;
-        this.hideZeroValues = metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES);
 
         this.loadViewportCellsIfNecessary(context);
 
@@ -1661,37 +1150,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * Initial metadata is EMPTY or nothing.
      */
     private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
-
-    /**
-     * local cache of {@see SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES}
-     */
-    private boolean hideZeroValues;
-
-    private void setSelected(final Optional<AnchoredSpreadsheetSelection> selected) {
-        final AppContext context = this.context;
-        context.debug(
-                "SpreadsheetViewportComponent.setSelection " + selected.orElse(null)
-        );
-
-        Predicate<SpreadsheetSelection> predicate = null;
-
-        if (selected.isPresent()) {
-            // special case for label
-            final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
-                    .nonLabelSelection(selected.get().selection());
-            if (maybeNotLabel.isPresent()) {
-                final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
-
-                // is not cell-range required otherwise select-all-component will always be rendered as selected.
-                predicate = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
-                        (false == s.isCellRangeReference() && selectionNotLabel.test(s));
-            }
-        }
-
-        this.selected = null != predicate ?
-                predicate :
-                Predicates.never();
-    }
 
     /**
      * Tests if various requirements are ready and the viewport should be loaded again.
@@ -1778,20 +1236,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
      */
     private boolean reload = false;
-
-    /**
-     * Tests if the given {@link SpreadsheetSelection} typically a cell, column or row is matched by the {@link SpreadsheetMetadataPropertyName#VIEWPORT}.
-     * This is used during rendering of the viewport headers or cells if the item should be selected.
-     */
-    private boolean isSelected(final SpreadsheetSelection selection) {
-        return this.selected.test(selection);
-    }
-
-    /**
-     * A {@link Predicate} that matches selected {@link SpreadsheetSelection} and will be used to highlight cells,
-     * columns and rows.
-     */
-    private Predicate<SpreadsheetSelection> selected = Predicates.never();
 
     /**
      * Helper that finds the {@link Element} for the given {@link SpreadsheetSelection}
