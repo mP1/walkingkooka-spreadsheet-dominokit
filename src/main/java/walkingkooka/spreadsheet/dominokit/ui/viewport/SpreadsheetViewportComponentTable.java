@@ -44,11 +44,6 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
         final TableElement table = ElementsFactory.elements.table()
                 .id(SpreadsheetViewportComponent.ID)
                 .setOverFlow("hidden");
-//        tableElement.style("width: 100%; height: 100%; overflow-x: hidden; overflow-y: hidden;");
-
-        // overflow: hidden
-//        table.setOverFlow("hidden");
-
         this.columnHeaders = SpreadsheetViewportComponentTableRowColumnHeaders.empty();
 
         final THeadElement thead = ElementsFactory.elements.thead();
@@ -59,7 +54,6 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
         table.appendChild(tbody);
 
         this.table = table;
-        this.thead = thead;
         this.tbody = tbody;
 
         this.rows = Sets.sorted();
@@ -144,8 +138,6 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
     }
 
     private final TableElement table;
-
-    private final THeadElement thead;
 
     private final TBodyElement tbody;
 }
