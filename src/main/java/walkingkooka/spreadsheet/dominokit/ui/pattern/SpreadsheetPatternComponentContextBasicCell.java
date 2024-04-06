@@ -53,7 +53,10 @@ abstract class SpreadsheetPatternComponentContextBasicCell extends SpreadsheetPa
     public Optional<SpreadsheetPattern> undo() {
         Optional<SpreadsheetPattern> pattern = Optional.empty();
 
-        final Optional<SpreadsheetCell> maybeCell = this.context.viewportCell(
+        final AppContext context = this.context;
+
+        final Optional<SpreadsheetCell> maybeCell = context.viewportCache()
+                .cell(
                 this.historyToken()
                         .cast(SpreadsheetCellPatternSelectHistoryToken.class)
                         .anchoredSelection()

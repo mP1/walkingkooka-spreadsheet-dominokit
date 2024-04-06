@@ -112,8 +112,24 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         this.windows = SpreadsheetViewportWindows.EMPTY;
     }
 
+    public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+        Optional<SpreadsheetCell> cell = Optional.empty();
+
+        final Optional<SpreadsheetSelection> nonLabelSelection = this.nonLabelSelection(selection);
+        if (nonLabelSelection.isPresent()) {
+            cell = this.cell(
+                    nonLabelSelection.get()
+                            .toCell()
+            );
+        }
+
+        return cell;
+    }
+
     public Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
-        return Optional.ofNullable(this.cells.get(cell));
+        return Optional.ofNullable(
+                this.cells.get(cell)
+        );
     }
 
     public boolean isMatchedCell(final SpreadsheetCellReference cell) {

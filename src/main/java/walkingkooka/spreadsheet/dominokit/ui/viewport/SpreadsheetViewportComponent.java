@@ -1815,19 +1815,6 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         return Optional.ofNullable(element);
     }
 
-    public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
-        Optional<SpreadsheetCell> cell = Optional.empty();
-
-        final SpreadsheetViewportCache cache = this.context.viewportCache();
-
-        final Optional<SpreadsheetSelection> nonLabelSelection = cache.nonLabelSelection(selection);
-        if (nonLabelSelection.isPresent()) {
-            cell = cache.cell(nonLabelSelection.get().toCell());
-        }
-
-        return cell;
-    }
-
     private final AppContext context;
 
     // helpers..........................................................................................................
