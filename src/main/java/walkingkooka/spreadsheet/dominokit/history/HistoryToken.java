@@ -851,8 +851,12 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see SpreadsheetListHistoryToken}
      */
-    public static SpreadsheetListHistoryToken spreadsheetList() {
-        return SpreadsheetListHistoryToken.with();
+    public static SpreadsheetListHistoryToken spreadsheetList(final OptionalInt from,
+                                                              final OptionalInt count) {
+        return SpreadsheetListHistoryToken.with(
+                from,
+                count
+        );
     }
 
     /**
@@ -910,11 +914,33 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final String component = maybeComponent.get();
                 switch (component) {
                     case "":
-                        token = HistoryToken.spreadsheetList();
+                        token = HistoryToken.spreadsheetList(
+                                OptionalInt.empty(), // from
+                                OptionalInt.empty() // count
+                        );
+                        break;
+                    case "count":
+                        token = HistoryToken.spreadsheetList(
+                                OptionalInt.empty(), // from
+                                OptionalInt.empty() // count
+                        );
+                        token = token.setCount(
+                                parseCount(cursor)
+                        ).parse(cursor);
                         break;
                     case "create":
                         token = HistoryToken.spreadsheetCreate()
                                 .parse(cursor);
+                        break;
+                    case "from":
+                        token = HistoryToken.spreadsheetList(
+                                OptionalInt.empty(), // from
+                                OptionalInt.empty() // count
+                        );
+                        token = token.cast(SpreadsheetListHistoryToken.class)
+                                .setFrom(
+                                        parseOptionalInt(cursor)
+                                ).parse(cursor);
                         break;
                     default:
                         token = spreadsheetLoad(
@@ -1261,15 +1287,20 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     public final OptionalInt count() {
         final OptionalInt count;
-        if (this instanceof SpreadsheetColumnInsertHistoryToken) {
-            count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
-                    .count;
+
+        if (this instanceof SpreadsheetListHistoryToken) {
+            count = this.cast(SpreadsheetListHistoryToken.class).count;
         } else {
-            if (this instanceof SpreadsheetRowInsertHistoryToken) {
-                count = this.cast(SpreadsheetRowInsertHistoryToken.class)
+            if (this instanceof SpreadsheetColumnInsertHistoryToken) {
+                count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
                         .count;
             } else {
-                count = OptionalInt.empty();
+                if (this instanceof SpreadsheetRowInsertHistoryToken) {
+                    count = this.cast(SpreadsheetRowInsertHistoryToken.class)
+                            .count;
+                } else {
+                    count = OptionalInt.empty();
+                }
             }
         }
 
@@ -1287,47 +1318,56 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (this.count().equals(count)) {
             with = this;
         } else {
-            if (this instanceof SpreadsheetColumnInsertAfterHistoryToken) {
-                final SpreadsheetColumnInsertAfterHistoryToken insert = this.cast(SpreadsheetColumnInsertAfterHistoryToken.class);
+            if (this instanceof SpreadsheetListHistoryToken) {
+                final SpreadsheetListHistoryToken list = this.cast(SpreadsheetListHistoryToken.class);
 
-                with = columnInsertAfter(
-                        insert.id(),
-                        insert.name(),
-                        insert.anchoredSelection(),
+                with = spreadsheetList(
+                        list.from(),
                         count
                 );
             } else {
-                if (this instanceof SpreadsheetColumnInsertBeforeHistoryToken) {
-                    final SpreadsheetColumnInsertBeforeHistoryToken insert = this.cast(SpreadsheetColumnInsertBeforeHistoryToken.class);
+                if (this instanceof SpreadsheetColumnInsertAfterHistoryToken) {
+                    final SpreadsheetColumnInsertAfterHistoryToken insert = this.cast(SpreadsheetColumnInsertAfterHistoryToken.class);
 
-                    with = columnInsertBefore(
+                    with = columnInsertAfter(
                             insert.id(),
                             insert.name(),
                             insert.anchoredSelection(),
                             count
                     );
                 } else {
-                    if (this instanceof SpreadsheetRowInsertAfterHistoryToken) {
-                        final SpreadsheetRowInsertAfterHistoryToken insert = this.cast(SpreadsheetRowInsertAfterHistoryToken.class);
+                    if (this instanceof SpreadsheetColumnInsertBeforeHistoryToken) {
+                        final SpreadsheetColumnInsertBeforeHistoryToken insert = this.cast(SpreadsheetColumnInsertBeforeHistoryToken.class);
 
-                        with = rowInsertAfter(
+                        with = columnInsertBefore(
                                 insert.id(),
                                 insert.name(),
                                 insert.anchoredSelection(),
                                 count
                         );
                     } else {
-                        if (this instanceof SpreadsheetRowInsertBeforeHistoryToken) {
-                            final SpreadsheetRowInsertBeforeHistoryToken insert = this.cast(SpreadsheetRowInsertBeforeHistoryToken.class);
+                        if (this instanceof SpreadsheetRowInsertAfterHistoryToken) {
+                            final SpreadsheetRowInsertAfterHistoryToken insert = this.cast(SpreadsheetRowInsertAfterHistoryToken.class);
 
-                            with = rowInsertBefore(
+                            with = rowInsertAfter(
                                     insert.id(),
                                     insert.name(),
                                     insert.anchoredSelection(),
                                     count
                             );
                         } else {
-                            with = this;
+                            if (this instanceof SpreadsheetRowInsertBeforeHistoryToken) {
+                                final SpreadsheetRowInsertBeforeHistoryToken insert = this.cast(SpreadsheetRowInsertBeforeHistoryToken.class);
+
+                                with = rowInsertBefore(
+                                        insert.id(),
+                                        insert.name(),
+                                        insert.anchoredSelection(),
+                                        count
+                                );
+                            } else {
+                                with = this;
+                            }
                         }
                     }
                 }
