@@ -712,10 +712,7 @@ public class App implements EntryPoint,
 
     @Override
     public Optional<SpreadsheetCell> viewportCell(final SpreadsheetSelection selection) {
-        return this.viewportComponent.viewportCell(
-                selection,
-                this
-        );
+        return this.viewportComponent.viewportCell(selection);
     }
 
     /**
