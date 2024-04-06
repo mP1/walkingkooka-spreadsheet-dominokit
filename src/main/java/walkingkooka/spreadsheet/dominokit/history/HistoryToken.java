@@ -970,6 +970,27 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     private final static ParserContext CONTEXT = ParserContexts.fake();
 
+
+    static OptionalInt parseOptionalInt(final TextCursor cursor) {
+        final OptionalInt value;
+
+        final Optional<String> maybeComponent = parseComponent(cursor);
+        if (maybeComponent.isPresent()) {
+            final String string = maybeComponent.get();
+            if (string.isEmpty()) {
+                value = OptionalInt.empty();
+            } else {
+                value = OptionalInt.of(
+                        Integer.parseInt(string)
+                );
+            }
+        } else {
+            value = OptionalInt.empty();
+        }
+
+        return value;
+    }
+
     /**
      * Package private to limit sub-classing
      */
@@ -1317,23 +1338,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     final OptionalInt parseCount(final TextCursor cursor) {
-        final OptionalInt count;
-
-        final Optional<String> maybeComponent = parseComponent(cursor);
-        if (maybeComponent.isPresent()) {
-            final String string = maybeComponent.get();
-            if (string.isEmpty()) {
-                count = OptionalInt.empty();
-            } else {
-                count = OptionalInt.of(
-                        Integer.parseInt(string)
-                );
-            }
-        } else {
-            count = OptionalInt.empty();
-        }
-
-        return count;
+        return this.parseOptionalInt(cursor);
     }
 
     final static OptionalInt checkCount(final OptionalInt count) {
