@@ -85,8 +85,6 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         TextStyle style = context.defaultCellStyle();
         Optional<SpreadsheetError> maybeError = Optional.empty();
 
-        // TODO select/ unselect set background-color & color
-
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
 
