@@ -88,8 +88,6 @@ public interface Fetcher {
                 MediaType.APPLICATION_JSON.value()
         );
 
-        Object bodyJson = null;
-
         // always send content-type: application/json except for GETs
         if (false == HttpMethod.GET.equals(method)) {
             headers.append(
