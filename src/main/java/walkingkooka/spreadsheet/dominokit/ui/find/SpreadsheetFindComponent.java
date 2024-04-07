@@ -104,9 +104,11 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     private SpreadsheetDialogComponent dialogCreate() {
         final HistoryTokenContext context = this.context;
 
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(context);
-        dialog.setTitle("Find");
-        dialog.id(ID);
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+                ID,
+                "Find",
+                context
+        );
 
         dialog.appendChild(this.cellRange);
         dialog.appendChild(this.path);
