@@ -146,7 +146,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
                 .addChangeListener(
                         (oldValue, newValue) -> this.refresh()
                 ).addKeyupListener(
-                        (e) -> this.refreshUndo()
+                        (e) -> this.refresh()
                 );
     }
 
