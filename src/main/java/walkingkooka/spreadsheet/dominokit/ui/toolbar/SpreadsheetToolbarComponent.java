@@ -25,9 +25,9 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.FlexLayout;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -39,7 +39,7 @@ import java.util.Optional;
 /**
  * A toolbar that contains icons that trigger an action.
  */
-public final class SpreadsheetToolbarComponent implements Component<HTMLDivElement>,
+public final class SpreadsheetToolbarComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetToolbarComponent>,
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
