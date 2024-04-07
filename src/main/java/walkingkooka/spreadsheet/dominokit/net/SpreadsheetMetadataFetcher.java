@@ -98,7 +98,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
      */
     public void deleteSpreadsheetMetadata(final SpreadsheetId id) {
         this.delete(
-                this.url(id)
+                url(id)
         );
     }
 
@@ -139,7 +139,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
      */
     public void loadSpreadsheetMetadata(final SpreadsheetId id) {
         this.get(
-                this.url(id)
+                url(id)
         );
     }
 
@@ -161,7 +161,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     public void patchMetadata(final SpreadsheetId id,
                               final JsonNode node) {
         this.patch(
-                this.url(id),
+                url(id),
                 this.toJson(
                         node
                 )
@@ -173,14 +173,14 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
         Objects.requireNonNull(metadata, "metadata");
 
         this.patch(
-                this.url(id),
+                url(id),
                 this.toJson(
                         metadata
                 )
         );
     }
 
-    public RelativeUrl url(final SpreadsheetId id) {
+    public static RelativeUrl url(final SpreadsheetId id) {
         Objects.requireNonNull(id, "id");
 
         return API_BASE.appendPath(

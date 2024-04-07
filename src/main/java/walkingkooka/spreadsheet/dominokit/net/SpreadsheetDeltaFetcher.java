@@ -728,8 +728,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     RelativeUrl url(final SpreadsheetId id,
                     final SpreadsheetSelection selection,
                     final UrlPath path) {
-        return this.context.spreadsheetMetadataFetcher()
-                .url(id)
+        return SpreadsheetMetadataFetcher.url(id)
                 .appendPath(
                         UrlPath.parse(
                                 checkSelection(selection)
