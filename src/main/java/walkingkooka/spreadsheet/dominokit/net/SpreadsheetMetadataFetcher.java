@@ -20,16 +20,21 @@ package walkingkooka.spreadsheet.dominokit.net;
 import elemental2.dom.Headers;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
+import walkingkooka.net.UrlParameterName;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.server.context.SpreadsheetMetadataList;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * A specialised Fetcher that supports all typical CRUD operations relating to a {@link SpreadsheetMetadata}.
@@ -93,6 +98,38 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
                 this.url(id)
         );
     }
+
+    public void getSpreadsheetMetadata(final OptionalInt from,
+                                       final OptionalInt count) {
+        Objects.requireNonNull(from, "from");
+        Objects.requireNonNull(count, "count");
+
+        UrlQueryString query = UrlQueryString.EMPTY;
+
+        if (from.isPresent()) {
+            query = query.addParameter(
+                    FROM,
+                    String.valueOf(from.getAsInt())
+            );
+        }
+
+        if (count.isPresent()) {
+            query = query.addParameter(
+                    COUNT,
+                    String.valueOf(count.getAsInt())
+            );
+        }
+
+        this.get(
+                Url.parseRelative("/api/spreadsheet/")
+                        .setQuery(query)
+        );
+    }
+
+    private final static UrlParameterName FROM = UrlParameterName.with("from");
+
+    private final static UrlParameterName COUNT = UrlParameterName.with("count");
+
 
     /**
      * Loads an existing spreadsheet
@@ -161,13 +198,31 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     @Override
     public void onSuccess(final String contentTypeName,
                           final String body) {
-        this.watcher.onSpreadsheetMetadata(
-                this.parse(
-                        body,
-                        SpreadsheetMetadata.class
-                ),
-                this.context
-        );
+        final SpreadsheetMetadataFetcherWatcher watcher = this.watcher;
+        final AppContext context = this.context;
+
+        switch (contentTypeName) {
+            case "SpreadsheetMetadata":
+                watcher.onSpreadsheetMetadata(
+                        this.parse(
+                                body,
+                                SpreadsheetMetadata.class
+                        ),
+                        context
+                );
+                break;
+            case "SpreadsheetMetadataList":
+                watcher.onSpreadsheetMetadataList(
+                        this.parse(
+                                body,
+                                SpreadsheetMetadataList.class
+                        ),
+                        context
+                );
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown content type " + CharSequences.quoteAndEscape(contentTypeName));
+        }
     }
 
     @Override

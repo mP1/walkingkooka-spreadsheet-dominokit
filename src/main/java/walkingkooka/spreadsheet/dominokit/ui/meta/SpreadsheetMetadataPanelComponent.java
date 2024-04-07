@@ -533,6 +533,12 @@ public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTa
         this.refreshIfOpen(context);
     }
 
+    @Override
+    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                          final AppContext context) {
+        // IGNORE
+    }
+
     // Object...........................................................................................................
 
     @Override

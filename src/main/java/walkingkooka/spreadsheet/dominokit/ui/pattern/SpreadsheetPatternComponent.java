@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -301,6 +302,12 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     public final void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                             final AppContext context) {
         this.refreshIfOpen(context);
+    }
+
+    @Override
+    public final void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                                final AppContext context) {
+        // Ignore many
     }
 
     // ComponentLifecycle...............................................................................................
