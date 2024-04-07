@@ -48,6 +48,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.text.TextStyle;
@@ -792,13 +793,19 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     @Override
     public void onSuccess(final String contentTypeName,
                           final String body) {
-        this.watcher.onSpreadsheetDelta(
-                this.parse(
-                        body,
-                        SpreadsheetDelta.class
-                ),
-                this.context
-        );
+        switch (contentTypeName) {
+            case "SpreadsheetDelta":
+                this.watcher.onSpreadsheetDelta(
+                        this.parse(
+                                body,
+                                SpreadsheetDelta.class
+                        ),
+                        this.context
+                );
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
+        }
     }
 
     @Override
