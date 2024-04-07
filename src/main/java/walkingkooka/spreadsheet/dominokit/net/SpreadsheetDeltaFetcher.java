@@ -806,7 +806,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     @Override
-    public void onSuccess(final String body) {
+    public void onSuccess(final String contentTypeName,
+                          final String body) {
         this.watcher.onSpreadsheetDelta(
                 this.parse(
                         body,

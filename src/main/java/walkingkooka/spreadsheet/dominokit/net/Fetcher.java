@@ -26,6 +26,7 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
+import walkingkooka.net.http.server.hateos.HateosResourceMapping;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.json.JsonNode;
 
@@ -116,7 +117,12 @@ public interface Fetcher {
                             .then(
                                     text -> {
                                         if (response.ok) {
-                                            this.onSuccess(text);
+                                            this.onSuccess(
+                                                    response.headers.get(
+                                                            HateosResourceMapping.X_CONTENT_TYPE_NAME.value()
+                                                    ),
+                                                    text
+                                            );
                                         } else {
                                             final HttpStatus status = HttpStatusCode.withCode(response.status)
                                                     .setMessage(response.statusText);
@@ -148,7 +154,8 @@ public interface Fetcher {
     /**
      * Success assumes a json response.
      */
-    void onSuccess(final String body);
+    void onSuccess(final String contentTypeName,
+                   final String body);
 
     /**
      * Parses the JSON String into the requested type.

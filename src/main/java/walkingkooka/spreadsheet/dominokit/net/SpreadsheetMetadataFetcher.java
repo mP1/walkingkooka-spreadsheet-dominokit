@@ -159,7 +159,8 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     @Override
-    public void onSuccess(final String body) {
+    public void onSuccess(final String contentTypeName,
+                          final String body) {
         this.watcher.onSpreadsheetMetadata(
                 this.parse(
                         body,
