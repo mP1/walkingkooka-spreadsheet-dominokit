@@ -25,6 +25,7 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.HasUrlFragment;
@@ -98,6 +99,8 @@ public final class HistoryTokenAnchorComponent implements Component<HTMLAnchorEl
         // element.cursor with !important is ignored, the only form that works is appending to cssText
         style.cssText = style.cssText +
                 (disabled ? ";cursor: not-allowed !important" : ";cursor: pointer !important");
+
+        this.icon = null;
 
         return this;
     }
@@ -197,6 +200,38 @@ public final class HistoryTokenAnchorComponent implements Component<HTMLAnchorEl
         this.element.setTextContent(text);
         return this;
     }
+
+    // icon......................................................................................................
+
+    public Optional<MdiIcon> icon() {
+        return Optional.ofNullable(this.icon);
+    }
+
+    public HistoryTokenAnchorComponent setIcon(final Optional<MdiIcon> icon) {
+        Objects.requireNonNull(icon, "icon");
+
+        final AnchorElement anchorElement = this.element;
+
+        final MdiIcon oldIcon = this.icon;
+        if (null != oldIcon) {
+            anchorElement.removeChild(
+                    oldIcon.element()
+            );
+        }
+
+        if (icon.isPresent()) {
+            final MdiIcon mdiIcon = icon.get();
+            anchorElement.appendChild(mdiIcon.element());
+            this.icon = mdiIcon;
+
+        } else {
+            this.icon = null;
+        }
+
+        return this;
+    }
+
+    private MdiIcon icon;
 
     // tooltip..........................................................................................................
 
