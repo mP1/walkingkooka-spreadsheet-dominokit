@@ -36,7 +36,7 @@ import java.util.Optional;
 final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends SpreadsheetToolbarComponentItemButton
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement> {
+        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonViewportHighlight> {
 
     static SpreadsheetToolbarComponentItemButtonViewportHighlight with(final AppContext context) {
         Objects.requireNonNull(context, "context");

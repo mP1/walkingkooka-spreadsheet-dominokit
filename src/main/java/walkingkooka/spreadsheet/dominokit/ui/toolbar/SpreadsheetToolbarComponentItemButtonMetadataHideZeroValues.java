@@ -32,7 +32,7 @@ import java.util.Optional;
 /**
  * When clicked, updates the {@link SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES} with the opposite of its current value.
  */
-final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends SpreadsheetToolbarComponentItemButtonMetadata {
+final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends SpreadsheetToolbarComponentItemButtonMetadata<SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues> {
 
     static SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues with(final AppContext context) {
         Objects.requireNonNull(context, "context");

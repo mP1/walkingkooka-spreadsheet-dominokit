@@ -29,7 +29,7 @@ import java.util.Optional;
 /**
  * A button ui that may exist withing a toolbar, which actives the format pattern editor.
  */
-final class SpreadsheetToolbarComponentItemButtonPatternFormat extends SpreadsheetToolbarComponentItemButtonPattern<SpreadsheetFormatPattern> {
+final class SpreadsheetToolbarComponentItemButtonPatternFormat extends SpreadsheetToolbarComponentItemButtonPattern<SpreadsheetFormatPattern, SpreadsheetToolbarComponentItemButtonPatternFormat> {
 
     static SpreadsheetToolbarComponentItemButtonPatternFormat with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");

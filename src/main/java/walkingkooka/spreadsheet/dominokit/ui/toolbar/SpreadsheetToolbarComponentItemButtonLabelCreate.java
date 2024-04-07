@@ -37,7 +37,7 @@ import java.util.Optional;
 final class SpreadsheetToolbarComponentItemButtonLabelCreate extends SpreadsheetToolbarComponentItemButton
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement> {
+        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonLabelCreate> {
 
     static SpreadsheetToolbarComponentItemButtonLabelCreate with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");

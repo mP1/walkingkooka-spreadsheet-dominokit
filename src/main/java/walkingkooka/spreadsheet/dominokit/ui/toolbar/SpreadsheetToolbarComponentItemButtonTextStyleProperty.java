@@ -32,7 +32,7 @@ import java.util.Optional;
  * A button ui that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends SpreadsheetToolbarComponentItemButtonTextStyle {
+final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends SpreadsheetToolbarComponentItemButtonTextStyle<SpreadsheetToolbarComponentItemButtonTextStyleProperty<T>> {
 
     static <T> SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> with(final TextStylePropertyName<T> propertyName,
                                                                               final T propertyValue,

@@ -29,7 +29,7 @@ import java.util.Optional;
 /**
  * A button ui that may exist withing a toolbar, which actives the parse pattern editor.
  */
-final class SpreadsheetToolbarComponentItemButtonPatternParse extends SpreadsheetToolbarComponentItemButtonPattern<SpreadsheetParsePattern> {
+final class SpreadsheetToolbarComponentItemButtonPatternParse extends SpreadsheetToolbarComponentItemButtonPattern<SpreadsheetParsePattern, SpreadsheetToolbarComponentItemButtonPatternParse> {
 
     static SpreadsheetToolbarComponentItemButtonPatternParse with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
