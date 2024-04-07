@@ -81,7 +81,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
             element.appendChild(this.rowHeader);
 
-            final SpreadsheetRowReference row = this.rowHeader.selection.toRow();
+            final SpreadsheetRowReference row = this.rowHeader.selection;
 
             // create the cells as necessary for this row...
             for (final SpreadsheetColumnReference column : columns) {
