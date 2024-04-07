@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextStyle;
 
@@ -30,13 +31,15 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                               final SpreadsheetViewportCache viewportCache,
                                                               final boolean hideZeroValues,
                                                               final TextStyle defaultCellStyle,
-                                                              final SpreadsheetMetadata spreadsheetMetadata) {
+                                                              final SpreadsheetMetadata spreadsheetMetadata,
+                                                              final LoggingContext loggingContext) {
         return new BasicSpreadsheetViewportComponentTableContext(
                 historyTokenContext,
                 viewportCache,
                 hideZeroValues,
                 defaultCellStyle,
-                spreadsheetMetadata
+                spreadsheetMetadata,
+                loggingContext
         );
     }
 
@@ -44,12 +47,14 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                           final SpreadsheetViewportCache viewportCache,
                                                           final boolean hideZeroValues,
                                                           final TextStyle defaultCellStyle,
-                                                          final SpreadsheetMetadata spreadsheetMetadata) {
+                                                          final SpreadsheetMetadata spreadsheetMetadata,
+                                                          final LoggingContext loggingContext) {
         this.historyTokenContext = historyTokenContext;
         this.viewportCache = viewportCache;
         this.hideZeroValues = hideZeroValues;
         this.defaultCellStyle = defaultCellStyle;
         this.spreadsheetMetadata = spreadsheetMetadata;
+        this.loggingContext = loggingContext;
     }
 
     @Override
@@ -106,4 +111,16 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
     }
 
     private SpreadsheetMetadata spreadsheetMetadata;
+
+    @Override
+    public void debug(final Object... values) {
+        this.loggingContext.debug(values);
+    }
+
+    @Override
+    public void error(final Object... values) {
+        this.loggingContext.error(values);
+    }
+
+    private final LoggingContext loggingContext;
 }

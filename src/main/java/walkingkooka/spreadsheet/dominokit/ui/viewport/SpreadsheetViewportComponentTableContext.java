@@ -18,11 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.tree.text.TextStyle;
 
 interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext,
-        HasSpreadsheetMetadata {
+        HasSpreadsheetMetadata,
+        LoggingContext {
 
     SpreadsheetViewportCache viewportCache();
 
