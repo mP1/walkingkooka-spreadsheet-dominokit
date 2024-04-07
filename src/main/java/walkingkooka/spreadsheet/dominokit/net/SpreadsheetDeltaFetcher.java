@@ -266,7 +266,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         final AppContext context = this.context;
 
         this.postDelta(
-                this.url(
+                url(
                         id,
                         selection,
                         CLEAR
@@ -286,7 +286,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                             final SpreadsheetSelection selection) {
         final AppContext context = this.context;
         this.delete(
-                this.url(
+                url(
                         id,
                         selection
                 ).setQuery(
@@ -436,7 +436,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         // DELETE http://localhost:3000/api/spreadsheet/1f/cell/$cells
         this.delete(
-                this.url(
+                url(
                         id,
                         viewport.anchoredSelection()
                                 .get()
@@ -466,7 +466,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         // load cells for the new window...
         // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.get(
-                this.url(
+                url(
                         id,
                         SpreadsheetSelection.ALL_CELLS,
                         FORCE_RECOMPUTE // path
@@ -535,7 +535,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         final AppContext context = this.context();
 
         this.post(
-                this.url(
+                url(
                         id,
                         selection
                 ).setQuery(
@@ -552,7 +552,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                              final SpreadsheetSelection selection,
                              final SpreadsheetFormula formula) {
         this.patchDelta(
-                this.url(
+                url(
                         id,
                         selection
                 ),
@@ -567,7 +567,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                    final SpreadsheetSelection selection,
                                    final Optional<SpreadsheetFormatPattern> pattern) {
         this.patchDelta(
-                this.url(
+                url(
                         id,
                         selection
                 ),
@@ -582,7 +582,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                   final SpreadsheetSelection selection,
                                   final Optional<SpreadsheetParsePattern> pattern) {
         this.patchDelta(
-                this.url(
+                url(
                         id,
                         selection
                 ),
@@ -597,7 +597,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                            final SpreadsheetSelection selection,
                            final JsonNode style) {
         this.patchDelta(
-                this.url(
+                url(
                         id,
                         selection
                 ),
@@ -613,7 +613,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         final AppContext context = this.context();
 
         this.postDelta(
-                this.url(
+                url(
                         id,
                         selection
                 ).setQuery(
@@ -630,7 +630,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         // PATCH cell with new formula
         this.patchDelta(
-                this.url(
+                url(
                         id,
                         selection
                 ).setQuery(
@@ -656,7 +656,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         final AppContext context = this.context;
 
         this.patchDelta(
-                this.url(
+                url(
                         id,
                         selection
                 ).setQuery(
@@ -676,7 +676,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         final AppContext context = this.context;
 
         this.patchDelta(
-                this.url(
+                url(
                         id,
                         selection
                 ).setQuery(
@@ -715,9 +715,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     // @VisibleForTesting
-    RelativeUrl url(final SpreadsheetId id,
-                    final SpreadsheetSelection selection) {
-        return this.url(
+    static RelativeUrl url(final SpreadsheetId id,
+                           final SpreadsheetSelection selection) {
+        return url(
                 id,
                 selection,
                 UrlPath.EMPTY // no patch
@@ -725,9 +725,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     // @VisibleForTesting
-    RelativeUrl url(final SpreadsheetId id,
-                    final SpreadsheetSelection selection,
-                    final UrlPath path) {
+    static RelativeUrl url(final SpreadsheetId id,
+                           final SpreadsheetSelection selection,
+                           final UrlPath path) {
         return SpreadsheetMetadataFetcher.url(id)
                 .appendPath(
                         UrlPath.parse(
