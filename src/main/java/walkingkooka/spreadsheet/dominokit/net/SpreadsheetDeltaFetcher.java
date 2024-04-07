@@ -269,9 +269,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 this.url(
                         id,
                         selection,
-                        Optional.of(
-                                UrlPath.parse("/clear")
-                        )
+                        UrlPath.parse("/clear")
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
@@ -480,10 +478,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    private final static Optional<UrlPath> FORCE_RECOMPUTE = Optional.of(
-            UrlPath.parse(
+    private final static UrlPath FORCE_RECOMPUTE = UrlPath.parse(
                     CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
-            )
     );
 
     public void patchCellsFormula(final SpreadsheetId id,
@@ -722,14 +718,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         return this.url(
                 id,
                 selection,
-                Optional.empty() // no patch
+                UrlPath.EMPTY // no patch
         );
     }
 
     // @VisibleForTesting
     RelativeUrl url(final SpreadsheetId id,
                     final SpreadsheetSelection selection,
-                    final Optional<UrlPath> path) {
+                    final UrlPath path) {
         UrlPath urlPath = this.context.spreadsheetMetadataFetcher()
                 .url(id)
                 .path();
@@ -748,9 +744,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         Objects.requireNonNull(path, "path");
 
-        if (path.isPresent()) {
-            urlPath = urlPath.append(path.get());
-        }
+
+        urlPath = urlPath.append(path);
 
         return urlPath.addQueryString(
                 UrlQueryString.EMPTY

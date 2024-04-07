@@ -722,7 +722,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.urlFails(
                 null,
                 SpreadsheetSelection.ALL_CELLS,
-                Optional.empty()
+                UrlPath.EMPTY
         );
     }
 
@@ -731,7 +731,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.urlFails(
                 SpreadsheetId.with(1),
                 null,
-                Optional.empty()
+                UrlPath.EMPTY
         );
     }
 
@@ -746,7 +746,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
     private void urlFails(final SpreadsheetId id,
                           final SpreadsheetSelection selection,
-                          final Optional<UrlPath> path) {
+                          final UrlPath path) {
         final SpreadsheetDeltaFetcher fetcher = SpreadsheetDeltaFetcher.with(
                 new FakeSpreadsheetDeltaFetcherWatcher(),
                 new FakeAppContext() {
@@ -775,7 +775,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.urlAndCheck(
                 1,
                 "A1",
-                Optional.empty(),
+                UrlPath.EMPTY,
                 "/api/spreadsheet/1/cell/A1"
         );
     }
@@ -785,14 +785,14 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         this.urlAndCheck(
                 2,
                 "B2",
-                Optional.of(UrlPath.parse("clear")),
+                UrlPath.parse("clear"),
                 "/api/spreadsheet/2/cell/B2/clear"
         );
     }
 
     private void urlAndCheck(final long id,
                              final String cell,
-                             final Optional<UrlPath> path,
+                             final UrlPath path,
                              final String url) {
         this.urlAndCheck(
                 SpreadsheetId.with(id),
@@ -804,7 +804,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
     private void urlAndCheck(final SpreadsheetId id,
                              final SpreadsheetSelection selection,
-                             final Optional<UrlPath> path,
+                             final UrlPath path,
                              final RelativeUrl url) {
         final SpreadsheetDeltaFetcher fetcher = SpreadsheetDeltaFetcher.with(
                 new FakeSpreadsheetDeltaFetcherWatcher(),
