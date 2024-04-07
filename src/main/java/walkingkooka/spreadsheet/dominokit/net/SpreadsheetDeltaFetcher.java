@@ -726,30 +726,18 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     RelativeUrl url(final SpreadsheetId id,
                     final SpreadsheetSelection selection,
                     final UrlPath path) {
-        UrlPath urlPath = this.context.spreadsheetMetadataFetcher()
+        return this.context.spreadsheetMetadataFetcher()
                 .url(id)
-                .path();
-
-        checkSelection(selection);
-
-        urlPath = urlPath.append(
-                UrlPath.parse(
-                        selection.cellColumnOrRowText()
-                )
-        ).append(
-                UrlPath.parse(
-                        selection.toStringMaybeStar()
-                )
-        );
-
-        Objects.requireNonNull(path, "path");
-
-
-        urlPath = urlPath.append(path);
-
-        return urlPath.addQueryString(
-                UrlQueryString.EMPTY
-        );
+                .appendPath(
+                        UrlPath.parse(
+                                checkSelection(selection)
+                                        .cellColumnOrRowText()
+                        )
+                ).appendPath(
+                        UrlPath.parse(
+                                selection.toStringMaybeStar()
+                        )
+                ).appendPath(path);
     }
 
     // checkXXX.........................................................................................................
