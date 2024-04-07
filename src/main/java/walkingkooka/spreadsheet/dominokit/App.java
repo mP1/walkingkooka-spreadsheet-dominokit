@@ -78,6 +78,8 @@ import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelCompon
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponent;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponent;
+import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetnameanchor.SpreadsheetNameAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
@@ -156,6 +158,14 @@ public class App implements EntryPoint,
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
+
+        SpreadsheetListComponent.with(
+                SpreadsheetListComponentContexts.basic(
+                        this,
+                        this.spreadsheetMetadataFetcher,
+                        this.metadataWatchers
+                )
+        );
 
         SpreadsheetColumnRowInsertCountComponent.with(
                 SpreadsheetColumnRowInsertCountComponentContexts.appContext(this)
