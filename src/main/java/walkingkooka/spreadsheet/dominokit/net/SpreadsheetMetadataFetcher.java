@@ -228,7 +228,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
                 );
                 break;
             default:
-                throw new IllegalArgumentException("Unknown content type " + CharSequences.quoteAndEscape(contentTypeName));
+                throw new IllegalArgumentException("Unexpected content type " + CharSequences.quoteAndEscape(contentTypeName));
         }
     }
 
