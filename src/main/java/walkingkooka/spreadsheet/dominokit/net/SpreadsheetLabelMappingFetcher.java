@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -130,17 +131,23 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     @Override
     public void onSuccess(final String contentTypeName,
                           final String body) {
-        this.watcher.onSpreadsheetLabelMapping(
-                Optional.ofNullable(
-                        body.isEmpty() ?
-                                null :
-                                this.parse(
-                                        body,
-                                        SpreadsheetLabelMapping.class
-                                )
-                ),
-                this.context
-        );
+        switch (contentTypeName) {
+            case "SpreadsheetLabelMapping":
+                this.watcher.onSpreadsheetLabelMapping(
+                        Optional.ofNullable(
+                                body.isEmpty() ?
+                                        null :
+                                        this.parse(
+                                                body,
+                                                SpreadsheetLabelMapping.class
+                                        )
+                        ),
+                        this.context
+                );
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected content type " + CharSequences.quoteAndEscape(contentTypeName));
+        }
     }
 
     @Override
