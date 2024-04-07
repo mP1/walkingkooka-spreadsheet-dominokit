@@ -84,9 +84,11 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetLabelMappingComponentContext context = this.context;
 
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(context);
-        dialog.setTitle("Label");
-        dialog.id(ID);
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+                ID,
+                "Label",
+                context
+        );
 
         dialog.appendChild(this.label);
         dialog.appendChild(this.target);

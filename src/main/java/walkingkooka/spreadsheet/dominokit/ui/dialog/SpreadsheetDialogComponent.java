@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 
@@ -35,19 +36,32 @@ public class SpreadsheetDialogComponent {
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
      */
-    public static SpreadsheetDialogComponent create(final HistoryTokenContext context) {
+    public static SpreadsheetDialogComponent with(final String id,
+                                                  final String title,
+                                                  final HistoryTokenContext context) {
+        Objects.requireNonNull(id, "id");
+        CharSequences.failIfNullOrEmpty(title, "title");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetDialogComponent(context);
+        return new SpreadsheetDialogComponent(
+                id,
+                title,
+                context
+        );
     }
 
-    private SpreadsheetDialogComponent(final HistoryTokenContext context) {
+    private SpreadsheetDialogComponent(final String id,
+                                       final String title,
+                                       final HistoryTokenContext context) {
         this.context = context;
 
         final NavBar navBar = this.dialogNavBar();
         this.navBar = navBar;
 
-        this.dialog = dialog(navBar);
+        this.dialog = dialog(navBar)
+                .id(id);
+
+        this.setTitle(title);
     }
 
     private NavBar dialogNavBar() {
@@ -87,11 +101,6 @@ public class SpreadsheetDialogComponent {
     }
 
     private final HistoryTokenContext context;
-
-    public SpreadsheetDialogComponent id(final String id) {
-        this.dialog.id(id);
-        return this;
-    }
 
     /**
      * Replaces the existing title with the new title.

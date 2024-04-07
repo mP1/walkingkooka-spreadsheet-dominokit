@@ -98,8 +98,13 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetPatternComponentContext context = this.context;
 
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.create(context);
-        dialog.id(ID);
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+                ID,
+                title(
+                        context.patternKind()
+                ),
+                context
+        );
 
         dialog.appendChild(this.tabs);
 
