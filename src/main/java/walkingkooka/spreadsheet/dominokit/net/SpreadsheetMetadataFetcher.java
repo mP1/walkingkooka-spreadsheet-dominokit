@@ -21,7 +21,7 @@ import elemental2.dom.Headers;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
-import walkingkooka.net.UrlPathName;
+import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -183,13 +183,10 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     public RelativeUrl url(final SpreadsheetId id) {
         Objects.requireNonNull(id, "id");
 
-        return API_BASE.setPath(
-                API_BASE.path()
-                        .append(
-                                UrlPathName.with(
-                                        id.toString()
-                                )
-                        )
+        return API_BASE.appendPath(
+                UrlPath.parse(
+                        id.toString()
+                )
         );
     }
 
