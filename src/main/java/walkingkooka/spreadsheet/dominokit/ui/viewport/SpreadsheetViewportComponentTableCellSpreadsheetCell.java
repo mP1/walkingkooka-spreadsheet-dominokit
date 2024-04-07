@@ -76,6 +76,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                 );
         this.cellReference = cellReference;
         this.metadata = SpreadsheetMetadata.EMPTY;
+        this.tooltipMessage = "";
     }
 
     @Override
@@ -200,24 +201,36 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
     private SpreadsheetMetadata metadata;
 
     private void tooltipRefresh(final Optional<SpreadsheetError> error) {
-        if (null != this.tooltip) {
-            this.tooltip.detach();
-            this.tooltip = null;
-        }
+        final String newTooltipMessage = error.map(
+                e -> {
+                    final String errorMessage = e.message();
+                    return errorMessage.isEmpty() ?
+                            e.toString() :
+                            errorMessage;
 
-        if (error.isPresent()) {
-            final String message = error.get()
-                    .message();
+                }
+        ).orElse("");
 
-            // if theres no message show SpreadsheetError#toString
-            this.tooltip = Tooltip.create(
-                    this.element,
-                    message.isEmpty() ?
-                            error.toString() :
-                            message
-            ).setPosition(DropDirection.BOTTOM_MIDDLE);
+        final String oldTooltipMessage = this.tooltipMessage;
+
+        if (false == newTooltipMessage.equals(oldTooltipMessage)) {
+            if (null != this.tooltip) {
+                this.tooltip.detach();
+                this.tooltip = null;
+            }
+
+            if (false == newTooltipMessage.isEmpty()) {
+                this.tooltip = Tooltip.create(
+                        this.element,
+                        newTooltipMessage
+                ).setPosition(DropDirection.BOTTOM_MIDDLE);
+            }
+
+            this.tooltipMessage = newTooltipMessage;
         }
     }
+
+    private String tooltipMessage;
 
     private Tooltip tooltip;
 
