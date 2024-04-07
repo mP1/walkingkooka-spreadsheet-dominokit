@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.cards.Card;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
@@ -36,7 +36,7 @@ import java.util.function.Consumer;
 /**
  * A card that contains many links that append a component to the pattern being edited.
  */
-final class SpreadsheetPatternComponentAppenderComponent implements Component<HTMLDivElement> {
+final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentAppenderComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetPatternComponentAppenderComponent}.
