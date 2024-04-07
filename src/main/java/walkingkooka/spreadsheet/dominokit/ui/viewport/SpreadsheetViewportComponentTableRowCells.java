@@ -47,7 +47,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
     private SpreadsheetViewportComponentTableRowCells(final SpreadsheetRowReference row,
                                                       final SpreadsheetViewportComponentTableContext context) {
         this.element = ElementsFactory.elements.tr();
-        this.rowHeader = SpreadsheetViewportComponentTableCellSpreadsheetRowHeader.empty(
+        this.rowHeader = SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow.empty(
                 row,
                 context
         );
@@ -71,7 +71,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
             element.appendChild(this.rowHeader);
 
-            final SpreadsheetRowReference row = this.rowHeader.row;
+            final SpreadsheetRowReference row = this.rowHeader.selection.toRow();
 
             // create the cells as necessary for this row...
             for (final SpreadsheetColumnReference column : columns) {
@@ -106,7 +106,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
     private Set<SpreadsheetColumnReference> columns;
 
-    private final SpreadsheetViewportComponentTableCellSpreadsheetRowHeader rowHeader;
+    private final SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow rowHeader;
 
     private Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> columnToCells;
 
