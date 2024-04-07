@@ -22,7 +22,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
@@ -32,7 +32,7 @@ import java.util.Optional;
 /**
  * Capture the tabs functionality within a {@link SpreadsheetPatternComponent}.
  */
-final class SpreadsheetPatternComponentTabs implements Component<HTMLDivElement> {
+final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentTabs> {
 
     /**
      * Creates an empty {@link SpreadsheetPatternComponentTabs}.
