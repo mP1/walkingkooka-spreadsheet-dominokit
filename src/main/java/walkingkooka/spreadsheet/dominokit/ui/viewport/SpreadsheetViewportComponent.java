@@ -129,6 +129,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         this.verticalScrollbar = this.verticalScrollbar();
 
         this.tableContainer = this.tableContainer();
+        this.refreshMetadata = SpreadsheetMetadata.EMPTY;
 
         this.root = this.root();
 
@@ -1011,7 +1012,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                             metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
                             metadata.effectiveStyle()
                                     .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
-                            metadata,
+                            metadata.shouldViewRefresh(this.refreshMetadata),
                             context
                     )
             );
@@ -1037,6 +1038,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             this.scrollbarsRefresh();
         }
     }
+
+    private SpreadsheetMetadata refreshMetadata;
 
     @Override
     public void openGiveFocus(final AppContext context) {

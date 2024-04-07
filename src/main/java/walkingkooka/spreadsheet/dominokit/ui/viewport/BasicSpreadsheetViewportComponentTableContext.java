@@ -21,7 +21,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextStyle;
 
 final class BasicSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext {
@@ -31,14 +30,14 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                               final SpreadsheetViewportCache viewportCache,
                                                               final boolean hideZeroValues,
                                                               final TextStyle defaultCellStyle,
-                                                              final SpreadsheetMetadata spreadsheetMetadata,
+                                                              final boolean mustRefresh,
                                                               final LoggingContext loggingContext) {
         return new BasicSpreadsheetViewportComponentTableContext(
                 historyTokenContext,
                 viewportCache,
                 hideZeroValues,
                 defaultCellStyle,
-                spreadsheetMetadata,
+                mustRefresh,
                 loggingContext
         );
     }
@@ -47,13 +46,13 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                           final SpreadsheetViewportCache viewportCache,
                                                           final boolean hideZeroValues,
                                                           final TextStyle defaultCellStyle,
-                                                          final SpreadsheetMetadata spreadsheetMetadata,
+                                                          final boolean mustRefresh,
                                                           final LoggingContext loggingContext) {
         this.historyTokenContext = historyTokenContext;
         this.viewportCache = viewportCache;
         this.hideZeroValues = hideZeroValues;
         this.defaultCellStyle = defaultCellStyle;
-        this.spreadsheetMetadata = spreadsheetMetadata;
+        this.mustRefresh = mustRefresh;
         this.loggingContext = loggingContext;
     }
 
@@ -106,11 +105,11 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
     private final TextStyle defaultCellStyle;
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
-        return this.spreadsheetMetadata;
+    public boolean mustRefresh() {
+        return this.mustRefresh;
     }
 
-    private SpreadsheetMetadata spreadsheetMetadata;
+    private final boolean mustRefresh;
 
     @Override
     public void debug(final Object... values) {
