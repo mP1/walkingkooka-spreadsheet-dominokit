@@ -23,13 +23,13 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Optional;
 
-public final class SpreadsheetNameAnchorComponent implements Component<HTMLAnchorElement>,
+public final class SpreadsheetNameAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, SpreadsheetNameAnchorComponent>,
         HistoryTokenWatcher {
 
     public static SpreadsheetNameAnchorComponent empty() {
