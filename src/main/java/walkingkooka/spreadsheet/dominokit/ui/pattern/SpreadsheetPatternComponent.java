@@ -100,9 +100,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID,
-                title(
-                        context.patternKind()
-                ),
+                "Pattern", // will be replaced by refresh when "opened"
                 context
         );
 
