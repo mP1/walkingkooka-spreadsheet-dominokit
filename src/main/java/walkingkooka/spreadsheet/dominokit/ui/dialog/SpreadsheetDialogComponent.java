@@ -24,9 +24,11 @@ import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A standard dialog model aialog component with support for title and close icon.
@@ -55,6 +57,11 @@ public class SpreadsheetDialogComponent {
                                        final HistoryTokenContext context) {
         this.context = context;
 
+        this.close = this.closeLink(
+                id,
+                context
+        );
+
         final NavBar navBar = this.dialogNavBar();
         this.navBar = navBar;
 
@@ -64,13 +71,24 @@ public class SpreadsheetDialogComponent {
         this.setTitle(title);
     }
 
+    private HistoryTokenAnchorComponent closeLink(final String id,
+                                                  final HistoryTokenContext context) {
+        return context.historyToken()
+                .link(id + "-close")
+                .setIcon(
+                        Optional.of(
+                                SpreadsheetIcons.close()
+                        )
+                );
+    }
+
+    private final HistoryTokenAnchorComponent close;
+
     private NavBar dialogNavBar() {
         return NavBar.create() //
                 .appendChild(
                         PostfixAddOn.of(
-                                SpreadsheetIcons.close()
-                                        .clickable()
-                                        .addClickListener((event) -> this.fireClose())
+                                this.close
                         )
                 );
     }
@@ -129,6 +147,12 @@ public class SpreadsheetDialogComponent {
     public void open() {
         this.open = true;
         this.dialog.open();
+
+        this.close.setHistoryToken(
+                Optional.of(
+                        this.context.historyToken().close()
+                )
+        );
     }
 
     /**
