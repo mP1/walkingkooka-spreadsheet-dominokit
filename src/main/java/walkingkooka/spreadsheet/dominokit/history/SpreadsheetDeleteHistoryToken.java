@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 
@@ -161,6 +162,12 @@ public final class SpreadsheetDeleteHistoryToken extends SpreadsheetNameHistoryT
                     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                                       final AppContext context) {
                         // nop
+                    }
+
+                    @Override
+                    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                                          final AppContext context) {
+                        // ignore
                     }
 
                     @Override

@@ -24,6 +24,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.List;
 import java.util.Optional;
 
 public class FakeSpreadsheetMetadataFetcherWatcher implements SpreadsheetMetadataFetcherWatcher {
@@ -39,6 +40,12 @@ public class FakeSpreadsheetMetadataFetcherWatcher implements SpreadsheetMetadat
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                          final AppContext context) {
         throw new UnsupportedOperationException();
     }
 

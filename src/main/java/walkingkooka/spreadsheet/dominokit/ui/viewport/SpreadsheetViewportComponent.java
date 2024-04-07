@@ -1108,6 +1108,12 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         this.onFetchFinish(context);
     }
 
+    @Override
+    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                          final AppContext context) {
+        // NOP
+    }
+
     // SpreadsheetLabelMappingFetcherWatcher............................................................................
 
     /**

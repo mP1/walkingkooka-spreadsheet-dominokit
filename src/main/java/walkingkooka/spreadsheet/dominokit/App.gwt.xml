@@ -17,7 +17,8 @@
   -->
 
 <module>
-<inherits name="walkingkooka.spreadsheet.Spreadsheet"/>
+    <inherits name="walkingkooka.spreadsheet.Spreadsheet"/>
+    <inherits name="walkingkooka.spreadsheet.server.Server"/>
     <inherits name="org.dominokit.domino.ui.DominoUI"/>
 
     <source path="">

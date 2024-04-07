@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken {
@@ -85,6 +86,12 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
                     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                                       final AppContext context) {
                         // nop
+                    }
+
+                    @Override
+                    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                                          final AppContext context) {
+                        // ignore
                     }
 
                     @Override
