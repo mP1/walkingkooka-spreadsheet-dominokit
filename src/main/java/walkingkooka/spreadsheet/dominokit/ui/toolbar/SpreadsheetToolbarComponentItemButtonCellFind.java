@@ -37,7 +37,7 @@ import java.util.Optional;
 final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToolbarComponentItemButton
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement> {
+        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonCellFind> {
 
     static SpreadsheetToolbarComponentItemButtonCellFind with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");

@@ -32,7 +32,7 @@ import java.util.Optional;
  * A button ui that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends SpreadsheetToolbarComponentItemButtonTextStyle {
+final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends SpreadsheetToolbarComponentItemButtonTextStyle<SpreadsheetToolbarComponentItemButtonTextStyleClear> {
 
     static SpreadsheetToolbarComponentItemButtonTextStyleClear with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");

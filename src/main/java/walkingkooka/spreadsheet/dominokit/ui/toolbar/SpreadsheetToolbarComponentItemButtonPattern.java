@@ -37,11 +37,11 @@ import java.util.Optional;
 /**
  * A button ui that may exist withing a toolbar, which actives the pattern editor by pushing a new {@link HistoryToken}.
  */
-abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends SpreadsheetPattern> extends SpreadsheetToolbarComponentItemButton
+abstract class SpreadsheetToolbarComponentItemButtonPattern<P extends SpreadsheetPattern, C extends SpreadsheetToolbarComponentItemButtonPattern<P, C>> extends SpreadsheetToolbarComponentItemButton
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleRefresh,
         NopComponentLifecycleOpenGiveFocus,
-        VisibleComponentLifecycle<HTMLElement> {
+        VisibleComponentLifecycle<HTMLElement, C> {
 
     SpreadsheetToolbarComponentItemButtonPattern(final String id,
                                                  final MdiIcon icon,
@@ -106,7 +106,7 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<T extends Spreadshee
                 );
     }
 
-    abstract Optional<T> pattern(final SpreadsheetSelectionSummary summary);
+    abstract Optional<P> pattern(final SpreadsheetSelectionSummary summary);
 
     /**
      * This is updated by {@link #refresh(AppContext)} and will contain the best {@link SpreadsheetPatternKind} to open

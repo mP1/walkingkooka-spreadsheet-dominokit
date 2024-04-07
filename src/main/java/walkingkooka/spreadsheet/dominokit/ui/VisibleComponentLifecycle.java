@@ -24,7 +24,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
  * A {@link ComponentLifecycle} that is visible when open and hidden when closed.
  * Sub-classes must implement the remaining {@link ComponentLifecycle} methods that match {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} and {@link #refresh(AppContext)}.
  */
-public interface VisibleComponentLifecycle<E extends HTMLElement> extends ComponentLifecycle, Component<E> {
+public interface VisibleComponentLifecycle<E extends HTMLElement, C extends VisibleComponentLifecycle<E, C>> extends ComponentLifecycle,
+        HtmlElementComponent<E, C> {
 
     @Override
     default boolean isOpen() {
@@ -37,19 +38,11 @@ public interface VisibleComponentLifecycle<E extends HTMLElement> extends Compon
 
     @Override
     default void open(final AppContext context) {
-        this.setVisibility("visible");
+        this.setVisibility(true);
     }
 
     @Override
     default void close(final AppContext context) {
-        this.setVisibility("hidden");
-    }
-
-    private void setVisibility(final String visibility) {
-        this.element()
-                .style.set(
-                        "visibility",
-                        visibility
-                );
+        this.setVisibility(false);
     }
 }

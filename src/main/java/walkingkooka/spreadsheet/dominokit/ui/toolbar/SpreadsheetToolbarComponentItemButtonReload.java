@@ -33,7 +33,7 @@ import java.util.Objects;
 final class SpreadsheetToolbarComponentItemButtonReload extends SpreadsheetToolbarComponentItemButton
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement> {
+        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonReload> {
 
     static SpreadsheetToolbarComponentItemButtonReload with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
