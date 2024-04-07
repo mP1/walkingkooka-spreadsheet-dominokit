@@ -269,13 +269,15 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 this.url(
                         id,
                         selection,
-                        UrlPath.parse("/clear")
+                        CLEAR
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.EMPTY
         );
     }
+
+    private final static UrlPath CLEAR = UrlPath.parse("/clear");
 
     /**
      * DELETEs the given {@link SpreadsheetViewport} such as a cell/column/row.
