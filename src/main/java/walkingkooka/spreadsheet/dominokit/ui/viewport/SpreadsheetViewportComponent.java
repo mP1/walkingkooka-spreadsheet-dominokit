@@ -1010,7 +1010,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
                             cache,
                             metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
                             metadata.effectiveStyle()
-                                    .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE)
+                                    .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
+                            metadata
                     )
             );
 

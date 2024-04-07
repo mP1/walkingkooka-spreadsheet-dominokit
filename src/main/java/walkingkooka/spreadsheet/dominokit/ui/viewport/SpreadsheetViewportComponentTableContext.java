@@ -18,9 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.tree.text.TextStyle;
 
-interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext {
+interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext,
+        HasSpreadsheetMetadata {
 
     SpreadsheetViewportCache viewportCache();
 
