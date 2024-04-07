@@ -22,63 +22,59 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.THElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 import java.util.function.Predicate;
 
-final class SpreadsheetViewportComponentTableCellSelectAll extends SpreadsheetViewportComponentTableCell
+abstract class SpreadsheetViewportComponentTableCellHeader<T extends SpreadsheetSelection> extends SpreadsheetViewportComponentTableCell
         implements IsElement<HTMLTableCellElement> {
 
-    static SpreadsheetViewportComponentTableCellSelectAll empty(final HistoryTokenContext context) {
-        return new SpreadsheetViewportComponentTableCellSelectAll(context);
-    }
-
-    private SpreadsheetViewportComponentTableCellSelectAll(final HistoryTokenContext context) {
+    SpreadsheetViewportComponentTableCellHeader(final String id,
+                                                final String css,
+                                                final T selection,
+                                                final String text,
+                                                final HistoryTokenContext context) {
         super();
-
-        final String id = SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells";
 
         this.element = ElementsFactory.elements.th()
                 .id(id)
-                .style(
-                        css(
-                                SpreadsheetViewportComponentTableCell.HEADER_STYLE,
-                                SpreadsheetViewportComponent.ROW_WIDTH,
-                                SpreadsheetViewportComponent.COLUMN_HEIGHT
-                        )
-                );
+                .style(css);
 
         this.element.appendChild(
                 context.historyToken()
                         .clearAction()
                         .setAnchoredSelection(
                                 Optional.of(
-                                        SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
+                                        selection.setDefaultAnchor()
                                 )
                         ).link(id)
                         .setTabIndex(0)
                         .addPushHistoryToken(context)
-                        .setTextContent("All")
+                        .setTextContent(text)
                         .element()
         );
+
+        this.selection = selection;
     }
 
-
-    @Override
-    void refresh(final Predicate<SpreadsheetSelection> selected,
-                 final SpreadsheetViewportComponentTableContext context) {
+    @Override //
+    final void refresh(final Predicate<SpreadsheetSelection> selected,
+                       final SpreadsheetViewportComponentTableContext context) {
         this.element.setBackgroundColor(
-                this.backgroundColor(
-                        selected.test(SpreadsheetSelection.ALL_CELLS)
-                )
+                selected.test(this.selection) ?
+                        SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR.toString() :
+                        SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString()
         );
     }
+
+    T selection;
 
     // IsElement........................................................................................................
 
     @Override
-    public HTMLTableCellElement element() {
+    public final HTMLTableCellElement element() {
         return this.element.element();
     }
 

@@ -43,7 +43,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
     private SpreadsheetViewportComponentTableRowColumnHeaders(final HistoryTokenContext context) {
         this.element = ElementsFactory.elements.tr();
 
-        this.selectAll = SpreadsheetViewportComponentTableCellSelectAll.empty(context);
+        this.selectAll = SpreadsheetViewportComponentTableCellHeaderSelectAll.empty(context);
         this.columns = null;
         this.columnToHeaders = Maps.sorted();
 
@@ -64,14 +64,14 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
 
             element.appendChild(this.selectAll);
 
-            final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetColumnHeader> oldColumnToHeaders = this.columnToHeaders;
-            final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetColumnHeader> newColumnToHeaders = Maps.sorted();
+            final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> oldColumnToHeaders = this.columnToHeaders;
+            final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> newColumnToHeaders = Maps.sorted();
 
             // create new column headers as necessary
             for (final SpreadsheetColumnReference column : columns) {
-                SpreadsheetViewportComponentTableCellSpreadsheetColumnHeader columnTableCell = oldColumnToHeaders.get(column);
+                SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn columnTableCell = oldColumnToHeaders.get(column);
                 if (null == columnTableCell) {
-                    columnTableCell = SpreadsheetViewportComponentTableCellSpreadsheetColumnHeader.empty(
+                    columnTableCell = SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn.empty(
                             column,
                             context
                     );
@@ -99,11 +99,11 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                 );
     }
 
-    private final SpreadsheetViewportComponentTableCellSelectAll selectAll;
+    private final SpreadsheetViewportComponentTableCellHeaderSelectAll selectAll;
 
     private Set<SpreadsheetColumnReference> columns;
 
-    private Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetColumnHeader> columnToHeaders;
+    private Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> columnToHeaders;
 
     // IsElement........................................................................................................
 

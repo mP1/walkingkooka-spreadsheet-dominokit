@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.FontSize;
@@ -115,11 +114,4 @@ abstract class SpreadsheetViewportComponentTableCell {
 
     abstract void refresh(final Predicate<SpreadsheetSelection> selected,
                           final SpreadsheetViewportComponentTableContext context);
-
-
-    final String backgroundColor(final boolean selected) {
-        return selected ?
-                SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR.toString() :
-                SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString();
-    }
 }
