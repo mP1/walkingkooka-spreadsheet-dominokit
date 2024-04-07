@@ -1004,6 +1004,8 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
             }
 
             this.table.refresh(
+                    metadata.id().get(),
+                    metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
                     windows,
                     selected,
                     BasicSpreadsheetViewportComponentTableContext.with(

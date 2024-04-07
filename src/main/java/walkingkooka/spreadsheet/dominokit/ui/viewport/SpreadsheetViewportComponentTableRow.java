@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -29,6 +31,9 @@ abstract class SpreadsheetViewportComponentTableRow {
 
     SpreadsheetViewportComponentTableRow() {
     }
+
+    abstract void setIdAndName(final SpreadsheetId id,
+                               final SpreadsheetName name);
 
     abstract void refresh(final SpreadsheetViewportWindows windows,
                           final Predicate<SpreadsheetSelection> selected,

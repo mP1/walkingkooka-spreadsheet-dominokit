@@ -21,8 +21,11 @@ import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.THElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
@@ -38,26 +41,41 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
                                                 final HistoryTokenContext context) {
         super();
 
-        this.element = ElementsFactory.elements.th()
+        final HistoryTokenAnchorComponent anchor = context.historyToken()
+                .clearAction()
+                .setAnchoredSelection(
+                        Optional.of(
+                                selection.setDefaultAnchor()
+                        )
+                ).link(id)
+                .setTabIndex(0)
+                .addPushHistoryToken(context)
+                .setTextContent(text);
+        this.anchor = anchor;
+
+        final THElement element = ElementsFactory.elements.th()
                 .id(id)
                 .style(css);
 
-        this.element.appendChild(
-                context.historyToken()
-                        .clearAction()
-                        .setAnchoredSelection(
-                                Optional.of(
-                                        selection.setDefaultAnchor()
-                                )
-                        ).link(id)
-                        .setTabIndex(0)
-                        .addPushHistoryToken(context)
-                        .setTextContent(text)
-                        .element()
+        element.appendChild(
+                anchor.element()
         );
+        this.element = element;
 
         this.selection = selection;
     }
+
+    @Override //
+    final void setIdAndName(final SpreadsheetId id,
+                            final SpreadsheetName name) {
+        final HistoryTokenAnchorComponent anchor = this.anchor;
+        anchor.setHistoryToken(
+                anchor.historyToken()
+                        .map(t -> t.setIdAndName(id, name))
+        );
+    }
+
+    private final HistoryTokenAnchorComponent anchor;
 
     @Override //
     final void refresh(final Predicate<SpreadsheetSelection> selected,

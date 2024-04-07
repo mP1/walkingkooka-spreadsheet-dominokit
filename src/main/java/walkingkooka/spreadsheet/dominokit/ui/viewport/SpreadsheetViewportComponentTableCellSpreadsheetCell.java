@@ -27,6 +27,8 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -75,6 +77,11 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                 );
         this.cellReference = cellReference;
         this.tooltipMessage = "";
+    }
+
+    void setIdAndName(final SpreadsheetId id,
+                      final SpreadsheetName name) {
+        // nop
     }
 
     @Override

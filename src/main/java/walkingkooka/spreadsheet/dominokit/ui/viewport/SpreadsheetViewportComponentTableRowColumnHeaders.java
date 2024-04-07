@@ -22,6 +22,8 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -48,6 +50,14 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
         this.columnToHeaders = Maps.sorted();
 
         this.element.appendChild(this.selectAll);
+    }
+
+    @Override
+    void setIdAndName(final SpreadsheetId id,
+                      final SpreadsheetName name) {
+        this.selectAll.setIdAndName(id, name);
+        this.columnToHeaders.values()
+                .forEach(c -> c.setIdAndName(id, name));
     }
 
     @Override

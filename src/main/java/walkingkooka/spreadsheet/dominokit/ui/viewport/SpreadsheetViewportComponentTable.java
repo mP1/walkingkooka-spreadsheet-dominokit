@@ -26,6 +26,8 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
@@ -62,6 +64,9 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
         this.table = table;
         this.tbody = tbody;
 
+        this.id = null;
+        this.name = null;
+
         this.rows = Sets.sorted();
         this.rowsToTableRowCells = Maps.sorted();
     }
@@ -74,10 +79,25 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
         this.table.setHeight(height + "px");
     }
 
-    void refresh(final SpreadsheetViewportWindows windows,
+    void refresh(final SpreadsheetId id,
+                 final SpreadsheetName name,
+                 final SpreadsheetViewportWindows windows,
                  final Predicate<SpreadsheetSelection> selected,
                  final SpreadsheetViewportComponentTableContext context) {
         Objects.requireNonNull(windows, "windows");
+
+        if (false == id.equals(this.id) || false == name.equals(this.name)) {
+            this.id = id;
+            this.name = name;
+
+            this.columnHeaders.setIdAndName(
+                    id,
+                    name
+            );
+
+            this.rowsToTableRowCells.values()
+                    .forEach(r -> r.setIdAndName(id, name));
+        }
 
         final Set<SpreadsheetRowReference> rows = windows.rows();
         if (false == this.rows.equals(rows)) {
@@ -143,6 +163,10 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
 
         context.debug(this.getClass().getSimpleName() + ".refresh " + (ended - started) + "ms, row rendering timings: " + String.join(", ", timings));
     }
+
+    private SpreadsheetId id;
+
+    private SpreadsheetName name;
 
     private final SpreadsheetViewportComponentTableRowColumnHeaders columnHeaders;
 
