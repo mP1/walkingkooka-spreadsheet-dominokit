@@ -75,7 +75,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.patternTextBox = this.patternTextBox();
 
-        this.chips = SpreadsheetPatternComponentChipsComponent.empty();
+        this.elements = SpreadsheetPatternComponentElementsComponent.empty();
 
         this.appendLinks = SpreadsheetPatternComponentAppenderComponent.empty();
 
@@ -110,7 +110,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 this.table
         );
 
-        dialog.appendChild(this.chips);
+        dialog.appendChild(this.elements);
         dialog.appendChild(this.appendLinks);
 
         final SpreadsheetTextBox patternTextBox = this.patternTextBox;
@@ -159,7 +159,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     // componentChips...................................................................................................
 
-    private final SpreadsheetPatternComponentChipsComponent chips;
+    private final SpreadsheetPatternComponentElementsComponent elements;
 
     // patternAppendLinks......................................................................................................
 
@@ -227,10 +227,9 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 Optional.ofNullable(errorMessage)
         );
 
-        this.chips.refresh(
+        this.elements.refresh(
                 pattern,
                 errorPattern,
-                this::setPatternText,
                 this.context
         );
 
