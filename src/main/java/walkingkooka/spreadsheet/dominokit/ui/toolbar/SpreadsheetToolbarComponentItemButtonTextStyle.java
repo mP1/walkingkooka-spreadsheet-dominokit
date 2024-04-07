@@ -29,7 +29,8 @@ import walkingkooka.tree.text.TextStyle;
 /**
  * Base class for buttons that update a {@link TextStyle}.
  */
-abstract class SpreadsheetToolbarComponentItemButtonTextStyle<C extends SpreadsheetToolbarComponentItemButtonTextStyle<C>> extends SpreadsheetToolbarComponentItemButton
+abstract class SpreadsheetToolbarComponentItemButtonTextStyle<C extends SpreadsheetToolbarComponentItemButtonTextStyle<C>>
+        extends SpreadsheetToolbarComponentItemButton<C>
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,

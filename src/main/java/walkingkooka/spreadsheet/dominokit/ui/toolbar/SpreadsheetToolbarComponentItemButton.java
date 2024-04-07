@@ -35,7 +35,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 /**
  * A templated class that displays a button. Sub classes will have to add {link EventListeners} as required.
  */
-abstract class SpreadsheetToolbarComponentItemButton extends SpreadsheetToolbarComponentItem {
+abstract class SpreadsheetToolbarComponentItemButton<C extends SpreadsheetToolbarComponentItemButton<C>> extends SpreadsheetToolbarComponentItem<C> {
 
     SpreadsheetToolbarComponentItemButton(final String id,
                                           final MdiIcon icon,
