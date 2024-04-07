@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.cards.Card;
-import org.dominokit.domino.ui.chips.Chip;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -28,41 +27,40 @@ import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.text.CharSequences;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * A card that is dynamically updated with chips repreenting each of the components in the edited pattern.
+ * A card that is dynamically updated with links which remove an individual component of the pattern. A context-menu
+ * for each link provides alternatives.
  */
-final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLDivElement> {
+final class SpreadsheetPatternComponentElementsComponent implements Component<HTMLDivElement> {
 
     /**
-     * Creates an empty {@link SpreadsheetPatternComponentChipsComponent}.
+     * Creates an empty {@link SpreadsheetPatternComponentElementsComponent}.
      */
-    static SpreadsheetPatternComponentChipsComponent empty() {
-        return new SpreadsheetPatternComponentChipsComponent();
+    static SpreadsheetPatternComponentElementsComponent empty() {
+        return new SpreadsheetPatternComponentElementsComponent();
     }
 
-    private SpreadsheetPatternComponentChipsComponent() {
+    private SpreadsheetPatternComponentElementsComponent() {
         this.parent = Card.create();
         this.tokenKinds = Lists.array();
         this.texts = Lists.array();
-
     }
 
     /**
-     * This is called anytime the pattern text is changed, rebuilding chips.
+     * This is called anytime the pattern text is changed, rebuilding remove links.
      */
     void refresh(final SpreadsheetPattern pattern,
                  final String errorPattern,
-                 final Consumer<String> setPatternText,
                  final SpreadsheetPatternComponentContext context) {
         final Card parent = this.parent.clearElement();
 
@@ -89,31 +87,37 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
                 texts.add(errorPattern);
             }
 
-            // now build the chips
+            // now build the components
             int i = 0;
 
             for (final String text : texts) {
-                final Chip chip = Chip.create(text)
-                        .setId(
-                                SpreadsheetPatternComponent.ID_PREFIX +
-                                        i +
-                                        SpreadsheetIds.CHIP
-                        ).setRemovable(true)
-                        .addOnRemoveListener(
-                                this.onRemove(
-                                        i,
-                                        setPatternText,
-                                        context
+                final HistoryToken historyToken = context.historyToken();
+                final String idPrefix = SpreadsheetPatternComponent.ID_PREFIX + i;
+
+                final List<String> removed = Lists.array();
+                removed.addAll(texts);
+                removed.remove(i);
+
+                final HistoryTokenAnchorComponent patternElement = historyToken.link(idPrefix + "-component")
+                        .setTextContent(text)
+                        .setHistoryToken(
+                                Optional.of(
+                                        historyToken.setSave(
+                                                String.join(
+                                                        "",
+                                                        removed
+                                                ) // compute the pattern-text without this component.
                                 )
-                        ).setMarginRight("5px");
+                                )
+                        );
 
                 final Set<String> alternatives = tokenKinds.get(i)
                         .alternatives();
 
                 if (false == alternatives.isEmpty()) {
-                    final HistoryToken historyToken = context.historyToken();
+
                     SpreadsheetContextMenu contextMenu = SpreadsheetContextMenuNative.empty(
-                            new DominoElement<Element>(chip.element()),
+                            new DominoElement<Element>(patternElement.element()),
                             context
                     );
 
@@ -137,34 +141,18 @@ final class SpreadsheetPatternComponentChipsComponent implements Component<HTMLD
                         j++;
                     }
                 }
-                parent.appendChild(chip);
+                parent.appendChild(patternElement);
 
                 i++;
             }
         }
 
-        // hide the card if there are no chips
+        // hide the card if there are no pattern elements
         parent.setDisplay(
                 texts.isEmpty() ?
                         "none" :
                         ""
         );
-    }
-
-    /**
-     * This listener is fired when a chip is removed by clicking the X. It will recompute a new pattern and update the pattern text.
-     */
-    private Consumer<Chip> onRemove(final int index,
-                                    final Consumer<String> setPatternText,
-                                    final SpreadsheetPatternComponentContext context) {
-        return (chip) -> {
-            final String removed = this.texts.remove(index);
-            context.debug(this.getClass().getSimpleName() + ".onRemove removed " + CharSequences.quoteAndEscape(removed));
-            setPatternText.accept(
-                    this.texts.stream()
-                            .collect(Collectors.joining())
-            );
-        };
     }
 
     /**
