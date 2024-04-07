@@ -262,7 +262,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
     // table............................................................................................................
 
     private SpreadsheetViewportComponentTable table() {
-        final SpreadsheetViewportComponentTable table = SpreadsheetViewportComponentTable.empty();
+        final SpreadsheetViewportComponentTable table = SpreadsheetViewportComponentTable.empty(this.context);
 
         final HTMLTableElement element = table.element();
 
