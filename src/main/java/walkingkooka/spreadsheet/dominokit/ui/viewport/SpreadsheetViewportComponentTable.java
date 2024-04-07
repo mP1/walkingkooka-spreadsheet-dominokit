@@ -23,12 +23,14 @@ import org.dominokit.domino.ui.elements.TBodyElement;
 import org.dominokit.domino.ui.elements.THeadElement;
 import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -112,19 +114,33 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
             this.rowsToTableRowCells = newRowsToTableRowCells;
         }
 
-        this.columnHeaders.refresh(
-                windows,
-                selected,
-                context
-        );
+        final long started = System.currentTimeMillis();
+        long ended = 0;
+
+        final List<String> timings = Lists.array();
+        {
+            this.columnHeaders.refresh(
+                    windows,
+                    selected,
+                    context
+            );
+            timings.add(String.valueOf(System.currentTimeMillis() - started));
+        }
 
         for (final SpreadsheetViewportComponentTableRowCells tableRowCells : this.rowsToTableRowCells.values()) {
+            final long tableRowCellsStart = System.currentTimeMillis();
+
             tableRowCells.refresh(
                     windows,
                     selected,
                     context
             );
+
+            ended = System.currentTimeMillis();
+            timings.add(String.valueOf(ended - tableRowCellsStart));
         }
+
+        context.debug(this.getClass().getSimpleName() + ".refresh " + (ended - started) + "ms, row rendering timings: " + String.join(", ", timings));
     }
 
     private final SpreadsheetViewportComponentTableRowColumnHeaders columnHeaders;
