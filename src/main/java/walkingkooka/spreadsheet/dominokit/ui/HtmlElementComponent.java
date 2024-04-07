@@ -22,7 +22,7 @@ import elemental2.dom.HTMLElement;
 /**
  * A {@link Component} that adds a few helpers to get/set {@link #VISIBILITY}.
  */
-public interface HtmlElementComponent<E extends HTMLElement> extends Component<E> {
+public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends Component<E> {
 
     String VISIBILITY = "visibility";
     String HIDDEN = "hidden";
@@ -36,7 +36,7 @@ public interface HtmlElementComponent<E extends HTMLElement> extends Component<E
         );
     }
 
-    default HtmlElementComponent<E> setVisibility(final boolean visibility) {
+    default C setVisibility(final boolean visibility) {
         this.element()
                 .style.set(
                         VISIBILITY,
@@ -44,6 +44,6 @@ public interface HtmlElementComponent<E extends HTMLElement> extends Component<E
                                 VISIBLE :
                                 HIDDEN
                 );
-        return this;
+        return (C) this;
     }
 }
