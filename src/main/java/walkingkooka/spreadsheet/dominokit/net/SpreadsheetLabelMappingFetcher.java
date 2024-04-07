@@ -59,7 +59,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
         Objects.requireNonNull(labelName, "labelName");
 
         this.get(
-                this.url(
+                url(
                         id,
                         labelName
                 )
@@ -75,7 +75,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
         Objects.requireNonNull(mapping, "mapping");
 
         this.post(
-                this.url(
+                url(
                         id,
                         mapping.label()
                 ),
@@ -94,7 +94,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
         Objects.requireNonNull(labelName, "labelName");
 
         this.delete(
-                this.url(
+                url(
                         id,
                         labelName
                 )
@@ -102,8 +102,8 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     }
 
     // GET http://localhost:3000/api/spreadsheet/1/label/Label123
-    public RelativeUrl url(final SpreadsheetId id,
-                           final SpreadsheetLabelName labelName) {
+    public static RelativeUrl url(final SpreadsheetId id, 
+                                  final SpreadsheetLabelName labelName) {
         return SpreadsheetMetadataFetcher.url(id)
                 .appendPath(LABEL)
                 .appendPath(
