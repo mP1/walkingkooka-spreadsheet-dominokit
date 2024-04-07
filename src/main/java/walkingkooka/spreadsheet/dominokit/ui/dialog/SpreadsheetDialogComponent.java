@@ -74,7 +74,7 @@ public class SpreadsheetDialogComponent {
     private HistoryTokenAnchorComponent closeLink(final String id,
                                                   final HistoryTokenContext context) {
         return context.historyToken()
-                .link(id + "-close")
+                .link(id + "-close-X")
                 .setIcon(
                         Optional.of(
                                 SpreadsheetIcons.close()
