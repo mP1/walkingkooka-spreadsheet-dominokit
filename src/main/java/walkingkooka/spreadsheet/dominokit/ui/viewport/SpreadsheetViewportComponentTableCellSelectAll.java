@@ -21,23 +21,26 @@ import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.THElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
 import java.util.function.Predicate;
 
 final class SpreadsheetViewportComponentTableCellSelectAll extends SpreadsheetViewportComponentTableCell
         implements IsElement<HTMLTableCellElement> {
 
-    static SpreadsheetViewportComponentTableCellSelectAll empty() {
-        return new SpreadsheetViewportComponentTableCellSelectAll();
+    static SpreadsheetViewportComponentTableCellSelectAll empty(final HistoryTokenContext context) {
+        return new SpreadsheetViewportComponentTableCellSelectAll(context);
     }
 
-    private SpreadsheetViewportComponentTableCellSelectAll() {
+    private SpreadsheetViewportComponentTableCellSelectAll(final HistoryTokenContext context) {
         super();
 
+        final String id = SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells";
+
         this.element = ElementsFactory.elements.th()
-                .id(SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells")
-                .appendChild("ALL")
+                .id(id)
                 .style(
                         css(
                                 SpreadsheetViewportComponentTableCell.HEADER_STYLE,
@@ -45,6 +48,20 @@ final class SpreadsheetViewportComponentTableCellSelectAll extends SpreadsheetVi
                                 SpreadsheetViewportComponent.COLUMN_HEIGHT
                         )
                 );
+
+        this.element.appendChild(
+                context.historyToken()
+                        .clearAction()
+                        .setAnchoredSelection(
+                                Optional.of(
+                                        SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
+                                )
+                        ).link(id)
+                        .setTabIndex(0)
+                        .addPushHistoryToken(context)
+                        .setTextContent("All")
+                        .element()
+        );
     }
 
 

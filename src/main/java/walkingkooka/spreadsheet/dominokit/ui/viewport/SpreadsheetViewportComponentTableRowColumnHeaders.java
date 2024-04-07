@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.elements.TableRowElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -35,14 +36,14 @@ import java.util.function.Predicate;
  */
 final class SpreadsheetViewportComponentTableRowColumnHeaders extends SpreadsheetViewportComponentTableRow implements IsElement<HTMLTableRowElement> {
 
-    static SpreadsheetViewportComponentTableRowColumnHeaders empty() {
-        return new SpreadsheetViewportComponentTableRowColumnHeaders();
+    static SpreadsheetViewportComponentTableRowColumnHeaders empty(final HistoryTokenContext context) {
+        return new SpreadsheetViewportComponentTableRowColumnHeaders(context);
     }
 
-    private SpreadsheetViewportComponentTableRowColumnHeaders() {
+    private SpreadsheetViewportComponentTableRowColumnHeaders(final HistoryTokenContext context) {
         this.element = ElementsFactory.elements.tr();
 
-        this.selectAll = SpreadsheetViewportComponentTableCellSelectAll.empty();
+        this.selectAll = SpreadsheetViewportComponentTableCellSelectAll.empty(context);
         this.columns = null;
         this.columnToHeaders = Maps.sorted();
 
