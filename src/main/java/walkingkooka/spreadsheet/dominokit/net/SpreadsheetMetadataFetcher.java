@@ -21,6 +21,7 @@ import elemental2.dom.Headers;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
+import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -63,6 +64,8 @@ import java.util.OptionalInt;
  */
 public final class SpreadsheetMetadataFetcher implements Fetcher {
 
+    private final static RelativeUrl API_BASE = Url.parseRelative("/api/spreadsheet");
+
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataFetcherWatcher watcher,
                                                   final AppContext context) {
         Objects.requireNonNull(watcher, "watcher");
@@ -85,7 +88,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
      */
     public void createSpreadsheetMetadata() {
         this.post(
-                Url.parseRelative("/api/spreadsheet"),
+                API_BASE,
                 ""
         );
     }
@@ -180,7 +183,14 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     public RelativeUrl url(final SpreadsheetId id) {
         Objects.requireNonNull(id, "id");
 
-        return Url.parseRelative("/api/spreadsheet/" + id);
+        return API_BASE.setPath(
+                API_BASE.path()
+                        .append(
+                                UrlPathName.with(
+                                        id.toString()
+                                )
+                        )
+        );
     }
 
     @Override
