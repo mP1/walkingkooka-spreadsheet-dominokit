@@ -290,16 +290,16 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
-                                   final AppContext context) {
+    public final void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                                         final AppContext context) {
         this.refreshIfOpen(context);
     }
 
     // SpreadsheetMetadataFetcherWatcher..........................................................................................
 
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public final void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                            final AppContext context) {
         this.refreshIfOpen(context);
     }
 
@@ -307,17 +307,17 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     // save should not open or close the dialog.
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
+    public final boolean shouldIgnore(final HistoryToken token) {
         return this.context.shouldIgnore(token);
     }
 
     @Override
-    public boolean isMatch(final HistoryToken token) {
+    public final boolean isMatch(final HistoryToken token) {
         return this.context.isMatch(token);
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public final void openGiveFocus(final AppContext context) {
         context.giveFocus(
                 this.patternTextBox::focus
         );
@@ -327,7 +327,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public final void refresh(final AppContext context) {
         final SpreadsheetPatternComponentContext componentContext = this.context;
 
         this.dialog.setTitle(
