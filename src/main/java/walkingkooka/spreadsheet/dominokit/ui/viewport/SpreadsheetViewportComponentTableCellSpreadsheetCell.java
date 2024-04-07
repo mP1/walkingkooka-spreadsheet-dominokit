@@ -75,6 +75,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                         )
                 );
         this.cellReference = cellReference;
+        this.metadata = SpreadsheetMetadata.EMPTY;
     }
 
     @Override
