@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -75,7 +74,6 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                         )
                 );
         this.cellReference = cellReference;
-        this.metadata = SpreadsheetMetadata.EMPTY;
         this.tooltipMessage = "";
     }
 
@@ -83,7 +81,6 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
     void refresh(final Predicate<SpreadsheetSelection> selected,
                  final SpreadsheetViewportComponentTableContext context) {
 
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         final SpreadsheetViewportCache cache = context.viewportCache();
         final SpreadsheetCellReference cellReference = this.cellReference;
 
@@ -116,14 +113,14 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             }
         }
 
-        if (false == maybeCell.equals(this.cell) ||
+        if (context.mustRefresh() ||
+                false == maybeCell.equals(this.cell) ||
                 this.selected != isSelected ||
-                this.hideZeroValues != hideZeroValues ||
-                metadata.shouldViewRefresh(this.metadata)) {
+                this.hideZeroValues != hideZeroValues
+        ) {
             this.cell = maybeCell;
             this.selected = isSelected;
             this.hideZeroValues = hideZeroValues;
-            this.metadata = metadata;
 
             final TDElement td = this.element;
             td.clearElement();
@@ -193,12 +190,6 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
     private boolean selected;
 
     private boolean hideZeroValues;
-
-    /**
-     * Some properties used to format the cell come from the {@link SpreadsheetMetadata} therefore if it changes
-     * render the cell again.
-     */
-    private SpreadsheetMetadata metadata;
 
     private void tooltipRefresh(final Optional<SpreadsheetError> error) {
         final String newTooltipMessage = error.map(
