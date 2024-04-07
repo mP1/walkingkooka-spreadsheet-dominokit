@@ -32,8 +32,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaSaveHist
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -44,7 +44,7 @@ import java.util.Optional;
 /**
  * Provides a text box which supports editing of a formula belonging to a cell.
  */
-public final class SpreadsheetViewportFormulaComponent implements Component<HTMLFieldSetElement>,
+public final class SpreadsheetViewportFormulaComponent implements HtmlElementComponent<HTMLFieldSetElement, SpreadsheetViewportFormulaComponent>,
         ComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
