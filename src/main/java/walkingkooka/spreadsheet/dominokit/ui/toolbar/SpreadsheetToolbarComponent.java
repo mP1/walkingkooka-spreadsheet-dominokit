@@ -52,7 +52,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     }
 
     private SpreadsheetToolbarComponent(final AppContext context) {
-        final List<SpreadsheetToolbarComponentItem> components = this.components(context);
+        final List<SpreadsheetToolbarComponentItem<?>> components = this.components(context);
         components.forEach(context::addHistoryTokenWatcher);
 
         this.components = components;
@@ -77,7 +77,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     private FlexLayout createFlexLayout() {
         final FlexLayout flexLayout = new FlexLayout();
 
-        for (final SpreadsheetToolbarComponentItem component : this.components) {
+        for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
             flexLayout.appendChild(
                     component.element()
             );
@@ -86,7 +86,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         return flexLayout;
     }
 
-    private List<SpreadsheetToolbarComponentItem> components(final AppContext context) {
+    private List<SpreadsheetToolbarComponentItem<?>> components(final AppContext context) {
         return Lists.of(
                 SpreadsheetToolbarComponentItem.bold(context),
                 SpreadsheetToolbarComponentItem.italics(context),
@@ -124,7 +124,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     /**
      * The UI components within the toolbar thqt react to selection changes and also support updates.
      */
-    private final List<SpreadsheetToolbarComponentItem> components;
+    private final List<SpreadsheetToolbarComponentItem<?>> components;
 
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 

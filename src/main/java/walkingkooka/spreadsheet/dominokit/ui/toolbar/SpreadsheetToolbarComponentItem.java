@@ -21,8 +21,8 @@ import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
@@ -35,11 +35,11 @@ import walkingkooka.tree.text.VerticalAlign;
 /**
  * A ui such as an icon within a {@link SpreadsheetToolbarComponent}.
  */
-abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>,
+abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarComponentItem<C>> implements HtmlElementComponent<HTMLElement, C>,
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired {
 
-    static SpreadsheetToolbarComponentItem bold(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> bold(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.FONT_WEIGHT,
                 FontWeight.BOLD,
@@ -49,7 +49,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem clearStyle(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> clearStyle(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleClear.with(
                 context
         );
@@ -58,7 +58,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
     /**
      * {@see SpreadsheetToolbarComponentItemButtonCellFind}
      */
-    static SpreadsheetToolbarComponentItem findCells(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> findCells(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonCellFind.with(
                 context
         );
@@ -67,14 +67,14 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
     /**
      * {@link SpreadsheetToolbarComponentItemButtonPatternFormat}
      */
-    static SpreadsheetToolbarComponentItem formatPattern(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> formatPattern(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonPatternFormat.with(context);
     }
 
     /**
      * {@see SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues}
      */
-    static SpreadsheetToolbarComponentItem hideZeroValues(final AppContext context) {
+    static SpreadsheetToolbarComponentItem<?> hideZeroValues(final AppContext context) {
         return SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues.with(
                 context
         );
@@ -83,13 +83,13 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
     /**
      * {@see SpreadsheetToolbarComponentItemButtonViewportHighlight}
      */
-    static SpreadsheetToolbarComponentItem highlightCells(final AppContext context) {
+    static SpreadsheetToolbarComponentItem<?> highlightCells(final AppContext context) {
         return SpreadsheetToolbarComponentItemButtonViewportHighlight.with(
                 context
         );
     }
 
-    static SpreadsheetToolbarComponentItem italics(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> italics(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.FONT_STYLE,
                 FontStyle.ITALIC,
@@ -102,7 +102,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
     /**
      * {@see SpreadsheetToolbarComponentItemButtonLabelCreate}
      */
-    static SpreadsheetToolbarComponentItem labelCreate(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> labelCreate(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonLabelCreate.with(
                 context
         );
@@ -111,18 +111,18 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
     /**
      * {@link SpreadsheetToolbarComponentItemButtonPatternParse}
      */
-    static SpreadsheetToolbarComponentItem parsePattern(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> parsePattern(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonPatternParse.with(context);
     }
 
     /**
      * {@link SpreadsheetToolbarComponentItemButtonReload}
      */
-    static SpreadsheetToolbarComponentItem reload(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> reload(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonReload.with(context);
     }
 
-    static SpreadsheetToolbarComponentItem strikeThru(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> strikeThru(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.LINE_THROUGH,
@@ -132,7 +132,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem textAlignLeft(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textAlignLeft(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.LEFT,
@@ -142,7 +142,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem textAlignCenter(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textAlignCenter(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.CENTER,
@@ -152,7 +152,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem textAlignRight(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textAlignRight(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.RIGHT,
@@ -162,7 +162,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem textAlignJustify(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textAlignJustify(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY,
@@ -172,7 +172,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem textCaseCapitalize(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textCaseCapitalize(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.CAPITALIZE,
@@ -182,7 +182,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem textCaseLowercase(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textCaseLowercase(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.LOWERCASE,
@@ -192,7 +192,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem textCaseUppercase(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textCaseUppercase(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.UPPERCASE,
@@ -202,7 +202,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem underline(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> underline(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE,
@@ -212,7 +212,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem verticalAlignTop(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> verticalAlignTop(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.TOP,
@@ -222,7 +222,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem verticalAlignMiddle(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> verticalAlignMiddle(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.MIDDLE,
@@ -232,7 +232,7 @@ abstract class SpreadsheetToolbarComponentItem implements Component<HTMLElement>
         );
     }
 
-    static SpreadsheetToolbarComponentItem verticalAlignBottom(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> verticalAlignBottom(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.BOTTOM,

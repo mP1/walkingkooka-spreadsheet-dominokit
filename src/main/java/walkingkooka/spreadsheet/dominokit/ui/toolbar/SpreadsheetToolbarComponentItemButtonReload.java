@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 
 import java.util.Objects;
 
-final class SpreadsheetToolbarComponentItemButtonReload extends SpreadsheetToolbarComponentItemButton
+final class SpreadsheetToolbarComponentItemButtonReload extends SpreadsheetToolbarComponentItemButton<SpreadsheetToolbarComponentItemButtonReload>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
         VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonReload> {

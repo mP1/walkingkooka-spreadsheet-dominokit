@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends SpreadsheetToolbarComponentItemButton
+final class SpreadsheetToolbarComponentItemButtonViewportHighlight extends SpreadsheetToolbarComponentItemButton<SpreadsheetToolbarComponentItemButtonViewportHighlight>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
         VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonViewportHighlight> {

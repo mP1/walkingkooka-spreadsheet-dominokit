@@ -34,7 +34,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToolbarComponentItemButton
+final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToolbarComponentItemButton<SpreadsheetToolbarComponentItemButtonCellFind>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
         VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonCellFind> {

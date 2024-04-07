@@ -29,11 +29,12 @@ import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 /**
  * Base class for buttons that update a {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} property.
  */
-abstract class SpreadsheetToolbarComponentItemButtonMetadata<T extends SpreadsheetToolbarComponentItemButtonMetadata> extends SpreadsheetToolbarComponentItemButton
+abstract class SpreadsheetToolbarComponentItemButtonMetadata<T extends SpreadsheetToolbarComponentItemButtonMetadata<T>>
+        extends SpreadsheetToolbarComponentItemButton<T>
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues> {
+        VisibleComponentLifecycle<HTMLElement, T> {
 
     SpreadsheetToolbarComponentItemButtonMetadata(final String id,
                                                   final MdiIcon icon,

@@ -37,7 +37,8 @@ import java.util.Optional;
 /**
  * A button ui that may exist withing a toolbar, which actives the pattern editor by pushing a new {@link HistoryToken}.
  */
-abstract class SpreadsheetToolbarComponentItemButtonPattern<P extends SpreadsheetPattern, C extends SpreadsheetToolbarComponentItemButtonPattern<P, C>> extends SpreadsheetToolbarComponentItemButton
+abstract class SpreadsheetToolbarComponentItemButtonPattern<P extends SpreadsheetPattern, C extends SpreadsheetToolbarComponentItemButtonPattern<P, C>>
+        extends SpreadsheetToolbarComponentItemButton<C>
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleRefresh,
         NopComponentLifecycleOpenGiveFocus,

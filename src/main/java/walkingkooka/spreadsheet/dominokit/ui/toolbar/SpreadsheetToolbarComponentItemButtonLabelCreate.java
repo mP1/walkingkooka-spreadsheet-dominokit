@@ -34,7 +34,7 @@ import java.util.Optional;
 /**
  * A toolbar button which when clicked open the create label dialog.
  */
-final class SpreadsheetToolbarComponentItemButtonLabelCreate extends SpreadsheetToolbarComponentItemButton
+final class SpreadsheetToolbarComponentItemButtonLabelCreate extends SpreadsheetToolbarComponentItemButton<SpreadsheetToolbarComponentItemButtonLabelCreate>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
         VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonLabelCreate> {
