@@ -24,9 +24,11 @@ import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
+import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextAlign;
 
@@ -91,6 +93,11 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                                 row -> Doms.div(
                                         row.links()
                                 )
+                        )
+                ).addPlugin(
+                        EmptyStatePlugin.create(
+                                SpreadsheetIcons.spreadsheetListTableEmpty(),
+                                "No spreadsheet(s) found."
                         )
                 );
     }
