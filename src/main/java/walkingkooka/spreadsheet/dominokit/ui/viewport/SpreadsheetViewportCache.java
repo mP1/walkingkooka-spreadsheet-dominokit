@@ -503,7 +503,14 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         if (false == currentId.equals(id)) {
             this.clear();
 
-            context.debug("SpreadsheetViewportCache.onSpreadsheetMetadata id changed from " + currentId + " to " + id);
+            context.debug(
+                    "SpreadsheetViewportCache.onSpreadsheetMetadata id changed from " +
+                            currentId.map(Object::toString)
+                                    .orElse("") +
+                            " to " +
+                            id.map(Object::toString)
+                                    .orElse("")
+            );
 
             this.id = id;
         }
