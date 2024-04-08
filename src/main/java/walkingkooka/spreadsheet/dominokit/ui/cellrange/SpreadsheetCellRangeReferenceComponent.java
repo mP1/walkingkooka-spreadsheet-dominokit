@@ -31,7 +31,7 @@ import java.util.Optional;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetCellRangeReference}.
  */
-public final class SpreadsheetCellRangeReferenceComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReference> {
+public final class SpreadsheetCellRangeReferenceComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReference, SpreadsheetCellRangeReferenceComponent> {
 
     public static SpreadsheetCellRangeReferenceComponent empty() {
         return new SpreadsheetCellRangeReferenceComponent();

@@ -42,7 +42,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * A textbox that adds a few extras that should be common to all text boxes.
  */
-public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String> {
+public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox> {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();

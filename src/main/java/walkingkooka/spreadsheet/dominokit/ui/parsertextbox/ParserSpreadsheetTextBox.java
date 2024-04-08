@@ -34,7 +34,7 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
-public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueComponent<HTMLFieldSetElement, T> {
+public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueComponent<HTMLFieldSetElement, T, ParserSpreadsheetTextBox<T>> {
 
     /**
      * Creates a new {@link ParserSpreadsheetTextBox}.

@@ -30,7 +30,7 @@ import java.util.Optional;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetName}.
  */
-public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetName> {
+public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetName, SpreadsheetNameComponent> {
 
     public static SpreadsheetNameComponent empty() {
         return new SpreadsheetNameComponent();
