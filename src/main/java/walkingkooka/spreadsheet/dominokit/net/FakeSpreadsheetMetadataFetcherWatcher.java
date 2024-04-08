@@ -17,25 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import elemental2.dom.Headers;
-import walkingkooka.net.Url;
-import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.List;
-import java.util.Optional;
 
-public class FakeSpreadsheetMetadataFetcherWatcher implements SpreadsheetMetadataFetcherWatcher {
-
-    @Override
-    public void onBegin(final HttpMethod method,
-                        final Url url,
-                        final Optional<String> body,
-                        final AppContext context) {
-        throw new UnsupportedOperationException();
-    }
+public class FakeSpreadsheetMetadataFetcherWatcher extends FakeFetcherWatcher implements SpreadsheetMetadataFetcherWatcher {
 
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
@@ -46,20 +33,6 @@ public class FakeSpreadsheetMetadataFetcherWatcher implements SpreadsheetMetadat
     @Override
     public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
                                           final AppContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void onFailure(final HttpStatus status,
-                          final Headers headers,
-                          final String body,
-                          final AppContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void onError(final Object cause,
-                        final AppContext context) {
         throw new UnsupportedOperationException();
     }
 }
