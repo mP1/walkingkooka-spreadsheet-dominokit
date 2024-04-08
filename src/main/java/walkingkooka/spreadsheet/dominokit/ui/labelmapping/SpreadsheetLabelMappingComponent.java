@@ -87,6 +87,7 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID,
                 "Label",
+                true, // includeClose
                 context
         );
 

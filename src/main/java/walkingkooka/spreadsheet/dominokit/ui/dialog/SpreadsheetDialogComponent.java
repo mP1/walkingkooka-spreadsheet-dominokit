@@ -40,6 +40,7 @@ public class SpreadsheetDialogComponent {
      */
     public static SpreadsheetDialogComponent with(final String id,
                                                   final String title,
+                                                  final boolean includeClose,
                                                   final HistoryTokenContext context) {
         Objects.requireNonNull(id, "id");
         CharSequences.failIfNullOrEmpty(title, "title");
@@ -48,21 +49,33 @@ public class SpreadsheetDialogComponent {
         return new SpreadsheetDialogComponent(
                 id,
                 title,
+                includeClose,
                 context
         );
     }
 
     private SpreadsheetDialogComponent(final String id,
                                        final String title,
+                                       final boolean includeClose,
                                        final HistoryTokenContext context) {
         this.context = context;
 
-        this.close = this.closeLink(
-                id,
-                context
-        );
+        final NavBar navBar = dialogNavBar();
+        if (includeClose) {
+            final HistoryTokenAnchorComponent close = this.closeLink(
+                    id,
+                    context
+            );
+            navBar.appendChild(
+                    PostfixAddOn.of(
+                            close
+                    )
+            );
+            this.close = null;
+        } else {
+            this.close = null;
+        }
 
-        final NavBar navBar = this.dialogNavBar();
         this.navBar = navBar;
 
         this.dialog = dialog(navBar)
@@ -84,13 +97,8 @@ public class SpreadsheetDialogComponent {
 
     private final HistoryTokenAnchorComponent close;
 
-    private NavBar dialogNavBar() {
-        return NavBar.create() //
-                .appendChild(
-                        PostfixAddOn.of(
-                                this.close
-                        )
-                );
+    private static NavBar dialogNavBar() {
+        return NavBar.create();
     }
 
     /**
@@ -148,11 +156,16 @@ public class SpreadsheetDialogComponent {
         this.open = true;
         this.dialog.open();
 
-        this.close.setHistoryToken(
-                Optional.of(
-                        this.context.historyToken().close()
-                )
-        );
+        final HistoryTokenAnchorComponent close = this.close;
+        if (null != close) {
+            close.setHistoryToken(
+                    Optional.of(
+                            this.context.historyToken()
+                                    .close()
+                    )
+            );
+        }
+        ;
     }
 
     /**

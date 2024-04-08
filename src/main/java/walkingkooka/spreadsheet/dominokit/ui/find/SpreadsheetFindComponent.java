@@ -107,6 +107,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID,
                 "Find",
+                true, // includeClose
                 context
         );
 
