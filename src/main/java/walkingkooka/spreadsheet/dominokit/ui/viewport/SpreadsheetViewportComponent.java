@@ -24,7 +24,6 @@ import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLTableElement;
-import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
@@ -35,9 +34,6 @@ import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.net.Url;
-import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -61,6 +57,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
+import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
@@ -105,6 +102,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
+        NopFetcherWatcher,
         NopNoResponseWatcher {
 
     /**
@@ -986,14 +984,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public void openGiveFocus(final AppContext context) {
-        this.outstandingFetches = 0;
+        // nop
     }
 
     @Override
     public void close(final AppContext context) {
         this.setVisibility(false);
         this.open = false;
-        this.outstandingFetches = 0;
     }
 
     private boolean open;
@@ -1063,46 +1060,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
-    // FetcherWatcher...................................................................................................
-
-    @Override
-    public void onBegin(final HttpMethod method,
-                        final Url url,
-                        final Optional<String> body,
-                        final AppContext context) {
-        this.outstandingFetches++;
-    }
-
-    @Override
-    public void onFailure(final HttpStatus status,
-                          final Headers headers,
-                          final String body,
-                          final AppContext context) {
-        this.onFetchFinish(context);
-    }
-
-    @Override
-    public void onError(final Object cause,
-                        final AppContext context) {
-        this.outstandingFetches = 0;
-        this.onFetchFinish(context);
-    }
-
-    /**
-     * This is unconditionally called when a fetch to the server has completed, successfully, as a failure or error.
-     */
-    private void onFetchFinish(final AppContext context) {
-        this.outstandingFetches--;
-        if (this.outstandingFetches <= 0) {
-            this.loadViewportCellsIfNecessary(context);
-        }
-    }
-
-    /**
-     * This incremented at the start of each fetch and decremented when they finish.
-     */
-    private int outstandingFetches;
-
     // delta............................................................................................................
 
     @Override
@@ -1111,7 +1068,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         Objects.requireNonNull(delta, "delta");
 
         this.componentLifecycleHistoryTokenQuery(context);
-        this.onFetchFinish(context);
     }
 
     // SpreadsheetLabelMappingFetcherWatcher............................................................................
@@ -1123,7 +1079,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
         this.reload = true; // force a viewport reload.
-        this.onFetchFinish(context);
     }
 
     // metadata.........................................................................................................
@@ -1151,7 +1106,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         if (this.reload) {
             this.componentLifecycleHistoryTokenQuery(context);
         }
-        this.onFetchFinish(context);
     }
 
     /**
@@ -1168,16 +1122,15 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final int width = this.width;
         final int height = this.height;
 
-        final int outstandingFetches = this.outstandingFetches;
-
-        if (reload && width > 0 && height > 0 && outstandingFetches <= 0) {
-            if (context.spreadsheetMetadata().isEmpty()) {
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        if (reload && width > 0 && height > 0 && false == metadata.isEmpty()) {
+            if (metadata.isEmpty()) {
                 context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
             } else {
                 this.loadViewportCells(context);
             }
         } else {
-            context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " outstandingFetches: " + outstandingFetches);
+            context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty());
         }
     }
 
