@@ -27,10 +27,12 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A dialog that displays a table with a listing of spreadsheets. Controls are present to open, delete and create
@@ -56,9 +58,21 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
 
+        this.reload = this.reload();
+
         this.table = this.table();
         this.dialog = this.dialogCreate(context);
     }
+
+    // reload............................................................................................................
+
+    private HistoryTokenAnchorComponent reload() {
+        return this.context.historyToken()
+                .link(ID_PREFIX + "reload")
+                .setTextContent("reload");
+    }
+
+    private final HistoryTokenAnchorComponent reload;
 
     // table............................................................................................................
 
@@ -86,7 +100,7 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
                                 HistoryToken.spreadsheetCreate()
                                         .link(ID_PREFIX + "create" + SpreadsheetIds.LINK)
                                         .setTextContent("Create")
-                        )
+                        ).appendChild(this.reload)
         );
         return dialog;
     }
@@ -140,6 +154,11 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
 
     @Override
     public void refresh(final AppContext context) {
-
+        // refresh reload, history token might have changed from or count etc.
+        this.reload.setHistoryToken(
+                Optional.of(
+                        context.historyToken()
+                )
+        );
     }
 }
