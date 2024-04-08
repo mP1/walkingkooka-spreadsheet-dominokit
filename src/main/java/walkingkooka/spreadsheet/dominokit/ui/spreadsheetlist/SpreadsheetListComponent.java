@@ -37,12 +37,12 @@ import java.util.Objects;
  * spreadsheets.
  */
 public final class SpreadsheetListComponent implements SpreadsheetDialogComponentLifecycle,
-        NopFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher {
+        SpreadsheetMetadataFetcherWatcher,
+        NopFetcherWatcher {
 
-    private final static String ID = "spreadsheet-list";
+    final static String ID = "spreadsheet-list";
 
-    private final static String ID_PREFIX = ID + '-';
+    final static String ID_PREFIX = ID + '-';
 
     public static SpreadsheetListComponent with(final SpreadsheetListComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -56,18 +56,29 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
 
-        this.dialog = dialogCreate(context);
+        this.table = this.table();
+        this.dialog = this.dialogCreate(context);
     }
 
-    // SpreadsheetDialogComponentLifecycle.............................................................................
+    // table............................................................................................................
 
-    private static SpreadsheetDialogComponent dialogCreate(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListComponentTable table() {
+        return SpreadsheetListComponentTable.empty();
+    }
+
+    private final SpreadsheetListComponentTable table;
+
+    // SpreadsheetDialogComponentLifecycle..............................................................................
+
+    private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListComponentContext context) {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID, // id
                 "Spreadsheet Browser", // title
                 false, // includeClose
                 context
         );
+
+        dialog.appendChild(this.table);
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
@@ -89,9 +100,27 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
 
     private final SpreadsheetListComponentContext context;
 
+    // SpreadsheetMetadataFetcherWatcher................................................................................
+
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        // ignore
+    }
+
+    @Override
+    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                          final AppContext context) {
+        if (this.isOpen()) {
+            this.table.setMetadata(metadatas);
+        }
+    }
+
+    // SpreadsheetDialogComponentLifecycle..............................................................................
+
     @Override
     public String idPrefix() {
-        return "list-";
+        return ID_PREFIX;
     }
 
     @Override
@@ -106,25 +135,17 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
 
     @Override
     public void openGiveFocus(final AppContext context) {
-        // Nop
+        // NOP
     }
 
     @Override
     public void refresh(final AppContext context) {
-
-    }
-
-    // SpreadsheetMetadataFetcherWatcher...............................................................................
-
-    @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
-        // ignore
-    }
-
-    @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
-        // TODO refresh table
+        final SpreadsheetListHistoryToken historyToken = context.historyToken()
+                .cast(SpreadsheetListHistoryToken.class);
+        context.spreadsheetMetadataFetcher()
+                .getSpreadsheetMetadatas(
+                        historyToken.from(),
+                        historyToken.count()
+                );
     }
 }
