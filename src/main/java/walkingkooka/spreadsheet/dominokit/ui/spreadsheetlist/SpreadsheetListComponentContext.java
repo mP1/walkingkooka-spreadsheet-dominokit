@@ -17,9 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist;
 
+import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetMetadataFetcher;
 
 public interface SpreadsheetListComponentContext extends HasSpreadsheetMetadataFetcher,
-        HistoryTokenContext {
+        HistoryTokenContext,
+        UiFormattingContext {
 }

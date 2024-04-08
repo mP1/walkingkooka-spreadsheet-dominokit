@@ -28,8 +28,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
 
 /**
@@ -37,12 +35,18 @@ import java.util.List;
  */
 final class SpreadsheetListComponentTableRow {
 
-    static SpreadsheetListComponentTableRow with(final SpreadsheetMetadata metadata) {
-        return new SpreadsheetListComponentTableRow(metadata);
+    static SpreadsheetListComponentTableRow with(final SpreadsheetMetadata metadata,
+                                                 final SpreadsheetListComponentContext context) {
+        return new SpreadsheetListComponentTableRow(
+                metadata,
+                context
+        );
     }
 
-    private SpreadsheetListComponentTableRow(final SpreadsheetMetadata metadata) {
+    private SpreadsheetListComponentTableRow(final SpreadsheetMetadata metadata,
+                                             final SpreadsheetListComponentContext context) {
         this.metadata = metadata;
+        this.context = context;
     }
 
     HistoryTokenAnchorComponent name() {
@@ -81,14 +85,12 @@ final class SpreadsheetListComponentTableRow {
     private String format(final SpreadsheetMetadataPropertyName<LocalDateTime> dateTime) {
         final SpreadsheetMetadata metadata = this.metadata;
 
-        return DateTimeFormatter.ofLocalizedDateTime(
-                        FormatStyle.SHORT,
-                        FormatStyle.SHORT
-                ).withLocale(metadata.getOrFail(SpreadsheetMetadataPropertyName.LOCALE))
-                .format(
-                        metadata.getOrFail(dateTime)
-                );
+        return this.context.formatDateTime(
+                metadata.getOrFail(dateTime)
+        );
     }
+
+    private final SpreadsheetListComponentContext context;
 
     List<HistoryTokenAnchorComponent> links() {
         return Lists.empty();
