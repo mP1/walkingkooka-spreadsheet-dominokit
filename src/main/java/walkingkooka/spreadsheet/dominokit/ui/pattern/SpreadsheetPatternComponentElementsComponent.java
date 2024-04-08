@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
@@ -41,7 +41,7 @@ import java.util.stream.IntStream;
  * A card that is dynamically updated with links which remove an individual component of the pattern. A context-menu
  * for each link provides alternatives.
  */
-final class SpreadsheetPatternComponentElementsComponent implements Component<HTMLDivElement> {
+final class SpreadsheetPatternComponentElementsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentElementsComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetPatternComponentElementsComponent}.
