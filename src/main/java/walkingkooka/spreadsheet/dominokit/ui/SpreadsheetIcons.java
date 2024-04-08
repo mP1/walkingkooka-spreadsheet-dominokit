@@ -264,6 +264,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.sort_clock_descending_outline();
     }
 
+    public static MdiIcon spreadsheetListTableEmpty() {
+        return Icons.gauge_empty();
+    }
+
     public static MdiIcon strikethrough() {
         return Icons.format_strikethrough();
     }
