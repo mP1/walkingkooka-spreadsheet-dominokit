@@ -54,6 +54,7 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                 tableConfig(),
                 localListDataStore
         );
+        table.setCondensed(true);
 
         this.table = table;
         this.dataStore = localListDataStore;
