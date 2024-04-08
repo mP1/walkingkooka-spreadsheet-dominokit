@@ -28,7 +28,7 @@ import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -41,7 +41,7 @@ import java.util.function.Function;
 /**
  * A table that holds available patterns used to format values.
  */
-final class SpreadsheetPatternComponentTable implements Component<HTMLDivElement> {
+final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentTable> {
 
     /**
      * Creates an empty {@link SpreadsheetPatternComponentTable}.
