@@ -141,9 +141,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
 
-        context.addHistoryTokenWatcher(this::onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken);
-        context.addHistoryTokenWatcher(this::onHistoryTokenChangeSpreadsheetCellFindHistoryToken);
-
         this.recentFormatPatterns = this.recentPatternSaves(
                 true, // is format true
                 context
@@ -876,82 +873,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
-    // SpreadsheetCellHighlightSaveHistoryToken........................................................................
-
-    private void onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken(final HistoryToken previous,
-                                                                              final AppContext context) {
-        if (context.historyToken() instanceof SpreadsheetCellHighlightSaveHistoryToken) {
-            this.context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellHighlightSaveHistoryToken viewport reload necessary");
-
-            this.reload = true;
-            this.loadViewportCells(context);
-        }
-    }
-
-    /**
-     * Tries to skip reloading the viewport cells if the {@link AppContext#lastCellFind()} is the same or should include
-     * all highlights for the current {@link SpreadsheetViewportCache#windows()}.
-     */
-    private void onHistoryTokenChangeSpreadsheetCellFindHistoryToken(final HistoryToken previous,
-                                                                     final AppContext context) {
-        final HistoryToken token = context.historyToken();
-        if (token instanceof SpreadsheetCellFindHistoryToken) {
-            final SpreadsheetCellFindHistoryToken findHistoryToken = token.cast(SpreadsheetCellFindHistoryToken.class);
-            final SpreadsheetCellFind spreadsheetCellFind = findHistoryToken.find();
-
-            String notRequired = null;
-
-            final SpreadsheetCellFind last = context.lastCellFind();
-            if (last.equals(spreadsheetCellFind)) {
-                notRequired = " find unchanged " + last;
-            } else {
-                final SpreadsheetViewportCache cache = context.viewportCache();
-                final Optional<SpreadsheetSelection> maybeSelectionNotLabel = cache.nonLabelSelection(
-                        findHistoryToken.anchoredSelection()
-                                .selection()
-                );
-
-                String reload = "Cannot resolve label";
-                if (maybeSelectionNotLabel.isPresent()) {
-
-                    final SpreadsheetSelection selectionNotLabel = maybeSelectionNotLabel.get();
-                    final SpreadsheetViewportWindows windows = cache.windows();
-
-                    reload = "window " + windows + " not within " + selectionNotLabel.toStringMaybeStar();
-
-                    if (selectionNotLabel.containsAll(windows)) {
-                        reload = "offset not empty or 0";
-
-                        final OptionalInt offset = spreadsheetCellFind.offset();
-                        if (false == offset.isPresent() || offset.getAsInt() == 0) {
-
-                            reload = "max not empty or less than window cell count";
-
-                            final long windowsCellCount = windows.count();
-                            final OptionalInt max = spreadsheetCellFind.max();
-
-                            if (false == max.isPresent() || max.getAsInt() < windowsCellCount) {
-                                reload = null;
-                                notRequired = "";
-                            }
-                        }
-
-                    }
-                }
-
-                if (null != reload) {
-                    context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken load viewport required because " + reload);
-                    this.reload = true;
-                    this.loadViewportCells(context);
-                }
-            }
-
-            if (null != notRequired) {
-                context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken " + notRequired + " viewport load not required");
-            }
-        }
-    }
-
     // ComponentLifecycle..............................................................................................
 
     @Override
@@ -1044,6 +965,17 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             );
         }
 
+        if (historyToken instanceof SpreadsheetCellFindHistoryToken) {
+
+        }
+
+        if (historyToken instanceof SpreadsheetCellHighlightSaveHistoryToken) {
+            this.context.debug("SpreadsheetViewportComponent.refresh cell highlight save need to loadViewportCells");
+
+            this.reload = true;
+            this.loadViewportCells(context);
+        }
+
         this.scrollbarsRefresh();
     }
 
@@ -1066,6 +998,66 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     @Override
     public boolean shouldLogLifecycleChanges() {
         return true;
+    }
+
+    /**
+     * Tries to skip reloading the viewport cells if the {@link AppContext#lastCellFind()} is the same or should include
+     * all highlights for the current {@link SpreadsheetViewportCache#windows()}.
+     */
+    private void onSpreadsheetCellFindHistoryToken(final SpreadsheetCellFindHistoryToken historyToken,
+                                                   final AppContext context) {
+        final SpreadsheetCellFind spreadsheetCellFind = historyToken.find();
+
+        String notRequired = null;
+
+        final SpreadsheetCellFind last = context.lastCellFind();
+        if (last.equals(spreadsheetCellFind)) {
+            notRequired = " find unchanged " + last;
+        } else {
+            final SpreadsheetViewportCache cache = context.viewportCache();
+            final Optional<SpreadsheetSelection> maybeSelectionNotLabel = cache.nonLabelSelection(
+                    historyToken.anchoredSelection()
+                            .selection()
+            );
+
+            String reload = "Cannot resolve label";
+            if (maybeSelectionNotLabel.isPresent()) {
+
+                final SpreadsheetSelection selectionNotLabel = maybeSelectionNotLabel.get();
+                final SpreadsheetViewportWindows windows = cache.windows();
+
+                reload = "window " + windows + " not within " + selectionNotLabel.toStringMaybeStar();
+
+                if (selectionNotLabel.containsAll(windows)) {
+                    reload = "offset not empty or 0";
+
+                    final OptionalInt offset = spreadsheetCellFind.offset();
+                    if (false == offset.isPresent() || offset.getAsInt() == 0) {
+
+                        reload = "max not empty or less than window cell count";
+
+                        final long windowsCellCount = windows.count();
+                        final OptionalInt max = spreadsheetCellFind.max();
+
+                        if (false == max.isPresent() || max.getAsInt() < windowsCellCount) {
+                            reload = null;
+                            notRequired = "";
+                        }
+                    }
+
+                }
+            }
+
+            if (null != reload) {
+                context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken load viewport required because " + reload);
+                this.reload = true;
+                this.loadViewportCells(context);
+            }
+        }
+
+        if (null != notRequired) {
+            context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken " + notRequired + " viewport load not required");
+        }
     }
 
     // FetcherWatcher...................................................................................................
