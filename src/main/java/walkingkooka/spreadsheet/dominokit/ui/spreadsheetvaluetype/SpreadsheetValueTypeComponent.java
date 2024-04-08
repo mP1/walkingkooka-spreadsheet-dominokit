@@ -30,7 +30,7 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link String spreadsheet value type}.
  */
-public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLFieldSetElement, String> {
+public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetValueTypeComponent> {
 
     public static SpreadsheetValueTypeComponent empty() {
         return new SpreadsheetValueTypeComponent();

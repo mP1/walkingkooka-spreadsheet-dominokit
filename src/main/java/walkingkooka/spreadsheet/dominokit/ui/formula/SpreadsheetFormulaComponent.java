@@ -32,7 +32,7 @@ import java.util.function.Function;
 /**
  * A text box that accepts entry and validates it as a {@link Expression}.
  */
-public final class SpreadsheetFormulaComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetFormula> {
+public final class SpreadsheetFormulaComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetFormula, SpreadsheetFormulaComponent> {
 
     public static SpreadsheetFormulaComponent empty(final Function<String, SpreadsheetFormula> parser) {
         return new SpreadsheetFormulaComponent(parser);

@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.ui;
 
-import elemental2.dom.Element;
 import elemental2.dom.EventListener;
+import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
 
@@ -27,53 +27,55 @@ import java.util.Optional;
 /**
  * A component that supports entering or selecting a value.
  */
-public interface ValueComponent<E extends Element, V> extends Component<E>, Value<Optional<V>> {
+public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
+        extends HtmlElementComponent<E, C>,
+        Value<Optional<V>> {
 
-    ValueComponent<E, V> setId(final String id);
+    C setId(final String id);
 
-    ValueComponent<E, V> setLabel(final String label);
+    C setLabel(final String label);
 
-    ValueComponent<E, V> setValue(final Optional<V> value);
+    C setValue(final Optional<V> value);
 
-    default ValueComponent<E, V> clearValue() {
+    default C clearValue() {
         return this.setValue(Optional.empty());
     }
 
-    ValueComponent<E, V> focus();
+    C focus();
 
-    ValueComponent<E, V> optional();
+    C optional();
 
-    ValueComponent<E, V> required();
+    C required();
 
-    ValueComponent<E, V> validate();
+    C validate();
 
     boolean isDisabled();
 
-    ValueComponent<E, V> setDisabled(final boolean disabled);
+    C setDisabled(final boolean disabled);
 
-    ValueComponent<E, V> addChangeListener(final ChangeListener<Optional<V>> listener);
+    C addChangeListener(final ChangeListener<Optional<V>> listener);
 
-    ValueComponent<E, V> addFocusListener(final EventListener listener);
+    C addFocusListener(final EventListener listener);
 
-    ValueComponent<E, V> addKeydownListener(final EventListener listener);
+    C addKeydownListener(final EventListener listener);
 
-    ValueComponent<E, V> addKeyupListener(final EventListener listener);
+    C addKeyupListener(final EventListener listener);
 
     /**
      * The normal domino-kit behaviour is to only show helper text where validation error text appears, as necessary.
      * When a component has no helper text to show the helper text space is auto hidden.
      */
-    ValueComponent<E, V> alwaysShowHelperText();
+    C alwaysShowHelperText();
 
     /**
      * This setter may be used to set a (error) message.
      */
-    ValueComponent<E, V> setHelperText(final Optional<String> text);
+    C setHelperText(final Optional<String> text);
 
     /**
      * Clears any present helper text.
      */
-    default ValueComponent<E, V> clearHelperText() {
+    default C clearHelperText() {
         return this.setHelperText(Optional.empty());
     }
 
@@ -82,7 +84,7 @@ public interface ValueComponent<E extends Element, V> extends Component<E>, Valu
      */
     String HELPER_TEXT_HEIGHT = "4em";
 
-    ValueComponent<E, V> hideMarginBottom();
+    C hideMarginBottom();
 
-    ValueComponent<E, V> removeBorders();
+    C removeBorders();
 }

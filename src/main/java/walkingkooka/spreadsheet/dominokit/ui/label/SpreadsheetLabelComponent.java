@@ -39,7 +39,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetLabelComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetLabelName> {
+public final class SpreadsheetLabelComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent> {
 
     public static SpreadsheetLabelComponent with(final Context context) {
         Objects.requireNonNull(context, "context");

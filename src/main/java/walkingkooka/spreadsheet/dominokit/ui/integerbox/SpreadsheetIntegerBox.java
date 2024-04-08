@@ -42,7 +42,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * An IntegerBox that adds a few extras that should be common to all text boxes.
  */
-public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer> {
+public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox> {
 
     public static SpreadsheetIntegerBox empty() {
         return new SpreadsheetIntegerBox();
