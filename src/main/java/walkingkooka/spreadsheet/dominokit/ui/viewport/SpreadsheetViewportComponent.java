@@ -907,42 +907,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public void refresh(final AppContext context) {
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-        final SpreadsheetViewportCache cache = context.viewportCache();
-        final SpreadsheetViewportWindows windows = cache.windows();
-
         final HistoryToken historyToken = context.historyToken();
-
-        Predicate<SpreadsheetSelection> selected = Predicates.never();
-
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
-        if (maybeAnchorSelection.isPresent()) {
-            // special case for label
-            final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
-                    .nonLabelSelection(maybeAnchorSelection.get().selection());
-            if (maybeNotLabel.isPresent()) {
-                final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
 
-                // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
-                selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
-                        (false == s.isCellRangeReference() && selectionNotLabel.test(s));
-            }
-        }
-
-        this.table.refresh(
-                metadata.id().get(),
-                metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
-                windows,
-                selected,
-                BasicSpreadsheetViewportComponentTableContext.with(
-                        context,
-                        cache,
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
-                        metadata.effectiveStyle()
-                                .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
-                        metadata.shouldViewRefresh(this.refreshMetadata),
-                        context
-                )
+        this.refreshTable(
+                maybeAnchorSelection,
+                context
         );
 
         if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
@@ -978,6 +948,44 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
 
         this.scrollbarsRefresh();
+    }
+
+    private void refreshTable(final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection,
+                              final AppContext context) {
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportWindows windows = cache.windows();
+
+        Predicate<SpreadsheetSelection> selected = Predicates.never();
+
+        if (maybeAnchorSelection.isPresent()) {
+            // special case for label
+            final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
+                    .nonLabelSelection(maybeAnchorSelection.get().selection());
+            if (maybeNotLabel.isPresent()) {
+                final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
+
+                // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
+                selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
+                        (false == s.isCellRangeReference() && selectionNotLabel.test(s));
+            }
+        }
+
+        this.table.refresh(
+                metadata.id().get(),
+                metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
+                windows,
+                selected,
+                BasicSpreadsheetViewportComponentTableContext.with(
+                        context,
+                        cache,
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
+                        metadata.effectiveStyle()
+                                .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
+                        metadata.shouldViewRefresh(this.refreshMetadata),
+                        context
+                )
+        );
     }
 
     private SpreadsheetMetadata refreshMetadata;
