@@ -798,8 +798,10 @@ public class App implements EntryPoint,
 
     @Override
     public Locale locale() {
-        return this.spreadsheetMetadata.locale();
+        return LOCALE;
     }
+
+    private final static Locale LOCALE = Locale.forLanguageTag("EN-AU"); // TODO use browser locale
 
     // HasNow...........................................................................................................
 
