@@ -33,16 +33,11 @@ import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.Objects;
 import java.util.Optional;
 
 public interface AppContext extends CanGiveFocus,
@@ -149,22 +144,5 @@ public interface AppContext extends CanGiveFocus,
         ).addParameters(
                 this.lastCellFindQueryString()
         );
-    }
-
-    // formatting.......................................................................................................
-
-    /**
-     * Formats the given {@link LocalDateTime} for display to the user in the Locale of the spreadsheet.
-     * This should be used so all date/times are formatted in the same way.
-     */
-    default String formatDateTime(final LocalDateTime dateTime) {
-        Objects.requireNonNull(dateTime, "dateTime");
-
-        return DateTimeFormatter.ofLocalizedDateTime(
-                        FormatStyle.SHORT,
-                        FormatStyle.SHORT
-                ).withLocale(
-                        this.spreadsheetMetadata().getOrFail(SpreadsheetMetadataPropertyName.LOCALE))
-                .format(dateTime);
     }
 }
