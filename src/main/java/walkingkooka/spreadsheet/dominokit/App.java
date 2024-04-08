@@ -165,7 +165,7 @@ public class App implements EntryPoint,
                         this,
                         this.spreadsheetMetadataFetcher,
                         this.metadataWatchers,
-                        () -> this.spreadsheetMetadata.getOrFail(SpreadsheetMetadataPropertyName.LOCALE)
+                        this
                 )
         );
 
