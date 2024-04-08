@@ -66,6 +66,7 @@ public final class SpreadsheetColumnRowInsertCountComponent implements Spreadshe
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID,
                 context.dialogTitle(),
+                true, // includeClose
                 context
         );
 

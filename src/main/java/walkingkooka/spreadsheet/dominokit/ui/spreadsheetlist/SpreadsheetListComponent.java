@@ -59,6 +59,7 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
         return SpreadsheetDialogComponent.with(
                 "list", // id
                 "Spreadsheet Browser", // title
+                false, // includeClose
                 context
         );
     }
