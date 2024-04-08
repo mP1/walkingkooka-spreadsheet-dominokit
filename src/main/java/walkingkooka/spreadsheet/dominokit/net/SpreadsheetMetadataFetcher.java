@@ -64,6 +64,10 @@ import java.util.OptionalInt;
  */
 public final class SpreadsheetMetadataFetcher implements Fetcher {
 
+    static {
+        SpreadsheetMetadataList.empty(); // JSON register
+    }
+
     private final static RelativeUrl API_BASE = Url.parseRelative("/api/spreadsheet");
 
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataFetcherWatcher watcher,
