@@ -17,12 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist;
 
+import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -37,6 +39,10 @@ import java.util.Objects;
 public final class SpreadsheetListComponent implements SpreadsheetDialogComponentLifecycle,
         NopFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
+
+    private final static String ID = "spreadsheet-list";
+
+    private final static String ID_PREFIX = ID + '-';
 
     public static SpreadsheetListComponent with(final SpreadsheetListComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -56,12 +62,22 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
     // SpreadsheetDialogComponentLifecycle.............................................................................
 
     private static SpreadsheetDialogComponent dialogCreate(final SpreadsheetListComponentContext context) {
-        return SpreadsheetDialogComponent.with(
-                "list", // id
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+                ID, // id
                 "Spreadsheet Browser", // title
                 false, // includeClose
                 context
         );
+
+        dialog.appendChild(
+                ElementsFactory.elements.div()
+                        .appendChild(
+                                HistoryToken.spreadsheetCreate()
+                                        .link(ID_PREFIX + "create" + SpreadsheetIds.LINK)
+                                        .setTextContent("Create")
+                        )
+        );
+        return dialog;
     }
 
     @Override
