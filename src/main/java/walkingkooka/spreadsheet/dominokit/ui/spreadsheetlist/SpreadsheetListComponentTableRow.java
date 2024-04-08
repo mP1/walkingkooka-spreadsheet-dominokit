@@ -24,12 +24,12 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.format.SpreadsheetText;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateTimeFormatPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 
 /**
@@ -80,19 +80,14 @@ final class SpreadsheetListComponentTableRow {
 
     private String format(final SpreadsheetMetadataPropertyName<LocalDateTime> dateTime) {
         final SpreadsheetMetadata metadata = this.metadata;
-        final SpreadsheetDateTimeFormatPattern pattern = metadata.getOrFail(SpreadsheetMetadataPropertyName.DATETIME_FORMAT_PATTERN);
 
-        return pattern.formatter()
+        return DateTimeFormatter.ofLocalizedDateTime(
+                        FormatStyle.SHORT,
+                        FormatStyle.SHORT
+                ).withLocale(metadata.getOrFail(SpreadsheetMetadataPropertyName.LOCALE))
                 .format(
-                        metadata.getOrFail(dateTime),
-                        metadata.formatterContext(
-                                LocalDateTime::now,
-                                (label) -> {
-                                    throw new UnsupportedOperationException();
-                                }
-                        ))
-                .map(SpreadsheetText::text)
-                .orElse("");
+                        metadata.getOrFail(dateTime)
+                );
     }
 
     List<HistoryTokenAnchorComponent> links() {
