@@ -966,11 +966,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
 
         if (historyToken instanceof SpreadsheetCellFindHistoryToken) {
-
+            this.onSpreadsheetCellFindHistoryToken(
+                    historyToken.cast(SpreadsheetCellFindHistoryToken.class),
+                    context
+            );
         }
 
         if (historyToken instanceof SpreadsheetCellHighlightSaveHistoryToken) {
-            this.context.debug("SpreadsheetViewportComponent.refresh cell highlight save need to loadViewportCells");
+            context.debug("SpreadsheetViewportComponent.refresh cell highlight save need to loadViewportCells");
 
             this.reload = true;
             this.loadViewportCells(context);
