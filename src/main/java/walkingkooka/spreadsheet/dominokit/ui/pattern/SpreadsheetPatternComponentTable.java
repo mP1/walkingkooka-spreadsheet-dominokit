@@ -35,7 +35,6 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.tree.text.TextAlign;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
@@ -55,7 +54,6 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
     }
 
     void refresh(final String patternText,
-                 final Consumer<String> setPatternText,
                  final SpreadsheetPatternComponentContext context) {
         final SpreadsheetPatternKind patternKind = context.patternKind();
 
@@ -69,7 +67,6 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
             this.table = new DataTable<>(
                     tableConfig(
                             patternKind,
-                            setPatternText,
                             context
                     ),
                     localListDataStore
@@ -102,7 +99,6 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
     private LocalListDataStore<SpreadsheetPatternComponentTableRow> dataStore;
 
     private static TableConfig<SpreadsheetPatternComponentTableRow> tableConfig(final SpreadsheetPatternKind kind,
-                                                                                final Consumer<String> setPatternText,
                                                                                 final SpreadsheetPatternComponentContext context) {
         final TableConfig<SpreadsheetPatternComponentTableRow> tableConfig = new TableConfig<SpreadsheetPatternComponentTableRow>()
                 .addColumn(
@@ -120,7 +116,6 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
                                         d.pattern()
                                                 .map(SpreadsheetPattern::text)
                                                 .orElse(""),
-                                        setPatternText,
                                         context
                                 )
                         )
@@ -179,12 +174,10 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
     }
 
     /**
-     * Creates an anchor which will appear in the pattern column, which when clicked updates the pattern text box.
-     * The history token is not updated.
+     * Creates an anchor which will appear in the pattern column
      */
     private static HTMLAnchorElement patternAnchor(final String label,
                                                    final String patternText,
-                                                   final Consumer<String> setPatternText,
                                                    final SpreadsheetPatternComponentContext context) {
         return HistoryTokenAnchorComponent.empty()
                 .setHref(
@@ -198,12 +191,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
                         SpreadsheetPatternComponent.ID_PREFIX +
                                 label.toLowerCase() +
                                 SpreadsheetIds.LINK
-                ).addClickAndKeydownEnterListener(
-                        e ->
-                        {
-                            e.preventDefault();
-                            setPatternText.accept(patternText);
-                        }).element();
+                ).element();
     }
 
     @Override

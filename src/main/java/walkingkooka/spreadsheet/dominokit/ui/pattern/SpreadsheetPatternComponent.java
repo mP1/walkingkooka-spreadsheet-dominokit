@@ -246,7 +246,6 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
         this.table.refresh(
                 patternText,
-                this::setPatternText,
                 context
         );
 
