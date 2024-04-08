@@ -231,7 +231,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         this.elements.refresh(
                 pattern,
                 errorPattern,
-                this.context
+                context
         );
 
         this.appendLinks.refreshLinks(
@@ -241,7 +241,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 ).length() > 0 ?
                         null :
                         pattern,
-                this.context
+                context
         );
 
         this.table.refresh(
@@ -249,12 +249,11 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
                 context
         );
 
-        final HistoryToken historyToken = context.historyToken();
-
         this.save.setHistoryToken(
                 Optional.of(
-                        historyToken.setSave(
-                                Optional.ofNullable(pattern)
+                        context.historyToken()
+                                .setSave(
+                                        Optional.ofNullable(pattern)
                         )
                 )
         );
