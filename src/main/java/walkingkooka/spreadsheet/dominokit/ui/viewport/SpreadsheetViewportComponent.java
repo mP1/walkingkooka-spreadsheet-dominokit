@@ -61,6 +61,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
+import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
@@ -103,7 +104,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         SpreadsheetLabelMappingFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired {
+        LoadedSpreadsheetMetadataRequired,
+        NopNoResponseWatcher {
 
     /**
      * The maximum number of recent format / parse pattern saves.

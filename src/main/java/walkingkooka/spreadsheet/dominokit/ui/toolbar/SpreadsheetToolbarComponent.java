@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.FlexLayout;
@@ -43,6 +44,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
+        NopNoResponseWatcher,
         SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetToolbarComponent with(final AppContext context) {

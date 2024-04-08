@@ -195,6 +195,11 @@ public final class SpreadsheetDeleteHistoryToken extends SpreadsheetNameHistoryT
                                 previous.clearAction()
                         );
                     }
+
+                    @Override
+                    public void onNoResponse(final AppContext context) {
+
+                    }
                 }
         );
         context.spreadsheetMetadataFetcher()

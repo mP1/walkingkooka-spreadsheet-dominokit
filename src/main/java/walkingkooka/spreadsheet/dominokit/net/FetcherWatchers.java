@@ -107,6 +107,15 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
         );
     }
 
+    @Override
+    public void onNoResponse(final AppContext context) {
+        this.fire(
+                FetcherWatchersEvent.noResponse(
+                        context
+                )
+        );
+    }
+
     final void fire(final FetcherWatchersEvent<W> event) {
         try {
             this.onceWatchers.accept(event);

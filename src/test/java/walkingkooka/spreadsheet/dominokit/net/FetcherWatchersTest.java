@@ -164,6 +164,11 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
+        public void onNoResponse(final AppContext context) {
+            this.b.append("onNoResponse");
+        }
+
+        @Override
         public String toString() {
             return this.b.toString();
         }
@@ -258,6 +263,11 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         @Override
         public void onError(final Object cause,
                             final AppContext context) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void onNoResponse(AppContext context) {
             throw new UnsupportedOperationException();
         }
 

@@ -82,6 +82,12 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
                                      final AppContext context) {
         context.addSpreadsheetMetadataWatcherOnce(
                 new SpreadsheetMetadataFetcherWatcher() {
+
+                    @Override
+                    public void onNoResponse(final AppContext context) {
+                        // nop
+                    }
+
                     @Override
                     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                                       final AppContext context) {

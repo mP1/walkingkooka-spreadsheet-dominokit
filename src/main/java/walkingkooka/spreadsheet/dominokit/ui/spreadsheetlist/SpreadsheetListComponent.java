@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
@@ -39,7 +40,8 @@ import java.util.Optional;
  */
 public final class SpreadsheetListComponent implements SpreadsheetDialogComponentLifecycle,
         SpreadsheetMetadataFetcherWatcher,
-        NopFetcherWatcher {
+        NopFetcherWatcher,
+        NopNoResponseWatcher {
 
     final static String ID = "spreadsheet-list";
 

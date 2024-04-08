@@ -57,6 +57,10 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
         );
     }
 
+    static <W extends FetcherWatcher> NoResponseFetcherWatchersEvent<W> noResponse(final AppContext context) {
+        return NoResponseFetcherWatchersEvent.with(context);
+    }
+
     FetcherWatchersEvent(final AppContext context) {
         this.context = context;
     }
