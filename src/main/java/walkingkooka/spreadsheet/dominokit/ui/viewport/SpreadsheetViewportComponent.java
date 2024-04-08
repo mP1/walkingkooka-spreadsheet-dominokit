@@ -1119,12 +1119,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.onFetchFinish(context);
     }
 
-    @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
-        // NOP
-    }
-
     // SpreadsheetLabelMappingFetcherWatcher............................................................................
 
     /**
@@ -1138,6 +1132,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     // metadata.........................................................................................................
+
+    @Override
+    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                          final AppContext context) {
+        // NOP
+    }
 
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
