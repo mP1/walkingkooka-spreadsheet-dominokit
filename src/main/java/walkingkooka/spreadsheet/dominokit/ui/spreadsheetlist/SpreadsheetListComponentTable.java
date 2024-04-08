@@ -41,11 +41,11 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
     /**
      * Creates an empty {@link walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentTable}.
      */
-    static SpreadsheetListComponentTable empty() {
-        return new SpreadsheetListComponentTable();
+    static SpreadsheetListComponentTable empty(final SpreadsheetListComponentContext context) {
+        return new SpreadsheetListComponentTable(context);
     }
 
-    private SpreadsheetListComponentTable() {
+    private SpreadsheetListComponentTable(final SpreadsheetListComponentContext context) {
         this.card = Card.create();
 
         final LocalListDataStore<SpreadsheetListComponentTableRow> localListDataStore = new LocalListDataStore<>();
@@ -59,6 +59,8 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
         this.dataStore = localListDataStore;
 
         this.card.appendChild(table);
+
+        this.context = context;
     }
 
     private static TableConfig<SpreadsheetListComponentTableRow> tableConfig() {
@@ -149,10 +151,12 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
     void setMetadata(final List<SpreadsheetMetadata> metadatas) {
         this.dataStore.setData(
                 metadatas.stream()
-                        .map(SpreadsheetListComponentTableRow::with)
+                        .map(m -> SpreadsheetListComponentTableRow.with(m, this.context))
                         .collect(Collectors.toList()));
         this.table.load();
     }
+
+    private final SpreadsheetListComponentContext context;
 
     // HtmlElementComponent.............................................................................................
 

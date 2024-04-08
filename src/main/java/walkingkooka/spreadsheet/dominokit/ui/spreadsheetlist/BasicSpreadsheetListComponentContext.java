@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist;
 
+import walkingkooka.locale.HasLocale;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -24,24 +25,30 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
 
+import java.util.Locale;
+
 public final class BasicSpreadsheetListComponentContext implements SpreadsheetListComponentContext {
 
     static BasicSpreadsheetListComponentContext with(final HistoryTokenContext historyTokenContext,
                                                      final SpreadsheetMetadataFetcher metadataFetcher,
-                                                     final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers) {
+                                                     final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers,
+                                                     final HasLocale hasLocale) {
         return new BasicSpreadsheetListComponentContext(
                 historyTokenContext,
                 metadataFetcher,
-                metadataFetcherWatchers
+                metadataFetcherWatchers,
+                hasLocale
         );
     }
 
     private BasicSpreadsheetListComponentContext(final HistoryTokenContext historyTokenContext,
                                                  final SpreadsheetMetadataFetcher metadataFetcher,
-                                                 final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers) {
+                                                 final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers,
+                                                 final HasLocale hasLocale) {
         this.historyTokenContext = historyTokenContext;
         this.metadataFetcher = metadataFetcher;
         this.metadataFetcherWatchers = metadataFetcherWatchers;
+        this.hasLocale = hasLocale;
     }
 
     @Override
@@ -89,4 +96,11 @@ public final class BasicSpreadsheetListComponentContext implements SpreadsheetLi
     }
 
     private final SpreadsheetMetadataFetcher metadataFetcher;
+
+    @Override
+    public Locale locale() {
+        return this.hasLocale.locale();
+    }
+
+    private final HasLocale hasLocale;
 }

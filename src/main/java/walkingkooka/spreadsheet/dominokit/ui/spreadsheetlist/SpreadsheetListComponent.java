@@ -76,7 +76,7 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
     // table............................................................................................................
 
     private SpreadsheetListComponentTable table() {
-        return SpreadsheetListComponentTable.empty();
+        return SpreadsheetListComponentTable.empty(this.context);
     }
 
     private final SpreadsheetListComponentTable table;
