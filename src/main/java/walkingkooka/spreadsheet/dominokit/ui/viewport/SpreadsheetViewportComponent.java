@@ -64,8 +64,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
@@ -97,7 +97,7 @@ import java.util.function.Supplier;
 /**
  * A ui that displays a table holding the cells and headers for the columns and rows.
  */
-public final class SpreadsheetViewportComponent implements Component<HTMLDivElement>,
+public final class SpreadsheetViewportComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent>,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetLabelMappingFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
@@ -978,11 +978,7 @@ public final class SpreadsheetViewportComponent implements Component<HTMLDivElem
         final SpreadsheetViewportWindows windows = cache.windows();
         final boolean empty = metadata.isEmpty() || windows.isEmpty();
 
-        this.root.element()
-                .style
-                .visibility = empty ?
-                "hidden" :
-                "visible";
+        this.setVisibility(false == empty);
 
         if (false == empty) {
             final HistoryToken historyToken = context.historyToken();
