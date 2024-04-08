@@ -986,6 +986,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                         context
                 )
         );
+        this.refreshMetadata = metadata;
     }
 
     private SpreadsheetMetadata refreshMetadata;
