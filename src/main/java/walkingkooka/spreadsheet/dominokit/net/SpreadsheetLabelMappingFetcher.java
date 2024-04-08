@@ -131,9 +131,15 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     @Override
     public void onSuccess(final String contentTypeName,
                           final String body) {
-        switch (contentTypeName) {
+        final SpreadsheetLabelMappingFetcherWatcher watcher = this.watcher;
+        final AppContext context = this.context;
+
+        switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
+            case "":
+                watcher.onNoResponse(context);
+                break;
             case "SpreadsheetLabelMapping":
-                this.watcher.onSpreadsheetLabelMapping(
+                watcher.onSpreadsheetLabelMapping(
                         Optional.ofNullable(
                                 body.isEmpty() ?
                                         null :
@@ -142,7 +148,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
                                                 SpreadsheetLabelMapping.class
                                         )
                         ),
-                        this.context
+                        context
                 );
                 break;
             default:
