@@ -1049,13 +1049,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public void openGiveFocus(final AppContext context) {
-        // nop
+        this.outstandingFetches = 0;
     }
 
     @Override
     public void close(final AppContext context) {
         this.setVisibility(false);
         this.open = false;
+        this.outstandingFetches = 0;
     }
 
     private boolean open;
@@ -1086,6 +1087,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     @Override
     public void onError(final Object cause,
                         final AppContext context) {
+        this.outstandingFetches = 0;
         this.onFetchFinish(context);
     }
 
