@@ -38,6 +38,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 
 import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.function.Predicate;
 
@@ -194,6 +195,12 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    // HasLocale........................................................................................................
+
+    @Override
+    public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
 
     // HasNow...........................................................................................................
 

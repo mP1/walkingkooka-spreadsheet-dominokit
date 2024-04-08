@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
+import walkingkooka.locale.HasLocale;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -42,6 +43,7 @@ import java.util.Optional;
 
 public interface AppContext extends CanGiveFocus,
         ClipboardContext,
+        HasLocale,
         HasNow,
         HasSpreadsheetDeltaFetcher,
         HasSpreadsheetLabelMappingFetcher,
