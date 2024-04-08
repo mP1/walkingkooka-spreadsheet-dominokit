@@ -86,6 +86,10 @@ import java.util.function.BiFunction;
  */
 public final class SpreadsheetDeltaFetcher implements Fetcher {
 
+    static {
+        SpreadsheetDelta.EMPTY.toString(); // force json unmarshaller to register
+    }
+
     /**
      * Appends any {@link SpreadsheetCellFind} values to the given {@link UrlQueryString}.
      */
