@@ -27,12 +27,18 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
 
 public final class SpreadsheetLabelMappingFetcher implements Fetcher {
+
+    static {
+        SpreadsheetSelection.labelName("Label")
+                .mapping(SpreadsheetSelection.A1); // force json unmarshaller register
+    }
 
     public static SpreadsheetLabelMappingFetcher with(final SpreadsheetLabelMappingFetcherWatcher watcher,
                                                       final AppContext context) {
