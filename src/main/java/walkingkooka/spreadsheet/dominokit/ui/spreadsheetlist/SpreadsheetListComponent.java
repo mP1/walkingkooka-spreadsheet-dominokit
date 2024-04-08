@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
@@ -98,7 +97,7 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
                 ElementsFactory.elements.div()
                         .appendChild(
                                 HistoryToken.spreadsheetCreate()
-                                        .link(ID_PREFIX + "create" + SpreadsheetIds.LINK)
+                                        .link(ID_PREFIX + "create")
                                         .setTextContent("Create")
                         ).appendChild(this.reload)
         );
