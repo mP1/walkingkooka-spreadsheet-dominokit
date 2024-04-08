@@ -162,6 +162,10 @@ public final class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        // nop
+        context.spreadsheetMetadataFetcher()
+                .getSpreadsheetMetadatas(
+                        this.from(),
+                        this.count()
+                );
     }
 }

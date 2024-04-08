@@ -140,12 +140,6 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
 
     @Override
     public void refresh(final AppContext context) {
-        final SpreadsheetListHistoryToken historyToken = context.historyToken()
-                .cast(SpreadsheetListHistoryToken.class);
-        context.spreadsheetMetadataFetcher()
-                .getSpreadsheetMetadatas(
-                        historyToken.from(),
-                        historyToken.count()
-                );
+
     }
 }
