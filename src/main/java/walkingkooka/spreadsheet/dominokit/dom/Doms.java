@@ -20,8 +20,13 @@ package walkingkooka.spreadsheet.dominokit.dom;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import jsinterop.base.Js;
+import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.elements.DivElement;
+import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.text.TextNode;
+
+import java.util.List;
 
 public final class Doms implements PublicStaticHelper {
 
@@ -52,6 +57,19 @@ public final class Doms implements PublicStaticHelper {
      */
     public static elemental2.dom.Text textNode(final String text) {
         return DomGlobal.document.createTextNode(text);
+    }
+
+    /**
+     * Creates a DIV and appends each of the {@link IsElement}.
+     */
+    public static elemental2.dom.Node div(final List<? extends IsElement<?>> isElements) {
+        DivElement div = ElementsFactory.elements.div();
+
+        for (final IsElement<?> isElement : isElements) {
+            div.appendChild(isElement);
+        }
+
+        return div.element();
     }
 
     /**
