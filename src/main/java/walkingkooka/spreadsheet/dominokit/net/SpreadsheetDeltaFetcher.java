@@ -793,14 +793,18 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     @Override
     public void onSuccess(final String contentTypeName,
                           final String body) {
-        switch (contentTypeName) {
+        final AppContext context = this.context;
+
+        switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
+            case "":
+                this.watcher.onNoResponse(context);
             case "SpreadsheetDelta":
                 this.watcher.onSpreadsheetDelta(
                         this.parse(
                                 body,
                                 SpreadsheetDelta.class
                         ),
-                        this.context
+                        context
                 );
                 break;
             default:
