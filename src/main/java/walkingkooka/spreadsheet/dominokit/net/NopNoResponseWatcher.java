@@ -17,28 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import elemental2.dom.Headers;
-import walkingkooka.net.Url;
-import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-import java.util.Optional;
+public interface NopNoResponseWatcher extends FetcherWatcher {
 
-public interface FetcherWatcher {
-
-    void onBegin(final HttpMethod method,
-                 final Url url,
-                 final Optional<String> body,
-                 final AppContext context);
-
-    void onFailure(final HttpStatus status,
-                   final Headers headers,
-                   final String body,
-                   final AppContext context);
-
-    void onError(final Object cause,
-                 final AppContext context);
-
-    void onNoResponse(final AppContext context);
+    default void onNoResponse(final AppContext context) {
+        // ignore
+    }
 }

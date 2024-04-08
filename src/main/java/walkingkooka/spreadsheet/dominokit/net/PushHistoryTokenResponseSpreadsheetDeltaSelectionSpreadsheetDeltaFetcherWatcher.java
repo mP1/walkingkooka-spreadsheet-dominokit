@@ -29,7 +29,8 @@ import java.util.Optional;
  * If a viewport selection is present then copy the received selection even if its now gone.
  */
 final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher implements SpreadsheetDeltaFetcherWatcher,
-        NopFetcherWatcher {
+        NopFetcherWatcher,
+        NopNoResponseWatcher {
 
     /**
      * Singleton

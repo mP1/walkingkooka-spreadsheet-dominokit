@@ -52,4 +52,9 @@ abstract class FakeFetcherWatcher implements FetcherWatcher {
                         final AppContext context) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void onNoResponse(final AppContext context) {
+        throw new UnsupportedOperationException();
+    }
 }
