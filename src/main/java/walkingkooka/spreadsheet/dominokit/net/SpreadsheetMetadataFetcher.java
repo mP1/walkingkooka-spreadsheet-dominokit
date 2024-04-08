@@ -102,8 +102,8 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
         );
     }
 
-    public void getSpreadsheetMetadata(final OptionalInt from,
-                                       final OptionalInt count) {
+    public void getSpreadsheetMetadatas(final OptionalInt from,
+                                        final OptionalInt count) {
         Objects.requireNonNull(from, "from");
         Objects.requireNonNull(count, "count");
 
