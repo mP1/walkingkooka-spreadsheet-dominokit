@@ -93,7 +93,18 @@ final class SpreadsheetListComponentTableRow {
     private final SpreadsheetListComponentContext context;
 
     List<HistoryTokenAnchorComponent> links() {
-        return Lists.empty();
+        final SpreadsheetMetadata metadata = this.metadata;
+        final SpreadsheetId id = metadata.id().orElse(null);
+
+        final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetDelete(
+                        id,
+                        metadata.name().orElse(null)
+                ).link(SpreadsheetListComponent.ID_PREFIX + id + "-delete")
+                .setTextContent("Delete");
+
+        return Lists.of(
+                delete
+        );
     }
 
     private final SpreadsheetMetadata metadata;
