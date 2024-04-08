@@ -57,6 +57,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHist
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
@@ -958,17 +959,29 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return true;
+        boolean match = token instanceof SpreadsheetNameHistoryToken;
+
+        if (match) {
+            final AppContext context = this.context;
+            final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+            final SpreadsheetViewportCache cache = context.viewportCache();
+            final SpreadsheetViewportWindows windows = cache.windows();
+
+            match = false == metadata.isEmpty() && false == windows.isEmpty();
+        }
+
+        return match;
     }
 
     @Override
     public boolean isOpen() {
-        return true; // always open
+        return this.open;
     }
 
     @Override
     public void open(final AppContext context) {
-        // NOP
+        this.open = true;
+        this.setVisibility(true);
     }
 
     @Override
@@ -976,65 +989,60 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         final SpreadsheetViewportCache cache = context.viewportCache();
         final SpreadsheetViewportWindows windows = cache.windows();
-        final boolean empty = metadata.isEmpty() || windows.isEmpty();
 
-        this.setVisibility(false == empty);
+        final HistoryToken historyToken = context.historyToken();
 
-        if (false == empty) {
-            final HistoryToken historyToken = context.historyToken();
+        Predicate<SpreadsheetSelection> selected = Predicates.never();
 
-            Predicate<SpreadsheetSelection> selected = Predicates.never();
+        final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
+        if (maybeAnchorSelection.isPresent()) {
+            // special case for label
+            final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
+                    .nonLabelSelection(maybeAnchorSelection.get().selection());
+            if (maybeNotLabel.isPresent()) {
+                final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
 
-            final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
-            if (maybeAnchorSelection.isPresent()) {
-                // special case for label
-                final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
-                        .nonLabelSelection(maybeAnchorSelection.get().selection());
-                if (maybeNotLabel.isPresent()) {
-                    final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
-
-                    // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
-                    selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
-                            (false == s.isCellRangeReference() && selectionNotLabel.test(s));
-                }
+                // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
+                selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
+                        (false == s.isCellRangeReference() && selectionNotLabel.test(s));
             }
-
-            this.table.refresh(
-                    metadata.id().get(),
-                    metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
-                    windows,
-                    selected,
-                    BasicSpreadsheetViewportComponentTableContext.with(
-                            context,
-                            cache,
-                            metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
-                            metadata.effectiveStyle()
-                                    .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
-                            metadata.shouldViewRefresh(this.refreshMetadata),
-                            context
-                    )
-            );
-
-            if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
-                    historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
-                    historyToken instanceof SpreadsheetRowSelectHistoryToken) {
-                this.giveViewportSelectionFocus(
-                        maybeAnchorSelection.get(),
-                        context
-                );
-            }
-
-            if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
-                    historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
-                    historyToken instanceof SpreadsheetRowMenuHistoryToken) {
-                this.renderContextMenu(
-                        historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-                        context
-                );
-            }
-
-            this.scrollbarsRefresh();
         }
+
+        this.table.refresh(
+                metadata.id().get(),
+                metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
+                windows,
+                selected,
+                BasicSpreadsheetViewportComponentTableContext.with(
+                        context,
+                        cache,
+                        metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
+                        metadata.effectiveStyle()
+                                .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
+                        metadata.shouldViewRefresh(this.refreshMetadata),
+                        context
+                )
+        );
+
+        if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
+                historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
+                historyToken instanceof SpreadsheetRowSelectHistoryToken) {
+            this.giveViewportSelectionFocus(
+                    maybeAnchorSelection.get(),
+                    context
+            );
+        }
+
+        if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
+                historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
+                historyToken instanceof SpreadsheetRowMenuHistoryToken) {
+            this.renderContextMenu(
+                    historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+                    context
+            );
+        }
+
+        this.scrollbarsRefresh();
     }
 
     private SpreadsheetMetadata refreshMetadata;
@@ -1046,8 +1054,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public void close(final AppContext context) {
-        // nop
+        this.setVisibility(false);
+        this.open = false;
     }
+
+    private boolean open;
 
     @Override
     public boolean shouldLogLifecycleChanges() {
@@ -1100,7 +1111,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                    final AppContext context) {
         Objects.requireNonNull(delta, "delta");
 
-        this.refresh(context);
+        this.componentLifecycleHistoryTokenQuery(context);
         this.onFetchFinish(context);
     }
 
@@ -1139,7 +1150,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         // the returned metadata isnt any different from the current metadata skip rendering again.
         if (this.reload) {
-            this.refresh(context);
+            this.componentLifecycleHistoryTokenQuery(context);
         }
         this.onFetchFinish(context);
     }
