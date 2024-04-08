@@ -98,6 +98,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import java.math.MathContext;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -792,6 +793,13 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetCellFind lastCellFind = SpreadsheetCellFind.empty();
+
+    // HasLocale........................................................................................................
+
+    @Override
+    public Locale locale() {
+        return this.spreadsheetMetadata.locale();
+    }
 
     // HasNow...........................................................................................................
 
