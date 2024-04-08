@@ -113,7 +113,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             );
 
             final Locale locale = context.spreadsheetMetadata()
-                    .getOrFail(SpreadsheetMetadataPropertyName.LOCALE);
+                    .locale();
 
             format(
                     historyToken,
