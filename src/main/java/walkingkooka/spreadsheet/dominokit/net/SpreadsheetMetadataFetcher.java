@@ -214,7 +214,12 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
         final SpreadsheetMetadataFetcherWatcher watcher = this.watcher;
         final AppContext context = this.context;
 
-        switch (contentTypeName) {
+        switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
+            case "":
+                watcher.onNoResponse(
+                        context
+                );
+                break;
             case "SpreadsheetMetadata":
                 watcher.onSpreadsheetMetadata(
                         this.parse(
