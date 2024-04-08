@@ -24,9 +24,12 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.format.SpreadsheetText;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateTimeFormatPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -57,20 +60,39 @@ final class SpreadsheetListComponentTableRow {
                 );
     }
 
-    String created() {
-        final SpreadsheetMetadata metadata = this.metadata;
-
-        return metadata.getOrFail(SpreadsheetMetadataPropertyName.CREATOR) +
-                " " +
-                metadata.getOrFail(SpreadsheetMetadataPropertyName.CREATE_DATE_TIME);
+    String createdBy() {
+        return this.metadata.getOrFail(SpreadsheetMetadataPropertyName.CREATOR)
+                .toString();
     }
 
-    String lastModified() {
-        final SpreadsheetMetadata metadata = this.metadata;
+    String lastModifiedBy() {
+        return this.metadata.getOrFail(SpreadsheetMetadataPropertyName.MODIFIED_BY)
+                .toString();
+    }
 
-        return metadata.getOrFail(SpreadsheetMetadataPropertyName.MODIFIED_BY) +
-                " " +
-                metadata.getOrFail(SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME);
+    String createDateTime() {
+        return this.format(SpreadsheetMetadataPropertyName.CREATE_DATE_TIME);
+    }
+
+    String lastModifiedDateTime() {
+        return this.format(SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME);
+    }
+
+    private String format(final SpreadsheetMetadataPropertyName<LocalDateTime> dateTime) {
+        final SpreadsheetMetadata metadata = this.metadata;
+        final SpreadsheetDateTimeFormatPattern pattern = metadata.getOrFail(SpreadsheetMetadataPropertyName.DATETIME_FORMAT_PATTERN);
+
+        return pattern.formatter()
+                .format(
+                        metadata.getOrFail(dateTime),
+                        metadata.formatterContext(
+                                LocalDateTime::now,
+                                (label) -> {
+                                    throw new UnsupportedOperationException();
+                                }
+                        ))
+                .map(SpreadsheetText::text)
+                .orElse("");
     }
 
     List<HistoryTokenAnchorComponent> links() {
@@ -87,8 +109,10 @@ final class SpreadsheetListComponentTableRow {
                 .disable(ToStringBuilderOption.QUOTE)
                 .disable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
                 .value(this.name())
-                .value(this.created())
-                .value(this.lastModified())
+                .value(this.createdBy())
+                .value(this.createDateTime())
+                .value(this.lastModifiedBy())
+                .value(this.lastModifiedDateTime())
                 .value(this.links())
                 .build();
     }

@@ -54,11 +54,9 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                 tableConfig(),
                 localListDataStore
         );
-        table.setCondensed(true);
 
         this.table = table;
         this.dataStore = localListDataStore;
-        this.table.headerElement().hide();
 
         this.card.appendChild(table);
     }
@@ -67,28 +65,50 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
         return new TableConfig<SpreadsheetListComponentTableRow>()
                 .addColumn(
                         columnConfig(
+                                "Name",
                                 "name",
                                 TextAlign.LEFT,
                                 row -> row.name().element()
                         )
                 ).addColumn(
                         columnConfig(
-                                "created",
+                                "Created by",
+                                "created-by",
                                 TextAlign.CENTER,
                                 row -> Doms.textNode(
-                                        row.created()
+                                        row.createdBy()
                                 )
                         )
                 ).addColumn(
                         columnConfig(
-                                "last-modified",
+                                "Created",
+                                "create-date-time",
                                 TextAlign.CENTER,
                                 row -> Doms.textNode(
-                                        row.lastModified()
+                                        row.createDateTime()
                                 )
                         )
                 ).addColumn(
                         columnConfig(
+                                "Last modified by",
+                                "last-modified-by",
+                                TextAlign.CENTER,
+                                row -> Doms.textNode(
+                                        row.lastModifiedBy()
+                                )
+                        )
+                ).addColumn(
+                        columnConfig(
+                                "Last modified",
+                                "last-modified-date-time",
+                                TextAlign.CENTER,
+                                row -> Doms.textNode(
+                                        row.lastModifiedDateTime()
+                                )
+                        )
+                ).addColumn(
+                        columnConfig(
+                                "Links",
                                 "links",
                                 TextAlign.CENTER,
                                 row -> Doms.div(
@@ -103,12 +123,13 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                 );
     }
 
-    private static ColumnConfig<SpreadsheetListComponentTableRow> columnConfig(final String columnName,
+    private static ColumnConfig<SpreadsheetListComponentTableRow> columnConfig(final String title,
+                                                                               final String columnName,
                                                                                final TextAlign textAlign,
                                                                                final Function<SpreadsheetListComponentTableRow, Node> cellMapper) {
         return ColumnConfig.<SpreadsheetListComponentTableRow>create(columnName)
+                .setTitle(title)
                 .setFixed(true)
-                .minWidth("25%")
                 .setTextAlign(
                         CellTextAlign.valueOf(
                                 textAlign.name()
