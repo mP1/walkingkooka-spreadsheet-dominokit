@@ -124,10 +124,12 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
         }
 
         this.get(
-                Url.parseRelative("/api/spreadsheet/")
+                API_BASE.appendPath(STAR)
                         .setQuery(query)
         );
     }
+
+    private final static UrlPath STAR = UrlPath.parse("/*");
 
     private final static UrlParameterName FROM = UrlParameterName.with("from");
 
