@@ -156,6 +156,10 @@ public final class SpreadsheetDeleteHistoryToken extends SpreadsheetNameHistoryT
     @Override
     public void onHistoryTokenChange0(final HistoryToken previous,
                                      final AppContext context) {
+        context.pushHistoryToken(
+                previous.clearAction()
+        );
+
         context.addSpreadsheetMetadataWatcherOnce(
                 new SpreadsheetMetadataFetcherWatcher() {
                     @Override
