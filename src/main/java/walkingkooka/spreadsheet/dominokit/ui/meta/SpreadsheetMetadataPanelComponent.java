@@ -34,8 +34,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySty
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.OpenableComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
@@ -62,7 +62,7 @@ import java.util.function.Function;
 /**
  * A ui that displays numerous {@link SpreadsheetMetadata} properties with support for editing the individual values.
  */
-public final class SpreadsheetMetadataPanelComponent implements Component<HTMLTableElement>,
+public final class SpreadsheetMetadataPanelComponent implements HtmlElementComponent<HTMLTableElement, SpreadsheetMetadataPanelComponent>,
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
