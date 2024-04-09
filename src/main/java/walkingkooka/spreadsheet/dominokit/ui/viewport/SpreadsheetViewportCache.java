@@ -91,7 +91,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         context.addSpreadsheetDeltaWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
 
-        this.id = Optional.empty();
+        this.spreadsheetId = null;
     }
 
     /**
@@ -489,7 +489,24 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         this.selectionNotLabel = maybeSelectionNotLabel;
 
-        this.open = historyToken instanceof SpreadsheetNameHistoryToken && false == historyToken instanceof SpreadsheetDeleteHistoryToken;
+        SpreadsheetId id = null;
+        if (historyToken instanceof SpreadsheetNameHistoryToken && false == historyToken instanceof SpreadsheetDeleteHistoryToken) {
+            final SpreadsheetId newId = historyToken.cast(SpreadsheetNameHistoryToken.class).id();
+            final SpreadsheetId currentId = this.spreadsheetId;
+
+            if (false == Objects.equals(currentId, newId)) {
+                this.clear();
+
+                context.debug(
+                        "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
+                                currentId +
+                                " to " +
+                                newId
+                );
+            }
+            id = newId;
+        }
+        this.spreadsheetId = id;
     }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
@@ -500,31 +517,19 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        if (this.open) {
+        // only update defaultXXX if Metadata is the same as history SpreadsheetId
+        final SpreadsheetId id = metadata.id().orElse(null);
+        if (Objects.equals(this.spreadsheetId, id)) {
             this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH);
             this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT);
-
-            // clear the cache if a different spreadsheet
-            final Optional<SpreadsheetId> id = metadata.id();
-            final Optional<SpreadsheetId> currentId = this.id;
-            if (false == currentId.equals(id)) {
-                this.clear();
-
-                context.debug(
-                        "SpreadsheetViewportCache.onSpreadsheetMetadata id changed from " +
-                                currentId.map(Object::toString)
-                                        .orElse("") +
-                                " to " +
-                                id.map(Object::toString)
-                                        .orElse("")
-                );
-
-                this.id = id;
-            }
+        } else {
+            this.clear();
+            this.spreadsheetId = id;
         }
     }
 
-    private Optional<SpreadsheetId> id;
+    // @VisibleTesting
+    SpreadsheetId spreadsheetId;
 
     // @VisibleForTesting
     Length<?> defaultWidth;
@@ -548,7 +553,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     @Override
     public void onSpreadsheetDelta(final SpreadsheetDelta delta,
                                    final AppContext context) {
-        if (this.open) {
+        if (null != this.spreadsheetId) {
             this.setWindows(delta.window());
 
             {
@@ -652,12 +657,6 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             this.selectionSummary = null; // clear cache force recompute
         }
     }
-
-    /**
-     * A flag that only becomes true watching the {@link HistoryToken} so it matches {@link SpreadsheetViewportComponent#isOpen}
-     */
-    // @VisibleForTesting
-    boolean open;
 
     // Object...........................................................................................................
 
