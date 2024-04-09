@@ -257,7 +257,9 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         final SpreadsheetId id = this.id();
 
         // special case SpreadsheetDeleteHistoryToken otherwise load SpradsheetMetadata might happen.
-        if (this instanceof SpreadsheetDeleteHistoryToken || context.isSpreadsheetMetadataLoaded()) {
+        if (this instanceof SpreadsheetDeleteHistoryToken ||
+                this instanceof SpreadsheetRenameHistoryToken ||
+                context.isSpreadsheetMetadataLoaded()) {
             this.onHistoryTokenChange0(
                     previous,
                     context
