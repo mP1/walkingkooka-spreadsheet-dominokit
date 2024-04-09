@@ -29,9 +29,9 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import java.util.Optional;
 
 /**
- * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternComponent} provided various inputs.
+ * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternDialogComponent} provided various inputs.
  */
-public interface SpreadsheetPatternComponentContext extends CanGiveFocus,
+public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
         ComponentLifecycleMatcher,
         SpreadsheetDialogComponentContext {
 

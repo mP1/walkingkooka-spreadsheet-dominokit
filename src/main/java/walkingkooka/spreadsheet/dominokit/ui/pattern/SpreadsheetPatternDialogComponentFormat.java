@@ -26,18 +26,18 @@ import java.util.Objects;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public final class SpreadsheetPatternComponentFormat extends SpreadsheetPatternComponent {
+public final class SpreadsheetPatternDialogComponentFormat extends SpreadsheetPatternDialogComponent {
 
     /**
-     * Creates a new {@link SpreadsheetPatternComponentFormat}.
+     * Creates a new {@link SpreadsheetPatternDialogComponentFormat}.
      */
-    static SpreadsheetPatternComponentFormat with(final SpreadsheetPatternComponentContext context) {
+    static SpreadsheetPatternDialogComponentFormat with(final SpreadsheetPatternDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetPatternComponentFormat(context);
+        return new SpreadsheetPatternDialogComponentFormat(context);
     }
 
-    private SpreadsheetPatternComponentFormat(final SpreadsheetPatternComponentContext context) {
+    private SpreadsheetPatternDialogComponentFormat(final SpreadsheetPatternDialogComponentContext context) {
         super(context);
     }
 

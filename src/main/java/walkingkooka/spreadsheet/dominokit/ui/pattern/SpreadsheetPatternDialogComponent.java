@@ -44,7 +44,7 @@ import java.util.Optional;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogComponentLifecycle,
+public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDialogComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopNoResponseWatcher,
@@ -52,20 +52,20 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
         SpreadsheetMetadataFetcherWatcher {
 
     /**
-     * Creates a new {@link SpreadsheetPatternComponentFormat}.
+     * Creates a new {@link SpreadsheetPatternDialogComponentFormat}.
      */
-    public static SpreadsheetPatternComponent format(final SpreadsheetPatternComponentContext context) {
-        return SpreadsheetPatternComponentFormat.with(context);
+    public static SpreadsheetPatternDialogComponent format(final SpreadsheetPatternDialogComponentContext context) {
+        return SpreadsheetPatternDialogComponentFormat.with(context);
     }
 
     /**
-     * Creates a new {@link SpreadsheetPatternComponentParse}.
+     * Creates a new {@link SpreadsheetPatternDialogComponentParse}.
      */
-    public static SpreadsheetPatternComponent parse(final SpreadsheetPatternComponentContext context) {
-        return SpreadsheetPatternComponentParse.with(context);
+    public static SpreadsheetPatternDialogComponent parse(final SpreadsheetPatternDialogComponentContext context) {
+        return SpreadsheetPatternDialogComponentParse.with(context);
     }
 
-    SpreadsheetPatternComponent(final SpreadsheetPatternComponentContext context) {
+    SpreadsheetPatternDialogComponent(final SpreadsheetPatternDialogComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
@@ -99,7 +99,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * Creates the modal dialog, loaded with the pattern textbox and some buttons.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetPatternComponentContext context = this.context;
+        final SpreadsheetPatternDialogComponentContext context = this.context;
 
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID,
@@ -146,7 +146,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetDialogComponent dialog;
 
-    private final SpreadsheetPatternComponentContext context;
+    private final SpreadsheetPatternDialogComponentContext context;
 
     @Override
     public final String idPrefix() {
@@ -191,7 +191,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      * If that fails an error message will be displayed and the SAVE button disabled.
      */
     private void onPatternTextBox(final String patternText) {
-        final SpreadsheetPatternComponentContext context = this.context;
+        final SpreadsheetPatternDialogComponentContext context = this.context;
         final SpreadsheetPatternKind patternKind = context.patternKind();
         final SpreadsheetTextBox patternTextBox = this.patternTextBox;
 
@@ -340,7 +340,7 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
      */
     @Override
     public final void refresh(final AppContext context) {
-        final SpreadsheetPatternComponentContext componentContext = this.context;
+        final SpreadsheetPatternDialogComponentContext componentContext = this.context;
 
         this.dialog.setTitle(
                 title(

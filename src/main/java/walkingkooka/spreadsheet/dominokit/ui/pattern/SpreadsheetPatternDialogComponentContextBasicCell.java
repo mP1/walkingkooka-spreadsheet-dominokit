@@ -29,11 +29,11 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import java.util.Optional;
 
 /**
- * A {@link SpreadsheetPatternComponentContext} for editing patterns for a cell.
+ * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for a cell.
  */
-abstract class SpreadsheetPatternComponentContextBasicCell extends SpreadsheetPatternComponentContextBasic {
+abstract class SpreadsheetPatternDialogComponentContextBasicCell extends SpreadsheetPatternDialogComponentContextBasic {
 
-    SpreadsheetPatternComponentContextBasicCell(final AppContext context) {
+    SpreadsheetPatternDialogComponentContextBasicCell(final AppContext context) {
         super(context);
     }
 
@@ -44,7 +44,7 @@ abstract class SpreadsheetPatternComponentContextBasicCell extends SpreadsheetPa
         return token instanceof SpreadsheetCellPatternSaveHistoryToken;
     }
 
-    // SpreadsheetPatternComponentContext.........................................................................
+    // SpreadsheetPatternDialogComponentContext.........................................................................
 
     /**
      * Returns the {@link SpreadsheetPattern} for the cell.

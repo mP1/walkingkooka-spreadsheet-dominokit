@@ -23,17 +23,17 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import java.util.Objects;
 
 /**
- * A {@link SpreadsheetPatternComponentContext} for editing patterns for a cell parse pattern.
+ * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for a cell format pattern.
  */
-final class SpreadsheetPatternComponentContextBasicCellParse extends SpreadsheetPatternComponentContextBasicCell {
+final class SpreadsheetPatternDialogComponentContextBasicCellFormat extends SpreadsheetPatternDialogComponentContextBasicCell {
 
-    static SpreadsheetPatternComponentContextBasicCellParse with(final AppContext context) {
+    static SpreadsheetPatternDialogComponentContextBasicCellFormat with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetPatternComponentContextBasicCellParse(context);
+        return new SpreadsheetPatternDialogComponentContextBasicCellFormat(context);
     }
 
-    private SpreadsheetPatternComponentContextBasicCellParse(final AppContext context) {
+    private SpreadsheetPatternDialogComponentContextBasicCellFormat(final AppContext context) {
         super(context);
     }
 
@@ -41,6 +41,6 @@ final class SpreadsheetPatternComponentContextBasicCellParse extends Spreadsheet
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token.isCellParsePattern();
+        return token.isCellFormatPattern();
     }
 }

@@ -61,7 +61,7 @@ final class SpreadsheetPatternComponentElementsComponent implements HtmlElementC
      */
     void refresh(final SpreadsheetPattern pattern,
                  final String errorPattern,
-                 final SpreadsheetPatternComponentContext context) {
+                 final SpreadsheetPatternDialogComponentContext context) {
         final Card parent = this.parent.clearElement();
 
         final List<SpreadsheetFormatParserTokenKind> tokenKinds = this.tokenKinds;
@@ -92,7 +92,7 @@ final class SpreadsheetPatternComponentElementsComponent implements HtmlElementC
 
             for (final String text : texts) {
                 final HistoryToken historyToken = context.historyToken();
-                final String idPrefix = SpreadsheetPatternComponent.ID_PREFIX + i;
+                final String idPrefix = SpreadsheetPatternDialogComponent.ID_PREFIX + i;
 
                 final List<String> removed = Lists.array();
                 removed.addAll(texts);
@@ -133,7 +133,7 @@ final class SpreadsheetPatternComponentElementsComponent implements HtmlElementC
                         contextMenu = contextMenu.item(
                                 historyToken.setSave(newPattern)
                                         .contextMenuItem(
-                                                SpreadsheetPatternComponent.ID_PREFIX + "alternative-" + j + SpreadsheetIds.MENU_ITEM,
+                                                SpreadsheetPatternDialogComponent.ID_PREFIX + "alternative-" + j + SpreadsheetIds.MENU_ITEM,
                                                 alternative
                                         )
                         );

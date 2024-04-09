@@ -23,17 +23,17 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import java.util.Objects;
 
 /**
- * A {@link SpreadsheetPatternComponentContext} for editing patterns for the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
+ * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
  */
-final class SpreadsheetPatternComponentContextBasicMetadataParse extends SpreadsheetPatternComponentContextBasicMetadata {
+final class SpreadsheetPatternDialogComponentContextBasicMetadataFormat extends SpreadsheetPatternDialogComponentContextBasicMetadata {
 
-    static SpreadsheetPatternComponentContextBasicMetadataParse with(final AppContext context) {
+    static SpreadsheetPatternDialogComponentContextBasicMetadataFormat with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetPatternComponentContextBasicMetadataParse(context);
+        return new SpreadsheetPatternDialogComponentContextBasicMetadataFormat(context);
     }
 
-    private SpreadsheetPatternComponentContextBasicMetadataParse(final AppContext context) {
+    private SpreadsheetPatternDialogComponentContextBasicMetadataFormat(final AppContext context) {
         super(context);
     }
 
@@ -41,6 +41,6 @@ final class SpreadsheetPatternComponentContextBasicMetadataParse extends Spreads
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token.isMetadataParsePattern();
+        return token.isMetadataFormatPattern();
     }
 }

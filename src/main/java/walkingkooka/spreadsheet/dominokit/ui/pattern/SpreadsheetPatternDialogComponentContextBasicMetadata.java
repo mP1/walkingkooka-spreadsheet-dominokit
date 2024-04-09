@@ -25,11 +25,11 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import java.util.Optional;
 
 /**
- * A {@link SpreadsheetPatternComponentContext} for editing patterns for the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
+ * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
  */
-abstract class SpreadsheetPatternComponentContextBasicMetadata extends SpreadsheetPatternComponentContextBasic {
+abstract class SpreadsheetPatternDialogComponentContextBasicMetadata extends SpreadsheetPatternDialogComponentContextBasic {
 
-    SpreadsheetPatternComponentContextBasicMetadata(final AppContext context) {
+    SpreadsheetPatternDialogComponentContextBasicMetadata(final AppContext context) {
         super(context);
     }
 
@@ -40,7 +40,7 @@ abstract class SpreadsheetPatternComponentContextBasicMetadata extends Spreadshe
         return token instanceof SpreadsheetMetadataPropertySaveHistoryToken;
     }
 
-    // SpreadsheetPatternComponentContext.........................................................................
+    // SpreadsheetPatternDialogComponentContext.........................................................................
 
     /**
      * Returns the {@link SpreadsheetPattern} from the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.

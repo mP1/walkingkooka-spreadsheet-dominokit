@@ -26,7 +26,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * Represents a row of data for the sample table that appears within a {@link SpreadsheetPatternComponent}.
+ * Represents a row of data for the sample table that appears within a {@link SpreadsheetPatternDialogComponent}.
  */
 final class SpreadsheetPatternComponentTableRow {
 

@@ -17,18 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public final class SpreadsheetPatternComponentContextBasicTest implements ClassTesting<SpreadsheetPatternComponentContextBasic> {
+import java.lang.reflect.Method;
+
+public final class SpreadsheetPatternDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetPatternDialogComponentContexts> {
 
     @Override
-    public Class<SpreadsheetPatternComponentContextBasic> type() {
-        return SpreadsheetPatternComponentContextBasic.class;
+    public Class<SpreadsheetPatternDialogComponentContexts> type() {
+        return SpreadsheetPatternDialogComponentContexts.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+        return JavaVisibility.PUBLIC;
+    }
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
     }
 }
