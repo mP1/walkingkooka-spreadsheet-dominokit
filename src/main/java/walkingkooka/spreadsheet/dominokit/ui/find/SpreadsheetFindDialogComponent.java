@@ -66,22 +66,22 @@ import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
 /**
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
  */
-public final class SpreadsheetFindComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopNoResponseWatcher,
         SpreadsheetDeltaFetcherWatcher {
 
     /**
-     * Creates a new {@link SpreadsheetFindComponent}.
+     * Creates a new {@link SpreadsheetFindDialogComponent}.
      */
-    public static SpreadsheetFindComponent with(final SpreadsheetFindComponentContext context) {
+    public static SpreadsheetFindDialogComponent with(final SpreadsheetFindDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetFindComponent(context);
+        return new SpreadsheetFindDialogComponent(context);
     }
 
-    private SpreadsheetFindComponent(final SpreadsheetFindComponentContext context) {
+    private SpreadsheetFindDialogComponent(final SpreadsheetFindDialogComponentContext context) {
         this.context = context;
 
         this.cellRange = this.cellRange();
@@ -142,7 +142,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
 
     private final SpreadsheetDialogComponent dialog;
 
-    private final SpreadsheetFindComponentContext context;
+    private final SpreadsheetFindDialogComponentContext context;
 
     private DataTable<SpreadsheetCell> dataTable() {
         return new DataTable<>(
@@ -314,7 +314,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      */
     private SpreadsheetFormulaComponent query() {
         return SpreadsheetFormulaComponent.empty(
-                        SpreadsheetFindComponentSpreadsheetFormulaComponentParserFunction.with(this.context)
+                        SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction.with(this.context)
                 ).setId("query-TextBox")
                 .setLabel("Query")
                 .addChangeListener(this::onQueryChange);
@@ -362,7 +362,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      * and refresh of the UI.
      */
     private void setAndRefresh(final Function<SpreadsheetCellFindHistoryToken, HistoryToken> updater) {
-        final SpreadsheetFindComponentContext context = this.context;
+        final SpreadsheetFindDialogComponentContext context = this.context;
 
         // if setter failed ignore, validation will eventually show an error for the field.
         HistoryToken token = null;
@@ -442,7 +442,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
     public void refresh(final AppContext context) {
         final SpreadsheetCellFindHistoryToken token = context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class);
-        context.debug("SpreadsheetFindComponent.refresh " + token);
+        context.debug("SpreadsheetFindDialogComponent.refresh " + token);
 
         this.cellRange.setValue(
                 Optional.of(
@@ -475,7 +475,7 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellFind)}.
      */
     private void findCells() {
-        final SpreadsheetFindComponentContext context = this.context;
+        final SpreadsheetFindDialogComponentContext context = this.context;
 
         final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class);
