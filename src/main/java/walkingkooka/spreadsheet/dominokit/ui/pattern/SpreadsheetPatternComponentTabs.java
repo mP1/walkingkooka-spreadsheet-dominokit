@@ -30,7 +30,7 @@ import walkingkooka.text.CaseKind;
 import java.util.Optional;
 
 /**
- * Capture the tabs functionality within a {@link SpreadsheetPatternComponent}.
+ * Capture the tabs functionality within a {@link SpreadsheetPatternDialogComponent}.
  */
 final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentTabs> {
 
@@ -38,7 +38,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
      * Creates an empty {@link SpreadsheetPatternComponentTabs}.
      */
     static SpreadsheetPatternComponentTabs empty(final SpreadsheetPatternKind[] kinds,
-                                                 final SpreadsheetPatternComponentContext context) {
+                                                 final SpreadsheetPatternDialogComponentContext context) {
         return new SpreadsheetPatternComponentTabs(
                 kinds,
                 context
@@ -46,7 +46,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
     }
 
     private SpreadsheetPatternComponentTabs(final SpreadsheetPatternKind[] kinds,
-                                            final SpreadsheetPatternComponentContext context) {
+                                            final SpreadsheetPatternDialogComponentContext context) {
         this.tabs = this.patternKindTabs(
                 kinds,
                 context
@@ -58,7 +58,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
      * Creates a tab for each {@link SpreadsheetPatternKind}.
      */
     private Tab[] patternKindTabs(final SpreadsheetPatternKind[] kinds,
-                                  final SpreadsheetPatternComponentContext context) {
+                                  final SpreadsheetPatternDialogComponentContext context) {
         final Tab[] tabs = new Tab[kinds.length];
 
         int i = 0;
@@ -72,7 +72,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
                                     tab.getTab()
                                             .element()
                                             .firstElementChild
-                    ).setId(SpreadsheetPatternComponent.spreadsheetPatternKindId(kind))
+                    ).setId(SpreadsheetPatternDialogComponent.spreadsheetPatternKindId(kind))
                     .addPushHistoryToken(context)
                     .setDisabled(false);
 
@@ -119,7 +119,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
      */
     void refresh(final SpreadsheetPatternKind[] kinds,
-                 final SpreadsheetPatternComponentContext context) {
+                 final SpreadsheetPatternDialogComponentContext context) {
         final SpreadsheetPatternKind kind = context.patternKind();
 
         int i = 0;
@@ -131,7 +131,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
                             tab.getTab()
                                     .element()
                                     .firstElementChild
-            ).setId(SpreadsheetPatternComponent.spreadsheetPatternKindId(possible));
+            ).setId(SpreadsheetPatternDialogComponent.spreadsheetPatternKindId(possible));
 
             final boolean match = kind.equals(possible);
             anchor.setDisabled(match);

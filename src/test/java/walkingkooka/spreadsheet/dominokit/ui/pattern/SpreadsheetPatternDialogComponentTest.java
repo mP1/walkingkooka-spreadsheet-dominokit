@@ -22,7 +22,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
-public final class SpreadsheetPatternComponentTest implements ClassTesting<SpreadsheetPatternComponent> {
+public final class SpreadsheetPatternDialogComponentTest implements ClassTesting<SpreadsheetPatternDialogComponent> {
 
 
     // sheetPatternKindId...............................................................................................
@@ -55,7 +55,7 @@ public final class SpreadsheetPatternComponentTest implements ClassTesting<Sprea
                                                   final String expected) {
         this.checkEquals(
                 expected,
-                SpreadsheetPatternComponent.spreadsheetPatternKindId(kind),
+                SpreadsheetPatternDialogComponent.spreadsheetPatternKindId(kind),
                 () -> "spreadsheetPatternKindIdAndCheck " + kind
         );
     }
@@ -63,8 +63,8 @@ public final class SpreadsheetPatternComponentTest implements ClassTesting<Sprea
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetPatternComponent> type() {
-        return SpreadsheetPatternComponent.class;
+    public Class<SpreadsheetPatternDialogComponent> type() {
+        return SpreadsheetPatternDialogComponent.class;
     }
 
     @Override

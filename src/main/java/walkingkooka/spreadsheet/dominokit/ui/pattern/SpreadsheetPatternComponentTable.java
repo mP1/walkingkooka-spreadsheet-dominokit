@@ -54,7 +54,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
     }
 
     void refresh(final String patternText,
-                 final SpreadsheetPatternComponentContext context) {
+                 final SpreadsheetPatternDialogComponentContext context) {
         final SpreadsheetPatternKind patternKind = context.patternKind();
 
         // recreate table if pattern kind different
@@ -99,7 +99,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
     private LocalListDataStore<SpreadsheetPatternComponentTableRow> dataStore;
 
     private static TableConfig<SpreadsheetPatternComponentTableRow> tableConfig(final SpreadsheetPatternKind kind,
-                                                                                final SpreadsheetPatternComponentContext context) {
+                                                                                final SpreadsheetPatternDialogComponentContext context) {
         final TableConfig<SpreadsheetPatternComponentTableRow> tableConfig = new TableConfig<SpreadsheetPatternComponentTableRow>()
                 .addColumn(
                         columnConfig(
@@ -178,7 +178,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
      */
     private static HTMLAnchorElement patternAnchor(final String label,
                                                    final String patternText,
-                                                   final SpreadsheetPatternComponentContext context) {
+                                                   final SpreadsheetPatternDialogComponentContext context) {
         return HistoryTokenAnchorComponent.empty()
                 .setHref(
                         Url.EMPTY_RELATIVE_URL.setFragment(
@@ -188,7 +188,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
                         )
                 ).setTextContent(patternText)
                 .setId(
-                        SpreadsheetPatternComponent.ID_PREFIX +
+                        SpreadsheetPatternDialogComponent.ID_PREFIX +
                                 label.toLowerCase() +
                                 SpreadsheetIds.LINK
                 ).element();

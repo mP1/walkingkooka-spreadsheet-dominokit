@@ -28,15 +28,15 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import java.time.LocalDateTime;
 
 /**
- * A mostly complete {@link SpreadsheetPatternComponentContext}.
+ * A mostly complete {@link SpreadsheetPatternDialogComponentContext}.
  */
-abstract class SpreadsheetPatternComponentContextBasic implements SpreadsheetPatternComponentContext {
+abstract class SpreadsheetPatternDialogComponentContextBasic implements SpreadsheetPatternDialogComponentContext {
 
-    SpreadsheetPatternComponentContextBasic(final AppContext context) {
+    SpreadsheetPatternDialogComponentContextBasic(final AppContext context) {
         this.context = context;
     }
 
-    // SpreadsheetPatternComponentContext.........................................................................
+    // SpreadsheetPatternDialogComponentContext.........................................................................
 
     @Override
     public final SpreadsheetPatternKind patternKind() {

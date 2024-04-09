@@ -55,7 +55,7 @@ final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementC
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
     void recreate(final Consumer<String> setPatternText,
-                  final SpreadsheetPatternComponentContext context) {
+                  final SpreadsheetPatternDialogComponentContext context) {
         context.debug(this.getClass().getSimpleName() + ".recreate");
 
         final Card SpreadsheetIntegerBox = this.parent.clearElement();
@@ -79,7 +79,7 @@ final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementC
                     for (final String pattern : formatParserTokenKind.patterns()) {
                         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
                                 .setId(
-                                        SpreadsheetPatternComponent.ID_PREFIX +
+                                        SpreadsheetPatternDialogComponent.ID_PREFIX +
                                                 "append-" +
                                                 pattern +
                                                 SpreadsheetIds.LINK
@@ -116,7 +116,7 @@ final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementC
      */
     void refreshLinks(final String patternText,
                       final SpreadsheetPattern pattern,
-                      final SpreadsheetPatternComponentContext context) {
+                      final SpreadsheetPatternDialogComponentContext context) {
 
         final HistoryToken historyToken = context.historyToken();
 

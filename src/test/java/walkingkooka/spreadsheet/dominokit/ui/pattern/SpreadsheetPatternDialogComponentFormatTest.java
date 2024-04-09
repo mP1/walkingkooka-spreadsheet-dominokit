@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetPatternComponentFormatTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetPatternComponentFormat> {
+public final class SpreadsheetPatternDialogComponentFormatTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetPatternDialogComponentFormat> {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
