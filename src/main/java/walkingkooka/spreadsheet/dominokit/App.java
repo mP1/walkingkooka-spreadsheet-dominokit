@@ -83,6 +83,8 @@ import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternDialogCom
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponent;
+import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent;
@@ -170,6 +172,10 @@ public class App implements EntryPoint,
                         this.metadataWatchers,
                         this
                 )
+        );
+
+        SpreadsheetNameDialogComponent.with(
+                SpreadsheetNameDialogComponentContexts.appContext(this)
         );
 
         SpreadsheetColumnRowInsertCountDialogComponent.with(
