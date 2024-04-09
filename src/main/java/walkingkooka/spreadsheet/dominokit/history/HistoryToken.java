@@ -880,6 +880,17 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetRenameSelectHistoryToken}
+     */
+    public static SpreadsheetRenameSelectHistoryToken spreadsheetRenameSelect(final SpreadsheetId id,
+                                                                              final SpreadsheetName name) {
+        return SpreadsheetRenameSelectHistoryToken.with(
+                id,
+                name
+        );
+    }
+
+    /**
      * {@see SpreadsheetSelectHistoryToken}
      */
     public static SpreadsheetSelectHistoryToken spreadsheetSelect(final SpreadsheetId id,
@@ -1778,6 +1789,20 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
             token = spreadsheetReload(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name()
+            );
+        }
+
+        return token;
+    }
+
+    public final HistoryToken setRename() {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            token = spreadsheetRenameSelect(
                     spreadsheetNameHistoryToken.id(),
                     spreadsheetNameHistoryToken.name()
             );

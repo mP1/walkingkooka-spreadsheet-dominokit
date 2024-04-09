@@ -85,6 +85,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             case "reload":
                 result = this.parseReload(cursor);
                 break;
+            case "rename":
+                result = this.parseRename(cursor);
+                break;
             case "row":
                 result = this.parseRow(
                         cursor
@@ -212,6 +215,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     private HistoryToken parseReload(final TextCursor cursor) {
         return this.setReload();
+    }
+
+    private HistoryToken parseRename(final TextCursor cursor) {
+        return this.setRename();
     }
 
     @Override
