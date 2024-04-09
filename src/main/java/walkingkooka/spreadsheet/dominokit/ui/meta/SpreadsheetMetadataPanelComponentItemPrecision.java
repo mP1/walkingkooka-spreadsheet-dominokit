@@ -65,13 +65,11 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
         );
 
         // build links for 0 | 32 | 64 | 128
-        final HistoryToken token = context.historyToken()
-                .setMetadataPropertyName(SpreadsheetMetadataPropertyName.PRECISION);
+        final HistoryToken token = context.historyToken();
         final Map<Integer, HistoryTokenAnchorComponent> valueToAnchors = Maps.sorted();
 
         for (final int value : Lists.of(0, 32, 64, 128)) {
             final HistoryTokenAnchorComponent anchor = token
-                    .setSave(Optional.of(value))
                     .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value)
                     .setTabIndex(0)
                     .addPushHistoryToken(context)

@@ -62,9 +62,7 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
 
         this.list = this.uListElement();
 
-        final HistoryToken token = context.historyToken()
-                .clearSelection()
-                .setMetadataPropertyName(propertyName);
+        final HistoryToken token = context.historyToken();
 
         final Map<T, HistoryTokenAnchorComponent> valueToAnchors = Maps.hash();
         HistoryTokenAnchorComponent firstAnchor = null;
