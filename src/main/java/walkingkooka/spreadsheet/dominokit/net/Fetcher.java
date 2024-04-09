@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
-import walkingkooka.net.Url;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
@@ -34,7 +34,7 @@ import java.util.Optional;
 
 public interface Fetcher {
 
-    default void delete(final Url url) {
+    default void delete(final AbsoluteOrRelativeUrl url) {
         this.fetch(
                 HttpMethod.DELETE,
                 url,
@@ -42,7 +42,7 @@ public interface Fetcher {
         );
     }
 
-    default void get(final Url url) {
+    default void get(final AbsoluteOrRelativeUrl url) {
         this.fetch(
                 HttpMethod.GET,
                 url,
@@ -50,7 +50,7 @@ public interface Fetcher {
         );
     }
 
-    default void patch(final Url url,
+    default void patch(final AbsoluteOrRelativeUrl url,
                        final String body) {
         this.fetch(
                 HttpMethod.PATCH,
@@ -59,7 +59,7 @@ public interface Fetcher {
         );
     }
 
-    default void post(final Url url,
+    default void post(final AbsoluteOrRelativeUrl url,
                       final String body) {
         this.fetch(
                 HttpMethod.POST,
@@ -68,7 +68,7 @@ public interface Fetcher {
         );
     }
 
-    default void put(final Url url,
+    default void put(final AbsoluteOrRelativeUrl url,
                      final String body) {
         this.fetch(
                 HttpMethod.PUT,
@@ -78,7 +78,7 @@ public interface Fetcher {
     }
 
     default void fetch(final HttpMethod method,
-                       final Url url,
+                       final AbsoluteOrRelativeUrl url,
                        final Optional<String> body) {
         final RequestInit requestInit = RequestInit.create();
         requestInit.setMethod(method.value());
@@ -148,7 +148,7 @@ public interface Fetcher {
      * Called just before a fetch begins.
      */
     void onBegin(final HttpMethod method,
-                 final Url url,
+                 final AbsoluteOrRelativeUrl url,
                  final Optional<String> body);
 
     /**

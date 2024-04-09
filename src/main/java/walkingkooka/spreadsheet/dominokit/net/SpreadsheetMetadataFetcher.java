@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
@@ -198,7 +199,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
 
     @Override
     public void onBegin(final HttpMethod method,
-                        final Url url,
+                        final AbsoluteOrRelativeUrl url,
                         final Optional<String> body) {
         this.watcher.onBegin(
                 method,
