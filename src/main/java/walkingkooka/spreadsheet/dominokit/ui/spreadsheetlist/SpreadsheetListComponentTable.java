@@ -45,6 +45,8 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
         return new SpreadsheetListComponentTable(context);
     }
 
+    private final static String ID = SpreadsheetListComponent.ID_PREFIX + "table";
+
     private SpreadsheetListComponentTable(final SpreadsheetListComponentContext context) {
         this.card = Card.create();
 
@@ -54,6 +56,7 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                 tableConfig(),
                 localListDataStore
         );
+        table.id(ID);
 
         this.table = table;
         this.dataStore = localListDataStore;
