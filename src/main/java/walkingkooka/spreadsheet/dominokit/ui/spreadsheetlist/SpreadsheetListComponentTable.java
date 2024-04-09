@@ -156,7 +156,6 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                 metadatas.stream()
                         .map(m -> SpreadsheetListComponentTableRow.with(m, this.context))
                         .collect(Collectors.toList()));
-        this.table.load();
     }
 
     private final SpreadsheetListComponentContext context;
