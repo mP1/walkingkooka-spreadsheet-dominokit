@@ -24,6 +24,7 @@ import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLTableElement;
+import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
@@ -34,6 +35,9 @@ import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -59,7 +63,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
-import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
@@ -104,7 +107,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
         NopNoResponseWatcher {
 
     /**
@@ -1072,6 +1074,30 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         if (null != notRequired) {
             context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken " + notRequired + " viewport load not required");
         }
+    }
+
+    // Fetcher..........................................................................................................
+
+    @Override
+    public void onBegin(final HttpMethod method,
+                        final Url url,
+                        final Optional<String> body,
+                        final AppContext context) {
+        // nop
+    }
+
+    @Override
+    public void onFailure(final HttpStatus status,
+                          final Headers headers,
+                          final String body,
+                          final AppContext context) {
+        this.reload = true;
+    }
+
+    @Override
+    public void onError(final Object cause,
+                        final AppContext context) {
+        // nop
     }
 
     // delta............................................................................................................
