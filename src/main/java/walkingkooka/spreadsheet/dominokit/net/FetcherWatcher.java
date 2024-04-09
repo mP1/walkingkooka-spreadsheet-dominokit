@@ -33,7 +33,8 @@ public interface FetcherWatcher {
                  final Optional<String> body,
                  final AppContext context);
 
-    void onFailure(final AbsoluteOrRelativeUrl url,
+    void onFailure(final HttpMethod method,
+                   final AbsoluteOrRelativeUrl url,
                    final HttpStatus status,
                    final Headers headers,
                    final String body,

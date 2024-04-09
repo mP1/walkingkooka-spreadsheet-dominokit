@@ -93,12 +93,12 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         watchers.addOnce(watcher);
 
         watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
-        watchers.onFailure(URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
+        watchers.onFailure(HttpMethod.GET, URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
 
         this.checkEquals("onBeginonFailure", watcher.toString());
 
         watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
-        watchers.onFailure(URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
+        watchers.onFailure(HttpMethod.GET, URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
 
         this.checkEquals("onBeginonFailure", watcher.toString());
     }
@@ -153,7 +153,8 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
-        public void onFailure(final AbsoluteOrRelativeUrl url,
+        public void onFailure(final HttpMethod method,
+                              final AbsoluteOrRelativeUrl url,
                               final HttpStatus status,
                               final Headers headers,
                               final String body,
@@ -257,7 +258,8 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
-        public void onFailure(final AbsoluteOrRelativeUrl url,
+        public void onFailure(final HttpMethod method,
+                              final AbsoluteOrRelativeUrl url,
                               final HttpStatus status,
                               final Headers headers,
                               final String body,

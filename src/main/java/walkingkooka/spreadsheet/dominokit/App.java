@@ -359,12 +359,13 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onFailure(final AbsoluteOrRelativeUrl url,
+    public void onFailure(final HttpMethod method,
+                          final AbsoluteOrRelativeUrl url,
                           final HttpStatus status,
                           final Headers headers,
                           final String body,
                           final AppContext context) {
-        context.error(url + " " + status, body);
+        context.error(method + " " + url + " " + status, body);
     }
 
     @Override
