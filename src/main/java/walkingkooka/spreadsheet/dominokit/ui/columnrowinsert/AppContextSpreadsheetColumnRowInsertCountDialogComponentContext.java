@@ -27,15 +27,15 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-final class AppContextSpreadsheetColumnRowInsertCountComponentContext implements SpreadsheetColumnRowInsertCountComponentContext {
+final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext {
 
-    static AppContextSpreadsheetColumnRowInsertCountComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetColumnRowInsertCountComponentContext(
+    static AppContextSpreadsheetColumnRowInsertCountDialogComponentContext with(final AppContext context) {
+        return new AppContextSpreadsheetColumnRowInsertCountDialogComponentContext(
                 Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextSpreadsheetColumnRowInsertCountComponentContext(final AppContext context) {
+    private AppContextSpreadsheetColumnRowInsertCountDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 

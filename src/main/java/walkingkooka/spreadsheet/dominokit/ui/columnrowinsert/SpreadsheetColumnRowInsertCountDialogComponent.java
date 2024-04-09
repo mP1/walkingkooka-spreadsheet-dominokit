@@ -33,19 +33,19 @@ import java.util.OptionalInt;
 /**
  * A model dialog with a text field which accepts a count value, and when entered trigger the inserting of columns and rows.
  */
-public final class SpreadsheetColumnRowInsertCountComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetColumnRowInsertCountDialogComponent implements SpreadsheetDialogComponentLifecycle,
         LoadedSpreadsheetMetadataRequired {
 
     /**
-     * Creates a new {@link SpreadsheetColumnRowInsertCountComponent}.
+     * Creates a new {@link SpreadsheetColumnRowInsertCountDialogComponent}.
      */
-    public static SpreadsheetColumnRowInsertCountComponent with(final SpreadsheetColumnRowInsertCountComponentContext context) {
+    public static SpreadsheetColumnRowInsertCountDialogComponent with(final SpreadsheetColumnRowInsertCountDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetColumnRowInsertCountComponent(context);
+        return new SpreadsheetColumnRowInsertCountDialogComponent(context);
     }
 
-    private SpreadsheetColumnRowInsertCountComponent(final SpreadsheetColumnRowInsertCountComponentContext context) {
+    private SpreadsheetColumnRowInsertCountDialogComponent(final SpreadsheetColumnRowInsertCountDialogComponentContext context) {
         this.context = context;
 
         this.count = this.count();
@@ -62,7 +62,7 @@ public final class SpreadsheetColumnRowInsertCountComponent implements Spreadshe
      * Creates the modal dialog, which includes a few text boxes to edit the label and the target.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetColumnRowInsertCountComponentContext context = this.context;
+        final SpreadsheetColumnRowInsertCountDialogComponentContext context = this.context;
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID,
                 context.dialogTitle(),
@@ -87,7 +87,7 @@ public final class SpreadsheetColumnRowInsertCountComponent implements Spreadshe
 
     private final SpreadsheetDialogComponent dialog;
 
-    private final SpreadsheetColumnRowInsertCountComponentContext context;
+    private final SpreadsheetColumnRowInsertCountDialogComponentContext context;
 
     @Override
     public SpreadsheetDialogComponent dialog() {

@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappin
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.
  */
-public interface SpreadsheetColumnRowInsertCountComponentContext extends
+public interface SpreadsheetColumnRowInsertCountDialogComponentContext extends
         SpreadsheetDialogComponentContext,
         ComponentLifecycleMatcher {
 
