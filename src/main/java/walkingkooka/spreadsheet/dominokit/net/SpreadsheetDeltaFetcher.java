@@ -806,7 +806,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 this.watcher.onNoResponse(context);
             case "SpreadsheetDelta":
                 this.watcher.onSpreadsheetDelta(
-                        SpreadsheetMetadataFetcher.parseSpreadsheetId(url),
+                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                                .get(),
                         this.parse(
                                 body,
                                 SpreadsheetDelta.class

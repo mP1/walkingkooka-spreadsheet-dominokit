@@ -23,6 +23,8 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetMetadataFetcherTest implements ClassTesting<SpreadsheetMetadataFetcher> {
@@ -45,24 +47,38 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
         );
     }
 
-    // parseSpreadsheetId...............................................................................................
+    // extractSpreadsheetId.............................................................................................
 
     @Test
-    public void testParseSpreadsheetIdFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetMetadataFetcher.parseSpreadsheetId(
-                        Url.parseRelative("/api/spreadsheet")
-                )
+    public void testExtractSpreadsheetIdMissing() {
+        this.extractSpreadsheetIdAndCheck(
+                "/api/spreadsheet",
+                null
         );
     }
 
     @Test
-    public void testParseSpreadsheetId() {
+    public void testExtractSpreadsheetIdInvalid() {
+        this.extractSpreadsheetIdAndCheck(
+                "/api/spreadsheet/!invalid",
+                null
+        );
+    }
+
+    @Test
+    public void testExtractSpreadsheetId() {
+        this.extractSpreadsheetIdAndCheck(
+                "/api/spreadsheet/123",
+                SpreadsheetId.parse("123")
+        );
+    }
+
+    private void extractSpreadsheetIdAndCheck(final String url,
+                                              final SpreadsheetId expected) {
         this.checkEquals(
-                SpreadsheetId.parse("123"),
-                SpreadsheetMetadataFetcher.parseSpreadsheetId(
-                        Url.parseRelative("/api/spreadsheet/123")
+                Optional.ofNullable(expected),
+                SpreadsheetMetadataFetcher.extractSpreadsheetId(
+                        Url.parseRelative(url)
                 )
         );
     }
