@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.labelmapping;
 
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -275,7 +276,8 @@ public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialog
     // SpreadsheetLabelMappingFetcherWatcher...................................................................................
 
     @Override
-    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
+    public void onSpreadsheetLabelMapping(final SpreadsheetId id,
+                                          final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
         this.undoLabel = mapping.map(SpreadsheetLabelMapping::label);
         this.undoTarget = mapping.map(SpreadsheetLabelMapping::target);

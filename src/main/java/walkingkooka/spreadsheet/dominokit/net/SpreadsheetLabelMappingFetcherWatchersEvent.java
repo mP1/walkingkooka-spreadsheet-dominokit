@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
@@ -27,14 +28,21 @@ import java.util.Optional;
  */
 final class SpreadsheetLabelMappingFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetLabelMappingFetcherWatcher> {
 
-    static SpreadsheetLabelMappingFetcherWatchersEvent with(final Optional<SpreadsheetLabelMapping> mapping,
+    static SpreadsheetLabelMappingFetcherWatchersEvent with(final SpreadsheetId id,
+                                                            final Optional<SpreadsheetLabelMapping> mapping,
                                                             final AppContext context) {
-        return new SpreadsheetLabelMappingFetcherWatchersEvent(mapping, context);
+        return new SpreadsheetLabelMappingFetcherWatchersEvent(
+                id,
+                mapping,
+                context
+        );
     }
 
-    private SpreadsheetLabelMappingFetcherWatchersEvent(final Optional<SpreadsheetLabelMapping> mapping,
+    private SpreadsheetLabelMappingFetcherWatchersEvent(final SpreadsheetId id,
+                                                        final Optional<SpreadsheetLabelMapping> mapping,
                                                         final AppContext context) {
         super(context);
+        this.id = id;
         this.mapping = mapping;
     }
 
@@ -42,6 +50,7 @@ final class SpreadsheetLabelMappingFetcherWatchersEvent extends FetcherWatchersE
     public void accept(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         try {
             watcher.onSpreadsheetLabelMapping(
+                    this.id,
                     this.mapping,
                     this.context
             );
@@ -53,10 +62,12 @@ final class SpreadsheetLabelMappingFetcherWatchersEvent extends FetcherWatchersE
         }
     }
 
+    private final SpreadsheetId id;
+
     private final Optional<SpreadsheetLabelMapping> mapping;
 
     @Override
     public String toString() {
-        return this.mapping + " " + this.context;
+        return this.id + " " + this.mapping + " " + this.context;
     }
 }

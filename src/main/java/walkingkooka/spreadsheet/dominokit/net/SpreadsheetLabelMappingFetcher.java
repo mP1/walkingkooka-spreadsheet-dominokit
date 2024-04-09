@@ -147,6 +147,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
                 break;
             case "SpreadsheetLabelMapping":
                 watcher.onSpreadsheetLabelMapping(
+                        SpreadsheetMetadataFetcher.parseSpreadsheetId(url),
                         Optional.ofNullable(
                                 body.isEmpty() ?
                                         null :
