@@ -122,6 +122,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 LABEL.mapping(CELL)

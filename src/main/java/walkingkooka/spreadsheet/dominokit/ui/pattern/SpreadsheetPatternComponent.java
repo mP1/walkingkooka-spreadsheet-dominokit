@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -294,7 +295,8 @@ public abstract class SpreadsheetPatternComponent implements SpreadsheetDialogCo
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
     @Override
-    public final void onSpreadsheetDelta(final SpreadsheetDelta delta,
+    public final void onSpreadsheetDelta(final SpreadsheetId id,
+                                         final SpreadsheetDelta delta,
                                          final AppContext context) {
         this.refreshIfOpen(context);
     }

@@ -17,13 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 public class FakeSpreadsheetDeltaFetcherWatcher extends FakeFetcherWatcher implements SpreadsheetDeltaFetcherWatcher {
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+    public void onSpreadsheetDelta(final SpreadsheetId id,
+                                   final SpreadsheetDelta delta,
                                    final AppContext context) {
         throw new UnsupportedOperationException();
     }

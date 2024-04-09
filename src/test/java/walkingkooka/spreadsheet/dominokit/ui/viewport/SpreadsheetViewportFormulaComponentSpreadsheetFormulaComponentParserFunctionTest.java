@@ -54,7 +54,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
     private final static ExpressionNumberKind EXPRESSION_NUMBER_KIND = ExpressionNumberKind.BIG_DECIMAL;
 
+    private final static SpreadsheetId ID = SpreadsheetId.with(2);
+
     private final static SpreadsheetMetadata METADATA = SpreadsheetMetadata.EMPTY
+            .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
             .set(SpreadsheetMetadataPropertyName.LOCALE, Locale.forLanguageTag("EN-AU"))
             .loadFromLocale()
             .set(SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND, EXPRESSION_NUMBER_KIND)
@@ -200,6 +203,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         final SpreadsheetViewportCache viewportCache = context.viewportCache();
 
         viewportCache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 cellReference.setFormula(
@@ -246,6 +250,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         viewportCache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 cellReference.setFormula(
@@ -290,6 +295,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         viewportCache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 cellReference.setFormula(

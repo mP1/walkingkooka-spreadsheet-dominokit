@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
@@ -25,12 +26,21 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
  */
 final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetDeltaFetcherWatcher> {
 
-    static SpreadsheetDeltaFetcherWatchersEvent with(final SpreadsheetDelta delta, final AppContext context) {
-        return new SpreadsheetDeltaFetcherWatchersEvent(delta, context);
+    static SpreadsheetDeltaFetcherWatchersEvent with(final SpreadsheetId id,
+                                                     final SpreadsheetDelta delta,
+                                                     final AppContext context) {
+        return new SpreadsheetDeltaFetcherWatchersEvent(
+                id,
+                delta,
+                context
+        );
     }
 
-    private SpreadsheetDeltaFetcherWatchersEvent(final SpreadsheetDelta delta, final AppContext context) {
+    private SpreadsheetDeltaFetcherWatchersEvent(final SpreadsheetId id,
+                                                 final SpreadsheetDelta delta,
+                                                 final AppContext context) {
         super(context);
+        this.id = id;
         this.delta = delta;
     }
 
@@ -38,6 +48,7 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
     public void accept(final SpreadsheetDeltaFetcherWatcher watcher) {
         try {
             watcher.onSpreadsheetDelta(
+                    this.id,
                     this.delta,
                     this.context
             );
@@ -49,10 +60,12 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
         }
     }
 
+    private final SpreadsheetId id;
+
     private final SpreadsheetDelta delta;
 
     @Override
     public String toString() {
-        return this.delta + " " + this.context;
+        return this.id + " " + this.delta + " " + this.context;
     }
 }

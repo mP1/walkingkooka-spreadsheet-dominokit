@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
@@ -41,7 +42,8 @@ final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFet
     }
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+    public void onSpreadsheetDelta(final SpreadsheetId id,
+                                   final SpreadsheetDelta delta,
                                    final AppContext context) {
         final HistoryToken historyToken = context.historyToken();
 

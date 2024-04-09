@@ -23,6 +23,7 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -35,6 +36,7 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
     public void testAddThenFire() {
         this.fired = 0;
 
+        final SpreadsheetId id = SpreadsheetId.with(1);
         final SpreadsheetDelta spreadsheetDelta = SpreadsheetDelta.EMPTY;
         final AppContext appContext = AppContexts.fake();
 
@@ -42,15 +44,17 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
         watchers.add(
                 new FakeSpreadsheetDeltaFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                    public void onSpreadsheetDelta(final SpreadsheetId i,
+                                                   final SpreadsheetDelta delta,
                                                    final AppContext context) {
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(id, i);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(spreadsheetDelta, delta);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                         SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                     }
                 });
-        watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(id, spreadsheetDelta, appContext);
 
         this.checkEquals(1, this.fired);
     }
@@ -59,6 +63,7 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
     public void testAddOnce() {
         this.fired = 0;
 
+        final SpreadsheetId id = SpreadsheetId.with(2);
         final SpreadsheetDelta spreadsheetDelta = SpreadsheetDelta.EMPTY;
         final AppContext appContext = AppContexts.fake();
 
@@ -66,21 +71,23 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
         watchers.addOnce(
                 new FakeSpreadsheetDeltaFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+                    public void onSpreadsheetDelta(final SpreadsheetId i,
+                                                   final SpreadsheetDelta delta,
                                                    final AppContext context) {
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(id, i);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(spreadsheetDelta, delta);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                         SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                     }
                 });
-        watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(id, spreadsheetDelta, appContext);
         this.checkEquals(1, this.fired);
 
-        watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(id, spreadsheetDelta, appContext);
         this.checkEquals(1, this.fired);
 
-        watchers.onSpreadsheetDelta(spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(id, spreadsheetDelta, appContext);
         this.checkEquals(1, this.fired);
     }
 

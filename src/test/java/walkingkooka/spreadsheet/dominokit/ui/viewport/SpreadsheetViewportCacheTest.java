@@ -198,6 +198,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         cache.clear();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -308,6 +309,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -337,6 +339,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 b2
@@ -356,6 +359,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -385,6 +389,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 );
 
         cache.onSpreadsheetDelta(
+                DIFFERENT_ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.parseCell("B2")
@@ -401,10 +406,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 b2
         );
 
+        final SpreadsheetId spreadsheetId3 = SpreadsheetId.with(3333);
+
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY.set(
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        SpreadsheetId.with(3333)
+                        spreadsheetId3
                 ).set(
                         SpreadsheetMetadataPropertyName.STYLE,
                         TextStyle.EMPTY
@@ -420,6 +427,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 );
 
         cache.onSpreadsheetDelta(
+                spreadsheetId3,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(c3)
                 ),
@@ -437,6 +445,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -496,6 +505,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -556,6 +566,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -588,6 +599,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.parse("A1:A2");
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -624,6 +636,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -638,6 +651,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -675,6 +689,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setColumns(
                                 Sets.of(
@@ -686,6 +701,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -713,6 +729,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setColumns(
                                 Sets.of(
@@ -724,6 +741,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -750,6 +768,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setColumns(
                                 Sets.of(
@@ -761,6 +780,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -786,6 +806,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -796,6 +817,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -827,6 +849,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -837,6 +860,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -864,6 +888,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -879,6 +904,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -908,6 +934,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -924,6 +951,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -967,6 +995,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -985,6 +1014,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setWindow(WINDOW),
                 CONTEXT
@@ -1011,6 +1041,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -1032,6 +1063,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -1063,6 +1095,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -1081,6 +1114,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -1123,6 +1157,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setRows(
                                 Sets.of(
@@ -1134,6 +1169,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -1161,6 +1197,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setRows(
                                 Sets.of(
@@ -1172,6 +1209,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -1198,6 +1236,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setRows(
                                 Sets.of(
@@ -1209,6 +1248,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -1236,6 +1276,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setColumnWidths(
                                 Maps.of(
@@ -1260,6 +1301,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setColumnWidths(
                                 Maps.of(
@@ -1272,6 +1314,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setColumnWidths(
                                 Maps.of(
@@ -1308,6 +1351,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -1375,6 +1419,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -1428,6 +1473,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -1482,6 +1528,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -1534,6 +1581,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setCells(
                                 Sets.of(
@@ -1605,6 +1653,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setColumnWidths(
                                 Maps.of(
@@ -1650,6 +1699,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -1674,6 +1724,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -1689,6 +1740,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -1713,6 +1765,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setRowHeights(
                                 Maps.of(
@@ -1737,6 +1790,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setRowHeights(
                                 Maps.of(
@@ -1749,6 +1803,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setRowHeights(
                                 Maps.of(
@@ -1783,6 +1838,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setRowHeights(
                                 Maps.of(
@@ -1825,6 +1881,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 SpreadsheetSelection.labelName("LostLabel").mapping(A1)
@@ -1834,6 +1891,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setDeletedCells(
                         Sets.of(
                                 A1
@@ -1853,6 +1911,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 SpreadsheetSelection.labelName("LostLabel").mapping(A1)
@@ -1862,6 +1921,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setDeletedCells(
                         Sets.of(
                                 A1
@@ -1926,6 +1986,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -1936,6 +1997,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -1962,6 +2024,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -1972,6 +2035,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -1998,6 +2062,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -2008,6 +2073,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -2048,6 +2114,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -2060,6 +2127,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetCellRangeReference b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -2106,11 +2174,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY,
                 CONTEXT
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -2155,6 +2225,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY,
                 CONTEXT
         );
@@ -2162,6 +2233,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetCellRangeReference b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -2211,11 +2283,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY,
                 CONTEXT
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -2260,6 +2334,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -2270,6 +2345,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -2333,6 +2409,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setLabels(
                                 Sets.of(
@@ -2345,6 +2422,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetLabelName third = SpreadsheetSelection.labelName("LabelToLabel999");
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY
                         .setDeletedCells(
                                 Sets.of(
@@ -2426,6 +2504,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 LABEL_MAPPINGA1A
@@ -2445,6 +2524,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 LABEL_MAPPINGA1A,
@@ -2467,6 +2547,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 LABEL_MAPPINGA1A,
@@ -2490,6 +2571,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 LABEL_MAPPINGB3
@@ -2514,6 +2596,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
                                 LABEL_MAPPINGA1A,
@@ -2621,6 +2704,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetFormatPattern text = SpreadsheetPattern.parseTextFormatPattern("@@@");
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -2681,6 +2765,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetFormatPattern text = SpreadsheetPattern.parseTextFormatPattern("@@@");
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -2731,6 +2816,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetParsePattern time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss");
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -2791,6 +2877,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetParsePattern time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss");
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -2846,6 +2933,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -2918,6 +3006,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -2970,6 +3059,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -3028,6 +3118,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -3102,6 +3193,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -3166,6 +3258,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align1 = TextAlign.LEFT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -3193,6 +3286,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -3253,6 +3347,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align1 = TextAlign.LEFT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
@@ -3279,6 +3374,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 SpreadsheetSelection.parseCell("A2")
@@ -3725,6 +3821,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testIsColumnHiddenPresent() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setColumns(
                         Sets.of(COLUMN_A)
                 ),
@@ -3741,6 +3838,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testIsColumnHiddenPresentAndHidden() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setColumns(
                         Sets.of(COLUMN_A.setHidden(true))
                 ),
@@ -3778,6 +3876,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testIsRowHiddenPresent() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setRows(
                         Sets.of(ROW_1)
                 ),
@@ -3794,6 +3893,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testIsRowHiddenPresentAndHidden() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
         cache.onSpreadsheetDelta(
+                ID,
                 SpreadsheetDelta.EMPTY.setRows(
                         Sets.of(ROW_1.setHidden(true))
                 ),
