@@ -96,9 +96,8 @@ final class SpreadsheetListComponentTableRow {
         final SpreadsheetMetadata metadata = this.metadata;
         final SpreadsheetId id = metadata.id().orElse(null);
 
-        final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetDelete(
-                        id,
-                        metadata.name().orElse(null)
+        final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetListDelete(
+                        id
                 ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-delete")
                 .setTextContent("Delete");
 

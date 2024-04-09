@@ -42,7 +42,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     // HasUrlFragment...................................................................................................
 
     @Override //
-    final UrlFragment spreadsheetUrlFragment() {
+    final UrlFragment spreadsheetNameUrlFragment() {
         return this.selectionUrlFragment();
     }
 

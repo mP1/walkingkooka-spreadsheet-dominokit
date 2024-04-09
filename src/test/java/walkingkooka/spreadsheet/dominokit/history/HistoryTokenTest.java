@@ -2434,22 +2434,21 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetId() {
+    public void testParseDeleteSpreadsheetId() {
         this.parseStringAndCheck(
-                "/123",
-                HistoryToken.spreadsheetLoad(
+                "/delete/123",
+                HistoryToken.spreadsheetListDelete(
                         ID
                 )
         );
     }
 
     @Test
-    public void testParseSpreadsheetIdDelete() {
+    public void testParseSpreadsheetId() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/delete",
-                HistoryToken.spreadsheetDelete(
-                        ID,
-                        NAME
+                "/123",
+                HistoryToken.spreadsheetLoad(
+                        ID
                 )
         );
     }

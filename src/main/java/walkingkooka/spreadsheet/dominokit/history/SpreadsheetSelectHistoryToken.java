@@ -53,7 +53,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    UrlFragment spreadsheetUrlFragment() {
+    UrlFragment spreadsheetNameUrlFragment() {
         return UrlFragment.EMPTY;
     }
 
@@ -233,10 +233,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     @Override
     HistoryToken setDelete0() {
-        return HistoryToken.spreadsheetDelete(
-                this.id(),
-                this.name()
-        );
+        return this;
     }
 
     @Override

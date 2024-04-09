@@ -80,7 +80,7 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    UrlFragment spreadsheetUrlFragment() {
+    UrlFragment spreadsheetNameUrlFragment() {
         return URL_FRAGMENT;
     }
 

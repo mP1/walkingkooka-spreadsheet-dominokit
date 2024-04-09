@@ -18,25 +18,42 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-public final class SpreadsheetDeleteHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetDeleteHistoryToken> {
+import java.util.OptionalInt;
+
+public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetListDeleteHistoryToken> {
+
+    @Test
+    public void testParseMissingSpreadsheetId() {
+        this.parseAndCheck(
+                "/delete",
+                HistoryToken.spreadsheetList(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
+                )
+        );
+    }
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/delete");
+        this.urlFragmentAndCheck("/delete/123");
     }
 
     @Test
     public void testClearAction() {
-        this.clearActionAndCheck();
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.spreadsheetList(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
+                )
+        );
     }
 
     @Test
     public void testSetAnchoredSelection() {
-        final SpreadsheetDeleteHistoryToken token = this.createHistoryToken();
+        final SpreadsheetListDeleteHistoryToken token = this.createHistoryToken();
 
         this.setAnchoredSelectionAndCheck(
                 token,
@@ -48,11 +65,7 @@ public final class SpreadsheetDeleteHistoryTokenTest extends SpreadsheetNameHist
     public void testSetMetadataPropertyName() {
         this.setMetadataPropertyNameAndCheck(
                 SpreadsheetMetadataPropertyName.LOCALE,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.LOCALE
-                )
+                this.createHistoryToken()
         );
     }
 
@@ -64,16 +77,12 @@ public final class SpreadsheetDeleteHistoryTokenTest extends SpreadsheetNameHist
     }
 
     @Override
-    SpreadsheetDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                     final SpreadsheetName name) {
-        return SpreadsheetDeleteHistoryToken.with(
-                id,
-                name
-        );
+    SpreadsheetListDeleteHistoryToken createHistoryToken() {
+        return SpreadsheetListDeleteHistoryToken.with(ID);
     }
 
     @Override
-    public Class<SpreadsheetDeleteHistoryToken> type() {
-        return SpreadsheetDeleteHistoryToken.class;
+    public Class<SpreadsheetListDeleteHistoryToken> type() {
+        return SpreadsheetListDeleteHistoryToken.class;
     }
 }
