@@ -820,11 +820,13 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     @Override
-    public void onFailure(final AbsoluteOrRelativeUrl url,
+    public void onFailure(final HttpMethod method,
+                          final AbsoluteOrRelativeUrl url,
                           final HttpStatus status,
                           final Headers headers,
                           final String body) {
         this.watcher.onFailure(
+                method,
                 url,
                 status,
                 headers,

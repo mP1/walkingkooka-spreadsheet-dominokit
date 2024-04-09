@@ -35,7 +35,8 @@ public interface NopFetcherWatcher extends FetcherWatcher {
         // nop
     }
 
-    default void onFailure(final AbsoluteOrRelativeUrl url,
+    default void onFailure(final HttpMethod method,
+                           final AbsoluteOrRelativeUrl url,
                            final HttpStatus status,
                            final Headers headers,
                            final String body,

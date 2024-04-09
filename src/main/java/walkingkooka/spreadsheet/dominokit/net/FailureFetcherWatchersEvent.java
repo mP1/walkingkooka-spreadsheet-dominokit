@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
@@ -27,12 +28,14 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
  */
 final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> with(final AbsoluteOrRelativeUrl url,
+    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> with(final HttpMethod method,
+                                                                          final AbsoluteOrRelativeUrl url,
                                                                           final HttpStatus status,
                                                                           final Headers headers,
                                                                           final String body,
                                                                           final AppContext context) {
         return new FailureFetcherWatchersEvent<>(
+                method,
                 url,
                 status,
                 headers,
@@ -41,13 +44,15 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
         );
     }
 
-    private FailureFetcherWatchersEvent(final AbsoluteOrRelativeUrl url,
+    private FailureFetcherWatchersEvent(final HttpMethod method,
+                                        final AbsoluteOrRelativeUrl url,
                                         final HttpStatus status,
                                         final Headers headers,
                                         final String body,
                                         final AppContext context) {
         super(context);
 
+        this.method = method;
         this.url = url;
         this.status = status;
         this.headers =headers;
@@ -58,6 +63,7 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
     public void accept(final W watcher) {
         try {
             watcher.onFailure(
+                    this.method,
                     this.url,
                     this.status,
                     this.headers,
@@ -72,6 +78,8 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
         }
     }
 
+    private final HttpMethod method;
+
     private final AbsoluteOrRelativeUrl url;
 
     private final HttpStatus status;
@@ -82,6 +90,6 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
 
     @Override
     public String toString() {
-        return this.url + " " + this.status + " " + this.headers + " " + this.body + " " + this.context;
+        return this.method + " " + this.url + " " + this.status + " " + this.headers + " " + this.body + " " + this.context;
     }
 }

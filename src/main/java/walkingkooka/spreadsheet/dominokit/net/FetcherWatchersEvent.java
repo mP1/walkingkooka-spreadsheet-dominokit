@@ -46,12 +46,14 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
         return ErrorFetcherWatchersEvent.with(cause, context);
     }
 
-    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> failure(final AbsoluteOrRelativeUrl url,
+    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> failure(final HttpMethod method,
+                                                                             final AbsoluteOrRelativeUrl url,
                                                                              final HttpStatus status,
                                                                              final Headers headers,
                                                                              final String body,
                                                                              final AppContext context) {
         return FailureFetcherWatchersEvent.with(
+                method,
                 url,
                 status,
                 headers,

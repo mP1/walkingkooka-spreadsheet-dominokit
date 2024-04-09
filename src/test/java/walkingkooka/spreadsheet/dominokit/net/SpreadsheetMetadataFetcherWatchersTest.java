@@ -125,6 +125,7 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
     public void testFireFailure() {
         this.fired = 0;
 
+        final HttpMethod method = HttpMethod.GET;
         final AbsoluteOrRelativeUrl url = Url.parseRelative("/something/");
         final HttpStatus status = HttpStatusCode.withCode(123).setMessage("status message 456");
         final Headers headers = null;
@@ -136,11 +137,13 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
                 new FakeSpreadsheetMetadataFetcherWatcher() {
 
                     @Override
-                    public void onFailure(final AbsoluteOrRelativeUrl u,
+                    public void onFailure(final HttpMethod m,
+                                          final AbsoluteOrRelativeUrl u,
                                           final HttpStatus s,
                                           final Headers h,
                                           final String b,
                                           final AppContext context) {
+                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(method, m);
                         SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(url, u);
                         SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(status, s);
                         SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(headers, h);
@@ -150,13 +153,13 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
                         SpreadsheetMetadataFetcherWatchersTest.this.fired++;
                     }
                 });
-        watchers.onFailure(url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body, appContext);
         this.checkEquals(1, this.fired);
 
-        watchers.onFailure(url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body, appContext);
         this.checkEquals(2, this.fired);
 
-        watchers.onFailure(url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body, appContext);
         this.checkEquals(3, this.fired);
     }
 

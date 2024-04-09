@@ -1088,7 +1088,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     @Override
-    public void onFailure(final AbsoluteOrRelativeUrl url,
+    public void onFailure(final HttpMethod method,
+                          final AbsoluteOrRelativeUrl url,
                           final HttpStatus status,
                           final Headers headers,
                           final String body,

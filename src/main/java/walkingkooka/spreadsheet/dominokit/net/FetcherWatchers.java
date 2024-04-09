@@ -83,13 +83,15 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     }
 
     @Override
-    public final void onFailure(final AbsoluteOrRelativeUrl url,
+    public final void onFailure(final HttpMethod method,
+                                final AbsoluteOrRelativeUrl url,
                                 final HttpStatus status,
                                 final Headers headers,
                                 final String body,
                                 final AppContext context) {
         this.fire(
                 FetcherWatchersEvent.failure(
+                        method,
                         url,
                         status,
                         headers,
