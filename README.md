@@ -86,7 +86,7 @@ Individual issues that breakdown outstanding tasks will be added.
   - Text case: Normal, Capitalize, Lowercase, Uppercase *DONE*
   - Border
     - Top, Left, Right, Bottom, All: color, style, width *DONE*
-  - Wrapping: clip, Overflow, Wrap
+  - Wrapping: clip, Overflow, Wrap *DONE*
 - Column, Row, Cell actions:
   - Insert columns before *DONE*
   - Insert columns after *DONE*
