@@ -120,8 +120,12 @@ Global settings that may be added or updated appear in a panel that appears on t
 
 ## File management
 
-- Dialog to open, rename and delete
-  spreadsheets. [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2057)
+- Browser Dialog
+  - open *DONE*
+  - rename [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2393)
+  - delete *DONE*
+  - print [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2330)
+  - download [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2329)
 
 ## UI, Theme, icons
 
