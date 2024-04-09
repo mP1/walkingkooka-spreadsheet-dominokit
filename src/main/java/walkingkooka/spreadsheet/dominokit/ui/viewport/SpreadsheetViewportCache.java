@@ -29,9 +29,8 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCreateHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -492,18 +491,11 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         SpreadsheetId id = null;
 
-        if (historyToken instanceof SpreadsheetCreateHistoryToken) {
-            context.debug(
-                    "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
-                            this.spreadsheetId +
-                            " to creating"
-            );
-            id = null;
-        } else {
-            if (historyToken instanceof SpreadsheetIdHistoryToken &&
-                    false == historyToken instanceof SpreadsheetListDeleteHistoryToken) {
+        if (historyToken instanceof SpreadsheetHistoryToken) {
+            final SpreadsheetId currentId = this.spreadsheetId;
+
+            if (historyToken instanceof SpreadsheetIdHistoryToken) {
                 final SpreadsheetId newId = historyToken.cast(SpreadsheetIdHistoryToken.class).id();
-                final SpreadsheetId currentId = this.spreadsheetId;
 
                 if (false == Objects.equals(currentId, newId)) {
                     this.clear();
@@ -516,8 +508,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                     );
                 }
                 id = newId;
+            } else {
+                this.clear();
+
+                context.debug("SpreadsheetViewportCache.onHistoryTokenChange clearing cache was " + currentId);
+
+                id = null;
             }
         }
+
 
         this.spreadsheetId = id;
     }
