@@ -838,17 +838,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetDeleteHistoryToken}
-     */
-    public static SpreadsheetDeleteHistoryToken spreadsheetDelete(final SpreadsheetId id,
-                                                                  final SpreadsheetName name) {
-        return SpreadsheetDeleteHistoryToken.with(
-                id,
-                name
-        );
-    }
-
-    /**
      * {@see SpreadsheetListHistoryToken}
      */
     public static SpreadsheetListHistoryToken spreadsheetList(final OptionalInt from,
@@ -857,6 +846,13 @@ public abstract class HistoryToken implements HasUrlFragment,
                 from,
                 count
         );
+    }
+
+    /**
+     * {@see SpreadsheetListDeleteHistoryToken}
+     */
+    public static SpreadsheetListDeleteHistoryToken spreadsheetListDelete(final SpreadsheetId id) {
+        return SpreadsheetListDeleteHistoryToken.with(id);
     }
 
     /**
@@ -951,6 +947,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                             token = HistoryToken.spreadsheetCreate()
                                     .parse(cursor);
                             break;
+                        case "delete":
+                            token = parseDelete(cursor);
+                            break;
                         case "from":
                             token = SPREADSHEET_LIST_HISTORY_TOKEN;
                             token = token.cast(SpreadsheetListHistoryToken.class)
@@ -1037,6 +1036,19 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return value;
+    }
+
+    private static HistoryToken parseDelete(final TextCursor cursor) {
+        HistoryToken historyToken = SPREADSHEET_LIST_HISTORY_TOKEN;
+
+        final Optional<String> maybeComponent = parseComponent(cursor);
+        if (maybeComponent.isPresent()) {
+            historyToken = HistoryToken.spreadsheetListDelete(
+                    SpreadsheetId.parse(maybeComponent.get())
+            );
+        }
+
+        return historyToken;
     }
 
     /**

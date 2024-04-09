@@ -232,17 +232,20 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     // HasUrlFragment...................................................................................................
 
-    @Override //
-    final UrlFragment spreadsheetIdUrlFragment() {
-        return UrlFragment.SLASH.append(
-                        this.name.urlFragment()
-                )
+    @Override
+    public final UrlFragment urlFragment() {
+        return this.id()
+                .urlFragment()
                 .append(
-                        this.spreadsheetUrlFragment()
+                        UrlFragment.SLASH.append(
+                                this.name.urlFragment()
+                        )
+                ).append(
+                        this.spreadsheetNameUrlFragment()
                 );
     }
 
-    abstract UrlFragment spreadsheetUrlFragment();
+    abstract UrlFragment spreadsheetNameUrlFragment();
 
     // onHistoryTokenChange.............................................................................................
 
@@ -256,28 +259,19 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         // be loaded then fire history token again.
         final SpreadsheetId id = this.id();
 
-        // special case SpreadsheetDeleteHistoryToken otherwise load SpradsheetMetadata might happen.
-        if (this instanceof SpreadsheetDeleteHistoryToken ||
-                context.isSpreadsheetMetadataLoaded()) {
-            this.onHistoryTokenChange0(
-                    previous,
-                    context
-            );
-        } else {
-            final SpreadsheetId previousId = context.spreadsheetMetadata()
-                    .id()
-                    .orElse(null);
-            context.debug(
-                    this.getClass().getSimpleName() +
-                            ".onHistoryTokenChange token " +
-                            id +
-                            " and context metadata " +
-                            previousId +
-                            " have different ids, load SpreadsheetId and then fire current history token"
-            );
-            context.spreadsheetMetadataFetcher()
-                    .loadSpreadsheetMetadata(id);
-        }
+        final SpreadsheetId previousId = context.spreadsheetMetadata()
+                .id()
+                .orElse(null);
+        context.debug(
+                this.getClass().getSimpleName() +
+                        ".onHistoryTokenChange token " +
+                        id +
+                        " and context metadata " +
+                        previousId +
+                        " have different ids, load SpreadsheetId and then fire current history token"
+        );
+        context.spreadsheetMetadataFetcher()
+                .loadSpreadsheetMetadata(id);
     }
 
     /**

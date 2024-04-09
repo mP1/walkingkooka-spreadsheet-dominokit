@@ -27,53 +27,38 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-public final class SpreadsheetDeleteHistoryToken extends SpreadsheetNameHistoryToken {
+public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistoryToken {
 
-    static SpreadsheetDeleteHistoryToken with(final SpreadsheetId id,
-                                              final SpreadsheetName name) {
-        return new SpreadsheetDeleteHistoryToken(
-                id,
-                name
+    static SpreadsheetListDeleteHistoryToken with(final SpreadsheetId id) {
+        return new SpreadsheetListDeleteHistoryToken(
+                id
         );
     }
 
-    private SpreadsheetDeleteHistoryToken(final SpreadsheetId id,
-                                          final SpreadsheetName name) {
+    private SpreadsheetListDeleteHistoryToken(final SpreadsheetId id) {
         super(
-                id,
-                name
+                id
         );
     }
 
     @Override
+    public UrlFragment urlFragment() {
+        return DELETE.append(this.id().urlFragment());
+    }
+
+    @Override
     public HistoryToken clearAction() {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setClear0() {
-        return null;
-    }
-
-    @Override //
-    HistoryToken setDelete0() {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setFormatPattern() {
-        return this;
+        return HistoryToken.spreadsheetList(
+                OptionalInt.empty(), // from
+                OptionalInt.empty() // count
+        );
     }
 
     @Override
@@ -82,80 +67,19 @@ public final class SpreadsheetDeleteHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    HistoryToken setFreeze0() {
-        return this;
-    }
-
-    @Override
-    HistoryToken setInsertAfter0(final OptionalInt count) {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setInsertBefore0(final OptionalInt count) {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setMenu1() {
-        return this;
-    }
-
-    @Override //
-    AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
-        return selection.setDefaultAnchor();
-    }
-
-    @Override
-    HistoryToken setParsePattern() {
-        return this;
-    }
-
-    @Override //
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
-        return HistoryToken.spreadsheetDelete(
-                id,
-                name
-        );
-    }
-
-    @Override //
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setSave0(final String value) {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setUnfreeze0() {
-        return this;
-    }
-
-    @Override
-    UrlFragment spreadsheetUrlFragment() {
-        return DELETE;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
-        return spreadsheetSelect(
-                this.id(),
-                SpreadsheetName.with(component)
-        ).parse(cursor);
+        return this;
     }
 
     @Override
-    public void onHistoryTokenChange0(final HistoryToken previous,
+    public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pushHistoryToken(
                 previous.clearAction()

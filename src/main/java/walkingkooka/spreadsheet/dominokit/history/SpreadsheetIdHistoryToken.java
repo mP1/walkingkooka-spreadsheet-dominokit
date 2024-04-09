@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 
 import java.util.Objects;
@@ -38,15 +37,4 @@ public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken 
     }
 
     private final SpreadsheetId id;
-
-    @Override
-    public final UrlFragment urlFragment() {
-        return this.id.urlFragment()
-                .append(this.spreadsheetIdUrlFragment());
-    }
-
-    /**
-     * Sub-classes should append additional components to the final {@link UrlFragment}.
-     */
-    abstract UrlFragment spreadsheetIdUrlFragment();
 }

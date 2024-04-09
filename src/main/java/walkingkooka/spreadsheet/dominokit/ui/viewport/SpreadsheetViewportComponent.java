@@ -58,7 +58,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHist
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetDeleteHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
@@ -888,7 +888,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     @Override
     public boolean isMatch(final HistoryToken token) {
         boolean match = token instanceof SpreadsheetNameHistoryToken &&
-                false == token instanceof SpreadsheetDeleteHistoryToken;
+                false == token instanceof SpreadsheetListDeleteHistoryToken;
 
         if (match) {
             final AppContext context = this.context;

@@ -30,8 +30,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCreateHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -501,7 +501,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             id = null;
         } else {
             if (historyToken instanceof SpreadsheetIdHistoryToken &&
-                    false == historyToken instanceof SpreadsheetDeleteHistoryToken) {
+                    false == historyToken instanceof SpreadsheetListDeleteHistoryToken) {
                 final SpreadsheetId newId = historyToken.cast(SpreadsheetIdHistoryToken.class).id();
                 final SpreadsheetId currentId = this.spreadsheetId;
 
