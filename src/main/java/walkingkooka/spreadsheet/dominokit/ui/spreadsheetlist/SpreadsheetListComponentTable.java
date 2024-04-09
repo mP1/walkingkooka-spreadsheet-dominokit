@@ -53,7 +53,7 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
         return new SpreadsheetListComponentTable(context);
     }
 
-    private final static String ID = SpreadsheetListComponent.ID_PREFIX + "table";
+    private final static String ID = SpreadsheetListDialogComponent.ID_PREFIX + "table";
 
     private final static String ID_PREFIX = ID + '-';
 

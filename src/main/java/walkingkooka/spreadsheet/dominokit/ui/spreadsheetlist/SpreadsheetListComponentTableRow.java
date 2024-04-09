@@ -56,7 +56,7 @@ final class SpreadsheetListComponentTableRow {
 
         return HistoryToken.spreadsheetLoad(id)
                 .link(
-                        SpreadsheetListComponent.ID_PREFIX + id.toString() + SpreadsheetIds.LINK
+                        SpreadsheetListDialogComponent.ID_PREFIX + id.toString() + SpreadsheetIds.LINK
                 ).setTextContent(
                         metadata.name()
                                 .orElse(null)
@@ -99,7 +99,7 @@ final class SpreadsheetListComponentTableRow {
         final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetDelete(
                         id,
                         metadata.name().orElse(null)
-                ).link(SpreadsheetListComponent.ID_PREFIX + id + "-delete")
+                ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-delete")
                 .setTextContent("Delete");
 
         return Lists.of(
