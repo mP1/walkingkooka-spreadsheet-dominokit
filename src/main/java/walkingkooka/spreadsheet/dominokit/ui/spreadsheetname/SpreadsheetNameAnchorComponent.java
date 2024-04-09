@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.spreadsheetnameanchor;
+package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
 import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.SpreadsheetName;
