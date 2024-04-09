@@ -22,35 +22,40 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetRenameSaveHistoryToken> {
 
-public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetRenameSelectHistoryToken> {
+    private final static SpreadsheetName RENAME_TO = SpreadsheetName.with("RenameToSpreadsheetName567");
 
     @Test
-    public void testWithNullValueFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetRenameSaveHistoryToken.with(
+    public void testParseMissingName() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/rename/save",
+                HistoryToken.spreadsheetRenameSelect(
                         ID,
-                        NAME,
-                        null
+                        NAME
                 )
         );
     }
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/rename");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/rename/save/RenameToSpreadsheetName567");
     }
 
     @Test
     public void testClearAction() {
-        this.clearActionAndCheck();
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.spreadsheetRenameSelect(
+                        ID,
+                        NAME
+                )
+        );
     }
 
     @Test
     public void testSetAnchoredSelection() {
-        final SpreadsheetRenameSelectHistoryToken token = this.createHistoryToken();
+        final SpreadsheetRenameSaveHistoryToken token = this.createHistoryToken();
 
         this.setAnchoredSelectionAndCheck(
                 token,
@@ -77,32 +82,18 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetNa
         );
     }
 
-    @Test
-    public void testSave() {
-        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
-
-        this.setSaveAndCheck(
-                this.createHistoryToken(),
-                renameTo.toString(),
-                HistoryToken.spreadsheetRenameSave(
-                        ID,
-                        NAME,
-                        renameTo
-                )
-        );
-    }
-
     @Override
-    SpreadsheetRenameSelectHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                           final SpreadsheetName name) {
-        return SpreadsheetRenameSelectHistoryToken.with(
+    SpreadsheetRenameSaveHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                         final SpreadsheetName name) {
+        return SpreadsheetRenameSaveHistoryToken.with(
                 id,
-                name
+                name,
+                RENAME_TO
         );
     }
 
     @Override
-    public Class<SpreadsheetRenameSelectHistoryToken> type() {
-        return SpreadsheetRenameSelectHistoryToken.class;
+    public Class<SpreadsheetRenameSaveHistoryToken> type() {
+        return SpreadsheetRenameSaveHistoryToken.class;
     }
 }
