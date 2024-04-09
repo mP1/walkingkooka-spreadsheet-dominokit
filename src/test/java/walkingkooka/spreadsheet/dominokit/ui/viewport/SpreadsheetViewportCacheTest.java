@@ -169,6 +169,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY
+                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
                         .set(
                                 SpreadsheetMetadataPropertyName.STYLE,
                                 TextStyle.EMPTY
@@ -280,6 +281,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY
+                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
                         .set(
                                 SpreadsheetMetadataPropertyName.STYLE,
                                 TextStyle.EMPTY
@@ -319,7 +321,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY.set(
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        SpreadsheetId.with(1)
+                        DIFFERENT_ID
                 ).set(
                         SpreadsheetMetadataPropertyName.STYLE,
                         TextStyle.EMPTY
@@ -367,7 +369,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY.set(
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        SpreadsheetId.with(1)
+                        DIFFERENT_ID
                 ).set(
                         SpreadsheetMetadataPropertyName.STYLE,
                         TextStyle.EMPTY
@@ -402,7 +404,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY.set(
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        SpreadsheetId.with(2)
+                        SpreadsheetId.with(3333)
                 ).set(
                         SpreadsheetMetadataPropertyName.STYLE,
                         TextStyle.EMPTY
@@ -1618,6 +1620,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY
+                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
                         .set(
                                 SpreadsheetMetadataPropertyName.STYLE,
                                 TextStyle.EMPTY
@@ -1795,6 +1798,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         cache.onSpreadsheetMetadata(
                 SpreadsheetMetadata.EMPTY
+                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
                         .set(
                                 SpreadsheetMetadataPropertyName.STYLE,
                                 TextStyle.EMPTY
@@ -2564,6 +2568,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
+    private final static SpreadsheetId DIFFERENT_ID = SpreadsheetId.with(22);
+
     private final static SpreadsheetName NAME = SpreadsheetName.with("Spreadsheet123");
 
     @Test
@@ -3226,7 +3232,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testSelectionSummaryHistoryTokenDeltaDelta2() {
         final TestAppContext context = this.context();
         final SpreadsheetViewportCache cache = context.viewportCache();
-        cache.open = true;
+        cache.spreadsheetId = ID;
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -3318,7 +3324,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
     private SpreadsheetViewportCache viewportCacheAndOpen() {
         final SpreadsheetViewportCache cache = this.viewportCache();
-        cache.open = true;
+        cache.spreadsheetId = ID;
         return cache;
     }
 
@@ -3369,6 +3375,11 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         }
 
         private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
+
+        @Override
+        public void debug(final Object... values) {
+            // NOP
+        }
     }
 
     private void checkCells(final SpreadsheetViewportCache cache,

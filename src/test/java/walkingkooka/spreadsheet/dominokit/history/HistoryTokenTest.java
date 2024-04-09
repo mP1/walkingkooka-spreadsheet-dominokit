@@ -117,7 +117,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AppContext context = this.appContext();
         final SpreadsheetViewportCache cache = context.viewportCache();
         cache.onHistoryTokenChange(
-                HistoryToken.unknown(UrlFragment.parse("unknown")),
+                HistoryToken.spreadsheetSelect(ID, NAME),
                 context
         );
 
@@ -4167,6 +4167,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME
                 );
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                // nop
             }
         };
     }

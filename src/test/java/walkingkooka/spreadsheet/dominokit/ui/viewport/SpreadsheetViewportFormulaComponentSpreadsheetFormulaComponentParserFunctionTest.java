@@ -241,7 +241,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 METADATA
         );
         final SpreadsheetViewportCache viewportCache = context.viewportCache();
-        viewportCache.open = true;
+        viewportCache.spreadsheetId = SpreadsheetId.with(1);
 
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
@@ -285,7 +285,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 METADATA
         );
         final SpreadsheetViewportCache viewportCache = context.viewportCache();
-        viewportCache.open = true;
+        viewportCache.spreadsheetId = SpreadsheetId.with(1);
 
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
