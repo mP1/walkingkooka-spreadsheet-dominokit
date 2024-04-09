@@ -116,6 +116,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testNonLabelSelectionLabel() {
         final AppContext context = this.appContext();
         final SpreadsheetViewportCache cache = context.viewportCache();
+        cache.onHistoryTokenChange(
+                HistoryToken.unknown(UrlFragment.parse("unknown")),
+                context
+        );
+
         cache.onSpreadsheetDelta(
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
@@ -4155,6 +4160,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             }
 
             private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
+
+            @Override
+            public HistoryToken historyToken() {
+                return HistoryToken.spreadsheetSelect(
+                        ID,
+                        NAME
+                );
+            }
         };
     }
 }

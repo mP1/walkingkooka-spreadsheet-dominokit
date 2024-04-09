@@ -241,6 +241,8 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 METADATA
         );
         final SpreadsheetViewportCache viewportCache = context.viewportCache();
+        viewportCache.open = true;
+
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         viewportCache.onSpreadsheetDelta(
@@ -283,6 +285,8 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 METADATA
         );
         final SpreadsheetViewportCache viewportCache = context.viewportCache();
+        viewportCache.open = true;
+
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         viewportCache.onSpreadsheetDelta(
