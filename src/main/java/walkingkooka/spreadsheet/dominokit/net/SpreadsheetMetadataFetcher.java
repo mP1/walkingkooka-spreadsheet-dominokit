@@ -76,18 +76,24 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     /**
      * Extracts the {@link SpreadsheetId} from a URL assumed to contain an endpoint.
      */
-    static SpreadsheetId parseSpreadsheetId(final AbsoluteOrRelativeUrl url) {
+    static Optional<SpreadsheetId> extractSpreadsheetId(final AbsoluteOrRelativeUrl url) {
+        SpreadsheetId id = null;
+
         final UrlPath path = url.path();
 
         int i = 0;
         for (final UrlPathName component : Iterables.iterator(path.iterator())) {
             i++;
             if (4 == i) {
-                return SpreadsheetId.parse(component.value());
+                try {
+                    id = SpreadsheetId.parse(component.value());
+                } catch (final RuntimeException ignore) {
+                    id = null;
+                }
             }
         }
 
-        throw new IllegalArgumentException("Url missing SpreadsheetId " + url);
+        return Optional.ofNullable(id);
     }
 
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataFetcherWatcher watcher,
