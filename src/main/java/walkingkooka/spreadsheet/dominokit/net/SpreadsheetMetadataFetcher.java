@@ -76,7 +76,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     /**
      * Extracts the {@link SpreadsheetId} from a URL assumed to contain an endpoint.
      */
-    static Optional<SpreadsheetId> extractSpreadsheetId(final AbsoluteOrRelativeUrl url) {
+    public static Optional<SpreadsheetId> extractSpreadsheetId(final AbsoluteOrRelativeUrl url) {
         SpreadsheetId id = null;
 
         final UrlPath path = url.path();
