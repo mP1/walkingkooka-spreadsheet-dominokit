@@ -41,16 +41,16 @@ import java.util.stream.IntStream;
  * A card that is dynamically updated with links which remove an individual component of the pattern. A context-menu
  * for each link provides alternatives.
  */
-final class SpreadsheetPatternComponentElementsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentElementsComponent> {
+final class SpreadsheetPatternComponentElements implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentElements> {
 
     /**
-     * Creates an empty {@link SpreadsheetPatternComponentElementsComponent}.
+     * Creates an empty {@link SpreadsheetPatternComponentElements}.
      */
-    static SpreadsheetPatternComponentElementsComponent empty() {
-        return new SpreadsheetPatternComponentElementsComponent();
+    static SpreadsheetPatternComponentElements empty() {
+        return new SpreadsheetPatternComponentElements();
     }
 
-    private SpreadsheetPatternComponentElementsComponent() {
+    private SpreadsheetPatternComponentElements() {
         this.parent = Card.create();
         this.tokenKinds = Lists.array();
         this.texts = Lists.array();
