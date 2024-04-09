@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -124,7 +124,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
 
     @Override
     public void onBegin(final HttpMethod method,
-                        final Url url,
+                        final AbsoluteOrRelativeUrl url,
                         final Optional<String> body) {
         this.watcher.onBegin(
                 method,

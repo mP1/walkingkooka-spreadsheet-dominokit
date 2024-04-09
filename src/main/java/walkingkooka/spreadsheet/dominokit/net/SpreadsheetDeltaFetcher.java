@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
@@ -695,7 +696,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    private void patchDelta(final Url url,
+    private void patchDelta(final AbsoluteOrRelativeUrl url,
                             final JsonNode delta) {
         this.patch(
                 url,
@@ -703,7 +704,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    private void patchDelta(final Url url,
+    private void patchDelta(final AbsoluteOrRelativeUrl url,
                             final SpreadsheetDelta delta) {
         this.patch(
                 url,
@@ -711,7 +712,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    private void postDelta(final Url url,
+    private void postDelta(final AbsoluteOrRelativeUrl url,
                            final SpreadsheetDelta delta) {
         this.post(
                 url,
@@ -784,7 +785,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     @Override
     public void onBegin(final HttpMethod method,
-                        final Url url,
+                        final AbsoluteOrRelativeUrl url,
                         final Optional<String> body) {
         this.watcher.onBegin(
                 method,
