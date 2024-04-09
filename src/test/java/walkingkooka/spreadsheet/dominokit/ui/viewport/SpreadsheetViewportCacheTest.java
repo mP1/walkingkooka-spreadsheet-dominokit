@@ -339,7 +339,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 );
 
         cache.onSpreadsheetDelta(
-                ID,
+                DIFFERENT_ID,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 b2

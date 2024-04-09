@@ -554,7 +554,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public void onSpreadsheetDelta(final SpreadsheetId id,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        if (null != this.spreadsheetId) {
+        if (id.equals(this.spreadsheetId)) {
             this.setWindows(delta.window());
 
             {
