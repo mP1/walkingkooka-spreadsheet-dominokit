@@ -111,13 +111,11 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
                 .setMarginBottom("0");
 
         // build links for 1900 | 1904
-        final HistoryToken token = context.historyToken()
-                .setMetadataPropertyName(PROPERTY_NAME);
+        final HistoryToken token = context.historyToken();
         final Map<Long, HistoryTokenAnchorComponent> valueToAnchors = Maps.sorted();
 
         for (final Long value : Lists.of(_1900, _1904)) {
             final HistoryTokenAnchorComponent anchor = token
-                    .setSave(Optional.of(value))
                     .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value)
                     .setTabIndex(0)
                     .addPushHistoryToken(context)
