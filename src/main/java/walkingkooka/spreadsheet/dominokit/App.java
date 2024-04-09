@@ -74,8 +74,8 @@ import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRo
 import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetFindComponent;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetFindComponentContexts;
-import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingComponent;
 import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternComponent;
@@ -180,7 +180,7 @@ public class App implements EntryPoint,
                 SpreadsheetFindComponentContexts.appContext(this)
         );
 
-        SpreadsheetLabelMappingComponent.with(
+        SpreadsheetLabelMappingDialogComponent.with(
                 SpreadsheetLabelMappingComponentContexts.appContext(this)
         );
 

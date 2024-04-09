@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentCo
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 /**
- * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingComponent}.
+ * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.
  */
 public interface SpreadsheetLabelMappingComponentContext extends SpreadsheetDialogComponentContext {
 

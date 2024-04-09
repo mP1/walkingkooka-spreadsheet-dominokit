@@ -19,10 +19,10 @@ package walkingkooka.spreadsheet.dominokit.ui.columnrowinsert;
 
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingComponent;
+import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingDialogComponent;
 
 /**
- * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingComponent}.
+ * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.
  */
 public interface SpreadsheetColumnRowInsertCountComponentContext extends
         SpreadsheetDialogComponentContext,
