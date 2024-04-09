@@ -1146,7 +1146,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 this.loadViewportCells(context);
             }
         } else {
-            context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty());
+            context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
         }
     }
 
