@@ -118,6 +118,7 @@ public interface Fetcher {
                                     text -> {
                                         if (response.ok) {
                                             this.onSuccess(
+                                                    url,
                                                     response.headers.get(
                                                             HateosResourceMapping.X_CONTENT_TYPE_NAME.value()
                                                     ),
@@ -154,7 +155,8 @@ public interface Fetcher {
     /**
      * Success assumes a json response.
      */
-    void onSuccess(final String contentTypeName,
+    void onSuccess(final AbsoluteOrRelativeUrl url,
+                   final String contentTypeName,
                    final String body);
 
     /**

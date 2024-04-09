@@ -796,7 +796,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     @Override
-    public void onSuccess(final String contentTypeName,
+    public void onSuccess(final AbsoluteOrRelativeUrl url,
+                          final String contentTypeName,
                           final String body) {
         final AppContext context = this.context;
 
