@@ -43,22 +43,22 @@ import java.util.Optional;
 /**
  * A model dialog with several textboxes that allow creation, editing, saving and deletion of a {@link SpreadsheetLabelMapping}.
  */
-public final class SpreadsheetLabelMappingComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetLabelMappingDialogComponent implements SpreadsheetDialogComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopNoResponseWatcher,
         SpreadsheetLabelMappingFetcherWatcher {
 
     /**
-     * Creates a new {@link SpreadsheetLabelMappingComponent}.
+     * Creates a new {@link SpreadsheetLabelMappingDialogComponent}.
      */
-    public static SpreadsheetLabelMappingComponent with(final SpreadsheetLabelMappingComponentContext context) {
+    public static SpreadsheetLabelMappingDialogComponent with(final SpreadsheetLabelMappingComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetLabelMappingComponent(context);
+        return new SpreadsheetLabelMappingDialogComponent(context);
     }
 
-    private SpreadsheetLabelMappingComponent(final SpreadsheetLabelMappingComponentContext context) {
+    private SpreadsheetLabelMappingDialogComponent(final SpreadsheetLabelMappingComponentContext context) {
         this.context = context;
 
         this.label = label(context);
