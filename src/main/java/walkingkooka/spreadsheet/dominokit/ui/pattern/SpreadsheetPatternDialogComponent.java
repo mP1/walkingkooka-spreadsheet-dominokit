@@ -78,7 +78,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
 
         this.patternTextBox = this.patternTextBox();
 
-        this.elements = SpreadsheetPatternComponentElementsComponent.empty();
+        this.elements = SpreadsheetPatternComponentElements.empty();
 
         this.appendLinks = SpreadsheetPatternComponentAppenderComponent.empty();
 
@@ -163,7 +163,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
 
     // componentChips...................................................................................................
 
-    private final SpreadsheetPatternComponentElementsComponent elements;
+    private final SpreadsheetPatternComponentElements elements;
 
     // patternAppendLinks......................................................................................................
 
