@@ -26,13 +26,13 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.time.LocalDateTime;
 
-final class AppContextSpreadsheetFindComponentContext implements SpreadsheetFindComponentContext {
+final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext {
 
-    static AppContextSpreadsheetFindComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetFindComponentContext(context);
+    static AppContextSpreadsheetFindDialogComponentContext with(final AppContext context) {
+        return new AppContextSpreadsheetFindDialogComponentContext(context);
     }
 
-    private AppContextSpreadsheetFindComponentContext(final AppContext context) {
+    private AppContextSpreadsheetFindDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 

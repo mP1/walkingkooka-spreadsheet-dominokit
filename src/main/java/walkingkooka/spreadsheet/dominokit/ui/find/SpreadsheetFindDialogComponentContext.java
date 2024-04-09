@@ -24,9 +24,9 @@ import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentCo
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
 /**
- * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetFindComponent}.
+ * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetFindDialogComponent}.
  */
-public interface SpreadsheetFindComponentContext extends HistoryTokenContext,
+public interface SpreadsheetFindDialogComponentContext extends HistoryTokenContext,
         HasSpreadsheetMetadata,
         HasNow,
         HasSpreadsheetDeltaFetcher,

@@ -28,21 +28,21 @@ import java.util.function.Function;
 /**
  * A {@link Function} that parsers any given text into a {@link SpreadsheetFormula}. The parser used will be a combination of those in {@link SpreadsheetMetadata}.
  */
-final class SpreadsheetFindComponentSpreadsheetFormulaComponentParserFunction implements Function<String, SpreadsheetFormula> {
+final class SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction implements Function<String, SpreadsheetFormula> {
 
-    public static SpreadsheetFindComponentSpreadsheetFormulaComponentParserFunction with(final SpreadsheetFindComponentContext context) {
+    public static SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction with(final SpreadsheetFindDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetFindComponentSpreadsheetFormulaComponentParserFunction(context);
+        return new SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction(context);
     }
 
-    private SpreadsheetFindComponentSpreadsheetFormulaComponentParserFunction(final SpreadsheetFindComponentContext context) {
+    private SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction(final SpreadsheetFindDialogComponentContext context) {
         this.context = context;
     }
 
     @Override
     public SpreadsheetFormula apply(final String text) {
-        final SpreadsheetFindComponentContext context = this.context;
+        final SpreadsheetFindDialogComponentContext context = this.context;
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         return SpreadsheetFormula.parse(
@@ -56,7 +56,7 @@ final class SpreadsheetFindComponentSpreadsheetFormulaComponentParserFunction im
         );
     }
 
-    private final SpreadsheetFindComponentContext context;
+    private final SpreadsheetFindDialogComponentContext context;
 
     @Override
     public String toString() {
