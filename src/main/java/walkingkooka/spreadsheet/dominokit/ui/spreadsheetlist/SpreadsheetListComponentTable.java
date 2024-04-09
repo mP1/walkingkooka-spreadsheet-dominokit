@@ -26,15 +26,23 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
+import org.dominokit.domino.ui.elements.DivElement;
+import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static org.dominokit.domino.ui.pagination.PaginationStyles.dui_pager;
 
 public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentTable> {
 
@@ -46,6 +54,10 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
     }
 
     private final static String ID = SpreadsheetListComponent.ID_PREFIX + "table";
+
+    private final static String ID_PREFIX = ID + '-';
+
+    final static int DEFAULT_COUNT = 10;
 
     private SpreadsheetListComponentTable(final SpreadsheetListComponentContext context) {
         this.card = Card.create();
@@ -61,9 +73,25 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
         this.table = table;
         this.dataStore = localListDataStore;
 
+        this.previous = previous(context);
+        this.previous.element().style.setProperty("float", "left");
+
+        this.next = next(context);
+        this.next.element().style.setProperty("float", "right");
+
+        final DivElement pager = ElementsFactory.elements.div()
+                .addCss(dui_pager)
+                .setWidth("100%");
+        pager.appendChild(this.previous);
+        pager.appendChild(this.next);
+        this.table.element()
+                .appendChild(pager.element());
+
         this.card.appendChild(table);
 
         this.context = context;
+
+        this.tableCount = 0;
     }
 
     private static TableConfig<SpreadsheetListComponentTableRow> tableConfig() {
@@ -156,7 +184,72 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                 metadatas.stream()
                         .map(m -> SpreadsheetListComponentTableRow.with(m, this.context))
                         .collect(Collectors.toList()));
+        this.tableCount = metadatas.size();
     }
+
+    private int tableCount;
+
+    void refresh(final SpreadsheetListHistoryToken historyToken) {
+        final int from = historyToken.from()
+                .orElse(0);
+        final int count = historyToken.count()
+                .orElse(DEFAULT_COUNT);
+
+        // previous
+        final HistoryTokenAnchorComponent previous = this.previous;
+        final boolean previousDisabled = 0 == from;
+        previous.setDisabled(previousDisabled);
+        if (false == previousDisabled) {
+            previous.setHistoryToken(
+                    Optional.of(
+                            historyToken.setFrom(
+                                    OptionalInt.of(
+                                            Math.max(
+                                                    0,
+                                                    from - count
+                                            )
+                                    )
+                            )
+                    )
+            );
+        }
+
+        // next
+        final HistoryTokenAnchorComponent next = this.next;
+        final boolean nextDisabled = this.tableCount < count;
+        next.setDisabled(nextDisabled);
+        if (false == nextDisabled) {
+            next.setHistoryToken(
+                    Optional.of(
+                            historyToken.setFrom(
+                                    OptionalInt.of(
+                                            from + count
+                                    )
+                            )
+                    )
+            );
+        }
+    }
+
+    // previous.........................................................................................................
+
+    private static HistoryTokenAnchorComponent previous(final SpreadsheetListComponentContext context) {
+        return context.historyToken()
+                .link(ID_PREFIX + "previous")
+                .setTextContent("previous");
+    }
+
+    private final HistoryTokenAnchorComponent previous;
+
+    // next.............................................................................................................
+
+    private static HistoryTokenAnchorComponent next(final SpreadsheetListComponentContext context) {
+        return context.historyToken()
+                .link(ID_PREFIX + "next")
+                .setTextContent("next");
+    }
+
+    private final HistoryTokenAnchorComponent next;
 
     private final SpreadsheetListComponentContext context;
 
