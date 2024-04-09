@@ -83,7 +83,7 @@ Individual issues that breakdown outstanding tasks will be added.
   - Underline *DONE*
   - Format patterns: select & edit Date, DateTime, Number, Text, Time *DONE*
   - Parse patterns: select & edit Date, DateTime, Number, Text, Time *DONE*
-  - Text case: Normal, Capitalize, Lowercase, Uppercase
+  - Text case: Normal, Capitalize, Lowercase, Uppercase *DONE*
   - Border
     - Top, Left, Right, Bottom, All: color, style, width *DONE*
   - Wrapping: clip, Overflow, Wrap
