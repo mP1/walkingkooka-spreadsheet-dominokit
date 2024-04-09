@@ -52,13 +52,13 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     /**
      * Creates a new {@link SpreadsheetLabelMappingDialogComponent}.
      */
-    public static SpreadsheetLabelMappingDialogComponent with(final SpreadsheetLabelMappingComponentContext context) {
+    public static SpreadsheetLabelMappingDialogComponent with(final SpreadsheetLabelMappingDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetLabelMappingDialogComponent(context);
     }
 
-    private SpreadsheetLabelMappingDialogComponent(final SpreadsheetLabelMappingComponentContext context) {
+    private SpreadsheetLabelMappingDialogComponent(final SpreadsheetLabelMappingDialogComponentContext context) {
         this.context = context;
 
         this.label = label(context);
@@ -85,7 +85,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      * Creates the modal dialog, which includes a few text boxes to edit the label and the target.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetLabelMappingComponentContext context = this.context;
+        final SpreadsheetLabelMappingDialogComponentContext context = this.context;
 
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID,
@@ -114,7 +114,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private final SpreadsheetDialogComponent dialog;
 
-    private final SpreadsheetLabelMappingComponentContext context;
+    private final SpreadsheetLabelMappingDialogComponentContext context;
 
     @Override
     public SpreadsheetDialogComponent dialog() {
@@ -253,7 +253,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         if (this.loadLabel) {
             this.loadLabel = false;
 
-            final SpreadsheetLabelMappingComponentContext context = this.context;
+            final SpreadsheetLabelMappingDialogComponentContext context = this.context;
             SpreadsheetLabelName labelName = null;
             try {
                 final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()

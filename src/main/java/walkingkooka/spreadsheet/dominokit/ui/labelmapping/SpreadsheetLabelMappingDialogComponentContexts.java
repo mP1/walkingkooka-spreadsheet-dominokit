@@ -20,16 +20,16 @@ package walkingkooka.spreadsheet.dominokit.ui.labelmapping;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class SpreadsheetLabelMappingComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetLabelMappingDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetLabelMappingComponentContext}
+     * {@see AppContextSpreadsheetLabelMappingDialogComponentContext}
      */
-    public static SpreadsheetLabelMappingComponentContext appContext(final AppContext context) {
-        return AppContextSpreadsheetLabelMappingComponentContext.with(context);
+    public static SpreadsheetLabelMappingDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetLabelMappingDialogComponentContext.with(context);
     }
 
-    private SpreadsheetLabelMappingComponentContexts() {
+    private SpreadsheetLabelMappingDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

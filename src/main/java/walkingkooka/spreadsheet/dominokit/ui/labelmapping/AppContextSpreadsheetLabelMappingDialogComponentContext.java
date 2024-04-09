@@ -27,16 +27,16 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import java.util.Objects;
 
 /**
- * A basic implementation of {@link SpreadsheetLabelMappingComponentContext}.
+ * A basic implementation of {@link SpreadsheetLabelMappingDialogComponentContext}.
  */
-final class AppContextSpreadsheetLabelMappingComponentContext implements SpreadsheetLabelMappingComponentContext {
+final class AppContextSpreadsheetLabelMappingDialogComponentContext implements SpreadsheetLabelMappingDialogComponentContext {
 
-    static AppContextSpreadsheetLabelMappingComponentContext with(final AppContext context) {
+    static AppContextSpreadsheetLabelMappingDialogComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
-        return new AppContextSpreadsheetLabelMappingComponentContext(context);
+        return new AppContextSpreadsheetLabelMappingDialogComponentContext(context);
     }
 
-    private AppContextSpreadsheetLabelMappingComponentContext(final AppContext context) {
+    private AppContextSpreadsheetLabelMappingDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 
