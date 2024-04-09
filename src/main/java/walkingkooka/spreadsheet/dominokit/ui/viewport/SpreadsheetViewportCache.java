@@ -29,8 +29,9 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCreateHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetDeleteHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
@@ -491,24 +492,35 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         this.selectionNotLabel = maybeSelectionNotLabel;
 
         SpreadsheetId id = null;
-        if (historyToken instanceof SpreadsheetNameHistoryToken &&
-                false == historyToken instanceof SpreadsheetDeleteHistoryToken &&
-                false == historyToken instanceof SpreadsheetRenameHistoryToken) {
-            final SpreadsheetId newId = historyToken.cast(SpreadsheetNameHistoryToken.class).id();
-            final SpreadsheetId currentId = this.spreadsheetId;
 
-            if (false == Objects.equals(currentId, newId)) {
-                this.clear();
+        if (historyToken instanceof SpreadsheetCreateHistoryToken) {
+            context.debug(
+                    "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
+                            this.spreadsheetId +
+                            " to creating"
+            );
+            id = null;
+        } else {
+            if (historyToken instanceof SpreadsheetIdHistoryToken &&
+                    false == historyToken instanceof SpreadsheetDeleteHistoryToken &&
+                    false == historyToken instanceof SpreadsheetRenameHistoryToken) {
+                final SpreadsheetId newId = historyToken.cast(SpreadsheetIdHistoryToken.class).id();
+                final SpreadsheetId currentId = this.spreadsheetId;
 
-                context.debug(
-                        "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
-                                currentId +
-                                " to " +
-                                newId
-                );
+                if (false == Objects.equals(currentId, newId)) {
+                    this.clear();
+
+                    context.debug(
+                            "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
+                                    currentId +
+                                    " to " +
+                                    newId
+                    );
+                }
+                id = newId;
             }
-            id = newId;
         }
+
         this.spreadsheetId = id;
     }
 
