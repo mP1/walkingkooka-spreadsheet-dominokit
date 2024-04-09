@@ -17,74 +17,77 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
-public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRenameHistoryToken {
+import java.util.Objects;
 
-    static SpreadsheetRenameSelectHistoryToken with(final SpreadsheetId id,
-                                                    final SpreadsheetName name) {
-        return new SpreadsheetRenameSelectHistoryToken(
+public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHistoryToken implements Value<SpreadsheetName> {
+
+    static SpreadsheetRenameSaveHistoryToken with(final SpreadsheetId id,
+                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName value) {
+        return new SpreadsheetRenameSaveHistoryToken(
                 id,
-                name
+                name,
+                value
         );
     }
 
-    private SpreadsheetRenameSelectHistoryToken(final SpreadsheetId id,
-                                                final SpreadsheetName name) {
+    private SpreadsheetRenameSaveHistoryToken(final SpreadsheetId id,
+                                              final SpreadsheetName name,
+                                              final SpreadsheetName value) {
         super(
                 id,
                 name
         );
+        this.value = Objects.requireNonNull(value, "value");
     }
+
+    public SpreadsheetName value() {
+        return this.value;
+    }
+
+    private final SpreadsheetName value;
 
     @Override
     public HistoryToken clearAction() {
-        return this;
+        return HistoryToken.spreadsheetRenameSelect(
+                this.id(),
+                this.name()
+        );
     }
 
     @Override //
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
-        return new SpreadsheetRenameSelectHistoryToken(
+        return new SpreadsheetRenameSaveHistoryToken(
                 id,
-                name
+                name,
+                this.value
         );
     }
 
     @Override //
     HistoryToken setSave0(final String value) {
-        return HistoryToken.spreadsheetRenameSave(
-                this.id(),
-                this.name(),
-                SpreadsheetName.with(value)
-        );
+        return this;
     }
 
     @Override
     UrlFragment spreadsheetRenameUrlFragment() {
-        return UrlFragment.EMPTY;
+        return SAVE.append(
+                this.value.urlFragment()
+        );
     }
 
     @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
-        final HistoryToken result;
-
-        switch (component) {
-            case "save":
-                result = this.parseSave(cursor);
-                break;
-            default:
-                cursor.end();
-                result = this; // ignore
-                break;
-        }
-
-        return result;
+        return this;
     }
 
     @Override

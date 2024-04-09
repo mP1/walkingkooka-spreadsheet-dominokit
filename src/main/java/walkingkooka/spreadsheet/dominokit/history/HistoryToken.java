@@ -891,6 +891,19 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetRenameSaveHistoryToken}
+     */
+    public static SpreadsheetRenameSaveHistoryToken spreadsheetRenameSave(final SpreadsheetId id,
+                                                                          final SpreadsheetName name,
+                                                                          final SpreadsheetName value) {
+        return SpreadsheetRenameSaveHistoryToken.with(
+                id,
+                name,
+                value
+        );
+    }
+
+    /**
      * {@see SpreadsheetSelectHistoryToken}
      */
     public static SpreadsheetSelectHistoryToken spreadsheetSelect(final SpreadsheetId id,
