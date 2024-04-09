@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 import elemental2.dom.Headers;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -32,6 +33,8 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 import java.util.Optional;
 
 public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?>> {
+
+    private final static AbsoluteOrRelativeUrl URL = Url.parseRelative("/something");
 
     // addOnce..........................................................................................................
 
@@ -90,12 +93,12 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         watchers.addOnce(watcher);
 
         watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
-        watchers.onFailure(HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
+        watchers.onFailure(URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
 
         this.checkEquals("onBeginonFailure", watcher.toString());
 
         watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
-        watchers.onFailure(HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
+        watchers.onFailure(URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
 
         this.checkEquals("onBeginonFailure", watcher.toString());
     }
@@ -150,7 +153,8 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
-        public void onFailure(final HttpStatus status,
+        public void onFailure(final AbsoluteOrRelativeUrl url,
+                              final HttpStatus status,
                               final Headers headers,
                               final String body,
                               final AppContext context) {
@@ -253,7 +257,8 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
-        public void onFailure(final HttpStatus status,
+        public void onFailure(final AbsoluteOrRelativeUrl url,
+                              final HttpStatus status,
                               final Headers headers,
                               final String body,
                               final AppContext context) {

@@ -36,6 +36,7 @@ import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import walkingkooka.j2cl.locale.LocaleAware;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.MediaType;
@@ -358,11 +359,12 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onFailure(final HttpStatus status,
+    public void onFailure(final AbsoluteOrRelativeUrl url,
+                          final HttpStatus status,
                           final Headers headers,
                           final String body,
                           final AppContext context) {
-        context.error(status, body);
+        context.error(url + " " + status, body);
     }
 
     @Override

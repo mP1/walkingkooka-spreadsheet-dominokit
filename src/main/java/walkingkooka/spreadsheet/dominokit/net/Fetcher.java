@@ -128,6 +128,7 @@ public interface Fetcher {
                                             final HttpStatus status = HttpStatusCode.withCode(response.status)
                                                     .setMessage(response.statusText);
                                             this.onFailure(
+                                                    url,
                                                     status,
                                                     response.headers,
                                                     text
@@ -190,7 +191,8 @@ public interface Fetcher {
     /**
      * This method is invoked for non OK responses.
      */
-    void onFailure(final HttpStatus status,
+    void onFailure(final AbsoluteOrRelativeUrl url,
+                   final HttpStatus status,
                    final Headers headers,
                    final String body);
 

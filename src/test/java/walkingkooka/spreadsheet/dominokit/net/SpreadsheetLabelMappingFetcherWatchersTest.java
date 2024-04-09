@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
 import org.junit.jupiter.api.Test;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -167,6 +168,7 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
     public void testFireFailure() {
         this.fired = 0;
 
+        final AbsoluteOrRelativeUrl url = Url.parseRelative("/api/something/123");
         final HttpStatus status = HttpStatusCode.withCode(123).setMessage("status message 456");
         final Headers headers = null;
         final String body = "Body-failure-789";
@@ -177,10 +179,12 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
                 new FakeSpreadsheetLabelMappingFetcherWatcher() {
 
                     @Override
-                    public void onFailure(final HttpStatus s,
+                    public void onFailure(final AbsoluteOrRelativeUrl u,
+                                          final HttpStatus s,
                                           final Headers h,
                                           final String b,
                                           final AppContext context) {
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(url, u);
                         SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(status, s);
                         SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(headers, h);
                         SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(body, b);
@@ -189,13 +193,13 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
                         SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
                     }
                 });
-        watchers.onFailure(status, headers, body, appContext);
+        watchers.onFailure(url, status, headers, body, appContext);
         this.checkEquals(1, this.fired);
 
-        watchers.onFailure(status, headers, body, appContext);
+        watchers.onFailure(url, status, headers, body, appContext);
         this.checkEquals(2, this.fired);
 
-        watchers.onFailure(status, headers, body, appContext);
+        watchers.onFailure(url, status, headers, body, appContext);
         this.checkEquals(3, this.fired);
     }
 

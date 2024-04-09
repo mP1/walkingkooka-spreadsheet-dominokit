@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -40,7 +41,8 @@ abstract class FakeFetcherWatcher implements FetcherWatcher {
     }
 
     @Override
-    public void onFailure(final HttpStatus status,
+    public void onFailure(final AbsoluteOrRelativeUrl url,
+                          final HttpStatus status,
                           final Headers headers,
                           final String body,
                           final AppContext context) {

@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
@@ -26,11 +27,13 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
  */
 final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> with(final HttpStatus status,
+    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> with(final AbsoluteOrRelativeUrl url,
+                                                                          final HttpStatus status,
                                                                           final Headers headers,
                                                                           final String body,
                                                                           final AppContext context) {
         return new FailureFetcherWatchersEvent<>(
+                url,
                 status,
                 headers,
                 body,
@@ -38,11 +41,14 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
         );
     }
 
-    private FailureFetcherWatchersEvent(final HttpStatus status,
+    private FailureFetcherWatchersEvent(final AbsoluteOrRelativeUrl url,
+                                        final HttpStatus status,
                                         final Headers headers,
                                         final String body,
                                         final AppContext context) {
         super(context);
+
+        this.url = url;
         this.status = status;
         this.headers =headers;
         this.body = body;
@@ -52,6 +58,7 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
     public void accept(final W watcher) {
         try {
             watcher.onFailure(
+                    this.url,
                     this.status,
                     this.headers,
                     this.body,
@@ -65,6 +72,8 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
         }
     }
 
+    private final AbsoluteOrRelativeUrl url;
+
     private final HttpStatus status;
 
     private final Headers headers;
@@ -73,6 +82,6 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
 
     @Override
     public String toString() {
-        return this.status + " " + this.headers + " " + this.body + " " + this.context;
+        return this.url + " " + this.status + " " + this.headers + " " + this.body + " " + this.context;
     }
 }

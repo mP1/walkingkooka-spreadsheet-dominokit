@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -32,7 +33,8 @@ public interface FetcherWatcher {
                  final Optional<String> body,
                  final AppContext context);
 
-    void onFailure(final HttpStatus status,
+    void onFailure(final AbsoluteOrRelativeUrl url,
+                   final HttpStatus status,
                    final Headers headers,
                    final String body,
                    final AppContext context);

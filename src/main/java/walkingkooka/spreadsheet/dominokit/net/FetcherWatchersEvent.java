@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -45,11 +46,13 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
         return ErrorFetcherWatchersEvent.with(cause, context);
     }
 
-    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> failure(final HttpStatus status,
+    static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> failure(final AbsoluteOrRelativeUrl url,
+                                                                             final HttpStatus status,
                                                                              final Headers headers,
                                                                              final String body,
                                                                              final AppContext context) {
         return FailureFetcherWatchersEvent.with(
+                url,
                 status,
                 headers,
                 body,
