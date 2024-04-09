@@ -906,50 +906,43 @@ public abstract class HistoryToken implements HasUrlFragment,
         HistoryToken token = null;
 
         final TextCursor cursor = TextCursors.charSequence(fragment.value());
-
-        try {
-            final Optional<String> maybeComponent = parseComponent(cursor);
-
-            if (maybeComponent.isPresent()) {
-                final String component = maybeComponent.get();
-                switch (component) {
-                    case "":
-                        token = HistoryToken.spreadsheetList(
-                                OptionalInt.empty(), // from
-                                OptionalInt.empty() // count
-                        );
-                        break;
-                    case "count":
-                        token = HistoryToken.spreadsheetList(
-                                OptionalInt.empty(), // from
-                                OptionalInt.empty() // count
-                        );
-                        token = token.setCount(
-                                parseCount(cursor)
-                        ).parse(cursor);
-                        break;
-                    case "create":
-                        token = HistoryToken.spreadsheetCreate()
-                                .parse(cursor);
-                        break;
-                    case "from":
-                        token = HistoryToken.spreadsheetList(
-                                OptionalInt.empty(), // from
-                                OptionalInt.empty() // count
-                        );
-                        token = token.cast(SpreadsheetListHistoryToken.class)
-                                .setFrom(
-                                        parseOptionalInt(cursor)
-                                ).parse(cursor);
-                        break;
-                    default:
-                        token = spreadsheetLoad(
-                                SpreadsheetId.parse(component)
-                        ).parse(cursor);
+        if (cursor.isEmpty()) {
+            token = SPREADSHEET_LIST_HISTORY_TOKEN;
+        } else {
+            try {
+                final Optional<String> maybeComponent = parseComponent(cursor);
+                if (maybeComponent.isPresent()) {
+                    final String component = maybeComponent.get();
+                    switch (component) {
+                        case "":
+                            token = SPREADSHEET_LIST_HISTORY_TOKEN;
+                            break;
+                        case "count":
+                            token = SPREADSHEET_LIST_HISTORY_TOKEN;
+                            token = token.setCount(
+                                    parseCount(cursor)
+                            ).parse(cursor);
+                            break;
+                        case "create":
+                            token = HistoryToken.spreadsheetCreate()
+                                    .parse(cursor);
+                            break;
+                        case "from":
+                            token = SPREADSHEET_LIST_HISTORY_TOKEN;
+                            token = token.cast(SpreadsheetListHistoryToken.class)
+                                    .setFrom(
+                                            parseOptionalInt(cursor)
+                                    ).parse(cursor);
+                            break;
+                        default:
+                            token = spreadsheetLoad(
+                                    SpreadsheetId.parse(component)
+                            ).parse(cursor);
+                    }
                 }
+            } catch (final RuntimeException ignore) {
+                // nop
             }
-        } catch (final RuntimeException ignore) {
-            // nop
         }
 
         if (null == token) {
@@ -958,6 +951,11 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return token;
     }
+
+    private final static SpreadsheetListHistoryToken SPREADSHEET_LIST_HISTORY_TOKEN = HistoryToken.spreadsheetList(
+            OptionalInt.empty(), // from
+            OptionalInt.empty() // count
+    );
 
     /**
      * Consumes all remaining text into a {@link String}.

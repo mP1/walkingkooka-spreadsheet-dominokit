@@ -2394,8 +2394,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseEmpty() {
         this.parseStringAndCheck(
                 "",
-                HistoryToken.unknown(
-                        UrlFragment.with("")
+                HistoryToken.spreadsheetList(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
                 )
         );
     }
