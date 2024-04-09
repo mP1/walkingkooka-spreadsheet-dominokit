@@ -252,7 +252,8 @@ public final class SpreadsheetFindComponent implements SpreadsheetDialogComponen
      * Replaces the cells in the {@link #cellDataStore}.
      */
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+    public void onSpreadsheetDelta(final SpreadsheetId id,
+                                   final SpreadsheetDelta delta,
                                    final AppContext context) {
         final List<SpreadsheetCell> cells = Lists.array();
         cells.addAll(delta.cells());

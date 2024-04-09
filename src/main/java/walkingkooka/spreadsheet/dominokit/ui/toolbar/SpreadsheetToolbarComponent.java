@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -131,7 +132,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+    public void onSpreadsheetDelta(final SpreadsheetId id,
+                                   final SpreadsheetDelta delta,
                                    final AppContext context) {
         this.refreshIfOpen(context);
     }

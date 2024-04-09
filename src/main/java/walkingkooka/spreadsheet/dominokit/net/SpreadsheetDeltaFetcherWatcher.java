@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
@@ -25,6 +26,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
  */
 public interface SpreadsheetDeltaFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetDelta(final SpreadsheetDelta delta,
+    void onSpreadsheetDelta(final SpreadsheetId id,
+                            final SpreadsheetDelta delta,
                             final AppContext context);
 }

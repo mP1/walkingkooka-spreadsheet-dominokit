@@ -397,7 +397,8 @@ public class App implements EntryPoint,
     private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaWatchers;
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetDelta delta,
+    public void onSpreadsheetDelta(final SpreadsheetId id,
+                                   final SpreadsheetDelta delta,
                                    final AppContext context) {
         // nop
     }
