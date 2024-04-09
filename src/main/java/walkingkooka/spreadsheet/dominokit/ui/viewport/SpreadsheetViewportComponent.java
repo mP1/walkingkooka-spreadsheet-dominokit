@@ -35,6 +35,7 @@ import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -1087,7 +1088,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     @Override
-    public void onFailure(final HttpStatus status,
+    public void onFailure(final AbsoluteOrRelativeUrl url,
+                          final HttpStatus status,
                           final Headers headers,
                           final String body,
                           final AppContext context) {

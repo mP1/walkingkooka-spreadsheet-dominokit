@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -82,12 +83,14 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     }
 
     @Override
-    public final void onFailure(final HttpStatus status,
+    public final void onFailure(final AbsoluteOrRelativeUrl url,
+                                final HttpStatus status,
                                 final Headers headers,
                                 final String body,
                                 final AppContext context) {
         this.fire(
                 FetcherWatchersEvent.failure(
+                        url,
                         status,
                         headers,
                         body,

@@ -165,10 +165,12 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     }
 
     @Override
-    public void onFailure(final HttpStatus status,
+    public void onFailure(final AbsoluteOrRelativeUrl url,
+                          final HttpStatus status,
                           final Headers headers,
                           final String body) {
         this.watcher.onFailure(
+                url,
                 status,
                 headers,
                 body,

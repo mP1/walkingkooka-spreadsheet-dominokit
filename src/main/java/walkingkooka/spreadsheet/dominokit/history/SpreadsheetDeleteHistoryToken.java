@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.Headers;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.http.HttpMethod;
@@ -183,7 +184,8 @@ public final class SpreadsheetDeleteHistoryToken extends SpreadsheetNameHistoryT
                     }
 
                     @Override
-                    public void onFailure(final HttpStatus status,
+                    public void onFailure(final AbsoluteOrRelativeUrl url,
+                                          final HttpStatus status,
                                           final Headers headers,
                                           final String body,
                                           final AppContext context) {
