@@ -18,11 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPath;
+import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -70,6 +72,23 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     private final static RelativeUrl API_BASE = Url.parseRelative("/api/spreadsheet");
+
+    /**
+     * Extracts the {@link SpreadsheetId} from a URL assumed to contain an endpoint.
+     */
+    static SpreadsheetId parseSpreadsheetId(final AbsoluteOrRelativeUrl url) {
+        final UrlPath path = url.path();
+
+        int i = 0;
+        for (final UrlPathName component : Iterables.iterator(path.iterator())) {
+            i++;
+            if (4 == i) {
+                return SpreadsheetId.parse(component.value());
+            }
+        }
+
+        throw new IllegalArgumentException("Url missing SpreadsheetId " + url);
+    }
 
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataFetcherWatcher watcher,
                                                   final AppContext context) {

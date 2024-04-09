@@ -45,6 +45,28 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
         );
     }
 
+    // parseSpreadsheetId...............................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> SpreadsheetMetadataFetcher.parseSpreadsheetId(
+                        Url.parseRelative("/api/spreadsheet")
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetId() {
+        this.checkEquals(
+                SpreadsheetId.parse("123"),
+                SpreadsheetMetadataFetcher.parseSpreadsheetId(
+                        Url.parseRelative("/api/spreadsheet/123")
+                )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override
