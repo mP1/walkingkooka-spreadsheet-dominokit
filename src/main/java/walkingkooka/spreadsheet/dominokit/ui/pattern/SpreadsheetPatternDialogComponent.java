@@ -88,7 +88,10 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 .setDisabled(true);
         this.undo = this.anchor("Undo")
                 .setDisabled(true);
-
+        this.clear = this.anchor("Clear")
+                .setDisabled(true);
+        this.close = this.anchor("Close")
+                .setDisabled(true);
 
         this.dialog = this.dialogCreate();
     }
@@ -120,20 +123,12 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
         final SpreadsheetTextBox patternTextBox = this.patternTextBox;
         dialog.appendChild(patternTextBox);
 
-        final HistoryToken historyToken = context.historyToken();
-        final HistoryTokenAnchorComponent clear = this.anchor("Clear")
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.clearSave()
-                        )
-                );
-
         dialog.appendChild(
                 ElementsFactory.elements.div()
                         .appendChild(this.save)
                         .appendChild(this.undo)
-                        .appendChild(clear)
-                        .appendChild(this.closeAnchor(historyToken))
+                        .appendChild(this.clear)
+                        .appendChild(this.close)
         );
 
         return dialog;
@@ -292,6 +287,16 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
      */
     private final HistoryTokenAnchorComponent undo;
 
+    /**
+     * A CLEAR link which will save an empty pattern.
+     */
+    private final HistoryTokenAnchorComponent clear;
+
+    /**
+     * A CLOSE link which will close the dialog.
+     */
+    private final HistoryTokenAnchorComponent close;
+
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
     @Override
@@ -362,10 +367,23 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 .orElse("")
         );
 
+        final HistoryToken historyToken = context.historyToken();
+
         this.undo.setHistoryToken(
                 Optional.of(
-                        context.historyToken()
-                                .setSave(pattern)
+                        historyToken.setSave(pattern)
+                )
+        );
+
+        this.clear.setHistoryToken(
+                Optional.of(
+                        historyToken.clearSave()
+                )
+        );
+
+        this.close.setHistoryToken(
+                Optional.of(
+                        historyToken.close()
                 )
         );
     }
