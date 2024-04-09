@@ -53,6 +53,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHist
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
@@ -147,6 +148,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 false, // is format false
                 context
         );
+
+        this.setVisibility(false);
     }
 
     /**
@@ -880,7 +883,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        boolean match = token instanceof SpreadsheetNameHistoryToken;
+        boolean match = token instanceof SpreadsheetNameHistoryToken &&
+                false == token instanceof SpreadsheetDeleteHistoryToken;
 
         if (match) {
             final AppContext context = this.context;
@@ -890,7 +894,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
             match = false == metadata.isEmpty() && false == windows.isEmpty();
         }
-
+        DomGlobal.console.debug(SpreadsheetViewportComponent.class.getSimpleName() + ".isMatch " + match +
+                " open: " + this.open +
+                " isVisibilityHidden: " + this.isVisibilityHidden());
         return match;
     }
 

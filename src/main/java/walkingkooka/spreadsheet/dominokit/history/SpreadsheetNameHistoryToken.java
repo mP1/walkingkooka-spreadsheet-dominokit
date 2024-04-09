@@ -255,7 +255,9 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         // if the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to
         // be loaded then fire history token again.
         final SpreadsheetId id = this.id();
-        if (context.isSpreadsheetMetadataLoaded()) {
+
+        // special case SpreadsheetDeleteHistoryToken otherwise load SpradsheetMetadata might happen.
+        if (this instanceof SpreadsheetDeleteHistoryToken || context.isSpreadsheetMetadataLoaded()) {
             this.onHistoryTokenChange0(
                     previous,
                     context
