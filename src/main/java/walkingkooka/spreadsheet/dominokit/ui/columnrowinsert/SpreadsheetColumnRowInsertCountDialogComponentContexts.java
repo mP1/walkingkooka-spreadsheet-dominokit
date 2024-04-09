@@ -20,16 +20,16 @@ package walkingkooka.spreadsheet.dominokit.ui.columnrowinsert;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class SpreadsheetColumnRowInsertCountComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetColumnRowInsertCountDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetColumnRowInsertCountComponentContext}
+     * {@see AppContextSpreadsheetColumnRowInsertCountDialogComponentContext}
      */
-    public static SpreadsheetColumnRowInsertCountComponentContext appContext(final AppContext context) {
-        return AppContextSpreadsheetColumnRowInsertCountComponentContext.with(context);
+    public static SpreadsheetColumnRowInsertCountDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetColumnRowInsertCountDialogComponentContext.with(context);
     }
 
-    private SpreadsheetColumnRowInsertCountComponentContexts() {
+    private SpreadsheetColumnRowInsertCountDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }
