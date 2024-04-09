@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -145,8 +144,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return token instanceof SpreadsheetDeleteHistoryToken ||
-                token instanceof SpreadsheetRenameHistoryToken;
+        return token instanceof SpreadsheetDeleteHistoryToken;
     }
 
     @Override
