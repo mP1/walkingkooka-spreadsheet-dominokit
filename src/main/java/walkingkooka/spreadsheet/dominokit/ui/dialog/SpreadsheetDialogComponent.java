@@ -17,12 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
+import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
@@ -33,7 +35,7 @@ import java.util.Optional;
 /**
  * A standard dialog model aialog component with support for title and close icon.
  */
-public class SpreadsheetDialogComponent {
+public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
 
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
@@ -187,6 +189,15 @@ public class SpreadsheetDialogComponent {
      * Includes the dialog title.
      */
     private final NavBar navBar;
+
+    // HtmlElementComponent.............................................................................................
+
+    @Override
+    public HTMLDivElement element() {
+        return this.dialog.element();
+    }
+
+    // Object..........................................................................................................
 
     @Override
     public String toString() {
