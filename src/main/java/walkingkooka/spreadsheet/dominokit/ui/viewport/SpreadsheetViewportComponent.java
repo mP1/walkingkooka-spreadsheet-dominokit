@@ -894,9 +894,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
             match = false == metadata.isEmpty() && false == windows.isEmpty();
         }
-        DomGlobal.console.debug(SpreadsheetViewportComponent.class.getSimpleName() + ".isMatch " + match +
-                " open: " + this.open +
-                " isVisibilityHidden: " + this.isVisibilityHidden());
         return match;
     }
 
