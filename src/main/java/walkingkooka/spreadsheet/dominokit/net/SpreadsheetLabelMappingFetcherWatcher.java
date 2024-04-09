@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
@@ -27,6 +28,7 @@ import java.util.Optional;
  */
 public interface SpreadsheetLabelMappingFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
+    void onSpreadsheetLabelMapping(final SpreadsheetId id,
+                                   final Optional<SpreadsheetLabelMapping> mapping,
                                    final AppContext context);
 }

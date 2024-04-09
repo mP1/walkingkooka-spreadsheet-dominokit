@@ -23,6 +23,7 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -36,6 +37,7 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
     public void testAddThenFire() {
         this.fired = 0;
 
+        final SpreadsheetId spreadsheetId = SpreadsheetId.with(1);
         final Optional<SpreadsheetLabelMapping> spreadsheetLabelMapping = Optional.of(
                 SpreadsheetSelection.labelName("Label123")
                         .mapping(SpreadsheetSelection.A1)
@@ -46,15 +48,17 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
         watchers.add(
                 new FakeSpreadsheetLabelMappingFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
+                    public void onSpreadsheetLabelMapping(final SpreadsheetId id,
+                                                          final Optional<SpreadsheetLabelMapping> mapping,
                                                           final AppContext context) {
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetId, id);
                         SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
                         SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
 
                         SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
                     }
                 });
-        watchers.onSpreadsheetLabelMapping(spreadsheetLabelMapping, appContext);
+        watchers.onSpreadsheetLabelMapping(spreadsheetId, spreadsheetLabelMapping, appContext);
 
         this.checkEquals(1, this.fired);
     }
@@ -63,6 +67,7 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
     public void testAddOnce() {
         this.fired = 0;
 
+        final SpreadsheetId spreadsheetId = SpreadsheetId.with(1);
         final Optional<SpreadsheetLabelMapping> spreadsheetLabelMapping = Optional.of(
                 SpreadsheetSelection.labelName("Label123")
                         .mapping(SpreadsheetSelection.A1)
@@ -73,21 +78,23 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
         watchers.addOnce(
                 new FakeSpreadsheetLabelMappingFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
+                    public void onSpreadsheetLabelMapping(final SpreadsheetId id,
+                                                          final Optional<SpreadsheetLabelMapping> mapping,
                                                           final AppContext context) {
+                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetId, id);
                         SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
                         SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
 
                         SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
                     }
                 });
-        watchers.onSpreadsheetLabelMapping(spreadsheetLabelMapping, appContext);
+        watchers.onSpreadsheetLabelMapping(spreadsheetId, spreadsheetLabelMapping, appContext);
         this.checkEquals(1, this.fired);
 
-        watchers.onSpreadsheetLabelMapping(spreadsheetLabelMapping, appContext);
+        watchers.onSpreadsheetLabelMapping(spreadsheetId, spreadsheetLabelMapping, appContext);
         this.checkEquals(1, this.fired);
 
-        watchers.onSpreadsheetLabelMapping(spreadsheetLabelMapping, appContext);
+        watchers.onSpreadsheetLabelMapping(spreadsheetId, spreadsheetLabelMapping, appContext);
         this.checkEquals(1, this.fired);
     }
 

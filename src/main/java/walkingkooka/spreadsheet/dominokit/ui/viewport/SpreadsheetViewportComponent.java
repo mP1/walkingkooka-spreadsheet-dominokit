@@ -1089,7 +1089,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * Any label mapping change should refresh the viewport cells.
      */
     @Override
-    public void onSpreadsheetLabelMapping(final Optional<SpreadsheetLabelMapping> mapping,
+    public void onSpreadsheetLabelMapping(final SpreadsheetId id,
+                                          final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
         this.reload = true; // force a viewport reload.
     }
