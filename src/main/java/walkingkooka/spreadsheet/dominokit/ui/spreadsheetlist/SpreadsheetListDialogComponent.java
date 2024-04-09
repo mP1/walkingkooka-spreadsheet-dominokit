@@ -39,7 +39,7 @@ import java.util.Optional;
  * A dialog that displays a table with a listing of spreadsheets. Controls are present to open, delete and create
  * spreadsheets.
  */
-public final class SpreadsheetListComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetListDialogComponent implements SpreadsheetDialogComponentLifecycle,
         SpreadsheetMetadataFetcherWatcher,
         NopFetcherWatcher,
         NopNoResponseWatcher {
@@ -48,13 +48,13 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
 
     final static String ID_PREFIX = ID + '-';
 
-    public static SpreadsheetListComponent with(final SpreadsheetListComponentContext context) {
+    public static SpreadsheetListDialogComponent with(final SpreadsheetListComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetListComponent(context);
+        return new SpreadsheetListDialogComponent(context);
     }
 
-    private SpreadsheetListComponent(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListDialogComponent(final SpreadsheetListComponentContext context) {
         this.context = context;
 
         context.addHistoryTokenWatcher(this);
