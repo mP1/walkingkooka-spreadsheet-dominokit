@@ -68,6 +68,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
@@ -1094,7 +1095,16 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                           final Headers headers,
                           final String body,
                           final AppContext context) {
-        this.reload = true;
+        // if loading SpreadsheetId failed, force a reload.
+        if (HttpMethod.GET.equals(method)) {
+            final Optional<SpreadsheetId> maybeId = SpreadsheetMetadataFetcher.extractSpreadsheetId(url);
+            if (maybeId.isPresent()) {
+                if (url.equals(SpreadsheetMetadataFetcher.url(maybeId.get()))) {
+                    this.reload = true;
+
+                }
+            }
+        }
     }
 
     @Override
