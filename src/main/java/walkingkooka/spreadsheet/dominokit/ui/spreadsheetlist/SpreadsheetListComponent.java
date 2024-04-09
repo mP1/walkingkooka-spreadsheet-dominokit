@@ -128,6 +128,10 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
                                           final AppContext context) {
         if (this.isOpen()) {
             this.table.setMetadata(metadatas);
+            this.table.refresh(
+                    context.historyToken()
+                            .cast(SpreadsheetListHistoryToken.class)
+            );
         }
     }
 
@@ -155,11 +159,14 @@ public final class SpreadsheetListComponent implements SpreadsheetDialogComponen
 
     @Override
     public void refresh(final AppContext context) {
+        final SpreadsheetListHistoryToken historyToken = context.historyToken()
+                .cast(SpreadsheetListHistoryToken.class);
+
         // refresh reload, history token might have changed from or count etc.
         this.reload.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                )
+                Optional.of(historyToken)
         );
+
+        this.table.refresh(historyToken);
     }
 }
