@@ -79,6 +79,11 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override
+    HistoryToken setSave0(final String value) {
+        return this;
+    }
+
+    @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.addSpreadsheetMetadataWatcherOnce(
