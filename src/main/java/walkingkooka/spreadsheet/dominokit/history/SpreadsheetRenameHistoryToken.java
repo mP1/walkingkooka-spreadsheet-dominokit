@@ -44,8 +44,6 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
         );
     }
 
-    private final static UrlFragment RENAME = UrlFragment.parse("/rename");
-
     abstract UrlFragment spreadsheetRenameUrlFragment();
 
     @Override //
