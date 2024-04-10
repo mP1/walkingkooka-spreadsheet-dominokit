@@ -21,52 +21,44 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 
-import java.util.Objects;
+abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext {
 
-final class AppContextSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext {
-
-    static AppContextSpreadsheetNameDialogComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetNameDialogComponentContext(
-                Objects.requireNonNull(context, "context")
-        );
-    }
-
-    private AppContextSpreadsheetNameDialogComponentContext(final AppContext context) {
+    BasicSpreadsheetNameDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+    public final Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
         return this.context.addHistoryTokenWatcher(watcher);
     }
 
     @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+    public final Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
         return this.context.addHistoryTokenWatcherOnce(watcher);
     }
 
     @Override
-    public HistoryToken historyToken() {
+    public final HistoryToken historyToken() {
         return this.context.historyToken();
     }
 
     @Override
-    public void pushHistoryToken(final HistoryToken token) {
+    public final void pushHistoryToken(final HistoryToken token) {
         this.context.pushHistoryToken(token);
     }
 
     @Override
-    public void fireCurrentHistoryToken() {
+    public final void fireCurrentHistoryToken() {
         this.context.fireCurrentHistoryToken();
     }
 
     @Override
-    public void debug(final Object... values) {
+    public final void debug(final Object... values) {
         this.context.debug(values);
     }
 
     @Override
-    public void error(final Object... values) {
+    public final void error(final Object... values) {
         this.context.error(values);
     }
 
