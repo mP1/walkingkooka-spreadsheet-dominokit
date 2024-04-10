@@ -206,7 +206,7 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                                     OptionalInt.of(
                                             Math.max(
                                                     0,
-                                                    from - count
+                                                    from - count + 1
                                             )
                                     )
                             )
@@ -223,7 +223,7 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                     Optional.of(
                             historyToken.setFrom(
                                     OptionalInt.of(
-                                            from + count
+                                            from + count - 1
                                     )
                             )
                     )
