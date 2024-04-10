@@ -1005,6 +1005,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     public void close(final AppContext context) {
         this.setVisibility(false);
         this.open = false;
+
+        // need to "clear" cached metadata this will force loadViewportCells to happen when a new SpreadsheetMetadata.id appears
+        this.metadata = SpreadsheetMetadata.EMPTY;
+        this.refreshMetadata = SpreadsheetMetadata.EMPTY;
     }
 
     private boolean open;
