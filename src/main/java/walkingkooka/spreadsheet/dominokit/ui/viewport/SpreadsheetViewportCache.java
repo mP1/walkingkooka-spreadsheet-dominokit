@@ -529,17 +529,18 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        // only update defaultXXX if Metadata is the same as history SpreadsheetId
+        // clear cache if id changed.
+        final SpreadsheetId oldId = this.spreadsheetId;
         final SpreadsheetId id = metadata.id().orElse(null);
-        if (Objects.equals(this.spreadsheetId, id)) {
-            this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH);
-            this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT);
-        } else {
+        if (false == Objects.equals(oldId, id)) {
+            // history is probably a create spreadsheet id so clear cache
             this.clear();
-            this.spreadsheetId = id;
-            this.defaultWidth = null;
-            this.defaultHeight = null;
+            context.debug(this.getClass().getSimpleName() + ".onSpreadsheetMetadata id changed from " + oldId + " to " + id + " clearing cache");
         }
+
+        this.spreadsheetId = id;
+        this.defaultWidth = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.WIDTH);
+        this.defaultHeight = metadata.getEffectiveStylePropertyOrFail(TextStylePropertyName.HEIGHT);
     }
 
     // @VisibleTesting
