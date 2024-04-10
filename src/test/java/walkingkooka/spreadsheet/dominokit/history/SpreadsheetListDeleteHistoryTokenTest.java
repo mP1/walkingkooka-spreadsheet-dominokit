@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.OptionalInt;
@@ -77,8 +78,8 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
     }
 
     @Override
-    SpreadsheetListDeleteHistoryToken createHistoryToken() {
-        return SpreadsheetListDeleteHistoryToken.with(ID);
+    SpreadsheetListDeleteHistoryToken createHistoryToken(final SpreadsheetId id) {
+        return SpreadsheetListDeleteHistoryToken.with(id);
     }
 
     @Override

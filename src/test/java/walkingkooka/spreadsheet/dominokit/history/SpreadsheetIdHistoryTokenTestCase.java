@@ -17,9 +17,28 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public abstract class SpreadsheetIdHistoryTokenTestCase<T extends SpreadsheetHistoryToken> extends SpreadsheetHistoryTokenTestCase<T> {
 
     SpreadsheetIdHistoryTokenTestCase() {
         super();
     }
+
+    @Test
+    public final void testWithNullIdFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> this.createHistoryToken(null)
+        );
+    }
+
+    @Override final T createHistoryToken() {
+        return this.createHistoryToken(ID);
+    }
+
+    abstract T createHistoryToken(final SpreadsheetId id);
 }

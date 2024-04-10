@@ -69,10 +69,8 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     }
 
     @Override
-    SpreadsheetLoadHistoryToken createHistoryToken() {
-        return SpreadsheetLoadHistoryToken.with(
-                ID
-        );
+    SpreadsheetLoadHistoryToken createHistoryToken(final SpreadsheetId id) {
+        return SpreadsheetLoadHistoryToken.with(id);
     }
 
     @Override
