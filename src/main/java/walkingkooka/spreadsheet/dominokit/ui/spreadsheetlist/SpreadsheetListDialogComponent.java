@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * A dialog that displays a table with a listing of spreadsheets. Controls are present to open, delete and create
@@ -61,6 +62,9 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
         this.reload = this.reload();
 
+        this.count10 = this.count10();
+        this.count20 = this.count20();
+
         this.table = this.table();
         this.dialog = this.dialogCreate(context);
     }
@@ -74,6 +78,26 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     }
 
     private final HistoryTokenAnchorComponent reload;
+
+    // count10............................................................................................................
+
+    private HistoryTokenAnchorComponent count10() {
+        return this.context.historyToken()
+                .link(ID_PREFIX + "count-10")
+                .setTextContent("10");
+    }
+
+    private final HistoryTokenAnchorComponent count10;
+
+    // count20............................................................................................................
+
+    private HistoryTokenAnchorComponent count20() {
+        return this.context.historyToken()
+                .link(ID_PREFIX + "count-20")
+                .setTextContent("20");
+    }
+
+    private final HistoryTokenAnchorComponent count20;
 
     // table............................................................................................................
 
@@ -102,6 +126,8 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
                                         .link(ID_PREFIX + "create")
                                         .setTextContent("Create")
                         ).appendChild(this.reload)
+                        .appendChild(this.count10)
+                        .appendChild(this.count20)
         );
         return dialog;
     }
@@ -165,6 +191,22 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
         // refresh reload, history token might have changed from or count etc.
         this.reload.setHistoryToken(
                 Optional.of(historyToken)
+        );
+
+        this.count10.setHistoryToken(
+                Optional.of(
+                        historyToken.setCount(
+                                OptionalInt.of(10)
+                        )
+                )
+        );
+
+        this.count20.setHistoryToken(
+                Optional.of(
+                        historyToken.setCount(
+                                OptionalInt.of(20)
+                        )
+                )
         );
 
         this.table.refresh(historyToken);
