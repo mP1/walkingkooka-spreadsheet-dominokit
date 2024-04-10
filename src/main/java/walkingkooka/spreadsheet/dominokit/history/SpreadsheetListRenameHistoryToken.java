@@ -46,6 +46,9 @@ public abstract class SpreadsheetListRenameHistoryToken extends SpreadsheetIdHis
     @Override //
     final HistoryToken replaceIdAndName(final SpreadsheetId id,
                                         final SpreadsheetName name) {
-        throw new UnsupportedOperationException();
+        return HistoryToken.spreadsheetSelect(
+                id,
+                name
+        );
     }
 }

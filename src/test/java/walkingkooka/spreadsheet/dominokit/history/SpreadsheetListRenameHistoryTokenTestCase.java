@@ -37,4 +37,17 @@ public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends Spread
                 )
         );
     }
+
+    @Test
+    public final void testSetIdAndName() {
+        this.setIdAndNameAndCheck(
+                this.createHistoryToken(),
+                ID,
+                NAME,
+                HistoryToken.spreadsheetSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
 }
