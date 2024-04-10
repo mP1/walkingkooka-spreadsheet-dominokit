@@ -537,6 +537,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         } else {
             this.clear();
             this.spreadsheetId = id;
+            this.defaultWidth = null;
+            this.defaultHeight = null;
         }
     }
 
