@@ -1906,8 +1906,8 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setSave(final String text) {
         Objects.requireNonNull(text, "text");
 
-        return this.setIfSpreadsheetNameHistoryTokenWithValue(
-                SpreadsheetNameHistoryToken::setSave0,
+        return this.setIfSpreadsheetIdHistoryToken(
+                SpreadsheetIdHistoryToken::setSave0,
                 text
         );
     }
@@ -1957,6 +1957,24 @@ public abstract class HistoryToken implements HasUrlFragment,
                 name.contains("Menu") ||
                 name.contains("Reload") ||
                 name.contains("Save");
+    }
+
+    private <T> HistoryToken setIfSpreadsheetIdHistoryToken(final BiFunction<SpreadsheetIdHistoryToken, T, HistoryToken> setter,
+                                                            final T value) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetIdHistoryToken) {
+            token = setter.apply(
+                    this.cast(SpreadsheetIdHistoryToken.class),
+                    value
+            );
+
+            if (token.equals(this)) {
+                token = this;
+            }
+        }
+
+        return token;
     }
 
     private HistoryToken setIfSpreadsheetNameHistoryToken(final Function<SpreadsheetNameHistoryToken, HistoryToken> setter) {
