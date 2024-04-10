@@ -43,10 +43,7 @@ public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRename
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.spreadsheetSelect(
-                this.id(),
-                this.name()
-        );
+        return this;
     }
 
     @Override //
