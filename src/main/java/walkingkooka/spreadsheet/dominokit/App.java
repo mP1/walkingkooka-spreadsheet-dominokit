@@ -28,7 +28,6 @@ import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.lib.Icons;
-import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
@@ -71,6 +70,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.dominokit.ui.applayout.SpreadsheetAppLayout;
 import walkingkooka.spreadsheet.dominokit.ui.applayoutrightdrawer.AppLayoutRightDrawerComponent;
 import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountDialogComponentContexts;
@@ -213,15 +213,16 @@ public class App implements EntryPoint,
         this.layout = this.prepareLayout();
     }
 
-    private final AppLayout layout;
+    private final SpreadsheetAppLayout layout;
 
     // header = metadata toggle | clickable(editable) spreadsheet name
     // right = editable metadata properties
     // content = toolbar
     //   formula,
     //   table holding spreadsheet cells
-    private AppLayout prepareLayout() {
-        final AppLayout layout = AppLayout.create();
+    private SpreadsheetAppLayout prepareLayout() {
+        final SpreadsheetAppLayout layout = SpreadsheetAppLayout.empty();
+        this.addHistoryTokenWatcher(layout);
 
         layout.setOverFlowX("hidden")
                 .setOverFlowY("hidden");
@@ -357,7 +358,7 @@ public class App implements EntryPoint,
 
     private void onResize(final int width,
                           final int height) {
-        final AppLayout layout = this.layout;
+        final SpreadsheetAppLayout layout = this.layout;
         final int navigationBarHeight = layout.getNavBar()
                 .element()
                 .offsetHeight;
