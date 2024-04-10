@@ -20,9 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetRenameSaveHistoryToken> {
+public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRenameHistoryTokenTestCase<SpreadsheetRenameSaveHistoryToken> {
 
     private final static SpreadsheetName RENAME_TO = SpreadsheetName.with("RenameToSpreadsheetName567");
 
@@ -50,35 +49,6 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetName
                         ID,
                         NAME
                 )
-        );
-    }
-
-    @Test
-    public void testSetAnchoredSelection() {
-        final SpreadsheetRenameSaveHistoryToken token = this.createHistoryToken();
-
-        this.setAnchoredSelectionAndCheck(
-                token,
-                token
-        );
-    }
-
-    @Test
-    public void testSetMetadataPropertyName() {
-        this.setMetadataPropertyNameAndCheck(
-                SpreadsheetMetadataPropertyName.LOCALE,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.LOCALE
-                )
-        );
-    }
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-                this.createHistoryToken()
         );
     }
 

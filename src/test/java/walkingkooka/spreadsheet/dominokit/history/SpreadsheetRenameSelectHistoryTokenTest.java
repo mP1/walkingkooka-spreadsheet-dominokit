@@ -20,11 +20,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetRenameSelectHistoryToken> {
+public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRenameHistoryTokenTestCase<SpreadsheetRenameSelectHistoryToken> {
 
     @Test
     public void testWithNullValueFails() {
@@ -51,35 +50,6 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetNa
                         ID,
                         NAME
                 )
-        );
-    }
-
-    @Test
-    public void testSetAnchoredSelection() {
-        final SpreadsheetRenameSelectHistoryToken token = this.createHistoryToken();
-
-        this.setAnchoredSelectionAndCheck(
-                token,
-                token
-        );
-    }
-
-    @Test
-    public void testSetMetadataPropertyName() {
-        this.setMetadataPropertyNameAndCheck(
-                SpreadsheetMetadataPropertyName.LOCALE,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.LOCALE
-                )
-        );
-    }
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-                this.createHistoryToken()
         );
     }
 
