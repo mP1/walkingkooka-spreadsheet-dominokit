@@ -176,7 +176,7 @@ public class App implements EntryPoint,
         );
 
         SpreadsheetNameDialogComponent.with(
-                SpreadsheetNameDialogComponentContexts.appContext(this)
+                SpreadsheetNameDialogComponentContexts.spreadsheetRename(this)
         );
 
         SpreadsheetColumnRowInsertCountDialogComponent.with(
