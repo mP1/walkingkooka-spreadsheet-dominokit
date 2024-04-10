@@ -22,6 +22,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
@@ -93,6 +94,13 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
     @Override
     public void onHistoryTokenChange0(final HistoryToken previous,
                                       final AppContext context) {
-        // NOP
+        context.pushHistoryToken(previous);
+        context.spreadsheetMetadataFetcher()
+                .patchMetadata(
+                        this.id(),
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_NAME.patch(
+                                this.value()
+                        )
+                );
     }
 }
