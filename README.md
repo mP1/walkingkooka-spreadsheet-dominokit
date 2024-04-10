@@ -122,7 +122,7 @@ Global settings that may be added or updated appear in a panel that appears on t
 
 - Browser Dialog
   - open *DONE*
-  - rename [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2393)
+  - rename *DONE*
   - delete *DONE*
   - print [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2330)
   - download [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2329)
