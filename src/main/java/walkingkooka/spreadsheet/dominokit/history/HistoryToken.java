@@ -856,6 +856,24 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetListRenameSelectHistoryToken}
+     */
+    public static SpreadsheetListRenameSelectHistoryToken spreadsheetListRenameSelect(final SpreadsheetId id) {
+        return SpreadsheetListRenameSelectHistoryToken.with(id);
+    }
+
+    /**
+     * {@see SpreadsheetListRenameSaveHistoryToken}
+     */
+    public static SpreadsheetListRenameSaveHistoryToken spreadsheetListRenameSave(final SpreadsheetId id,
+                                                                                  final SpreadsheetName value) {
+        return SpreadsheetListRenameSaveHistoryToken.with(
+                id,
+                value
+        );
+    }
+
+    /**
      * {@see SpreadsheetLoadHistoryToken}
      */
     public static SpreadsheetLoadHistoryToken spreadsheetLoad(final SpreadsheetId id) {
@@ -957,6 +975,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                                             parseOptionalInt(cursor)
                                     ).parse(cursor);
                             break;
+                        case "rename":
+                            token = SPREADSHEET_LIST_HISTORY_TOKEN;
+                            token = parseRename(cursor);
+                            break;
                         default:
                             token = spreadsheetLoad(
                                     SpreadsheetId.parse(component)
@@ -1051,6 +1073,19 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    private static HistoryToken parseRename(final TextCursor cursor) {
+        HistoryToken historyToken = SPREADSHEET_LIST_HISTORY_TOKEN;
+
+        final Optional<String> maybeComponent = parseComponent(cursor);
+        if (maybeComponent.isPresent()) {
+            historyToken = HistoryToken.spreadsheetListRenameSelect(
+                    SpreadsheetId.parse(maybeComponent.get())
+            ).parse(cursor);
+        }
+
+        return historyToken;
+    }
+
     /**
      * Package private to limit sub-classing
      */
@@ -1135,6 +1170,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                             anchoredSelection
                     );
         }
+
+        if (this instanceof SpreadsheetListRenameHistoryToken) {
+            closed = spreadsheetList(
+                    OptionalInt.empty(), // from
+                    OptionalInt.empty() // count
+            );
+        }
+
         if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
             final SpreadsheetMetadataPropertyHistoryToken<?> metadata = (SpreadsheetMetadataPropertyHistoryToken<?>) this;
             closed = metadataSelect(
