@@ -17,20 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import elemental2.dom.Headers;
-import walkingkooka.net.AbsoluteOrRelativeUrl;
-import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.List;
 import java.util.Optional;
 
 public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetListRenameHistoryToken {
@@ -89,59 +81,6 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        context.pushHistoryToken(
-                previous.clearAction()
-        );
-
-        context.addSpreadsheetMetadataWatcherOnce(
-                new SpreadsheetMetadataFetcherWatcher() {
-                    @Override
-                    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                                      final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                                          final AppContext context) {
-                        // ignore
-                    }
-
-                    @Override
-                    public void onBegin(final HttpMethod method,
-                                        final Url url,
-                                        final Optional<String> body,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onFailure(final HttpMethod method,
-                                          final AbsoluteOrRelativeUrl url,
-                                          final HttpStatus status,
-                                          final Headers headers,
-                                          final String body,
-                                          final AppContext context) {
-                        context.pushHistoryToken(
-                                previous.clearAction()
-                        );
-                    }
-
-                    @Override
-                    public void onError(final Object cause,
-                                        final AppContext context) {
-                        context.pushHistoryToken(
-                                previous.clearAction()
-                        );
-                    }
-
-                    @Override
-                    public void onNoResponse(final AppContext context) {
-
-                    }
-                }
-        );
-        context.spreadsheetMetadataFetcher()
-                .deleteSpreadsheetMetadata(this.id());
+        // nop
     }
 }
