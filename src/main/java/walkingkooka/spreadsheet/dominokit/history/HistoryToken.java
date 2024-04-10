@@ -1143,6 +1143,14 @@ public abstract class HistoryToken implements HasUrlFragment,
             );
         }
 
+        if (this instanceof SpreadsheetRenameHistoryToken) {
+            final SpreadsheetRenameHistoryToken rename = this.cast(SpreadsheetRenameHistoryToken.class);
+            closed = spreadsheetSelect(
+                    rename.id(),
+                    rename.name()
+            );
+        }
+
         return closed;
     }
 
