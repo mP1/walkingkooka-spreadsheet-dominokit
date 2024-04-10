@@ -142,6 +142,14 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
         final SpreadsheetLabelMappingFetcherWatcher watcher = this.watcher;
         final AppContext context = this.context;
 
+        this.logSuccess(
+                method,
+                url,
+                contentTypeName,
+                body,
+                context
+        );
+
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 watcher.onNoResponse(context);
