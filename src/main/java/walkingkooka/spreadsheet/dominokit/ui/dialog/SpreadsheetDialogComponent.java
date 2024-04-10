@@ -63,8 +63,10 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
         this.context = context;
 
         final NavBar navBar = dialogNavBar();
+        final HistoryTokenAnchorComponent close;
+
         if (includeClose) {
-            final HistoryTokenAnchorComponent close = this.closeLink(
+            close = this.closeLink(
                     id,
                     context
             );
@@ -73,10 +75,10 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
                             close
                     )
             );
-            this.close = null;
         } else {
-            this.close = null;
+            close = null;
         }
+        this.close = close;
 
         this.navBar = navBar;
 
