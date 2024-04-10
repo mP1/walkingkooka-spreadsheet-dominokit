@@ -22,8 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
@@ -143,12 +141,12 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return token instanceof SpreadsheetRenameSaveHistoryToken;
+        return this.context.shouldIgnore(token);
     }
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetRenameSelectHistoryToken;
+        return this.context.isMatch(token);
     }
 
     @Override
