@@ -28,6 +28,8 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.net.http.server.hateos.HateosResourceMapping;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
 import java.util.Optional;
@@ -163,6 +165,18 @@ public interface Fetcher {
                    final String contentTypeName,
                    final String body);
 
+    default void logSuccess(final HttpMethod method,
+                            final AbsoluteOrRelativeUrl url,
+                            final String contentTypeName,
+                            final String body,
+                            final LoggingContext context) {
+        String actualBodyLength = "";
+        if (false == CharSequences.isNullOrEmpty(body)) {
+            actualBodyLength = " " + body.length();
+        }
+
+        context.debug(this.getClass().getSimpleName() + ".onSuccess " + method + " " + url + " " + contentTypeName + actualBodyLength);
+    }
     /**
      * Parses the JSON String into the requested type.
      */

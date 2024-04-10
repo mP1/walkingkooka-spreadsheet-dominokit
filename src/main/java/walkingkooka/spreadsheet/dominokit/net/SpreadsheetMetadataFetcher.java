@@ -242,6 +242,14 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
         final SpreadsheetMetadataFetcherWatcher watcher = this.watcher;
         final AppContext context = this.context;
 
+        this.logSuccess(
+                method,
+                url,
+                contentTypeName,
+                body,
+                context
+        );
+
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 watcher.onNoResponse(

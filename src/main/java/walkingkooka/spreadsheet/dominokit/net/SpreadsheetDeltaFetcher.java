@@ -802,6 +802,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                           final String body) {
         final AppContext context = this.context;
 
+        this.logSuccess(
+                method,
+                url,
+                contentTypeName,
+                body,
+                context
+        );
+
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onNoResponse(context);
