@@ -55,6 +55,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
@@ -74,6 +75,7 @@ import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRo
 import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetFindDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.labelmapping.SpreadsheetLabelMappingDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponent;
@@ -82,7 +84,6 @@ import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternDialogCom
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent;
-import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.toolbar.SpreadsheetToolbarComponent;
@@ -225,13 +226,12 @@ public class App implements EntryPoint,
                 .setOverFlowY("hidden") // stop scrollbars on the cell viewport
                 .appendChild(this.viewportComponent);
 
-        final SpreadsheetNameAnchorComponent spreadsheetNameAnchor = SpreadsheetNameAnchorComponent.empty();
-        this.addHistoryTokenWatcher(spreadsheetNameAnchor);
-
         final NavBar navBar = layout.getNavBar();
         navBar.withTitle(
                 (n, header) -> {
-                    header.appendChild(spreadsheetNameAnchor.element());
+                    header.appendChild(
+                            this.spreadsheetNameAnchorComponent().element()
+                    );
                 }
         );
 
@@ -262,6 +262,40 @@ public class App implements EntryPoint,
         );
 
         return layout;
+    }
+
+    /**
+     * A {@link HistoryTokenAnchorComponent} which is updated to something like #/1/SpreadsheetName/rename, which
+     * when clicked will open the {@link SpreadsheetNameDialogComponent}.
+     */
+    private HistoryTokenAnchorComponent spreadsheetNameAnchorComponent() {
+        final HistoryTokenAnchorComponent anchor = this.historyToken()
+                .link("spreadsheetNameRename");
+
+        this.addHistoryTokenWatcher(
+                (previous, context) -> {
+                    final HistoryToken historyToken = context.historyToken();
+
+                    SpreadsheetNameHistoryToken nameHistoryToken = null;
+                    String nameText = "";
+
+                    if (historyToken instanceof SpreadsheetNameHistoryToken) {
+                        nameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
+                        final SpreadsheetName name = nameHistoryToken.name();
+
+                        nameHistoryToken = HistoryToken.spreadsheetRenameSelect(
+                                nameHistoryToken.id(),
+                                name
+                        );
+                        nameText = name.text();
+                    }
+                    anchor.setHistoryToken(
+                            Optional.ofNullable(nameHistoryToken)
+                    );
+                    anchor.setTextContent(nameText);
+                }
+        );
+        return anchor;
     }
 
     /**
