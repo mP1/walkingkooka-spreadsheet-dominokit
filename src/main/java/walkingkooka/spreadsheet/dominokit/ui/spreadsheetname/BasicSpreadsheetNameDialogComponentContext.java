@@ -20,11 +20,28 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 
 abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext {
 
     BasicSpreadsheetNameDialogComponentContext(final AppContext context) {
         this.context = context;
+    }
+
+    @Override
+    public final Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.context.addSpreadsheetMetadataWatcher(watcher);
+    }
+
+    @Override
+    public final Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.context.addSpreadsheetMetadataWatcherOnce(watcher);
+    }
+
+    @Override
+    public final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
+        return this.context.spreadsheetMetadataFetcher();
     }
 
     @Override

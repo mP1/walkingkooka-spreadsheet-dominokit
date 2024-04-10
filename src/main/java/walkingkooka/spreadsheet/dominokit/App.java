@@ -55,6 +55,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -173,6 +174,10 @@ public class App implements EntryPoint,
                         this.metadataWatchers,
                         this
                 )
+        );
+
+        SpreadsheetNameDialogComponent.with(
+                SpreadsheetNameDialogComponentContexts.spreadsheetListRename(this)
         );
 
         SpreadsheetNameDialogComponent.with(
@@ -500,47 +505,50 @@ public class App implements EntryPoint,
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
-        this.spreadsheetMetadata = metadata;
+        // SKIP spreadsheet id change if SpreadsheetListRenameHistoryToken
+        if (false == context.historyToken() instanceof SpreadsheetListRenameHistoryToken) {
+            final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
+            this.spreadsheetMetadata = metadata;
 
-        // update the global JsonNodeUnmarshallContext.
-        this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
-                metadata.expressionNumberKind(),
-                metadata.mathContext()
-        );
+            // update the global JsonNodeUnmarshallContext.
+            this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
+                    metadata.expressionNumberKind(),
+                    metadata.mathContext()
+            );
 
-        final Optional<SpreadsheetId> maybeId = metadata.id();
-        final Optional<SpreadsheetName> maybeName = metadata.name();
+            final Optional<SpreadsheetId> maybeId = metadata.id();
+            final Optional<SpreadsheetName> maybeName = metadata.name();
 
-        if (maybeId.isPresent() && maybeName.isPresent()) {
-            final SpreadsheetId id = maybeId.get();
-            final SpreadsheetName name = maybeName.get();
+            if (maybeId.isPresent() && maybeName.isPresent()) {
+                final SpreadsheetId id = maybeId.get();
+                final SpreadsheetName name = maybeName.get();
 
-            final HistoryToken historyToken = context.historyToken();
-            final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
+                final HistoryToken historyToken = context.historyToken();
+                final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
 
-            final HistoryToken idNameSelectionHistoryToken = historyToken
-                    .setIdAndName(
-                            id,
-                            name
-                    ).setAnchoredSelection(
-                            viewport.flatMap(SpreadsheetViewport::anchoredSelection)
-                    );
+                final HistoryToken idNameSelectionHistoryToken = historyToken
+                        .setIdAndName(
+                                id,
+                                name
+                        ).setAnchoredSelection(
+                                viewport.flatMap(SpreadsheetViewport::anchoredSelection)
+                        );
 
-            if (false == historyToken.equals(idNameSelectionHistoryToken)) {
-                context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/anchoredSelection " + idNameSelectionHistoryToken, metadata);
-                context.pushHistoryToken(idNameSelectionHistoryToken);
-            } else {
-                // must have loaded a new spreadsheet, need to fire history token
-                //
-                // eg so a focused cell is given focus etc.
-                if (false == id.equals(
-                        previousMetadata.id()
-                                .orElse(null)
-                )) {
-                    context.debug("App.onSpreadsheetMetadata new spreadsheet " + id + " loaded, firing history token again");
+                if (false == historyToken.equals(idNameSelectionHistoryToken)) {
+                    context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/anchoredSelection " + idNameSelectionHistoryToken, metadata);
+                    context.pushHistoryToken(idNameSelectionHistoryToken);
+                } else {
+                    // must have loaded a new spreadsheet, need to fire history token
+                    //
+                    // eg so a focused cell is given focus etc.
+                    if (false == id.equals(
+                            previousMetadata.id()
+                                    .orElse(null)
+                    )) {
+                        context.debug("App.onSpreadsheetMetadata new spreadsheet " + id + " loaded, firing history token again");
 
-                    context.fireCurrentHistoryToken();
+                        context.fireCurrentHistoryToken();
+                    }
                 }
             }
         }

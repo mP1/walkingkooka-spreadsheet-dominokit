@@ -18,15 +18,19 @@
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -34,7 +38,9 @@ import java.util.Optional;
  * Displays a dialog box allowing the user to edit and save a {@link walkingkooka.spreadsheet.SpreadsheetName}
  * for the selected {@link walkingkooka.spreadsheet.SpreadsheetId}.
  */
-public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogComponentLifecycle {
+public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogComponentLifecycle,
+        SpreadsheetMetadataFetcherWatcher,
+        NopFetcherWatcher {
 
     final static String ID = "name";
 
@@ -64,6 +70,10 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         this.lastSave = null;
 
         this.dialog = this.dialogCreate();
+
+        if (context.shouldLoadSpreadsheetMetadata()) {
+            context.addSpreadsheetMetadataWatcher(this);
+        }
     }
 
     /**
@@ -112,9 +122,16 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     private void onNameChange(final Optional<SpreadsheetName> name) {
         this.refreshSave(
-                name.map(SpreadsheetName::value).orElse(null),
-                this.context.historyToken()
+                name.map(SpreadsheetName::value).orElse(null)
         );
+    }
+
+    private void setName(final Optional<SpreadsheetName> name) {
+        if (name.isPresent()) {
+            this.name.setValue(name);
+            this.lastSave = name.map(SpreadsheetName::value)
+                    .orElse(null);
+        }
     }
 
     /**
@@ -151,58 +168,64 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public void openGiveFocus(final AppContext context) {
-        final SpreadsheetNameHistoryToken nameHistoryToken = context.historyToken().cast(SpreadsheetNameHistoryToken.class);
+        final SpreadsheetNameDialogComponentContext dialogContext = this.context;
 
-        this.name.setValue(
-                Optional.of(
-                        nameHistoryToken.name()
-                )
-        );
-        this.lastSave = nameHistoryToken.name()
-                .value();
+        final SpreadsheetId id = dialogContext.spreadsheetId();
+        this.spreadsheetId = id;
+        this.setName(dialogContext.spreadsheetName());
+
+        if (dialogContext.shouldLoadSpreadsheetMetadata()) {
+            dialogContext.spreadsheetMetadataFetcher()
+                    .loadSpreadsheetMetadata(id);
+        }
     }
 
     @Override
     public void refresh(final AppContext context) {
-        final SpreadsheetNameHistoryToken historyToken = context.historyToken().cast(SpreadsheetNameHistoryToken.class);
+        final SpreadsheetNameDialogComponentContext dialogContext = this.context;
+        final Optional<SpreadsheetName> name = dialogContext.spreadsheetName();
 
-        this.refreshSave(
-                historyToken.name().value(),
-                historyToken
-        );
+        if (name.isPresent()) {
+            this.refreshSave(
+                    name.get()
+                            .value()
+            );
+        }
 
-        this.refreshUndo(historyToken);
+        this.refreshUndo();
 
-        this.refreshClose(historyToken);
+        this.refreshClose();
     }
 
-    private void refreshClose(final SpreadsheetNameHistoryToken historyToken) {
+    private void refreshClose() {
         this.close.setHistoryToken(
                 Optional.of(
-                        historyToken.close()
+                        this.context.historyToken()
+                                .close()
                 )
         );
     }
 
-    private void refreshSave(final String name,
-                             final HistoryToken historyToken) {
+    private void refreshSave(final String name) {
         this.save.setHistoryToken(
                 Optional.ofNullable(
                         CharSequences.isNullOrEmpty(name) ?
                                 null :
-                                historyToken.setSave(name)
+                                this.context.historyToken()
+                                        .setSave(name)
                 )
         );
     }
 
-    private void refreshUndo(SpreadsheetNameHistoryToken historyToken) {
+    private void refreshUndo() {
         final String lastSave = this.lastSave;
 
         this.undo.setHistoryToken(
                 Optional.ofNullable(
                         CharSequences.isNullOrEmpty(lastSave) ?
                                 null :
-                                historyToken.setSave(lastSave)
+                                this.context.historyToken()
+                                        .setSave(lastSave)
                 )
         );
     }
@@ -210,4 +233,35 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     private String lastSave;
 
     private final SpreadsheetNameDialogComponentContext context;
+
+    // SpreadsheetMetadataFetcherWatcher................................................................................
+
+    @Override
+    public void onNoResponse(final AppContext context) {
+        // ignore
+    }
+
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        if (this.isOpen()) {
+            if (Objects.equals(
+                    metadata.id().orElse(null),
+                    this.spreadsheetId)) {
+                this.setName(
+                        metadata.name()
+                );
+            }
+        } else {
+            this.spreadsheetId = null;
+        }
+    }
+
+    @Override
+    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                          final AppContext context) {
+        // ignore
+    }
+
+    private SpreadsheetId spreadsheetId;
 }
