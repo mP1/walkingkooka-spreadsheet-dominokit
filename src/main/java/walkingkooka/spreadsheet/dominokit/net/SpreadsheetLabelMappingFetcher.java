@@ -135,7 +135,8 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     }
 
     @Override
-    public void onSuccess(final AbsoluteOrRelativeUrl url,
+    public void onSuccess(final HttpMethod method,
+                          final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
                           final String body) {
         final SpreadsheetLabelMappingFetcherWatcher watcher = this.watcher;
