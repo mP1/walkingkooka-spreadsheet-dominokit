@@ -18,6 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameSelectHistoryToken;
 
 import java.util.Objects;
 
@@ -31,5 +34,15 @@ final class BasicSpreadsheetNameDialogComponentContextSpreadsheetRename extends 
 
     private BasicSpreadsheetNameDialogComponentContextSpreadsheetRename(final AppContext context) {
         super(context);
+    }
+
+    @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        return token instanceof SpreadsheetRenameSaveHistoryToken;
+    }
+
+    @Override
+    public boolean isMatch(final HistoryToken token) {
+        return token instanceof SpreadsheetRenameSelectHistoryToken;
     }
 }

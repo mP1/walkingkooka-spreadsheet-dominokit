@@ -19,6 +19,9 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
 
-public interface SpreadsheetNameDialogComponentContext extends HistoryTokenContext, LoggingContext {
+public interface SpreadsheetNameDialogComponentContext extends ComponentLifecycleMatcher,
+        HistoryTokenContext,
+        LoggingContext {
 }
