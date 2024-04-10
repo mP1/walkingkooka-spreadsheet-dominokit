@@ -21,54 +21,50 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameSelectHistoryToken;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class BasicSpreadsheetNameDialogComponentContextSpreadsheetRename extends BasicSpreadsheetNameDialogComponentContext {
+final class BasicSpreadsheetNameDialogComponentContextSpreadsheetListRename extends BasicSpreadsheetNameDialogComponentContext {
 
-    static BasicSpreadsheetNameDialogComponentContextSpreadsheetRename with(final AppContext context) {
-        return new BasicSpreadsheetNameDialogComponentContextSpreadsheetRename(
+    static BasicSpreadsheetNameDialogComponentContextSpreadsheetListRename with(final AppContext context) {
+        return new BasicSpreadsheetNameDialogComponentContextSpreadsheetListRename(
                 Objects.requireNonNull(context, "context")
         );
     }
 
-    private BasicSpreadsheetNameDialogComponentContextSpreadsheetRename(final AppContext context) {
+    private BasicSpreadsheetNameDialogComponentContextSpreadsheetListRename(final AppContext context) {
         super(context);
     }
 
     @Override
     public boolean shouldLoadSpreadsheetMetadata() {
-        return false;
+        return true; // need to load SpreadsheetMetadata to get SpreadsheetName when opened
     }
 
     @Override
     public SpreadsheetId spreadsheetId() {
-        return this.historyToken().cast(SpreadsheetRenameHistoryToken.class)
+        return this.historyToken().cast(SpreadsheetListRenameHistoryToken.class)
                 .id();
     }
 
     @Override
     public Optional<SpreadsheetName> spreadsheetName() {
-        return Optional.of(
-                this.historyToken()
-                        .cast(SpreadsheetRenameSelectHistoryToken.class)
-                        .name()
-        );
+        return Optional.empty();
     }
 
     // ComponentLifecycleMatcher........................................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return token instanceof SpreadsheetRenameSaveHistoryToken;
+        return token instanceof SpreadsheetListRenameSaveHistoryToken;
     }
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetRenameSelectHistoryToken;
+        return token instanceof SpreadsheetListRenameSelectHistoryToken;
     }
 }

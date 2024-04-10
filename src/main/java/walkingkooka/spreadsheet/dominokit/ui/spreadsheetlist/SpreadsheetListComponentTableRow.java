@@ -96,12 +96,18 @@ final class SpreadsheetListComponentTableRow {
         final SpreadsheetMetadata metadata = this.metadata;
         final SpreadsheetId id = metadata.id().orElse(null);
 
+        final HistoryTokenAnchorComponent rename = HistoryToken.spreadsheetListRenameSelect(
+                        id
+                ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-rename")
+                .setTextContent("Rename");
+
         final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetListDelete(
                         id
                 ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-delete")
                 .setTextContent("Delete");
 
         return Lists.of(
+                rename,
                 delete
         );
     }
