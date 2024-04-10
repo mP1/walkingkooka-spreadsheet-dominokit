@@ -236,7 +236,12 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
     private static HistoryTokenAnchorComponent previous(final SpreadsheetListComponentContext context) {
         return context.historyToken()
                 .link(ID_PREFIX + "previous")
-                .setTextContent("previous");
+                .setTextContent("previous")
+                .setIcon(
+                        Optional.of(
+                                SpreadsheetIcons.spreadsheetListTablePrevious()
+                        )
+                );
     }
 
     private final HistoryTokenAnchorComponent previous;
@@ -246,7 +251,12 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
     private static HistoryTokenAnchorComponent next(final SpreadsheetListComponentContext context) {
         return context.historyToken()
                 .link(ID_PREFIX + "next")
-                .setTextContent("next");
+                .setTextContent("next")
+                .setIcon(
+                        Optional.of(
+                                SpreadsheetIcons.spreadsheetListTableNext()
+                        )
+                );
     }
 
     private final HistoryTokenAnchorComponent next;

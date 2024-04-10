@@ -268,6 +268,14 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.gauge_empty();
     }
 
+    public static MdiIcon spreadsheetListTableNext() {
+        return Icons.arrow_right();
+    }
+
+    public static MdiIcon spreadsheetListTablePrevious() {
+        return Icons.arrow_left();
+    }
+
     public static MdiIcon strikethrough() {
         return Icons.format_strikethrough();
     }
