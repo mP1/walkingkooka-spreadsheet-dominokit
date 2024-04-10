@@ -107,6 +107,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.Predicate;
 
 @LocaleAware
@@ -210,8 +211,28 @@ public class App implements EntryPoint,
                 SpreadsheetPatternDialogComponentContexts.metadataParse(this)
         );
 
+        this.files = this.files();
         this.layout = this.prepareLayout();
     }
+
+    // fileList anchor.................................................................................................
+
+    /**
+     * A link that shows the File browser.
+     */
+    private HistoryTokenAnchorComponent files() {
+        // TODO need to *READ* from and count
+        return HistoryToken.spreadsheetList(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
+                )
+                .link("files")
+                .setTextContent("Files");
+    }
+
+    private final HistoryTokenAnchorComponent files;
+
+    // SpreadsheetAppLayout.............................................................................................
 
     private final SpreadsheetAppLayout layout;
 
@@ -235,6 +256,9 @@ public class App implements EntryPoint,
         final NavBar navBar = layout.getNavBar();
         navBar.withTitle(
                 (n, header) -> {
+                    header.appendChild(
+                            this.files.element()
+                    );
                     header.appendChild(
                             this.spreadsheetNameAnchorComponent().element()
                     );
