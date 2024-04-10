@@ -44,13 +44,7 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
 
     @Test
     public void testClearAction() {
-        this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                )
-        );
+        this.clearActionAndCheck();
     }
 
     @Test
