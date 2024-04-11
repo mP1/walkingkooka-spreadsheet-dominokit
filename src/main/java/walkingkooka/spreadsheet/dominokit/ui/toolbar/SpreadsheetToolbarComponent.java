@@ -21,16 +21,16 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.FlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetViewportComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -42,7 +42,7 @@ import java.util.Optional;
  * A toolbar that contains icons that trigger an action.
  */
 public final class SpreadsheetToolbarComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetToolbarComponent>,
-        ComponentLifecycle,
+        SpreadsheetViewportComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopNoResponseWatcher,
@@ -65,6 +65,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         context.addSpreadsheetDeltaWatcher(this);
 
         this.setVisibility(false); // initially hidden.
+
+        this.context = context;
     }
 
     // isElement........................................................................................................
@@ -140,17 +142,21 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         this.refreshIfOpen(context);
     }
 
+    // SpreadsheetViewportComponentLifecycle............................................................................
+
+    @Override
+    public SpreadsheetViewportCache viewportCache() {
+        return this.context.viewportCache();
+    }
+
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.context.spreadsheetMetadata();
+    }
+
+    private final AppContext context;
+
     // ComponentLifecycle..............................................................................................
-
-    @Override
-    public boolean shouldIgnore(final HistoryToken token) {
-        return false;
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetNameHistoryToken;
-    }
 
     @Override
     public boolean isOpen() {
