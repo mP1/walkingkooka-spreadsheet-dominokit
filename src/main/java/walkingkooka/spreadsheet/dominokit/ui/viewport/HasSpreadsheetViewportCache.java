@@ -15,9 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
-
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
+package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 public interface HasSpreadsheetViewportCache {
 
