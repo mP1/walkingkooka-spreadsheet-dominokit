@@ -276,6 +276,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.arrow_left();
     }
 
+    public static MdiIcon spreadsheetListReload() {
+        return reload();
+    }
+
     public static MdiIcon strikethrough() {
         return Icons.format_strikethrough();
     }

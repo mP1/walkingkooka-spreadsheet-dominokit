@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
@@ -74,7 +75,12 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     private HistoryTokenAnchorComponent reload() {
         return this.context.historyToken()
                 .link(ID_PREFIX + "reload")
-                .setTextContent("reload");
+                .setTextContent("reload")
+                .setIconAfter(
+                        Optional.of(
+                                SpreadsheetIcons.spreadsheetListReload()
+                        )
+                );
     }
 
     private final HistoryTokenAnchorComponent reload;
