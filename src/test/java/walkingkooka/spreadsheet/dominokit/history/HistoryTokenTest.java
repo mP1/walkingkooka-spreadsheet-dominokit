@@ -2400,7 +2400,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseEmpty() {
         this.parseStringAndCheck(
                 "",
-                HistoryToken.spreadsheetList(
+                HistoryToken.spreadsheetListSelect(
                         OptionalInt.empty(), // from
                         OptionalInt.empty() // count
                 )
@@ -2411,7 +2411,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSlash() {
         this.parseStringAndCheck(
                 "/",
-                HistoryToken.spreadsheetList(
+                HistoryToken.spreadsheetListSelect(
                         OptionalInt.empty(), // from
                         OptionalInt.empty() // count
                 )

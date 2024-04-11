@@ -55,7 +55,7 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.spreadsheetList(
+        return HistoryToken.spreadsheetListSelect(
                 OptionalInt.empty(), // from
                 OptionalInt.empty() // count
         );

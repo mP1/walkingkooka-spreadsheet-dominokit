@@ -18,19 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.OptionalInt;
 
-public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTokenTestCase<SpreadsheetListHistoryToken> {
+public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetListHistoryTokenTestCase<SpreadsheetListSelectHistoryToken> {
 
     @Test
     public void testParseInvalidFrom() {
         this.parseAndCheck(
                 "/from/X",
-                SpreadsheetListHistoryToken.with(
+                SpreadsheetListSelectHistoryToken.with(
                         OptionalInt.empty(), // from
                         OptionalInt.empty() // count
                 )
@@ -41,7 +38,7 @@ public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTok
     public void testParseFrom() {
         this.parseAndCheck(
                 "/from/10",
-                SpreadsheetListHistoryToken.with(
+                SpreadsheetListSelectHistoryToken.with(
                         OptionalInt.of(10), // from
                         OptionalInt.empty() // count
                 )
@@ -52,7 +49,7 @@ public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTok
     public void testParseCount() {
         this.parseAndCheck(
                 "/count/20",
-                SpreadsheetListHistoryToken.with(
+                SpreadsheetListSelectHistoryToken.with(
                         OptionalInt.empty(), // from
                         OptionalInt.of(20) // count
                 )
@@ -63,7 +60,7 @@ public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTok
     public void testParseFromAndCount() {
         this.parseAndCheck(
                 "/from/10/count/20",
-                SpreadsheetListHistoryToken.with(
+                SpreadsheetListSelectHistoryToken.with(
                         OptionalInt.of(10), // from
                         OptionalInt.of(20) // count
                 )
@@ -78,7 +75,7 @@ public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTok
     @Test
     public void testUrlFragmentFrom() {
         this.urlFragmentAndCheck(
-                SpreadsheetListHistoryToken.with(
+                SpreadsheetListSelectHistoryToken.with(
                         OptionalInt.of(10), // from
                         OptionalInt.empty() // count
                 ),
@@ -89,7 +86,7 @@ public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTok
     @Test
     public void testUrlFragmentFromAndCount() {
         this.urlFragmentAndCheck(
-                SpreadsheetListHistoryToken.with(
+                SpreadsheetListSelectHistoryToken.with(
                         OptionalInt.of(10), // from
                         OptionalInt.of(20) // count
                 ),
@@ -102,61 +99,16 @@ public final class SpreadsheetListHistoryTokenTest extends SpreadsheetHistoryTok
         this.clearActionAndCheck();
     }
 
-    @Test
-    public void testSetIdName() {
-        this.setIdAndNameAndCheck(
-                ID,
-                NAME,
-                HistoryToken.spreadsheetSelect(ID, NAME)
-        );
-    }
-
-    @Test
-    public void testSetIdNameDifferentId() {
-        final SpreadsheetId differentId = SpreadsheetId.with(9999);
-
-        this.setIdAndNameAndCheck(
-                differentId,
-                NAME,
-                HistoryToken.spreadsheetSelect(differentId, NAME)
-        );
-    }
-
-    @Test
-    public void testSetIdNameDifferentName() {
-        final SpreadsheetName differentName = SpreadsheetName.with("Different");
-
-        this.setIdAndNameAndCheck(
-                ID,
-                differentName,
-                HistoryToken.spreadsheetSelect(ID, differentName)
-        );
-    }
-
-    @Test
-    public void testSetMetadataPropertyName() {
-        this.setMetadataPropertyNameAndCheck(
-                SpreadsheetMetadataPropertyName.LOCALE
-        );
-    }
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-                this.createHistoryToken()
-        );
-    }
-
     @Override
-    SpreadsheetListHistoryToken createHistoryToken() {
-        return SpreadsheetListHistoryToken.with(
+    SpreadsheetListSelectHistoryToken createHistoryToken() {
+        return SpreadsheetListSelectHistoryToken.with(
                 OptionalInt.empty(), // from
                 OptionalInt.empty() // count
         );
     }
 
     @Override
-    public Class<SpreadsheetListHistoryToken> type() {
-        return SpreadsheetListHistoryToken.class;
+    public Class<SpreadsheetListSelectHistoryToken> type() {
+        return SpreadsheetListSelectHistoryToken.class;
     }
 }
