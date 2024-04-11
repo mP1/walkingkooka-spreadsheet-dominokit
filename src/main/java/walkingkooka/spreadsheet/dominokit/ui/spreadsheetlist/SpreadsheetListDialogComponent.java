@@ -104,7 +104,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     private HistoryTokenAnchorComponent count(final int count) {
         return this.context.historyToken()
                 .link(ID_PREFIX + "count-" + count + "-rows")
-                .setTextContent(String.valueOf(count));
+                .setTextContent(count + " Rows");
     }
 
     // table............................................................................................................
