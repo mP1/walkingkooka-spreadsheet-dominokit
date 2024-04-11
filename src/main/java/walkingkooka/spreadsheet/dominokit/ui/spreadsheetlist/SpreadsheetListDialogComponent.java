@@ -120,7 +120,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListComponentContext context) {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID, // id
-                "Spreadsheet WindowResizeWatcher", // title
+                "Spreadsheet List", // title
                 false, // includeClose
                 context
         );
