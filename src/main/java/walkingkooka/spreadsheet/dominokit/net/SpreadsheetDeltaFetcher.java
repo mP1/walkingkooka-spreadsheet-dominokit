@@ -64,7 +64,7 @@ import java.util.Set;
 import java.util.function.BiFunction;
 
 /**
- * A Fetcher (yes as in the Browser's fetch object) that provides numerous CRUD and PATCH operations for a {@link SpreadsheetDelta}.
+ * A Fetcher (yes as in the WindowResizeWatcher's fetch object) that provides numerous CRUD and PATCH operations for a {@link SpreadsheetDelta}.
  * <br>
  * A {@link SpreadsheetDelta} is a payload representing cells belonging to a spreadsheet.
  * Deleting a cell, could trigger re-calculation of other cells that reference directly or indirectly the deleted cell.

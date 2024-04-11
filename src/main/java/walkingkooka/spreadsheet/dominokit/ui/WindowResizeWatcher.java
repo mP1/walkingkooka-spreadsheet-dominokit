@@ -24,7 +24,10 @@ import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 
 import java.util.function.BiConsumer;
 
-public interface Browser {
+/**
+ * Helper which contains method to assist with watching window resize events.
+ */
+public interface WindowResizeWatcher {
 
     /**
      * Registers a {@link BiConsumer} which will receive browser window resize events.

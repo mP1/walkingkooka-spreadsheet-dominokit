@@ -69,8 +69,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatc
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.ui.Browser;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.dominokit.ui.WindowResizeWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.applayout.SpreadsheetAppLayout;
 import walkingkooka.spreadsheet.dominokit.ui.applayoutrightdrawer.AppLayoutRightDrawerComponent;
 import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountDialogComponent;
@@ -114,7 +114,7 @@ import java.util.function.Predicate;
 @LocaleAware
 public class App implements EntryPoint,
         AppContext,
-        Browser,
+        WindowResizeWatcher,
         HistoryTokenWatcher,
         NopNoResponseWatcher,
         SpreadsheetDeltaFetcherWatcher,
