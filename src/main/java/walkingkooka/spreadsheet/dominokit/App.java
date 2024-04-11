@@ -877,18 +877,33 @@ public class App implements EntryPoint,
         );
         this.defaultCount = defaultCount;
 
-        final HistoryToken historyToken = this.historyToken();
-        if (historyToken instanceof SpreadsheetListSelectHistoryToken) {
-            final OptionalInt count = historyToken.count();
-            if (false == count.isPresent()) {
-                this.pushHistoryToken(
-                        historyToken.setReload()
-                );
-            }
-        }
+        this.lastResize = System.currentTimeMillis();
+
+        // only reload SpreadsheetListDialogComponent after resizing stops.
+        DomGlobal.setTimeout(
+                (values) -> {
+                    if (System.currentTimeMillis() - this.lastResize > 1000) {
+                        final HistoryToken historyToken = this.historyToken();
+                        if (historyToken instanceof SpreadsheetListSelectHistoryToken) {
+                            final OptionalInt count = historyToken.count();
+                            if (false == count.isPresent()) {
+                                this.pushHistoryToken(
+                                        historyToken.setReload()
+                                );
+                            }
+                        }
+                    }
+                },
+                1000
+        );
     }
 
     private OptionalInt defaultCount = OptionalInt.of(10);
+
+    /**
+     * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
+     */
+    private long lastResize;
 
     // logging..........................................................................................................
 
