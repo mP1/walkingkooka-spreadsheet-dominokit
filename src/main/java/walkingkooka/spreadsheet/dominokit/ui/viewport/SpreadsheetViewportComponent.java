@@ -58,7 +58,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHist
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
@@ -72,6 +71,7 @@ import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetViewportComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenu;
@@ -106,6 +106,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         SpreadsheetLabelMappingFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle,
+        SpreadsheetViewportComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopNoResponseWatcher {
 
@@ -880,26 +881,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // ComponentLifecycle..............................................................................................
 
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
-        return false;
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        boolean match = token instanceof SpreadsheetNameHistoryToken;
-
-        if (match) {
-            final AppContext context = this.context;
-            final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-            final SpreadsheetViewportCache cache = context.viewportCache();
-            final SpreadsheetViewportWindows windows = cache.windows();
-
-            match = false == metadata.isEmpty() && false == windows.isEmpty();
-        }
-        return match;
-    }
-
-    @Override
     public boolean isOpen() {
         return this.open;
     }
@@ -1076,6 +1057,19 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         if (null != notRequired) {
             context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken " + notRequired + " viewport load not required");
         }
+    }
+
+
+    // SpreadsheetViewportComponentLifecycle............................................................................
+
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.metadata;
+    }
+
+    @Override
+    public SpreadsheetViewportCache viewportCache() {
+        return this.context.viewportCache();
     }
 
     // Fetcher..........................................................................................................
