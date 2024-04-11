@@ -365,6 +365,8 @@ public class App implements EntryPoint,
                 width,
                 newHeight
         );
+
+        this.computeAndSaveSpreadsheetListDialogComponentDefaultCount(newHeight);
     }
 
     // ClipboardContext.................................................................................................
@@ -864,8 +866,17 @@ public class App implements EntryPoint,
 
     @Override
     public OptionalInt spreadsheetListDialogComponentDefaultCount() {
-        return OptionalInt.of(10);
+        return this.defaultCount;
     }
+
+    private void computeAndSaveSpreadsheetListDialogComponentDefaultCount(final int windowHeight) {
+        // height - 350 reserved for dialog title, links along bottom etc divided by 32 for each row
+        this.defaultCount = OptionalInt.of(
+                (windowHeight - 350) / 32
+        );
+    }
+
+    private OptionalInt defaultCount = OptionalInt.of(10);
 
     // logging..........................................................................................................
 
