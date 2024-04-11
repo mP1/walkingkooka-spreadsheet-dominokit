@@ -92,7 +92,7 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
                                                   final HistoryTokenContext context) {
         return context.historyToken()
                 .link(id + "-close-X")
-                .setIcon(
+                .setIconAfter(
                         Optional.of(
                                 SpreadsheetIcons.close()
                         )

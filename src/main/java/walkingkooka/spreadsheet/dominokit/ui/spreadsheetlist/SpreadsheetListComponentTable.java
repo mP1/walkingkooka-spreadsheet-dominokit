@@ -237,7 +237,7 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
         return context.historyToken()
                 .link(ID_PREFIX + "previous")
                 .setTextContent("previous")
-                .setIcon(
+                .setIconBefore(
                         Optional.of(
                                 SpreadsheetIcons.spreadsheetListTablePrevious()
                         )
@@ -252,7 +252,7 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
         return context.historyToken()
                 .link(ID_PREFIX + "next")
                 .setTextContent("next")
-                .setIcon(
+                .setIconAfter(
                         Optional.of(
                                 SpreadsheetIcons.spreadsheetListTableNext()
                         )
