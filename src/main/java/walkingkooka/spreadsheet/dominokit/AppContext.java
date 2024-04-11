@@ -102,7 +102,7 @@ public interface AppContext extends CanGiveFocus,
     /**
      * A cache for the viewport cache.
      */
-    SpreadsheetViewportCache viewportCache();
+    SpreadsheetViewportCache spreadsheetViewportCache();
 
     /**
      * Returns true if viewport {@link SpreadsheetCellFind} highlighting is enabled.
@@ -142,7 +142,7 @@ public interface AppContext extends CanGiveFocus,
     default UrlQueryString lastCellFindAndViewportAndWindowQueryString() {
         return SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
                 this.viewport(SpreadsheetViewport.NO_ANCHORED_SELECTION),
-                this.viewportCache()
+                this.spreadsheetViewportCache()
                         .windows()
         ).addParameters(
                 this.lastCellFindQueryString()

@@ -146,7 +146,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     @Override
     public SpreadsheetViewportCache viewportCache() {
-        return this.context.viewportCache();
+        return this.context.spreadsheetViewportCache();
     }
 
     @Override
@@ -181,7 +181,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     public void refresh(final AppContext context) {
         final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.historyToken()
                 .nonLabelSelection(
-                        context.viewportCache()
+                        context.spreadsheetViewportCache()
                 );
         if (maybeNonLabelSelection.isPresent()) {
             final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();

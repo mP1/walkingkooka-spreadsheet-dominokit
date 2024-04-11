@@ -200,7 +200,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 cellReference,
                 METADATA
         );
-        final SpreadsheetViewportCache viewportCache = context.viewportCache();
+        final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
 
         viewportCache.onSpreadsheetDelta(
                 ID,
@@ -244,7 +244,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 cellReference,
                 METADATA
         );
-        final SpreadsheetViewportCache viewportCache = context.viewportCache();
+        final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
         viewportCache.spreadsheetId = ID;
 
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
@@ -289,7 +289,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 label,
                 METADATA
         );
-        final SpreadsheetViewportCache viewportCache = context.viewportCache();
+        final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
         viewportCache.spreadsheetId = ID;
 
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
@@ -380,7 +380,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             }
 
             @Override
-            public SpreadsheetViewportCache viewportCache() {
+            public SpreadsheetViewportCache spreadsheetViewportCache() {
                 return viewportCache;
             }
 

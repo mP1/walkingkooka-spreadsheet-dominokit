@@ -176,7 +176,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                 );
             }
 
-            final Optional<SpreadsheetCell> cell = context.viewportCache()
+            final Optional<SpreadsheetCell> cell = context.spreadsheetViewportCache()
                     .cell(selection);
             formula.setStringValue(
                     cell.map(c -> c.formula().text())
@@ -204,7 +204,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                         final AppContext context) {
         Optional<String> text = Optional.empty();
 
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
         final Optional<SpreadsheetSelection> maybeNonLabel = cache.nonLabelSelection(selection);
         if (maybeNonLabel.isPresent()) {
             final SpreadsheetSelection nonLabel = maybeNonLabel.get();

@@ -676,7 +676,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private void scrollbarsRefresh() {
         final AppContext context = this.context;
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
         final Optional<SpreadsheetCellRangeReference> maybeLast = cache.windows()
                 .last();
         final OptionalInt maybeColumnCount = cache.columnCount();
@@ -836,7 +836,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final AppContext context) {
-        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.viewportCache()
+        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.spreadsheetViewportCache()
                 .nonLabelSelection(
                         selection.selection()
                 );
@@ -939,14 +939,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private void refreshTable(final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection,
                               final AppContext context) {
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
         final SpreadsheetViewportWindows windows = cache.windows();
 
         Predicate<SpreadsheetSelection> selected = Predicates.never();
 
         if (maybeAnchorSelection.isPresent()) {
             // special case for label
-            final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
+            final Optional<SpreadsheetSelection> maybeNotLabel = context.spreadsheetViewportCache()
                     .nonLabelSelection(maybeAnchorSelection.get().selection());
             if (maybeNotLabel.isPresent()) {
                 final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
@@ -1013,7 +1013,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         if (last.equals(spreadsheetCellFind)) {
             notRequired = " find unchanged " + last;
         } else {
-            final SpreadsheetViewportCache cache = context.viewportCache();
+            final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
             final Optional<SpreadsheetSelection> maybeSelectionNotLabel = cache.nonLabelSelection(
                     historyToken.anchoredSelection()
                             .selection()
@@ -1069,7 +1069,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public SpreadsheetViewportCache viewportCache() {
-        return this.context.viewportCache();
+        return this.context.spreadsheetViewportCache();
     }
 
     // Fetcher..........................................................................................................
@@ -1205,7 +1205,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         context.debug("SpreadsheetViewportComponent.loadViewportCells id: " + id + " viewport: " + viewport);
 
-        context.viewportCache()
+        context.spreadsheetViewportCache()
                 .clear(); // clear all cached data.
         this.reload = false;
         navigations.clear();
@@ -1254,7 +1254,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                           final AppContext context) {
         Element element = null;
 
-        final Optional<SpreadsheetSelection> maybeNotLabel = context.viewportCache()
+        final Optional<SpreadsheetSelection> maybeNotLabel = context.spreadsheetViewportCache()
                 .nonLabelSelection(selection);
 
         if (maybeNotLabel.isPresent()) {

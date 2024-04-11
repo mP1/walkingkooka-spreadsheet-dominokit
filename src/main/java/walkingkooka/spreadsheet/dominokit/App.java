@@ -769,7 +769,8 @@ public class App implements EntryPoint,
     /**
      * Cache for the contents of the viewport.
      */
-    public SpreadsheetViewportCache viewportCache() {
+    @Override
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
         return this.viewportCache;
     }
 

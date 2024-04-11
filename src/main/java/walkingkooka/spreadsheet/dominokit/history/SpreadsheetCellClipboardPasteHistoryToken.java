@@ -81,7 +81,7 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
 
     @Override
     void onHistoryTokenChangeClipboard(final AppContext context) {
-        final Optional<SpreadsheetSelection> maybeSelection = context.viewportCache()
+        final Optional<SpreadsheetSelection> maybeSelection = context.spreadsheetViewportCache()
                 .nonLabelSelection(
                         SpreadsheetCellClipboardPasteHistoryToken.this.anchoredSelection()
                                 .selection()

@@ -109,7 +109,7 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleProperty<T> extends Sp
 
     @Override
     public void refresh(final AppContext context) {
-        final T saveValue = context.viewportCache()
+        final T saveValue = context.spreadsheetViewportCache()
                 .selectionSummary()
                 .style()
                 .get(this.propertyName)
