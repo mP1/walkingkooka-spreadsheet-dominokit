@@ -145,7 +145,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     // SpreadsheetViewportComponentLifecycle............................................................................
 
     @Override
-    public SpreadsheetViewportCache viewportCache() {
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
         return this.context.spreadsheetViewportCache();
     }
 
