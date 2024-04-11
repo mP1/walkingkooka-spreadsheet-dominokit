@@ -63,6 +63,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
+
+        this.setVisibility(false); // initially hidden.
     }
 
     // isElement........................................................................................................
@@ -158,11 +160,13 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     @Override
     public void open(final AppContext context) {
         this.open = true;
+        this.setVisibility(true); // show
     }
 
     @Override
     public void close(final AppContext context) {
         this.open = false;
+        this.setVisibility(false); // hidden
     }
 
     private boolean open;
