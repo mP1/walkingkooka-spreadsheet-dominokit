@@ -27,7 +27,7 @@ public interface Browser {
     /**
      * Registers a {@link BiConsumer} which will receive browser window resize events.
      */
-    static void addWindowResizeListener(final BiConsumer listener) {
+    default void addWindowResizeListener(final BiConsumer<Integer, Integer> listener) {
         DomGlobal.window.addEventListener(
                 EventType.resize.getName(),
                 (e) -> listener.accept(
