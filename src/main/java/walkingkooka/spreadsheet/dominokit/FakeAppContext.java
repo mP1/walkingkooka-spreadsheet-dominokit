@@ -209,6 +209,13 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    // SpreadsheetListDialogComponent...................................................................................
+
+    @Override
+    public int spreadsheetListDialogComponentDefaultCount() {
+        throw new UnsupportedOperationException();
+    }
+
     // LoggingContext...................................................................................................
 
     @Override
