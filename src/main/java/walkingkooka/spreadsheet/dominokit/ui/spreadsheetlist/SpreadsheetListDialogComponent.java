@@ -88,9 +88,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     // count10............................................................................................................
 
     private HistoryTokenAnchorComponent count10() {
-        return this.context.historyToken()
-                .link(ID_PREFIX + "count-10")
-                .setTextContent("10");
+        return this.count(10);
     }
 
     private final HistoryTokenAnchorComponent count10;
@@ -98,12 +96,16 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     // count20............................................................................................................
 
     private HistoryTokenAnchorComponent count20() {
-        return this.context.historyToken()
-                .link(ID_PREFIX + "count-20")
-                .setTextContent("20");
+        return this.count(20);
     }
 
     private final HistoryTokenAnchorComponent count20;
+
+    private HistoryTokenAnchorComponent count(final int count) {
+        return this.context.historyToken()
+                .link(ID_PREFIX + "count-" + count + "-rows")
+                .setTextContent(String.valueOf(count));
+    }
 
     // table............................................................................................................
 
