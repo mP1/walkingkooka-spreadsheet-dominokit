@@ -69,7 +69,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/");
+        this.urlFragmentAndCheck("/from/1/count/23");
     }
 
     @Test
@@ -100,10 +100,11 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     }
 
     @Override
-    SpreadsheetListSelectHistoryToken createHistoryToken() {
+    SpreadsheetListSelectHistoryToken createHistoryToken(final OptionalInt from,
+                                                         final OptionalInt count) {
         return SpreadsheetListSelectHistoryToken.with(
-                OptionalInt.empty(), // from
-                OptionalInt.empty() // count
+                from,
+                count
         );
     }
 
