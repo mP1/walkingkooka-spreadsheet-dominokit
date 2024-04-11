@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -149,7 +149,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetHistoryToken;
+        return token instanceof SpreadsheetNameHistoryToken;
     }
 
     @Override
