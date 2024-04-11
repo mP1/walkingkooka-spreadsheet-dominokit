@@ -198,7 +198,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
         // refresh reload, history token might have changed from or count etc.
         this.reload.setHistoryToken(
-                Optional.of(historyToken)
+                Optional.of(historyToken.setReload())
         );
 
         this.count10.setHistoryToken(
