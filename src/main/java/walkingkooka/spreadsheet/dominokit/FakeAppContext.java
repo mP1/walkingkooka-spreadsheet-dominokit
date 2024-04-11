@@ -40,6 +40,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.Predicate;
 
 public class FakeAppContext implements AppContext {
@@ -212,7 +213,7 @@ public class FakeAppContext implements AppContext {
     // SpreadsheetListDialogComponent...................................................................................
 
     @Override
-    public int spreadsheetListDialogComponentDefaultCount() {
+    public OptionalInt spreadsheetListDialogComponentDefaultCount() {
         throw new UnsupportedOperationException();
     }
 
