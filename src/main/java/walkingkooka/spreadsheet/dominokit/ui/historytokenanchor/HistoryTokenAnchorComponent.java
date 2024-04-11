@@ -100,7 +100,8 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         style.cssText = style.cssText +
                 (disabled ? ";cursor: not-allowed !important" : ";cursor: pointer !important");
 
-        this.icon = null;
+        this.iconBefore = null;
+        this.iconAfter = null;
 
         return this;
     }
@@ -201,37 +202,75 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         return this;
     }
 
-    // icon......................................................................................................
+    // iconBefore | text Content | iconAfter
 
-    public Optional<MdiIcon> icon() {
-        return Optional.ofNullable(this.icon);
+    // iconBefore......................................................................................................
+
+    public Optional<MdiIcon> iconBefore() {
+        return Optional.ofNullable(this.iconBefore);
     }
 
-    public HistoryTokenAnchorComponent setIcon(final Optional<MdiIcon> icon) {
+    public HistoryTokenAnchorComponent setIconBefore(final Optional<MdiIcon> icon) {
         Objects.requireNonNull(icon, "icon");
 
         final AnchorElement anchorElement = this.element;
 
-        final MdiIcon oldIcon = this.icon;
-        if (null != oldIcon) {
+        final MdiIcon oldBeforeIcon = this.iconBefore;
+        if (null != oldBeforeIcon) {
             anchorElement.removeChild(
-                    oldIcon.element()
+                    oldBeforeIcon.element()
             );
         }
 
         if (icon.isPresent()) {
-            final MdiIcon mdiIcon = icon.get();
-            anchorElement.appendChild(mdiIcon.element());
-            this.icon = mdiIcon;
+            final MdiIcon newIcon = icon.get();
+            anchorElement.insertFirst(
+                    newIcon.element()
+            );
+            this.iconBefore = newIcon;
 
         } else {
-            this.icon = null;
+            this.iconBefore = null;
         }
 
         return this;
     }
 
-    private MdiIcon icon;
+    private MdiIcon iconBefore;
+
+    // iconAfter......................................................................................................
+
+    public Optional<MdiIcon> iconAfter() {
+        return Optional.ofNullable(this.iconAfter);
+    }
+
+    public HistoryTokenAnchorComponent setIconAfter(final Optional<MdiIcon> icon) {
+        Objects.requireNonNull(icon, "icon");
+
+        final AnchorElement anchorElement = this.element;
+
+        final MdiIcon oldIconAfter = this.iconAfter;
+        if (null != oldIconAfter) {
+            anchorElement.removeChild(
+                    oldIconAfter.element()
+            );
+        }
+
+        if (icon.isPresent()) {
+            final MdiIcon newIcon = icon.get();
+            anchorElement.appendChild(
+                    newIcon.element()
+            );
+            this.iconBefore = newIcon;
+
+        } else {
+            this.iconAfter = null;
+        }
+
+        return this;
+    }
+
+    private MdiIcon iconAfter;
 
     // tooltip..........................................................................................................
 
