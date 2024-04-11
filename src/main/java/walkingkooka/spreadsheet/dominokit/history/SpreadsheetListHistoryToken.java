@@ -114,27 +114,26 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
 
         String nextComponent = component;
 
-        switch (nextComponent) {
-            case "count":
-                historyToken = historyToken.setCount(
-                        parseCount(cursor)
-                );
-                break;
-            case "from":
-                historyToken = historyToken.cast(SpreadsheetListHistoryToken.class)
-                        .setFrom(
-                                parseOptionalInt(cursor)
-                        );
-                break;
-            case "reload":
-                historyToken = historyToken.cast(SpreadsheetListSelectHistoryToken.class)
-                        .reload();
-            default:
-                break;
-        }
-
-        nextComponent = parseComponent(cursor)
-                .orElse("");
+        do {
+            switch (nextComponent) {
+                case "count":
+                    historyToken = historyToken.setCount(
+                            parseCount(cursor)
+                    );
+                    break;
+                case "from":
+                    historyToken = historyToken.cast(SpreadsheetListHistoryToken.class)
+                            .setFrom(
+                                    parseOptionalInt(cursor)
+                            );
+                    break;
+                default:
+                    cursor.end();
+                    break;
+            }
+            nextComponent = parseComponent(cursor)
+                    .orElse("");
+        } while (false == cursor.isEmpty());
 
         return historyToken;
     }

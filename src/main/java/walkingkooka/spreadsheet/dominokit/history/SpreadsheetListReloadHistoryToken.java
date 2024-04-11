@@ -23,19 +23,19 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import java.util.OptionalInt;
 
 /**
- * A token that represents a spreadsheet list files dialog.
+ * A token that reloads the list shown by {@link walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent}.
  */
-public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHistoryToken {
+public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHistoryToken {
 
-    static SpreadsheetListSelectHistoryToken with(final OptionalInt from,
+    static SpreadsheetListReloadHistoryToken with(final OptionalInt from,
                                                   final OptionalInt count) {
-        return new SpreadsheetListSelectHistoryToken(
+        return new SpreadsheetListReloadHistoryToken(
                 checkFrom(from),
                 count
         );
     }
 
-    private SpreadsheetListSelectHistoryToken(final OptionalInt from,
+    private SpreadsheetListReloadHistoryToken(final OptionalInt from,
                                               final OptionalInt count) {
         super(
                 from,
@@ -46,14 +46,14 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
     // from.............................................................................................................
 
     @Override
-    public SpreadsheetListSelectHistoryToken setFrom(final OptionalInt from) {
+    public SpreadsheetListReloadHistoryToken setFrom(final OptionalInt from) {
         return this.setFrom0(from)
-                .cast(SpreadsheetListSelectHistoryToken.class);
+                .cast(SpreadsheetListReloadHistoryToken.class);
     }
 
     @Override
-    SpreadsheetListSelectHistoryToken replaceFromAndCount(final OptionalInt from) {
-        return new SpreadsheetListSelectHistoryToken(
+    SpreadsheetListReloadHistoryToken replaceFromAndCount(final OptionalInt from) {
+        return new SpreadsheetListReloadHistoryToken(
                 from,
                 this.count
         );
@@ -63,22 +63,22 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
 
     @Override
     UrlFragment listUrlFragment() {
-        return UrlFragment.EMPTY;
+        return RELOAD;
     }
 
     // HistoryToken.....................................................................................................
 
     @Override
     public HistoryToken clearAction() {
-        return this;
+        return HistoryToken.spreadsheetListSelect(
+                this.from(),
+                this.count()
+        );
     }
 
     @Override
     HistoryToken reload() {
-        return HistoryToken.spreadsheetListReload(
-                this.from(),
-                this.count()
-        );
+        return this;
     }
 
     // HistoryToken.....................................................................................................
@@ -86,6 +86,9 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
+        context.pushHistoryToken(
+                this.clearAction()
+        );
         final OptionalInt count = this.count();
 
         context.spreadsheetMetadataFetcher()
