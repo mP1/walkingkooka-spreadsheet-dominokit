@@ -115,7 +115,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testNonLabelSelectionLabel() {
         final AppContext context = this.appContext();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
         cache.onHistoryTokenChange(
                 HistoryToken.spreadsheetSelect(ID, NAME),
                 context
@@ -145,7 +145,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testNonLabelSelectionUnknownLabel() {
         final SpreadsheetViewportCache cache = this.appContext()
-                .viewportCache();
+                .spreadsheetViewportCache();
 
         this.nonLabelSelectionAndCheck(
                 HistoryToken.cell(
@@ -185,7 +185,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         selection.setDefaultAnchor()
                 ),
                 this.appContext()
-                        .viewportCache(),
+                        .spreadsheetViewportCache(),
                 selection
         );
     }
@@ -4155,7 +4155,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             }
 
             @Override
-            public SpreadsheetViewportCache viewportCache() {
+            public SpreadsheetViewportCache spreadsheetViewportCache() {
                 return this.viewportCache;
             }
 

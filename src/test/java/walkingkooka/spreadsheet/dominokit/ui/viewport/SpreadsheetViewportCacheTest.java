@@ -2641,7 +2641,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryNoSelection() {
         final AppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         this.selectionSummaryAndCheck(
                 cache,
@@ -2658,7 +2658,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryChangeClearsSelection() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.unknown(
@@ -2689,7 +2689,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryFormatPatterns() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -2750,7 +2750,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryFormatPatternsClash() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -2801,7 +2801,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryParsePatterns() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -2862,7 +2862,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryParsePatternsClash() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -2913,7 +2913,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryStyle() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -2986,7 +2986,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryStyleAllClash() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -3040,7 +3040,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryStyleSomeClashes() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -3096,7 +3096,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryHistoryTokenDeltaHistoryTokenDifferentSelection() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -3171,7 +3171,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryHistoryTokenDeltaHistoryTokenClearSelection() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -3237,7 +3237,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryHistoryTokenDeltaDelta() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
                 HistoryToken.cell(
@@ -3325,7 +3325,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testSelectionSummaryHistoryTokenDeltaDelta2() {
         final TestAppContext context = this.context();
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
         cache.spreadsheetId = ID;
 
         context.pushHistoryToken(
@@ -3415,7 +3415,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
     private SpreadsheetViewportCache viewportCache() {
         return this.context()
-                .viewportCache();
+                .spreadsheetViewportCache();
     }
 
     private SpreadsheetViewportCache viewportCacheAndOpen() {
@@ -3466,7 +3466,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         private HistoryToken historyToken;
 
         @Override
-        public SpreadsheetViewportCache viewportCache() {
+        public SpreadsheetViewportCache spreadsheetViewportCache() {
             return this.viewportCache;
         }
 

@@ -53,7 +53,7 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
         Parser<SpreadsheetParserContext> parser = null;
 
         final AppContext context = this.context;
-        final SpreadsheetViewportCache viewportCache = context.viewportCache();
+        final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
         final SpreadsheetCellReference cellReference = context.historyToken()
                 .nonLabelSelection(viewportCache)
                 .orElseThrow(() -> new IllegalArgumentException("Unknown label within history token"))

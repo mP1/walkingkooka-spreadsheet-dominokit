@@ -78,7 +78,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     @Override
     public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
-        return this.context.viewportCache()
+        return this.context.spreadsheetViewportCache()
                 .labelMappings(selection);
     }
 
@@ -110,7 +110,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     @Override
     public SpreadsheetSelectionSummary selectionSummary() {
-        return this.context.viewportCache()
+        return this.context.spreadsheetViewportCache()
                 .selectionSummary();
     }
 

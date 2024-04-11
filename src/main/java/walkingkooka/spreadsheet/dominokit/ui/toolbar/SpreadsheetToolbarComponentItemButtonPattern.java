@@ -89,7 +89,7 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<P extends Spreadshee
     @Override
     public final void refresh(final AppContext context) {
         final Optional<SpreadsheetPatternKind> patternKind = this.pattern(
-                context.viewportCache()
+                context.spreadsheetViewportCache()
                         .selectionSummary()
         ).flatMap(SpreadsheetPattern::patternKind);
 

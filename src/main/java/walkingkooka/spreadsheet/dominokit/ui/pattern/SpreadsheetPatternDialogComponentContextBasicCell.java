@@ -55,7 +55,7 @@ abstract class SpreadsheetPatternDialogComponentContextBasicCell extends Spreads
 
         final AppContext context = this.context;
 
-        final Optional<SpreadsheetCell> maybeCell = context.viewportCache()
+        final Optional<SpreadsheetCell> maybeCell = context.spreadsheetViewportCache()
                 .cell(
                 this.historyToken()
                         .cast(SpreadsheetCellPatternSelectHistoryToken.class)

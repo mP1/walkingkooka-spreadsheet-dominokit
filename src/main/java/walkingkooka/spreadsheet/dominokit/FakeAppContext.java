@@ -163,7 +163,7 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public SpreadsheetViewportCache viewportCache() {
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
         throw new UnsupportedOperationException();
     }
 
