@@ -69,6 +69,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatc
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.ui.Browser;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.applayout.SpreadsheetAppLayout;
 import walkingkooka.spreadsheet.dominokit.ui.applayoutrightdrawer.AppLayoutRightDrawerComponent;
@@ -113,6 +114,7 @@ import java.util.function.Predicate;
 @LocaleAware
 public class App implements EntryPoint,
         AppContext,
+        Browser,
         HistoryTokenWatcher,
         NopNoResponseWatcher,
         SpreadsheetDeltaFetcherWatcher,
@@ -122,6 +124,8 @@ public class App implements EntryPoint,
     public App() {
         GWT.setUncaughtExceptionHandler(this);
         SpreadsheetDelta.EMPTY.toString(); // force json register.
+
+        this.addWindowResizeListener(this::onWindowResize);
 
         // logging
         final LoggingContext loggingContext = LoggingContexts.elemental();
@@ -161,8 +165,6 @@ public class App implements EntryPoint,
         this.previousToken = HistoryToken.unknown(UrlFragment.EMPTY);
         this.historyWatchers = HistoryTokenWatchers.empty();
         this.setupHistoryListener();
-
-        this.registerWindowResizeListener();
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
@@ -350,13 +352,19 @@ public class App implements EntryPoint,
 
     // window...........................................................................................................
 
-    private void registerWindowResizeListener() {
-        DomGlobal.window.addEventListener(
-                EventType.resize.getName(),
-                (e) -> App.this.onResize(
-                        DomGlobal.window.innerWidth,
-                        DomGlobal.window.innerHeight
-                )
+    private void onWindowResize(final Integer width,
+                                final Integer height) {
+        final SpreadsheetAppLayout layout = this.layout;
+        final int navigationBarHeight = layout.getNavBar()
+                .element()
+                .offsetHeight;
+
+        final int newHeight = height - navigationBarHeight;
+        this.debug("App.onWindowResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
+
+        this.viewportComponent.setWidthAndHeight(
+                width,
+                newHeight
         );
     }
 
@@ -371,29 +379,13 @@ public class App implements EntryPoint,
                         new ScheduledCommand() {
                             @Override
                             public void execute() {
-                                App.this.onResize(
+                                App.this.onWindowResize(
                                         DomGlobal.window.innerWidth,
                                         DomGlobal.window.innerHeight
                                 );
                             }
                         }
                 );
-    }
-
-    private void onResize(final int width,
-                          final int height) {
-        final SpreadsheetAppLayout layout = this.layout;
-        final int navigationBarHeight = layout.getNavBar()
-                .element()
-                .offsetHeight;
-
-        final int newHeight = height - navigationBarHeight;
-        this.debug("App.onResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
-
-        this.viewportComponent.setWidthAndHeight(
-                width,
-                newHeight
-        );
     }
 
     // ClipboardContext.................................................................................................
