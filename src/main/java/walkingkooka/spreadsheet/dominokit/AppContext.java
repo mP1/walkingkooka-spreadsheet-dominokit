@@ -147,4 +147,12 @@ public interface AppContext extends CanGiveFocus,
                 this.lastCellFindQueryString()
         );
     }
+
+    // SpreadsheetListDialogComponent...................................................................................
+
+    /**
+     * The default row count to use when {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken} is
+     * missing a count.
+     */
+    int spreadsheetListDialogComponentDefaultCount();
 }

@@ -860,6 +860,13 @@ public class App implements EntryPoint,
         return LocalDateTime.now();
     }
 
+    // SpreadsheetListDialogComponent...................................................................................
+
+    @Override
+    public int spreadsheetListDialogComponentDefaultCount() {
+        return 10;
+    }
+
     // logging..........................................................................................................
 
     @Override
