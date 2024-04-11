@@ -89,14 +89,7 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
         context.pushHistoryToken(
                 this.clearAction()
         );
-        final OptionalInt count = this.count();
 
-        context.spreadsheetMetadataFetcher()
-                .getSpreadsheetMetadatas(
-                        this.from(),
-                        count.isPresent() ?
-                                count :
-                                context.spreadsheetListDialogComponentDefaultCount()
-                );
+        // SpreadsheetListSelectHistoryToken#onHistoryTokenChange will do the actual reloading of data
     }
 }
