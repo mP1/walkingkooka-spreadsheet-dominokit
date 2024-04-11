@@ -54,6 +54,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -871,9 +872,20 @@ public class App implements EntryPoint,
 
     private void computeAndSaveSpreadsheetListDialogComponentDefaultCount(final int windowHeight) {
         // height - 350 reserved for dialog title, links along bottom etc divided by 32 for each row
-        this.defaultCount = OptionalInt.of(
+        final OptionalInt defaultCount = OptionalInt.of(
                 (windowHeight - 350) / 32
         );
+        this.defaultCount = defaultCount;
+
+        final HistoryToken historyToken = this.historyToken();
+        if (historyToken instanceof SpreadsheetListSelectHistoryToken) {
+            final OptionalInt count = historyToken.count();
+            if (false == count.isPresent()) {
+                this.pushHistoryToken(
+                        historyToken.setReload()
+                );
+            }
+        }
     }
 
     private OptionalInt defaultCount = OptionalInt.of(10);
