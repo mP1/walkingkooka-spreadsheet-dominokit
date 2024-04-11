@@ -79,15 +79,6 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
         );
     }
 
-    final void reloadAndCheck(final SpreadsheetListHistoryToken historyToken,
-                              final SpreadsheetListHistoryToken expected) {
-        this.checkEquals(
-                expected,
-                historyToken.reload(),
-                historyToken + " reload"
-        );
-    }
-
     @Override final T createHistoryToken() {
         return this.createHistoryToken(
                 FROM,

@@ -101,7 +101,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
 
     @Test
     public void testReload() {
-        this.reloadAndCheck(
+        this.setReloadAndCheck(
                 this.createHistoryToken(),
                 HistoryToken.spreadsheetListReload(
                         FROM,

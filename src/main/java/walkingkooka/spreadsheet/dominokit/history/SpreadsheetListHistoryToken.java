@@ -143,8 +143,6 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
         return this; // should not happen
     }
 
-    abstract HistoryToken reload();
-
     @Override //
     final HistoryToken replaceIdAndName(final SpreadsheetId id,
                                         final SpreadsheetName name) {

@@ -76,11 +76,6 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
         );
     }
 
-    @Override
-    HistoryToken reload() {
-        return this;
-    }
-
     // HistoryToken.....................................................................................................
 
     @Override
