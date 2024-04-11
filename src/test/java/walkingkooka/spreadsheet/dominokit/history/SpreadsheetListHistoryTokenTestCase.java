@@ -22,7 +22,13 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.util.OptionalInt;
+
 public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetListHistoryToken> extends SpreadsheetHistoryTokenTestCase<T> {
+
+    final static OptionalInt FROM = OptionalInt.of(1);
+
+    final static OptionalInt COUNT = OptionalInt.of(23);
 
     SpreadsheetListHistoryTokenTestCase(){
         super();
@@ -72,4 +78,14 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
                 this.createHistoryToken()
         );
     }
+
+    @Override final T createHistoryToken() {
+        return this.createHistoryToken(
+                FROM,
+                COUNT
+        );
+    }
+
+    abstract T createHistoryToken(final OptionalInt from,
+                                  final OptionalInt count);
 }
