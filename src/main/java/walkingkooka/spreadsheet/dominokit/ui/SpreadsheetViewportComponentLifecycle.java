@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.HasSpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -29,7 +30,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
  * tests as required by a {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent}.
  */
 public interface SpreadsheetViewportComponentLifecycle extends ComponentLifecycle,
-        HasSpreadsheetMetadata {
+        HasSpreadsheetMetadata,
+        HasSpreadsheetViewportCache {
 
     @Override
     default boolean shouldIgnore(final HistoryToken token) {
@@ -41,16 +43,11 @@ public interface SpreadsheetViewportComponentLifecycle extends ComponentLifecycl
 
         if (match) {
             final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
-            final SpreadsheetViewportCache viewportCache = this.viewportCache();
+            final SpreadsheetViewportCache viewportCache = this.spreadsheetViewportCache();
             final SpreadsheetViewportWindows windows = viewportCache.windows();
 
             match = false == metadata.isEmpty() && false == windows.isEmpty();
         }
         return match;
     }
-
-    /**
-     * Fetches the active {@link SpreadsheetViewportCache}
-     */
-    SpreadsheetViewportCache viewportCache();
 }

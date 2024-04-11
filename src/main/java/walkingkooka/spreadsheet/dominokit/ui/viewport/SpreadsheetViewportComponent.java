@@ -1068,7 +1068,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     @Override
-    public SpreadsheetViewportCache viewportCache() {
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
         return this.context.spreadsheetViewportCache();
     }
 
