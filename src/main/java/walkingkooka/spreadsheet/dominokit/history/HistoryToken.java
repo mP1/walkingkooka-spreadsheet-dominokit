@@ -1891,12 +1891,22 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setReload() {
         HistoryToken token = this;
 
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            token = spreadsheetReload(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name()
+        if (this instanceof SpreadsheetListHistoryToken) {
+            final SpreadsheetListHistoryToken spreadsheetListHistoryToken = this.cast(SpreadsheetListHistoryToken.class);
+            token = spreadsheetListReload(
+                    spreadsheetListHistoryToken.from(),
+                    spreadsheetListHistoryToken.count()
             );
+
+        } else {
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                token = spreadsheetReload(
+                        spreadsheetNameHistoryToken.id(),
+                        spreadsheetNameHistoryToken.name()
+                );
+            }
+
         }
 
         return token;

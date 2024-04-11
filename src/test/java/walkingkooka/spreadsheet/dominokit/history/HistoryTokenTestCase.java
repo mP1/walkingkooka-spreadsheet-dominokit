@@ -387,6 +387,17 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // setReload........................................................................................................
+
+    final void setReloadAndCheck(final HistoryToken token,
+                                 final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setReload(),
+                () -> token.toString()
+        );
+    }
+
     // setSave..........................................................................................................
 
     @Test

@@ -73,14 +73,6 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
         return this;
     }
 
-    @Override
-    HistoryToken reload() {
-        return HistoryToken.spreadsheetListReload(
-                this.from(),
-                this.count()
-        );
-    }
-
     // HistoryToken.....................................................................................................
 
     @Override
