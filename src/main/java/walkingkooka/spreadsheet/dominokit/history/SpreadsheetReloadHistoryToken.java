@@ -81,10 +81,8 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
 
     @Override
     UrlFragment spreadsheetNameUrlFragment() {
-        return URL_FRAGMENT;
+        return RELOAD;
     }
-
-    private final static UrlFragment URL_FRAGMENT = UrlFragment.parse("/reload");
 
     @Override //
     HistoryToken setClear0() {
