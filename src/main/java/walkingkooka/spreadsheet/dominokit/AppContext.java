@@ -40,6 +40,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 public interface AppContext extends CanGiveFocus,
         ClipboardContext,
@@ -154,5 +155,5 @@ public interface AppContext extends CanGiveFocus,
      * The default row count to use when {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken} is
      * missing a count.
      */
-    int spreadsheetListDialogComponentDefaultCount();
+    OptionalInt spreadsheetListDialogComponentDefaultCount();
 }

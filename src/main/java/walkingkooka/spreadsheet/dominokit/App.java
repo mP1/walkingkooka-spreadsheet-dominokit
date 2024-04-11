@@ -863,8 +863,8 @@ public class App implements EntryPoint,
     // SpreadsheetListDialogComponent...................................................................................
 
     @Override
-    public int spreadsheetListDialogComponentDefaultCount() {
-        return 10;
+    public OptionalInt spreadsheetListDialogComponentDefaultCount() {
+        return OptionalInt.of(10);
     }
 
     // logging..........................................................................................................
