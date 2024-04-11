@@ -26,21 +26,10 @@ import walkingkooka.text.cursor.TextCursor;
 import java.util.Objects;
 import java.util.OptionalInt;
 
-/**
- * A token that represents a spreadsheet list files dialog.
- */
-public final class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
+public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
 
-    static SpreadsheetListHistoryToken with(final OptionalInt from,
-                                            final OptionalInt count) {
-        return new SpreadsheetListHistoryToken(
-                checkFrom(from),
-                count
-        );
-    }
-
-    private SpreadsheetListHistoryToken(final OptionalInt from,
-                                        final OptionalInt count) {
+    SpreadsheetListHistoryToken(final OptionalInt from,
+                                final OptionalInt count) {
         super();
         this.from = from;
         this.count = count;
@@ -48,24 +37,25 @@ public final class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
 
     // from.............................................................................................................
 
-    public OptionalInt from() {
+    public final OptionalInt from() {
         return this.from;
     }
 
-    public SpreadsheetListHistoryToken setFrom(final OptionalInt from) {
+    public abstract SpreadsheetListHistoryToken setFrom(final OptionalInt from);
+
+    final SpreadsheetListHistoryToken setFrom0(final OptionalInt from) {
         checkFrom(from);
 
         return this.from.equals(from) ?
                 this :
-                new SpreadsheetListHistoryToken(
-                        from,
-                        this.count
+                this.replaceFromAndCount(
+                        from
                 );
     }
 
     private final OptionalInt from;
 
-    private static OptionalInt checkFrom(final OptionalInt from) {
+    static OptionalInt checkFrom(final OptionalInt from) {
         Objects.requireNonNull(from, "from");
 
         from.ifPresent(value -> {
@@ -76,6 +66,8 @@ public final class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
         return from;
     }
 
+    abstract SpreadsheetListHistoryToken replaceFromAndCount(final OptionalInt from);
+
     // count............................................................................................................
 
     final OptionalInt count;
@@ -83,7 +75,7 @@ public final class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
     // HasUrlFragment...................................................................................................
 
     @Override
-    public UrlFragment urlFragment() {
+    public final UrlFragment urlFragment() {
         StringBuilder urlFragment = new StringBuilder();
 
         {
@@ -102,57 +94,61 @@ public final class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
             }
         }
 
-        return urlFragment.length() == 0 ?
-                UrlFragment.SLASH :
-                UrlFragment.parse(
-                        urlFragment.toString()
+        return this.listUrlFragment()
+                .append(
+                        urlFragment.length() == 0 ?
+                                UrlFragment.SLASH :
+                                UrlFragment.parse(
+                                        urlFragment.toString()
+                                )
                 );
     }
 
+    abstract UrlFragment listUrlFragment();
+
     // HistoryToken.....................................................................................................
 
-    @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    final HistoryToken parse0(final String component,
+                              final TextCursor cursor) {
         HistoryToken historyToken = this;
 
         String nextComponent = component;
-        do {
-            switch (nextComponent) {
-                case "count":
-                    historyToken = historyToken.setCount(
-                            parseCount(cursor)
-                    );
-                    break;
-                case "from":
-                    historyToken = historyToken.cast(SpreadsheetListHistoryToken.class).setFrom(
-                            parseOptionalInt(cursor)
-                    );
-                    break;
-                default:
-                    break;
-            }
 
-            nextComponent = parseComponent(cursor)
-                    .orElse("");
-        } while (false == cursor.isEmpty());
+        switch (nextComponent) {
+            case "count":
+                historyToken = historyToken.setCount(
+                        parseCount(cursor)
+                );
+                break;
+            case "from":
+                historyToken = historyToken.cast(SpreadsheetListHistoryToken.class)
+                        .setFrom(
+                                parseOptionalInt(cursor)
+                        );
+                break;
+            case "reload":
+                historyToken = historyToken.cast(SpreadsheetListSelectHistoryToken.class)
+                        .reload();
+            default:
+                break;
+        }
+
+        nextComponent = parseComponent(cursor)
+                .orElse("");
 
         return historyToken;
     }
 
     @Override
-    public HistoryToken clearAction() {
-        return this;
-    }
-
-    @Override
-    public HistoryToken setFormula() {
+    public final HistoryToken setFormula() {
         return this; // should not happen
     }
 
+    abstract HistoryToken reload();
+
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
+    final HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                        final SpreadsheetName name) {
         return spreadsheetSelect(
                 id,
                 name

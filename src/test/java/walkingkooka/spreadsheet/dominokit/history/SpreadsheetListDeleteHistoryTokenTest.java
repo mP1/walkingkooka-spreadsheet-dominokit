@@ -29,7 +29,7 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
     public void testParseMissingSpreadsheetId() {
         this.parseAndCheck(
                 "/delete",
-                HistoryToken.spreadsheetList(
+                HistoryToken.spreadsheetListSelect(
                         OptionalInt.empty(), // from
                         OptionalInt.empty() // count
                 )
@@ -45,7 +45,7 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
     public void testClearAction() {
         this.clearActionAndCheck(
                 this.createHistoryToken(),
-                HistoryToken.spreadsheetList(
+                HistoryToken.spreadsheetListSelect(
                         OptionalInt.empty(), // from
                         OptionalInt.empty() // count
                 )

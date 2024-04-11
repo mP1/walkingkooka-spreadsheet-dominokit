@@ -31,7 +31,7 @@ public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends Spread
     public final void testClose() {
         this.closeAndCheck(
                 this.createHistoryToken(),
-                HistoryToken.spreadsheetList(
+                HistoryToken.spreadsheetListSelect(
                         OptionalInt.empty(), // from
                         OptionalInt.empty() // count
                 )

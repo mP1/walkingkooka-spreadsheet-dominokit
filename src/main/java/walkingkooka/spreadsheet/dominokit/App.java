@@ -223,7 +223,7 @@ public class App implements EntryPoint,
      */
     private HistoryTokenAnchorComponent files() {
         // TODO need to *READ* from and count
-        return HistoryToken.spreadsheetList(
+        return HistoryToken.spreadsheetListSelect(
                         OptionalInt.empty(), // from
                         OptionalInt.empty() // count
                 )

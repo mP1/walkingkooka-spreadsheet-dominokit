@@ -838,11 +838,11 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetListHistoryToken}
+     * {@see SpreadsheetListSelectHistoryToken}
      */
-    public static SpreadsheetListHistoryToken spreadsheetList(final OptionalInt from,
-                                                              final OptionalInt count) {
-        return SpreadsheetListHistoryToken.with(
+    public static SpreadsheetListHistoryToken spreadsheetListSelect(final OptionalInt from,
+                                                                    final OptionalInt count) {
+        return SpreadsheetListSelectHistoryToken.with(
                 from,
                 count
         );
@@ -997,7 +997,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
-    private final static SpreadsheetListHistoryToken SPREADSHEET_LIST_HISTORY_TOKEN = HistoryToken.spreadsheetList(
+    private final static SpreadsheetListHistoryToken SPREADSHEET_LIST_HISTORY_TOKEN = HistoryToken.spreadsheetListSelect(
             OptionalInt.empty(), // from
             OptionalInt.empty() // count
     );
@@ -1172,7 +1172,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         if (this instanceof SpreadsheetListRenameHistoryToken) {
-            closed = spreadsheetList(
+            closed = spreadsheetListSelect(
                     OptionalInt.empty(), // from
                     OptionalInt.empty() // count
             );
@@ -1406,7 +1406,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (this instanceof SpreadsheetListHistoryToken) {
                 final SpreadsheetListHistoryToken list = this.cast(SpreadsheetListHistoryToken.class);
 
-                with = spreadsheetList(
+                with = spreadsheetListSelect(
                         list.from(),
                         count
                 );
