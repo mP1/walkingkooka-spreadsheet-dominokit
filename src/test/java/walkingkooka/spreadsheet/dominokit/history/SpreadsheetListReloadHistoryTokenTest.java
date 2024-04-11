@@ -21,13 +21,24 @@ import org.junit.jupiter.api.Test;
 
 import java.util.OptionalInt;
 
-public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetListHistoryTokenTestCase<SpreadsheetListSelectHistoryToken> {
+public final class SpreadsheetListReloadHistoryTokenTest extends SpreadsheetListHistoryTokenTestCase<SpreadsheetListReloadHistoryToken> {
 
     @Test
     public void testParseInvalidFrom() {
         this.parseAndCheck(
-                "/from/X",
-                SpreadsheetListSelectHistoryToken.with(
+                "/reload/from/X",
+                SpreadsheetListReloadHistoryToken.with(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
+    public void testParseReload() {
+        this.parseAndCheck(
+                "/reload",
+                SpreadsheetListReloadHistoryToken.with(
                         OptionalInt.empty(), // from
                         OptionalInt.empty() // count
                 )
@@ -37,8 +48,8 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseFrom() {
         this.parseAndCheck(
-                "/from/10",
-                SpreadsheetListSelectHistoryToken.with(
+                "/reload/from/10",
+                SpreadsheetListReloadHistoryToken.with(
                         OptionalInt.of(10), // from
                         OptionalInt.empty() // count
                 )
@@ -48,8 +59,8 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-                "/count/20",
-                SpreadsheetListSelectHistoryToken.with(
+                "/reload/count/20",
+                SpreadsheetListReloadHistoryToken.with(
                         OptionalInt.empty(), // from
                         OptionalInt.of(20) // count
                 )
@@ -59,8 +70,8 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseFromAndCount() {
         this.parseAndCheck(
-                "/from/10/count/20",
-                SpreadsheetListSelectHistoryToken.with(
+                "/reload/from/10/count/20",
+                SpreadsheetListReloadHistoryToken.with(
                         OptionalInt.of(10), // from
                         OptionalInt.of(20) // count
                 )
@@ -69,34 +80,40 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/from/1/count/23");
+        this.urlFragmentAndCheck("/reload/from/1/count/23");
     }
 
     @Test
     public void testUrlFragmentFrom() {
         this.urlFragmentAndCheck(
-                SpreadsheetListSelectHistoryToken.with(
+                SpreadsheetListReloadHistoryToken.with(
                         OptionalInt.of(10), // from
                         OptionalInt.empty() // count
                 ),
-                "/from/10"
+                "/reload/from/10"
         );
     }
 
     @Test
     public void testUrlFragmentFromAndCount() {
         this.urlFragmentAndCheck(
-                SpreadsheetListSelectHistoryToken.with(
+                SpreadsheetListReloadHistoryToken.with(
                         OptionalInt.of(10), // from
                         OptionalInt.of(20) // count
                 ),
-                "/from/10/count/20"
+                "/reload/from/10/count/20"
         );
     }
 
     @Test
     public void testClearAction() {
-        this.clearActionAndCheck();
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.spreadsheetListSelect(
+                        FROM,
+                        COUNT
+                )
+        );
     }
 
     @Test
@@ -111,16 +128,16 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     }
 
     @Override
-    SpreadsheetListSelectHistoryToken createHistoryToken(final OptionalInt from,
+    SpreadsheetListReloadHistoryToken createHistoryToken(final OptionalInt from,
                                                          final OptionalInt count) {
-        return SpreadsheetListSelectHistoryToken.with(
+        return SpreadsheetListReloadHistoryToken.with(
                 from,
                 count
         );
     }
 
     @Override
-    public Class<SpreadsheetListSelectHistoryToken> type() {
-        return SpreadsheetListSelectHistoryToken.class;
+    public Class<SpreadsheetListReloadHistoryToken> type() {
+        return SpreadsheetListReloadHistoryToken.class;
     }
 }
