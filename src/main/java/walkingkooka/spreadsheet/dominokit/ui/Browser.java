@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.DomGlobal;
 import org.dominokit.domino.ui.events.EventType;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 
 import java.util.function.BiConsumer;
 
@@ -35,5 +37,23 @@ public interface Browser {
                         DomGlobal.window.innerHeight
                 )
         );
+    }
+
+    /**
+     * Fire the window size. This is eventually used to compute the spreadsheet viewport size.
+     */
+    default void fireWindowSizeLater(final BiConsumer<Integer, Integer> listener) {
+        Scheduler.get()
+                .scheduleDeferred(
+                        new ScheduledCommand() {
+                            @Override
+                            public void execute() {
+                                listener.accept(
+                                        DomGlobal.window.innerWidth,
+                                        DomGlobal.window.innerHeight
+                                );
+                            }
+                        }
+                );
     }
 }

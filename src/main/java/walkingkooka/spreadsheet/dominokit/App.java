@@ -33,7 +33,6 @@ import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
-import org.gwtproject.core.client.Scheduler.ScheduledCommand;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -347,7 +346,7 @@ public class App implements EntryPoint,
     @Override
     public void onModuleLoad() {
         this.fireInitialHistoryToken();
-        this.fireInitialWindowSize();
+        this.fireWindowSizeLater(this::onWindowResize);
     }
 
     // window...........................................................................................................
@@ -366,26 +365,6 @@ public class App implements EntryPoint,
                 width,
                 newHeight
         );
-    }
-
-    /**
-     * Fire the window size. This is eventually used to compute the spreadsheet viewport size.
-     */
-    private void fireInitialWindowSize() {
-        this.debug("App.fireInitialWindowSize");
-
-        Scheduler.get()
-                .scheduleDeferred(
-                        new ScheduledCommand() {
-                            @Override
-                            public void execute() {
-                                App.this.onWindowResize(
-                                        DomGlobal.window.innerWidth,
-                                        DomGlobal.window.innerHeight
-                                );
-                            }
-                        }
-                );
     }
 
     // ClipboardContext.................................................................................................
