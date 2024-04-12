@@ -175,9 +175,9 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
                 );
     }
 
-    private DataTable<SpreadsheetListComponentTableRow> table;
+    private final DataTable<SpreadsheetListComponentTableRow> table;
 
-    private LocalListDataStore<SpreadsheetListComponentTableRow> dataStore;
+    private final LocalListDataStore<SpreadsheetListComponentTableRow> dataStore;
 
     void setMetadata(final List<SpreadsheetMetadata> metadatas) {
         this.dataStore.setData(

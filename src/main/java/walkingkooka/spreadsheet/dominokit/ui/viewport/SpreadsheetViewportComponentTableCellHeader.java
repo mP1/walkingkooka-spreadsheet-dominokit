@@ -87,7 +87,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
         );
     }
 
-    T selection;
+    final T selection;
 
     // IsElement........................................................................................................
 
