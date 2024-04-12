@@ -186,7 +186,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         if (maybeNonLabelSelection.isPresent()) {
             final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
             if (nonLabelSelection.isCellReference() || nonLabelSelection.isCellRangeReference()) {
-                for (final SpreadsheetToolbarComponentItem component : this.components) {
+                for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
                     component.refresh(
                             context
                     );

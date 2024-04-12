@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
+@SuppressWarnings("rawtypes")
 public final class SpreadsheetToolbarComponentItemButtonTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItemButton> {
     @Override
     public Class<SpreadsheetToolbarComponentItemButton> type() {
