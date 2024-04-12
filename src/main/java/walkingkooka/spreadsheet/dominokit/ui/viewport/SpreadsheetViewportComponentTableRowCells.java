@@ -92,7 +92,6 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
                             context
                     );
                 }
-                ;
                 newColumnToCells.put(column, columnTableCell);
                 element.appendChild(columnTableCell);
             }

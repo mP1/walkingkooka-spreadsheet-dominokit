@@ -180,7 +180,6 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
                     )
             );
         }
-        ;
     }
 
     /**
