@@ -86,7 +86,6 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                             context
                     );
                 }
-                ;
                 newColumnToHeaders.put(column, columnTableCell);
                 element.appendChild(columnTableCell);
             }
