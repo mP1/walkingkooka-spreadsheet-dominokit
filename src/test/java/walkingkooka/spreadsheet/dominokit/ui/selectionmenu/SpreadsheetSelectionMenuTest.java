@@ -148,10 +148,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  test-style-SubMenu \"Style\"\n" +
                         "    test-alignment-SubMenu \"Alignment\"\n" +
-                        "      (mdi-format-align-left) test-left-MenuItem \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT]\n" +
-                        "      (mdi-format-align-center) test-center-MenuItem \"Center\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER]\n" +
-                        "      (mdi-format-align-right) test-right-MenuItem \"Right\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/RIGHT]\n" +
-                        "      (mdi-format-align-justify) test-justify-MenuItem \"Justify\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/JUSTIFY]\n" +
+                        "      (mdi-format-align-left) test-left-MenuItem key=L \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT]\n" +
+                        "      (mdi-format-align-center) test-center-MenuItem key=C \"Center\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER]\n" +
+                        "      (mdi-format-align-right) test-right-MenuItem key=R \"Right\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/RIGHT]\n" +
+                        "      (mdi-format-align-justify) test-justify-MenuItem key=J \"Justify\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/JUSTIFY]\n" +
                         "    test-vertical-alignment-SubMenu \"Vertical Alignment\"\n" +
                         "      (mdi-format-align-top) test-top-MenuItem \"Top\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/TOP]\n" +
                         "      (mdi-format-align-middle) test-middle-MenuItem \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE]\n" +

@@ -29,13 +29,13 @@ public final class SpreadsheetHotKeys implements PublicStaticHelper {
 
     public final static String UNDERLINE = "u";
 
-    public final static String ALIGNMENT_LEFT = "";
+    public final static String ALIGNMENT_LEFT = "L";
 
-    public final static String ALIGNMENT_CENTER = "";
+    public final static String ALIGNMENT_CENTER = "C";
 
-    public final static String ALIGNMENT_RIGHT = "";
+    public final static String ALIGNMENT_RIGHT = "R";
 
-    public final static String ALIGNMENT_JUSTIFY = "";
+    public final static String ALIGNMENT_JUSTIFY = "J";
 
     public final static String TEXT_TRANSFORM_CAPITALIZE = "";
 
