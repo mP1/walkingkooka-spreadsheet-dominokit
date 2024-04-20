@@ -21,7 +21,6 @@ import elemental2.dom.Event;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -32,61 +31,58 @@ import java.util.Optional;
 /**
  * When clicked, updates the {@link SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES} with the opposite of its current value.
  */
-final class SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues extends SpreadsheetToolbarComponentItemButtonMetadata<SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues> {
+final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends SpreadsheetToolbarComponentItemAnchorMetadata<SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues> {
 
-    static SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues with(final AppContext context) {
+    static SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues(
+        return new SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues(final AppContext context) {
+    private SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(final AppContext context) {
         super(
                 SpreadsheetToolbarComponent.hideZeroValues(),
                 SpreadsheetIcons.hideZeroValues(),
-                "",
+                "Hide Zeros",
+                "Hide cells with formatted zero values",
                 context
         );
         this.refresh(context);
     }
 
-    @Override
-    void onClick(final Event event) {
-        final AppContext context = this.context;
-
-        context.pushHistoryToken(
-                context.historyToken()
-                        .setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
-                        .setSave(
-                                Optional.of(
-                                false == HideZeroValues.isHideZeroValues(context) // if hide=true then click makes hide=false
-                                )
-                        )
-        );
-    }
+    // SpreadsheetToolbarComponentItemLink............................................................................
 
     @Override
     void onFocus(final Event event) {
-        // TODO need to decide on history token
+        // nop
     }
+
+    // ComponentLifecycle...............................................................................................
 
     @Override
     public void refresh(final AppContext context) {
         final boolean hide = HideZeroValues.isHideZeroValues(context);
 
-        this.setButtonSelected(
-                hide,
-                SpreadsheetDominoKitColor.HIDE_ZERO_VALUES_COLOR
-        );
-
         this.setTooltipText(
                 HideZeroValues.label(hide)
         );
-    }
 
-    // ComponentLifecycle...............................................................................................
+        this.anchor.setChecked(
+                hide
+        ).setHistoryToken(
+                Optional.of(
+                        context.historyToken()
+                                .setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
+                                .setSave(
+                                        Optional.of(
+                                                false == HideZeroValues.isHideZeroValues(context) // if hide=true then click makes hide=false
+                                        )
+                                )
+                )
+        );
+    }
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {

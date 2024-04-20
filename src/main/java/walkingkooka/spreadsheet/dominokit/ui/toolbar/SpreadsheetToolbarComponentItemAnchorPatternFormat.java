@@ -27,22 +27,23 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A button ui that may exist withing a toolbar, which actives the format pattern editor.
+ * A link ui that may exist withing a toolbar, which actives the format pattern editor.
  */
-final class SpreadsheetToolbarComponentItemButtonPatternFormat extends SpreadsheetToolbarComponentItemButtonPattern<SpreadsheetFormatPattern, SpreadsheetToolbarComponentItemButtonPatternFormat> {
+final class SpreadsheetToolbarComponentItemAnchorPatternFormat extends SpreadsheetToolbarComponentItemAnchorPattern<SpreadsheetFormatPattern, SpreadsheetToolbarComponentItemAnchorPatternFormat> {
 
-    static SpreadsheetToolbarComponentItemButtonPatternFormat with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorPatternFormat with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemButtonPatternFormat(
+        return new SpreadsheetToolbarComponentItemAnchorPatternFormat(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemButtonPatternFormat(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorPatternFormat(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.formatPatternId(),
                 SpreadsheetIcons.parsePattern(),
+                "Format pattern",
                 "Format pattern(s)...",
                 context
         );

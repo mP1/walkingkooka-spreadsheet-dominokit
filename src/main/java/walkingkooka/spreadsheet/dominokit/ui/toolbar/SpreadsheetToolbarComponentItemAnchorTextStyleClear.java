@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 import elemental2.dom.Event;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -29,20 +28,20 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A button ui that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
+ * A link ui that may exist withing a toolbar, which updates the a {@link TextStylePropertyName} with a fixed
  * {@link Object value} when selected(clicked).
  */
-final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends SpreadsheetToolbarComponentItemButtonTextStyle<SpreadsheetToolbarComponentItemButtonTextStyleClear> {
+final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends SpreadsheetToolbarComponentItemAnchorTextStyle<SpreadsheetToolbarComponentItemAnchorTextStyleClear> {
 
-    static SpreadsheetToolbarComponentItemButtonTextStyleClear with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorTextStyleClear with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemButtonTextStyleClear(
+        return new SpreadsheetToolbarComponentItemAnchorTextStyleClear(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemButtonTextStyleClear(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorTextStyleClear(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.id(
                         PROPERTY,
@@ -50,24 +49,12 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
                 ),
                 SpreadsheetIcons.clearStyle(),
                 "Clear styling",
+                "Clear styling",
                 context
         );
     }
 
-    /**
-     * When clicked perform a save on the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} and push that.
-     */
-    @Override //
-    void onClick(final Event event) {
-        final HistoryTokenContext context = this.context;
-
-        context.historyToken()
-                .anchoredSelectionHistoryTokenOrEmpty()
-                .map(
-                        t -> t.setStyle(PROPERTY)
-                                .clearSave()
-                ).ifPresent(context::pushHistoryToken);
-    }
+    // SpreadsheetToolbarComponentItemLink............................................................................
 
     /**
      * Upon focus the history token is set {@link walkingkooka.spreadsheet.reference.SpreadsheetSelection} and the {@link TextStylePropertyName}.
@@ -84,13 +71,18 @@ final class SpreadsheetToolbarComponentItemButtonTextStyleClear extends Spreadsh
     }
 
     /**
-     * Counts the number of cells with non empty {@link TextStyle}.
+     * Counts the number of cells with a non empty {@link TextStyle}.
      */
     @Override
     public void refresh(final AppContext context) {
-        this.setButtonSelected(
-                true,
-                SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
+        this.anchor.setChecked(true)
+                .setHistoryToken(
+                context.historyToken()
+                        .anchoredSelectionHistoryTokenOrEmpty()
+                        .map(
+                                t -> t.setStyle(PROPERTY)
+                                        .clearSave()
+                        )
         );
     }
 

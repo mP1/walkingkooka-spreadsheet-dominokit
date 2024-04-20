@@ -27,22 +27,24 @@ import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.tree.text.TextStyle;
 
 /**
- * Base class for buttons that update a {@link TextStyle}.
+ * Base class for links that update a {@link TextStyle}.
  */
-abstract class SpreadsheetToolbarComponentItemButtonTextStyle<C extends SpreadsheetToolbarComponentItemButtonTextStyle<C>>
-        extends SpreadsheetToolbarComponentItemButton<C>
+abstract class SpreadsheetToolbarComponentItemAnchorTextStyle<C extends SpreadsheetToolbarComponentItemAnchorTextStyle<C>>
+        extends SpreadsheetToolbarComponentItemAnchor<C>
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
         VisibleComponentLifecycle<HTMLElement, C> {
 
-    SpreadsheetToolbarComponentItemButtonTextStyle(final String id,
+    SpreadsheetToolbarComponentItemAnchorTextStyle(final String id,
                                                    final MdiIcon icon,
+                                                   final String text,
                                                    final String tooltipText,
                                                    final HistoryTokenContext context) {
         super(
                 id,
                 icon,
+                text,
                 tooltipText,
                 context
         );

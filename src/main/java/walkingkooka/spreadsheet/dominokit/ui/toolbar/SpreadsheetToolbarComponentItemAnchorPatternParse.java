@@ -27,22 +27,23 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A button ui that may exist withing a toolbar, which actives the parse pattern editor.
+ * A link ui that may exist withing a toolbar, which actives the parse pattern editor.
  */
-final class SpreadsheetToolbarComponentItemButtonPatternParse extends SpreadsheetToolbarComponentItemButtonPattern<SpreadsheetParsePattern, SpreadsheetToolbarComponentItemButtonPatternParse> {
+final class SpreadsheetToolbarComponentItemAnchorPatternParse extends SpreadsheetToolbarComponentItemAnchorPattern<SpreadsheetParsePattern, SpreadsheetToolbarComponentItemAnchorPatternParse> {
 
-    static SpreadsheetToolbarComponentItemButtonPatternParse with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorPatternParse with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemButtonPatternParse(
+        return new SpreadsheetToolbarComponentItemAnchorPatternParse(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemButtonPatternParse(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorPatternParse(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.parsePatternId(),
                 SpreadsheetIcons.parsePattern(),
+                "Parse pattern",
                 "Parse pattern(s)...",
                 context
         );
