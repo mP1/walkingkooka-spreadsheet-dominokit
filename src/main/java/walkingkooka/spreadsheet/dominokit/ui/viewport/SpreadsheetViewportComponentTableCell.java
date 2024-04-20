@@ -37,6 +37,9 @@ import walkingkooka.tree.text.WordBreak;
 
 import java.util.function.Predicate;
 
+/**
+ * Base class for all TABLE CELL (TD) components within a {@link SpreadsheetViewportComponentTable}
+ */
 abstract class SpreadsheetViewportComponentTableCell {
 
     SpreadsheetViewportComponentTableCell() {
