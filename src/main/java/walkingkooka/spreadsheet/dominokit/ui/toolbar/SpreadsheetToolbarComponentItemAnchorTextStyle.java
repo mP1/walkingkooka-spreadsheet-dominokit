@@ -18,13 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.tree.text.TextStyle;
+
+import java.util.Optional;
 
 /**
  * Base class for links that update a {@link TextStyle}.
@@ -37,7 +39,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorTextStyle<C extends Spreadsh
         VisibleComponentLifecycle<HTMLElement, C> {
 
     SpreadsheetToolbarComponentItemAnchorTextStyle(final String id,
-                                                   final MdiIcon icon,
+                                                   final Optional<Icon<?>> icon,
                                                    final String text,
                                                    final String tooltipText,
                                                    final HistoryTokenContext context) {

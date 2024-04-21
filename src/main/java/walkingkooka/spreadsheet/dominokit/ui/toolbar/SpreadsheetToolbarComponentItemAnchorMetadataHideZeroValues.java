@@ -44,7 +44,9 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
     private SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(final AppContext context) {
         super(
                 SpreadsheetToolbarComponent.hideZeroValues(),
-                SpreadsheetIcons.hideZeroValues(),
+                Optional.of(
+                        SpreadsheetIcons.hideZeroValues()
+                ),
                 "Hide Zeros",
                 "Hide cells with formatted zero values",
                 context

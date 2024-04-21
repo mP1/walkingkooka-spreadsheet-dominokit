@@ -42,7 +42,9 @@ final class SpreadsheetToolbarComponentItemAnchorPatternParse extends Spreadshee
     private SpreadsheetToolbarComponentItemAnchorPatternParse(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.parsePatternId(),
-                SpreadsheetIcons.parsePattern(),
+                Optional.of(
+                        SpreadsheetIcons.parsePattern()
+                ),
                 "Parse pattern",
                 "Parse pattern(s)...",
                 context

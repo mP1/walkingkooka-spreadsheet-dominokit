@@ -18,13 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
+
+import java.util.Optional;
 
 /**
  * Base class for links that update a {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} property.
@@ -37,7 +39,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorMetadata<T extends Spreadshe
         VisibleComponentLifecycle<HTMLElement, T> {
 
     SpreadsheetToolbarComponentItemAnchorMetadata(final String id,
-                                                  final MdiIcon icon,
+                                                  final Optional<Icon<?>> icon,
                                                   final String text,
                                                   final String tooltipText,
                                                   final AppContext context) {
