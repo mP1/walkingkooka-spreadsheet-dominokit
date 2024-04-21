@@ -143,6 +143,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
+    /**
+     * {@link SpreadsheetToolbarComponentItemAnchorSwagger}
+     */
+    static SpreadsheetToolbarComponentItem<?> swagger(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemAnchorSwagger.with(context);
+    }
+
     static SpreadsheetToolbarComponentItem<?> textAlignLeft(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
