@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -104,6 +105,9 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 break;
             case "save":
                 result = this.parseSave(cursor);
+                break;
+            case "sort":
+                result = this.parseSort(cursor);
                 break;
             case "style":
                 result = this.parseStyle(cursor);
@@ -236,6 +240,45 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     private HistoryToken parseHighlight(final TextCursor cursor) {
         final HistoryToken token = this.setHighlight();
         return token.parse(cursor);
+    }
+
+    private HistoryToken parseSort(final TextCursor cursor) {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken) {
+            final SpreadsheetCellSelectHistoryToken cellSelectHistoryToken = this.cast(SpreadsheetCellSelectHistoryToken.class);
+
+            final String component = parseComponent(cursor)
+                    .orElse("");
+            switch (component) {
+                case "edit":
+                    historyToken = HistoryToken.cellSortEdit(
+                            cellSelectHistoryToken.id(),
+                            cellSelectHistoryToken.name(),
+                            cellSelectHistoryToken.anchoredSelection(),
+                            SpreadsheetCellSpreadsheetComparatorNames.parseList(
+                                    parseComponent(cursor)
+                                            .orElse("")
+                            )
+                    );
+                    break;
+                case "save":
+                    historyToken = HistoryToken.cellSortSave(
+                            cellSelectHistoryToken.id(),
+                            cellSelectHistoryToken.name(),
+                            cellSelectHistoryToken.anchoredSelection(),
+                            SpreadsheetCellSpreadsheetComparatorNames.parseList(
+                                    parseComponent(cursor)
+                                            .orElse("")
+                            )
+                    );
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return historyToken;
     }
 
     private static String parseComponentOrNull(final TextCursor cursor) {
