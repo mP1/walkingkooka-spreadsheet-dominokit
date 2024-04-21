@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
@@ -35,7 +35,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
 
     static <T> SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> with(final TextStylePropertyName<T> propertyName,
                                                                               final T propertyValue,
-                                                                              final MdiIcon icon,
+                                                                              final Optional<Icon<?>> icon,
                                                                               final String text,
                                                                               final String tooltipText,
                                                                               final HistoryTokenContext context) {
@@ -58,7 +58,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
 
     private SpreadsheetToolbarComponentItemAnchorTextStyleProperty(final TextStylePropertyName<T> propertyName,
                                                                    final T propertyValue,
-                                                                   final MdiIcon icon,
+                                                                   final Optional<Icon<?>> icon,
                                                                    final String text,
                                                                    final String tooltipText,
                                                                    final HistoryTokenContext context) {

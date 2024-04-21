@@ -50,7 +50,9 @@ final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends Spreadsheet
     private SpreadsheetToolbarComponentItemAnchorLabelCreate(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.labelCreateId(),
-                SpreadsheetIcons.labelAdd(),
+                Optional.of(
+                        SpreadsheetIcons.labelAdd()
+                ),
                 "Create Label",
                 "Create Label",
                 context

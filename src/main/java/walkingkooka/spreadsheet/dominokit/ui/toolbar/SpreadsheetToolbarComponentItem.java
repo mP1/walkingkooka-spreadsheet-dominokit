@@ -32,6 +32,8 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 
+import java.util.Optional;
+
 /**
  * A ui such as an icon within a {@link SpreadsheetToolbarComponent}.
  */
@@ -43,7 +45,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.FONT_WEIGHT,
                 FontWeight.BOLD,
-                SpreadsheetIcons.bold(),
+                Optional.of(
+                        SpreadsheetIcons.bold()
+                ),
                 "Bold",
                 "Bold",
                 context
@@ -94,7 +98,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.FONT_STYLE,
                 FontStyle.ITALIC,
-                SpreadsheetIcons.italics(),
+                Optional.of(
+                        SpreadsheetIcons.italics()
+                ),
                 "Italics",
                 "Italics",
                 context
@@ -128,7 +134,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.LINE_THROUGH,
-                SpreadsheetIcons.strikethrough(),
+                Optional.of(
+                        SpreadsheetIcons.strikethrough()
+                ),
                 "Strike",
                 "Strike-thru",
                 context
@@ -139,7 +147,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.LEFT,
-                SpreadsheetIcons.alignLeft(),
+                Optional.of(
+                        SpreadsheetIcons.alignLeft()
+                ),
                 "Left",
                 "Left align",
                 context
@@ -150,7 +160,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.CENTER,
-                SpreadsheetIcons.alignCenter(),
+                Optional.of(
+                        SpreadsheetIcons.alignCenter()
+                ),
                 "Center",
                 "Center align",
                 context
@@ -161,7 +173,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.RIGHT,
-                SpreadsheetIcons.alignRight(),
+                Optional.of(
+                        SpreadsheetIcons.alignRight()
+                ),
                 "Right",
                 "Right align",
                 context
@@ -172,7 +186,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY,
-                SpreadsheetIcons.alignJustify(),
+                Optional.of(
+                        SpreadsheetIcons.alignJustify()
+                ),
                 "Justify",
                 "Justify",
                 context
@@ -183,7 +199,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.CAPITALIZE,
-                SpreadsheetIcons.textCaseCapitalize(),
+                Optional.of(
+                        SpreadsheetIcons.textCaseCapitalize()
+                ),
                 "Capitalize",
                 "Capitalize text",
                 context
@@ -194,7 +212,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.LOWERCASE,
-                SpreadsheetIcons.textCaseLower(),
+                Optional.of(
+                        SpreadsheetIcons.textCaseLower()
+                ),
                 "Lower-case",
                 "Lower-case text",
                 context
@@ -205,7 +225,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.UPPERCASE,
-                SpreadsheetIcons.textCaseLower(),
+                Optional.of(
+                        SpreadsheetIcons.textCaseLower()
+                ),
                 "Upper-case",
                 "Upper-case text",
                 context
@@ -216,7 +238,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE,
-                SpreadsheetIcons.underline(),
+                Optional.of(
+                        SpreadsheetIcons.underline()
+                ),
                 "Underline",
                 "Underline",
                 context
@@ -227,7 +251,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.TOP,
-                SpreadsheetIcons.verticalAlignTop(),
+                Optional.of(
+                        SpreadsheetIcons.verticalAlignTop()
+                ),
                 "Top",
                 "Align top",
                 context
@@ -238,7 +264,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.MIDDLE,
-                SpreadsheetIcons.verticalAlignMiddle(),
+                Optional.of(
+                        SpreadsheetIcons.verticalAlignMiddle()
+                ),
                 "Middle",
                 "Align middle",
                 context
@@ -249,7 +277,9 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.BOTTOM,
-                SpreadsheetIcons.verticalAlignBottom(),
+                Optional.of(
+                        SpreadsheetIcons.verticalAlignBottom()
+                ),
                 "Bottom",
                 "Align bottom",
                 context

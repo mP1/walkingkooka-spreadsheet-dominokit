@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -44,7 +44,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorPattern<P extends Spreadshee
         VisibleComponentLifecycle<HTMLElement, C> {
 
     SpreadsheetToolbarComponentItemAnchorPattern(final String id,
-                                                 final MdiIcon icon,
+                                                 final Optional<Icon<?>> icon,
                                                  final String text,
                                                  final String tooltip,
                                                  final HistoryTokenContext context) {

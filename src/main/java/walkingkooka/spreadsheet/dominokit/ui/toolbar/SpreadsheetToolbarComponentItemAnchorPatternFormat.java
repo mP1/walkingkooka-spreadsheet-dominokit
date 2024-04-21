@@ -42,7 +42,9 @@ final class SpreadsheetToolbarComponentItemAnchorPatternFormat extends Spreadshe
     private SpreadsheetToolbarComponentItemAnchorPatternFormat(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.formatPatternId(),
-                SpreadsheetIcons.parsePattern(),
+                Optional.of(
+                        SpreadsheetIcons.parsePattern()
+                ),
                 "Format pattern",
                 "Format pattern(s)...",
                 context

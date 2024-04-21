@@ -50,7 +50,9 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
     private SpreadsheetToolbarComponentItemAnchorCellFind(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.findCellsId(),
-                SpreadsheetIcons.cellsFind(),
+                Optional.of(
+                        SpreadsheetIcons.cellsFind()
+                ),
                 "Find",
                 "Find cells...",
                 context

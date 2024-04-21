@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -34,16 +34,15 @@ import java.util.Optional;
 abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolbarComponentItemAnchor<C>> extends SpreadsheetToolbarComponentItem<C> {
 
     SpreadsheetToolbarComponentItemAnchor(final String id,
-                                          final MdiIcon icon,
+                                          final Optional<Icon<?>> icon,
                                           final String text,
                                           final String tooltipText,
                                           final HistoryTokenContext context) {
         final HistoryTokenAnchorComponent anchor = context.historyToken()
                 .link(id)
                 .setTextContent(text)
-                .setIconBefore(
-                        Optional.of(icon)
-                ).addFocusListener(this::onFocus);
+                .setIconBefore(icon)
+                .addFocusListener(this::onFocus);
 
         this.anchor = anchor;
 

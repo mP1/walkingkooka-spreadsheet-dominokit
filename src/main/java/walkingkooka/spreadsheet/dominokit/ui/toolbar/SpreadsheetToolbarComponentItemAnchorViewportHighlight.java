@@ -48,7 +48,9 @@ final class SpreadsheetToolbarComponentItemAnchorViewportHighlight extends Sprea
     private SpreadsheetToolbarComponentItemAnchorViewportHighlight(final AppContext context) {
         super(
                 SpreadsheetToolbarComponent.highlightId(),
-                SpreadsheetIcons.highlight(),
+                Optional.of(
+                        SpreadsheetIcons.highlight()
+                ),
                 "Highlight",
                 "",
                 context

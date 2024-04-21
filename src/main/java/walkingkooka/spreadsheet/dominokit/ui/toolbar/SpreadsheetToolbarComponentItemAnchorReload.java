@@ -47,7 +47,9 @@ final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolb
     private SpreadsheetToolbarComponentItemAnchorReload(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.reloadId(),
-                SpreadsheetIcons.reload(),
+                Optional.of(
+                        SpreadsheetIcons.reload()
+                ),
                 "Reload",
                 "Reload",
                 context

@@ -47,7 +47,9 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
                         PROPERTY,
                         Optional.empty()
                 ),
-                SpreadsheetIcons.clearStyle(),
+                Optional.of(
+                        SpreadsheetIcons.clearStyle()
+                ),
                 "Clear styling",
                 "Clear styling",
                 context
