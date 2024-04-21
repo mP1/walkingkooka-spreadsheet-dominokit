@@ -130,3 +130,7 @@ Global settings that may be added or updated appear in a panel that appears on t
 ## UI, Theme, icons
 
 - The UI can be described as spartan as it uses the default DominoKit theme. No work has been done to improve.
+
+# CC Acknowledgements
+
+- [Swagger Icon](https://iconduck.com/icons/94965/swagger)
