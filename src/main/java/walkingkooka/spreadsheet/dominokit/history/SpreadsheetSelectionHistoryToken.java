@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -252,14 +253,16 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                     .orElse("");
             switch (component) {
                 case "edit":
+                    final String comparators = parseComponent(cursor)
+                            .orElse("");
+
                     historyToken = HistoryToken.cellSortEdit(
                             cellSelectHistoryToken.id(),
                             cellSelectHistoryToken.name(),
                             cellSelectHistoryToken.anchoredSelection(),
-                            SpreadsheetCellSpreadsheetComparatorNames.parseList(
-                                    parseComponent(cursor)
-                                            .orElse("")
-                            )
+                            comparators.isEmpty() ?
+                                    Lists.empty() :
+                                    SpreadsheetCellSpreadsheetComparatorNames.parseList(comparators)
                     );
                     break;
                 case "save":

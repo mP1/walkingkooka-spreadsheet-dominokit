@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
@@ -55,19 +54,6 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
                         NAME,
                         CELL.setDefaultAnchor(),
                         null
-                )
-        );
-    }
-
-    @Test
-    public final void testWithEmptyComparatorNamesFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> this.createHistoryToken(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        Lists.empty()
                 )
         );
     }

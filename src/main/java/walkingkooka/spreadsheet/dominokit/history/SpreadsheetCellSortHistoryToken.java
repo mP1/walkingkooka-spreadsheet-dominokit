@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -42,12 +43,18 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
                 anchoredSelection
         );
 
-        final List<SpreadsheetCellSpreadsheetComparatorNames> copy = SpreadsheetCellSpreadsheetComparatorNames.list(comparatorNames);
+        List<SpreadsheetCellSpreadsheetComparatorNames> copy = Lists.immutable(comparatorNames);
         final SpreadsheetSelection selection = anchoredSelection.selection();
-        if (false == selection.isLabelName()) {
-            selection.toCellRange()
-                    .comparatorNamesCheck(copy);
+        if (copy.isEmpty() && this instanceof SpreadsheetCellSortEditHistoryToken) {
+            // nop
+        } else {
+            copy = SpreadsheetCellSpreadsheetComparatorNames.list(copy);
+            if (false == selection.isLabelName()) {
+                selection.toCellRange()
+                        .comparatorNamesCheck(copy);
+            }
         }
+
         this.comparatorNames = copy;
     }
 
