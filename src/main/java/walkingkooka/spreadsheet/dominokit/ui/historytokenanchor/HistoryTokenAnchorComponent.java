@@ -219,6 +219,22 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         return this;
     }
 
+    // target.........................................................................................................
+
+    public String target() {
+        return this.element().getAttribute(TARGET);
+    }
+
+    public HistoryTokenAnchorComponent setTarget(final String target) {
+        this.element.setAttribute(
+                TARGET,
+                target
+        );
+        return this;
+    }
+
+    private final static String TARGET = "target";
+
     // textContent......................................................................................................
 
     public String textContent() {
