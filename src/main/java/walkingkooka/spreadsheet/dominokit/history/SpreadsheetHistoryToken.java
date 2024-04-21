@@ -37,6 +37,8 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment DELETE = UrlFragment.parse("/delete");
 
+    final static UrlFragment EDIT = UrlFragment.parse("/edit");
+
     final static UrlFragment FIND = UrlFragment.parse("/find");
 
     final static UrlFragment FREEZE = UrlFragment.parse("/freeze");
@@ -58,6 +60,8 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
     final static UrlFragment SELECT = UrlFragment.EMPTY;
 
     final static UrlFragment SAVE = UrlFragment.parse("/save/");
+
+    final static UrlFragment SORT = UrlFragment.parse("/sort");
 
     final static UrlFragment STYLE = UrlFragment.parse("/style/");
 
