@@ -152,6 +152,28 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         );
     }
 
+    // checked.........................................................................................................
+
+    public boolean isChecked() {
+        return this.checked;
+    }
+
+    public HistoryTokenAnchorComponent setChecked(final boolean checked) {
+        final AnchorElement element = this.element;
+        if (checked) {
+            element.setCssProperty(FONT_WEIGHT, "bold");
+        } else {
+            element.removeCssProperty(FONT_WEIGHT);
+        }
+
+        this.checked = checked;
+        return this;
+    }
+
+    private boolean checked;
+
+    private final static String FONT_WEIGHT = "font-weight";
+
     // href.............................................................................................................
 
     public Url href() {
