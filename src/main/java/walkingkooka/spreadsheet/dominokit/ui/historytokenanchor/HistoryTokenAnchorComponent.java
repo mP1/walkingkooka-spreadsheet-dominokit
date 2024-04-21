@@ -66,8 +66,14 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
     private HistoryTokenAnchorComponent(final AnchorElement element) {
         super();
         element.setMargin("5px");
-        element.element()
-                .style.set("text-wrap", "nowrap");
+
+        // CSS-STYLE
+        final CSSStyleDeclaration style = element.element()
+                .style;
+        style.set("font-family", "Inter");
+        style.set("font-size", "15px");
+        style.set("font-weight", "400");
+        style.set("text-wrap", "nowrap");
 
         this.element = element;
     }
