@@ -2710,6 +2710,29 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellSort() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/sort",
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellSortInvalid() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/sort/invalid",
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidColumn() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/B2:C3/unfreeze",
