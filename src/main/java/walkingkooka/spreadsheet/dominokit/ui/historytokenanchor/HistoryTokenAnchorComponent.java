@@ -25,7 +25,7 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.HasUrlFragment;
@@ -234,16 +234,16 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // iconBefore......................................................................................................
 
-    public Optional<MdiIcon> iconBefore() {
+    public Optional<Icon<?>> iconBefore() {
         return Optional.ofNullable(this.iconBefore);
     }
 
-    public HistoryTokenAnchorComponent setIconBefore(final Optional<MdiIcon> icon) {
+    public HistoryTokenAnchorComponent setIconBefore(final Optional<Icon<?>> icon) {
         Objects.requireNonNull(icon, "icon");
 
         final AnchorElement anchorElement = this.element;
 
-        final MdiIcon oldBeforeIcon = this.iconBefore;
+        final Icon<?> oldBeforeIcon = this.iconBefore;
         if (null != oldBeforeIcon) {
             anchorElement.removeChild(
                     oldBeforeIcon.element()
@@ -251,7 +251,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         }
 
         if (icon.isPresent()) {
-            final MdiIcon newIcon = icon.get();
+            final Icon<?> newIcon = icon.get();
             anchorElement.insertFirst(
                     newIcon.element()
             );
@@ -264,20 +264,20 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         return this;
     }
 
-    private MdiIcon iconBefore;
+    private Icon<?> iconBefore;
 
     // iconAfter......................................................................................................
 
-    public Optional<MdiIcon> iconAfter() {
+    public Optional<Icon<?>> iconAfter() {
         return Optional.ofNullable(this.iconAfter);
     }
 
-    public HistoryTokenAnchorComponent setIconAfter(final Optional<MdiIcon> icon) {
+    public HistoryTokenAnchorComponent setIconAfter(final Optional<Icon<?>> icon) {
         Objects.requireNonNull(icon, "icon");
 
         final AnchorElement anchorElement = this.element;
 
-        final MdiIcon oldIconAfter = this.iconAfter;
+        final Icon<?> oldIconAfter = this.iconAfter;
         if (null != oldIconAfter) {
             anchorElement.removeChild(
                     oldIconAfter.element()
@@ -285,7 +285,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         }
 
         if (icon.isPresent()) {
-            final MdiIcon newIcon = icon.get();
+            final Icon<?> newIcon = icon.get();
             anchorElement.appendChild(
                     newIcon.element()
             );
@@ -298,7 +298,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         return this;
     }
 
-    private MdiIcon iconAfter;
+    private Icon<?> iconAfter;
 
     // tooltip..........................................................................................................
 
