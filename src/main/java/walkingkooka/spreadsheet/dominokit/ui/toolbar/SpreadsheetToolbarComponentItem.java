@@ -40,203 +40,217 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         LoadedSpreadsheetMetadataRequired {
 
     static SpreadsheetToolbarComponentItem<?> bold(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.FONT_WEIGHT,
                 FontWeight.BOLD,
                 SpreadsheetIcons.bold(),
+                "Bold",
                 "Bold",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> clearStyle(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleClear.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleClear.with(
                 context
         );
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemButtonCellFind}
+     * {@see SpreadsheetToolbarComponentItemLinkCellFind}
      */
     static SpreadsheetToolbarComponentItem<?> findCells(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonCellFind.with(
+        return SpreadsheetToolbarComponentItemAnchorCellFind.with(
                 context
         );
     }
 
     /**
-     * {@link SpreadsheetToolbarComponentItemButtonPatternFormat}
+     * {@link SpreadsheetToolbarComponentItemAnchorPatternFormat}
      */
     static SpreadsheetToolbarComponentItem<?> formatPattern(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonPatternFormat.with(context);
+        return SpreadsheetToolbarComponentItemAnchorPatternFormat.with(context);
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues}
+     * {@see SpreadsheetToolbarComponentItemLinkMetadataHideZeroValues}
      */
     static SpreadsheetToolbarComponentItem<?> hideZeroValues(final AppContext context) {
-        return SpreadsheetToolbarComponentItemButtonMetadataHideZeroValues.with(
+        return SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues.with(
                 context
         );
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemButtonViewportHighlight}
+     * {@see SpreadsheetToolbarComponentItemLinkViewportHighlight}
      */
     static SpreadsheetToolbarComponentItem<?> highlightCells(final AppContext context) {
-        return SpreadsheetToolbarComponentItemButtonViewportHighlight.with(
+        return SpreadsheetToolbarComponentItemAnchorViewportHighlight.with(
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> italics(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.FONT_STYLE,
                 FontStyle.ITALIC,
                 SpreadsheetIcons.italics(),
+                "Italics",
                 "Italics",
                 context
         );
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemButtonLabelCreate}
+     * {@see SpreadsheetToolbarComponentItemLinkLabelCreate}
      */
     static SpreadsheetToolbarComponentItem<?> labelCreate(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonLabelCreate.with(
+        return SpreadsheetToolbarComponentItemAnchorLabelCreate.with(
                 context
         );
     }
 
     /**
-     * {@link SpreadsheetToolbarComponentItemButtonPatternParse}
+     * {@link SpreadsheetToolbarComponentItemAnchorPatternParse}
      */
     static SpreadsheetToolbarComponentItem<?> parsePattern(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonPatternParse.with(context);
+        return SpreadsheetToolbarComponentItemAnchorPatternParse.with(context);
     }
 
     /**
-     * {@link SpreadsheetToolbarComponentItemButtonReload}
+     * {@link SpreadsheetToolbarComponentItemAnchorReload}
      */
     static SpreadsheetToolbarComponentItem<?> reload(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonReload.with(context);
+        return SpreadsheetToolbarComponentItemAnchorReload.with(context);
     }
 
     static SpreadsheetToolbarComponentItem<?> strikeThru(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.LINE_THROUGH,
                 SpreadsheetIcons.strikethrough(),
+                "Strike",
                 "Strike-thru",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textAlignLeft(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.LEFT,
                 SpreadsheetIcons.alignLeft(),
+                "Left",
                 "Left align",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textAlignCenter(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.CENTER,
                 SpreadsheetIcons.alignCenter(),
+                "Center",
                 "Center align",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textAlignRight(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.RIGHT,
                 SpreadsheetIcons.alignRight(),
+                "Right",
                 "Right align",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textAlignJustify(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY,
                 SpreadsheetIcons.alignJustify(),
+                "Justify",
                 "Justify",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textCaseCapitalize(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.CAPITALIZE,
                 SpreadsheetIcons.textCaseCapitalize(),
+                "Capitalize",
                 "Capitalize text",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textCaseLowercase(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.LOWERCASE,
                 SpreadsheetIcons.textCaseLower(),
+                "Lower-case",
                 "Lower-case text",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textCaseUppercase(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.UPPERCASE,
                 SpreadsheetIcons.textCaseLower(),
+                "Upper-case",
                 "Upper-case text",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> underline(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE,
                 SpreadsheetIcons.underline(),
+                "Underline",
                 "Underline",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> verticalAlignTop(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.TOP,
                 SpreadsheetIcons.verticalAlignTop(),
+                "Top",
                 "Align top",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> verticalAlignMiddle(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.MIDDLE,
                 SpreadsheetIcons.verticalAlignMiddle(),
+                "Middle",
                 "Align middle",
                 context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> verticalAlignBottom(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemButtonTextStyleProperty.with(
+        return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.BOTTOM,
                 SpreadsheetIcons.verticalAlignBottom(),
+                "Bottom",
                 "Align bottom",
                 context
         );
@@ -246,9 +260,6 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
      * The root {@link HTMLElement}
      */
     public abstract HTMLElement element();
-
-    @Override
-    public abstract void refresh(final AppContext context);
     
     @Override
     public final boolean shouldLogLifecycleChanges() {

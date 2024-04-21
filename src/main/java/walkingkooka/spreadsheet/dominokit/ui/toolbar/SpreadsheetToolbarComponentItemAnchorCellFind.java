@@ -34,34 +34,40 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToolbarComponentItemButton<SpreadsheetToolbarComponentItemButtonCellFind>
+final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorCellFind>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonCellFind> {
+        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemAnchorCellFind> {
 
-    static SpreadsheetToolbarComponentItemButtonCellFind with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorCellFind with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemButtonCellFind(
+        return new SpreadsheetToolbarComponentItemAnchorCellFind(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemButtonCellFind(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorCellFind(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.findCellsId(),
                 SpreadsheetIcons.cellsFind(),
+                "Find",
                 "Find cells...",
                 context
         );
     }
 
-    // SpreadsheetToolbarComponentItemButton............................................................................
+    // SpreadsheetToolbarComponentItemLink............................................................................
+
+    @Override //
+    void onFocus(final Event event) {
+        // do nothing, do not update history token.
+    }
+
+    // ComponentLifecycle...............................................................................................
 
     @Override
-    void onClick(final Event event) {
-        final HistoryTokenContext context = this.context;
-
+    public void refresh(final AppContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelectionOrEmpty()
@@ -77,25 +83,15 @@ final class SpreadsheetToolbarComponentItemButtonCellFind extends SpreadsheetToo
             anchoredSpreadsheetSelection = SpreadsheetSelection.ALL_CELLS.setDefaultAnchor();
         }
 
-        context.pushHistoryToken(
-                historyToken.setAnchoredSelection(
-                        Optional.of(anchoredSpreadsheetSelection)
-                ).setFind(
-                        SpreadsheetCellFind.empty()
+        this.anchor.setHistoryToken(
+                Optional.of(
+                        historyToken.setAnchoredSelection(
+                                Optional.of(anchoredSpreadsheetSelection)
+                        ).setFind(
+                                SpreadsheetCellFind.empty()
+                        )
                 )
         );
-    }
-
-    @Override //
-    void onFocus(final Event event) {
-        // do nothing, do not update history token.
-    }
-
-    // ComponentLifecycle...............................................................................................
-
-    @Override
-    public void refresh(final AppContext context) {
-        // nop
     }
 
     @Override

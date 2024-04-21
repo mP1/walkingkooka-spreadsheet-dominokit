@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -187,6 +188,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
             final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
             if (nonLabelSelection.isCellReference() || nonLabelSelection.isCellRangeReference()) {
                 for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
+                    DomGlobal.console.log("@ component.refresh: " + component);
                     component.refresh(
                             context
                     );

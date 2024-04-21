@@ -31,45 +31,30 @@ import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import java.util.Objects;
 import java.util.Optional;
 
-/**
- * A toolbar button which when clicked open the create label dialog.
- */
-final class SpreadsheetToolbarComponentItemButtonLabelCreate extends SpreadsheetToolbarComponentItemButton<SpreadsheetToolbarComponentItemButtonLabelCreate>
+final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorReload>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemButtonLabelCreate> {
+        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemAnchorReload> {
 
-    static SpreadsheetToolbarComponentItemButtonLabelCreate with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorReload with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemButtonLabelCreate(
+        return new SpreadsheetToolbarComponentItemAnchorReload(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemButtonLabelCreate(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorReload(final HistoryTokenContext context) {
         super(
-                SpreadsheetToolbarComponent.labelCreateId(),
-                SpreadsheetIcons.labelAdd(),
-                "Create Label",
+                SpreadsheetToolbarComponent.reloadId(),
+                SpreadsheetIcons.reload(),
+                "Reload",
+                "Reload",
                 context
         );
     }
 
-    // SpreadsheetToolbarComponentItemButton............................................................................
-
-    @Override
-    void onClick(final Event event) {
-        final HistoryTokenContext context = this.context;
-
-        final HistoryToken historyToken = context.historyToken();
-
-        context.pushHistoryToken(
-                historyToken.setLabelName(
-                        Optional.empty()
-                )
-        );
-    }
+    // SpreadsheetToolbarComponentItemLink............................................................................
 
     @Override //
     void onFocus(final Event event) {
@@ -80,7 +65,11 @@ final class SpreadsheetToolbarComponentItemButtonLabelCreate extends Spreadsheet
 
     @Override
     public void refresh(final AppContext context) {
-        // nop
+        this.anchor.setHistoryToken(
+                Optional.of(
+                        context.historyToken().setReload()
+                )
+        );
     }
 
     @Override

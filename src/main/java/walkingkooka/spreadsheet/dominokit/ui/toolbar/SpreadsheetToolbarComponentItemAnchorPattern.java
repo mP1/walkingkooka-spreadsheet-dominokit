@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -35,42 +34,30 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import java.util.Optional;
 
 /**
- * A button ui that may exist withing a toolbar, which actives the pattern editor by pushing a new {@link HistoryToken}.
+ * A link ui that may exist withing a toolbar, which actives the pattern editor by pushing a new {@link HistoryToken}.
  */
-abstract class SpreadsheetToolbarComponentItemButtonPattern<P extends SpreadsheetPattern, C extends SpreadsheetToolbarComponentItemButtonPattern<P, C>>
-        extends SpreadsheetToolbarComponentItemButton<C>
+abstract class SpreadsheetToolbarComponentItemAnchorPattern<P extends SpreadsheetPattern, C extends SpreadsheetToolbarComponentItemAnchorPattern<P, C>>
+        extends SpreadsheetToolbarComponentItemAnchor<C>
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleRefresh,
         NopComponentLifecycleOpenGiveFocus,
         VisibleComponentLifecycle<HTMLElement, C> {
 
-    SpreadsheetToolbarComponentItemButtonPattern(final String id,
+    SpreadsheetToolbarComponentItemAnchorPattern(final String id,
                                                  final MdiIcon icon,
+                                                 final String text,
                                                  final String tooltip,
                                                  final HistoryTokenContext context) {
         super(
                 id,
                 icon,
+                text,
                 tooltip,
                 context
         );
     }
 
-    /**
-     * When clicked perform a save on the {@link HistoryToken} and push that.
-     */
-    @Override //
-    final void onClick(final Event event) {
-        final HistoryTokenContext context = this.context;
-
-        context.historyToken()
-                .anchoredSelectionHistoryTokenOrEmpty()
-                .map(
-                        t -> t.setPatternKind(
-                                this.patternKind
-                        )
-                ).ifPresent(context::pushHistoryToken);
-    }
+    // SpreadsheetToolbarComponentItemLink............................................................................
 
     @Override //
     final void onFocus(final Event event) {
@@ -86,6 +73,8 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<P extends Spreadshee
                 .ifPresent(context::pushHistoryToken);
     }
 
+    // ComponentLifecycle...............................................................................................
+
     @Override
     public final void refresh(final AppContext context) {
         final Optional<SpreadsheetPatternKind> patternKind = this.pattern(
@@ -93,25 +82,28 @@ abstract class SpreadsheetToolbarComponentItemButtonPattern<P extends Spreadshee
                         .selectionSummary()
         ).flatMap(SpreadsheetPattern::patternKind);
 
-        final boolean selected = patternKind.isPresent();
-
-        this.setButtonSelected(
-                selected,
-                SpreadsheetDominoKitColor.TOOLBAR_ICON_SELECTED_BACKGROUND_COLOR
-        );
-
         this.patternKind = patternKind.isPresent() ?
                 patternKind :
                 Optional.of(
                         this.defaultSpreadsheetPatternKind()
                 );
+
+        this.anchor.setHistoryToken(
+                context.historyToken()
+                        .anchoredSelectionHistoryTokenOrEmpty()
+                        .map(
+                                t -> t.setPatternKind(
+                                        patternKind
+                                )
+                        )
+        ).setChecked(patternKind.isPresent());
     }
 
     abstract Optional<P> pattern(final SpreadsheetSelectionSummary summary);
 
     /**
      * This is updated by {@link #refresh(AppContext)} and will contain the best {@link SpreadsheetPatternKind} to open
-     * when this button is clicked.
+     * when this link is clicked.
      */
     private Optional<SpreadsheetPatternKind> patternKind = Optional.empty();
 
