@@ -314,6 +314,14 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         return this;
     }
 
+    public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
+        this.element.addEventListener(
+                EventType.focus.getName(),
+                this.disabledAwareEventListener(listener)
+        );
+        return this;
+    }
+
     public HistoryTokenAnchorComponent addKeydownListener(final EventListener listener) {
         this.element.addEventListener(
                 EventType.keydown.getName(),
