@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
@@ -29,10 +30,33 @@ import java.util.List;
 public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCellSortHistoryTokenTestCase<SpreadsheetCellSortEditHistoryToken> {
 
     @Test
+    public void testWithEmptyComparators() {
+        SpreadsheetCellSortEditHistoryToken.with(
+                ID,
+                NAME,
+                ANCHORED_CELL,
+                Lists.empty()
+        );
+    }
+
+    @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
                 this.createHistoryToken(),
                 "/123/SpreadsheetName456/cell/A1/sort/edit/" + COMPARATOR_NAMES_LIST_STRING
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithEmptyComparators() {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellSortEditHistoryToken.with(
+                        ID,
+                        NAME,
+                        ANCHORED_CELL,
+                        Lists.empty()
+                ),
+                "/123/SpreadsheetName456/cell/A1:C3/bottom-right/sort/edit"
         );
     }
 
@@ -44,6 +68,32 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseMissingComparators() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/cell/A1/sort/edit",
+                SpreadsheetCellSortEditHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        Lists.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testParseEmptyComparators() {
+        this.parseAndCheck(
+                "/123/SpreadsheetName456/cell/A1/sort/edit/",
+                SpreadsheetCellSortEditHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        Lists.empty()
                 )
         );
     }

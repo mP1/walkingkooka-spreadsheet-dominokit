@@ -57,13 +57,17 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
 
     @Override
     UrlFragment sortUrlFragment() {
-        return EDIT.append(
-                UrlFragment.SLASH.append(
-                        UrlFragment.with(
-                                SpreadsheetCellSpreadsheetComparatorNames.listToString(this.comparatorNames)
+        final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames = this.comparatorNames;
+
+        return comparatorNames.isEmpty() ?
+                EDIT :
+                EDIT.append(
+                        UrlFragment.SLASH.append(
+                                UrlFragment.with(
+                                        SpreadsheetCellSpreadsheetComparatorNames.listToString(comparatorNames)
+                                )
                         )
-                )
-        );
+                );
     }
 
     @Override
