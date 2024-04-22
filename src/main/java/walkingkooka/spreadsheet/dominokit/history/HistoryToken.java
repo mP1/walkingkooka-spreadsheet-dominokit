@@ -24,7 +24,7 @@ import walkingkooka.predicate.character.CharPredicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
@@ -430,7 +430,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellSortEditHistoryToken cellSortEdit(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                   final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames) {
+                                                                   final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
         return SpreadsheetCellSortEditHistoryToken.with(
                 id,
                 name,
@@ -445,7 +445,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellSortSaveHistoryToken cellSortSave(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                   final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames) {
+                                                                   final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
         return SpreadsheetCellSortSaveHistoryToken.with(
                 id,
                 name,

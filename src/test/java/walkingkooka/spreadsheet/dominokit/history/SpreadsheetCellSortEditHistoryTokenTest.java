@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -166,7 +166,7 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellSpreadsheetComparatorNames.parseList(saveText)
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(saveText)
                 )
         );
     }
@@ -182,14 +182,14 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         anchored,
-                        SpreadsheetCellSpreadsheetComparatorNames.parseList(saveText)
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(saveText)
                 ),
                 saveText,
                 SpreadsheetCellSortSaveHistoryToken.with(
                         ID,
                         NAME,
                         anchored,
-                        SpreadsheetCellSpreadsheetComparatorNames.parseList(saveText)
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(saveText)
                 )
         );
     }
@@ -198,7 +198,7 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
     SpreadsheetCellSortEditHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames) {
+                                                           final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
         return SpreadsheetCellSortEditHistoryToken.with(
                 id,
                 name,

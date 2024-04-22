@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -34,7 +34,7 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
     static SpreadsheetCellSortEditHistoryToken with(final SpreadsheetId id,
                                                     final SpreadsheetName name,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                    final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames) {
+                                                    final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
         return new SpreadsheetCellSortEditHistoryToken(
                 id,
                 name,
@@ -46,7 +46,7 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
     private SpreadsheetCellSortEditHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames) {
+                                                final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
         super(
                 id,
                 name,
@@ -57,14 +57,14 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
 
     @Override
     UrlFragment sortUrlFragment() {
-        final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames = this.comparatorNames;
+        final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames = this.comparatorNames;
 
         return comparatorNames.isEmpty() ?
                 EDIT :
                 EDIT.append(
                         UrlFragment.SLASH.append(
                                 UrlFragment.with(
-                                        SpreadsheetCellSpreadsheetComparatorNames.listToString(comparatorNames)
+                                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.listToString(comparatorNames)
                                 )
                         )
                 );
@@ -88,7 +88,7 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                SpreadsheetCellSpreadsheetComparatorNames.parseList(value)
+                SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(value)
         );
     }
 

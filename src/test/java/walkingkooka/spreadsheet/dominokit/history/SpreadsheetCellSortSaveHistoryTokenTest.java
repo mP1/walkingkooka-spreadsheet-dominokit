@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.List;
@@ -132,7 +132,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellSpreadsheetComparatorNames.parseList(saveText)
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(saveText)
                 )
         );
     }
@@ -141,7 +141,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     SpreadsheetCellSortSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames) {
+                                                           final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
         return SpreadsheetCellSortSaveHistoryToken.with(
                 id,
                 name,

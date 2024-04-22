@@ -21,7 +21,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -36,19 +36,19 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
     SpreadsheetCellSortHistoryToken(final SpreadsheetId id,
                                     final SpreadsheetName name,
                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                    final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames) {
+                                    final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
         super(
                 id,
                 name,
                 anchoredSelection
         );
 
-        List<SpreadsheetCellSpreadsheetComparatorNames> copy = Lists.immutable(comparatorNames);
+        List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> copy = Lists.immutable(comparatorNames);
         final SpreadsheetSelection selection = anchoredSelection.selection();
         if (copy.isEmpty() && this instanceof SpreadsheetCellSortEditHistoryToken) {
             // nop
         } else {
-            copy = SpreadsheetCellSpreadsheetComparatorNames.list(copy);
+            copy = SpreadsheetColumnOrRowSpreadsheetComparatorNames.list(copy);
             if (false == selection.isLabelName()) {
                 selection.toCellRange()
                         .comparatorNamesCheck(copy);
@@ -58,11 +58,11 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
         this.comparatorNames = copy;
     }
 
-    public final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames() {
+    public final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames() {
         return this.comparatorNames;
     }
 
-    final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames;
+    final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames;
 
     @Override //
     final UrlFragment cellUrlFragment() {
