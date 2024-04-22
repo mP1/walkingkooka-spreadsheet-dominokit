@@ -21,7 +21,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -262,7 +262,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                             cellSelectHistoryToken.anchoredSelection(),
                             comparators.isEmpty() ?
                                     Lists.empty() :
-                                    SpreadsheetCellSpreadsheetComparatorNames.parseList(comparators)
+                                    SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(comparators)
                     );
                     break;
                 case "save":
@@ -270,7 +270,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                             cellSelectHistoryToken.id(),
                             cellSelectHistoryToken.name(),
                             cellSelectHistoryToken.anchoredSelection(),
-                            SpreadsheetCellSpreadsheetComparatorNames.parseList(
+                            SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(
                                     parseComponent(cursor)
                                             .orElse("")
                             )

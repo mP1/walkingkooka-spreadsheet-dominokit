@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetCellSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -32,14 +32,14 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
 
     final static String COMPARATOR_NAMES_LIST_STRING = "A=day-of-month UP,month-of-year UP,year DOWN";
 
-    final static List<SpreadsheetCellSpreadsheetComparatorNames> COMPARATOR_NAMES_LIST = SpreadsheetCellSpreadsheetComparatorNames.parseList(COMPARATOR_NAMES_LIST_STRING);
+    final static List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> COMPARATOR_NAMES_LIST = SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(COMPARATOR_NAMES_LIST_STRING);
 
     final static AnchoredSpreadsheetSelection ANCHORED_CELL = SpreadsheetSelection.parseCellRange("A1:C3")
             .setDefaultAnchor();
 
     final static String COMPARATOR_NAMES_LIST_STRING2 = "A=day-of-month UP;B=month-of-year UP;C=year DOWN";
 
-    final static List<SpreadsheetCellSpreadsheetComparatorNames> COMPARATOR_NAMES_LIST2 = SpreadsheetCellSpreadsheetComparatorNames.parseList(COMPARATOR_NAMES_LIST_STRING2);
+    final static List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> COMPARATOR_NAMES_LIST2 = SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(COMPARATOR_NAMES_LIST_STRING2);
 
     SpreadsheetCellSortHistoryTokenTestCase() {
         super();
@@ -73,5 +73,5 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
     abstract T createHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name,
                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                  final List<SpreadsheetCellSpreadsheetComparatorNames> comparatorNames);
+                                  final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames);
 }
