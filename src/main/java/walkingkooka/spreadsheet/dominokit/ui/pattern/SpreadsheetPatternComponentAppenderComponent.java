@@ -112,7 +112,6 @@ final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementC
 
     /**
      * This should be invoked each time the pattern text is updated, and will update the HREF for each append link.
-     * The updated href is not strictly needed and is merely cosmetic.
      */
     void refreshLinks(final String patternText,
                       final SpreadsheetPattern pattern,
