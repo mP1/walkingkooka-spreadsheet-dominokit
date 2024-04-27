@@ -17,24 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-
-import java.util.List;
 
 public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends SpreadsheetCellSortHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     final static String COMPARATOR_NAMES_LIST_STRING = "A=day-of-month UP,month-of-year UP,year DOWN";
 
-    final static List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> COMPARATOR_NAMES_LIST = SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(COMPARATOR_NAMES_LIST_STRING);
+    final static SpreadsheetColumnOrRowSpreadsheetComparatorNamesList COMPARATOR_NAMES_LIST = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(COMPARATOR_NAMES_LIST_STRING);
 
     final static AnchoredSpreadsheetSelection ANCHORED_CELL = SpreadsheetSelection.parseCellRange("A1:C3")
             .setDefaultAnchor();
 
     final static String COMPARATOR_NAMES_LIST_STRING2 = "A=day-of-month UP;B=month-of-year UP;C=year DOWN";
 
-    final static List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> COMPARATOR_NAMES_LIST2 = SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(COMPARATOR_NAMES_LIST_STRING2);
+    final static SpreadsheetColumnOrRowSpreadsheetComparatorNamesList COMPARATOR_NAMES_LIST2 = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(COMPARATOR_NAMES_LIST_STRING2);
 
     SpreadsheetCellSortHistoryTokenTestCase() {
         super();

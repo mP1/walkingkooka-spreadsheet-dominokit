@@ -20,13 +20,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-
-import java.util.List;
 
 /**
  * This {@link HistoryToken} invokes the server with the parameters to sort the selected cell-range with the given comparators.
@@ -36,7 +33,7 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
     static SpreadsheetCellSortSaveHistoryToken with(final SpreadsheetId id,
                                                     final SpreadsheetName name,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                    final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                    final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return new SpreadsheetCellSortSaveHistoryToken(
                 id,
                 name,
@@ -48,7 +45,7 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
     private SpreadsheetCellSortSaveHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         super(
                 id,
                 name,
@@ -56,17 +53,16 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
         );
 
 
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList copy = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.with(comparatorNames);
         final SpreadsheetSelection selection = anchoredSelection.selection();
         if (false == selection.isLabelName()) {
             selection.toCellRange()
-                    .comparatorNamesCheck(copy);
+                    .comparatorNamesCheck(comparatorNames);
         }
 
-        this.comparatorNames = copy;
+        this.comparatorNames = comparatorNames;
     }
 
-    public List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames() {
+    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames() {
         return this.comparatorNames;
     }
 
