@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -260,9 +259,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                             cellSelectHistoryToken.id(),
                             cellSelectHistoryToken.name(),
                             cellSelectHistoryToken.anchoredSelection(),
-                            comparators.isEmpty() ?
-                                    Lists.empty() :
-                                    SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(comparators)
+                            comparators
                     );
                     break;
                 case "save":

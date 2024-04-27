@@ -17,16 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends SpreadsheetCellSortHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
@@ -44,34 +39,4 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
     SpreadsheetCellSortHistoryTokenTestCase() {
         super();
     }
-
-    @Test
-    public final void testWithNullComparatorNamesFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        null
-                )
-        );
-    }
-
-    @Override
-    T createHistoryToken(final SpreadsheetId id,
-                         final SpreadsheetName name,
-                         final AnchoredSpreadsheetSelection anchoredSelection) {
-        return this.createHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                COMPARATOR_NAMES_LIST
-        );
-    }
-
-    abstract T createHistoryToken(final SpreadsheetId id,
-                                  final SpreadsheetName name,
-                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                  final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames);
 }
