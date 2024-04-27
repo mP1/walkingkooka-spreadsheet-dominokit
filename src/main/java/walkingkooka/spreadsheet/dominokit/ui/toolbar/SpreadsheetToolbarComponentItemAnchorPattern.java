@@ -93,7 +93,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorPattern<P extends Spreadshee
                         .anchoredSelectionHistoryTokenOrEmpty()
                         .map(
                                 t -> t.setPatternKind(
-                                        patternKind
+                                        this.patternKind
                                 )
                         )
         ).setChecked(patternKind.isPresent());
