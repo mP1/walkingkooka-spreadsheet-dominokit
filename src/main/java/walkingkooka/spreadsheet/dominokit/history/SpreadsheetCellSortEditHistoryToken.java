@@ -21,21 +21,21 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
-import java.util.List;
+import java.util.Objects;
 
 /**
- * This {@link HistoryToken} represents a EDIT dialog to edit the sort parameters.
+ * This {@link HistoryToken} represents a EDIT dialog to edit the sort parameters. The comparatorNames property may be
+ * empty or invalid it is not verified for correctness by this token.
  */
 public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSortHistoryToken {
 
     static SpreadsheetCellSortEditHistoryToken with(final SpreadsheetId id,
                                                     final SpreadsheetName name,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                    final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                    final String comparatorNames) {
         return new SpreadsheetCellSortEditHistoryToken(
                 id,
                 name,
@@ -47,27 +47,31 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
     private SpreadsheetCellSortEditHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                final String comparatorNames) {
         super(
                 id,
                 name,
-                anchoredSelection,
-                comparatorNames
+                anchoredSelection
         );
+
+        this.comparatorNames = Objects.requireNonNull(comparatorNames, "comparatorNames");
     }
+
+    public String comparatorNames() {
+        return this.comparatorNames;
+    }
+
+    final String comparatorNames;
 
     @Override
     UrlFragment sortUrlFragment() {
-        final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames = this.comparatorNames;
+        final String comparatorNames = this.comparatorNames;
 
         return comparatorNames.isEmpty() ?
                 EDIT :
                 EDIT.append(
                         UrlFragment.SLASH.append(
-                                UrlFragment.with(
-                                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.with(comparatorNames)
-                                                .text()
-                                )
+                                UrlFragment.with(comparatorNames)
                         )
                 );
     }

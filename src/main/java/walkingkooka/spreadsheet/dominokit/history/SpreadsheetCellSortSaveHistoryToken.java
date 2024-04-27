@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.List;
 
@@ -51,16 +52,30 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
         super(
                 id,
                 name,
-                anchoredSelection,
-                comparatorNames
+                anchoredSelection
         );
+
+
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList copy = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.with(comparatorNames);
+        final SpreadsheetSelection selection = anchoredSelection.selection();
+        if (false == selection.isLabelName()) {
+            selection.toCellRange()
+                    .comparatorNamesCheck(copy);
+        }
+
+        this.comparatorNames = copy;
     }
+
+    public List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames() {
+        return this.comparatorNames;
+    }
+
+    final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames;
 
     @Override
     UrlFragment sortUrlFragment() {
         return this.saveUrlFragment(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.with(this.comparatorNames)
-                        .text()
+                this.comparatorNames.text()
         );
     }
 
@@ -82,7 +97,7 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(value)
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
         );
     }
 

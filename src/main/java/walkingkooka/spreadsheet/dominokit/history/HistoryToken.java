@@ -430,7 +430,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellSortEditHistoryToken cellSortEdit(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                   final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                                   final String comparatorNames) {
         return SpreadsheetCellSortEditHistoryToken.with(
                 id,
                 name,

@@ -18,24 +18,46 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCellSortHistoryTokenTestCase<SpreadsheetCellSortEditHistoryToken> {
 
     @Test
-    public void testWithEmptyComparators() {
+    public void testWithNullComparatorNamesFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetCellSortEditHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        null
+                )
+        );
+    }
+
+    @Test
+    public void testWithEmptyComparatorNames() {
         SpreadsheetCellSortEditHistoryToken.with(
                 ID,
                 NAME,
                 ANCHORED_CELL,
-                Lists.empty()
+                ""
+        );
+    }
+
+    @Test
+    public void testWithInvalidComparatorNames() {
+        SpreadsheetCellSortEditHistoryToken.with(
+                ID,
+                NAME,
+                ANCHORED_CELL,
+                "!Invalid"
         );
     }
 
@@ -48,52 +70,53 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
     }
 
     @Test
-    public void testUrlFragmentWithEmptyComparators() {
+    public void testUrlFragmentWithEmptyComparatorNames() {
         this.urlFragmentAndCheck(
                 SpreadsheetCellSortEditHistoryToken.with(
                         ID,
                         NAME,
                         ANCHORED_CELL,
-                        Lists.empty()
+                        ""
                 ),
                 "/123/SpreadsheetName456/cell/A1:C3/bottom-right/sort/edit"
         );
     }
 
     @Test
-    public void testParseInvalidComparator() {
+    public void testParseInvalidComparatorNames() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/sort/edit/!invalid",
-                HistoryToken.cell(
+                "/123/SpreadsheetName456/cell/A1:C3/sort/edit/!invalid",
+                SpreadsheetCellSortEditHistoryToken.with(
                         ID,
                         NAME,
-                        CELL.setDefaultAnchor()
+                        ANCHORED_CELL,
+                        "!invalid"
                 )
         );
     }
 
     @Test
-    public void testParseMissingComparators() {
+    public void testParseMissingComparatorNames() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/cell/A1/sort/edit",
                 SpreadsheetCellSortEditHistoryToken.with(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        Lists.empty()
+                        ""
                 )
         );
     }
 
     @Test
-    public void testParseEmptyComparators() {
+    public void testParseEmptyComparatorNames() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/cell/A1/sort/edit/",
                 SpreadsheetCellSortEditHistoryToken.with(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        Lists.empty()
+                        ""
                 )
         );
     }
@@ -102,10 +125,11 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
     public void testParseInvalidComparatorColumn() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/cell/A1/sort/edit/Z=text",
-                HistoryToken.cell(
+                SpreadsheetCellSortEditHistoryToken.with(
                         ID,
                         NAME,
-                        CELL.setDefaultAnchor()
+                        CELL.setDefaultAnchor(),
+                        "Z=text"
                 )
         );
     }
@@ -114,10 +138,11 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
     public void testParseInvalidComparatorRow() {
         this.parseAndCheck(
                 "/123/SpreadsheetName456/cell/A1/sort/edit/99=text",
-                HistoryToken.cell(
+                SpreadsheetCellSortEditHistoryToken.with(
                         ID,
                         NAME,
-                        CELL.setDefaultAnchor()
+                        CELL.setDefaultAnchor(),
+                        "99=text"
                 )
         );
     }
@@ -138,7 +163,7 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         ANCHORED_CELL,
-                        COMPARATOR_NAMES_LIST2
+                        COMPARATOR_NAMES_LIST_STRING2
                 )
         );
     }
@@ -182,7 +207,7 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         anchored,
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(saveText)
+                        saveText
                 ),
                 saveText,
                 SpreadsheetCellSortSaveHistoryToken.with(
@@ -197,8 +222,19 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
     @Override
     SpreadsheetCellSortEditHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
+        return this.createHistoryToken(
+                id,
+                name,
+                anchoredSelection,
+                COMPARATOR_NAMES_LIST_STRING
+        );
+    }
+
+    private SpreadsheetCellSortEditHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                   final String comparatorNames) {
         return SpreadsheetCellSortEditHistoryToken.with(
                 id,
                 name,

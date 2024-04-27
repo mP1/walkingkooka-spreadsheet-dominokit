@@ -31,6 +31,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCellSortHistoryTokenTestCase<SpreadsheetCellSortSaveHistoryToken> {
 
     @Test
+    public void testWithNullComparatorNamesFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetCellSortSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        null
+                )
+        );
+    }
+
+    @Test
     public void testWithEmptyComparatorsFails() {
         assertThrows(
                 IllegalArgumentException.class,
@@ -140,8 +153,19 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     @Override
     SpreadsheetCellSortSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
+        return this.createHistoryToken(
+                id,
+                name,
+                anchoredSelection,
+                COMPARATOR_NAMES_LIST
+        );
+    }
+
+    private SpreadsheetCellSortSaveHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                   final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
         return SpreadsheetCellSortSaveHistoryToken.with(
                 id,
                 name,
