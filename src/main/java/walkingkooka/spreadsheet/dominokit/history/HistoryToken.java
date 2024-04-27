@@ -24,7 +24,7 @@ import walkingkooka.predicate.character.CharPredicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
@@ -61,7 +61,6 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -445,7 +444,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellSortSaveHistoryToken cellSortSave(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                   final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                                   final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return SpreadsheetCellSortSaveHistoryToken.with(
                 id,
                 name,

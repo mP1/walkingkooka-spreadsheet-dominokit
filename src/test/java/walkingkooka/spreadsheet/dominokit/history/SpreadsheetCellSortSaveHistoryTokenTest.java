@@ -18,13 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -39,19 +36,6 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
                         NAME,
                         CELL.setDefaultAnchor(),
                         null
-                )
-        );
-    }
-
-    @Test
-    public void testWithEmptyComparatorsFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSortSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        ANCHORED_CELL,
-                        Lists.empty()
                 )
         );
     }
@@ -145,7 +129,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(saveText)
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
                 )
         );
     }
@@ -165,7 +149,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     private SpreadsheetCellSortSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                   final List<SpreadsheetColumnOrRowSpreadsheetComparatorNames> comparatorNames) {
+                                                                   final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return SpreadsheetCellSortSaveHistoryToken.with(
                 id,
                 name,

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -267,7 +267,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                             cellSelectHistoryToken.id(),
                             cellSelectHistoryToken.name(),
                             cellSelectHistoryToken.anchoredSelection(),
-                            SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(
+                            SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
                                     parseComponent(cursor)
                                             .orElse("")
                             )

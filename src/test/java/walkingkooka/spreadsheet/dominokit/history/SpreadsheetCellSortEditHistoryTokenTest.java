@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -191,7 +191,7 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(saveText)
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
                 )
         );
     }
@@ -214,7 +214,7 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
                         ID,
                         NAME,
                         anchored,
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parseList(saveText)
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
                 )
         );
     }
