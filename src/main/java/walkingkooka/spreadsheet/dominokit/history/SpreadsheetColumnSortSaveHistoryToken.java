@@ -55,8 +55,7 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
         if (false == selection.isLabelName()) {
-            selection.toColumnRange()
-                    .comparatorNamesCheck(comparatorNames);
+            selection.comparatorNamesCheck(comparatorNames);
         }
 
         this.comparatorNames = comparatorNames;
