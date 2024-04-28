@@ -454,7 +454,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     // cell style.......................................................................................................
-    
+
     /**
      * {@see SpreadsheetCellStyleSelectHistoryToken}
      */
@@ -594,6 +594,40 @@ public abstract class HistoryToken implements HasUrlFragment,
                 anchoredSelection
         );
     }
+
+    // column sort........................................................................................................
+
+    /**
+     * {@see SpreadsheetColumnSortEditHistoryToken}
+     */
+    public static SpreadsheetColumnSortEditHistoryToken columnSortEdit(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                       final String comparatorNames) {
+        return SpreadsheetColumnSortEditHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                comparatorNames
+        );
+    }
+
+    /**
+     * {@see SpreadsheetColumnSortSaveHistoryToken}
+     */
+    public static SpreadsheetColumnSortSaveHistoryToken columnSortSave(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                       final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
+        return SpreadsheetColumnSortSaveHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                comparatorNames
+        );
+    }
+
+    // unfreeze.........................................................................................................
 
     /**
      * {@see SpreadsheetColumnUnfreezeHistoryToken}
@@ -882,7 +916,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 count
         );
     }
-    
+
     /**
      * {@see SpreadsheetListSelectHistoryToken}
      */

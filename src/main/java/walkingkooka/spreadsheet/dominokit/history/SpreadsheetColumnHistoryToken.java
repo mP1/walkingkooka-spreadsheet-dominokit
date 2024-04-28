@@ -148,19 +148,40 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
 
     @Override //
     final HistoryToken setSave0(final String value) {
-        return this;
+        HistoryToken historyToken = this;
+
+        if (historyToken instanceof SpreadsheetColumnSortHistoryToken) {
+            historyToken = HistoryToken.columnSortSave(
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
+            );
+        }
+
+        return historyToken;
     }
 
     // sort.............................................................................................................
 
     @Override //
     final HistoryToken setSortEdit(final String comparators) {
-        throw new UnsupportedOperationException();
+        return HistoryToken.columnSortEdit(
+                this.id(),
+                this.name(),
+                this.anchoredSelection(),
+                comparators
+        );
     }
 
     @Override //
     final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
-        throw new UnsupportedOperationException();
+        return HistoryToken.columnSortSave(
+                this.id(),
+                this.name(),
+                this.anchoredSelection(),
+                comparators
+        );
     }
 
     // style............................................................................................................
