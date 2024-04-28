@@ -843,6 +843,40 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    // column sort......................................................................................................
+
+    /**
+     * {@see SpreadsheetRowSortEditHistoryToken}
+     */
+    public static SpreadsheetRowSortEditHistoryToken rowSortEdit(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                 final String comparatorNames) {
+        return SpreadsheetRowSortEditHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                comparatorNames
+        );
+    }
+
+    /**
+     * {@see SpreadsheetRowSortSaveHistoryToken}
+     */
+    public static SpreadsheetRowSortSaveHistoryToken rowSortSave(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                 final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
+        return SpreadsheetRowSortSaveHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                comparatorNames
+        );
+    }
+
+    // row unfreeze.....................................................................................................
+
     /**
      * {@see SpreadsheetRowUnfreezeHistoryToken}
      */
