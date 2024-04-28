@@ -26,8 +26,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
-import static org.junit.jupiter.api.Assertions.assertSame;
-
 public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRowHistoryToken> extends SpreadsheetAnchoredSelectionHistoryTokenTestCase<T> {
 
     final static SpreadsheetRowReference ROW = SpreadsheetSelection.parseRow("1");
@@ -211,18 +209,6 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     public void testPatternKind() {
         this.patternKindAndCheck(
                 this.createHistoryToken()
-        );
-    }
-
-    // setSave..........................................................................................................
-
-    @Test
-    public final void testSetSave() {
-        final T historyToken = this.createHistoryToken();
-
-        assertSame(
-                historyToken.setSave("=1"),
-                historyToken
         );
     }
 

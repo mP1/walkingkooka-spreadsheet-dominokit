@@ -245,7 +245,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     private HistoryToken parseSort(final TextCursor cursor) {
         HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetColumnSelectHistoryToken) {
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
             final String component = parseComponent(cursor)
