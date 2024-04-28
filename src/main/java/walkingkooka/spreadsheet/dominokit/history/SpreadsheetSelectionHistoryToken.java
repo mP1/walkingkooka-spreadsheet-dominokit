@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -245,8 +246,31 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellSelectHistoryToken) {
-            historyToken = this.cast(SpreadsheetCellSelectHistoryToken.class)
-                    .parseCellSort(cursor);
+            final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+
+            final String component = parseComponent(cursor)
+                    .orElse("");
+            switch (component) {
+                case "edit":
+                    final String comparators = parseComponent(cursor)
+                            .orElse("");
+
+                    historyToken = anchoredSelectionHistoryToken.setSortEdit(
+                            comparators
+                    );
+                    break;
+                case "save":
+                    historyToken = anchoredSelectionHistoryToken.setSortSave(
+                            SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
+                                    parseComponent(cursor)
+                                            .orElse("")
+                            )
+                    );
+                    break;
+                default:
+                    historyToken = this;
+                    break;
+            }
         }
 
         return historyToken;

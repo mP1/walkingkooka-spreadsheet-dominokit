@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -147,6 +148,18 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     final HistoryToken setSave0(final String value) {
         return this;
     }
+
+    // sort.............................................................................................................
+
+    @Override final HistoryToken setSortEdit(final String comparators) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
+        throw new UnsupportedOperationException();
+    }
+
+    // style............................................................................................................
 
     @Override //
     final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
