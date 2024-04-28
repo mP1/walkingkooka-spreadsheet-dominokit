@@ -151,11 +151,13 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
 
     // sort.............................................................................................................
 
-    @Override final HistoryToken setSortEdit(final String comparators) {
+    @Override //
+    final HistoryToken setSortEdit(final String comparators) {
         throw new UnsupportedOperationException();
     }
 
-    @Override final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
+    @Override //
+    final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         throw new UnsupportedOperationException();
     }
 

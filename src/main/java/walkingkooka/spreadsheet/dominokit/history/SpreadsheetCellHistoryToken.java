@@ -118,7 +118,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
     // sort.............................................................................................................
 
-    @Override final HistoryToken setSortEdit(final String comparators) {
+    @Override //
+    final HistoryToken setSortEdit(final String comparators) {
         return HistoryToken.cellSortEdit(
                 this.id(),
                 this.name(),
@@ -127,7 +128,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         );
     }
 
-    @Override final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
+    @Override //
+    final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         return HistoryToken.cellSortSave(
                 this.id(),
                 this.name(),
