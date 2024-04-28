@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -85,16 +84,6 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
                 name,
                 anchoredSelection,
                 this.comparatorNames
-        );
-    }
-
-    @Override
-    HistoryToken setSave0(final String value) {
-        return HistoryToken.cellSortSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
         );
     }
 
