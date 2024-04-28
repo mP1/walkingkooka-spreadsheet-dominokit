@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -246,36 +245,8 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellSelectHistoryToken) {
-            final SpreadsheetCellSelectHistoryToken cellSelectHistoryToken = this.cast(SpreadsheetCellSelectHistoryToken.class);
-
-            final String component = parseComponent(cursor)
-                    .orElse("");
-            switch (component) {
-                case "edit":
-                    final String comparators = parseComponent(cursor)
-                            .orElse("");
-
-                    historyToken = HistoryToken.cellSortEdit(
-                            cellSelectHistoryToken.id(),
-                            cellSelectHistoryToken.name(),
-                            cellSelectHistoryToken.anchoredSelection(),
-                            comparators
-                    );
-                    break;
-                case "save":
-                    historyToken = HistoryToken.cellSortSave(
-                            cellSelectHistoryToken.id(),
-                            cellSelectHistoryToken.name(),
-                            cellSelectHistoryToken.anchoredSelection(),
-                            SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
-                                    parseComponent(cursor)
-                                            .orElse("")
-                            )
-                    );
-                    break;
-                default:
-                    break;
-            }
+            historyToken = this.cast(SpreadsheetCellSelectHistoryToken.class)
+                    .parseCellSort(cursor);
         }
 
         return historyToken;
