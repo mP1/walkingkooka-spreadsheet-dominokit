@@ -86,16 +86,6 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
-        return new SpreadsheetCellSortSaveHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
-        );
-    }
-
-    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         // call server here to SORT...
