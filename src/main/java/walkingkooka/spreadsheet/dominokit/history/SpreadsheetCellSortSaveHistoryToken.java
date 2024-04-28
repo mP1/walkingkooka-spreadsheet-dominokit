@@ -55,8 +55,7 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
         if (false == selection.isLabelName()) {
-            selection.toCellRange()
-                    .comparatorNamesCheck(comparatorNames);
+            selection.comparatorNamesCheck(comparatorNames);
         }
 
         this.comparatorNames = comparatorNames;
