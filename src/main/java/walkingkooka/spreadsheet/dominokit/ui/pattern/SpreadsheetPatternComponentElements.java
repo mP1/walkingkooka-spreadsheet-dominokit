@@ -18,14 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -115,8 +113,8 @@ final class SpreadsheetPatternComponentElements implements HtmlElementComponent<
 
                 if (false == alternatives.isEmpty()) {
 
-                    SpreadsheetContextMenu contextMenu = SpreadsheetContextMenuNative.empty(
-                            new DominoElement<>(patternElement.element()),
+                    SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.wrap(
+                            patternElement.element(),
                             context
                     );
 

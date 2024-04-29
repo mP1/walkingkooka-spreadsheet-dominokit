@@ -32,7 +32,6 @@ import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
-import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -73,7 +72,6 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetViewportComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -465,8 +463,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         );
 
         if (maybeElement.isPresent()) {
-            final SpreadsheetContextMenu menu = SpreadsheetContextMenuNative.empty(
-                    new DominoElement<>(maybeElement.get()),
+            final SpreadsheetContextMenu menu = SpreadsheetContextMenu.wrap(
+                    maybeElement.get(),
                     context
             );
 
