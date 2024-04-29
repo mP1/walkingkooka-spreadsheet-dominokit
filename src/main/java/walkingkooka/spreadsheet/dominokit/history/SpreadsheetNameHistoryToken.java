@@ -266,8 +266,10 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                             previousId +
                             " have different ids, load SpreadsheetId and then fire current history token"
             );
-            context.spreadsheetMetadataFetcher()
-                    .loadSpreadsheetMetadata(id);
+            context.loadSpreadsheetMetadataAndPushPreviousIfFails(
+                    this.id(),
+                    previous
+            );
         } else {
             this.onHistoryTokenChange0(
                     previous,

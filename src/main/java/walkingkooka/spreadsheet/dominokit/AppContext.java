@@ -17,10 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import elemental2.dom.Headers;
 import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.locale.HasLocale;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -30,15 +36,19 @@ import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 
@@ -73,6 +83,70 @@ public interface AppContext extends CanGiveFocus,
         }
 
         return loaded;
+    }
+
+    /**
+     * Loads the given {@link SpreadsheetId} and will reload the previous {@link HistoryToken} if the load fails eg with a 404.
+     * In most cases this will be the most useful method for use cases where a new spreadsheet is being loaded to be displayed
+     * for editing/viewing.
+     */
+    default void loadSpreadsheetMetadataAndPushPreviousIfFails(final SpreadsheetId id,
+                                                               final HistoryToken previous) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(previous, "previous");
+
+        this.addSpreadsheetMetadataWatcherOnce(
+                new SpreadsheetMetadataFetcherWatcher() {
+
+                    @Override
+                    public void onNoResponse(final AppContext context) {
+                        // nop
+                    }
+
+                    @Override
+                    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                                      final AppContext context) {
+                        // ignore
+                    }
+
+                    @Override
+                    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+                                                          final AppContext context) {
+                        // ignore
+                    }
+
+                    @Override
+                    public void onBegin(final HttpMethod method,
+                                        final Url url,
+                                        final Optional<String> body,
+                                        final AppContext context) {
+                        // ignore
+                    }
+
+                    @Override
+                    public void onFailure(final HttpMethod method,
+                                          final AbsoluteOrRelativeUrl url,
+                                          final HttpStatus status,
+                                          final Headers headers,
+                                          final String body,
+                                          final AppContext context) {
+                        context.pushHistoryToken(
+                                previous.clearAction()
+                        );
+                    }
+
+                    @Override
+                    public void onError(final Object cause,
+                                        final AppContext context) {
+                        context.pushHistoryToken(
+                                previous.clearAction()
+                        );
+                    }
+                }
+        );
+
+        this.spreadsheetMetadataFetcher()
+                .loadSpreadsheetMetadata(id);
     }
 
     // json............................................................................................................

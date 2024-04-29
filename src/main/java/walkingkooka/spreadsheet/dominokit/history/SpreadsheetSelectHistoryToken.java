@@ -331,10 +331,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         }
 
         if (load) {
-            context.spreadsheetMetadataFetcher()
-                    .loadSpreadsheetMetadata(
-                            id
-                    );
+            context.loadSpreadsheetMetadataAndPushPreviousIfFails(
+                    id,
+                    previous
+            );
         }
     }
 }
