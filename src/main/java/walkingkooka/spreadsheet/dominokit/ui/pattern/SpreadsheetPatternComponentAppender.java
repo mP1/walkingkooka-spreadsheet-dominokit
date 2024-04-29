@@ -28,6 +28,8 @@ import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,7 +38,8 @@ import java.util.function.Consumer;
 /**
  * A card that contains many links that append a component to the pattern being edited.
  */
-final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentAppender> {
+final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentAppender>,
+        TreePrintable {
 
     /**
      * Creates an empty {@link SpreadsheetPatternComponentAppender}.
@@ -185,5 +188,12 @@ final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<
     @Override
     public HTMLDivElement element() {
         return this.parent.element();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        this.parent.printTree(printer);
     }
 }
