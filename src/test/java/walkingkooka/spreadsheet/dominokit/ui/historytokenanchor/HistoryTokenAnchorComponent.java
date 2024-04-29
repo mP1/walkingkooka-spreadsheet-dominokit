@@ -240,6 +240,11 @@ public final class HistoryTokenAnchorComponent implements IsElement<Element>,
             href = "[" + href + "]";
         }
 
+        String disabled = "";
+        if (this.disabled) {
+            disabled = "DISABLED";
+        }
+
         return ToStringBuilder.empty()
                 .disable(ToStringBuilderOption.QUOTE)
                 .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
@@ -247,6 +252,7 @@ public final class HistoryTokenAnchorComponent implements IsElement<Element>,
                 .enable(ToStringBuilderOption.QUOTE)
                 .value(this.textContent)
                 .disable(ToStringBuilderOption.QUOTE)
+                .value(disabled)
                 .value(href)
                 .value(this.target)
                 .value(this.checked ? "CHECKED" : "")

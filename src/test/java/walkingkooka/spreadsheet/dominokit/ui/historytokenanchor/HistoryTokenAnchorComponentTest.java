@@ -65,7 +65,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
         this.treePrintAndCheck(
                 HistoryTokenAnchorComponent.empty()
                         .setHref(null),
-                ""
+                "DISABLED"
         );
     }
 
@@ -156,6 +156,29 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                                 Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
                         ),
                 "IconBefore456 \"Text789\" [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123"
+        );
+    }
+
+    @Test
+    public void testAllDisabled() {
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty()
+                        .setChecked(true)
+                        .setIconAfter(
+                                Optional.of(
+                                        new Icon<>("IconAfter123")
+                                )
+                        ).setIconBefore(
+                                Optional.of(
+                                        new Icon<>("IconBefore456")
+                                )
+                        ).setTextContent(
+                                "Text789"
+                        )
+                        .setHref(
+                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                        ).setDisabled(true),
+                "IconBefore456 \"Text789\" DISABLED [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123"
         );
     }
 
