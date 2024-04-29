@@ -28,10 +28,8 @@ import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * A {@link HistoryToken} that represents a PASTE to the clipboard of a cell or cell range.
@@ -81,40 +79,37 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
 
     @Override
     void onHistoryTokenChangeClipboard(final AppContext context) {
-        final Optional<SpreadsheetSelection> maybeSelection = context.spreadsheetViewportCache()
-                .nonLabelSelection(
+        final SpreadsheetCellRangeReference cellRange = context.spreadsheetViewportCache()
+                .resolveIfLabel(
                         SpreadsheetCellClipboardPasteHistoryToken.this.anchoredSelection()
                                 .selection()
-                );
-        if (maybeSelection.isPresent()) {
-            final SpreadsheetCellRangeReference rangeReference = maybeSelection.get()
-                    .toCellRange();
-            context.readClipboardItem(
-                    Predicates.is(ClipboardTextItem.MEDIA_TYPE),
-                    new ClipboardContextReadWatcher() {
-                        @Override
-                        public void onSuccess(final List<ClipboardTextItem> items) {
-                            final SpreadsheetCellClipboardPasteHistoryToken that = SpreadsheetCellClipboardPasteHistoryToken.this;
-                            final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-                            final SpreadsheetId id = that.id();
-                            final SpreadsheetCellClipboardKind kind = that.kind();
+                ).toCellRange();
 
-                            for (final ClipboardTextItem item : items) {
-                                kind.saveOrUpdateCells(
-                                        fetcher,
-                                        id,
-                                        item.toSpreadsheetCellRange(context)
-                                                .move(rangeReference)
-                                );
-                            }
-                        }
+        context.readClipboardItem(
+                Predicates.is(ClipboardTextItem.MEDIA_TYPE),
+                new ClipboardContextReadWatcher() {
+                    @Override
+                    public void onSuccess(final List<ClipboardTextItem> items) {
+                        final SpreadsheetCellClipboardPasteHistoryToken that = SpreadsheetCellClipboardPasteHistoryToken.this;
+                        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+                        final SpreadsheetId id = that.id();
+                        final SpreadsheetCellClipboardKind kind = that.kind();
 
-                        @Override
-                        public void onFailure(final Object cause) {
-                            context.error("Paste failed", cause);
+                        for (final ClipboardTextItem item : items) {
+                            kind.saveOrUpdateCells(
+                                    fetcher,
+                                    id,
+                                    item.toSpreadsheetCellRange(context)
+                                            .move(cellRange)
+                            );
                         }
                     }
-            );
-        }
+
+                    @Override
+                    public void onFailure(final Object cause) {
+                        context.error("Paste failed", cause);
+                    }
+                }
+        );
     }
 }

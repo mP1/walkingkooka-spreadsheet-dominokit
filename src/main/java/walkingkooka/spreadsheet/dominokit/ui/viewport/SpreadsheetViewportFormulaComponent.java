@@ -174,24 +174,35 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                         selection,
                         context
                 );
-            }
+            } else {
+                final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
-            final Optional<SpreadsheetCell> cell = context.spreadsheetViewportCache()
-                    .cell(selection);
-            formula.setStringValue(
-                    cell.map(c -> c.formula().text())
-            ).setHelperText(
-                    cell.flatMap(
-                            c -> c.formula()
-                                    .error()
-                                    .map(SpreadsheetError::message)
-                    )
-            );
+                // refresh could have happened before label from selection has returned from server.
+                // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
+                Optional<SpreadsheetCell> cell;
+                try {
+                    cell = cache.cell(selection);
+                } catch (final IllegalArgumentException labelNotReady) {
+                    cell = null;
+                }
 
-            if (token instanceof SpreadsheetCellFormulaHistoryToken) {
-                context.debug("SpreadsheetViewportFormulaComponent.refresh giving focus");
+                if (null != cell) {
+                    formula.setStringValue(
+                            cell.map(c -> c.formula().text())
+                    ).setHelperText(
+                            cell.flatMap(
+                                    c -> c.formula()
+                                            .error()
+                                            .map(SpreadsheetError::message)
+                            )
+                    );
 
-                formula.focus();
+                    if (token instanceof SpreadsheetCellFormulaHistoryToken) {
+                        context.debug("SpreadsheetViewportFormulaComponent.refresh giving focus");
+
+                        context.giveFocus(formula::focus);
+                    }
+                }
             }
         } else {
             context.debug("SpreadsheetViewportFormulaComponent.refresh not cell historyToken clearing text");
@@ -202,15 +213,11 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
     private void reload(final SpreadsheetSelection selection,
                         final AppContext context) {
-        Optional<String> text = Optional.empty();
-
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
-        final Optional<SpreadsheetSelection> maybeNonLabel = cache.nonLabelSelection(selection);
-        if (maybeNonLabel.isPresent()) {
-            final SpreadsheetSelection nonLabel = maybeNonLabel.get();
-            final Optional<SpreadsheetCell> cell = cache.cell(nonLabel.toCell());
-            text = cell.map((c) -> c.formula().text());
-        }
+
+        final SpreadsheetSelection nonLabel = cache.resolveIfLabel(selection);
+        final Optional<SpreadsheetCell> cell = cache.cell(nonLabel.toCell());
+        final Optional<String> text = cell.map((c) -> c.formula().text());
 
         context.debug("SpreadsheetViewportFormulaComponent.reload text=" + text);
 

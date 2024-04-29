@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Length;
@@ -70,7 +71,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         NopNoResponseWatcher,
         HistoryTokenWatcher,
         SpreadsheetDeltaFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher {
+        SpreadsheetMetadataFetcherWatcher,
+        SpreadsheetLabelNameResolver {
 
     /**
      * Creates a new cache with no cells or labels present.
@@ -118,17 +120,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
-        Optional<SpreadsheetCell> cell = Optional.empty();
-
-        final Optional<SpreadsheetSelection> nonLabelSelection = this.nonLabelSelection(selection);
-        if (nonLabelSelection.isPresent()) {
-            cell = this.cell(
-                    nonLabelSelection.get()
-                            .toCell()
-            );
-        }
-
-        return cell;
+        return this.cell(
+                this.resolveIfLabel(selection).toCell()
+        );
     }
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
@@ -180,19 +174,16 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * This will be useful for creating a context menu item holding all the labels for current selection.
      */
     public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
-        return this.nonLabelSelection(selection)
-                .map(this::labelMappings0)
-                .orElse(Sets.empty());
-    }
+        Objects.requireNonNull(selection, "selection");
 
-    private Set<SpreadsheetLabelMapping> labelMappings0(final SpreadsheetSelection selection) {
+        final SpreadsheetSelection nonLabelSelection = this.resolveIfLabel(selection);
+
         return this.labelMappings()
                 .stream()
                 .filter(
-                        m -> this.nonLabelSelection(
-                                        m.target()
-                                ).map(s -> s.test(selection))
-                                .orElse(false)
+                        m -> this.resolveIfLabel(
+                                m.target()
+                        ).test(nonLabelSelection)
                 )
                 .collect(Collectors.toCollection(Sets::sorted));
     }
@@ -201,16 +192,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * Attempts to resolve any labels to a non label {@link SpreadsheetSelection}.
      * This is useful when trying to show selected cells for a label.
      */
-    public Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
+    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName labelName) {
+        Objects.requireNonNull(labelName, "labelName");
 
-        SpreadsheetSelection nonLabel = selection;
-
-        if (selection.isLabelName()) {
-            nonLabel = this.labelToNonLabel.get((SpreadsheetLabelName) selection);
+        final SpreadsheetSelection nonLabel = this.labelToNonLabel.get(labelName);
+        if (null == nonLabel) {
+            throw new IllegalArgumentException("Unknown label " + labelName);
         }
 
-        return Optional.ofNullable(nonLabel);
+        return nonLabel;
     }
 
     Optional<SpreadsheetRow> row(final SpreadsheetRowReference row) {
@@ -472,22 +462,6 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         final HistoryToken historyToken = context.historyToken();
-        final Optional<SpreadsheetSelection> maybeSelectionNotLabel = historyToken.anchoredSelectionOrEmpty()
-                .map(AnchoredSpreadsheetSelection::selection)
-                .flatMap(this::nonLabelSelection);
-
-        // clear the cached #selectionSummary if there is no active selection or it changed.
-        if (maybeSelectionNotLabel.isPresent()) {
-            final SpreadsheetSelection selectionNotLabel = maybeSelectionNotLabel.get();
-
-            if (false == selectionNotLabel.equals(this.selectionNotLabel)) {
-                this.selectionSummary = null;
-            }
-        } else {
-            this.selectionSummary = null;
-        }
-
-        this.selectionNotLabel = maybeSelectionNotLabel;
 
         SpreadsheetId id = null;
 
@@ -507,6 +481,25 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                                     newId
                     );
                 }
+
+                final Optional<SpreadsheetSelection> maybeSelectionNotLabel = historyToken.anchoredSelectionOrEmpty()
+                        .map(AnchoredSpreadsheetSelection::selection)
+                        .filter(s -> false == s.isLabelName() || false == this.labelMappings.isEmpty())
+                        .map(this::resolveIfLabel);
+
+                // clear the cached #selectionSummary if there is no active selection or it changed.
+                if (maybeSelectionNotLabel.isPresent()) {
+                    final SpreadsheetSelection selectionNotLabel = maybeSelectionNotLabel.get();
+
+                    if (false == selectionNotLabel.equals(this.selectionNotLabel)) {
+                        this.selectionSummary = null;
+                    }
+                } else {
+                    this.selectionSummary = null;
+                }
+
+                this.selectionNotLabel = maybeSelectionNotLabel;
+
                 id = newId;
             } else {
                 this.clear();
@@ -516,7 +509,6 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 id = null;
             }
         }
-
 
         this.spreadsheetId = id;
     }
