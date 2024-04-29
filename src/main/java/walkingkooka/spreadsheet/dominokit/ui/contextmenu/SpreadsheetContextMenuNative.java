@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
+import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.icons.MdiIcon;
@@ -32,7 +33,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenmenuitem.HistoryTokenMenuItem;
 
-import java.util.Objects;
 import java.util.Optional;
 
 import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
@@ -44,21 +44,19 @@ import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
  * Note the test source also contains a Menu class which is basically empty and only aggregates all added items.
  * This should allow writing of unit tests to verify a menu without browser native objects failing to function.
  */
-public final class SpreadsheetContextMenuNative {
+final class SpreadsheetContextMenuNative {
 
     /**
      * Factory that builds a {@link SpreadsheetContextMenu}.
      */
-    public static SpreadsheetContextMenu empty(final DominoElement<?> element,
-                                               final HistoryTokenContext context) {
-        Objects.requireNonNull(element, "element");
-        Objects.requireNonNull(context, "context");
-
+    static SpreadsheetContextMenu empty(final Element element,
+                                        final HistoryTokenContext context) {
         final Menu<Void> menu = Menu.<Void>create()
                 .setContextMenu(true)
                 .setDropDirection(new MouseBestFitDirection())
                 .setTargetElement(element);
-        element.setDropMenu(menu);
+        new DominoElement<>(element)
+                .setDropMenu(menu);
 
         return SpreadsheetContextMenu.with(
                 menu,

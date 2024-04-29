@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
+import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.MdiIcon;
@@ -37,6 +38,20 @@ import java.util.Optional;
  * Abstraction for building a context menu.
  */
 public final class SpreadsheetContextMenu implements TreePrintable {
+
+    /**
+     * Returns an empty {@link SpreadsheetContextMenu} for the given {@link Element}.
+     */
+    public static SpreadsheetContextMenu wrap(final Element element,
+                                              final HistoryTokenContext context) {
+        Objects.requireNonNull(element, "element");
+        Objects.requireNonNull(context, "context");
+
+        return SpreadsheetContextMenuNative.empty(
+                element,
+                context
+        );
+    }
 
     static SpreadsheetContextMenu with(final Menu<Void> menu,
                                        final HistoryTokenContext context) {
