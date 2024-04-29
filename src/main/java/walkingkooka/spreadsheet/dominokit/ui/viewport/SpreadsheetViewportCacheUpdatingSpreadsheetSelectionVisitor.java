@@ -81,14 +81,9 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
                 );
                 if (null != nonLabel) {
                     // assumes nonLabel must be either a cell or cell-range
-                    if (nonLabel.isCellReference()) {
-                        final SpreadsheetCellReference cell = (SpreadsheetCellReference) nonLabel;
-                        cellToLabels.get(cell).add(unknownLabel);
-                    } else {
-                        final SpreadsheetCellRangeReference range = (SpreadsheetCellRangeReference) nonLabel;
-                        for (final SpreadsheetCellReference cell : range) {
-                            cellToLabels.get(cell).add(unknownLabel);
-                        }
+                    for (final SpreadsheetCellReference cell : nonLabel.toCellRange()) {
+                        cellToLabels.get(cell)
+                                .add(unknownLabel);
                     }
                     labelToNonLabel.put(unknownLabel, nonLabel);
                     change = true;
