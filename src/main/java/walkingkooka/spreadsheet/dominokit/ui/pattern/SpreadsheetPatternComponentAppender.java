@@ -36,16 +36,16 @@ import java.util.function.Consumer;
 /**
  * A card that contains many links that append a component to the pattern being edited.
  */
-final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentAppenderComponent> {
+final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentAppender> {
 
     /**
-     * Creates an empty {@link SpreadsheetPatternComponentAppenderComponent}.
+     * Creates an empty {@link SpreadsheetPatternComponentAppender}.
      */
-    static SpreadsheetPatternComponentAppenderComponent empty() {
-        return new SpreadsheetPatternComponentAppenderComponent();
+    static SpreadsheetPatternComponentAppender empty() {
+        return new SpreadsheetPatternComponentAppender();
     }
 
-    private SpreadsheetPatternComponentAppenderComponent() {
+    private SpreadsheetPatternComponentAppender() {
         this.parent = Card.create();
         this.links = Lists.array();
     }
@@ -59,7 +59,7 @@ final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementC
         context.debug(this.getClass().getSimpleName() + ".recreate");
 
         final Card SpreadsheetIntegerBox = this.parent.clearElement();
-        final List<SpreadsheetPatternComponentAppenderComponentLink> links = this.links;
+        final List<SpreadsheetPatternComponentAppenderLink> links = this.links;
         links.clear();
 
         for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
@@ -97,7 +97,7 @@ final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementC
                                 }
                         );
                         links.add(
-                                SpreadsheetPatternComponentAppenderComponentLink.with(
+                                SpreadsheetPatternComponentAppenderLink.with(
                                         formatParserTokenKind,
                                         pattern,
                                         anchor
@@ -119,10 +119,10 @@ final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementC
 
         final HistoryToken historyToken = context.historyToken();
 
-        final List<SpreadsheetPatternComponentAppenderComponentLink> links = this.links;
+        final List<SpreadsheetPatternComponentAppenderLink> links = this.links;
         context.debug(this.getClass().getSimpleName() + ".refreshLinks " + links.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
 
-        for (final SpreadsheetPatternComponentAppenderComponentLink link : links) {
+        for (final SpreadsheetPatternComponentAppenderLink link : links) {
             String savePatternText = null;
 
             if (patternText.isEmpty()) {
@@ -180,7 +180,7 @@ final class SpreadsheetPatternComponentAppenderComponent implements HtmlElementC
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
      * This is kept to support updates o the ANCHOR link as the pattern text box changes.
      */
-    private final List<SpreadsheetPatternComponentAppenderComponentLink> links;
+    private final List<SpreadsheetPatternComponentAppenderLink> links;
 
     @Override
     public HTMLDivElement element() {
