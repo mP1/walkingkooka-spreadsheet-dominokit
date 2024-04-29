@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -41,7 +43,8 @@ import java.util.Optional;
 /**
  * Abstraction for working with a HTML anchor.
  */
-public final class HistoryTokenAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent> {
+public final class HistoryTokenAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent>,
+        TreePrintable {
 
     /**
      * Creates a new un-attached ANCHOR.
@@ -411,5 +414,17 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
     @Override
     public String toString() {
         return this.element.toString();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        final Url url = this.href();
+        printer.print(
+                null != url ?
+                        url.toString() :
+                        ""
+        );
     }
 }

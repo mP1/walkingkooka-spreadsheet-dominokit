@@ -19,7 +19,7 @@ package org.dominokit.domino.ui.icons;
 
 public class Icon<T extends Icon<T>> {
 
-    Icon(final String name) {
+    public Icon(final String name) {
         this.name = name;
     }
 

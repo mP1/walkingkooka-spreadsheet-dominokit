@@ -17,10 +17,149 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
 
+import org.dominokit.domino.ui.icons.Icon;
+import org.junit.jupiter.api.Test;
+import walkingkooka.net.Url;
+import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class HistoryTokenAnchorComponentTest implements ClassTesting<HistoryTokenAnchorComponent> {
+import java.util.Optional;
+
+public final class HistoryTokenAnchorComponentTest implements TreePrintableTesting,
+        ClassTesting<HistoryTokenAnchorComponent> {
+
+    // historyToken.....................................................................................................
+
+    @Test
+    public void testSetHistoryTokenEmpty() {
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty(),
+                ""
+        );
+    }
+
+    @Test
+    public void testSetHistoryToken() {
+        final String href = "/1/SpreadsheetName234/cell/A1";
+
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty()
+                        .setHistoryToken(
+                                Optional.of(
+                                        HistoryToken.parse(
+                                                UrlFragment.parse(href)
+                                        )
+                                )
+                        ),
+                "[#/1/SpreadsheetName234/cell/A1]"
+        );
+    }
+
+    // href.............................................................................................................
+
+    @Test
+    public void testSetHrefNull() {
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty()
+                        .setHref(null),
+                ""
+        );
+    }
+
+    @Test
+    public void testSetHref() {
+        final String href = "#/1/SpreadsheetName234/cell/A1";
+
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty()
+                        .setHref(
+                                Url.parseAbsoluteOrRelative(href)
+                        ),
+                "[" + href + "]"
+        );
+    }
+
+    // iconAfter.......................................................................................................
+
+    @Test
+    public void testSetIconAfter() {
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty()
+                        .setIconAfter(
+                                Optional.of(
+                                        new Icon("Icon123")
+                                )
+                        )
+                        .setHref(
+                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                        ),
+                "[#/1/SpreadsheetName234/cell/A1] Icon123"
+        );
+    }
+
+    // iconBefore.......................................................................................................
+
+    @Test
+    public void testSetIconBefore() {
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty()
+                        .setIconBefore(
+                                Optional.of(
+                                        new Icon("Icon123")
+                                )
+                        )
+                        .setHref(
+                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                        ),
+                "Icon123 [#/1/SpreadsheetName234/cell/A1]"
+        );
+    }
+
+    // textContent.......................................................................................................
+
+    @Test
+    public void testSetTextContent() {
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty()
+                        .setTextContent(
+                                "Text123"
+                        )
+                        .setHref(
+                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                        ),
+                "\"Text123\" [#/1/SpreadsheetName234/cell/A1]"
+        );
+    }
+
+    // all..............................................................................................................
+
+    @Test
+    public void testAll() {
+        this.treePrintAndCheck(
+                HistoryTokenAnchorComponent.empty()
+                        .setChecked(true)
+                        .setIconAfter(
+                                Optional.of(
+                                        new Icon<>("IconAfter123")
+                                )
+                        ).setIconBefore(
+                                Optional.of(
+                                        new Icon<>("IconBefore456")
+                                )
+                        ).setTextContent(
+                                "Text789"
+                        )
+                        .setHref(
+                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                        ),
+                "IconBefore456 \"Text789\" [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123"
+        );
+    }
+
+    // ClassTesting.....................................................................................................
 
     @Override
     public Class<HistoryTokenAnchorComponent> type() {
