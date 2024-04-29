@@ -37,6 +37,14 @@ public final class SpreadsheetPatternDialogComponentContexts implements PublicSt
     }
 
     /**
+     * {@see FakeSpreadsheetPatternDialogComponentContext}
+     */
+    public static SpreadsheetPatternDialogComponentContext fake() {
+        return new FakeSpreadsheetPatternDialogComponentContext();
+    }
+
+
+    /**
      * {@see SpreadsheetPatternDialogComponentContextBasicMetadataFormat}
      */
     public static SpreadsheetPatternDialogComponentContext metadataFormat(final AppContext context) {
