@@ -32,6 +32,7 @@ import walkingkooka.text.cursor.TextCursor;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken {
 
@@ -61,7 +62,10 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
 
     @Override
     public HistoryToken clearAction() {
-        return this;
+        return HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // from
+                OptionalInt.empty() // count
+        );
     }
 
     @Override
