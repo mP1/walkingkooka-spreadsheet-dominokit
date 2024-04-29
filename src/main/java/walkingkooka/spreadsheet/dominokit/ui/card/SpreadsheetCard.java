@@ -20,14 +20,14 @@ package walkingkooka.spreadsheet.dominokit.ui.card;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 /**
  * A {@link Card} that auto hides when empty.
  */
-public final class SpreadsheetCard implements Component<HTMLDivElement>,
+public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElement, SpreadsheetCard>,
         TreePrintable {
 
     public static SpreadsheetCard empty() {
