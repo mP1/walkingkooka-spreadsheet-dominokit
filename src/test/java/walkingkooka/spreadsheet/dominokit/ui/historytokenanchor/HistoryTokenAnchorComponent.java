@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
 
+import elemental2.dom.Element;
 import elemental2.dom.EventListener;
+import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.ToStringBuilder;
@@ -38,7 +40,8 @@ import java.util.Optional;
  * <br>
  * The goal of this class is to allow JVM unit-testing of more complex components such as a Card that has a row of {@link HistoryTokenAnchorComponent}.
  */
-public final class HistoryTokenAnchorComponent implements TreePrintable {
+public final class HistoryTokenAnchorComponent implements IsElement<Element>,
+        TreePrintable {
 
     public static HistoryTokenAnchorComponent empty() {
         return new HistoryTokenAnchorComponent();
@@ -249,6 +252,13 @@ public final class HistoryTokenAnchorComponent implements TreePrintable {
                 .value(this.checked ? "CHECKED" : "")
                 .value(this.iconAfter.map(Icon::getName))
                 .build();
+    }
+
+    // IsElement........................................................................................................
+
+    @Override
+    public Element element() {
+        throw new UnsupportedOperationException();
     }
 
     // TreePrintable....................................................................................................
