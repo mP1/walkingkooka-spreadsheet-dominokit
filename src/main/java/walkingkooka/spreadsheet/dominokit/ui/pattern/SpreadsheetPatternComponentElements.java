@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import elemental2.dom.Element;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
@@ -117,7 +116,7 @@ final class SpreadsheetPatternComponentElements implements HtmlElementComponent<
                 if (false == alternatives.isEmpty()) {
 
                     SpreadsheetContextMenu contextMenu = SpreadsheetContextMenuNative.empty(
-                            new DominoElement<Element>(patternElement.element()),
+                            new DominoElement<>(patternElement.element()),
                             context
                     );
 
