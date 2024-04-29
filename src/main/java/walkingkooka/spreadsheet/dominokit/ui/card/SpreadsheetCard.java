@@ -63,9 +63,14 @@ public final class SpreadsheetCard implements Component<HTMLDivElement>,
 
     @Override
     public void printTree(final IndentingPrinter printer) {
-        TreePrintable.printTreeOrToString(
-                this.card,
-                printer
-        );
+        printer.println("SpreadsheetCard");
+        printer.indent();
+        {
+            TreePrintable.printTreeOrToString(
+                    this.card,
+                    printer
+            );
+        }
+        printer.outdent();
     }
 }
