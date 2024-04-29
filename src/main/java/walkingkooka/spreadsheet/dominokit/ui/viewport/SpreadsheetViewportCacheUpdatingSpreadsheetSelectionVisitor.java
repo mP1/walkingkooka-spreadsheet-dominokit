@@ -76,9 +76,9 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
                     continue;
                 }
 
-                final SpreadsheetLabelName maybeKnownLabel = (SpreadsheetLabelName) possibleLabel;
-
-                final SpreadsheetSelection nonLabel = labelToNonLabel.get(maybeKnownLabel);
+                final SpreadsheetSelection nonLabel = labelToNonLabel.get(
+                        possibleLabel.toLabelName()
+                );
                 if (null != nonLabel) {
                     // assumes nonLabel must be either a cell or cell-range
                     if (nonLabel.isCellReference()) {
