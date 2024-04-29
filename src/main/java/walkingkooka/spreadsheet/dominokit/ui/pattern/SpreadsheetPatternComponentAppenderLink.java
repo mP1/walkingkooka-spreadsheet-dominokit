@@ -21,21 +21,21 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.text.CharSequences;
 
-final class SpreadsheetPatternComponentAppenderComponentLink {
+final class SpreadsheetPatternComponentAppenderLink {
 
-    static SpreadsheetPatternComponentAppenderComponentLink with(final SpreadsheetFormatParserTokenKind kind,
-                                                                 final String pattern,
-                                                                 final HistoryTokenAnchorComponent anchor) {
-        return new SpreadsheetPatternComponentAppenderComponentLink(
+    static SpreadsheetPatternComponentAppenderLink with(final SpreadsheetFormatParserTokenKind kind,
+                                                        final String pattern,
+                                                        final HistoryTokenAnchorComponent anchor) {
+        return new SpreadsheetPatternComponentAppenderLink(
                 kind,
                 pattern,
                 anchor
         );
     }
 
-    private SpreadsheetPatternComponentAppenderComponentLink(final SpreadsheetFormatParserTokenKind kind,
-                                                             final String pattern,
-                                                             final HistoryTokenAnchorComponent anchor) {
+    private SpreadsheetPatternComponentAppenderLink(final SpreadsheetFormatParserTokenKind kind,
+                                                    final String pattern,
+                                                    final HistoryTokenAnchorComponent anchor) {
         this.kind = kind;
         this.pattern = pattern;
         this.anchor = anchor;
