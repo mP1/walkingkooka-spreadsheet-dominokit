@@ -167,7 +167,6 @@ final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<
                 }
             }
 
-            context.debug(this.getClass().getSimpleName() + ".linksHrefRefresh: " + link.pattern + "=" + save);
             link.anchor.setHistoryToken(
                     Optional.ofNullable(save)
             );
