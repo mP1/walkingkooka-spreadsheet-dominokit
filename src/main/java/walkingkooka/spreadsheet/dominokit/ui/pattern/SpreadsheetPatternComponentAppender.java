@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.cards.Card;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -46,7 +46,7 @@ final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<
     }
 
     private SpreadsheetPatternComponentAppender() {
-        this.parent = Card.create();
+        this.parent = SpreadsheetCard.empty();
         this.links = Lists.array();
     }
 
@@ -58,7 +58,7 @@ final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<
                   final SpreadsheetPatternDialogComponentContext context) {
         context.debug(this.getClass().getSimpleName() + ".recreate");
 
-        final Card SpreadsheetIntegerBox = this.parent.clearElement();
+        final SpreadsheetCard parent = this.parent.clear();
         final List<SpreadsheetPatternComponentAppenderLink> links = this.links;
         links.clear();
 
@@ -103,7 +103,7 @@ final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<
                                         anchor
                                 )
                         );
-                        SpreadsheetIntegerBox.appendChild(anchor);
+                        parent.append(anchor);
                     }
                     break;
             }
@@ -172,9 +172,9 @@ final class SpreadsheetPatternComponentAppender implements HtmlElementComponent<
     }
 
     /**
-     * THe SpreadsheetIntegerBox holding all the append-pattern links.
+     * THe {@link SpreadsheetCard} holding all the links.
      */
-    private final Card parent;
+    private final SpreadsheetCard parent;
 
     /**
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
