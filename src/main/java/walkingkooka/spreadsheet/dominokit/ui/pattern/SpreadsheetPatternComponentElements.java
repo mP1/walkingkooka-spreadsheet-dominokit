@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import elemental2.dom.Element;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuNative;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
@@ -51,7 +51,7 @@ final class SpreadsheetPatternComponentElements implements HtmlElementComponent<
     }
 
     private SpreadsheetPatternComponentElements() {
-        this.parent = Card.create();
+        this.parent = SpreadsheetCard.empty();
         this.tokenKinds = Lists.array();
         this.texts = Lists.array();
     }
@@ -62,7 +62,7 @@ final class SpreadsheetPatternComponentElements implements HtmlElementComponent<
     void refresh(final SpreadsheetPattern pattern,
                  final String errorPattern,
                  final SpreadsheetPatternDialogComponentContext context) {
-        final Card parent = this.parent.clearElement();
+        final SpreadsheetCard parent = this.parent.clear();
 
         final List<SpreadsheetFormatParserTokenKind> tokenKinds = this.tokenKinds;
         tokenKinds.clear();
@@ -141,24 +141,17 @@ final class SpreadsheetPatternComponentElements implements HtmlElementComponent<
                         j++;
                     }
                 }
-                parent.appendChild(patternElement);
+                parent.append(patternElement);
 
                 i++;
             }
         }
-
-        // hide the card if there are no pattern elements
-        parent.setDisplay(
-                texts.isEmpty() ?
-                        "none" :
-                        ""
-        );
     }
 
     /**
      * THe parent holding all the current ui pattern chips.
      */
-    private final Card parent;
+    private final SpreadsheetCard parent;
 
     private final List<SpreadsheetFormatParserTokenKind> tokenKinds;
 
