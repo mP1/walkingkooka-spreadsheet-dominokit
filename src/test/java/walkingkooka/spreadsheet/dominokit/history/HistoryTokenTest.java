@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
@@ -31,7 +30,6 @@ import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -92,132 +90,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     private final static SpreadsheetRowRangeReference ROW_RANGE = SpreadsheetSelection.parseRowRange("22:33");
 
-    // nonLabelSelection................................................................................................
-
-    @Test
-    public void testNonLabelSelectionNullFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> HistoryToken.unknown(UrlFragment.SLASH)
-                        .nonLabelSelection(null)
-        );
-    }
-
-    @Test
-    public void testNonLabelSelectionCell() {
-        this.nonLabelSelectionAndCheck(CELL);
-    }
-
-    @Test
-    public void testNonLabelSelectionCellRange() {
-        this.nonLabelSelectionAndCheck(CELL_RANGE);
-    }
-
-    @Test
-    public void testNonLabelSelectionLabel() {
-        final AppContext context = this.appContext();
-        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
-        cache.onHistoryTokenChange(
-                HistoryToken.spreadsheetSelect(ID, NAME),
-                context
-        );
-
-        cache.onSpreadsheetDelta(
-                ID,
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                LABEL.mapping(CELL)
-                        )
-                ),
-                context
-        );
-
-        this.nonLabelSelectionAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        LABEL.setDefaultAnchor()
-                ),
-                cache,
-                CELL
-        );
-    }
-
-    @Test
-    public void testNonLabelSelectionUnknownLabelFails() {
-        final SpreadsheetViewportCache cache = this.appContext()
-                .spreadsheetViewportCache();
-
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> HistoryToken.cell(
-                        ID,
-                        NAME,
-                        LABEL.setDefaultAnchor()
-                ).nonLabelSelection(cache)
-        );
-    }
-
-    @Test
-    public void testNonLabelSelectionColumn() {
-        this.nonLabelSelectionAndCheck(COLUMN);
-    }
-
-    @Test
-    public void testNonLabelSelectionColumnRange() {
-        this.nonLabelSelectionAndCheck(COLUMN_RANGE);
-    }
-
-    @Test
-    public void testNonLabelSelectionRow() {
-        this.nonLabelSelectionAndCheck(ROW);
-    }
-
-    @Test
-    public void testNonLabelSelectionRowRange() {
-        this.nonLabelSelectionAndCheck(ROW_RANGE);
-    }
-
-    private void nonLabelSelectionAndCheck(final SpreadsheetSelection selection) {
-        this.nonLabelSelectionAndCheck(
-                HistoryToken.selection(
-                        ID,
-                        NAME,
-                        selection.setDefaultAnchor()
-                ),
-                this.appContext()
-                        .spreadsheetViewportCache(),
-                selection
-        );
-    }
-
-    private void nonLabelSelectionAndCheck(final HistoryToken token,
-                                           final SpreadsheetViewportCache viewportCache) {
-        this.nonLabelSelectionAndCheck(
-                token,
-                viewportCache,
-                Optional.empty()
-        );
-    }
-
-    private void nonLabelSelectionAndCheck(final HistoryToken token,
-                                           final SpreadsheetViewportCache viewportCache,
-                                           final SpreadsheetSelection expected) {
-        this.nonLabelSelectionAndCheck(
-                token,
-                viewportCache,
-                Optional.of(expected)
-        );
-    }
-
-    private void nonLabelSelectionAndCheck(final HistoryToken token,
-                                           final SpreadsheetViewportCache viewportCache,
-                                           final Optional<SpreadsheetSelection> expected) {
-        this.checkEquals(
-                expected,
-                token.nonLabelSelection(viewportCache)
-        );
-    }
     // setAnchor........................................................................................................
 
     @Test
