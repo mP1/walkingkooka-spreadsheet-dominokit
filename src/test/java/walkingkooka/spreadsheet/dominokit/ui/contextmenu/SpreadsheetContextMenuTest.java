@@ -267,7 +267,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
         this.treePrintAndCheck(
                 menu,
                 "id-top-Menu \"Top Menu!\"\n" +
-                        "  id-MenuItem \"item-text-111-checked\" v/\n" +
+                        "  id-MenuItem \"item-text-111-checked\" CHECKED\n" +
                         "  id-MenuItem \"item-text-222\"\n"
         );
     }
