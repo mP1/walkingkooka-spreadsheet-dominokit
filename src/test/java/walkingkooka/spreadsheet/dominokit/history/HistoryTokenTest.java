@@ -24,6 +24,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
@@ -1982,6 +1983,150 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 expected,
                 historyToken.setSortEdit(comparatorNames),
                 () -> historyToken + " setSortEdit " + comparatorNames
+        );
+    }
+
+    // setSortSave......................................................................................................
+
+    @Test
+    public void testSetSortSaveNotAnchoredSelection() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text UP");
+
+        final HistoryToken load = HistoryToken.spreadsheetLoad(ID);
+
+        assertSame(
+                load,
+                load.setSortSave(comparatorNames)
+        );
+    }
+
+    @Test
+    public void testSetSortSaveCell() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text UP");
+
+        this.setSortSave(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.cellSortSave(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortSaveCellRange() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("B=text UP;C=text DOWN");
+
+        this.setSortSave(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.cellSortSave(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortSaveColumn() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("AA=text UP");
+
+        this.setSortSave(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.columnSortSave(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortSaveColumnRange() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("BB=text UP;CC=text DOWN");
+
+        this.setSortSave(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.columnSortSave(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortSaveRow() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("11=text UP");
+
+        this.setSortSave(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.rowSortSave(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortSaveRowRange() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("22=text UP;33=text DOWN");
+
+        this.setSortSave(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.rowSortSave(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    private void setSortSave(final HistoryToken historyToken,
+                             final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames,
+                             final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                historyToken.setSortSave(comparatorNames),
+                () -> historyToken + " setSortSave " + comparatorNames
         );
     }
 

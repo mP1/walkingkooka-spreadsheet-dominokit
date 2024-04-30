@@ -247,34 +247,30 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     }
 
     private HistoryToken parseSort(final TextCursor cursor) {
-        HistoryToken historyToken = this;
+        final HistoryToken historyToken;
 
-        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+        final String component = parseComponent(cursor)
+                .orElse("");
+        switch (component) {
+            case "edit":
+                final String comparators = parseComponent(cursor)
+                        .orElse("");
 
-            final String component = parseComponent(cursor)
-                    .orElse("");
-            switch (component) {
-                case "edit":
-                    final String comparators = parseComponent(cursor)
-                            .orElse("");
-
-                    historyToken = anchoredSelectionHistoryToken.setSortEdit0(
-                            comparators
-                    );
-                    break;
-                case "save":
-                    historyToken = anchoredSelectionHistoryToken.setSortSave(
-                            SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
-                                    parseComponent(cursor)
-                                            .orElse("")
-                            )
-                    );
-                    break;
-                default:
-                    historyToken = this;
-                    break;
-            }
+                historyToken = this.setSortEdit(
+                        comparators
+                );
+                break;
+            case "save":
+                historyToken = this.setSortSave(
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
+                                parseComponent(cursor)
+                                        .orElse("")
+                        )
+                );
+                break;
+            default:
+                historyToken = this;
+                break;
         }
 
         return historyToken;

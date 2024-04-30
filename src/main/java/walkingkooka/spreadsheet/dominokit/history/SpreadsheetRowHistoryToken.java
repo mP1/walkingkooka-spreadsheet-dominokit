@@ -173,7 +173,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     }
 
     @Override //
-    final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
+    final HistoryToken setSortSave0(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         return HistoryToken.rowSortSave(
                 this.id(),
                 this.name(),
