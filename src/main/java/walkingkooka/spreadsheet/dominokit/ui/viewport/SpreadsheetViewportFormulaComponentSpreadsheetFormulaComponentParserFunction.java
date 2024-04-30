@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
@@ -54,12 +55,13 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
 
         final AppContext context = this.context;
         final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
-        final SpreadsheetCellReference cellReference = context.historyToken()
-                .nonLabelSelection(viewportCache)
-                .orElseThrow(() -> new IllegalArgumentException("Unknown label within history token"))
-                .toCell();
 
-        final Optional<SpreadsheetCell> maybeCell = viewportCache.cell(cellReference);
+        final Optional<SpreadsheetCell> maybeCell = viewportCache.cell(
+                context.historyToken()
+                        .cast(SpreadsheetCellHistoryToken.class)
+                        .anchoredSelection()
+                        .selection()
+        );
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
             parser = cell.parsePattern()
