@@ -165,7 +165,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
     // sort.............................................................................................................
 
     @Override //
-    final HistoryToken setSortEdit(final String comparators) {
+    final HistoryToken setSortEdit0(final String comparators) {
         return HistoryToken.columnSortEdit(
                 this.id(),
                 this.name(),

@@ -259,7 +259,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                     final String comparators = parseComponent(cursor)
                             .orElse("");
 
-                    historyToken = anchoredSelectionHistoryToken.setSortEdit(
+                    historyToken = anchoredSelectionHistoryToken.setSortEdit0(
                             comparators
                     );
                     break;
