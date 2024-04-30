@@ -51,6 +51,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolverTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Length;
@@ -66,6 +68,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetViewportCacheTest implements IteratorTesting,
+        SpreadsheetLabelNameResolverTesting,
         ClassTesting<SpreadsheetViewportCache> {
 
     private final static SpreadsheetCellReference A1 = SpreadsheetCellReference.A1;
@@ -677,7 +680,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 false
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 A1,
                 A1
@@ -837,7 +840,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 LABEL_MAPPINGA1B
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL_MAPPINGA1B.label(),
                 LABEL_MAPPINGA1B.target()
@@ -1900,7 +1903,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 CONTEXT
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelFails(
                 cache,
                 LABEL999
         );
@@ -1934,13 +1937,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 CONTEXT
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 A1,
                 A1
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 A2,
                 A2
@@ -2012,7 +2015,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 CONTEXT
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 nonLabel,
                 nonLabel
@@ -2050,7 +2053,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 CONTEXT
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL3,
                 B3
@@ -2095,13 +2098,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 LABEL_MAPPINGA1B
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL1,
                 A1
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL2,
                 A1
@@ -2156,13 +2159,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL999,
                 b3b4
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 B3,
                 B3
@@ -2207,13 +2210,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL999,
                 B3
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL3,
                 B3
@@ -2265,13 +2268,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL999,
                 b3b4
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL3,
                 b3b4
@@ -2316,13 +2319,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL3,
                 B3
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL999,
                 B3
@@ -2379,25 +2382,25 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL1,
                 A1
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL2,
                 A1
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL3,
                 B3
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL999,
                 B3
@@ -2458,31 +2461,31 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL1,
                 A1
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL2,
                 A1
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL3,
                 B3
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 LABEL999,
                 B3
         );
 
-        this.checkNonLabelSelection(
+        this.resolveIfLabelAndCheck(
                 cache,
                 third,
                 B3
@@ -3777,35 +3780,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         }
     }
 
-    private void checkNonLabelSelection(final SpreadsheetViewportCache cache,
-                                        final SpreadsheetSelection selection) {
-        this.checkNonLabelSelection(
-                cache,
-                selection,
-                Optional.empty()
-        );
-    }
-
-    private void checkNonLabelSelection(final SpreadsheetViewportCache cache,
-                                        final SpreadsheetSelection selection,
-                                        final SpreadsheetSelection nonLabel) {
-        this.checkNonLabelSelection(
-                cache,
-                selection,
-                Optional.of(nonLabel)
-        );
-    }
-
-    private void checkNonLabelSelection(final SpreadsheetViewportCache cache,
-                                        final SpreadsheetSelection selection,
-                                        final Optional<SpreadsheetSelection> nonLabel) {
-        this.checkEquals(
-                nonLabel,
-                cache.nonLabelSelection(selection),
-                "nonLabelSelection " + selection
-        );
-    }
-
     // isColumnHidden...................................................................................................
 
     @Test
@@ -3914,6 +3888,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 cache.isRowHidden(row),
                 () -> "isHidden " + row
         );
+    }
+
+    // SpreadsheetLabelNameResolver.....................................................................................
+
+    @Override
+    public SpreadsheetLabelNameResolver spreadsheetLabelNameResolver() {
+        return this.viewportCache();
     }
 
     // ClassTesting.....................................................................................................

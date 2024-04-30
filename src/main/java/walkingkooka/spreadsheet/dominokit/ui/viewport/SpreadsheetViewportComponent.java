@@ -438,7 +438,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     context.pushHistoryToken(
                             context.historyToken()
                                     .setMenu(
-                                            Optional.of(selection)
+                                            Optional.of(selection),
+                                            context.spreadsheetViewportCache()
                                     )
                     );
                     break;
@@ -458,7 +459,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchored.selection();
         final Optional<Element> maybeElement = this.findElement(
-                selection.focused(anchored.anchor()),
+                context.spreadsheetViewportCache()
+                        .resolveIfLabel(
+                                selection
+                        ).focused(anchored.anchor()),
                 context
         );
 
@@ -834,45 +838,42 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final AppContext context) {
-        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.spreadsheetViewportCache()
-                .nonLabelSelection(
+        final SpreadsheetSelection nonLabelSelection = context.spreadsheetViewportCache()
+                .resolveIfLabel(
                         selection.selection()
                 );
-        if (maybeNonLabelSelection.isPresent()) {
-            final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
-            final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
-                    selection.anchor()
-            );
-            final Optional<Element> maybeElement = this.findElement(
-                    spreadsheetSelection,
-                    context
-            );
-            if (maybeElement.isPresent()) {
-                Element element = maybeElement.get();
+        final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
+                selection.anchor()
+        );
+        final Optional<Element> maybeElement = this.findElement(
+                spreadsheetSelection,
+                context
+        );
+        if (maybeElement.isPresent()) {
+            Element element = maybeElement.get();
 
-                boolean give = true;
+            boolean give = true;
 
-                final Element active = DomGlobal.document.activeElement;
-                if (null != active) {
-                    // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
-                    give = false == Doms.isOrHasChild(
-                            element,
-                            active
-                    );
-                }
-
-                if (give) {
-                    // for column/row the anchor and not the TH/TD should receive focus.
-                    if (spreadsheetSelection.isColumnReference() || spreadsheetSelection.isRowReference()) {
-                        element = element.firstElementChild;
-                    }
-
-                    context.debug("SpreadsheetViewportComponent " + spreadsheetSelection + " focus element " + element);
-                    element.focus();
-                }
-            } else {
-                context.debug("SpreadsheetViewportComponent " + spreadsheetSelection + " element not found!");
+            final Element active = DomGlobal.document.activeElement;
+            if (null != active) {
+                // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
+                give = false == Doms.isOrHasChild(
+                        element,
+                        active
+                );
             }
+
+            if (give) {
+                // for column/row the anchor and not the TH/TD should receive focus.
+                if (spreadsheetSelection.isColumnReference() || spreadsheetSelection.isRowReference()) {
+                    element = element.firstElementChild;
+                }
+
+                context.debug("SpreadsheetViewportComponent " + spreadsheetSelection + " focus element " + element);
+                element.focus();
+            }
+        } else {
+            context.debug("SpreadsheetViewportComponent " + spreadsheetSelection + " element not found!");
         }
     }
 
@@ -944,15 +945,15 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         if (maybeAnchorSelection.isPresent()) {
             // special case for label
-            final Optional<SpreadsheetSelection> maybeNotLabel = context.spreadsheetViewportCache()
-                    .nonLabelSelection(maybeAnchorSelection.get().selection());
-            if (maybeNotLabel.isPresent()) {
-                final SpreadsheetSelection selectionNotLabel = maybeNotLabel.get();
+            final SpreadsheetSelection selectionNotLabel = context.spreadsheetViewportCache()
+                    .resolveIfLabel(
+                            maybeAnchorSelection.get()
+                                    .selection()
+                    );
 
-                // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
-                selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
-                        (false == s.isCellRangeReference() && selectionNotLabel.test(s));
-            }
+            // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
+            selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
+                    (false == s.isCellRangeReference() && selectionNotLabel.test(s));
         }
 
         this.table.refresh(
@@ -1012,36 +1013,30 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             notRequired = " find unchanged " + last;
         } else {
             final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
-            final Optional<SpreadsheetSelection> maybeSelectionNotLabel = cache.nonLabelSelection(
+            final SpreadsheetSelection selectionNotLabel = cache.resolveIfLabel(
                     historyToken.anchoredSelection()
                             .selection()
             );
 
-            String reload = "Cannot resolve label";
-            if (maybeSelectionNotLabel.isPresent()) {
+            final SpreadsheetViewportWindows windows = cache.windows();
 
-                final SpreadsheetSelection selectionNotLabel = maybeSelectionNotLabel.get();
-                final SpreadsheetViewportWindows windows = cache.windows();
+            String reload = "window " + windows + " not within " + selectionNotLabel.toStringMaybeStar();
 
-                reload = "window " + windows + " not within " + selectionNotLabel.toStringMaybeStar();
+            if (selectionNotLabel.containsAll(windows)) {
+                reload = "offset not empty or 0";
 
-                if (selectionNotLabel.containsAll(windows)) {
-                    reload = "offset not empty or 0";
+                final OptionalInt offset = spreadsheetCellFind.offset();
+                if (false == offset.isPresent() || offset.getAsInt() == 0) {
 
-                    final OptionalInt offset = spreadsheetCellFind.offset();
-                    if (false == offset.isPresent() || offset.getAsInt() == 0) {
+                    reload = "max not empty or less than window cell count";
 
-                        reload = "max not empty or less than window cell count";
+                    final long windowsCellCount = windows.count();
+                    final OptionalInt max = spreadsheetCellFind.max();
 
-                        final long windowsCellCount = windows.count();
-                        final OptionalInt max = spreadsheetCellFind.max();
-
-                        if (false == max.isPresent() || max.getAsInt() < windowsCellCount) {
-                            reload = null;
-                            notRequired = "";
-                        }
+                    if (false == max.isPresent() || max.getAsInt() < windowsCellCount) {
+                        reload = null;
+                        notRequired = "";
                     }
-
                 }
             }
 
@@ -1250,19 +1245,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private Optional<Element> findElement(final SpreadsheetSelection selection,
                                           final AppContext context) {
-        Element element = null;
-
-        final Optional<SpreadsheetSelection> maybeNotLabel = context.spreadsheetViewportCache()
-                .nonLabelSelection(selection);
-
-        if (maybeNotLabel.isPresent()) {
-            element = DomGlobal.document
-                    .getElementById(
-                            SpreadsheetViewportComponent.id(
-                                    selection
-                            )
-                    );
-        }
+        final Element element = DomGlobal.document
+                .getElementById(
+                        SpreadsheetViewportComponent.id(
+                                context.spreadsheetViewportCache()
+                                        .resolveIfLabel(selection)
+                        )
+                );
 
         return Optional.ofNullable(element);
     }

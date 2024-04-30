@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -143,17 +144,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testNonLabelSelectionUnknownLabel() {
+    public void testNonLabelSelectionUnknownLabelFails() {
         final SpreadsheetViewportCache cache = this.appContext()
                 .spreadsheetViewportCache();
 
-        this.nonLabelSelectionAndCheck(
-                HistoryToken.cell(
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> HistoryToken.cell(
                         ID,
                         NAME,
                         LABEL.setDefaultAnchor()
-                ),
-                cache
+                ).nonLabelSelection(cache)
         );
     }
 
@@ -1166,11 +1167,26 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setMenu..........................................................................................................
 
     @Test
-    public void testSetMenuWithNullFails() {
+    public void testSetMenuWithNullSelectionFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> HistoryToken.unknown(UrlFragment.EMPTY)
-                        .setMenu(null)
+                        .setMenu(
+                                null,
+                                SpreadsheetLabelNameResolvers.fake()
+                        )
+        );
+    }
+
+    @Test
+    public void testSetMenuWithNullLabelNameResolverFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> HistoryToken.unknown(UrlFragment.EMPTY)
+                        .setMenu(
+                                Optional.of(SpreadsheetSelection.A1),
+                                null
+                        )
         );
     }
 
@@ -1726,7 +1742,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                                  final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                token.setMenu(selection),
+                token.setMenu(
+                        selection,
+                        SpreadsheetLabelNameResolvers.fake()
+                ),
                 () -> token + " setMenu " + selection
         );
     }

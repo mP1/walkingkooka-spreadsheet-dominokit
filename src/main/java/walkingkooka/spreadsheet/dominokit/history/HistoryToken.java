@@ -43,6 +43,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -1834,14 +1835,21 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     /**
      * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
+     * If the given selection is outside the selection for this {@link HistoryToken}, then replace the selection otherwise
+     * use the original selection in the new menu history token.
      */
-    public final HistoryToken setMenu(final Optional<SpreadsheetSelection> selection) {
+    public final HistoryToken setMenu(final Optional<SpreadsheetSelection> selection,
+                                      final SpreadsheetLabelNameResolver labelNameResolver) {
         Objects.requireNonNull(selection, "selection");
+        Objects.requireNonNull(labelNameResolver, "labelNameResolver");
 
         HistoryToken result = this;
 
         if (selection.isPresent()) {
-            result = this.setMenu0(selection.get());
+            result = this.setMenu0(
+                    selection.get(),
+                    labelNameResolver
+            );
         } else {
             if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                 result = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
@@ -1852,9 +1860,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return result;
     }
 
-    private HistoryToken setMenu0(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
-
+    private HistoryToken setMenu0(final SpreadsheetSelection selection,
+                                  final SpreadsheetLabelNameResolver labelNameResolver) {
         HistoryToken menu = null;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
@@ -1862,10 +1869,9 @@ public abstract class HistoryToken implements HasUrlFragment,
 
             final Optional<AnchoredSpreadsheetSelection> maybeAnchored = this.anchoredSelectionOrEmpty();
             if (maybeAnchored.isPresent()) {
-                final AnchoredSpreadsheetSelection anchored = maybeAnchored.get();
-
                 // right mouse happened over already selected selection...
-                if (anchored.selection().test(selection)) {
+                if (labelNameResolver.resolveIfLabel(maybeAnchored.get().selection())
+                        .test(selection)) {
                     menu = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                             .setMenu1();
                 }
@@ -2291,7 +2297,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         Objects.requireNonNull(viewportCache, "viewportCache");
 
         return this.anchoredSelectionOrEmpty()
-                .flatMap((a) -> viewportCache.nonLabelSelection(a.selection()));
+                .map((a) -> viewportCache.resolveIfLabel(a.selection()));
     }
 
     /**
