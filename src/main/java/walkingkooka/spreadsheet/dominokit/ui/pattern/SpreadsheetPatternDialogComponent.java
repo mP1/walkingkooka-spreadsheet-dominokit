@@ -189,37 +189,30 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
         final SpreadsheetPatternDialogComponentContext context = this.context;
         final SpreadsheetPatternKind patternKind = context.patternKind();
         final SpreadsheetTextBox patternTextBox = this.patternTextBox;
-
         context.debug(this.getClass().getSimpleName() + ".onPatternTextBox " + CharSequences.quoteAndEscape(patternText));
 
         SpreadsheetPattern pattern = null;
         String errorMessage = null;
-        String errorPattern = "";
+        String errorPattern = ""; // the pattern text after the bestParse, so for "@@@\"Hello" pattern will be "@@@" and errorPattern=\"Hello"
 
-        final int patternTextLength = patternText.length();
-        int last = patternTextLength;
+        try {
+            pattern = patternKind.parse(patternText);
+        } catch (final IllegalArgumentException invalid) {
+            errorMessage = invalid.getMessage();
 
-        while (last > 0) {
-            final String tryingPatternText = patternText.substring(0, last);
-            context.debug(this.getClass().getSimpleName() + ".onPatternTextBox trying to parse " + CharSequences.quoteAndEscape(tryingPatternText));
+            errorPattern = patternText.substring(
+                    CharSequences.bestParse(
+                            patternText,
+                            patternKind::parse
+                    )
+            );
 
-            // try parsing...
             try {
-                pattern = patternKind.parse(tryingPatternText);
-                errorPattern = patternText.substring(last);
-                break; // best attempt stop
-
-            } catch (final Exception failed) {
-                if (null == errorMessage) {
-                    errorMessage = failed.getMessage();
-                }
-
-                last--;
-                context.debug(this.getClass().getSimpleName() + ".onPatternTextBox parsing failed " + CharSequences.quoteAndEscape(tryingPatternText), failed);
+                pattern = patternKind.parse(errorPattern);
+            } catch (final IllegalArgumentException bestInvalid) {
+                errorPattern = patternText;
             }
         }
-
-        context.debug(this.getClass().getSimpleName() + ".onPatternTextBox " + CharSequences.quoteAndEscape(patternText) + " errorMessage: " + errorMessage + " pattern: " + pattern);
 
         // clear or update the errors
         patternTextBox.setHelperText(
