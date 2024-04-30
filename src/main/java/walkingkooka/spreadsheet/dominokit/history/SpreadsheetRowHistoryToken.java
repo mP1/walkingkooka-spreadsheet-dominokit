@@ -163,7 +163,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     // sort.............................................................................................................
 
     @Override //
-    final HistoryToken setSortEdit(final String comparators) {
+    final HistoryToken setSortEdit0(final String comparators) {
         return HistoryToken.rowSortEdit(
                 this.id(),
                 this.name(),

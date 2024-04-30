@@ -1841,6 +1841,150 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // setSortEdit......................................................................................................
+
+    @Test
+    public void testSetSortEditNotAnchoredSelection() {
+        final String comparatorNames = "A=text UP";
+
+        final HistoryToken load = HistoryToken.spreadsheetLoad(ID);
+
+        assertSame(
+                load,
+                load.setSortEdit(comparatorNames)
+        );
+    }
+
+    @Test
+    public void testSetSortEditCell() {
+        final String comparatorNames = "A=text UP";
+
+        this.setSortEdit(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.cellSortEdit(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortEditCellRange() {
+        final String comparatorNames = "A=text UP";
+
+        this.setSortEdit(
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.cellSortEdit(
+                        ID,
+                        NAME,
+                        CELL_RANGE.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortEditColumn() {
+        final String comparatorNames = "A=text UP";
+
+        this.setSortEdit(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.columnSortEdit(
+                        ID,
+                        NAME,
+                        COLUMN.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortEditColumnRange() {
+        final String comparatorNames = "A=text UP";
+
+        this.setSortEdit(
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.columnSortEdit(
+                        ID,
+                        NAME,
+                        COLUMN_RANGE.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortEditRow() {
+        final String comparatorNames = "1=text UP";
+
+        this.setSortEdit(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.rowSortEdit(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    @Test
+    public void testSetSortEditRowRange() {
+        final String comparatorNames = "2=text UP";
+
+        this.setSortEdit(
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setDefaultAnchor()
+                ),
+                comparatorNames,
+                HistoryToken.rowSortEdit(
+                        ID,
+                        NAME,
+                        ROW_RANGE.setDefaultAnchor(),
+                        comparatorNames
+                )
+        );
+    }
+
+    private void setSortEdit(final HistoryToken historyToken,
+                             final String comparatorNames,
+                             final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                historyToken.setSortEdit(comparatorNames),
+                () -> historyToken + " setSortEdit " + comparatorNames
+        );
+    }
+
     // setStyle..........................................................................................................
 
     @Test

@@ -81,7 +81,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
 
     // sort.............................................................................................................
 
-    abstract HistoryToken setSortEdit(final String comparators);
+    abstract HistoryToken setSortEdit0(final String comparators);
 
     abstract HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators);
 

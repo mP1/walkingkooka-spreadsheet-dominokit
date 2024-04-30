@@ -2103,6 +2103,18 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * if possible creates a sort edit, otherwise returns this.
+     */
+    public final HistoryToken setSortEdit(final String comparatorNames) {
+        Objects.requireNonNull(comparatorNames, "comparatorNames");
+
+        return this.setIfSpreadsheetAnchoredSelectionHistoryTokenWithValue(
+                SpreadsheetAnchoredSelectionHistoryToken::setSortEdit0,
+                comparatorNames
+        );
+    }
+
+    /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
     public final HistoryToken setStyle(final TextStylePropertyName<?> propertyName) {
@@ -2190,6 +2202,24 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (this instanceof SpreadsheetNameHistoryToken) {
             token = setter.apply(
                     this.cast(SpreadsheetNameHistoryToken.class),
+                    value
+            );
+
+            if (token.equals(this)) {
+                token = this;
+            }
+        }
+
+        return token;
+    }
+
+    private <T> HistoryToken setIfSpreadsheetAnchoredSelectionHistoryTokenWithValue(final BiFunction<SpreadsheetAnchoredSelectionHistoryToken, T, HistoryToken> setter,
+                                                                                    final T value) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            token = setter.apply(
+                    this.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
                     value
             );
 

@@ -119,7 +119,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     // sort.............................................................................................................
 
     @Override //
-    final HistoryToken setSortEdit(final String comparators) {
+    final HistoryToken setSortEdit0(final String comparators) {
         return HistoryToken.cellSortEdit(
                 this.id(),
                 this.name(),
