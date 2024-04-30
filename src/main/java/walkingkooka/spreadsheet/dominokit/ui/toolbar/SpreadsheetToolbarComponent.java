@@ -21,7 +21,9 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -181,12 +183,15 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     @Override
     public void refresh(final AppContext context) {
-        final Optional<SpreadsheetSelection> maybeNonLabelSelection = context.historyToken()
-                .nonLabelSelection(
-                        context.spreadsheetViewportCache()
-                );
-        if (maybeNonLabelSelection.isPresent()) {
-            final SpreadsheetSelection nonLabelSelection = maybeNonLabelSelection.get();
+        final HistoryToken historyToken = context.historyToken();
+        if (historyToken instanceof SpreadsheetCellHistoryToken) {
+
+            final SpreadsheetSelection nonLabelSelection = context.spreadsheetViewportCache()
+                    .resolveIfLabel(
+                            historyToken.cast(SpreadsheetCellHistoryToken.class)
+                                    .anchoredSelection()
+                                    .selection()
+                    );
             if (nonLabelSelection.isCellReference() || nonLabelSelection.isCellRangeReference()) {
                 for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
                     component.refresh(
