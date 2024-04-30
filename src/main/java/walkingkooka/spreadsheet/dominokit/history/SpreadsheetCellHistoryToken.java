@@ -129,7 +129,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     }
 
     @Override //
-    final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
+    final HistoryToken setSortSave0(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         return HistoryToken.cellSortSave(
                 this.id(),
                 this.name(),

@@ -175,7 +175,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
     }
 
     @Override //
-    final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
+    final HistoryToken setSortSave0(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         return HistoryToken.columnSortSave(
                 this.id(),
                 this.name(),
