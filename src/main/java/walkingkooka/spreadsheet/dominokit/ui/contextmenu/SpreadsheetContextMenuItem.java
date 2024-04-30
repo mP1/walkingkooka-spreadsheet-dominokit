@@ -254,7 +254,7 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         }
 
         if (this.checked) {
-            printer.print(" v/");
+            printer.print(" CHECKED");
         }
 
         final Optional<String> badge = this.badge;
