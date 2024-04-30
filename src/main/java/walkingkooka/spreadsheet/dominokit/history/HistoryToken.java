@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -2288,16 +2287,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return Optional.ofNullable(anchoredSelection);
-    }
-
-    /**
-     * Returns any non label {@link SpreadsheetSelection} from this {@link HistoryToken}.
-     */
-    public final Optional<SpreadsheetSelection> nonLabelSelection(final SpreadsheetViewportCache viewportCache) {
-        Objects.requireNonNull(viewportCache, "viewportCache");
-
-        return this.anchoredSelectionOrEmpty()
-                .map((a) -> viewportCache.resolveIfLabel(a.selection()));
     }
 
     /**
