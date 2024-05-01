@@ -32,6 +32,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -44,6 +46,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTesting<SpreadsheetSelectionMenu>,
         TreePrintableTesting {
@@ -55,56 +58,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 SpreadsheetName.with("SpreadsheetName-1"), // name
                 SpreadsheetSelection.A1.setDefaultAnchor()
         );
-        final FakeSpreadsheetSelectionMenuContext context = new FakeSpreadsheetSelectionMenuContext() {
+        final SpreadsheetSelectionMenuContext context = this.context(
+                token,
+                Lists.of(
+                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                ),
+                Lists.of(
+                        SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                )
+        );
 
-            @Override
-            public HistoryToken historyToken() {
-                return token;
-            }
-
-            @Override
-            public String idPrefix() {
-                return "test-";
-            }
-
-            @Override
-            public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
-                return Sets.of(
-                        SpreadsheetSelection.labelName("Label123").mapping(selection.toCell())
-                );
-            }
-
-            @Override
-            public List<HistoryToken> recentFormatPatterns() {
-                return Lists.of(
-                        token.setPattern(
-                                SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                        )
-                );
-            }
-
-            @Override
-            public List<HistoryToken> recentParsePatterns() {
-                return Lists.of(
-                        token.setPattern(
-                                SpreadsheetPattern.parseNumberParsePattern("$0.00")
-                        )
-                );
-            }
-
-            @Override
-            public SpreadsheetSelectionSummary selectionSummary() {
-                return SpreadsheetSelectionSummary.EMPTY;
-            }
-
-            @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadata.EMPTY.set(
-                        SpreadsheetMetadataPropertyName.LOCALE,
-                        Locale.forLanguageTag("EN-AU")
-                ).loadFromLocale();
-            }
-        };
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
                 Menu.create(
                         "Cell-MenuId",
@@ -355,30 +318,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 SpreadsheetName.with("SpreadsheetName-1"), // name
                 SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
         );
-        final FakeSpreadsheetSelectionMenuContext context = new FakeSpreadsheetSelectionMenuContext() {
+        final SpreadsheetSelectionMenuContext context = this.context(token);
 
-            @Override
-            public HistoryToken historyToken() {
-                return token;
-            }
-
-            @Override
-            public String idPrefix() {
-                return "test-";
-            }
-
-            @Override
-            public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
-                return Sets.of(
-                        SpreadsheetSelection.labelName("Label123").mapping(selection.toCell())
-                );
-            }
-
-            @Override
-            public SpreadsheetSelectionSummary selectionSummary() {
-                return SpreadsheetSelectionSummary.EMPTY;
-            }
-        };
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
                 Menu.create(
                         "Column-MenuId",
@@ -424,30 +365,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 SpreadsheetName.with("SpreadsheetName-1"), // name
                 SpreadsheetSelection.parseRow("3").setDefaultAnchor()
         );
-        final FakeSpreadsheetSelectionMenuContext context = new FakeSpreadsheetSelectionMenuContext() {
+        final SpreadsheetSelectionMenuContext context = this.context(token);
 
-            @Override
-            public HistoryToken historyToken() {
-                return token;
-            }
-
-            @Override
-            public String idPrefix() {
-                return "test-";
-            }
-
-            @Override
-            public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
-                return Sets.of(
-                        SpreadsheetSelection.labelName("Label123").mapping(selection.toCell())
-                );
-            }
-
-            @Override
-            public SpreadsheetSelectionSummary selectionSummary() {
-                return SpreadsheetSelectionSummary.EMPTY;
-            }
-        };
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
                 Menu.create(
                         "Row-MenuId",
@@ -484,6 +403,66 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  test-freeze-MenuItem \"Freeze\"\n" +
                         "  test-unfreeze-MenuItem \"Unfreeze\"\n"
         );
+    }
+
+    private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken) {
+        return this.context(
+                historyToken,
+                Lists.empty(), // format patterns
+                Lists.empty() // parse patterns
+        );
+    }
+
+    private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
+                                                    final List<SpreadsheetFormatPattern> formatPatterns,
+                                                    final List<SpreadsheetParsePattern> parsePatterns) {
+        return new FakeSpreadsheetSelectionMenuContext() {
+
+            @Override
+            public HistoryToken historyToken() {
+                return historyToken;
+            }
+
+            @Override
+            public String idPrefix() {
+                return "test-";
+            }
+
+            @Override
+            public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
+                return Sets.of(
+                        SpreadsheetSelection.labelName("Label123")
+                                .mapping(selection.toCell())
+                );
+            }
+
+            @Override
+            public List<HistoryToken> recentFormatPatterns() {
+                return formatPatterns.stream()
+                        .map(historyToken::setPattern)
+                        .collect(Collectors.toList());
+            }
+
+            @Override
+            public List<HistoryToken> recentParsePatterns() {
+                return parsePatterns.stream()
+                        .map(historyToken::setPattern)
+                        .collect(Collectors.toList());
+            }
+
+            @Override
+            public SpreadsheetSelectionSummary selectionSummary() {
+                return SpreadsheetSelectionSummary.EMPTY;
+            }
+
+            @Override
+            public SpreadsheetMetadata spreadsheetMetadata() {
+                return SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.LOCALE,
+                        Locale.forLanguageTag("EN-AU")
+                ).loadFromLocale();
+            }
+        };
     }
 
     // ClassTesting.....................................................................................................
