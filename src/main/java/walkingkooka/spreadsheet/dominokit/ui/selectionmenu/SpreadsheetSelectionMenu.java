@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
@@ -77,8 +78,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                              final SpreadsheetContextMenu menu,
                              final SpreadsheetSelectionMenuContext context) {
         // show context menu
-        final SpreadsheetSelection selection = historyToken.anchoredSelection()
-                .selection();
+        final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
+        final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
         // CUT
         // COPY
@@ -93,6 +94,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // DELETE
         // ------
         // INSERT
+        // -------
+        // SORT COLUMN
+        // SORT ROWS
         // -------
         // FREEZE
         // UNFREEZE
@@ -160,6 +164,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         menu.separator();
         {
             insertRows(historyToken, menu, context);
+        }
+        menu.separator();
+        {
+            sortColumns(historyToken, anchoredSpreadsheetSelection, menu, context);
+            sortRows(historyToken, anchoredSpreadsheetSelection, menu, context);
         }
         menu.separator();
         {
@@ -983,6 +992,62 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             );
         }
     }
+
+    // sort.............................................................................................................
+
+    private static void sortColumns(final HistoryToken historyToken,
+                                    final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection,
+                                    final SpreadsheetContextMenu menu,
+                                    final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+
+        if (selection.isColumnReference() || selection.isColumnRangeReference() || selection.isCellReference() || selection.isCellRangeReference()) {
+
+            final SpreadsheetSelection column = selection.toColumnOrColumnRange();
+
+            if (column.count() > 1) {
+                final String idPrefix = context.idPrefix() + "column-sort-";
+
+                SpreadsheetSelectionMenuSort.build(
+                        historyToken,
+                        column.toColumn(),
+                        idPrefix, // id prefix
+                        SpreadsheetIcons.columnSort(),
+                        SpreadsheetComparatorProviders.builtIn()
+                                .spreadsheetComparatorInfos(), // infos
+                        menu
+                );
+            }
+        }
+    }
+
+    private static void sortRows(final HistoryToken historyToken,
+                                 final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection,
+                                 final SpreadsheetContextMenu menu,
+                                 final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+
+        if (selection.isRowReference() || selection.isRowRangeReference() || selection.isCellReference() || selection.isCellRangeReference()) {
+
+            final SpreadsheetSelection row = selection.toRowOrRowRange();
+
+            if (row.count() > 1) {
+                final String idPrefix = context.idPrefix() + "row-sort-";
+
+                SpreadsheetSelectionMenuSort.build(
+                        historyToken,
+                        row.toRow(),
+                        idPrefix, // id prefix
+                        SpreadsheetIcons.columnSort(),
+                        SpreadsheetComparatorProviders.builtIn()
+                                .spreadsheetComparatorInfos(), // infos
+                        menu
+                );
+            }
+        }
+    }
+
+    // freeze/unfreeze..................................................................................................
 
     private static void freezeUnfreeze(final HistoryToken historyToken,
                                        final SpreadsheetContextMenu menu,
