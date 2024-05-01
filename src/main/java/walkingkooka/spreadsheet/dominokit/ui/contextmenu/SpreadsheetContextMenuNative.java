@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.badges.Badge;
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.menu.MenuItem;
@@ -66,7 +66,7 @@ final class SpreadsheetContextMenuNative {
 
     static Menu<Void> addSubMenu(final String id,
                                  final String text,
-                                 final Optional<MdiIcon> icon,
+                                 final Optional<Icon<?>> icon,
                                  final Optional<String> badge,
                                  final SpreadsheetContextMenu menu) {
         final Menu<Void> subMenu = Menu.create();

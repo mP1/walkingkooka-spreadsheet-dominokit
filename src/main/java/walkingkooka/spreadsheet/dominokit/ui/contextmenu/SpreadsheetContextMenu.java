@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.icons.Icon;
-import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.Menu;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -86,7 +85,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
      */
     public SpreadsheetContextMenu subMenu(final String id,
                                           final String text,
-                                          final MdiIcon icon) {
+                                          final Icon<?> icon) {
         return this.subMenu(
                 id,
                 text,
@@ -114,7 +113,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
      */
     public SpreadsheetContextMenu subMenu(final String id,
                                           final String text,
-                                          final Optional<MdiIcon> icon,
+                                          final Optional<Icon<?>> icon,
                                           final Optional<String> badge) {
         CharSequences.failIfNullOrEmpty(id, "id");
         if (false == id.endsWith(SUB_MENU_ID_SUFFIX)) {
