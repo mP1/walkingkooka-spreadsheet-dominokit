@@ -1376,6 +1376,53 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
+    public void testColumnRange() {
+        final SpreadsheetColumnHistoryToken token = HistoryToken.column(
+                SpreadsheetId.with(1), // id
+                SpreadsheetName.with("SpreadsheetName-1"), // name
+                SpreadsheetSelection.parseColumnRange("B:C").setDefaultAnchor()
+        );
+        final SpreadsheetSelectionMenuContext context = this.context(token);
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+                Menu.create(
+                        "Column-MenuId",
+                        "Column B:C Menu",
+                        Optional.empty(), // no icon
+                        Optional.empty() // no badge
+                ),
+                context
+        );
+
+        SpreadsheetSelectionMenu.build(
+                token,
+                menu,
+                context
+        );
+
+        this.treePrintAndCheck(
+                menu,
+                "Column-MenuId \"Column B:C Menu\"\n" +
+                        "  test-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/column/B:C/right/clear]\n" +
+                        "  (mdi-table-column-remove) test-delete-MenuItem \"Delete\" [/1/SpreadsheetName-1/column/B:C/right/delete]\n" +
+                        "  -----\n" +
+                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "    test-column-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1]\n" +
+                        "    test-column-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/2]\n" +
+                        "    test-column-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/3]\n" +
+                        "    test-column-insert-before-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore]\n" +
+                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "    test-column-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/1]\n" +
+                        "    test-column-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/2]\n" +
+                        "    test-column-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/3]\n" +
+                        "    test-column-insert-after-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter]\n" +
+                        "  -----\n" +
+                        "  test-freeze-MenuItem \"Freeze\"\n" +
+                        "  test-unfreeze-MenuItem \"Unfreeze\"\n"
+        );
+    }
+
+    @Test
     public void testRow() {
         final SpreadsheetRowHistoryToken token = HistoryToken.row(
                 SpreadsheetId.with(1), // id
