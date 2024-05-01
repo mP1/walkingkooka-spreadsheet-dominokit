@@ -41,13 +41,33 @@ final class SpreadsheetSelectionMenuSort {
                       final String idPrefix,
                       final Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos,
                       final SpreadsheetContextMenu menu) {
+        // PREFIX-column-
+        final String subMenuIdPrefix = idPrefix + columnOrRow.textLabel().toLowerCase();
+
+        comparatorsMenuItem(
+                historyToken,
+                columnOrRow,
+                subMenuIdPrefix + '-',
+                spreadsheetComparatorInfos,
+                menu.subMenu(
+                        subMenuIdPrefix + SpreadsheetIds.SUB_MENU,
+                        "Sort " + columnOrRow.textLabel()
+                )
+        );
+    }
+
+    static void comparatorsMenuItem(final HistoryToken historyToken,
+                                    final SpreadsheetColumnOrRowReference columnOrRow,
+                                    final String idPrefix,
+                                    final Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos,
+                                    final SpreadsheetContextMenu menu) {
 
         // for each comparator info build a sub menu.
         for (final SpreadsheetComparatorInfo info : spreadsheetComparatorInfos) {
             final SpreadsheetComparatorName name = info.name();
             final String nameText = name.value();
 
-            final String subMenuId = idPrefix + columnOrRow + "-" + nameText;
+            final String subMenuId = idPrefix + nameText;
 
             final SpreadsheetContextMenu subMenu = menu.subMenu(
                     subMenuId + SpreadsheetIds.SUB_MENU,
@@ -57,10 +77,12 @@ final class SpreadsheetSelectionMenuSort {
                     )
             );
 
+            final String upDownPrefixId = subMenuId + '-';
+
             // comparator-name / UP
             subMenu.item(
                     upOrDownMenuItem(
-                            subMenuId,
+                            upDownPrefixId,
                             columnOrRow,
                             name,
                             SpreadsheetComparatorDirection.UP,
@@ -71,7 +93,7 @@ final class SpreadsheetSelectionMenuSort {
             // comparator-name / DOWN
             subMenu.item(
                     upOrDownMenuItem(
-                            subMenuId,
+                            upDownPrefixId,
                             columnOrRow,
                             name,
                             SpreadsheetComparatorDirection.DOWN,
@@ -102,7 +124,7 @@ final class SpreadsheetSelectionMenuSort {
                         .setColumnOrRow(columnOrRow)
                         .list()
         ).contextMenuItem(
-                idPrefix + "-" + direction + SpreadsheetIds.MENU_ITEM,
+                idPrefix + direction + SpreadsheetIds.MENU_ITEM,
                 CaseKind.SNAKE.change(
                         direction.name(),
                         CaseKind.TITLE

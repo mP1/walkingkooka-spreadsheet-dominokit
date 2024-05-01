@@ -54,54 +54,55 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "sort-", // id-prefix
                 SpreadsheetComparatorProviders.builtIn()
                         .spreadsheetComparatorInfos(),
-                "sort \"SORT\"\n" +
-                        "  sort-A-date-SubMenu \"Date\"\n" +
-                        "    sort-A-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate+UP]\n" +
-                        "    sort-A-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate+DOWN]\n" +
-                        "  sort-A-date-time-SubMenu \"Date Time\"\n" +
-                        "    sort-A-date-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate-time+UP]\n" +
-                        "    sort-A-date-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate-time+DOWN]\n" +
-                        "  sort-A-day-of-month-SubMenu \"Day Of Month\"\n" +
-                        "    sort-A-day-of-month-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dday-of-month+UP]\n" +
-                        "    sort-A-day-of-month-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dday-of-month+DOWN]\n" +
-                        "  sort-A-day-of-week-SubMenu \"Day Of Week\"\n" +
-                        "    sort-A-day-of-week-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dday-of-week+UP]\n" +
-                        "    sort-A-day-of-week-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dday-of-week+DOWN]\n" +
-                        "  sort-A-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
-                        "    sort-A-hour-of-am-pm-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dhour-of-am-pm+UP]\n" +
-                        "    sort-A-hour-of-am-pm-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dhour-of-am-pm+DOWN]\n" +
-                        "  sort-A-hour-of-day-SubMenu \"Hour Of Day\"\n" +
-                        "    sort-A-hour-of-day-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dhour-of-day+UP]\n" +
-                        "    sort-A-hour-of-day-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dhour-of-day+DOWN]\n" +
-                        "  sort-A-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
-                        "    sort-A-minute-of-hour-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dminute-of-hour+UP]\n" +
-                        "    sort-A-minute-of-hour-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dminute-of-hour+DOWN]\n" +
-                        "  sort-A-month-of-year-SubMenu \"Month Of Year\"\n" +
-                        "    sort-A-month-of-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dmonth-of-year+UP]\n" +
-                        "    sort-A-month-of-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dmonth-of-year+DOWN]\n" +
-                        "  sort-A-nano-of-second-SubMenu \"Nano Of Second\"\n" +
-                        "    sort-A-nano-of-second-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dnano-of-second+UP]\n" +
-                        "    sort-A-nano-of-second-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dnano-of-second+DOWN]\n" +
-                        "  sort-A-number-SubMenu \"Number\"\n" +
-                        "    sort-A-number-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dnumber+UP]\n" +
-                        "    sort-A-number-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dnumber+DOWN]\n" +
-                        "  sort-A-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
-                        "    sort-A-seconds-of-minute-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dseconds-of-minute+UP]\n" +
-                        "    sort-A-seconds-of-minute-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dseconds-of-minute+DOWN]\n" +
-                        "  sort-A-text-SubMenu \"Text\"\n" +
-                        "    sort-A-text-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtext+UP]\n" +
-                        "    sort-A-text-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtext+DOWN]\n" +
-                        "  sort-A-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
-                        "    sort-A-text-case-insensitive-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtext-case-insensitive+UP]\n" +
-                        "    sort-A-text-case-insensitive-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtext-case-insensitive+DOWN]\n" +
-                        "  sort-A-time-SubMenu \"Time\"\n" +
-                        "    sort-A-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtime+UP]\n" +
-                        "    sort-A-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtime+DOWN]\n" +
-                        "  sort-A-year-SubMenu \"Year\"\n" +
-                        "    sort-A-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dyear+UP]\n" +
-                        "    sort-A-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dyear+DOWN]\n" +
-                        "  -----\n" +
-                        "  sort-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/A1/sort/edit/A%3D]\n"
+                "sort \"Sort Column\"\n" +
+                        "  sort-column-SubMenu \"Sort Column\"\n" +
+                        "    sort-column-date-SubMenu \"Date\"\n" +
+                        "      sort-column-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate+UP]\n" +
+                        "      sort-column-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate+DOWN]\n" +
+                        "    sort-column-date-time-SubMenu \"Date Time\"\n" +
+                        "      sort-column-date-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate-time+UP]\n" +
+                        "      sort-column-date-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate-time+DOWN]\n" +
+                        "    sort-column-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "      sort-column-day-of-month-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dday-of-month+UP]\n" +
+                        "      sort-column-day-of-month-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dday-of-month+DOWN]\n" +
+                        "    sort-column-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "      sort-column-day-of-week-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dday-of-week+UP]\n" +
+                        "      sort-column-day-of-week-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dday-of-week+DOWN]\n" +
+                        "    sort-column-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "      sort-column-hour-of-am-pm-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dhour-of-am-pm+UP]\n" +
+                        "      sort-column-hour-of-am-pm-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dhour-of-am-pm+DOWN]\n" +
+                        "    sort-column-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "      sort-column-hour-of-day-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dhour-of-day+UP]\n" +
+                        "      sort-column-hour-of-day-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dhour-of-day+DOWN]\n" +
+                        "    sort-column-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "      sort-column-minute-of-hour-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dminute-of-hour+UP]\n" +
+                        "      sort-column-minute-of-hour-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dminute-of-hour+DOWN]\n" +
+                        "    sort-column-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "      sort-column-month-of-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dmonth-of-year+UP]\n" +
+                        "      sort-column-month-of-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dmonth-of-year+DOWN]\n" +
+                        "    sort-column-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "      sort-column-nano-of-second-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dnano-of-second+UP]\n" +
+                        "      sort-column-nano-of-second-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dnano-of-second+DOWN]\n" +
+                        "    sort-column-number-SubMenu \"Number\"\n" +
+                        "      sort-column-number-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dnumber+UP]\n" +
+                        "      sort-column-number-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dnumber+DOWN]\n" +
+                        "    sort-column-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "      sort-column-seconds-of-minute-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dseconds-of-minute+UP]\n" +
+                        "      sort-column-seconds-of-minute-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dseconds-of-minute+DOWN]\n" +
+                        "    sort-column-text-SubMenu \"Text\"\n" +
+                        "      sort-column-text-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtext+UP]\n" +
+                        "      sort-column-text-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtext+DOWN]\n" +
+                        "    sort-column-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "      sort-column-text-case-insensitive-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtext-case-insensitive+UP]\n" +
+                        "      sort-column-text-case-insensitive-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtext-case-insensitive+DOWN]\n" +
+                        "    sort-column-time-SubMenu \"Time\"\n" +
+                        "      sort-column-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtime+UP]\n" +
+                        "      sort-column-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dtime+DOWN]\n" +
+                        "    sort-column-year-SubMenu \"Year\"\n" +
+                        "      sort-column-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dyear+UP]\n" +
+                        "      sort-column-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dyear+DOWN]\n" +
+                        "    -----\n" +
+                        "    sort-column-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/A1/sort/edit/A%3D]\n"
         );
     }
 
@@ -119,54 +120,55 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "sort-", // id-prefix
                 SpreadsheetComparatorProviders.builtIn()
                         .spreadsheetComparatorInfos(),
-                "sort \"SORT\"\n" +
-                        "  sort-12-date-SubMenu \"Date\"\n" +
-                        "    sort-12-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate+UP]\n" +
-                        "    sort-12-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate+DOWN]\n" +
-                        "  sort-12-date-time-SubMenu \"Date Time\"\n" +
-                        "    sort-12-date-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate-time+UP]\n" +
-                        "    sort-12-date-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate-time+DOWN]\n" +
-                        "  sort-12-day-of-month-SubMenu \"Day Of Month\"\n" +
-                        "    sort-12-day-of-month-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dday-of-month+UP]\n" +
-                        "    sort-12-day-of-month-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dday-of-month+DOWN]\n" +
-                        "  sort-12-day-of-week-SubMenu \"Day Of Week\"\n" +
-                        "    sort-12-day-of-week-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dday-of-week+UP]\n" +
-                        "    sort-12-day-of-week-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dday-of-week+DOWN]\n" +
-                        "  sort-12-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
-                        "    sort-12-hour-of-am-pm-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dhour-of-am-pm+UP]\n" +
-                        "    sort-12-hour-of-am-pm-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dhour-of-am-pm+DOWN]\n" +
-                        "  sort-12-hour-of-day-SubMenu \"Hour Of Day\"\n" +
-                        "    sort-12-hour-of-day-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dhour-of-day+UP]\n" +
-                        "    sort-12-hour-of-day-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dhour-of-day+DOWN]\n" +
-                        "  sort-12-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
-                        "    sort-12-minute-of-hour-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dminute-of-hour+UP]\n" +
-                        "    sort-12-minute-of-hour-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dminute-of-hour+DOWN]\n" +
-                        "  sort-12-month-of-year-SubMenu \"Month Of Year\"\n" +
-                        "    sort-12-month-of-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dmonth-of-year+UP]\n" +
-                        "    sort-12-month-of-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dmonth-of-year+DOWN]\n" +
-                        "  sort-12-nano-of-second-SubMenu \"Nano Of Second\"\n" +
-                        "    sort-12-nano-of-second-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dnano-of-second+UP]\n" +
-                        "    sort-12-nano-of-second-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dnano-of-second+DOWN]\n" +
-                        "  sort-12-number-SubMenu \"Number\"\n" +
-                        "    sort-12-number-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dnumber+UP]\n" +
-                        "    sort-12-number-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dnumber+DOWN]\n" +
-                        "  sort-12-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
-                        "    sort-12-seconds-of-minute-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dseconds-of-minute+UP]\n" +
-                        "    sort-12-seconds-of-minute-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dseconds-of-minute+DOWN]\n" +
-                        "  sort-12-text-SubMenu \"Text\"\n" +
-                        "    sort-12-text-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtext+UP]\n" +
-                        "    sort-12-text-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtext+DOWN]\n" +
-                        "  sort-12-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
-                        "    sort-12-text-case-insensitive-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtext-case-insensitive+UP]\n" +
-                        "    sort-12-text-case-insensitive-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtext-case-insensitive+DOWN]\n" +
-                        "  sort-12-time-SubMenu \"Time\"\n" +
-                        "    sort-12-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtime+UP]\n" +
-                        "    sort-12-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtime+DOWN]\n" +
-                        "  sort-12-year-SubMenu \"Year\"\n" +
-                        "    sort-12-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dyear+UP]\n" +
-                        "    sort-12-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dyear+DOWN]\n" +
-                        "  -----\n" +
-                        "  sort-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/A12/sort/edit/12%3D]\n"
+                "sort \"Sort Row\"\n" +
+                        "  sort-row-SubMenu \"Sort Row\"\n" +
+                        "    sort-row-date-SubMenu \"Date\"\n" +
+                        "      sort-row-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate+UP]\n" +
+                        "      sort-row-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate+DOWN]\n" +
+                        "    sort-row-date-time-SubMenu \"Date Time\"\n" +
+                        "      sort-row-date-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate-time+UP]\n" +
+                        "      sort-row-date-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate-time+DOWN]\n" +
+                        "    sort-row-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "      sort-row-day-of-month-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dday-of-month+UP]\n" +
+                        "      sort-row-day-of-month-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dday-of-month+DOWN]\n" +
+                        "    sort-row-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "      sort-row-day-of-week-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dday-of-week+UP]\n" +
+                        "      sort-row-day-of-week-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dday-of-week+DOWN]\n" +
+                        "    sort-row-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "      sort-row-hour-of-am-pm-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dhour-of-am-pm+UP]\n" +
+                        "      sort-row-hour-of-am-pm-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dhour-of-am-pm+DOWN]\n" +
+                        "    sort-row-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "      sort-row-hour-of-day-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dhour-of-day+UP]\n" +
+                        "      sort-row-hour-of-day-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dhour-of-day+DOWN]\n" +
+                        "    sort-row-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "      sort-row-minute-of-hour-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dminute-of-hour+UP]\n" +
+                        "      sort-row-minute-of-hour-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dminute-of-hour+DOWN]\n" +
+                        "    sort-row-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "      sort-row-month-of-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dmonth-of-year+UP]\n" +
+                        "      sort-row-month-of-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dmonth-of-year+DOWN]\n" +
+                        "    sort-row-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "      sort-row-nano-of-second-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dnano-of-second+UP]\n" +
+                        "      sort-row-nano-of-second-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dnano-of-second+DOWN]\n" +
+                        "    sort-row-number-SubMenu \"Number\"\n" +
+                        "      sort-row-number-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dnumber+UP]\n" +
+                        "      sort-row-number-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dnumber+DOWN]\n" +
+                        "    sort-row-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "      sort-row-seconds-of-minute-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dseconds-of-minute+UP]\n" +
+                        "      sort-row-seconds-of-minute-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dseconds-of-minute+DOWN]\n" +
+                        "    sort-row-text-SubMenu \"Text\"\n" +
+                        "      sort-row-text-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtext+UP]\n" +
+                        "      sort-row-text-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtext+DOWN]\n" +
+                        "    sort-row-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "      sort-row-text-case-insensitive-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtext-case-insensitive+UP]\n" +
+                        "      sort-row-text-case-insensitive-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtext-case-insensitive+DOWN]\n" +
+                        "    sort-row-time-SubMenu \"Time\"\n" +
+                        "      sort-row-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtime+UP]\n" +
+                        "      sort-row-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dtime+DOWN]\n" +
+                        "    sort-row-year-SubMenu \"Year\"\n" +
+                        "      sort-row-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dyear+UP]\n" +
+                        "      sort-row-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dyear+DOWN]\n" +
+                        "    -----\n" +
+                        "    sort-row-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/A12/sort/edit/12%3D]\n"
         );
     }
 
@@ -184,54 +186,55 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "sort-", // id-prefix
                 SpreadsheetComparatorProviders.builtIn()
                         .spreadsheetComparatorInfos(),
-                "sort \"SORT\"\n" +
-                        "  sort-B-date-SubMenu \"Date\"\n" +
-                        "    sort-B-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate+UP]\n" +
-                        "    sort-B-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate+DOWN]\n" +
-                        "  sort-B-date-time-SubMenu \"Date Time\"\n" +
-                        "    sort-B-date-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate-time+UP]\n" +
-                        "    sort-B-date-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate-time+DOWN]\n" +
-                        "  sort-B-day-of-month-SubMenu \"Day Of Month\"\n" +
-                        "    sort-B-day-of-month-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dday-of-month+UP]\n" +
-                        "    sort-B-day-of-month-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dday-of-month+DOWN]\n" +
-                        "  sort-B-day-of-week-SubMenu \"Day Of Week\"\n" +
-                        "    sort-B-day-of-week-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dday-of-week+UP]\n" +
-                        "    sort-B-day-of-week-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dday-of-week+DOWN]\n" +
-                        "  sort-B-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
-                        "    sort-B-hour-of-am-pm-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dhour-of-am-pm+UP]\n" +
-                        "    sort-B-hour-of-am-pm-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dhour-of-am-pm+DOWN]\n" +
-                        "  sort-B-hour-of-day-SubMenu \"Hour Of Day\"\n" +
-                        "    sort-B-hour-of-day-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dhour-of-day+UP]\n" +
-                        "    sort-B-hour-of-day-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dhour-of-day+DOWN]\n" +
-                        "  sort-B-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
-                        "    sort-B-minute-of-hour-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dminute-of-hour+UP]\n" +
-                        "    sort-B-minute-of-hour-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dminute-of-hour+DOWN]\n" +
-                        "  sort-B-month-of-year-SubMenu \"Month Of Year\"\n" +
-                        "    sort-B-month-of-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dmonth-of-year+UP]\n" +
-                        "    sort-B-month-of-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dmonth-of-year+DOWN]\n" +
-                        "  sort-B-nano-of-second-SubMenu \"Nano Of Second\"\n" +
-                        "    sort-B-nano-of-second-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dnano-of-second+UP]\n" +
-                        "    sort-B-nano-of-second-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dnano-of-second+DOWN]\n" +
-                        "  sort-B-number-SubMenu \"Number\"\n" +
-                        "    sort-B-number-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dnumber+UP]\n" +
-                        "    sort-B-number-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dnumber+DOWN]\n" +
-                        "  sort-B-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
-                        "    sort-B-seconds-of-minute-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dseconds-of-minute+UP]\n" +
-                        "    sort-B-seconds-of-minute-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dseconds-of-minute+DOWN]\n" +
-                        "  sort-B-text-SubMenu \"Text\"\n" +
-                        "    sort-B-text-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtext+UP]\n" +
-                        "    sort-B-text-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtext+DOWN]\n" +
-                        "  sort-B-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
-                        "    sort-B-text-case-insensitive-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtext-case-insensitive+UP]\n" +
-                        "    sort-B-text-case-insensitive-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtext-case-insensitive+DOWN]\n" +
-                        "  sort-B-time-SubMenu \"Time\"\n" +
-                        "    sort-B-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtime+UP]\n" +
-                        "    sort-B-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtime+DOWN]\n" +
-                        "  sort-B-year-SubMenu \"Year\"\n" +
-                        "    sort-B-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dyear+UP]\n" +
-                        "    sort-B-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dyear+DOWN]\n" +
-                        "  -----\n" +
-                        "  sort-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/B2/sort/edit/B%3D]\n"
+                "sort \"Sort Column\"\n" +
+                        "  sort-column-SubMenu \"Sort Column\"\n" +
+                        "    sort-column-date-SubMenu \"Date\"\n" +
+                        "      sort-column-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate+UP]\n" +
+                        "      sort-column-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate+DOWN]\n" +
+                        "    sort-column-date-time-SubMenu \"Date Time\"\n" +
+                        "      sort-column-date-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate-time+UP]\n" +
+                        "      sort-column-date-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate-time+DOWN]\n" +
+                        "    sort-column-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "      sort-column-day-of-month-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dday-of-month+UP]\n" +
+                        "      sort-column-day-of-month-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dday-of-month+DOWN]\n" +
+                        "    sort-column-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "      sort-column-day-of-week-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dday-of-week+UP]\n" +
+                        "      sort-column-day-of-week-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dday-of-week+DOWN]\n" +
+                        "    sort-column-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "      sort-column-hour-of-am-pm-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dhour-of-am-pm+UP]\n" +
+                        "      sort-column-hour-of-am-pm-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dhour-of-am-pm+DOWN]\n" +
+                        "    sort-column-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "      sort-column-hour-of-day-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dhour-of-day+UP]\n" +
+                        "      sort-column-hour-of-day-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dhour-of-day+DOWN]\n" +
+                        "    sort-column-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "      sort-column-minute-of-hour-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dminute-of-hour+UP]\n" +
+                        "      sort-column-minute-of-hour-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dminute-of-hour+DOWN]\n" +
+                        "    sort-column-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "      sort-column-month-of-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dmonth-of-year+UP]\n" +
+                        "      sort-column-month-of-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dmonth-of-year+DOWN]\n" +
+                        "    sort-column-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "      sort-column-nano-of-second-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dnano-of-second+UP]\n" +
+                        "      sort-column-nano-of-second-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dnano-of-second+DOWN]\n" +
+                        "    sort-column-number-SubMenu \"Number\"\n" +
+                        "      sort-column-number-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dnumber+UP]\n" +
+                        "      sort-column-number-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dnumber+DOWN]\n" +
+                        "    sort-column-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "      sort-column-seconds-of-minute-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dseconds-of-minute+UP]\n" +
+                        "      sort-column-seconds-of-minute-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dseconds-of-minute+DOWN]\n" +
+                        "    sort-column-text-SubMenu \"Text\"\n" +
+                        "      sort-column-text-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtext+UP]\n" +
+                        "      sort-column-text-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtext+DOWN]\n" +
+                        "    sort-column-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "      sort-column-text-case-insensitive-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtext-case-insensitive+UP]\n" +
+                        "      sort-column-text-case-insensitive-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtext-case-insensitive+DOWN]\n" +
+                        "    sort-column-time-SubMenu \"Time\"\n" +
+                        "      sort-column-time-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtime+UP]\n" +
+                        "      sort-column-time-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dtime+DOWN]\n" +
+                        "    sort-column-year-SubMenu \"Year\"\n" +
+                        "      sort-column-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dyear+UP]\n" +
+                        "      sort-column-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dyear+DOWN]\n" +
+                        "    -----\n" +
+                        "    sort-column-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/B2/sort/edit/B%3D]\n"
         );
     }
 
@@ -243,7 +246,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
                 Menu.create(
                         "sort",
-                        "SORT",
+                        "Sort " + columnOrRow.textLabel(),
                         Optional.empty(), // no icon
                         Optional.empty() // no badge
                 ),
