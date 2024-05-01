@@ -90,6 +90,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // -----
         // CLEAR
         // DELETE
+        // ------
+        // INSERT
         // -------
         // FREEZE
         // UNFREEZE
@@ -140,22 +142,34 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     menu,
                     context
             );
-            menu.separator();
         }
         menu.separator();
 
-        clearDelete(
-                historyToken,
-                menu,
-                context
-        );
-        insertColumns(historyToken, selection, menu, context);
-        insertRows(historyToken, selection, menu, context);
-        freezeUnfreeze(historyToken, menu, context);
+        {
+            clearDelete(
+                    historyToken,
+                    menu,
+                    context
+            );
+        }
+        menu.separator();
+        {
+            insertColumns(historyToken, selection, menu, context);
+        }
+        menu.separator();
+        {
+            insertRows(historyToken, selection, menu, context);
+        }
+        menu.separator();
+        {
+            freezeUnfreeze(historyToken, menu, context);
+        }
+        menu.separator();
 
-        if (selection.isCellReference() || selection.isCellRangeReference()) {
-            menu.separator();
-            label(historyToken, selection, menu, context);
+        {
+            if (selection.isCellReference() || selection.isCellRangeReference()) {
+                label(historyToken, selection, menu, context);
+            }
         }
     }
 
@@ -418,8 +432,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void clearDelete(final HistoryToken historyToken,
                                     final SpreadsheetContextMenu menu,
                                     final SpreadsheetSelectionMenuContext context) {
-        menu.separator();
-
         final SpreadsheetSelection selection = historyToken.anchoredSelectionOrEmpty()
                 .orElseThrow(
                         () -> new IllegalStateException("History token missing selection " + historyToken)
@@ -458,7 +470,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                         ).get()
                                 )
                         )
-        ).separator();
+        );
     }
 
     private static void fontWeight(final SpreadsheetContextMenu menu,
@@ -890,8 +902,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                       final SpreadsheetContextMenu menu,
                                       final SpreadsheetSelectionMenuContext context) {
         if (selection.isColumnReference() | selection.isColumnRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
-            menu.separator();
-
             final HistoryToken columnHistoryToken = historyToken.setColumn(
                     selection.toColumnOrColumnRange()
             );
@@ -919,7 +929,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     afterIdPrefix,
                     columnHistoryToken::setInsertAfter
             );
-            menu.separator();
         }
     }
 
@@ -928,8 +937,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
         if (selection.isRowReference() | selection.isRowRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
-            menu.separator();
-
             final HistoryToken rowHistoryToken = historyToken.setRow(
                     selection.toRowOrRowRange()
             );
@@ -957,16 +964,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     afterIdPrefix,
                     rowHistoryToken::setInsertAfter
             );
-
-            menu.separator();
         }
     }
 
     private static void freezeUnfreeze(final HistoryToken historyToken,
                                        final SpreadsheetContextMenu menu,
                                        final SpreadsheetSelectionMenuContext context) {
-        menu.separator();
-
         menu.item(
                 SpreadsheetContextMenuItem.with(
                         context.idPrefix() + "freeze" + SpreadsheetIds.MENU_ITEM,
@@ -982,16 +985,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                         historyToken.unfreezeOrEmpty()
                 )
         );
-
-        menu.separator();
     }
 
     private static void label(final HistoryToken historyToken,
                               final SpreadsheetSelection selection,
                               final SpreadsheetContextMenu menu,
                               final SpreadsheetSelectionMenuContext context) {
-        menu.separator();
-
         final Set<SpreadsheetLabelMapping> labelMappings = context.labelMappings(selection);
 
         SpreadsheetContextMenu sub = menu.subMenu(
@@ -1027,8 +1026,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                 "Create..."
                         )
         );
-
-        menu.separator();
     }
 
     private static void insertSubMenu(final SpreadsheetContextMenu menu,
