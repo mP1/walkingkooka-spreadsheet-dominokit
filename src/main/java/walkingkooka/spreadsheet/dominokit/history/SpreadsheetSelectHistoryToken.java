@@ -145,7 +145,11 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                     }
                     if (possible.kebabText().equals(possibleAnchor)) {
                         try {
-                            result = result.setAnchor(possible);
+                            result = result.setAnchoredSelection(
+                                    Optional.of(
+                                            selection.setAnchor(possible)
+                                    )
+                            );
                             restoreCursor = false;
                         } catch (final IllegalArgumentException ignore) {
                             // nop
