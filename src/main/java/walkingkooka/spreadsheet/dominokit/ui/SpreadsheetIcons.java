@@ -145,6 +145,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.table_column_remove();
     }
 
+    public static MdiIcon columnSort() {
+        return Icons.sort();
+    }
+
     public static MdiIcon columnWidth() {
         return Icons.table_column_width();
     }
@@ -219,6 +223,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
 
     public static MdiIcon rowInsertBefore() {
         return Icons.table_row_plus_before();
+    }
+
+    public static MdiIcon rowSort() {
+        return Icons.sort();
     }
 
     public static MdiIcon rowRemove() {
