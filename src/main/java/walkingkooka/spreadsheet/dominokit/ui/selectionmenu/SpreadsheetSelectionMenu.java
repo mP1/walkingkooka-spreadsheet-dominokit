@@ -902,8 +902,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                       final SpreadsheetContextMenu menu,
                                       final SpreadsheetSelectionMenuContext context) {
         if (selection.isColumnReference() | selection.isColumnRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
-            final HistoryToken columnHistoryToken = historyToken.setColumn(
-                    selection.toColumnOrColumnRange()
+            final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(
+                    Optional.of(
+                            selection.toColumnOrColumnRange()
+                                    .setDefaultAnchor()
+                    )
             );
 
             final String beforeIdPrefix = context.idPrefix() + "column-insert-before";
@@ -937,8 +940,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
         if (selection.isRowReference() | selection.isRowRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
-            final HistoryToken rowHistoryToken = historyToken.setRow(
-                    selection.toRowOrRowRange()
+            final HistoryToken rowHistoryToken = historyToken.setAnchoredSelection(
+                    Optional.of(
+                            selection.toRowOrRowRange()
+                                    .setDefaultAnchor()
+                    )
             );
 
             final String beforeIdPrefix = context.idPrefix() + "row-insert-before";

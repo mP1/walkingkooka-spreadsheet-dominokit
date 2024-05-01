@@ -1355,26 +1355,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Sets or replaces the current {@link SpreadsheetSelection} otherwise returns this.
-     */
-    public final HistoryToken setCell(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            token = cell(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name(),
-                    selection.setDefaultAnchor()
-            );
-        }
-
-        return token;
-    }
-
-
-    /**
      * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
      */
     public final HistoryToken setCellCopy(final SpreadsheetCellClipboardKind kind) {
@@ -1472,25 +1452,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         return this.setIfSpreadsheetNameHistoryToken(
                 SpreadsheetNameHistoryToken::setClear0
         );
-    }
-
-    /**
-     * Sets or replaces the current {@link SpreadsheetSelection} otherwise returns this.
-     */
-    public final HistoryToken setColumn(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            token = column(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name(),
-                    selection.setDefaultAnchor()
-            );
-        }
-
-        return token;
     }
 
     public final OptionalInt count() {
@@ -2028,25 +1989,6 @@ public abstract class HistoryToken implements HasUrlFragment,
             token = spreadsheetRenameSelect(
                     spreadsheetNameHistoryToken.id(),
                     spreadsheetNameHistoryToken.name()
-            );
-        }
-
-        return token;
-    }
-
-    /**
-     * Sets or replaces the current {@link SpreadsheetSelection} otherwise returns this.
-     */
-    public final HistoryToken setRow(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            token = row(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name(),
-                    selection.setDefaultAnchor()
             );
         }
 

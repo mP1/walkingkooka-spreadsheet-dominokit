@@ -119,40 +119,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setCell..........................................................................................................
-
-    @Test
-    public void testSetCellWithNotSpreadsheetNameHistoryTokenSubclass() {
-        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
-
-        assertSame(
-                historyToken.setCell(CELL),
-                historyToken
-        );
-    }
-
-    @Test
-    public void testSetCellWithColumnFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> HistoryToken.spreadsheetSelect(ID, NAME).setCell(COLUMN)
-        );
-    }
-
-    @Test
-    public void testSetCell() {
-        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
-
-        this.checkEquals(
-                historyToken.setCell(CELL),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
     // setCount.........................................................................................................
 
     @Test
@@ -563,40 +529,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         selection
-                )
-        );
-    }
-
-    // setColumn........................................................................................................
-
-    @Test
-    public void testSetColumnWithNotSpreadsheetNameHistoryTokenSubclass() {
-        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
-
-        assertSame(
-                historyToken.setColumn(COLUMN),
-                historyToken
-        );
-    }
-
-    @Test
-    public void testSetColumnWithCellFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> HistoryToken.spreadsheetSelect(ID, NAME).setColumn(CELL)
-        );
-    }
-
-    @Test
-    public void testSetColumn() {
-        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
-
-        this.checkEquals(
-                historyToken.setColumn(COLUMN),
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
                 )
         );
     }
