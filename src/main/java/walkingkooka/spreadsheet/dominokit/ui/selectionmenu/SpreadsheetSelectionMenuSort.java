@@ -115,7 +115,7 @@ final class SpreadsheetSelectionMenuSort {
                                                            final HistoryToken historyToken) {
         return historyToken.setSortEdit(columnOrRow + "=")
                 .contextMenuItem(
-                        idPrefix + "-edit" + SpreadsheetIds.MENU_ITEM,
+                        idPrefix + "edit" + SpreadsheetIds.MENU_ITEM,
                         "Edit"
                 );
     }

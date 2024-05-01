@@ -101,7 +101,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                         "    sort-A-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dyear+UP]\n" +
                         "    sort-A-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Dyear+DOWN]\n" +
                         "  -----\n" +
-                        "  sort--edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/A1/sort/edit/A%3D]\n"
+                        "  sort-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/A1/sort/edit/A%3D]\n"
         );
     }
 
@@ -166,7 +166,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                         "    sort-12-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dyear+UP]\n" +
                         "    sort-12-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Dyear+DOWN]\n" +
                         "  -----\n" +
-                        "  sort--edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/A12/sort/edit/12%3D]\n"
+                        "  sort-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/A12/sort/edit/12%3D]\n"
         );
     }
 
@@ -231,7 +231,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                         "    sort-B-year-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dyear+UP]\n" +
                         "    sort-B-year-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Dyear+DOWN]\n" +
                         "  -----\n" +
-                        "  sort--edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/B2/sort/edit/B%3D]\n"
+                        "  sort-edit-MenuItem \"Edit\" [/1/SpreadsheetName-1/cell/B2/sort/edit/B%3D]\n"
         );
     }
 
