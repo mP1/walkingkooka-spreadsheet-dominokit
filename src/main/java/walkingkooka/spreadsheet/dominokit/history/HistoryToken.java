@@ -45,7 +45,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
 import walkingkooka.text.cursor.TextCursor;
@@ -1327,32 +1326,6 @@ public abstract class HistoryToken implements HasUrlFragment,
      * cell -> cell
      */
     public abstract HistoryToken clearAction();
-
-    /**
-     * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
-     */
-    public final HistoryToken setAnchor(final SpreadsheetViewportAnchor anchor) {
-        Objects.requireNonNull(anchor, "anchor");
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-
-            try {
-                token = HistoryToken.selection(
-                        spreadsheetAnchoredSelectionHistoryToken.id(),
-                        spreadsheetAnchoredSelectionHistoryToken.name(),
-                        spreadsheetAnchoredSelectionHistoryToken.anchoredSelection()
-                                .selection()
-                                .setAnchor(anchor)
-                );
-            } catch (final IllegalArgumentException ignore) {
-                // nop
-            }
-        }
-
-        return token;
-    }
 
     /**
      * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.

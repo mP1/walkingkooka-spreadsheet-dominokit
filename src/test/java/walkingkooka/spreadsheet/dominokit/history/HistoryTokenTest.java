@@ -91,34 +91,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     private final static SpreadsheetRowRangeReference ROW_RANGE = SpreadsheetSelection.parseRowRange("22:33");
 
-    // setAnchor........................................................................................................
-
-    @Test
-    public void testSetAnchorNotSpreadsheetViewportHistoryTokenSubclass() {
-        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
-
-        assertSame(
-                historyToken.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                historyToken
-        );
-    }
-
-    @Test
-    public void testSetAnchor() {
-        this.checkEquals(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT)
-                ).setAnchor(SpreadsheetViewportAnchor.RIGHT),
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
-                )
-        );
-    }
-
     // setCount.........................................................................................................
 
     @Test

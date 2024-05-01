@@ -158,7 +158,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseColumnRange() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/row/1:3/bottom-right/sort/edit/" + COMPARATOR_NAMES_LIST_STRING2,
+                "/123/SpreadsheetName456/row/1:3/bottom/sort/edit/" + COMPARATOR_NAMES_LIST_STRING2,
                 SpreadsheetRowSortEditHistoryToken.with(
                         ID,
                         NAME,
