@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
@@ -28,6 +29,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
@@ -52,10 +54,11 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 token,
                 SpreadsheetSelection.parseColumn("A"),
                 "sort-", // id-prefix
+                SpreadsheetIcons.columnSort(),
                 SpreadsheetComparatorProviders.builtIn()
                         .spreadsheetComparatorInfos(),
                 "sort \"Sort Column\"\n" +
-                        "  sort-column-SubMenu \"Sort Column\"\n" +
+                        "  (mdi-sort) sort-column-SubMenu \"Sort Column\"\n" +
                         "    sort-column-date-SubMenu \"Date\"\n" +
                         "      sort-column-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate+UP]\n" +
                         "      sort-column-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A%3Ddate+DOWN]\n" +
@@ -118,10 +121,11 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 token,
                 SpreadsheetSelection.parseRow("12"),
                 "sort-", // id-prefix
+                SpreadsheetIcons.rowSort(),
                 SpreadsheetComparatorProviders.builtIn()
                         .spreadsheetComparatorInfos(),
                 "sort \"Sort Row\"\n" +
-                        "  sort-row-SubMenu \"Sort Row\"\n" +
+                        "  (mdi-sort) sort-row-SubMenu \"Sort Row\"\n" +
                         "    sort-row-date-SubMenu \"Date\"\n" +
                         "      sort-row-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate+UP]\n" +
                         "      sort-row-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12%3Ddate+DOWN]\n" +
@@ -184,10 +188,11 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 token,
                 SpreadsheetSelection.parseColumn("B"),
                 "sort-", // id-prefix
+                SpreadsheetIcons.columnSort(),
                 SpreadsheetComparatorProviders.builtIn()
                         .spreadsheetComparatorInfos(),
                 "sort \"Sort Column\"\n" +
-                        "  sort-column-SubMenu \"Sort Column\"\n" +
+                        "  (mdi-sort) sort-column-SubMenu \"Sort Column\"\n" +
                         "    sort-column-date-SubMenu \"Date\"\n" +
                         "      sort-column-date-UP-MenuItem \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate+UP]\n" +
                         "      sort-column-date-DOWN-MenuItem \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B%3Ddate+DOWN]\n" +
@@ -241,6 +246,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
     private void buildAndCheck(final HistoryToken historyToken,
                                final SpreadsheetColumnOrRowReference columnOrRow,
                                final String idPrefix,
+                               final Icon<?> icon,
                                final Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos,
                                final String expected) {
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
@@ -257,6 +263,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 historyToken,
                 columnOrRow,
                 idPrefix,
+                icon,
                 spreadsheetComparatorInfos,
                 menu
         );

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
@@ -39,6 +40,7 @@ final class SpreadsheetSelectionMenuSort {
     static void build(final HistoryToken historyToken,
                       final SpreadsheetColumnOrRowReference columnOrRow,
                       final String idPrefix,
+                      final Icon<?> icon,
                       final Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos,
                       final SpreadsheetContextMenu menu) {
         // PREFIX-column-
@@ -51,7 +53,8 @@ final class SpreadsheetSelectionMenuSort {
                 spreadsheetComparatorInfos,
                 menu.subMenu(
                         subMenuIdPrefix + SpreadsheetIds.SUB_MENU,
-                        "Sort " + columnOrRow.textLabel()
+                        "Sort " + columnOrRow.textLabel(),
+                        icon
                 )
         );
     }
