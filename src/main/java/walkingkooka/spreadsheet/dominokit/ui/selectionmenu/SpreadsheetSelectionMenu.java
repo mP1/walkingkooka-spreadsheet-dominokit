@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
-import org.dominokit.domino.ui.icons.MdiIcon;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
@@ -463,7 +463,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                 "Delete"
                         ).icon(
                                 Optional.of(
-                                        selection.<Supplier<MdiIcon>>pick(
+                                        selection.<Supplier<Icon<?>>>pick(
                                                 SpreadsheetIcons::cellDelete,
                                                 SpreadsheetIcons::columnRemove,
                                                 SpreadsheetIcons::rowRemove
@@ -639,7 +639,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         final String borderIdPrefix = context.idPrefix() + "border-";
 
-        for (final Entry<BoxEdge, MdiIcon> boxEdgeAndIcon : BORDER_BOX_EDGE_AND_ICONS.entrySet()) {
+        for (final Entry<BoxEdge, Icon<?>> boxEdgeAndIcon : BORDER_BOX_EDGE_AND_ICONS.entrySet()) {
             final BoxEdge boxEdge = boxEdgeAndIcon.getKey();
 
             final String enumName = boxEdge.name();
@@ -661,7 +661,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         }
     }
 
-    private final static Map<BoxEdge, MdiIcon> BORDER_BOX_EDGE_AND_ICONS = Maps.of(
+    private final static Map<BoxEdge, Icon<?>> BORDER_BOX_EDGE_AND_ICONS = Maps.of(
             BoxEdge.TOP,
             SpreadsheetIcons.borderTop(),
             BoxEdge.LEFT,
