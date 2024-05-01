@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker.SpreadsheetMeta
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -154,11 +155,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         }
         menu.separator();
         {
-            insertColumns(historyToken, selection, menu, context);
+            insertColumns(historyToken, menu, context);
         }
         menu.separator();
         {
-            insertRows(historyToken, selection, menu, context);
+            insertRows(historyToken, menu, context);
         }
         menu.separator();
         {
@@ -897,15 +898,20 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         );
     }
 
-    private static void insertColumns(final HistoryToken historyToken,
-                                      final SpreadsheetSelection selection,
+    private static void insertColumns(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                       final SpreadsheetContextMenu menu,
                                       final SpreadsheetSelectionMenuContext context) {
+        final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
+        final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+
         if (selection.isColumnReference() | selection.isColumnRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
             final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(
                     Optional.of(
                             selection.toColumnOrColumnRange()
-                                    .setDefaultAnchor()
+                                    .setAnchor(
+                                            anchoredSpreadsheetSelection.anchor()
+                                                    .toColumnOrColumnRangeAnchor()
+                                    )
                     )
             );
 
@@ -935,15 +941,20 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         }
     }
 
-    private static void insertRows(final HistoryToken historyToken,
-                                   final SpreadsheetSelection selection,
+    private static void insertRows(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
+        final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
+        final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+
         if (selection.isRowReference() | selection.isRowRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
             final HistoryToken rowHistoryToken = historyToken.setAnchoredSelection(
                     Optional.of(
                             selection.toRowOrRowRange()
-                                    .setDefaultAnchor()
+                                    .setAnchor(
+                                            anchoredSpreadsheetSelection.anchor()
+                                                    .toRowOrRowRangeAnchor()
+                                    )
                     )
             );
 

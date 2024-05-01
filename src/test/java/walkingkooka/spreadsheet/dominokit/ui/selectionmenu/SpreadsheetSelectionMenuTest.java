@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.lang.reflect.Method;
@@ -1470,11 +1471,58 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
-    public void testRowRange() {
+    public void testRowRangeAnchorTop() {
         final SpreadsheetRowHistoryToken token = HistoryToken.row(
                 SpreadsheetId.with(1), // id
                 SpreadsheetName.with("SpreadsheetName-1"), // name
-                SpreadsheetSelection.parseRowRange("3:4").setDefaultAnchor()
+                SpreadsheetSelection.parseRowRange("3:4").setAnchor(SpreadsheetViewportAnchor.TOP)
+        );
+        final SpreadsheetSelectionMenuContext context = this.context(token);
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+                Menu.create(
+                        "Row-MenuId",
+                        "Row 3:4 Menu",
+                        Optional.empty(), // no icon
+                        Optional.empty() // no badge
+                ),
+                context
+        );
+
+        SpreadsheetSelectionMenu.build(
+                token,
+                menu,
+                context
+        );
+
+        this.treePrintAndCheck(
+                menu,
+                "Row-MenuId \"Row 3:4 Menu\"\n" +
+                        "  test-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/row/3:4/top/clear]\n" +
+                        "  (mdi-table-row-remove) test-delete-MenuItem \"Delete\" [/1/SpreadsheetName-1/row/3:4/top/delete]\n" +
+                        "  -----\n" +
+                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "    test-row-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/1]\n" +
+                        "    test-row-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/2]\n" +
+                        "    test-row-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/3]\n" +
+                        "    test-row-insert-before-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore]\n" +
+                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "    test-row-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/1]\n" +
+                        "    test-row-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/2]\n" +
+                        "    test-row-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/3]\n" +
+                        "    test-row-insert-after-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter]\n" +
+                        "  -----\n" +
+                        "  test-freeze-MenuItem \"Freeze\"\n" +
+                        "  test-unfreeze-MenuItem \"Unfreeze\"\n"
+        );
+    }
+
+    @Test
+    public void testRowRangeAnchorBottom() {
+        final SpreadsheetRowHistoryToken token = HistoryToken.row(
+                SpreadsheetId.with(1), // id
+                SpreadsheetName.with("SpreadsheetName-1"), // name
+                SpreadsheetSelection.parseRowRange("3:4").setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
         final SpreadsheetSelectionMenuContext context = this.context(token);
 
