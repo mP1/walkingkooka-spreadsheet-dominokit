@@ -1355,7 +1355,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
+     * Sets or replaces the current {@link SpreadsheetSelection} otherwise returns this.
      */
     public final HistoryToken setCell(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
@@ -1475,7 +1475,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
+     * Sets or replaces the current {@link SpreadsheetSelection} otherwise returns this.
      */
     public final HistoryToken setColumn(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
@@ -2035,7 +2035,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Sets or replaces the current {@link SpreadsheetViewportAnchor} otherwise returns this.
+     * Sets or replaces the current {@link SpreadsheetSelection} otherwise returns this.
      */
     public final HistoryToken setRow(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
