@@ -1469,6 +1469,53 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         );
     }
 
+    @Test
+    public void testRowRange() {
+        final SpreadsheetRowHistoryToken token = HistoryToken.row(
+                SpreadsheetId.with(1), // id
+                SpreadsheetName.with("SpreadsheetName-1"), // name
+                SpreadsheetSelection.parseRowRange("3:4").setDefaultAnchor()
+        );
+        final SpreadsheetSelectionMenuContext context = this.context(token);
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+                Menu.create(
+                        "Row-MenuId",
+                        "Row 3:4 Menu",
+                        Optional.empty(), // no icon
+                        Optional.empty() // no badge
+                ),
+                context
+        );
+
+        SpreadsheetSelectionMenu.build(
+                token,
+                menu,
+                context
+        );
+
+        this.treePrintAndCheck(
+                menu,
+                "Row-MenuId \"Row 3:4 Menu\"\n" +
+                        "  test-clear-MenuItem \"Clear\" [/1/SpreadsheetName-1/row/3:4/bottom/clear]\n" +
+                        "  (mdi-table-row-remove) test-delete-MenuItem \"Delete\" [/1/SpreadsheetName-1/row/3:4/bottom/delete]\n" +
+                        "  -----\n" +
+                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "    test-row-insert-before-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/1]\n" +
+                        "    test-row-insert-before-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/2]\n" +
+                        "    test-row-insert-before-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/3]\n" +
+                        "    test-row-insert-before-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore]\n" +
+                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "    test-row-insert-after-1-MenuItem \"1\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/1]\n" +
+                        "    test-row-insert-after-2-MenuItem \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/2]\n" +
+                        "    test-row-insert-after-3-MenuItem \"3\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/3]\n" +
+                        "    test-row-insert-after-prompt-MenuItem \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter]\n" +
+                        "  -----\n" +
+                        "  test-freeze-MenuItem \"Freeze\"\n" +
+                        "  test-unfreeze-MenuItem \"Unfreeze\"\n"
+        );
+    }
+
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken) {
         return this.context(
                 historyToken,
