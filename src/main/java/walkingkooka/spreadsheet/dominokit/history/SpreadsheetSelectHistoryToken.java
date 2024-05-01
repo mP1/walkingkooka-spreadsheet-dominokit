@@ -64,14 +64,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
         switch(component) {
             case "cell":
-                result = this.parseCell(
-                        cursor
-                );
+                result = this.parseCell(cursor);
                 break;
             case "column":
-                result = this.parseColumn(
-                        cursor
-                );
+                result = this.parseColumn(cursor);
                 break;
             case "delete":
                 result = this.parseDelete(cursor);
@@ -89,9 +85,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                 result = this.parseRename(cursor);
                 break;
             case "row":
-                result = this.parseRow(
-                        cursor
-                );
+                result = this.parseRow(cursor);
                 break;
             default:
                 cursor.end();
@@ -104,36 +98,38 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     private HistoryToken parseCell(final TextCursor cursor) {
         return parseCellColumnOrRow(
                 cursor,
-                SpreadsheetSelection::parseExpressionReference,
-                this::setCell
+                SpreadsheetSelection::parseExpressionReference
         );
     }
 
     private HistoryToken parseColumn(final TextCursor cursor) {
         return parseCellColumnOrRow(
                 cursor,
-                SpreadsheetSelection::parseColumnOrColumnRange,
-                this::setColumn
+                SpreadsheetSelection::parseColumnOrColumnRange
         );
     }
 
     private HistoryToken parseRow(final TextCursor cursor) {
         return parseCellColumnOrRow(
                 cursor,
-                SpreadsheetSelection::parseRowOrRowRange,
-                this::setRow
+                SpreadsheetSelection::parseRowOrRowRange
         );
     }
 
     private HistoryToken parseCellColumnOrRow(final TextCursor cursor,
-                                              final Function<String, SpreadsheetSelection> parser,
-                                              final Function<SpreadsheetSelection, HistoryToken> historyTokenFactory) {
+                                              final Function<String, SpreadsheetSelection> parser) {
         HistoryToken result = this;
 
         final Optional<String> maybeSelection = parseComponent(cursor);
         if (maybeSelection.isPresent()) {
-            result = historyTokenFactory.apply(
-                    parser.apply(maybeSelection.get())
+            final SpreadsheetSelection selection = parser.apply(
+                    maybeSelection.get()
+            );
+
+            result = this.setAnchoredSelection(
+                    Optional.of(
+                            selection.setDefaultAnchor()
+                    )
             );
 
             final TextCursorSavePoint beforeAnchor = cursor.save();

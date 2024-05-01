@@ -203,7 +203,12 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .setHistoryToken(
                         Optional.of(
                                 historyToken.clearSelection()
-                                        .setCell(cell.reference())
+                                        .setAnchoredSelection(
+                                                Optional.of(
+                                                        cell.reference()
+                                                                .setDefaultAnchor()
+                                                )
+                                        )
                         )
                 ).element();
     }
@@ -217,8 +222,12 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .setHistoryToken(
                         Optional.of(
                                 historyToken.clearSelection()
-                                        .setCell(cell.reference())
-                                        .setFormula()
+                                        .setAnchoredSelection(
+                                                Optional.of(
+                                                        cell.reference()
+                                                                .setDefaultAnchor()
+                                                )
+                                        ).setFormula()
                         )
                 ).element();
     }
