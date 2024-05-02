@@ -275,12 +275,29 @@ public final class HistoryTokenAnchorComponent implements IsElement<Element>,
     @Override
     public void printTree(final IndentingPrinter printer) {
         printer.print(this.toString());
+
+        // print any attached context menu
+        final SpreadsheetContextMenu menu = this.menu;
+        if (null != menu) {
+            printer.indent();
+            {
+                menu.printTree(printer);
+            }
+            printer.outdent();
+        }
     }
 
     // SpreadsheetContextMenuTarget.....................................................................................
 
+    /**
+     * Potentially some anchors could have a context menu attached to them.
+     */
     @Override
     public void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu) {
         Objects.requireNonNull(menu, "menu");
+
+        this.menu = menu;
     }
+
+    private SpreadsheetContextMenu menu;
 }
