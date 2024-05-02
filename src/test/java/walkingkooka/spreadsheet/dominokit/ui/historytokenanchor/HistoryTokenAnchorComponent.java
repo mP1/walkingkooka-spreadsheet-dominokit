@@ -27,6 +27,8 @@ import walkingkooka.ToStringBuilderOption;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuTarget;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -41,6 +43,7 @@ import java.util.Optional;
  * The goal of this class is to allow JVM unit-testing of more complex components such as a Card that has a row of {@link HistoryTokenAnchorComponent}.
  */
 public final class HistoryTokenAnchorComponent implements IsElement<Element>,
+        SpreadsheetContextMenuTarget,
         TreePrintable {
 
     public static HistoryTokenAnchorComponent empty() {
@@ -272,5 +275,12 @@ public final class HistoryTokenAnchorComponent implements IsElement<Element>,
     @Override
     public void printTree(final IndentingPrinter printer) {
         printer.print(this.toString());
+    }
+
+    // SpreadsheetContextMenuTarget.....................................................................................
+
+    @Override
+    public void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu) {
+        Objects.requireNonNull(menu, "menu");
     }
 }

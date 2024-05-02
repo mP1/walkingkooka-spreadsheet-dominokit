@@ -33,6 +33,8 @@ import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuTarget;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -44,6 +46,7 @@ import java.util.Optional;
  * Abstraction for working with a HTML anchor.
  */
 public final class HistoryTokenAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent>,
+        SpreadsheetContextMenuTarget,
         TreePrintable {
 
     /**
@@ -426,5 +429,12 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
                         url.toString() :
                         ""
         );
+    }
+
+    // SpreadsheetContextMenuTarget.....................................................................................
+
+    @Override
+    public void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu) {
+        Objects.requireNonNull(menu, "menu");
     }
 }
