@@ -92,7 +92,14 @@ Individual issues that breakdown outstanding tasks will be added.
   - Insert columns after *DONE*
   - Clear *DONE*
   - Delete *DONE*
-- Context menu to sort a selection [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2060)
+- Sort
+  - cells any rectangular cell range of at least 2 cells *DONE*
+  - columns *DONE*
+  - rows *DONE*
+  - Edit sort comparators expressions [TODO] (https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2620)
+  - Sort by by Date, Date-time Day of month, Day of week, Hour of am, Hour of day, Minute of Hour, Month of Year, Nano
+    of Second, Number, Second of Minute, Text, Text case-insensitive, Time, Year *DONE*
+  - Up and down *DONE*
 - Clipboard cell, formula, format-pattern, parse-pattern, formatted-value
   - CUT *DONE*
   - COPY *DONE*
