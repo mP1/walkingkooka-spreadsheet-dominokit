@@ -36,8 +36,8 @@ public class SpreadsheetContextMenuNative {
                                         final HistoryTokenContext context) {
         final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.with(
                 Menu.create(
-                        "", // id
-                        "", // text
+                        null, // id
+                        null, // text
                         Optional.empty(), // icon
                         Optional.empty() // badge
                 ),
