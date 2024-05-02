@@ -281,6 +281,7 @@ public final class HistoryTokenAnchorComponent implements IsElement<Element>,
         if (null != menu) {
             printer.indent();
             {
+                printer.lineStart();
                 menu.printTree(printer);
             }
             printer.outdent();
