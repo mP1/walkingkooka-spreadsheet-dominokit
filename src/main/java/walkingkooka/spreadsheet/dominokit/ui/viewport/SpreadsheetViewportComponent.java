@@ -72,6 +72,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetViewportComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuTargets;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -468,7 +469,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         if (maybeElement.isPresent()) {
             final SpreadsheetContextMenu menu = SpreadsheetContextMenu.wrap(
-                    maybeElement.get(),
+                    SpreadsheetContextMenuTargets.element(
+                            maybeElement.get()
+                    ),
                     context
             );
 
