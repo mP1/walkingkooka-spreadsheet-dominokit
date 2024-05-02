@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -695,6 +696,29 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 )
         );
     }
+
+    // GET http://localhost:12345/api/spreadsheet/1/cell/A1%3AB3/sort?comparators=A%3Dtext
+    public void sortCells(final SpreadsheetId id,
+                          final SpreadsheetSelection selection,
+                          final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
+        this.get(
+                url(
+                        id,
+                        selection
+                ).appendPath(SORT)
+                        .setQuery(
+                                this.context.lastCellFindAndViewportAndWindowQueryString()
+                                        .addParameter(
+                                                COMPARATORS,
+                                                comparators.text()
+                                        )
+                        )
+        );
+    }
+
+    private final static UrlPath SORT = UrlPath.parse("sort");
+
+    private final static UrlParameterName COMPARATORS = UrlParameterName.with("comparators");
 
     private void patchDelta(final AbsoluteOrRelativeUrl url,
                             final JsonNode delta) {
