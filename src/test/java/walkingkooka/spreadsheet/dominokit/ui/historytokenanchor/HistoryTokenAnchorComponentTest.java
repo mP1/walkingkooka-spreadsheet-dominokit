@@ -24,6 +24,10 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
@@ -179,6 +183,46 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                                 Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
                         ).setDisabled(true),
                 "IconBefore456 \"Text789\" DISABLED [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123"
+        );
+    }
+
+    // setSpreadsheetContextMenu........................................................................................
+
+    @Test
+    public void testSetSpreadsheetContextMenu() {
+        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
+                .setTextContent("Hello")
+                .setHref(
+                        Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                );
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenu.wrap(
+                anchor,
+                HistoryTokenContexts.fake()
+        ).item(
+                SpreadsheetContextMenuItem.with(
+                        "menu-item-1-" + SpreadsheetIds.MENU_ITEM,
+                        "Item 1"
+                )
+        ).item(
+                SpreadsheetContextMenuItem.with(
+                        "menu-item-2-" + SpreadsheetIds.MENU_ITEM,
+                        "Item 2"
+                )
+        ).item(
+                SpreadsheetContextMenuItem.with(
+                        "menu-item-3-" + SpreadsheetIds.MENU_ITEM,
+                        "Item 3"
+                )
+        );
+
+        anchor.setSpreadsheetContextMenu(menu);
+
+        this.treePrintAndCheck(
+                anchor,
+                "\"Hello\" [#/1/SpreadsheetName234/cell/A1] \"\"\n" +
+                        "    menu-item-1--MenuItem \"Item 1\"\n" +
+                        "    menu-item-2--MenuItem \"Item 2\"\n" +
+                        "    menu-item-3--MenuItem \"Item 3\"\n"
         );
     }
 
