@@ -30,6 +30,15 @@ import java.util.Optional;
 @GwtIncompatible
 public class Menu<V> implements TreePrintable {
 
+    public static <V> Menu<V> empty() {
+        return new Menu<>(
+                null,
+                null,
+                Optional.empty(),
+                Optional.empty()
+        );
+    }
+
     public static <V> Menu<V> create(final String id,
                                      final String text,
                                      final Optional<Icon<?>> icon,

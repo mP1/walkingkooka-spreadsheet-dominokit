@@ -35,12 +35,7 @@ public class SpreadsheetContextMenuNative {
     static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
                                         final HistoryTokenContext context) {
         final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.with(
-                Menu.create(
-                        null, // id
-                        null, // text
-                        Optional.empty(), // icon
-                        Optional.empty() // badge
-                ),
+                Menu.empty(),
                 context
         );
         target.setSpreadsheetContextMenu(contextMenu);
