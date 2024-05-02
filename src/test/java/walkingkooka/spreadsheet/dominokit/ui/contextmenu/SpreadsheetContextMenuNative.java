@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
+import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.gwtproject.core.shared.GwtIncompatible;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 import java.util.Optional;
 
@@ -29,6 +31,21 @@ import java.util.Optional;
  */
 @GwtIncompatible
 public class SpreadsheetContextMenuNative {
+
+    static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<Element> target,
+                                        final HistoryTokenContext context) {
+        final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.with(
+                Menu.create(
+                        "", // id
+                        "", // text
+                        Optional.empty(), // icon
+                        Optional.empty() // badge
+                ),
+                context
+        );
+        target.setSpreadsheetContextMenu(contextMenu);
+        return contextMenu;
+    }
 
     static Menu<Void> addSubMenu(final String id,
                                  final String text,
