@@ -219,7 +219,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
 
         this.treePrintAndCheck(
                 anchor,
-                "\"Hello\" [#/1/SpreadsheetName234/cell/A1] \"\"\n" +
+                "\"Hello\" [#/1/SpreadsheetName234/cell/A1]\n" +
                         "    menu-item-1--MenuItem \"Item 1\"\n" +
                         "    menu-item-2--MenuItem \"Item 2\"\n" +
                         "    menu-item-3--MenuItem \"Item 3\"\n"
