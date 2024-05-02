@@ -87,6 +87,13 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // call server here to SORT...
+        context.pushHistoryToken(previous.clearAction());
+
+        context.spreadsheetDeltaFetcher()
+                .sortCells(
+                        this.id(),
+                        this.anchoredSelection().selection(),
+                        this.comparatorNames
+                );
     }
 }
