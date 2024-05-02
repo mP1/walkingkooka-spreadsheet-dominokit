@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 
 import java.util.Set;
 
@@ -43,16 +44,15 @@ final class SpreadsheetSelectionMenuSort {
                       final Icon<?> icon,
                       final Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos,
                       final SpreadsheetContextMenu menu) {
-        // PREFIX-column-
-        final String subMenuIdPrefix = idPrefix + columnOrRow.textLabel().toLowerCase();
+        // PREFIX-
 
         comparatorsMenuItem(
                 historyToken,
                 columnOrRow,
-                subMenuIdPrefix + '-',
+                idPrefix,
                 spreadsheetComparatorInfos,
                 menu.subMenu(
-                        subMenuIdPrefix + SpreadsheetIds.SUB_MENU,
+                        CharSequences.subSequence(idPrefix, 0, -1) + SpreadsheetIds.SUB_MENU, // -1 removes trailing minus because SUB_MENU includes a minus at the start
                         "Sort " + columnOrRow.textLabel(),
                         icon
                 )
