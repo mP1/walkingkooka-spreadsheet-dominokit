@@ -32,7 +32,7 @@ import java.util.Optional;
 @GwtIncompatible
 public class SpreadsheetContextMenuNative {
 
-    static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<Element> target,
+    static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
                                         final HistoryTokenContext context) {
         final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.with(
                 Menu.create(
