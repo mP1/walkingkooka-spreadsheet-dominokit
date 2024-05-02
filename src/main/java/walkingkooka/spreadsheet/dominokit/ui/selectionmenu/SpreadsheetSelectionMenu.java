@@ -634,7 +634,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void border(final SpreadsheetContextMenu menu,
                                final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu border = menu.subMenu(
-                context.idPrefix() + "border-" + SpreadsheetIds.SUB_MENU,
+                context.idPrefix() + "border" + SpreadsheetIds.SUB_MENU,
                 "Border"
         );
 
