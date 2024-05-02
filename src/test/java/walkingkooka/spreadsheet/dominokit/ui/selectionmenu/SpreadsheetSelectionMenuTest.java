@@ -133,7 +133,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      (mdi-format-text-wrapping-clip) test-clip-MenuItem \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL]\n" +
                         "      (mdi-format-text-wrapping-overflow) test-overflow-MenuItem \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE]\n" +
                         "      (mdi-format-text-wrapping-wrap) test-wrap-MenuItem \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN]\n" +
-                        "    test-border--SubMenu \"Border\"\n" +
+                        "    test-border-SubMenu \"Border\"\n" +
                         "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
                         "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
                         "          metadata color picker\n" +
@@ -387,7 +387,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      (mdi-format-text-wrapping-clip) test-clip-MenuItem \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL]\n" +
                         "      (mdi-format-text-wrapping-overflow) test-overflow-MenuItem \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE]\n" +
                         "      (mdi-format-text-wrapping-wrap) test-wrap-MenuItem \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN]\n" +
-                        "    test-border--SubMenu \"Border\"\n" +
+                        "    test-border-SubMenu \"Border\"\n" +
                         "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
                         "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
                         "          metadata color picker\n" +
@@ -643,7 +643,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      (mdi-format-text-wrapping-clip) test-clip-MenuItem \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL]\n" +
                         "      (mdi-format-text-wrapping-overflow) test-overflow-MenuItem \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE]\n" +
                         "      (mdi-format-text-wrapping-wrap) test-wrap-MenuItem \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN]\n" +
-                        "    test-border--SubMenu \"Border\"\n" +
+                        "    test-border-SubMenu \"Border\"\n" +
                         "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
                         "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
                         "          metadata color picker\n" +
@@ -901,7 +901,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      (mdi-format-text-wrapping-clip) test-clip-MenuItem \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL]\n" +
                         "      (mdi-format-text-wrapping-overflow) test-overflow-MenuItem \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE]\n" +
                         "      (mdi-format-text-wrapping-wrap) test-wrap-MenuItem \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN]\n" +
-                        "    test-border--SubMenu \"Border\"\n" +
+                        "    test-border-SubMenu \"Border\"\n" +
                         "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
                         "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
                         "          metadata color picker\n" +
@@ -1158,7 +1158,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      (mdi-format-text-wrapping-clip) test-clip-MenuItem \"Clip\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/overflow-wrap/save/NORMAL]\n" +
                         "      (mdi-format-text-wrapping-overflow) test-overflow-MenuItem \"Overflow\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/overflow-x/save/VISIBLE]\n" +
                         "      (mdi-format-text-wrapping-wrap) test-wrap-MenuItem \"Wrap\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/overflow-x/save/HIDDEN]\n" +
-                        "    test-border--SubMenu \"Border\"\n" +
+                        "    test-border-SubMenu \"Border\"\n" +
                         "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
                         "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
                         "          metadata color picker\n" +
