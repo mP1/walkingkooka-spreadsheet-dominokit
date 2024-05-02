@@ -27,6 +27,8 @@ import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +40,8 @@ import java.util.stream.IntStream;
  * A card that is dynamically updated with links which remove an individual component of the pattern. A context-menu
  * for each link provides alternatives.
  */
-final class SpreadsheetPatternComponentElements implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentElements> {
+final class SpreadsheetPatternComponentElements implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentElements>,
+        TreePrintable {
 
     /**
      * Creates an empty {@link SpreadsheetPatternComponentElements}.
@@ -157,5 +160,17 @@ final class SpreadsheetPatternComponentElements implements HtmlElementComponent<
     @Override
     public HTMLDivElement element() {
         return this.parent.element();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.parent.printTree(printer);
+        }
+        printer.outdent();
     }
 }
