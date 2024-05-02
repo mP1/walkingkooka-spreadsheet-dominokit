@@ -114,7 +114,7 @@ final class SpreadsheetPatternComponentElements implements HtmlElementComponent<
                 if (false == alternatives.isEmpty()) {
 
                     SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.wrap(
-                            patternElement.element(),
+                            patternElement,
                             context
                     );
 

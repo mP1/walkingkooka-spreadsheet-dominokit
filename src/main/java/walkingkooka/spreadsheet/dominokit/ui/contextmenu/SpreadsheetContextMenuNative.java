@@ -49,8 +49,9 @@ final class SpreadsheetContextMenuNative {
     /**
      * Factory that builds a {@link SpreadsheetContextMenu}.
      */
-    static SpreadsheetContextMenu empty(final Element element,
+    static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<Element> target,
                                         final HistoryTokenContext context) {
+        final Element element = target.element();
         final Menu<Void> menu = Menu.<Void>create()
                 .setContextMenu(true)
                 .setDropDirection(new MouseBestFitDirection())

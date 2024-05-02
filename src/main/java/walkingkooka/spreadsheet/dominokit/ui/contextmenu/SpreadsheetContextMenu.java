@@ -41,15 +41,17 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Returns an empty {@link SpreadsheetContextMenu} for the given {@link Element}.
      */
-    public static SpreadsheetContextMenu wrap(final Element element,
+    public static SpreadsheetContextMenu wrap(final SpreadsheetContextMenuTarget target,
                                               final HistoryTokenContext context) {
-        Objects.requireNonNull(element, "element");
+        Objects.requireNonNull(target, "target");
         Objects.requireNonNull(context, "context");
 
-        return SpreadsheetContextMenuNative.empty(
-                element,
+        final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenuNative.empty(
+                target,
                 context
         );
+        target.setSpreadsheetContextMenu(contextMenu);
+        return contextMenu;
     }
 
     static SpreadsheetContextMenu with(final Menu<Void> menu,
