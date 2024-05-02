@@ -76,9 +76,20 @@ public class Menu<V> implements TreePrintable {
             printer.print(") ");
         }
 
-        printer.print(this.id);
-        printer.print(" ");
-        printer.print(CharSequences.quoteAndEscape(this.text));
+        final String id = this.id;
+        final String text = this.text;
+
+        if (null != id) {
+            printer.print(id);
+
+            if (null != text) {
+                printer.print(" ");
+            }
+        }
+
+        if (null != text) {
+            printer.print(CharSequences.quoteAndEscape(text));
+        }
 
         final Optional<String> badge = this.badge;
         if (badge.isPresent()) {
