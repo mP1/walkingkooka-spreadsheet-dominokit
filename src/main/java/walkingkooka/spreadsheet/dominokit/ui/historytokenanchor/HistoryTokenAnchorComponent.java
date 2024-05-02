@@ -46,7 +46,7 @@ import java.util.Optional;
  * Abstraction for working with a HTML anchor.
  */
 public final class HistoryTokenAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent>,
-        SpreadsheetContextMenuTarget,
+        SpreadsheetContextMenuTarget<HTMLAnchorElement>,
         TreePrintable {
 
     /**

@@ -17,10 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
+import elemental2.dom.Element;
+import org.dominokit.domino.ui.IsElement;
+
 /**
  * The parent component for a {@link SpreadsheetContextMenu}
  */
-public interface SpreadsheetContextMenuTarget {
+public interface SpreadsheetContextMenuTarget<E extends Element> extends IsElement<E> {
 
     /**
      * Called by the {@link SpreadsheetContextMenu} when given this target.

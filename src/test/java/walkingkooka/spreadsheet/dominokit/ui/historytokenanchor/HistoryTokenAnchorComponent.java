@@ -43,7 +43,7 @@ import java.util.Optional;
  * The goal of this class is to allow JVM unit-testing of more complex components such as a Card that has a row of {@link HistoryTokenAnchorComponent}.
  */
 public final class HistoryTokenAnchorComponent implements IsElement<Element>,
-        SpreadsheetContextMenuTarget,
+        SpreadsheetContextMenuTarget<Element>,
         TreePrintable {
 
     public static HistoryTokenAnchorComponent empty() {

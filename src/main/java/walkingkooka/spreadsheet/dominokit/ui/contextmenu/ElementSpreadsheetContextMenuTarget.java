@@ -24,7 +24,7 @@ import java.util.Objects;
 /**
  * A {@link SpreadsheetContextMenuTarget} that wraps an {@link Element}.
  */
-public final class ElementSpreadsheetContextMenuTarget implements SpreadsheetContextMenuTarget {
+public final class ElementSpreadsheetContextMenuTarget implements SpreadsheetContextMenuTarget<Element> {
 
     static ElementSpreadsheetContextMenuTarget with(final Element element) {
         Objects.requireNonNull(element, "element");
@@ -43,7 +43,16 @@ public final class ElementSpreadsheetContextMenuTarget implements SpreadsheetCon
         // TODO
     }
 
+    // IsElement........................................................................................................
+
+    @Override
+    public Element element() {
+        return this.element;
+    }
+
     private final Element element;
+
+    // toString..........................................................................................................
 
     @Override
     public String toString() {
