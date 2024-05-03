@@ -28,16 +28,16 @@ import java.util.Optional;
 /**
  * Pushes the viewport selection from a {@link SpreadsheetDelta} response if one is present.
  */
-final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher implements SpreadsheetDeltaFetcherWatcher,
+final class PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher implements SpreadsheetDeltaFetcherWatcher,
         NopFetcherWatcher,
         NopNoResponseWatcher {
 
     /**
      * Singleton
      */
-    static final PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher INSTANCE = new PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher();
+    static final PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher INSTANCE = new PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher();
 
-    private PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher() {
+    private PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher() {
     }
 
     @Override
@@ -54,7 +54,7 @@ final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFet
             );
 
             if (false == historyToken.equals(withSelection)) {
-                context.debug("PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta selection active, updating " + withSelection, delta);
+                context.debug(this.getClass().getSimpleName() + ".onSpreadsheetDelta selection active, updating " + withSelection, delta);
                 context.pushHistoryToken(withSelection);
             }
         }
