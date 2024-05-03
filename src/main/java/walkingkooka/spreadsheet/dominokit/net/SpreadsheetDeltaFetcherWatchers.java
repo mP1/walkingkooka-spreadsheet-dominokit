@@ -29,10 +29,10 @@ public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<Sprea
     }
 
     /**
-     * {@see PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher}
+     * {@see PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher}
      */
-    public static SpreadsheetDeltaFetcherWatcher pushHistoryTokenResponseSpreadsheetDeltaSelection() {
-        return PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.INSTANCE;
+    public static SpreadsheetDeltaFetcherWatcher pushHistoryTokenViewportSelection() {
+        return PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher.INSTANCE;
     }
 
     private SpreadsheetDeltaFetcherWatchers() {

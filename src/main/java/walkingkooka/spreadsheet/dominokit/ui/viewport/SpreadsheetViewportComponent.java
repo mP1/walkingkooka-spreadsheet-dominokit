@@ -1207,7 +1207,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         navigations.clear();
 
         context.addSpreadsheetDeltaWatcherOnce(
-                SpreadsheetDeltaFetcherWatchers.pushHistoryTokenResponseSpreadsheetDeltaSelection()
+                SpreadsheetDeltaFetcherWatchers.pushHistoryTokenViewportSelection()
         );
         context.spreadsheetDeltaFetcher()
                 .loadCells(
