@@ -40,7 +40,6 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -307,23 +306,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 if (maybeSelection.isPresent()) {
                     final SpreadsheetSelection selection = maybeSelection.get();
                     if (selection.isCellReference()) {
-                        final AppContext context = this.context;
-
-                        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-                        final Optional<SpreadsheetName> spreadsheetName = metadata.name();
-                        final Optional<SpreadsheetId> spreadsheetId = metadata.id();
-
-                        if (spreadsheetId.isPresent() && spreadsheetName.isPresent()) {
-                            context.pushHistoryToken(
-                                    HistoryToken.cell(
-                                            spreadsheetId.get(),
-                                            spreadsheetName.get(),
-                                            selection.setDefaultAnchor()
-
-                                    )
-                            );
-                        }
-
+                        this.onNavigation(
+                                SpreadsheetViewportNavigation.cell(
+                                        selection.toCell()
+                                ),
+                                this.context
+                        );
                         break;
                     }
                 }
