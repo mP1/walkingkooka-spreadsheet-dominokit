@@ -20,14 +20,13 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetSelectionHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 
 import java.util.Optional;
 
 /**
- * If a viewport selection is present then copy the received selection even if its now gone.
+ * Pushes the viewport selection from a {@link SpreadsheetDelta} response if one is present.
  */
 final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher implements SpreadsheetDeltaFetcherWatcher,
         NopFetcherWatcher,
@@ -45,21 +44,18 @@ final class PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFet
     public void onSpreadsheetDelta(final SpreadsheetId id,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
+        final Optional<SpreadsheetViewport> viewport = delta.viewport();
+        if (viewport.isPresent()) {
+            final HistoryToken historyToken = context.historyToken();
 
-        // if a selection is already present copy from the metadata
-        if (historyToken instanceof SpreadsheetSelectionHistoryToken) {
-            final Optional<SpreadsheetViewport> viewport = delta.viewport();
-            if (viewport.isPresent()) {
-                final HistoryToken withSelection = historyToken.setAnchoredSelection(
-                        viewport.get()
-                                .anchoredSelection()
-                );
+            final HistoryToken withSelection = historyToken.setAnchoredSelection(
+                    viewport.get()
+                            .anchoredSelection()
+            );
 
-                if (false == historyToken.equals(withSelection)) {
-                    context.debug("PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta selection active, updating " + withSelection, delta);
-                    context.pushHistoryToken(withSelection);
-                }
+            if (false == historyToken.equals(withSelection)) {
+                context.debug("PushHistoryTokenResponseSpreadsheetDeltaSelectionSpreadsheetDeltaFetcherWatcher.onSpreadsheetDelta selection active, updating " + withSelection, delta);
+                context.pushHistoryToken(withSelection);
             }
         }
     }
