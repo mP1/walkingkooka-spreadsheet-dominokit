@@ -290,7 +290,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         );
     }
 
-    private void onClickEvent(final Event event) {
+    private void onClickEvent(final MouseEvent event) {
         event.preventDefault();
 
         final EventTarget eventTarget = event.target;
@@ -306,10 +306,16 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 if (maybeSelection.isPresent()) {
                     final SpreadsheetSelection selection = maybeSelection.get();
                     if (selection.isCellReference()) {
+                        final SpreadsheetCellReference cell = selection.toCell();
+
                         this.onNavigation(
-                                SpreadsheetViewportNavigation.cell(
-                                        selection.toCell()
-                                ),
+                                event.shiftKey ?
+                                        SpreadsheetViewportNavigation.extendCell(
+                                                cell
+                                        ) :
+                                        SpreadsheetViewportNavigation.cell(
+                                                cell
+                                        ),
                                 this.context
                         );
                         break;
