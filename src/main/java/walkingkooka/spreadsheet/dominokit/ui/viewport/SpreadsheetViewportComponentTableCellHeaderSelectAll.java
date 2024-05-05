@@ -21,6 +21,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+/**
+ * A Header that contains the SELECT ALL link. Note new instances are created when a new spreadsheet is created/loaded.
+ */
 final class SpreadsheetViewportComponentTableCellHeaderSelectAll extends SpreadsheetViewportComponentTableCellHeader<SpreadsheetCellRangeReference> {
 
     static SpreadsheetViewportComponentTableCellHeaderSelectAll empty(final HistoryTokenContext context) {
