@@ -25,9 +25,8 @@ import walkingkooka.tree.text.TextStyle;
  * A {@link walkingkooka.Context} required by table components to refresh themselves.
  */
 interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext,
-        LoggingContext {
-
-    SpreadsheetViewportCache viewportCache();
+        LoggingContext,
+        HasSpreadsheetViewportCache {
 
     /**
      * When true indicates that hide zero values is active, and cells should add extra styling to show this.

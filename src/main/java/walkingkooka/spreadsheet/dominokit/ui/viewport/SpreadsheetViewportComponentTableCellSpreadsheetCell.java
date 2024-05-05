@@ -62,7 +62,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                                                                  final SpreadsheetViewportComponentTableContext context) {
         super();
 
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         this.element = ElementsFactory.elements.td()
                 .id(
@@ -88,7 +88,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
     void refresh(final Predicate<SpreadsheetSelection> selected,
                  final SpreadsheetViewportComponentTableContext context) {
 
-        final SpreadsheetViewportCache cache = context.viewportCache();
+        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
         final SpreadsheetCellReference cellReference = this.cellReference;
 
         final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
