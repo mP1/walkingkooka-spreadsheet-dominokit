@@ -1221,19 +1221,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     public void loadViewportCells(final AppContext context) {
         final List<SpreadsheetViewportNavigation> navigations = this.navigations;
 
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final SpreadsheetId id = context.spreadsheetMetadata()
+                .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
 
-        final SpreadsheetId id = metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
-
-        SpreadsheetViewport viewport = metadata.getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT);
-        final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
-        viewport = viewport.setRectangle(
-                rectangle.setWidth(
-                        this.tableCellsWidth()
-                ).setHeight(
-                        this.tableCellsHeight()
-                )
-        ).setNavigations(navigations);
+        final SpreadsheetViewport viewport = this.spreadsheetViewport()
+                .setNavigations(navigations);
 
         context.debug("SpreadsheetViewportComponent.loadViewportCells id: " + id + " viewport: " + viewport);
 
@@ -1250,6 +1242,22 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                         id,
                         viewport
                 );
+    }
+
+    /**
+     * Returns a {@link SpreadsheetViewport} with the currently active HOME and width/height.
+     */
+    private SpreadsheetViewport spreadsheetViewport() {
+        SpreadsheetViewport viewport = this.context.spreadsheetMetadata()
+                .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT);
+        final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
+        return viewport.setRectangle(
+                rectangle.setWidth(
+                        this.tableCellsWidth()
+                ).setHeight(
+                        this.tableCellsHeight()
+                )
+        );
     }
 
     /**
