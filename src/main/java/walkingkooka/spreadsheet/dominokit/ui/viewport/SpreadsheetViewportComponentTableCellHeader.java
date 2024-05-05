@@ -100,4 +100,12 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
     }
 
     private final THElement element;
+
+
+    // Object...........................................................................................................
+
+    @Override
+    public final String toString() {
+        return this.anchor.toString();
+    }
 }
