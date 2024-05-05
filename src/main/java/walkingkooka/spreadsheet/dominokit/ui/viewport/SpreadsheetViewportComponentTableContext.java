@@ -29,6 +29,9 @@ interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext,
 
     SpreadsheetViewportCache viewportCache();
 
+    /**
+     * When true indicates that hide zero values is active, and cells should add extra styling to show this.
+     */
     boolean hideZeroValues();
 
     /**
