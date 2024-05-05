@@ -88,7 +88,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
     private final HistoryTokenContext historyTokenContext;
 
     @Override
-    public SpreadsheetViewportCache viewportCache() {
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
         return this.viewportCache;
     }
 

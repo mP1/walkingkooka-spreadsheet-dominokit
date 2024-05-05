@@ -38,7 +38,7 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn extends
                 SpreadsheetViewportComponent.id(column), // id
                 css(
                         SpreadsheetViewportComponentTableCell.HEADER_STYLE,
-                        context.viewportCache()
+                        context.spreadsheetViewportCache()
                                 .columnWidth(column),
                         SpreadsheetViewportComponent.COLUMN_HEIGHT
                 ), // css

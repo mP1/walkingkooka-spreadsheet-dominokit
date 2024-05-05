@@ -39,7 +39,7 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow extends Sp
                 css(
                         SpreadsheetViewportComponentTableCell.HEADER_STYLE,
                         SpreadsheetViewportComponent.ROW_WIDTH,
-                        context.viewportCache()
+                        context.spreadsheetViewportCache()
                                 .rowHeight(row)
                 ), // css
                 row, // selection
