@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 
 /**
- * A TH that contains the ROW link.
+ * A TH that contains a ROW header. Note new instances are created when a new spreadsheet is created/loaded.
  */
 final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow extends SpreadsheetViewportComponentTableCellHeader<SpreadsheetRowReference> {
 
