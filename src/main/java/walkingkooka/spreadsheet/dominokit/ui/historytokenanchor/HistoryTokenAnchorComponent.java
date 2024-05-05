@@ -416,7 +416,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     @Override
     public String toString() {
-        return this.element.toString();
+        return this.element.element().href;
     }
 
     // TreePrintable....................................................................................................
