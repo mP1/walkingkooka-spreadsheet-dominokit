@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 
 /**
- * A TH holding a single COLUMN header.
+ * A TH holding a single COLUMN header. Note new instances are created when a new spreadsheet is created/loaded.
  */
 final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn extends SpreadsheetViewportComponentTableCellHeader<SpreadsheetColumnReference> {
 
