@@ -31,6 +31,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+/**
+ * Base class for any of the header UI components belonging to the {@link SpreadsheetViewportComponent} TABLE.
+ */
 abstract class SpreadsheetViewportComponentTableCellHeader<T extends SpreadsheetSelection> extends SpreadsheetViewportComponentTableCell
         implements IsElement<HTMLTableCellElement> {
 
