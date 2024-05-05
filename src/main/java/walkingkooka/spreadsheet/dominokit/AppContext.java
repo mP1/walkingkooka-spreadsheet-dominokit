@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -147,6 +148,14 @@ public interface AppContext extends CanGiveFocus,
 
         this.spreadsheetMetadataFetcher()
                 .loadSpreadsheetMetadata(id);
+    }
+
+    /**
+     * Returns the last saved {@link SpreadsheetViewport}.
+     */
+    default SpreadsheetViewport spreadsheetViewport() {
+        return this.spreadsheetMetadata()
+                .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT);
     }
 
     // json............................................................................................................
