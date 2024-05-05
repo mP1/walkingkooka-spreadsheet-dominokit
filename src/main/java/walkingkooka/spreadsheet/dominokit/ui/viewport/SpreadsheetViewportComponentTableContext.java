@@ -21,6 +21,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.tree.text.TextStyle;
 
+/**
+ * A {@link walkingkooka.Context} required by table components to refresh themselves.
+ */
 interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext,
         LoggingContext {
 
