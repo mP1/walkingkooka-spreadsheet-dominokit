@@ -37,4 +37,11 @@ interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext,
      * When true a {@link SpreadsheetViewportComponentTableCell} must refresh.
      */
     boolean mustRefresh();
+
+
+    /**
+     * When true indicates that the SHIFT key is currently DOWN.
+     * This will be useful to update the links within the COLUMN and ROW headers.
+     */
+    boolean isShiftKeyDown();
 }

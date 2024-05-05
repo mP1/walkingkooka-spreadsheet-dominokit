@@ -31,6 +31,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                               final boolean hideZeroValues,
                                                               final TextStyle defaultCellStyle,
                                                               final boolean mustRefresh,
+                                                              final boolean shiftKeyDown,
                                                               final LoggingContext loggingContext) {
         return new BasicSpreadsheetViewportComponentTableContext(
                 historyTokenContext,
@@ -38,6 +39,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                 hideZeroValues,
                 defaultCellStyle,
                 mustRefresh,
+                shiftKeyDown,
                 loggingContext
         );
     }
@@ -47,12 +49,14 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                           final boolean hideZeroValues,
                                                           final TextStyle defaultCellStyle,
                                                           final boolean mustRefresh,
+                                                          final boolean shiftKeyDown,
                                                           final LoggingContext loggingContext) {
         this.historyTokenContext = historyTokenContext;
         this.viewportCache = viewportCache;
         this.hideZeroValues = hideZeroValues;
         this.defaultCellStyle = defaultCellStyle;
         this.mustRefresh = mustRefresh;
+        this.shiftKeyDown = shiftKeyDown;
         this.loggingContext = loggingContext;
     }
 
@@ -110,6 +114,13 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
     }
 
     private final boolean mustRefresh;
+
+    @Override
+    public boolean isShiftKeyDown() {
+        return this.shiftKeyDown;
+    }
+
+    private final boolean shiftKeyDown;
 
     @Override
     public void debug(final Object... values) {

@@ -21,6 +21,7 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
+import elemental2.dom.HTMLBodyElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLTableElement;
@@ -81,6 +82,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
@@ -141,6 +143,22 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         context.addSpreadsheetLabelMappingWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
+
+        final HTMLBodyElement body = DomGlobal.document.body;
+
+        body.addEventListener(
+                EventType.keydown.getName(),
+                e -> this.onDocumentBodyKeyDown(
+                        Js.cast(e)
+                )
+        );
+
+        body.addEventListener(
+                EventType.keyup.getName(),
+                e -> this.onDocumentBodyKeyUp(
+                        Js.cast(e)
+                )
+        );
 
         this.recentFormatPatterns = this.recentPatternSaves(
                 true, // is format true
@@ -204,6 +222,29 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         return keep;
     }
+
+    // document.........................................................................................................
+
+    private void onDocumentBodyKeyDown(final KeyboardEvent event) {
+        this.setExtending(event.shiftKey);
+    }
+
+    private void onDocumentBodyKeyUp(final KeyboardEvent event) {
+        this.setExtending(event.shiftKey);
+    }
+
+    private void setExtending(final boolean shiftKeyDown) {
+        if (this.shiftKeyDown != shiftKeyDown) {
+            this.shiftKeyDown = shiftKeyDown;
+            // refresh the column and row links if the SHIFT key up/down changed.
+            this.refreshIfOpen(this.context);
+        }
+    }
+
+    /**
+     * True when the SHIFT key is down. Column and Row headers will create {@link SpreadsheetViewportNavigation#extendColumn(SpreadsheetColumnReference)} etc rather than {@link SpreadsheetViewportNavigation#column(SpreadsheetColumnReference)}, navigations.
+     */
+    private boolean shiftKeyDown;
 
     // root.............................................................................................................
 
@@ -965,6 +1006,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                         metadata.effectiveStyle()
                                 .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
                         metadata.shouldViewRefresh(this.refreshMetadata),
+                        this.shiftKeyDown,
                         context
                 )
         );
