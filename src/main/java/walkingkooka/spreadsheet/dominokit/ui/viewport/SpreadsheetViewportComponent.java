@@ -33,7 +33,6 @@ import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
@@ -1234,9 +1233,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         context.spreadsheetViewportCache()
                 .clear(); // clear all cached data.
         this.reload = false;
-        this.navigations = SpreadsheetViewportNavigationList.with(
-                Lists.empty()
-        );
+        this.navigations = SpreadsheetViewportNavigationList.EMPTY;
 
         context.addSpreadsheetDeltaWatcherOnce(
                 SpreadsheetDeltaFetcherWatchers.pushHistoryTokenViewportSelection()
@@ -1284,9 +1281,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * or clicking the horizontal or vertical scrollbars. This is useful so multiple navigation actions are batched
      * when outstanding fetches are in flight so they are sent once, rather than sending a fetch for each.
      */
-    private SpreadsheetViewportNavigationList navigations = SpreadsheetViewportNavigationList.with(
-            Lists.array()
-    );
+    private SpreadsheetViewportNavigationList navigations = SpreadsheetViewportNavigationList.EMPTY;
 
     /**
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
