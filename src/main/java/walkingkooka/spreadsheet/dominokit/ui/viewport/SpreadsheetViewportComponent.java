@@ -336,6 +336,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private void onClickEvent(final MouseEvent event) {
         event.preventDefault();
 
+        // will become true if a selection is *FOUND*
+        boolean navigated = false;
+
         final EventTarget eventTarget = event.target;
         if (eventTarget instanceof Element) {
             Element element = Js.cast(eventTarget);
@@ -361,18 +364,22 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                         ),
                                 this.context
                         );
+
+                        navigated = true;
                         break;
                     }
-                } else {
-                    final AppContext context = this.context;
-                    context.pushHistoryToken(
-                            context.historyToken()
-                                    .clearSelection()
-                    );
                 }
 
                 element = element.parentElement;
             }
+        }
+
+        if (false == navigated) {
+            final AppContext context = this.context;
+            context.pushHistoryToken(
+                    context.historyToken()
+                            .clearSelection()
+            );
         }
     }
 
