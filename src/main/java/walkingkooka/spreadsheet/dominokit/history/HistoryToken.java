@@ -2184,17 +2184,12 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (maybeAnchoredSelection.isPresent()) {
             final AnchoredSpreadsheetSelection anchoredSelection = maybeAnchoredSelection.get();
 
-            if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-                final SpreadsheetAnchoredSelectionHistoryToken anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-                token = anchored.setDifferentAnchoredSelection(anchoredSelection);
-            } else {
-                if (this instanceof SpreadsheetNameHistoryToken) {
-                    final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                    token = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
-                            spreadsheetNameHistoryToken,
-                            anchoredSelection
-                    );
-                }
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                token = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
+                        spreadsheetNameHistoryToken,
+                        anchoredSelection
+                );
             }
         } else {
             if (this instanceof SpreadsheetNameHistoryToken) {

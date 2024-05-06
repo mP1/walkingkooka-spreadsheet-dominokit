@@ -47,7 +47,6 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
         super();
 
         final HistoryTokenAnchorComponent anchor = context.historyToken()
-                .clearAction()
                 .setAnchoredSelection(
                         Optional.of(
                                 selection.setDefaultAnchor()

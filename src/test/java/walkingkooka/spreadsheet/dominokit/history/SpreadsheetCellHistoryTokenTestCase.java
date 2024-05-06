@@ -217,37 +217,6 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.setMenuWithRowAndCheck();
     }
 
-    // setAnchoredSelection.............................................................................................
-    @Test
-    public final void testSetAnchoredSelectionWithSameCell() {
-        this.setAnchoredSelectionAndCheck(
-                CELL.setDefaultAnchor()
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionWithSameCellRange() {
-        this.setAnchoredSelectionAndCheck(
-                SpreadsheetSelection.parseCellRange("A1:B2")
-                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionWithSameCellRange2() {
-        this.setAnchoredSelectionAndCheck(
-                SpreadsheetSelection.parseCellRange("A1:C3")
-                        .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionWithSameLabel() {
-        this.setAnchoredSelectionAndCheck(
-                LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-        );
-    }
-
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(

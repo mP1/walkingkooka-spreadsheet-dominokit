@@ -54,7 +54,12 @@ final class PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher impl
             );
 
             if (false == historyToken.equals(withSelection)) {
-                context.debug(this.getClass().getSimpleName() + ".onSpreadsheetDelta selection active, updating " + withSelection, delta);
+                context.debug(
+                        this.getClass().getSimpleName() +
+                                ".onSpreadsheetDelta selection active, updating " +
+                                withSelection,
+                        delta
+                );
                 context.pushHistoryToken(withSelection);
             }
         }

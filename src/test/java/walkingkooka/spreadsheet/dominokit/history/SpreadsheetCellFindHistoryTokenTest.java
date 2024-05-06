@@ -429,61 +429,6 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         this.setMenuWithCellAndCheck();
     }
 
-    // setAnchoredSelection.............................................................................................
-
-    @Test
-    public void testSetAnchoredSelectionDifferent() {
-        final AnchoredSpreadsheetSelection newSelection = SpreadsheetSelection.parseCellRange("B2:C3")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                ),
-                newSelection,
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        newSelection
-                )
-        );
-    }
-
-    @Test
-    public void testSetAnchoredSelectionDifferentColumn() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        different
-                )
-        );
-    }
-
-    @Test
-    public void testSetAnchoredSelectionDifferentRow() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        different
-                )
-        );
-    }
-
     // ClassTesting....................................................................................................
 
     // helpers..........................................................................................................
