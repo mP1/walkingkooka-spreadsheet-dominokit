@@ -1009,6 +1009,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                 .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
                         metadata.shouldViewRefresh(this.refreshMetadata),
                         this.shiftKeyDown,
+                        this.spreadsheetViewport(),
                         context
                 )
         );

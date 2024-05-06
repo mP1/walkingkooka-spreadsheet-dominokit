@@ -17,8 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.tree.text.TextStyle;
 
 /**
@@ -49,4 +53,14 @@ interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext,
      * This will be useful to update the links within the COLUMN and ROW headers.
      */
     boolean isShiftKeyDown();
+
+    /**
+     * Returns a {@link AnchoredSpreadsheetSelection} that extends the current selection to include this column.
+     */
+    AnchoredSpreadsheetSelection extendColumn(final SpreadsheetColumnReference column);
+
+    /**
+     * Returns a {@link HistoryToken} that extends the current selection to include this row.
+     */
+    AnchoredSpreadsheetSelection extendRow(final SpreadsheetRowReference row);
 }

@@ -43,4 +43,14 @@ final class SpreadsheetViewportComponentTableCellHeaderSelectAll extends Spreads
                 context
         );
     }
+
+    @Override
+    void refreshNonExtendLink(final SpreadsheetViewportComponentTableContext context) {
+        // nop
+    }
+
+    @Override
+    void refreshExtendLink(final SpreadsheetViewportComponentTableContext context) {
+        // nop
+    }
 }

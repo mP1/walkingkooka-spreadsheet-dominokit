@@ -48,4 +48,18 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn extends
                 context
         );
     }
+
+    @Override
+    void refreshNonExtendLink(final SpreadsheetViewportComponentTableContext context) {
+        this.setAnchoredSpreadsheetSelection(
+                this.selection.setDefaultAnchor()
+        );
+    }
+
+    @Override
+    void refreshExtendLink(final SpreadsheetViewportComponentTableContext context) {
+        this.setAnchoredSpreadsheetSelection(
+                context.extendColumn(this.selection)
+        );
+    }
 }
