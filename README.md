@@ -68,10 +68,14 @@ Individual issues that breakdown outstanding tasks will be added.
 
 ## Viewport (table)
 
-- Keyboard navigation, cursor keys to move selected cell, SHIFT + cursor keys to select a range *DONE*
-- Mouse click to select cell *DONE*
-- Support dragging mouse to select a range of
-  cells [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2063)
+- Keyboard
+  - Cursor key navigation *DONE*
+  - ENTER gives focus to Formula for editing
+- Mouse
+  - Click cell, column, row to select *DONE*
+  - Mouse SHIFT click to extend cell/column/row range.
+  - Support dragging mouse to select/extend a
+    range [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2063)
 - Cell formatting:
   - Alignment: Left, Center, Right, Justify *DONE*
   - Vertical alignment: Top, Middle, Bottom *DONE*
