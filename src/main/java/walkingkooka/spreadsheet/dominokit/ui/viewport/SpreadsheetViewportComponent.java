@@ -341,37 +341,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         final EventTarget eventTarget = event.target;
         if (eventTarget instanceof Element) {
-            Element element = Js.cast(eventTarget);
-
-            for (; ; ) {
-                if (null == element || element.tagName.equalsIgnoreCase("TABLE")) {
-                    break;
-                }
-
-                final Optional<SpreadsheetSelection> maybeSelection = parseId(element.id);
-                if (maybeSelection.isPresent()) {
-                    final SpreadsheetSelection selection = maybeSelection.get();
-                    if (selection.isCellReference()) {
-                        final SpreadsheetCellReference cell = selection.toCell();
-
-                        this.onNavigation(
-                                event.shiftKey ?
-                                        SpreadsheetViewportNavigation.extendCell(
-                                                cell
-                                        ) :
-                                        SpreadsheetViewportNavigation.cell(
-                                                cell
-                                        ),
-                                this.context
-                        );
-
-                        navigated = true;
-                        break;
-                    }
-                }
-
-                element = element.parentElement;
-            }
+            navigated = this.findSelectionAndNavigate(
+                    Js.cast(eventTarget),
+                    event.shiftKey
+            );
         }
 
         if (false == navigated) {
@@ -381,6 +354,49 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                             .clearSelection()
             );
         }
+    }
+
+    /**
+     * Attempts to find the matching {@link SpreadsheetSelection} and adds to the navigations.
+     */
+    private boolean findSelectionAndNavigate(final Element element,
+                                             final boolean shiftKeyDown) {
+        final AppContext context = this.context;
+
+        boolean navigated = false;
+
+        Element walk = element;
+        for (; ; ) {
+            if (null == walk || walk.tagName.equalsIgnoreCase("TABLE")) {
+                break;
+            }
+
+            final Optional<SpreadsheetSelection> maybeSelection = parseId(walk.id);
+            if (maybeSelection.isPresent()) {
+                final SpreadsheetSelection selection = maybeSelection.get();
+                if (selection.isCellReference()) {
+                    final SpreadsheetCellReference cell = selection.toCell();
+
+                    this.onNavigation(
+                            shiftKeyDown ?
+                                    SpreadsheetViewportNavigation.extendCell(
+                                            cell
+                                    ) :
+                                    SpreadsheetViewportNavigation.cell(
+                                            cell
+                                    ),
+                            context
+                    );
+
+                    navigated = true;
+                    break;
+                }
+            }
+
+            walk = walk.parentElement;
+        }
+
+        return navigated;
     }
 
     // key down.........................................................................................................
