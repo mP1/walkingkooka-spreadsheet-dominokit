@@ -109,6 +109,11 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public void setSpreadsheetViewport(final SpreadsheetViewport spreadsheetViewport) {
+        throw new UnsupportedOperationException();
+    }
+
     // json.............................................................................................................
 
     @Override

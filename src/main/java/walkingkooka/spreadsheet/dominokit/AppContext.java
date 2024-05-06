@@ -158,6 +158,11 @@ public interface AppContext extends CanGiveFocus,
                 .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT);
     }
 
+    /**
+     * Setter that updates the {@link SpreadsheetViewport}
+     */
+    void setSpreadsheetViewport(final SpreadsheetViewport spreadsheetViewport);
+
     // json............................................................................................................
 
     /**
