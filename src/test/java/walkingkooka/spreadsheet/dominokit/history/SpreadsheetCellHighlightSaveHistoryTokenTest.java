@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetCellHighlightSaveHistoryTokenTest extends SpreadsheetCellHighlightHistoryTokenTestCase<SpreadsheetCellHighlightSaveHistoryToken> {
@@ -59,24 +58,6 @@ public final class SpreadsheetCellHighlightSaveHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    // setAnchoredSelection.............................................................................................
-    @Test
-    public void testSetAnchoredSelectionDifferentCell() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                HistoryToken.cellHighlightSave(
-                        ID,
-                        NAME,
-                        different,
-                        HIGHLIGHT.equals("enabled")
                 )
         );
     }

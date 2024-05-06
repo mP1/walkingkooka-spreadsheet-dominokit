@@ -18,61 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends SpreadsheetCellFormulaHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     SpreadsheetCellFormulaHistoryTokenTestCase() {
         super();
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionDifferentColumn() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        different
-                )
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionDifferentRow() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        different
-                )
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionDifferentCell() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        different
-                )
-        );
     }
 
     // setMenu..........................................................................................................

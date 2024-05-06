@@ -203,30 +203,6 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         this.setMenuWithRowAndCheck();
     }
 
-    // setAnchoredSelection.............................................................................................
-    @Test
-    public final void testSetAnchoredSelectionWithSameColumn() {
-        this.setAnchoredSelectionAndCheck(
-                COLUMN.setDefaultAnchor()
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionWithSameColumnRange() {
-        this.setAnchoredSelectionAndCheck(
-                SpreadsheetSelection.parseColumnRange("A:B")
-                        .setAnchor(SpreadsheetViewportAnchor.RIGHT)
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionWithSameColumnRange2() {
-        this.setAnchoredSelectionAndCheck(
-                SpreadsheetSelection.parseColumnRange("A:C")
-                        .setAnchor(SpreadsheetViewportAnchor.LEFT)
-        );
-    }
-
     // patternKind......................................................................................................
 
     @Test

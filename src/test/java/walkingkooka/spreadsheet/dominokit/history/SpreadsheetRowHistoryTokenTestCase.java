@@ -212,30 +212,6 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
-    // setAnchoredSelection.............................................................................................
-    @Test
-    public final void testSetAnchoredSelectionWithSameColumn() {
-        this.setAnchoredSelectionAndCheck(
-                ROW.setDefaultAnchor()
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionWithSameColumnRange() {
-        this.setAnchoredSelectionAndCheck(
-                SpreadsheetSelection.parseRowRange("1:2")
-                        .setAnchor(SpreadsheetViewportAnchor.TOP)
-        );
-    }
-
-    @Test
-    public final void testSetAnchoredSelectionWithSameColumnRange2() {
-        this.setAnchoredSelectionAndCheck(
-                SpreadsheetSelection.parseRowRange("1:3")
-                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-        );
-    }
-
     // urlFragment......................................................................................................
 
     final void urlFragmentAndCheck(final SpreadsheetRowReference reference,

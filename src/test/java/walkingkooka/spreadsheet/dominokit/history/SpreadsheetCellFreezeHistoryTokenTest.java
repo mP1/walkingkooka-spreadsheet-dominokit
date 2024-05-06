@@ -96,55 +96,6 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
         this.setMenuWithCellAndCheck();
     }
 
-    // setAnchoredSelection.............................................................................................
-    @Test
-    public void testSetAnchoredSelectionDifferentCell() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.A1
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                HistoryToken.cellFreeze(
-                        ID,
-                        NAME,
-                        different
-                )
-        );
-    }
-
-    @Test
-    public void testSetAnchoredSelectionDifferentColumn() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("A")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                HistoryToken.columnFreeze(
-                        ID,
-                        NAME,
-                        different
-                )
-        );
-    }
-
-    @Test
-    public void testSetAnchoredSelectionDifferentRow() {
-        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("1")
-                .setDefaultAnchor();
-
-        this.setAnchoredSelectionAndCheck(
-                this.createHistoryToken(),
-                different,
-                HistoryToken.rowFreeze(
-                        ID,
-                        NAME,
-                        different
-                )
-        );
-    }
-
     // patternKind......................................................................................................
 
     @Test

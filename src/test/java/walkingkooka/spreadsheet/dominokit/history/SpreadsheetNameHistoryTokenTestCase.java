@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
@@ -31,6 +32,54 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
 
     SpreadsheetNameHistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testSetAnchoredSelectionDifferentCell() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseCell("B2")
+                .setDefaultAnchor();
+
+        this.setAnchoredSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetAnchoredSelectionDifferentColumn() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseColumn("B")
+                .setDefaultAnchor();
+
+        this.setAnchoredSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.column(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
+    }
+
+    @Test
+    public void testSetAnchoredSelectionDifferentRow() {
+        final AnchoredSpreadsheetSelection different = SpreadsheetSelection.parseRow("2")
+                .setDefaultAnchor();
+
+        this.setAnchoredSelectionAndCheck(
+                this.createHistoryToken(),
+                different,
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        different
+                )
+        );
     }
 
     @Test
