@@ -569,6 +569,14 @@ public class App implements EntryPoint,
 
     private SpreadsheetMetadata spreadsheetMetadata;
 
+    @Override
+    public void setSpreadsheetViewport(final SpreadsheetViewport spreadsheetViewport) {
+        this.spreadsheetMetadata = this.spreadsheetMetadata.set(
+                SpreadsheetMetadataPropertyName.VIEWPORT,
+                spreadsheetViewport
+        );
+    }
+
     // json.............................................................................................................
 
     @Override
