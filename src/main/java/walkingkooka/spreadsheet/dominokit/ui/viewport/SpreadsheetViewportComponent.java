@@ -21,7 +21,6 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
-import elemental2.dom.HTMLBodyElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLTableElement;
@@ -144,22 +143,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         context.addSpreadsheetMetadataWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
 
-        final HTMLBodyElement body = DomGlobal.document.body;
-
-        body.addEventListener(
-                EventType.keydown.getName(),
-                e -> this.onDocumentBodyKeyDown(
-                        Js.cast(e)
-                )
-        );
-
-        body.addEventListener(
-                EventType.keyup.getName(),
-                e -> this.onDocumentBodyKeyUp(
-                        Js.cast(e)
-                )
-        );
-
         this.recentFormatPatterns = this.recentPatternSaves(
                 true, // is format true
                 context
@@ -223,29 +206,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         return keep;
     }
 
-    // document.........................................................................................................
-
-    private void onDocumentBodyKeyDown(final KeyboardEvent event) {
-        this.setExtending(event.shiftKey);
-    }
-
-    private void onDocumentBodyKeyUp(final KeyboardEvent event) {
-        this.setExtending(event.shiftKey);
-    }
-
-    private void setExtending(final boolean shiftKeyDown) {
-        if (this.shiftKeyDown != shiftKeyDown) {
-            this.shiftKeyDown = shiftKeyDown;
-            // refresh the column and row links if the SHIFT key up/down changed.
-            this.refreshIfOpen(this.context);
-        }
-    }
-
-    /**
-     * True when the SHIFT key is down. Column and Row headers will create {@link SpreadsheetViewportNavigation#extendColumn(SpreadsheetColumnReference)} etc rather than {@link SpreadsheetViewportNavigation#column(SpreadsheetColumnReference)}, navigations.
-     */
-    private boolean shiftKeyDown;
-
     // root.............................................................................................................
 
     private DivElement root() {
@@ -257,6 +217,27 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         root.appendChild(this.formulaComponent);
         root.appendChild(this.tableContainer);
 
+        root.addEventListener(
+                EventType.mouseover.getName(),
+                e -> this.onMouseEvent(
+                        Js.cast(e)
+                )
+        );
+
+        root.addEventListener(
+                EventType.keydown.getName(),
+                e -> this.onKeyEvent(
+                        Js.cast(e)
+                )
+        );
+
+        root.addEventListener(
+                EventType.keyup.getName(),
+                e -> this.onKeyEvent(
+                        Js.cast(e)
+                )
+        );
+
         return root;
     }
 
@@ -264,6 +245,27 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * The root or container that holds the {@link SpreadsheetViewportFormulaComponent} and {@link #table}.
      */
     private final DivElement root;
+
+    private void onMouseEvent(final MouseEvent event) {
+        this.setShiftKeyDown(event.shiftKey);
+    }
+
+    private void onKeyEvent(final KeyboardEvent event) {
+        this.setShiftKeyDown(event.shiftKey);
+    }
+
+    private void setShiftKeyDown(final boolean shiftKeyDown) {
+        if (this.shiftKeyDown != shiftKeyDown) {
+            this.shiftKeyDown = shiftKeyDown;
+            // refresh the column and row links if the SHIFT key up/down changed.
+            this.refreshIfOpen(this.context);
+        }
+    }
+
+    /**
+     * True when the SHIFT key is down. Column and Row headers will create {@link SpreadsheetViewportNavigation#extendColumn(SpreadsheetColumnReference)} etc rather than {@link SpreadsheetViewportNavigation#column(SpreadsheetColumnReference)}, navigations.
+     */
+    private boolean shiftKeyDown;
 
     // IsElement........................................................................................................
 
