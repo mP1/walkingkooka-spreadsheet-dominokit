@@ -203,6 +203,9 @@ public interface Fetcher {
                 ).toString();
     }
 
+    /**
+     * {@link AppContext} used by default methods to retrieve marshall/unmarshall and log.
+     */
     AppContext context();
 
     /**
