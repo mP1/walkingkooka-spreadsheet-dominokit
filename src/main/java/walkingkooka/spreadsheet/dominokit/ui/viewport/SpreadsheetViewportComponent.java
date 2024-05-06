@@ -363,6 +363,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                         );
                         break;
                     }
+                } else {
+                    final AppContext context = this.context;
+                    context.pushHistoryToken(
+                            context.historyToken()
+                                    .clearSelection()
+                    );
                 }
 
                 element = element.parentElement;
