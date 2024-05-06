@@ -336,22 +336,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private void onClickEvent(final MouseEvent event) {
         event.preventDefault();
 
-        // will become true if a selection is *FOUND*
-        boolean navigated = false;
-
         final EventTarget eventTarget = event.target;
         if (eventTarget instanceof Element) {
-            navigated = this.findSelectionAndNavigate(
+            this.findSelectionAndNavigate(
                     Js.cast(eventTarget),
                     event.shiftKey
-            );
-        }
-
-        if (false == navigated) {
-            final AppContext context = this.context;
-            context.pushHistoryToken(
-                    context.historyToken()
-                            .clearSelection()
             );
         }
     }
@@ -359,11 +348,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     /**
      * Attempts to find the matching {@link SpreadsheetSelection} and adds to the navigations.
      */
-    private boolean findSelectionAndNavigate(final Element element,
-                                             final boolean shiftKeyDown) {
+    private void findSelectionAndNavigate(final Element element,
+                                          final boolean shiftKeyDown) {
         final AppContext context = this.context;
-
-        boolean navigated = false;
 
         Element walk = element;
         for (; ; ) {
@@ -387,16 +374,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                     ),
                             context
                     );
-
-                    navigated = true;
                     break;
                 }
             }
 
             walk = walk.parentElement;
         }
-
-        return navigated;
     }
 
     // key down.........................................................................................................
