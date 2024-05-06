@@ -23,9 +23,11 @@ import org.dominokit.domino.ui.elements.THElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
@@ -66,6 +68,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
         this.element = element;
 
         this.selection = selection;
+        this.extended = null;
     }
 
     @Override //
@@ -75,6 +78,23 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
         anchor.setHistoryToken(
                 anchor.historyToken()
                         .map(t -> t.setIdAndName(id, name))
+        );
+    }
+
+    final void setAnchoredSpreadsheetSelection(final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection) {
+        this.anchor.historyToken()
+                .ifPresent(
+                        h -> this.setHistoryToken(
+                                h.setAnchoredSelection(
+                                        Optional.of(anchoredSpreadsheetSelection)
+                                )
+                        )
+                );
+    }
+
+    final void setHistoryToken(final HistoryToken historyToken) {
+        this.anchor.setHistoryToken(
+                Optional.of(historyToken)
         );
     }
 
@@ -88,9 +108,37 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
                         SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR.toString() :
                         SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString()
         );
+
+        final Boolean extended = context.isShiftKeyDown();
+        if (false == extended.equals(this.extended)) {
+            if (extended) {
+                this.refreshExtendLink(context);
+            } else {
+                this.refreshNonExtendLink(context);
+            }
+            this.extended = extended;
+        }
     }
 
+    /**
+     * Sub-classes should refresh their links now because the extended flag became true.
+     */
+    abstract void refreshNonExtendLink(final SpreadsheetViewportComponentTableContext context);
+
+    /**
+     * Sub-classes should refresh their links now because the extended flag became true.
+     */
+    abstract void refreshExtendLink(final SpreadsheetViewportComponentTableContext context);
+
+    /**
+     * The {@link SpreadsheetSelection} for this TD.s
+     */
     final T selection;
+
+    /**
+     * When true indicates that the extend link is shown.
+     */
+    Boolean extended;
 
     // IsElement........................................................................................................
 

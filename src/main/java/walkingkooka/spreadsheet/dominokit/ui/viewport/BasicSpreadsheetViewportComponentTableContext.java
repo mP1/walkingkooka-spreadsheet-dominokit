@@ -21,6 +21,12 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationContext;
 import walkingkooka.tree.text.TextStyle;
 
 final class BasicSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext {
@@ -32,6 +38,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                               final TextStyle defaultCellStyle,
                                                               final boolean mustRefresh,
                                                               final boolean shiftKeyDown,
+                                                              final SpreadsheetViewport spreadsheetViewport,
                                                               final LoggingContext loggingContext) {
         return new BasicSpreadsheetViewportComponentTableContext(
                 historyTokenContext,
@@ -40,6 +47,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                 defaultCellStyle,
                 mustRefresh,
                 shiftKeyDown,
+                spreadsheetViewport,
                 loggingContext
         );
     }
@@ -50,6 +58,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                           final TextStyle defaultCellStyle,
                                                           final boolean mustRefresh,
                                                           final boolean shiftKeyDown,
+                                                          final SpreadsheetViewport spreadsheetViewport,
                                                           final LoggingContext loggingContext) {
         this.historyTokenContext = historyTokenContext;
         this.viewportCache = viewportCache;
@@ -57,6 +66,10 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
         this.defaultCellStyle = defaultCellStyle;
         this.mustRefresh = mustRefresh;
         this.shiftKeyDown = shiftKeyDown;
+
+        this.spreadsheetViewport = spreadsheetViewport;
+        this.navigationContext = BasicSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext.with(viewportCache);
+
         this.loggingContext = loggingContext;
     }
 
@@ -121,6 +134,32 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
     }
 
     private final boolean shiftKeyDown;
+
+    @Override
+    public AnchoredSpreadsheetSelection extendColumn(final SpreadsheetColumnReference column) {
+        return this.update(
+                SpreadsheetViewportNavigation.extendColumn(column)
+        );
+    }
+
+    @Override
+    public AnchoredSpreadsheetSelection extendRow(final SpreadsheetRowReference row) {
+        return this.update(
+                SpreadsheetViewportNavigation.extendRow(row)
+        );
+    }
+
+    private AnchoredSpreadsheetSelection update(final SpreadsheetViewportNavigation navigation) {
+        return navigation.update(
+                        this.spreadsheetViewport,
+                        this.navigationContext
+                ).anchoredSelection()
+                .get();
+    }
+
+    private final SpreadsheetViewport spreadsheetViewport;
+
+    private final SpreadsheetViewportNavigationContext navigationContext;
 
     @Override
     public void debug(final Object... values) {
