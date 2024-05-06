@@ -880,6 +880,18 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     private final SpreadsheetDeltaFetcherWatcher watcher;
 
     @Override
+    public int waitingRequestCount() {
+        return this.waitingRequestCount;
+    }
+
+    @Override
+    public void setWaitingRequestCount(final int waitingRequestCount) {
+        this.waitingRequestCount = waitingRequestCount;
+    }
+
+    private int waitingRequestCount;
+
+    @Override
     public AppContext context() {
         return this.context;
     }
