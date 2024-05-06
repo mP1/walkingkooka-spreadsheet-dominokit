@@ -56,7 +56,7 @@ final class PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher impl
             if (false == historyToken.equals(withSelection)) {
                 context.debug(
                         this.getClass().getSimpleName() +
-                                ".onSpreadsheetDelta selection active, updating " +
+                                ".onSpreadsheetDelta different selection updating history token " +
                                 withSelection,
                         delta
                 );
