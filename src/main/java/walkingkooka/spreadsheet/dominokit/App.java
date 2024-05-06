@@ -713,7 +713,6 @@ public class App implements EntryPoint,
         if (false == historyToken.shouldIgnore()) {
             patchMetadataIfSelectionChanged(
                     historyToken,
-                    previous,
                     context
             );
         }
@@ -734,12 +733,31 @@ public class App implements EntryPoint,
      */
     private HistoryToken previousToken;
 
+    /**
+     * Only PATCH the spreadsheet metadata on the server if the local {@link SpreadsheetMetadata} has a different
+     * {@link AnchoredSpreadsheetSelection}. Note we ignore the previous {@link HistoryToken} because that might cause
+     * synching issues where
+     * <pre>
+     * click A1
+     *   load viewport selection=A1
+     * click B2
+     *   load viewport selection=A2
+     * load viewport response
+     *   update local metadata selection=A1
+     *   push history selection=A1
+     *   DONT want to PATCH metadata selection=A1 as this will cause load viewport selection=A2 to be ovewritten.
+     * </pre>
+     */
     private static void patchMetadataIfSelectionChanged(final HistoryToken historyToken,
-                                                        final HistoryToken previous,
                                                         final AppContext context) {
         if (historyToken instanceof SpreadsheetIdHistoryToken) {
+            // check against local metadata NOT previous history selection, otherwise PATCH will be made
+            // when a loadViewport has not yet updated history token with response selection.
             final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
-            final Optional<AnchoredSpreadsheetSelection> previousSelection = previous.anchoredSelectionOrEmpty();
+            final Optional<AnchoredSpreadsheetSelection> previousSelection = context.isSpreadsheetMetadataLoaded() ?
+                    context.spreadsheetViewport()
+                            .anchoredSelection() :
+                    Optional.empty();
             if (false == selection.equals(previousSelection)) {
 
                 context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
