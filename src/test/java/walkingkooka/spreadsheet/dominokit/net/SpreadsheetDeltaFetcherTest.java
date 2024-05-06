@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
 import walkingkooka.test.Testing;
 
 import java.util.Optional;
@@ -313,8 +314,10 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                                 .setDefaultAnchor()
                                 )
                         ).setNavigations(
-                                Lists.of(
-                                        SpreadsheetViewportNavigation.leftColumn()
+                                SpreadsheetViewportNavigationList.with(
+                                        Lists.of(
+                                                SpreadsheetViewportNavigation.leftColumn()
+                                        )
                                 )
                         ),
                 "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&navigation=left+column"
@@ -335,8 +338,10 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                                                 .setDefaultAnchor()
                                 )
                         ).setNavigations(
-                                Lists.of(
-                                        SpreadsheetViewportNavigation.extendRightColumn()
+                                SpreadsheetViewportNavigationList.with(
+                                        Lists.of(
+                                                SpreadsheetViewportNavigation.extendRightColumn()
+                                        )
                                 )
                         ),
                 "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&navigation=extend-right+column"

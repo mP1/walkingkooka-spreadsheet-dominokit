@@ -86,6 +86,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
 import walkingkooka.tree.text.Length;
 
 import java.util.List;
@@ -1222,20 +1223,20 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * Unconditionally Loads all the cells to fill the viewport using the {@link #navigations} buffer. Assumes that a metadata with id is present.
      */
     public void loadViewportCells(final AppContext context) {
-        final List<SpreadsheetViewportNavigation> navigations = this.navigations;
-
         final SpreadsheetId id = context.spreadsheetMetadata()
                 .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
 
         final SpreadsheetViewport viewport = this.spreadsheetViewport()
-                .setNavigations(navigations);
+                .setNavigations(this.navigations);
 
         context.debug("SpreadsheetViewportComponent.loadViewportCells id: " + id + " viewport: " + viewport);
 
         context.spreadsheetViewportCache()
                 .clear(); // clear all cached data.
         this.reload = false;
-        navigations.clear();
+        this.navigations = SpreadsheetViewportNavigationList.with(
+                Lists.empty()
+        );
 
         context.addSpreadsheetDeltaWatcherOnce(
                 SpreadsheetDeltaFetcherWatchers.pushHistoryTokenViewportSelection()
@@ -1272,7 +1273,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         Objects.requireNonNull(navigation, "navigation");
         Objects.requireNonNull(context, "context");
 
-        this.navigations.add(navigation);
+        this.navigations = this.navigations.concat(navigation);
         this.reload = true;
         this.loadViewportCellsIfNecessary(context);
 
@@ -1283,7 +1284,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * or clicking the horizontal or vertical scrollbars. This is useful so multiple navigation actions are batched
      * when outstanding fetches are in flight so they are sent once, rather than sending a fetch for each.
      */
-    private final List<SpreadsheetViewportNavigation> navigations = Lists.array();
+    private SpreadsheetViewportNavigationList navigations = SpreadsheetViewportNavigationList.with(
+            Lists.array()
+    );
 
     /**
      * Initially false, this will become true, when the metadata for a new spreadsheet is loaded and a resize event happens.
