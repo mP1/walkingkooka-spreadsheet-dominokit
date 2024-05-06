@@ -50,8 +50,7 @@ final class ElementalHistory implements History {
                             final String newHash = "#" + token.urlFragment();
                             final String current = DomGlobal.location.hash;
                             if (false == current.equals(newHash)) {
-                                this.context.debug("ElementalHistory.pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + CharSequences.quoteAndEscape(newHash));
-
+                                DomGlobal.console.trace("ElementalHistory.pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + CharSequences.quoteAndEscape(newHash));
                                 DomGlobal.location.hash = newHash;
                             }
                         }
