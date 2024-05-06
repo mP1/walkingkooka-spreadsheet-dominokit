@@ -1163,6 +1163,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         Objects.requireNonNull(delta, "delta");
 
         this.componentLifecycleHistoryTokenQuery(context);
+        this.loadViewportCellsIfNecessary(context);
     }
 
     // SpreadsheetLabelMappingFetcherWatcher............................................................................
@@ -1213,20 +1214,21 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * Tests if various requirements are ready and the viewport should be loaded again.
      */
     private void loadViewportCellsIfNecessary(final AppContext context) {
-        final boolean reload = this.reload;
+        if (context.spreadsheetDeltaFetcher().waitingRequestCount() == 0) {
+            final boolean reload = this.reload;
+            final int width = this.width;
+            final int height = this.height;
 
-        final int width = this.width;
-        final int height = this.height;
-
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-        if (reload && width > 0 && height > 0 && false == metadata.isEmpty()) {
-            if (metadata.isEmpty()) {
-                context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
+            final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+            if (reload && width > 0 && height > 0 && false == metadata.isEmpty()) {
+                if (metadata.isEmpty()) {
+                    context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
+                } else {
+                    this.loadViewportCells(context);
+                }
             } else {
-                this.loadViewportCells(context);
+                context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
             }
-        } else {
-            context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
         }
     }
 
