@@ -447,7 +447,15 @@ public class App implements EntryPoint,
     public void onSpreadsheetDelta(final SpreadsheetId id,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        // nop
+        // synchronize the local SpreadsheetMetadata with the viewport property from the SpreadsheetDelta
+        // this will prevent a HistoryWatcher from PATCHING the SpreadsheetMetadata.VIEWPORT when the history token changes
+        // to match this SpreadsheetViewport#anchoredSpreadsheetSelection
+        delta.viewport().ifPresent(v -> {
+            this.spreadsheetMetadata = this.spreadsheetMetadata.setOrRemove(
+                    SpreadsheetMetadataPropertyName.VIEWPORT,
+                    v
+            );
+        });
     }
 
     // SpreadsheetLabelMapping..........................................................................................
