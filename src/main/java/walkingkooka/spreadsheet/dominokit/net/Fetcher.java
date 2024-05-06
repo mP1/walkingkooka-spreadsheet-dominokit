@@ -111,6 +111,8 @@ public interface Fetcher {
                 body
         );
 
+        this.setWaitingRequestCount(this.waitingRequestCount() + 1);
+
         DomGlobal.fetch(
                         url.value(),
                         requestInit
@@ -118,6 +120,8 @@ public interface Fetcher {
                     response.text()
                             .then(
                                     text -> {
+                                        this.setWaitingRequestCount(this.waitingRequestCount() - 1);
+
                                         if (response.ok) {
                                             this.onSuccess(
                                                     method,
@@ -145,6 +149,8 @@ public interface Fetcher {
                     return null;
                 })
                 .catch_(error -> {
+                    this.setWaitingRequestCount(this.waitingRequestCount() - 1);
+
                     this.onError(error);
                     return null;
                 });
@@ -218,4 +224,15 @@ public interface Fetcher {
                    final String body);
 
     void onError(final Object cause);
+
+    /**
+     * Returns the number of outstanding or inflight requests.
+     */
+    int waitingRequestCount();
+
+    /**
+     * This method is only intended to be called by {@link #fetch(HttpMethod, AbsoluteOrRelativeUrl, Optional)},
+     * during various parts of the fetch lifecycle.
+     */
+    void setWaitingRequestCount(final int waitingRequestCount);
 }
