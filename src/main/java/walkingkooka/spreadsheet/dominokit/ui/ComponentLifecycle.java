@@ -85,7 +85,7 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
                 } else {
                     canOpen = false;
                     if (this.shouldLogLifecycleChanges()) {
-                        context.debug(prefix + ".close");
+                        context.debug(prefix + ".close " + token);
                     }
                     this.close(context);
                 }
@@ -106,7 +106,7 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
                         // open -> close -> close
 
                         if (this.shouldLogLifecycleChanges()) {
-                            context.debug(prefix + ".close");
+                            context.debug(prefix + ".close " + token);
                         }
                         this.close(context);
                     }
@@ -114,7 +114,7 @@ public interface ComponentLifecycle extends HistoryTokenWatcher,
                     if (nextOpen) {
                         // close -> open -> open
                         if (this.shouldLogLifecycleChanges()) {
-                            context.debug(prefix + ".open");
+                            context.debug(prefix + ".open " + token);
                         }
                         this.open(context);
 
