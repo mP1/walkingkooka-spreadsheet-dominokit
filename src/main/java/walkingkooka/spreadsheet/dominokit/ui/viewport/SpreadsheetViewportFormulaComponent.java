@@ -76,6 +76,55 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
+
+        // The inner class ComponentLifecycle is used to track SpreadsheetCellFormulaHistoryToken and give focus to
+        // SpreadsheetFormulaComponent.
+        context.addHistoryTokenWatcher(
+                new ComponentLifecycle() {
+
+                    @Override
+                    public boolean shouldIgnore(final HistoryToken token) {
+                        return token instanceof SpreadsheetCellFormulaSaveHistoryToken;
+                    }
+
+                    @Override
+                    public boolean isMatch(final HistoryToken token) {
+                        return token instanceof SpreadsheetCellFormulaHistoryToken;
+                    }
+
+                    @Override
+                    public boolean isOpen() {
+                        return this.open;
+                    }
+
+                    @Override
+                    public void open(final AppContext context) {
+                        this.open = true;
+                    }
+
+                    @Override
+                    public void openGiveFocus(final AppContext context) {
+                        context.giveFocus(SpreadsheetViewportFormulaComponent.this.formula::focus);
+                    }
+
+                    @Override
+                    public void refresh(final AppContext context) {
+                        // NOP
+                    }
+
+                    @Override
+                    public void close(final AppContext context) {
+                        this.open = false;
+                    }
+
+                    private boolean open;
+
+                    @Override
+                    public boolean shouldLogLifecycleChanges() {
+                        return false;
+                    }
+                }
+        );
     }
 
     private void onFocus(final Event event) {
@@ -196,12 +245,6 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                                         .map(SpreadsheetError::message)
                         )
                 );
-
-                if (token instanceof SpreadsheetCellFormulaHistoryToken) {
-                    context.debug("SpreadsheetViewportFormulaComponent.refresh giving focus");
-
-                    context.giveFocus(formula::focus);
-                }
             }
         }
     }
