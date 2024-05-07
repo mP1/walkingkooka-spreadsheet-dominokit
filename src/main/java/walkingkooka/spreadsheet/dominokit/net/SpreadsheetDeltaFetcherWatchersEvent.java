@@ -17,7 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
@@ -26,21 +27,25 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
  */
 final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetDeltaFetcherWatcher> {
 
-    static SpreadsheetDeltaFetcherWatchersEvent with(final SpreadsheetId id,
+    static SpreadsheetDeltaFetcherWatchersEvent with(final HttpMethod method,
+                                                     final AbsoluteOrRelativeUrl url,
                                                      final SpreadsheetDelta delta,
                                                      final AppContext context) {
         return new SpreadsheetDeltaFetcherWatchersEvent(
-                id,
+                method,
+                url,
                 delta,
                 context
         );
     }
 
-    private SpreadsheetDeltaFetcherWatchersEvent(final SpreadsheetId id,
+    private SpreadsheetDeltaFetcherWatchersEvent(final HttpMethod method,
+                                                 final AbsoluteOrRelativeUrl url,
                                                  final SpreadsheetDelta delta,
                                                  final AppContext context) {
         super(context);
-        this.id = id;
+        this.method = method;
+        this.url = url;
         this.delta = delta;
     }
 
@@ -48,7 +53,8 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
     public void accept(final SpreadsheetDeltaFetcherWatcher watcher) {
         try {
             watcher.onSpreadsheetDelta(
-                    this.id,
+                    this.method,
+                    this.url,
                     this.delta,
                     this.context
             );
@@ -60,12 +66,14 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
         }
     }
 
-    private final SpreadsheetId id;
+    private final HttpMethod method;
+
+    private final AbsoluteOrRelativeUrl url;
 
     private final SpreadsheetDelta delta;
 
     @Override
     public String toString() {
-        return this.id + " " + this.delta + " " + this.context;
+        return this.method + " " + this.url + " " + this.delta + " " + this.context;
     }
 }

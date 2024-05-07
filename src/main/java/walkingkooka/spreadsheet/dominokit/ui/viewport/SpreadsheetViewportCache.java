@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetColumn;
@@ -34,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -558,10 +561,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * all values for a window.
      */
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetId id,
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        if (id.equals(this.spreadsheetId)) {
+        // TODO clear cache if GET load viewport cells.
+        final Optional<SpreadsheetId> maybeSpreadsheetId = SpreadsheetMetadataFetcher.extractSpreadsheetId(url);
+        if (maybeSpreadsheetId.isPresent() &&
+                maybeSpreadsheetId.get()
+                        .equals(this.spreadsheetId)) {
             this.setWindows(delta.window());
 
             {

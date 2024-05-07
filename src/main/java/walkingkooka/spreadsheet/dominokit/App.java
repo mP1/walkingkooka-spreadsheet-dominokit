@@ -444,7 +444,8 @@ public class App implements EntryPoint,
     private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaWatchers;
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetId id,
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         // Updates the anchoredSpreadsheetSelection of the local Metadata.

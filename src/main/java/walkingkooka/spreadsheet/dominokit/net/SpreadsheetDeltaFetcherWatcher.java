@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -26,7 +28,12 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
  */
 public interface SpreadsheetDeltaFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetDelta(final SpreadsheetId id,
+    /**
+     * Contains the result of a request. Note the path only contains the path after the {@link SpreadsheetId} and may be
+     * used to identify the actual target end point.
+     */
+    void onSpreadsheetDelta(final HttpMethod method,
+                            final AbsoluteOrRelativeUrl url,
                             final SpreadsheetDelta delta,
                             final AppContext context);
 }

@@ -1157,7 +1157,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // delta............................................................................................................
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetId id,
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         Objects.requireNonNull(delta, "delta");

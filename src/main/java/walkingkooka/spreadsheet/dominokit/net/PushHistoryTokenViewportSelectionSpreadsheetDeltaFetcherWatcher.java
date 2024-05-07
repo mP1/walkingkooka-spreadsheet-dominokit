@@ -17,7 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -41,7 +42,8 @@ final class PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher impl
     }
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetId id,
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         final Optional<SpreadsheetViewport> viewport = delta.viewport();
