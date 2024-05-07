@@ -18,12 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPath;
+import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -90,6 +92,65 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     static {
         SpreadsheetDelta.EMPTY.toString(); // force json unmarshaller to register
+    }
+
+    /**
+     * Returns true if the URL is a GET all cells
+     */
+    public static boolean isGetAllCells(final HttpMethod method,
+                                        final AbsoluteOrRelativeUrl url) {
+        Objects.requireNonNull(method, "method");
+        Objects.requireNonNull(url, "url");
+
+        boolean match = false;
+
+        if (method.isGetOrHead()) {
+            final UrlPath path = url.path();
+
+            int i = 0;
+            match = true;
+
+            for (final UrlPathName component : Iterables.iterator(path.iterator())) {
+                i++;
+
+                // http://server/api/spreadsheet/1/
+                switch (i) {
+                    case 1: // ROOT
+                        match = true;
+                        break;
+                    case 2: // /api
+                        match = "api".equals(component.value());
+                        break;
+                    case 3: // /spreadsheet
+                        match = "spreadsheet".equals(component.value());
+                        break;
+                    case 4: // SPREADSHEETID
+                        try {
+                            SpreadsheetId.parse(component.value());
+                        } catch (final RuntimeException ignore) {
+                            match = false;
+                        }
+                        break;
+                    case 5: // cells
+                        match = "cells".equals(component.value());
+                        break;
+                    case 6: // *
+                        match = "*".equals(component.value());
+                        break;
+                    default:
+                        match = false; // too many components so NO
+                        break;
+                }
+
+                if (false == match) {
+                    break;
+                }
+            }
+
+            match = 6 == i;
+        }
+
+        return match;
     }
 
     /**
