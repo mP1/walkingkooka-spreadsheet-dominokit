@@ -447,15 +447,29 @@ public class App implements EntryPoint,
     public void onSpreadsheetDelta(final SpreadsheetId id,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        // synchronize the local SpreadsheetMetadata with the viewport property from the SpreadsheetDelta
-        // this will prevent a HistoryWatcher from PATCHING the SpreadsheetMetadata.VIEWPORT when the history token changes
-        // to match this SpreadsheetViewport#anchoredSpreadsheetSelection
-        delta.viewport().ifPresent(v -> {
-            this.spreadsheetMetadata = this.spreadsheetMetadata.setOrRemove(
-                    SpreadsheetMetadataPropertyName.VIEWPORT,
-                    v
-            );
-        });
+        // Updates the anchoredSpreadsheetSelection of the local Metadata.
+        // This will prevent a PATCH of the server metadata when the history token anchoredSpreadsheetSelection changes, which
+        // is fine because it was already updated when the delta above was returned.
+        //
+        // this will prevent looping where multiple metadata/deltas happen and each overwrites the previous.
+        //
+        // we only update the anchoredSpreadsheetMetadata because some metadata GETS such as load metadata will not
+        // have the window property (unnecessary to calculate and return).
+        delta.viewport()
+                .ifPresent(
+                        newV -> {
+                            final SpreadsheetMetadata metadata = this.spreadsheetMetadata;
+                            this.spreadsheetMetadata = metadata.setOrRemove(
+                                    SpreadsheetMetadataPropertyName.VIEWPORT,
+                                    metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                                            .map(
+                                                    oldV -> oldV.setAnchoredSelection(
+                                                            newV.anchoredSelection()
+                                                    )
+                                            ).orElse(null)
+                            );
+                        }
+                );
     }
 
     // SpreadsheetLabelMapping..........................................................................................
@@ -576,14 +590,6 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetMetadata spreadsheetMetadata;
-
-    @Override
-    public void setSpreadsheetViewport(final SpreadsheetViewport spreadsheetViewport) {
-        this.spreadsheetMetadata = this.spreadsheetMetadata.set(
-                SpreadsheetMetadataPropertyName.VIEWPORT,
-                spreadsheetViewport
-        );
-    }
 
     // json.............................................................................................................
 
@@ -754,10 +760,10 @@ public class App implements EntryPoint,
             // check against local metadata NOT previous history selection, otherwise PATCH will be made
             // when a loadViewport has not yet updated history token with response selection.
             final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
-            final Optional<AnchoredSpreadsheetSelection> previousSelection = context.isSpreadsheetMetadataLoaded() ?
-                    context.spreadsheetViewport()
-                            .anchoredSelection() :
-                    Optional.empty();
+
+            final Optional<AnchoredSpreadsheetSelection> previousSelection = context.spreadsheetMetadata()
+                    .get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                    .flatMap(v -> v.anchoredSelection());
             if (false == selection.equals(previousSelection)) {
 
                 context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
