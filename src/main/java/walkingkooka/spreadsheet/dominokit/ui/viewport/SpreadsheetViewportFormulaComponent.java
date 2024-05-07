@@ -71,7 +71,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                         (event) -> onKeyDownEvent(
                                 Js.cast(event)
                         )
-                );
+                ).setDisabled(true);
         this.context = context;
 
         context.addHistoryTokenWatcher(this);
@@ -161,54 +161,48 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
     @Override
     public void refresh(final AppContext context) {
-        final HistoryToken token = context.historyToken();
+        final SpreadsheetCellHistoryToken token = context.historyToken()
+                .cast(SpreadsheetCellHistoryToken.class);
 
         final SpreadsheetFormulaComponent formula = this.formula;
-        if (token instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetSelection selection = token.cast(SpreadsheetCellHistoryToken.class)
-                    .anchoredSelection()
-                    .selection();
+        final SpreadsheetSelection selection = token.anchoredSelection()
+                .selection();
 
-            // if selection change reload formula text
-            if (false == selection.equalsIgnoreReferenceKind(this.selection)) {
-                this.reload(
-                        selection,
-                        context
+        // if selection change reload formula text
+        if (false == selection.equalsIgnoreReferenceKind(this.selection)) {
+            this.reload(
+                    selection,
+                    context
+            );
+        } else {
+            final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
+
+            // refresh could have happened before label from selection has returned from server.
+            // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
+            Optional<SpreadsheetCell> cell;
+            try {
+                cell = cache.cell(selection);
+            } catch (final IllegalArgumentException labelNotReady) {
+                cell = null;
+            }
+
+            if (null != cell) {
+                formula.setStringValue(
+                        cell.map(c -> c.formula().text())
+                ).setHelperText(
+                        cell.flatMap(
+                                c -> c.formula()
+                                        .error()
+                                        .map(SpreadsheetError::message)
+                        )
                 );
-            } else {
-                final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
-                // refresh could have happened before label from selection has returned from server.
-                // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
-                Optional<SpreadsheetCell> cell;
-                try {
-                    cell = cache.cell(selection);
-                } catch (final IllegalArgumentException labelNotReady) {
-                    cell = null;
-                }
+                if (token instanceof SpreadsheetCellFormulaHistoryToken) {
+                    context.debug("SpreadsheetViewportFormulaComponent.refresh giving focus");
 
-                if (null != cell) {
-                    formula.setStringValue(
-                            cell.map(c -> c.formula().text())
-                    ).setHelperText(
-                            cell.flatMap(
-                                    c -> c.formula()
-                                            .error()
-                                            .map(SpreadsheetError::message)
-                            )
-                    );
-
-                    if (token instanceof SpreadsheetCellFormulaHistoryToken) {
-                        context.debug("SpreadsheetViewportFormulaComponent.refresh giving focus");
-
-                        context.giveFocus(formula::focus);
-                    }
+                    context.giveFocus(formula::focus);
                 }
             }
-        } else {
-            context.debug("SpreadsheetViewportFormulaComponent.refresh not cell historyToken clearing text");
-            formula.clearValue();
-            formula.clearHelperText();
         }
     }
 
