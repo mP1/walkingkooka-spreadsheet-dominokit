@@ -211,7 +211,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return true; // child items return false
+        return false; // child items return false
     }
 
     // element..........................................................................................................
