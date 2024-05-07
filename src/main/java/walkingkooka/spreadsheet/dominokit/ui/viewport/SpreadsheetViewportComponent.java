@@ -60,7 +60,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -312,12 +311,42 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         final HTMLTableElement element = table.element();
 
+        this.addFocusInEventListener(element);
+        this.addFocusOutEventListener(element);
+
         this.addClickEventListener(element);
         this.addKeyDownEventListener(element);
         this.addContextMenuEventListener(element);
 
         return table;
     }
+
+    // focus ...........................................................................................................
+
+    /**
+     * Registers a focusin event handler which SETS a flag which tracks whether the viewport TABLE (cell-grid) has focus or not.
+     */
+    private void addFocusInEventListener(final Element element) {
+        element.addEventListener(
+                "focusin",
+                (event) -> this.focused = true
+        );
+    }
+
+    /**
+     * Registers a focusout event handler which CLEARS a flag which tracks whether the viewport TABLE (cell-grid) has focus or not.
+     */
+    private void addFocusOutEventListener(final Element element) {
+        element.addEventListener(
+                "focusout",
+                (event) -> this.focused = false
+        );
+    }
+
+    /**
+     * When true indicates that some part of the viewport has FOCUS.
+     */
+    private boolean focused;
 
     // click ...........................................................................................................
 
@@ -429,6 +458,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 break;
             case Enter:
                 // if cell then edit formula
+                this.focused = false;
                 context.pushHistoryToken(
                         context.historyToken()
                                 .setFormula()
@@ -1163,8 +1193,41 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                    final AppContext context) {
         Objects.requireNonNull(delta, "delta");
 
+        final Optional<SpreadsheetViewport> maybeSpreadsheetViewport = delta.viewport();
+        if(maybeSpreadsheetViewport.isPresent()) {
+            this.synchronizeHistoryToken(
+                    maybeSpreadsheetViewport.get(),
+                    context
+            );
+        }
         this.componentLifecycleHistoryTokenQuery(context);
         this.loadViewportCellsIfNecessary(context);
+    }
+
+    /**
+     * Reacts to new or different {@link AnchoredSpreadsheetSelection} from a {@link SpreadsheetDelta} response,
+     * pushing the {@link AnchoredSpreadsheetSelection} to the {@link HistoryToken} which results in the navigation
+     * being updated and followed.
+     */
+    private void synchronizeHistoryToken(final SpreadsheetViewport viewport,
+                                         final AppContext context) {
+        if (this.focused) {
+            // before pushing history token need to update the AppContext.metadata
+            final HistoryToken historyToken = context.historyToken();
+
+            final HistoryToken withSelection = historyToken
+                    .clearSelection()
+                    .setAnchoredSelection(
+                            viewport.anchoredSelection()
+                    );
+
+            context.debug(
+                    this.getClass().getSimpleName() +
+                            ".synchronizeHistoryToken different selection from history token @" +
+                            withSelection
+            );
+            context.pushHistoryToken(withSelection);
+        }
     }
 
     // SpreadsheetLabelMappingFetcherWatcher............................................................................
@@ -1248,9 +1311,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.reload = false;
         this.navigations = SpreadsheetViewportNavigationList.EMPTY;
 
-        context.addSpreadsheetDeltaWatcherOnce(
-                SpreadsheetDeltaFetcherWatchers.pushHistoryTokenViewportSelection()
-        );
         context.spreadsheetDeltaFetcher()
                 .loadCells(
                         id,

@@ -29,13 +29,6 @@ public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<Sprea
         return new SpreadsheetDeltaFetcherWatchers();
     }
 
-    /**
-     * {@see PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher}
-     */
-    public static SpreadsheetDeltaFetcherWatcher pushHistoryTokenViewportSelection() {
-        return PushHistoryTokenViewportSelectionSpreadsheetDeltaFetcherWatcher.INSTANCE;
-    }
-
     private SpreadsheetDeltaFetcherWatchers() {
         super();
     }
