@@ -838,13 +838,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             case "":
                 this.watcher.onNoResponse(context);
             case "SpreadsheetDelta":
+                // http://server/api/spreadsheet/1/cell
                 this.watcher.onSpreadsheetDelta(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(),
+                        method, // method
+                        url, // the request url
                         this.parse(
                                 body,
                                 SpreadsheetDelta.class
-                        ),
+                        ), // delta
                         context
                 );
                 break;

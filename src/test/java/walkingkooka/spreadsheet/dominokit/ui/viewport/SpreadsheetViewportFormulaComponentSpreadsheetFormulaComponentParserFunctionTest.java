@@ -19,6 +19,9 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -53,6 +56,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunctionTest implements FunctionTesting<SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction, String, SpreadsheetFormula> {
 
     private final static ExpressionNumberKind EXPRESSION_NUMBER_KIND = ExpressionNumberKind.BIG_DECIMAL;
+
+    private final static HttpMethod METHOD = HttpMethod.GET;
+
+    private final static AbsoluteOrRelativeUrl URL = Url.parseAbsoluteOrRelative("https://example.com/api/spreadsheet/2/cell");
 
     private final static SpreadsheetId ID = SpreadsheetId.with(2);
 
@@ -203,7 +210,8 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
 
         viewportCache.onSpreadsheetDelta(
-                ID,
+                METHOD,
+                URL,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 cellReference.setFormula(
@@ -250,7 +258,8 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         viewportCache.onSpreadsheetDelta(
-                ID,
+                METHOD,
+                URL,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 cellReference.setFormula(
@@ -295,7 +304,8 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         viewportCache.onSpreadsheetDelta(
-                ID,
+                METHOD,
+                URL,
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
                                 cellReference.setFormula(

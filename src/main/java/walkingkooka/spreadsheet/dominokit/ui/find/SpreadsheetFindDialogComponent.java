@@ -28,6 +28,8 @@ import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -261,7 +263,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      * Replaces the cells in the {@link #cellDataStore}.
      */
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetId id,
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         final List<SpreadsheetCell> cells = Lists.array();

@@ -21,9 +21,10 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -250,7 +251,8 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     // SpreadsheetDeltaWatcher..........................................................................................
 
     @Override
-    public void onSpreadsheetDelta(final SpreadsheetId id,
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         this.refresh(context);

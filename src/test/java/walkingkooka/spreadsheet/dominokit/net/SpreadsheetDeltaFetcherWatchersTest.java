@@ -33,6 +33,12 @@ import java.util.Optional;
 
 public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTestCase<SpreadsheetDeltaFetcherWatchers> {
 
+    private final static HttpMethod METHOD = HttpMethod.GET;
+
+    private final static AbsoluteOrRelativeUrl URL = Url.parseAbsoluteOrRelative("https://example.com/api/spreadsheet/1/cell");
+
+    private final static SpreadsheetId ID = SpreadsheetId.with(2);
+
     @Test
     public void testAddThenFire() {
         this.fired = 0;
@@ -45,17 +51,24 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
         watchers.add(
                 new FakeSpreadsheetDeltaFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetDelta(final SpreadsheetId i,
+                    public void onSpreadsheetDelta(final HttpMethod method,
+                                                   final AbsoluteOrRelativeUrl url,
                                                    final SpreadsheetDelta delta,
                                                    final AppContext context) {
-                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(id, i);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(METHOD, method);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(URL, url);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(spreadsheetDelta, delta);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                         SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                     }
                 });
-        watchers.onSpreadsheetDelta(id, spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(
+                METHOD,
+                URL,
+                spreadsheetDelta,
+                appContext
+        );
 
         this.checkEquals(1, this.fired);
     }
@@ -72,23 +85,25 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
         watchers.addOnce(
                 new FakeSpreadsheetDeltaFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetDelta(final SpreadsheetId i,
+                    public void onSpreadsheetDelta(final HttpMethod method,
+                                                   final AbsoluteOrRelativeUrl url,
                                                    final SpreadsheetDelta delta,
                                                    final AppContext context) {
-                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(id, i);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(METHOD, method);
+                        SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(URL, url);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(spreadsheetDelta, delta);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                         SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                     }
                 });
-        watchers.onSpreadsheetDelta(id, spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta, appContext);
         this.checkEquals(1, this.fired);
 
-        watchers.onSpreadsheetDelta(id, spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta, appContext);
         this.checkEquals(1, this.fired);
 
-        watchers.onSpreadsheetDelta(id, spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta, appContext);
         this.checkEquals(1, this.fired);
     }
 
