@@ -18,10 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
@@ -43,6 +45,76 @@ import java.util.OptionalInt;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetDeltaFetcherTest implements Testing {
+
+    // isGetAllCells....................................................................................................
+
+    @Test
+    public void testIsGetAllCellsPOST() {
+        this.isGetAllCellsAndCheck(
+                HttpMethod.POST,
+                "https://server/api/spreadsheet/1/cells/*",
+                false
+        );
+    }
+
+    @Test
+    public void testIsGetAllCellsGetNotSpreadsheet() {
+        this.isGetAllCellsAndCheck(
+                HttpMethod.GET,
+                "https://server/api/not/1/cells",
+                false
+        );
+    }
+
+    @Test
+    public void testIsGetAllCellsGetNotAllCells() {
+        this.isGetAllCellsAndCheck(
+                HttpMethod.GET,
+                "https://server/api/spreadsheet/1/cells",
+                false
+        );
+    }
+
+    @Test
+    public void testIsGetAllCellsGetAllCells() {
+        this.isGetAllCellsAndCheck(
+                HttpMethod.GET,
+                "https://server/api/spreadsheet/1/cells/*",
+                true
+        );
+    }
+
+    @Test
+    public void testIsGetAllCellsGetAllCellsExtraPath() {
+        this.isGetAllCellsAndCheck(
+                HttpMethod.GET,
+                "https://server/api/spreadsheet/1/cells/*/extra",
+                false
+        );
+    }
+
+    private void isGetAllCellsAndCheck(final HttpMethod method,
+                                       final String url,
+                                       final boolean expected) {
+        this.isGetAllCellsAndCheck(
+                method,
+                Url.parseAbsoluteOrRelative(url),
+                expected
+        );
+    }
+
+    private void isGetAllCellsAndCheck(final HttpMethod method,
+                                       final AbsoluteOrRelativeUrl url,
+                                       final boolean expected) {
+        this.checkEquals(
+                expected,
+                SpreadsheetDeltaFetcher.isGetAllCells(
+                        method,
+                        url
+                ),
+                () -> method + " " + url
+        );
+    }
 
     // cellFindQueryString..................................................................................................
 
