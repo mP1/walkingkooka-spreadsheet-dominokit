@@ -1245,8 +1245,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         context.debug("SpreadsheetViewportComponent.loadViewportCells id: " + id + " viewport: " + viewport);
 
-        context.spreadsheetViewportCache()
-                .clear(); // clear all cached data.
         this.reload = false;
         this.navigations = SpreadsheetViewportNavigationList.EMPTY;
 

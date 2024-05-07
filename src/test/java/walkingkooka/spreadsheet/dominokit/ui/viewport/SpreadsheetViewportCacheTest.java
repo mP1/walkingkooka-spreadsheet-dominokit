@@ -3999,6 +3999,63 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
+    // clear............................................................................................................
+
+    @Test
+    public void testOnSpreadsheetDeltaGetAllCells() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        cache.onSpreadsheetDelta(
+                METHOD,
+                URL_ID1,
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost"))
+                                )
+                        ).setMatchedCells(
+                                Sets.of(
+                                        A1
+                                )
+                        ),
+                CONTEXT
+        );
+
+        // cache should be cleared and A1 above lost.
+        cache.onSpreadsheetDelta(
+                METHOD,
+                Url.parseAbsoluteOrRelative("https://server/api/spreadsheet/" + ID1 + "/cells/*"),
+                SpreadsheetDelta.EMPTY
+                        .setCells(
+                                Sets.of(
+                                        A2_CELL
+                                )
+                        ),
+                CONTEXT
+        );
+
+        this.checkCells(
+                cache,
+                A2_CELL
+        );
+
+        this.checkMatchedCells(
+                cache
+        );
+
+        this.isMatchedCellAndCheck(
+                cache,
+                A2,
+                false
+        );
+
+        this.resolveIfLabelAndCheck(
+                cache,
+                A2,
+                A2
+        );
+    }
+
     // SpreadsheetLabelNameResolver.....................................................................................
 
     @Override

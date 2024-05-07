@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -565,11 +566,16 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        // TODO clear cache if GET load viewport cells.
         final Optional<SpreadsheetId> maybeSpreadsheetId = SpreadsheetMetadataFetcher.extractSpreadsheetId(url);
         if (maybeSpreadsheetId.isPresent() &&
                 maybeSpreadsheetId.get()
                         .equals(this.spreadsheetId)) {
+
+            // GET https://server/api/spreadsheet/1/cell/*
+            if (SpreadsheetDeltaFetcher.isGetAllCells(method, url)) {
+                this.clear();
+            }
+
             this.setWindows(delta.window());
 
             {
