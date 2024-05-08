@@ -17,21 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference;
 
-import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-
-import java.util.Objects;
-import java.util.Optional;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetExpressionReferenceComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetExpressionReference, SpreadsheetExpressionReferenceComponent> {
+public final class SpreadsheetExpressionReferenceComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetExpressionReferenceComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetExpressionReferenceComponent empty() {
         return new SpreadsheetExpressionReferenceComponent();
@@ -41,130 +35,11 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueCompo
         this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseExpressionReference);
     }
 
-    @Override
-    public SpreadsheetExpressionReferenceComponent setId(final String id) {
-        this.textBox.setId(id);
-        return this;
-    }
+    // ParserSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public SpreadsheetExpressionReferenceComponent setLabel(final String label) {
-        this.textBox.setLabel(label);
-        return this;
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return this.textBox.isDisabled();
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent setDisabled(final boolean disabled) {
-        this.textBox.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent optional() {
-        this.textBox.optional();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent required() {
-        this.textBox.required();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent validate() {
-        this.textBox.validate();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent focus() {
-        this.textBox.focus();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent alwaysShowHelperText() {
-        this.textBox.alwaysShowHelperText();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent setHelperText(final Optional<String> text) {
-        this.textBox.setHelperText(text);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent hideMarginBottom() {
-        this.textBox.hideMarginBottom();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent removeBorders() {
-        this.textBox.removeBorders();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent addChangeListener(final ChangeListener<Optional<SpreadsheetExpressionReference>> listener) {
-        this.textBox.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent addFocusListener(final EventListener listener) {
-        this.textBox.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent addKeydownListener(final EventListener listener) {
-        this.textBox.addKeydownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent addKeyupListener(final EventListener listener) {
-        this.textBox.addKeyupListener(listener);
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.textBox.element();
-    }
-
-    // Value............................................................................................................
-
-    @Override
-    public SpreadsheetExpressionReferenceComponent setValue(final Optional<SpreadsheetExpressionReference> spreadsheetExpressionReference) {
-        Objects.requireNonNull(spreadsheetExpressionReference, "spreadsheetExpressionReference");
-
-        this.textBox.setValue(spreadsheetExpressionReference);
-        return this;
-    }
-
-    @Override //
-    public Optional<SpreadsheetExpressionReference> value() {
-        return this.textBox.value();
-    }
-
-    public Optional<String> stringValue() {
-        return this.textBox.stringValue();
-    }
-
-    public SpreadsheetExpressionReferenceComponent setStringValue(final Optional<String> stringValue) {
-        this.textBox.setStringValue(stringValue);
-        return this;
+    public ParserSpreadsheetTextBox<SpreadsheetExpressionReference> parserSpreadsheetTextBox() {
+        return this.textBox;
     }
 
     private final ParserSpreadsheetTextBox<SpreadsheetExpressionReference> textBox;
