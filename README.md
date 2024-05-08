@@ -66,7 +66,7 @@ Individual issues that breakdown outstanding tasks will be added.
 - Expression error messages are shown, without any point to the actual position of the
   mistake [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2064)
 
-## Viewport (table)
+## Viewport (grid of cells)
 
 - Keyboard
   - Cursor key navigation *DONE*
@@ -109,7 +109,8 @@ Individual issues that breakdown outstanding tasks will be added.
   - COPY *DONE*
   - PASTE *DONE*
   - Additional clipboard text formats such as
-    CSV [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2182)
+    - CSV [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2182)
+    - plain text [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2688)
 
 ## Toolbar
 
