@@ -89,7 +89,11 @@ Individual issues that breakdown outstanding tasks will be added.
   - Parse patterns: select & edit Date, DateTime, Number, Text, Time *DONE*
   - Text case: Normal, Capitalize, Lowercase, Uppercase *DONE*
   - Border
-    - Top, Left, Right, Bottom, All: color, style, width *DONE*
+    - direction: Top, Left, Right, Bottom, All *DONE*
+    - color *DONE*
+    - style *DONE*
+    - width 0, 1, 2, 3, 4 *DONE*
+      - User edited width [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2690)
   - Wrapping: clip, Overflow, Wrap *DONE*
 - Column, Row, Cell actions:
   - Insert columns before *DONE*
