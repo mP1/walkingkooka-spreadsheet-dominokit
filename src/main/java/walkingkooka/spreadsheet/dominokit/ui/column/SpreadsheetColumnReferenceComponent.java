@@ -17,21 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.column;
 
-import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetColumnReference}.
  */
-public final class SpreadsheetColumnReferenceComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetColumnReference, SpreadsheetColumnReferenceComponent> {
+public final class SpreadsheetColumnReferenceComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetColumnReferenceComponent, SpreadsheetColumnReference> {
 
     public static SpreadsheetColumnReferenceComponent empty() {
         return new SpreadsheetColumnReferenceComponent();
@@ -39,123 +35,6 @@ public final class SpreadsheetColumnReferenceComponent implements ValueComponent
 
     private SpreadsheetColumnReferenceComponent() {
         this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseColumn);
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent setId(final String id) {
-        this.textBox.setId(id);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent setLabel(final String label) {
-        this.textBox.setLabel(label);
-        return this;
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return this.textBox.isDisabled();
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent setDisabled(final boolean disabled) {
-        this.textBox.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent optional() {
-        this.textBox.optional();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent required() {
-        this.textBox.required();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent validate() {
-        this.textBox.validate();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent focus() {
-        this.textBox.focus();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent alwaysShowHelperText() {
-        this.textBox.alwaysShowHelperText();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent setHelperText(final Optional<String> text) {
-        this.textBox.setHelperText(text);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent hideMarginBottom() {
-        this.textBox.hideMarginBottom();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent removeBorders() {
-        this.textBox.removeBorders();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent addChangeListener(final ChangeListener<Optional<SpreadsheetColumnReference>> listener) {
-        this.textBox.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent addFocusListener(final EventListener listener) {
-        this.textBox.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent addKeydownListener(final EventListener listener) {
-        this.textBox.addKeydownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnReferenceComponent addKeyupListener(final EventListener listener) {
-        this.textBox.addKeyupListener(listener);
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.textBox.element();
-    }
-
-    // Value............................................................................................................
-
-    @Override
-    public SpreadsheetColumnReferenceComponent setValue(final Optional<SpreadsheetColumnReference> column) {
-        Objects.requireNonNull(column, "column");
-
-        this.textBox.setValue(column);
-        return this;
-    }
-
-    @Override //
-    public Optional<SpreadsheetColumnReference> value() {
-        return this.textBox.value();
     }
 
     public Optional<String> stringValue() {
@@ -167,6 +46,12 @@ public final class SpreadsheetColumnReferenceComponent implements ValueComponent
         return this;
     }
 
+    // ParserSpreadsheetTextBoxWrapper..................................................................................
+
+    @Override
+    public ParserSpreadsheetTextBox<SpreadsheetColumnReference> parserSpreadsheetTextBox() {
+        return this.textBox;
+    }
 
     private final ParserSpreadsheetTextBox<SpreadsheetColumnReference> textBox;
 
