@@ -157,17 +157,10 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
                 .setId(ID_PREFIX + "comparatorNamesList")
                 .addKeyupListener(
-                        //(e) -> this.setComparatorNamesList(this.comparatorNamesList.value())
                         (e) -> this.refresh()
                 ).addChangeListener(
-                        (oldValue, newValue) -> this.refresh() //this.setComparatorNamesList(newValue)
+                        (oldValue, newValue) -> this.refresh()
                 );
-    }
-
-    private void setComparatorNamesList(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> list) {
-        this.setComparatorNamesListString(
-                list.map(SpreadsheetColumnOrRowSpreadsheetComparatorNamesList::text)
-        );
     }
 
     private void setComparatorNamesListString(final Optional<String> list) {
