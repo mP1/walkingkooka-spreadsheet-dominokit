@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -36,5 +37,17 @@ public abstract class SpreadsheetRowSortHistoryTokenTestCase<T extends Spreadshe
 
     SpreadsheetRowSortHistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.row(
+                        ID,
+                        NAME,
+                        ROW.setDefaultAnchor()
+                )
+        );
     }
 }
