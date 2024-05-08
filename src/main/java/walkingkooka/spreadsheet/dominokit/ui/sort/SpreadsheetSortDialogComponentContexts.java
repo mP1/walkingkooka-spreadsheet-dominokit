@@ -18,8 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class SpreadsheetSortDialogComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see AppContextSortDialogComponentContext}
+     */
+    public static SpreadsheetSortDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetSortDialogComponentContext.with(context);
+    }
 
     /**
      * {@see FakeSpreadsheetSortDialogComponentContext}
