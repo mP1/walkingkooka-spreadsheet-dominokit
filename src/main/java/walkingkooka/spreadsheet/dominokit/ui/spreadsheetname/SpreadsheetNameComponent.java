@@ -17,20 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
-import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-
-import java.util.Objects;
-import java.util.Optional;
+import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetName}.
  */
-public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetName, SpreadsheetNameComponent> {
+public final class SpreadsheetNameComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetNameComponent, SpreadsheetName> {
 
     public static SpreadsheetNameComponent empty() {
         return new SpreadsheetNameComponent();
@@ -40,134 +34,16 @@ public final class SpreadsheetNameComponent implements ValueComponent<HTMLFieldS
         this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetName::with);
     }
 
-    @Override
-    public SpreadsheetNameComponent setId(final String id) {
-        this.textBox.setId(id);
-        return this;
-    }
+    // ParserSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public SpreadsheetNameComponent setLabel(final String label) {
-        this.textBox.setLabel(label);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent focus() {
-        this.textBox.focus();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent alwaysShowHelperText() {
-        this.textBox.alwaysShowHelperText();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent setHelperText(final Optional<String> text) {
-        this.textBox.setHelperText(text);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent hideMarginBottom() {
-        this.textBox.hideMarginBottom();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent removeBorders() {
-        this.textBox.removeBorders();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent addChangeListener(final ChangeListener<Optional<SpreadsheetName>> listener) {
-        this.textBox.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent addFocusListener(final EventListener listener) {
-        this.textBox.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent addKeydownListener(final EventListener listener) {
-        this.textBox.addKeydownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent addKeyupListener(final EventListener listener) {
-        this.textBox.addKeyupListener(listener);
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.textBox.element();
-    }
-
-    // Value............................................................................................................
-
-    @Override
-    public SpreadsheetNameComponent setValue(final Optional<SpreadsheetName> spreadsheetName) {
-        Objects.requireNonNull(spreadsheetName, "spreadsheetName");
-
-        this.textBox.setValue(spreadsheetName);
-        return this;
-    }
-
-    @Override //
-    public Optional<SpreadsheetName> value() {
-        return this.textBox.value();
-    }
-
-    public Optional<String> stringValue() {
-        return this.textBox.stringValue();
-    }
-
-    public SpreadsheetNameComponent setStringValue(final Optional<String> stringValue) {
-        this.textBox.setStringValue(stringValue);
-        return this;
+    public ParserSpreadsheetTextBox<SpreadsheetName> parserSpreadsheetTextBox() {
+        return this.textBox;
     }
 
     private final ParserSpreadsheetTextBox<SpreadsheetName> textBox;
 
-    @Override
-    public boolean isDisabled() {
-        return this.textBox.isDisabled();
-    }
-
-    @Override
-    public SpreadsheetNameComponent setDisabled(final boolean disabled) {
-        this.textBox.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent required() {
-        return this;
-    }
-
-    @Override
-    public SpreadsheetNameComponent optional() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetNameComponent validate() {
-        this.textBox.validate();
-        return this;
-    }
-
     // Object...........................................................................................................
-
     @Override
     public String toString() {
         return this.textBox.toString();
