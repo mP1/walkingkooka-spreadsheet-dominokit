@@ -17,21 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
-public final class SpreadsheetSortDialogComponentContexts implements PublicStaticHelper {
-
-    /**
-     * {@see FakeSpreadsheetSortDialogComponentContext}
-     */
-    public static SpreadsheetSortDialogComponentContext fake() {
-        return new FakeSpreadsheetSortDialogComponentContext();
-    }
-
-    /**
-     * Stop creation
-     */
-    private SpreadsheetSortDialogComponentContexts() {
-        throw new UnsupportedOperationException();
-    }
+public class FakeSpreadsheetSortDialogComponentContext extends FakeHistoryTokenContext
+        implements SpreadsheetSortDialogComponentContext {
 }
