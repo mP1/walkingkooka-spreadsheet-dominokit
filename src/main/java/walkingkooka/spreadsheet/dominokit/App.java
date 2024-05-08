@@ -84,6 +84,8 @@ import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelCompon
 import walkingkooka.spreadsheet.dominokit.ui.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.pattern.SpreadsheetPatternDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.ui.sort.SpreadsheetSortDialogComponent;
+import walkingkooka.spreadsheet.dominokit.ui.sort.SpreadsheetSortDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponent;
@@ -211,6 +213,10 @@ public class App implements EntryPoint,
         );
         SpreadsheetPatternDialogComponent.parse(
                 SpreadsheetPatternDialogComponentContexts.metadataParse(this)
+        );
+
+        SpreadsheetSortDialogComponent.with(
+                SpreadsheetSortDialogComponentContexts.appContext(this)
         );
 
         this.files = this.files();
