@@ -1254,6 +1254,10 @@ public abstract class HistoryToken implements HasUrlFragment,
             closed = find.clearAction();
         }
 
+        if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
+            closed = this.clearAction();
+        }
+
         if (this instanceof SpreadsheetColumnInsertHistoryToken || this instanceof SpreadsheetRowInsertHistoryToken) {
             closed = this.clearAction();
         }
