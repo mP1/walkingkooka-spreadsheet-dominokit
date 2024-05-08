@@ -217,8 +217,9 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     public SpreadsheetTextBox setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
-        this.textBox.setValue(
-                value.orElse(null)
+        this.textBox.withValue(
+                value.orElse(null),
+                true // silent dont fire change listeners.
         );
         return this;
     }
