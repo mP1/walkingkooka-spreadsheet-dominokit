@@ -17,20 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornames.columnrow;
 
-import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-
-import java.util.Objects;
-import java.util.Optional;
+import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
  */
-public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetColumnOrRowSpreadsheetComparatorNamesList, SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent> {
+public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent, SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> {
 
     public static SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent empty() {
         return new SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent();
@@ -40,132 +34,12 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent
         this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetColumnOrRowSpreadsheetComparatorNamesList::parse);
     }
 
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent setId(final String id) {
-        this.textBox.setId(id);
-        return this;
-    }
+    // ParserSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent setLabel(final String label) {
-        this.textBox.setLabel(label);
-        return this;
+    public ParserSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> parserSpreadsheetTextBox() {
+        return this.textBox;
     }
-
-    @Override
-    public boolean isDisabled() {
-        return this.textBox.isDisabled();
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent setDisabled(final boolean disabled) {
-        this.textBox.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent optional() {
-        this.textBox.optional();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent required() {
-        this.textBox.required();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent validate() {
-        this.textBox.validate();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent focus() {
-        this.textBox.focus();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent alwaysShowHelperText() {
-        this.textBox.alwaysShowHelperText();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent setHelperText(final Optional<String> text) {
-        this.textBox.setHelperText(text);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent hideMarginBottom() {
-        this.textBox.hideMarginBottom();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent removeBorders() {
-        this.textBox.removeBorders();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent addChangeListener(final ChangeListener<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList>> listener) {
-        this.textBox.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent addFocusListener(final EventListener listener) {
-        this.textBox.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent addKeydownListener(final EventListener listener) {
-        this.textBox.addKeydownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent addKeyupListener(final EventListener listener) {
-        this.textBox.addKeyupListener(listener);
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.textBox.element();
-    }
-
-    // Value............................................................................................................
-
-    @Override
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent setValue(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> comparatorNames) {
-        Objects.requireNonNull(comparatorNames, "comparatorNames");
-
-        this.textBox.setValue(comparatorNames);
-        return this;
-    }
-
-    @Override //
-    public Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> value() {
-        return this.textBox.value();
-    }
-
-    public Optional<String> stringValue() {
-        return this.textBox.stringValue();
-    }
-
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent setStringValue(final Optional<String> stringValue) {
-        this.textBox.setStringValue(stringValue);
-        return this;
-    }
-
 
     private final ParserSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> textBox;
 
