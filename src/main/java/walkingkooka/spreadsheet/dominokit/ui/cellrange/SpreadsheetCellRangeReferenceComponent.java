@@ -17,21 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.cellrange;
 
-import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetCellRangeReference}.
  */
-public final class SpreadsheetCellRangeReferenceComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReference, SpreadsheetCellRangeReferenceComponent> {
+public final class SpreadsheetCellRangeReferenceComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetCellRangeReferenceComponent, SpreadsheetCellRangeReference> {
 
     public static SpreadsheetCellRangeReferenceComponent empty() {
         return new SpreadsheetCellRangeReferenceComponent();
@@ -39,123 +35,6 @@ public final class SpreadsheetCellRangeReferenceComponent implements ValueCompon
 
     private SpreadsheetCellRangeReferenceComponent() {
         this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseCellRange);
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent setId(final String id) {
-        this.textBox.setId(id);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent setLabel(final String label) {
-        this.textBox.setLabel(label);
-        return this;
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return this.textBox.isDisabled();
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent setDisabled(final boolean disabled) {
-        this.textBox.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent optional() {
-        this.textBox.optional();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent required() {
-        this.textBox.required();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent validate() {
-        this.textBox.validate();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent focus() {
-        this.textBox.focus();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent alwaysShowHelperText() {
-        this.textBox.alwaysShowHelperText();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent setHelperText(final Optional<String> text) {
-        this.textBox.setHelperText(text);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent hideMarginBottom() {
-        this.textBox.hideMarginBottom();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent removeBorders() {
-        this.textBox.removeBorders();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRangeReference>> listener) {
-        this.textBox.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent addFocusListener(final EventListener listener) {
-        this.textBox.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent addKeydownListener(final EventListener listener) {
-        this.textBox.addKeydownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent addKeyupListener(final EventListener listener) {
-        this.textBox.addKeyupListener(listener);
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.textBox.element();
-    }
-
-    // Value............................................................................................................
-
-    @Override
-    public SpreadsheetCellRangeReferenceComponent setValue(final Optional<SpreadsheetCellRangeReference> cellRange) {
-        Objects.requireNonNull(cellRange, "cellRange");
-
-        this.textBox.setValue(cellRange);
-        return this;
-    }
-
-    @Override //
-    public Optional<SpreadsheetCellRangeReference> value() {
-        return this.textBox.value();
     }
 
     public Optional<String> stringValue() {
@@ -167,6 +46,12 @@ public final class SpreadsheetCellRangeReferenceComponent implements ValueCompon
         return this;
     }
 
+    // ParserSpreadsheetTextBoxWrapper..................................................................................
+
+    @Override
+    public ParserSpreadsheetTextBox<SpreadsheetCellRangeReference> parserSpreadsheetTextBox() {
+        return this.textBox;
+    }
 
     private final ParserSpreadsheetTextBox<SpreadsheetCellRangeReference> textBox;
 
