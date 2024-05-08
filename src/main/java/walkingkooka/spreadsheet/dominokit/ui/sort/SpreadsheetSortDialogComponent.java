@@ -18,19 +18,25 @@
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSortEditHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSortSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSortEditHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSortSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortEditHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornameslist.SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A dialog which includes various components allowing the user to enter the sort columns/rows and comparators as
@@ -51,6 +57,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
         this.context = context;
 
+        this.comparatorNamesList = this.comparatorNamesList();
+
         this.sort = this.anchor("Sort")
                 .setDisabled(true);
         this.close = this.closeAnchor(
@@ -60,6 +68,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         this.dialog = this.dialogCreate();
     }
 
+    // dialog..........................................................................................................
+
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 ID,
@@ -67,6 +77,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 true, // includeClose
                 this.context
         );
+
+        dialog.appendChild(this.comparatorNamesList);
 
         dialog.appendChild(
                 ElementsFactory.elements.div()
@@ -84,20 +96,116 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetDialogComponent dialog;
 
+    // lifecycle........................................................................................................
+
     @Override
     public void openGiveFocus(final AppContext context) {
-        // TODO GIVE FOCUS
+        this.comparatorNamesList.setStringValue(
+                this.historyTokenComparatorNameList(context.historyToken())
+        );
+        this.comparatorNamesList.focus();
+    }
+
+    private Optional<String> historyTokenComparatorNameList(final HistoryToken historyToken) {
+        // try and sync comparatorNamesList from historyToken.
+        String list = null;
+        if (historyToken instanceof SpreadsheetCellSortEditHistoryToken) {
+            list = historyToken.cast(SpreadsheetCellSortEditHistoryToken.class)
+                    .comparatorNames();
+        }
+        if (historyToken instanceof SpreadsheetColumnSortEditHistoryToken) {
+            list = historyToken.cast(SpreadsheetColumnSortEditHistoryToken.class)
+                    .comparatorNames();
+        }
+        if (historyToken instanceof SpreadsheetRowSortEditHistoryToken) {
+            list = historyToken.cast(SpreadsheetRowSortEditHistoryToken.class)
+                    .comparatorNames();
+        }
+
+        return Optional.ofNullable(list);
     }
 
     @Override
     public void refresh(final AppContext context) {
-        // TODO REFRESH COMPONENTS
+        this.refresh();
+    }
+
+    private void refresh() {
+        // try and parse comparatorNamesList into a List.
+        this.setSort(
+                this.comparatorNamesList.stringValue()
+                        .map(
+                                ls -> {
+                                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList list;
+
+                                    try {
+                                        list = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(ls);
+                                    } catch (final RuntimeException ignore) {
+                                        list = null;
+                                    }
+
+                                    return list;
+                                }
+                        ));
+
+        this.refreshClose();
+    }
+
+    // comparatorNamesList..............................................................................................
+
+    private SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent comparatorNamesList() {
+        return SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
+                .setId(ID_PREFIX + "comparatorNamesList")
+                .addKeyupListener(
+                        //(e) -> this.setComparatorNamesList(this.comparatorNamesList.value())
+                        (e) -> this.refresh()
+                ).addChangeListener(
+                        (oldValue, newValue) -> this.refresh() //this.setComparatorNamesList(newValue)
+                );
+    }
+
+    private void setComparatorNamesList(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> list) {
+        this.setComparatorNamesListString(
+                list.map(SpreadsheetColumnOrRowSpreadsheetComparatorNamesList::text)
+        );
+    }
+
+    private void setComparatorNamesListString(final Optional<String> list) {
+        this.comparatorNamesList.setStringValue(list);
+    }
+
+    private final SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent comparatorNamesList;
+
+    // sort.............................................................................................................
+
+    /**
+     * Updates the SORT link. If the {@link Optional} is empty the link will be disabled otherwise it will be enabled with
+     * a SAVE link which executes the sort.
+     */
+    private void setSort(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> list) {
+        this.sort.setHistoryToken(
+                list.map(
+                        l -> this.context.historyToken()
+                                .setSave(l.text())
+                )
+        );
     }
 
     /**
      * A SORT link which will execute the SORT.
      */
     private final HistoryTokenAnchorComponent sort;
+
+    // close.............................................................................................................
+
+    private void refreshClose() {
+        this.close.setHistoryToken(
+                Optional.of(
+                        this.context.historyToken()
+                                .close()
+                )
+        );
+    }
 
     /**
      * A CLOSE link which will close the dialog.
