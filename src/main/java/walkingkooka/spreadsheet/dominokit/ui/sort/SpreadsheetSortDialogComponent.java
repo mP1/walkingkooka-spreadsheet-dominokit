@@ -100,11 +100,29 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public void openGiveFocus(final AppContext context) {
-        this.comparatorNamesList.setStringValue(
-                this.historyTokenComparatorNameList(context.historyToken())
-        );
+        this.comparatorNamesListHistoryToken = null;
+        this.refreshComparatorNameList(context);
         this.comparatorNamesList.focus();
     }
+
+    @Override
+    public void refresh(final AppContext context) {
+        this.refreshComparatorNameList(context);
+        this.refreshLinks();
+    }
+
+    /**
+     * Only the {@link #comparatorNamesList} if the history token has changed since this dialog appeared.
+     */
+    private void refreshComparatorNameList(final AppContext context) {
+        final Optional<String> list = this.historyTokenComparatorNameList(context.historyToken());
+        if (false == list.equals(this.comparatorNamesListHistoryToken)) {
+            this.comparatorNamesListHistoryToken = list;
+            this.setComparatorNamesListString(list);
+        }
+    }
+
+    private Optional<String> comparatorNamesListHistoryToken;
 
     private Optional<String> historyTokenComparatorNameList(final HistoryToken historyToken) {
         // try and sync comparatorNamesList from historyToken.
@@ -125,12 +143,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         return Optional.ofNullable(list);
     }
 
-    @Override
-    public void refresh(final AppContext context) {
-        this.refresh();
-    }
-
-    private void refresh() {
+    private void refreshLinks() {
         // try and parse comparatorNamesList into a List.
         this.setSort(
                 this.comparatorNamesList.stringValue()
@@ -157,9 +170,9 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
                 .setId(ID_PREFIX + "comparatorNamesList")
                 .addKeyupListener(
-                        (e) -> this.refresh()
+                        (e) -> this.refreshLinks()
                 ).addChangeListener(
-                        (oldValue, newValue) -> this.refresh()
+                        (oldValue, newValue) -> this.refreshLinks()
                 );
     }
 
