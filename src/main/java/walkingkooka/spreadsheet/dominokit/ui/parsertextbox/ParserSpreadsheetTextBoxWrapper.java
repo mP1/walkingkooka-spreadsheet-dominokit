@@ -155,6 +155,17 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
                 .value();
     }
 
+    default Optional<String> stringValue() {
+        return this.parserSpreadsheetTextBox()
+                .stringValue();
+    }
+
+    default C setStringValue(final Optional<String> stringValue) {
+        this.parserSpreadsheetTextBox()
+                .setStringValue(stringValue);
+        return (C) this;
+    }
+
     @Override
     default HTMLFieldSetElement element() {
         return this.parserSpreadsheetTextBox()

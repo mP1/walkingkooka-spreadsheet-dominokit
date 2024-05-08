@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetText
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
 import walkingkooka.tree.expression.Expression;
 
-import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -37,15 +36,6 @@ public final class SpreadsheetFormulaComponent implements ParserSpreadsheetTextB
     private SpreadsheetFormulaComponent(final Function<String, SpreadsheetFormula> parser) {
         this.textBox = ParserSpreadsheetTextBox.with(parser)
                 .setValidator(SpreadsheetFormulaComponentValidator.with(parser));
-    }
-
-    public Optional<String> stringValue() {
-        return this.textBox.stringValue();
-    }
-
-    public SpreadsheetFormulaComponent setStringValue(final Optional<String> stringValue) {
-        this.textBox.setStringValue(stringValue);
-        return this;
     }
 
     // ParserSpreadsheetTextBoxWrapper..................................................................................

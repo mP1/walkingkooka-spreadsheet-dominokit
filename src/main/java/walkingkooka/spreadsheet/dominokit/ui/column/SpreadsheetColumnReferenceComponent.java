@@ -22,8 +22,6 @@ import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetText
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Optional;
-
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetColumnReference}.
  */
@@ -35,15 +33,6 @@ public final class SpreadsheetColumnReferenceComponent implements ParserSpreadsh
 
     private SpreadsheetColumnReferenceComponent() {
         this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseColumn);
-    }
-
-    public Optional<String> stringValue() {
-        return this.textBox.stringValue();
-    }
-
-    public SpreadsheetColumnReferenceComponent setStringValue(final Optional<String> stringValue) {
-        this.textBox.setStringValue(stringValue);
-        return this;
     }
 
     // ParserSpreadsheetTextBoxWrapper..................................................................................

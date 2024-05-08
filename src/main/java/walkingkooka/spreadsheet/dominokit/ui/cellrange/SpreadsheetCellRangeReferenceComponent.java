@@ -22,8 +22,6 @@ import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetText
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Optional;
-
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetCellRangeReference}.
  */
@@ -35,15 +33,6 @@ public final class SpreadsheetCellRangeReferenceComponent implements ParserSprea
 
     private SpreadsheetCellRangeReferenceComponent() {
         this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseCellRange);
-    }
-
-    public Optional<String> stringValue() {
-        return this.textBox.stringValue();
-    }
-
-    public SpreadsheetCellRangeReferenceComponent setStringValue(final Optional<String> stringValue) {
-        this.textBox.setStringValue(stringValue);
-        return this;
     }
 
     // ParserSpreadsheetTextBoxWrapper..................................................................................
