@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetPatternComponentAppenderLinkTest implements ClassTesting<SpreadsheetPatternComponentAppenderLink> {
+public final class SpreadsheetPatternComponentElementAppenderLinkTest implements ClassTesting<SpreadsheetPatternComponentElementAppenderLink> {
 
     @Override
-    public Class<SpreadsheetPatternComponentAppenderLink> type() {
-        return SpreadsheetPatternComponentAppenderLink.class;
+    public Class<SpreadsheetPatternComponentElementAppenderLink> type() {
+        return SpreadsheetPatternComponentElementAppenderLink.class;
     }
 
     @Override
