@@ -194,5 +194,6 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
     @Override
     public void printTree(final IndentingPrinter printer) {
         this.parent.printTree(printer);
+        printer.lineStart();
     }
 }
