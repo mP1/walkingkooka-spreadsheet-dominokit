@@ -51,7 +51,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         "    Card\n" +
                         "      \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dcomparator-1]\n" +
                         "      \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dcomparator-2]\n" +
-                        "      \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dcomparator-3]"
+                        "      \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dcomparator-3]\n"
         );
     }
 
@@ -67,7 +67,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         "    Card\n" +
                         "      \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dcomparator-1]\n" +
                         "      \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dcomparator-2]\n" +
-                        "      \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dcomparator-3]"
+                        "      \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dcomparator-3]\n"
         );
     }
 
@@ -83,7 +83,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         "    Card\n" +
                         "      \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dunknown%2Ccomparator-1]\n" +
                         "      \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dunknown%2Ccomparator-2]\n" +
-                        "      \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dunknown%2Ccomparator-3]"
+                        "      \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dunknown%2Ccomparator-3]\n"
         );
     }
 
@@ -98,7 +98,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dcomparator-3%2Ccomparator-1]\n" +
-                        "      \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dcomparator-3%2Ccomparator-2]"
+                        "      \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext%3BB%3Dcomparator-3%2Ccomparator-2]\n"
         );
     }
 

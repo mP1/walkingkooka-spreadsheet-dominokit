@@ -187,6 +187,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
         printer.indent();
         {
             this.parent.printTree(printer);
+            printer.lineStart();
         }
         printer.outdent();
     }
