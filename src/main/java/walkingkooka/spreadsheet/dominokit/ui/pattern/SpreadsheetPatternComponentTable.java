@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
@@ -30,6 +29,7 @@ import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -50,7 +50,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
     }
 
     private SpreadsheetPatternComponentTable() {
-        this.card = Card.create();
+        this.card = SpreadsheetCard.empty();
     }
 
     void refresh(final String patternText,
@@ -59,7 +59,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
 
         // recreate table if pattern kind different
         if (false == patternKind.equals(this.patternKind)) {
-            this.card.clearElement();
+            this.card.clear();
 
             this.patternKind = patternKind;
 
@@ -74,7 +74,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
             this.dataStore = localListDataStore;
             this.table.headerElement().hide();
 
-            this.card.appendChild(this.table);
+            this.card.append(this.table);
         }
 
         // load dataStore and table with new rows...
@@ -199,5 +199,5 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
         return this.card.element();
     }
 
-    private final Card card;
+    private final SpreadsheetCard card;
 }
