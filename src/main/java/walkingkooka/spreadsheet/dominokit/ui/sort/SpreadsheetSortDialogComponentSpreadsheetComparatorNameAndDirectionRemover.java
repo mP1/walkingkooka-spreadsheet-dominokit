@@ -123,6 +123,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
         printer.indent();
         {
             this.parent.printTree(printer);
+            printer.lineStart();
         }
         printer.outdent();
     }
