@@ -30,7 +30,7 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public final class SpreadsheetPatternComponentAppenderTest implements ClassTesting<SpreadsheetPatternComponentAppender>,
+public final class SpreadsheetPatternComponentElementAppenderTest implements ClassTesting<SpreadsheetPatternComponentElementAppender>,
         TreePrintableTesting {
 
     private final static Consumer<String> RECREATE_NULL_CONSUMER = (s) -> {
@@ -515,7 +515,7 @@ public final class SpreadsheetPatternComponentAppenderTest implements ClassTesti
                                               final String patternText,
                                               final Function<String, SpreadsheetPattern> patternParser,
                                               final String expected) {
-        final SpreadsheetPatternComponentAppender component = SpreadsheetPatternComponentAppender.empty();
+        final SpreadsheetPatternComponentElementAppender component = SpreadsheetPatternComponentElementAppender.empty();
         final SpreadsheetPatternDialogComponentContext context = this.context(historyToken);
 
         component.recreate(
@@ -561,8 +561,8 @@ public final class SpreadsheetPatternComponentAppenderTest implements ClassTesti
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetPatternComponentAppender> type() {
-        return SpreadsheetPatternComponentAppender.class;
+    public Class<SpreadsheetPatternComponentElementAppender> type() {
+        return SpreadsheetPatternComponentElementAppender.class;
     }
 
     @Override

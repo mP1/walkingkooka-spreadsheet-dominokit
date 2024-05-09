@@ -81,7 +81,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
 
         this.elementRemover = SpreadsheetPatternComponentElementRemover.empty();
 
-        this.appendLinks = SpreadsheetPatternComponentAppender.empty();
+        this.elementAppender = SpreadsheetPatternComponentElementAppender.empty();
 
         this.table = SpreadsheetPatternComponentTable.empty();
 
@@ -119,7 +119,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
         );
 
         dialog.appendChild(this.elementRemover);
-        dialog.appendChild(this.appendLinks);
+        dialog.appendChild(this.elementAppender);
 
         final SpreadsheetTextBox patternTextBox = this.patternTextBox;
         dialog.appendChild(patternTextBox);
@@ -163,7 +163,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
 
     // patternAppendLinks......................................................................................................
 
-    private final SpreadsheetPatternComponentAppender appendLinks;
+    private final SpreadsheetPatternComponentElementAppender elementAppender;
 
     // patternTextBox...................................................................................................
 
@@ -226,7 +226,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 context
         );
 
-        this.appendLinks.refreshLinks(
+        this.elementAppender.refreshLinks(
                 patternText,
                 CharSequences.nullToEmpty(
                         errorMessage
@@ -351,7 +351,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 this.spreadsheetPatternKinds(),
                 componentContext
         );
-        this.appendLinks.recreate(
+        this.elementAppender.recreate(
                 this::setPatternText,
                 componentContext
         );
