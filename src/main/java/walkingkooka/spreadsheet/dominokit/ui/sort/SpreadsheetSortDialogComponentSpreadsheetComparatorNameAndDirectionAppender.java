@@ -123,7 +123,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
                 .collect(Collectors.toSet());
 
         final int addIndex = spreadsheetComparatorNameAndDirections.size();
-        System.out.println("@" + spreadsheetComparatorNameAndDirections);
         int i = 0;
 
         for (final SpreadsheetComparatorInfo info : context.spreadsheetComparatorInfos()) {
@@ -136,8 +135,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
             spreadsheetComparatorNameAndDirections.add(
                     comparatorName.setDirection(SpreadsheetComparatorDirection.DEFAULT)
             );
-
-            System.out.println(i + "@" + spreadsheetComparatorNameAndDirections);
 
             final SpreadsheetColumnOrRowSpreadsheetComparatorNames append = SpreadsheetColumnOrRowSpreadsheetComparatorNames.with(
                     columnOrRow,
