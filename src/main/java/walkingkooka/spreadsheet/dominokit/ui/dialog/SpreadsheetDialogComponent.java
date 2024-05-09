@@ -29,6 +29,8 @@ import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -36,7 +38,8 @@ import java.util.Optional;
 /**
  * A standard dialog model aialog component with support for title and close icon.
  */
-public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
+public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent>,
+        TreePrintable {
 
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
@@ -214,5 +217,17 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
     @Override
     public String toString() {
         return this.dialog.toString();
+    }
+
+    // TreePrintable..........................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            printer.println(this.element().toString());
+        }
+        printer.outdent();
     }
 }
