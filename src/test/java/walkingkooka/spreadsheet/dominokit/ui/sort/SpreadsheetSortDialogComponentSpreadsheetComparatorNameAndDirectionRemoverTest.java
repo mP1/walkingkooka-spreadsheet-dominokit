@@ -109,6 +109,39 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
         );
     }
 
+    // column...........................................................................................................
+
+    @Test
+    public void testColumnTwoNameFirstSeveral() {
+        this.refreshAndCheck(
+                0,
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text1,text2;B=ignored1,ignored2"),
+                "/1/spreadsheetName23/column/A:B/sort/edit/IGNORED",
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      \"text1\" [#/1/spreadsheetName23/column/A:B/right/sort/save/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
+                        "      \"text2\" [#/1/spreadsheetName23/column/A:B/right/sort/save/A%3Dtext1%3BB%3Dignored1%2Cignored2]"
+        );
+    }
+
+    // row...........................................................................................................
+
+    @Test
+    public void testRowTwoNameFirstSeveral() {
+        this.refreshAndCheck(
+                0,
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text1,text2;B=ignored1,ignored2"),
+                "/1/spreadsheetName23/row/1:2/sort/edit/IGNORED",
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      \"text1\" [#/1/spreadsheetName23/row/1:2/bottom/sort/save/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
+                        "      \"text2\" [#/1/spreadsheetName23/row/1:2/bottom/sort/save/A%3Dtext1%3BB%3Dignored1%2Cignored2]"
+        );
+    }
+
+    // helper...........................................................................................................
 
     private void refreshAndCheck(final int index,
                                  final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList namesList,
