@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -28,7 +30,8 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public final class SpreadsheetPatternComponentAppenderTest implements TreePrintableTesting {
+public final class SpreadsheetPatternComponentAppenderTest implements ClassTesting<SpreadsheetPatternComponentAppender>,
+        TreePrintableTesting {
 
     private final static Consumer<String> RECREATE_NULL_CONSUMER = (s) -> {
     };
@@ -553,5 +556,17 @@ public final class SpreadsheetPatternComponentAppenderTest implements TreePrinta
                 System.out.println(Arrays.toString(values));
             }
         };
+    }
+
+    // ClassTesting.....................................................................................................
+
+    @Override
+    public Class<SpreadsheetPatternComponentAppender> type() {
+        return SpreadsheetPatternComponentAppender.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
