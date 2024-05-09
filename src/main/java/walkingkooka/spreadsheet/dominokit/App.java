@@ -42,6 +42,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -216,7 +217,10 @@ public class App implements EntryPoint,
         );
 
         SpreadsheetSortDialogComponent.with(
-                SpreadsheetSortDialogComponentContexts.appContext(this)
+                SpreadsheetSortDialogComponentContexts.basic(
+                        SpreadsheetComparatorProviders.builtIn(),
+                        this
+                )
         );
 
         this.files = this.files();

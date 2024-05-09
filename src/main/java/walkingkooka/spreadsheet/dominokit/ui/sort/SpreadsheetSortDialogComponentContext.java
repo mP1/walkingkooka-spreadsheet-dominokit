@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 /**
  * The context that belongs to a SORT DIALOG.
  */
-public interface SpreadsheetSortDialogComponentContext extends HistoryTokenContext {
+public interface SpreadsheetSortDialogComponentContext extends HistoryTokenContext,
+        SpreadsheetComparatorProvider {
 }
