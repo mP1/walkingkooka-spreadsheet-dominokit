@@ -38,7 +38,15 @@ import java.util.stream.IntStream;
 
 /**
  * A card that is dynamically updated with links which remove an individual component of the pattern. A context-menu
- * for each link provides alternatives.
+ * for each link provides alternatives if any are available. An example of alternatives might be for a day within a date format pattern.
+ * Day alternatives might be the numeric day without leading zeroes, the day of the week and numeric day and so variations like this.
+ * <ol>
+ *     <li>d</li>
+ *     <li>dd</li>
+ *     <li>ddd</li>
+ *     <li>dddd</li>
+ *     <li>ddddd</li>
+ * </ol>
  */
 final class SpreadsheetPatternComponentElements implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentElements>,
         TreePrintable {
@@ -149,7 +157,7 @@ final class SpreadsheetPatternComponentElements implements HtmlElementComponent<
     }
 
     /**
-     * THe parent holding all the current ui pattern chips.
+     * THe parent holding LINKS which contain the pattern without a component.
      */
     private final SpreadsheetCard parent;
 
