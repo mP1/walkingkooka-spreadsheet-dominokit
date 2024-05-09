@@ -20,22 +20,38 @@ package walkingkooka.spreadsheet.dominokit.ui.sort;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetSortDialogComponentContextTest implements ClassTesting<AppContextSpreadsheetSortDialogComponentContext> {
+public final class BasicSpreadsheetSortDialogComponentContextTest implements ClassTesting<BasicSpreadsheetSortDialogComponentContext> {
 
     @Test
-    public void testWithNullAppContextFails() {
+    public void testWithNullSpreadsheetComparatorProviderFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> AppContextSpreadsheetSortDialogComponentContext.with(null)
+                () -> BasicSpreadsheetSortDialogComponentContext.with(
+                        null,
+                        HistoryTokenContexts.fake()
+                )
+        );
+    }
+
+    @Test
+    public void testWithNullHistoryTokenContextFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> BasicSpreadsheetSortDialogComponentContext.with(
+                        SpreadsheetComparatorProviders.fake(),
+                        null
+                )
         );
     }
 
     @Override
-    public Class<AppContextSpreadsheetSortDialogComponentContext> type() {
-        return AppContextSpreadsheetSortDialogComponentContext.class;
+    public Class<BasicSpreadsheetSortDialogComponentContext> type() {
+        return BasicSpreadsheetSortDialogComponentContext.class;
     }
 
     @Override

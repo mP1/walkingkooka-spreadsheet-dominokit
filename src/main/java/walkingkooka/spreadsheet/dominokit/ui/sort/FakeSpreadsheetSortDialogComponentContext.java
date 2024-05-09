@@ -17,8 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
+import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+
+import java.util.Set;
 
 public class FakeSpreadsheetSortDialogComponentContext extends FakeHistoryTokenContext
         implements SpreadsheetSortDialogComponentContext {
+    @Override
+    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
+        throw new UnsupportedOperationException();
+    }
 }
