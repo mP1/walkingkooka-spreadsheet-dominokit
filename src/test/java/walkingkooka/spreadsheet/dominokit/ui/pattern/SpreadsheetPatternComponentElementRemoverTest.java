@@ -25,7 +25,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Arrays;
 
-public final class SpreadsheetPatternComponentElementsTest implements TreePrintableTesting {
+public final class SpreadsheetPatternComponentElementRemoverTest implements TreePrintableTesting {
 
     // date format......................................................................................................
 
@@ -35,7 +35,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy"),
                 "",
                 "/1/Untitled/cell/A1/format-pattern/date",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"dd\" [#/1/Untitled/cell/A1/format-pattern/date/save//mm/yyyy]\n" +
@@ -63,7 +63,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy"),
                 "",
                 "/1/Untitled/metadata/date-format-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"dd\" [#/1/Untitled/metadata/date-format-pattern/save//mm/yyyy]\n" +
@@ -93,7 +93,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy"),
                 "",
                 "/1/Untitled/cell/A1/parse-pattern/date",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date/save//mm/yyyy]\n" +
@@ -121,7 +121,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy"),
                 "",
                 "/1/Untitled/metadata/date-parse-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"dd\" [#/1/Untitled/metadata/date-parse-pattern/save//mm/yyyy]\n" +
@@ -151,7 +151,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseDateTimeFormatPattern("dd/mm/yyyy hh:mm:ss AM/PM"),
                 "",
                 "/1/Untitled/cell/A2/format-pattern/date-time",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"dd\" [#/1/Untitled/cell/A2/format-pattern/date-time/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
@@ -197,7 +197,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseDateTimeFormatPattern("dd/mm/yyyy hh:mm:ss AM/PM"),
                 "",
                 "/1/Untitled/metadata/date-time-format-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"dd\" [#/1/Untitled/metadata/date-time-format-pattern/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
@@ -245,7 +245,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseDateTimeParsePattern("dd/mm/yyyy hh:mm:ss AM/PM"),
                 "",
                 "/1/Untitled/cell/A2/parse-pattern/date-time",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"dd\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
@@ -291,7 +291,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseDateTimeParsePattern("dd/mm/yyyy hh:mm:ss AM/PM"),
                 "",
                 "/1/Untitled/metadata/date-time-parse-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"dd\" [#/1/Untitled/metadata/date-time-parse-pattern/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
@@ -339,7 +339,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseNumberFormatPattern("$#.00"),
                 "",
                 "/1/Untitled/cell/A1/format-pattern/number",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"$\" [#/1/Untitled/cell/A1/format-pattern/number/save/%23.00]\n" +
@@ -361,7 +361,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseNumberFormatPattern("$#.00"),
                 "",
                 "/1/Untitled/metadata/number-format-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"$\" [#/1/Untitled/metadata/number-format-pattern/save/%23.00]\n" +
@@ -385,7 +385,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseNumberParsePattern("$#.00"),
                 "",
                 "/1/Untitled/cell/A1/parse-pattern/number",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"$\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%23.00]\n" +
@@ -407,7 +407,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseNumberParsePattern("$#.00"),
                 "",
                 "/1/Untitled/metadata/number-parse-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"$\" [#/1/Untitled/metadata/number-parse-pattern/save/%23.00]\n" +
@@ -431,7 +431,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN,
                 "",
                 "/1/Untitled/cell/A1/format-pattern/text",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/]\n" +
@@ -445,7 +445,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN,
                 "",
                 "/1/Untitled/metadata/text-format-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"@\" [#/1/Untitled/metadata/text-format-pattern/save/]\n" +
@@ -459,7 +459,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseTextFormatPattern("\"Hello\"@"),
                 "",
                 "/1/Untitled/metadata/text-format-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"\"Hello\"\" [#/1/Untitled/metadata/text-format-pattern/save/@]\n" +
@@ -476,7 +476,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseTimeFormatPattern("hh:mm:ss"),
                 "",
                 "/1/Untitled/cell/A4/format-pattern/time",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"hh\" [#/1/Untitled/cell/A4/format-pattern/time/save/:mm:ss]\n" +
@@ -499,7 +499,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseTimeFormatPattern("hh:mm:ss"),
                 "",
                 "/1/Untitled/metadata/time-format-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"hh\" [#/1/Untitled/metadata/time-format-pattern/save/:mm:ss]\n" +
@@ -524,7 +524,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseTimeParsePattern("hh:mm:ss"),
                 "",
                 "/1/Untitled/cell/A4/parse-pattern/time",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"hh\" [#/1/Untitled/cell/A4/parse-pattern/time/save/:mm:ss]\n" +
@@ -547,7 +547,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                 SpreadsheetPattern.parseTimeParsePattern("hh:mm:ss"),
                 "",
                 "/1/Untitled/metadata/time-parse-pattern",
-                "SpreadsheetPatternComponentElements\n" +
+                "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"hh\" [#/1/Untitled/metadata/time-parse-pattern/save/:mm:ss]\n" +
@@ -571,7 +571,7 @@ public final class SpreadsheetPatternComponentElementsTest implements TreePrinta
                                  final String historyToken,
                                  //final SpreadsheetPatternDialogComponentContext context,
                                  final String expected) {
-        final SpreadsheetPatternComponentElements elements = SpreadsheetPatternComponentElements.empty();
+        final SpreadsheetPatternComponentElementRemover elements = SpreadsheetPatternComponentElementRemover.empty();
 
         elements.refresh(
                 pattern,
