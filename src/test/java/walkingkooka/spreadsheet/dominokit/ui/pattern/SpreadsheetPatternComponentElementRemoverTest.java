@@ -19,13 +19,16 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Arrays;
 
-public final class SpreadsheetPatternComponentElementRemoverTest implements TreePrintableTesting {
+public final class SpreadsheetPatternComponentElementRemoverTest implements ClassTesting<SpreadsheetPatternComponentElementRemover>,
+        TreePrintableTesting {
 
     // date format......................................................................................................
 
@@ -595,5 +598,17 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Tree
                 elements,
                 expected
         );
+    }
+
+    // ClassTesting.....................................................................................................
+
+    @Override
+    public Class<SpreadsheetPatternComponentElementRemover> type() {
+        return SpreadsheetPatternComponentElementRemover.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
