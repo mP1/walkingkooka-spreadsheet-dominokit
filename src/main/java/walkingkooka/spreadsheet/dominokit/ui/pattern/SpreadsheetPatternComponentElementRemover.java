@@ -48,17 +48,17 @@ import java.util.stream.IntStream;
  *     <li>ddddd</li>
  * </ol>
  */
-final class SpreadsheetPatternComponentElements implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentElements>,
+final class SpreadsheetPatternComponentElementRemover implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentElementRemover>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link SpreadsheetPatternComponentElements}.
+     * Creates an empty {@link SpreadsheetPatternComponentElementRemover}.
      */
-    static SpreadsheetPatternComponentElements empty() {
-        return new SpreadsheetPatternComponentElements();
+    static SpreadsheetPatternComponentElementRemover empty() {
+        return new SpreadsheetPatternComponentElementRemover();
     }
 
-    private SpreadsheetPatternComponentElements() {
+    private SpreadsheetPatternComponentElementRemover() {
         this.parent = SpreadsheetCard.empty();
         this.tokenKinds = Lists.array();
         this.texts = Lists.array();

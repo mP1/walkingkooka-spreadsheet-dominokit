@@ -79,7 +79,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
 
         this.patternTextBox = this.patternTextBox();
 
-        this.elements = SpreadsheetPatternComponentElements.empty();
+        this.elementRemover = SpreadsheetPatternComponentElementRemover.empty();
 
         this.appendLinks = SpreadsheetPatternComponentAppender.empty();
 
@@ -118,7 +118,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 this.table
         );
 
-        dialog.appendChild(this.elements);
+        dialog.appendChild(this.elementRemover);
         dialog.appendChild(this.appendLinks);
 
         final SpreadsheetTextBox patternTextBox = this.patternTextBox;
@@ -159,7 +159,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
 
     // componentChips...................................................................................................
 
-    private final SpreadsheetPatternComponentElements elements;
+    private final SpreadsheetPatternComponentElementRemover elementRemover;
 
     // patternAppendLinks......................................................................................................
 
@@ -220,7 +220,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 Optional.ofNullable(errorMessage)
         );
 
-        this.elements.refresh(
+        this.elementRemover.refresh(
                 pattern,
                 errorPattern,
                 context
