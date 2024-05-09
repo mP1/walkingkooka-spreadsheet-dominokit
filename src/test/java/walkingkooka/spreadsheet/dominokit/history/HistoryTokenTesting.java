@@ -15,15 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.dialog;
+package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.test.Testing;
 import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
 
-public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends Testing {
+public interface HistoryTokenTesting extends Testing {
 
     default void historyTokenCloseDialogAndCheck(final HistoryToken opened,
                                                  final HistoryToken closed) {
