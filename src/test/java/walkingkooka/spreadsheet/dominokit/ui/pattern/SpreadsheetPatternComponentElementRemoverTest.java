@@ -569,7 +569,6 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Tree
     private void refreshAndCheck(final SpreadsheetPattern pattern,
                                  final String errorPattern,
                                  final String historyToken,
-                                 //final SpreadsheetPatternDialogComponentContext context,
                                  final String expected) {
         final SpreadsheetPatternComponentElementRemover elements = SpreadsheetPatternComponentElementRemover.empty();
 
