@@ -34,17 +34,17 @@ import java.util.Optional;
 /**
  * A container that presents LINKS each missing a component from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetSortDialogComponentElementRemover implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentElementRemover>,
+final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link SpreadsheetSortDialogComponentElementRemover}.
+     * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover}.
      */
-    static SpreadsheetSortDialogComponentElementRemover empty(final int index) {
-        return new SpreadsheetSortDialogComponentElementRemover(index);
+    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover empty(final int index) {
+        return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(index);
     }
 
-    private SpreadsheetSortDialogComponentElementRemover(final int index) {
+    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final int index) {
         this.parent = SpreadsheetCard.empty();
 
         this.index = index;

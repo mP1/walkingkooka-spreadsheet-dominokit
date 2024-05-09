@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class SpreadsheetSortDialogComponentElementRemoverTest implements ClassTesting<SpreadsheetSortDialogComponentElementRemover>,
+public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover>,
         TreePrintableTesting {
 
     // cell.............................................................................................................
@@ -36,7 +36,7 @@ public final class SpreadsheetSortDialogComponentElementRemoverTest implements C
                 0,
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text"),
                 "/1/spreadsheetName23/cell/A1:B2/sort/edit/A=text",
-                "SpreadsheetSortDialogComponentElementRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n"
         );
@@ -48,7 +48,7 @@ public final class SpreadsheetSortDialogComponentElementRemoverTest implements C
                 0,
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text"),
                 "/1/spreadsheetName23/cell/A1:B2/sort/edit/IGNORED",
-                "SpreadsheetSortDialogComponentElementRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n"
         );
@@ -60,7 +60,7 @@ public final class SpreadsheetSortDialogComponentElementRemoverTest implements C
                 0,
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text"),
                 "/1/spreadsheetName23/cell/A1:B2/sort/edit/IGNORED",
-                "SpreadsheetSortDialogComponentElementRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n"
         );
@@ -72,7 +72,7 @@ public final class SpreadsheetSortDialogComponentElementRemoverTest implements C
                 0,
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text1,text2;B=ignored1,ignored2"),
                 "/1/spreadsheetName23/cell/A1:B2/sort/edit/IGNORED",
-                "SpreadsheetSortDialogComponentElementRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"text1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
@@ -86,7 +86,7 @@ public final class SpreadsheetSortDialogComponentElementRemoverTest implements C
                 1,
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=ignored1,ignored2;B=text1,text2"),
                 "/1/spreadsheetName23/cell/A1:B2/sort/edit/IGNORED",
-                "SpreadsheetSortDialogComponentElementRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"text1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dignored1%2Cignored2%3BB%3Dtext2]\n" +
@@ -100,7 +100,7 @@ public final class SpreadsheetSortDialogComponentElementRemoverTest implements C
                 2,
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=day-of-month;B=month-of-year;C=text1,text2,text3"),
                 "/1/spreadsheetName23/cell/A1:C3/sort/edit/IGNORED",
-                "SpreadsheetSortDialogComponentElementRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      \"text1\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/save/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext2%2Ctext3]\n" +
@@ -134,7 +134,7 @@ public final class SpreadsheetSortDialogComponentElementRemoverTest implements C
                                  final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList namesList,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
-        final SpreadsheetSortDialogComponentElementRemover remover = SpreadsheetSortDialogComponentElementRemover.empty(index);
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(index);
 
         remover.refresh(
                 namesList,
@@ -148,8 +148,8 @@ public final class SpreadsheetSortDialogComponentElementRemoverTest implements C
     }
 
     @Override
-    public Class<SpreadsheetSortDialogComponentElementRemover> type() {
-        return SpreadsheetSortDialogComponentElementRemover.class;
+    public Class<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover> type() {
+        return SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.class;
     }
 
     @Override
