@@ -33,6 +33,7 @@ import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -42,7 +43,8 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * An IntegerBox that adds a few extras that should be common to all text boxes.
  */
-public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox> {
+public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
+        SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer> {
 
     public static SpreadsheetIntegerBox empty() {
         return new SpreadsheetIntegerBox();
