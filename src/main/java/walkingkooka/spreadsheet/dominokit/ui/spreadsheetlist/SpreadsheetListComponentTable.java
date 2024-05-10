@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
@@ -32,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextAlign;
@@ -60,7 +60,7 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
     final static int DEFAULT_COUNT = 10;
 
     private SpreadsheetListComponentTable(final SpreadsheetListComponentContext context) {
-        this.card = Card.create();
+        this.card = SpreadsheetCard.empty();
 
         final LocalListDataStore<SpreadsheetListComponentTableRow> localListDataStore = new LocalListDataStore<>();
 
@@ -270,5 +270,5 @@ public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLD
         return this.card.element();
     }
 
-    private final Card card;
+    private final SpreadsheetCard card;
 }
