@@ -23,6 +23,8 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -30,7 +32,8 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link SpreadsheetCellRangeReferencePath}.
  */
-public final class SpreadsheetCellRangeReferencePathComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
+public final class SpreadsheetCellRangeReferencePathComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent>,
+        TreePrintable {
 
     public static SpreadsheetCellRangeReferencePathComponent empty() {
         return new SpreadsheetCellRangeReferencePathComponent();
@@ -191,5 +194,17 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
     @Override
     public String toString() {
         return this.select.toString();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.select.printTree(printer);
+        }
+        printer.outdent();
     }
 }
