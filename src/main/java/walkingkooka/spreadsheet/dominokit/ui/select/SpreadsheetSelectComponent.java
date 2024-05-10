@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -31,7 +32,8 @@ import java.util.Optional;
 /**
  * A select component with a few helpers to assist with build and working with values.
  */
-public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>> {
+public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
+        SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T> {
 
     public static <T> SpreadsheetSelectComponent<T> empty() {
         return new SpreadsheetSelectComponent<>();
