@@ -18,14 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.ui.textbox;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetTextBoxTest implements ClassTesting<SpreadsheetTextBox>,
-        TreePrintableTesting {
+public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableTesting {
 
     @Test
     public void testLabel() {
@@ -72,15 +69,5 @@ public final class SpreadsheetTextBoxTest implements ClassTesting<SpreadsheetTex
                 "SpreadsheetTextBox\n" +
                         "  Label123: [Value456] id=id987 helperText=\"HelperText789\" DISABLED REQUIRED\n"
         );
-    }
-
-    @Override
-    public Class<SpreadsheetTextBox> type() {
-        return SpreadsheetTextBox.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

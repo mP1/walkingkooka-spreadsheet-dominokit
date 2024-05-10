@@ -20,23 +20,18 @@ package walkingkooka.spreadsheet.dominokit.ui.textbox;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
-import walkingkooka.text.CharSequences;
-import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
  * {@link SpreadsheetTextBox}.
  */
 public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-        TreePrintable {
+        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox> {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();
@@ -175,50 +170,5 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public HTMLFieldSetElement element() {
         throw new UnsupportedOperationException();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            final List<String> components = Lists.array();
-
-            final String label = this.label;
-            if (null != label) {
-                components.add(label + ":");
-            }
-
-            final Optional<String> value = this.value;
-            if (value.isPresent()) {
-                components.add("[" + value.get() + "]");
-            }
-
-            final String id = this.id;
-            if (null != id) {
-                components.add("id=" + id);
-            }
-
-            final Optional<String> helperText = this.helperText;
-            if (helperText.isPresent()) {
-                components.add("helperText=" + CharSequences.quoteAndEscape(helperText.get()));
-            }
-
-            if (this.disabled) {
-                components.add("DISABLED");
-            }
-
-            if (this.required) {
-                components.add("REQUIRED");
-            }
-
-            printer.println(
-                    components.stream()
-                            .collect(Collectors.joining(" "))
-            );
-        }
-        printer.outdent();
     }
 }
