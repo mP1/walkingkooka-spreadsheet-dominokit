@@ -61,6 +61,11 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    @Override
+    public String label() {
+        return this.label;
+    }
+
     private String label;
 
     @Override

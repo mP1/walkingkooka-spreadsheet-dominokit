@@ -75,6 +75,11 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     @Override
+    public String label() {
+        return this.textBox.label();
+    }
+
+    @Override
     public boolean isDisabled() {
         return this.textBox.isDisabled();
     }

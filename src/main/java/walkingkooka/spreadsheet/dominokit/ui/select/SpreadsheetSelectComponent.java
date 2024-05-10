@@ -61,6 +61,11 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
+    public String label() {
+        return this.select.getLabel();
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> optional() {
         this.required = false;
         return this;

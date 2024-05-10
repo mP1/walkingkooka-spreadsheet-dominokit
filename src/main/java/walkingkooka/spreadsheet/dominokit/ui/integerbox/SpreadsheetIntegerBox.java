@@ -209,6 +209,10 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         return this;
     }
 
+    @Override
+    public String label() {
+        return this.integerBox.getLabel();
+    }
 
     public SpreadsheetIntegerBox setValidator(final Validator<Integer> validator) {
         final IntegerBox integerBox = this.integerBox;

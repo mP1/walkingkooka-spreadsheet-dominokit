@@ -76,6 +76,11 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     }
 
     @Override
+    public String label() {
+        return this.suggestBox.getLabel();
+    }
+
+    @Override
     public boolean isDisabled() {
         return this.suggestBox.isDisabled();
     }
