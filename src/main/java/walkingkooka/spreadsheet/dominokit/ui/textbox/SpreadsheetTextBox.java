@@ -43,7 +43,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  * A textbox that adds a few extras that should be common to all text boxes.
  */
 public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox> {
+        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String> {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();
