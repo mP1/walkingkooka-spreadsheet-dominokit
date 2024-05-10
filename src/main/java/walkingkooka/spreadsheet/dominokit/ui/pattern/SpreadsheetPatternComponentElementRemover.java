@@ -149,7 +149,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
                         j++;
                     }
                 }
-                parent.append(patternElement);
+                parent.appendChild(patternElement);
 
                 i++;
             }

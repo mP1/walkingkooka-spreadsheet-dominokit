@@ -78,7 +78,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
                 );
 
                 // replace the old names at $index with $removed
-                parent.append(
+                parent.appendChild(
                         historyToken.link(idPrefix + "-remove-" + i)
                                 .setTextContent(comparatorNameAndDirections.toString())
                                 .setHistoryToken(

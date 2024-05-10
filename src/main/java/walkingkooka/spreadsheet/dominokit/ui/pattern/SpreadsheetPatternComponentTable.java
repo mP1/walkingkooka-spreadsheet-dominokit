@@ -74,7 +74,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
             this.dataStore = localListDataStore;
             this.table.headerElement().hide();
 
-            this.card.append(this.table);
+            this.card.appendChild(this.table);
         }
 
         // load dataStore and table with new rows...
