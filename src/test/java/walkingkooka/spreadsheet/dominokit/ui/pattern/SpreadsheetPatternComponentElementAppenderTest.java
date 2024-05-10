@@ -355,7 +355,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     }
 
     @Test
-    public void testMetadataNumberParseAtSign() {
+    public void testMetadataNumberParse() {
         this.recreateRefreshLinksAndCheck(
                 "/1/Untitled/metadata/number-parse-pattern", // historyToken
                 "$#.00",
