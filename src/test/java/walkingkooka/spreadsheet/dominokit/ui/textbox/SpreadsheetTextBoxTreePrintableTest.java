@@ -35,7 +35,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
                 SpreadsheetTextBox.empty()
                         .setLabel("Label123"),
                 "SpreadsheetTextBox\n" +
-                        "  Label123:\n"
+                        "  Label123: []\n"
         );
     }
 

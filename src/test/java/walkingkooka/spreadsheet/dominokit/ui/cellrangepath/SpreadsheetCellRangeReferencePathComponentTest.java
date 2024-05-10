@@ -31,7 +31,7 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements Cla
                 SpreadsheetCellRangeReferencePathComponent.empty(),
                 "SpreadsheetCellRangeReferencePathComponent\n" +
                         "  SpreadsheetSelectComponent\n" +
-                        "    \n" +
+                        "    []\n" +
                         "      left-right top-down=LRTD\n" +
                         "      right-left top-down=RLTD\n" +
                         "      left-right bottom-up=LRBU\n" +
