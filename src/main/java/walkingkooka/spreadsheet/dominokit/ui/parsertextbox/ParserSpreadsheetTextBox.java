@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxValidators;
 import walkingkooka.text.HasText;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -34,7 +36,8 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
-public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueComponent<HTMLFieldSetElement, T, ParserSpreadsheetTextBox<T>> {
+public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueComponent<HTMLFieldSetElement, T, ParserSpreadsheetTextBox<T>>,
+        TreePrintable {
 
     /**
      * Creates a new {@link ParserSpreadsheetTextBox}.
@@ -259,5 +262,17 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     @Override
     public String toString() {
         return this.textBox.toString();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.textBox.printTree(printer);
+        }
+        printer.outdent();
     }
 }
