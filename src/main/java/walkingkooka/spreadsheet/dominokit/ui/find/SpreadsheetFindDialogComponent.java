@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangeReferencePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
