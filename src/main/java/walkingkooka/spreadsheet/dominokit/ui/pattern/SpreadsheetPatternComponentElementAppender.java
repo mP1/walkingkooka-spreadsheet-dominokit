@@ -49,7 +49,8 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
     }
 
     private SpreadsheetPatternComponentElementAppender() {
-        this.parent = SpreadsheetCard.empty();
+        this.parent = SpreadsheetCard.empty()
+                .setTitle("Append new component(s)");
         this.links = Lists.array();
     }
 

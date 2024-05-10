@@ -46,18 +46,19 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseDateFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"dd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyydd]\n" +
-                        "    \"d\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyyd]\n" +
-                        "    \"ddd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyyddd]\n" +
-                        "    \"dddd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyydddd]\n" +
-                        "    \"mm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymm]\n" +
-                        "    \"m\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyym]\n" +
-                        "    \"mmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmm]\n" +
-                        "    \"mmmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmmm]\n" +
-                        "    \"mmmmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmmmm]\n" +
-                        "    \"yy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yy]\n" +
-                        "    \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n" +
-                        "    \";\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"dd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyydd]\n" +
+                        "      \"d\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyyd]\n" +
+                        "      \"ddd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyyddd]\n" +
+                        "      \"dddd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyydddd]\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymm]\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyym]\n" +
+                        "      \"mmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmm]\n" +
+                        "      \"mmmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmmm]\n" +
+                        "      \"mmmmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmmmm]\n" +
+                        "      \"yy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yy]\n" +
+                        "      \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy%3B]\n"
         );
     }
 
@@ -69,18 +70,19 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseDateFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"dd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyydd]\n" +
-                        "    \"d\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyyd]\n" +
-                        "    \"ddd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyyddd]\n" +
-                        "    \"dddd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyydddd]\n" +
-                        "    \"mm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymm]\n" +
-                        "    \"m\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyym]\n" +
-                        "    \"mmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmm]\n" +
-                        "    \"mmmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmmm]\n" +
-                        "    \"mmmmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmmmm]\n" +
-                        "    \"yy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yy]\n" +
-                        "    \"yyyy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n" +
-                        "    \";\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"dd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyydd]\n" +
+                        "      \"d\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyyd]\n" +
+                        "      \"ddd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyyddd]\n" +
+                        "      \"dddd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyydddd]\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymm]\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyym]\n" +
+                        "      \"mmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmm]\n" +
+                        "      \"mmmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmmm]\n" +
+                        "      \"mmmmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmmmm]\n" +
+                        "      \"yy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yy]\n" +
+                        "      \"yyyy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n" +
+                        "      \";\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy%3B]\n"
         );
     }
 
@@ -94,18 +96,19 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseDateParsePattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyydd]\n" +
-                        "    \"d\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyyd]\n" +
-                        "    \"ddd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyyddd]\n" +
-                        "    \"dddd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyydddd]\n" +
-                        "    \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymm]\n" +
-                        "    \"m\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyym]\n" +
-                        "    \"mmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmm]\n" +
-                        "    \"mmmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmmm]\n" +
-                        "    \"mmmmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmmmm]\n" +
-                        "    \"yy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yy]\n" +
-                        "    \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n" +
-                        "    \";\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyydd]\n" +
+                        "      \"d\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyyd]\n" +
+                        "      \"ddd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyyddd]\n" +
+                        "      \"dddd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyydddd]\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymm]\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyym]\n" +
+                        "      \"mmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmm]\n" +
+                        "      \"mmmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmmm]\n" +
+                        "      \"mmmmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmmmm]\n" +
+                        "      \"yy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yy]\n" +
+                        "      \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy%3B]\n"
         );
     }
 
@@ -117,18 +120,19 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseDateParsePattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"dd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyydd]\n" +
-                        "    \"d\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyyd]\n" +
-                        "    \"ddd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyyddd]\n" +
-                        "    \"dddd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyydddd]\n" +
-                        "    \"mm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymm]\n" +
-                        "    \"m\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyym]\n" +
-                        "    \"mmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmm]\n" +
-                        "    \"mmmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmmm]\n" +
-                        "    \"mmmmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmmmm]\n" +
-                        "    \"yy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yy]\n" +
-                        "    \"yyyy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n" +
-                        "    \";\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"dd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyydd]\n" +
+                        "      \"d\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyyd]\n" +
+                        "      \"ddd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyyddd]\n" +
+                        "      \"dddd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyydddd]\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymm]\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyym]\n" +
+                        "      \"mmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmm]\n" +
+                        "      \"mmmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmmm]\n" +
+                        "      \"mmmmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmmmm]\n" +
+                        "      \"yy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yy]\n" +
+                        "      \"yyyy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n" +
+                        "      \";\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy%3B]\n"
         );
     }
 
@@ -142,30 +146,31 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseDateTimeFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"dd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
-                        "    \"d\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssd]\n" +
-                        "    \"ddd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
-                        "    \"dddd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
-                        "    \"mm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "    \"mmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
-                        "    \"mmmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
-                        "    \"mmmmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
-                        "    \"yy\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
-                        "    \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
-                        "    \"0\" DISABLED\n" +
-                        "    \".\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss.]\n" +
-                        "    \"hh\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:sshh]\n" +
-                        "    \"h\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssh]\n" +
-                        "    \"mm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "    \"ss\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss]\n" +
-                        "    \"s\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:s]\n" +
-                        "    \"am/pm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
-                        "    \"AM/PM\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "    \"a/p\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
-                        "    \"A/P\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
-                        "    \";\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"dd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
+                        "      \"d\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssd]\n" +
+                        "      \"ddd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
+                        "      \"dddd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
+                        "      \"mmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
+                        "      \"mmmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
+                        "      \"mmmmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
+                        "      \"yy\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
+                        "      \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
+                        "      \"0\" DISABLED\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss.]\n" +
+                        "      \"hh\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:sshh]\n" +
+                        "      \"h\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssh]\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
+                        "      \"ss\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss]\n" +
+                        "      \"s\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:s]\n" +
+                        "      \"am/pm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
+                        "      \"AM/PM\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
+                        "      \"a/p\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
+                        "      \"A/P\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
         );
     }
 
@@ -177,30 +182,31 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseDateTimeFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"dd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
-                        "    \"d\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssd]\n" +
-                        "    \"ddd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
-                        "    \"dddd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
-                        "    \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "    \"mmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
-                        "    \"mmmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
-                        "    \"mmmmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
-                        "    \"yy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
-                        "    \"yyyy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
-                        "    \"0\" DISABLED\n" +
-                        "    \".\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss.]\n" +
-                        "    \"hh\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:sshh]\n" +
-                        "    \"h\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssh]\n" +
-                        "    \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "    \"ss\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss]\n" +
-                        "    \"s\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:s]\n" +
-                        "    \"am/pm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
-                        "    \"AM/PM\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "    \"a/p\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
-                        "    \"A/P\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
-                        "    \";\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"dd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
+                        "      \"d\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssd]\n" +
+                        "      \"ddd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
+                        "      \"dddd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
+                        "      \"mmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
+                        "      \"mmmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
+                        "      \"mmmmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
+                        "      \"yy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
+                        "      \"yyyy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
+                        "      \"0\" DISABLED\n" +
+                        "      \".\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss.]\n" +
+                        "      \"hh\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:sshh]\n" +
+                        "      \"h\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssh]\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
+                        "      \"ss\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss]\n" +
+                        "      \"s\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:s]\n" +
+                        "      \"am/pm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
+                        "      \"AM/PM\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
+                        "      \"a/p\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
+                        "      \"A/P\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
+                        "      \";\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
         );
     }
 
@@ -214,30 +220,31 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseDateTimeParsePattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
-                        "    \"d\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssd]\n" +
-                        "    \"ddd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
-                        "    \"dddd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
-                        "    \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "    \"mmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
-                        "    \"mmmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
-                        "    \"mmmmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
-                        "    \"yy\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
-                        "    \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
-                        "    \"0\" DISABLED\n" +
-                        "    \".\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss.]\n" +
-                        "    \"hh\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:sshh]\n" +
-                        "    \"h\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssh]\n" +
-                        "    \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "    \"ss\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss]\n" +
-                        "    \"s\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:s]\n" +
-                        "    \"am/pm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
-                        "    \"AM/PM\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "    \"a/p\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
-                        "    \"A/P\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
-                        "    \";\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
+                        "      \"d\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssd]\n" +
+                        "      \"ddd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
+                        "      \"dddd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
+                        "      \"mmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
+                        "      \"mmmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
+                        "      \"mmmmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
+                        "      \"yy\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
+                        "      \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
+                        "      \"0\" DISABLED\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss.]\n" +
+                        "      \"hh\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:sshh]\n" +
+                        "      \"h\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssh]\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
+                        "      \"ss\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss]\n" +
+                        "      \"s\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:s]\n" +
+                        "      \"am/pm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
+                        "      \"AM/PM\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
+                        "      \"a/p\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
+                        "      \"A/P\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
         );
     }
 
@@ -249,30 +256,31 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseDateTimeParsePattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"dd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
-                        "    \"d\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssd]\n" +
-                        "    \"ddd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
-                        "    \"dddd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
-                        "    \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "    \"mmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
-                        "    \"mmmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
-                        "    \"mmmmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
-                        "    \"yy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
-                        "    \"yyyy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
-                        "    \"0\" DISABLED\n" +
-                        "    \".\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss.]\n" +
-                        "    \"hh\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:sshh]\n" +
-                        "    \"h\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssh]\n" +
-                        "    \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "    \"ss\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss]\n" +
-                        "    \"s\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:s]\n" +
-                        "    \"am/pm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
-                        "    \"AM/PM\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "    \"a/p\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
-                        "    \"A/P\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
-                        "    \";\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"dd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
+                        "      \"d\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssd]\n" +
+                        "      \"ddd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
+                        "      \"dddd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
+                        "      \"mmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
+                        "      \"mmmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
+                        "      \"mmmmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
+                        "      \"yy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
+                        "      \"yyyy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
+                        "      \"0\" DISABLED\n" +
+                        "      \".\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss.]\n" +
+                        "      \"hh\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:sshh]\n" +
+                        "      \"h\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssh]\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
+                        "      \"ss\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss]\n" +
+                        "      \"s\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:s]\n" +
+                        "      \"am/pm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
+                        "      \"AM/PM\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
+                        "      \"a/p\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
+                        "      \"A/P\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
+                        "      \";\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
         );
     }
     
@@ -286,16 +294,17 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseNumberFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"$\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%24]\n" +
-                        "    \"#\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%23]\n" +
-                        "    \"?\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00?]\n" +
-                        "    \"0\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
-                        "    \",\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%2C]\n" +
-                        "    \".\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00.]\n" +
-                        "    \"E\" DISABLED\n" +
-                        "    \"/\" DISABLED\n" +
-                        "    \"%\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%25]\n" +
-                        "    \";\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"$\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%24]\n" +
+                        "      \"#\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%23]\n" +
+                        "      \"?\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00?]\n" +
+                        "      \"0\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
+                        "      \",\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%2C]\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00.]\n" +
+                        "      \"E\" DISABLED\n" +
+                        "      \"/\" DISABLED\n" +
+                        "      \"%\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%25]\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%3B]\n"
         );
     }
 
@@ -307,16 +316,17 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseNumberFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"$\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%24]\n" +
-                        "    \"#\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%23]\n" +
-                        "    \"?\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00?]\n" +
-                        "    \"0\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
-                        "    \",\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%2C]\n" +
-                        "    \".\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00.]\n" +
-                        "    \"E\" DISABLED\n" +
-                        "    \"/\" DISABLED\n" +
-                        "    \"%\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%25]\n" +
-                        "    \";\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"$\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%24]\n" +
+                        "      \"#\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%23]\n" +
+                        "      \"?\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00?]\n" +
+                        "      \"0\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
+                        "      \",\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%2C]\n" +
+                        "      \".\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00.]\n" +
+                        "      \"E\" DISABLED\n" +
+                        "      \"/\" DISABLED\n" +
+                        "      \"%\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%25]\n" +
+                        "      \";\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%3B]\n"
         );
     }
 
@@ -330,16 +340,17 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseNumberParsePattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"$\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%24]\n" +
-                        "    \"#\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%23]\n" +
-                        "    \"?\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00?]\n" +
-                        "    \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
-                        "    \",\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%2C]\n" +
-                        "    \".\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00.]\n" +
-                        "    \"E\" DISABLED\n" +
-                        "    \"/\" DISABLED\n" +
-                        "    \"%\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%25]\n" +
-                        "    \";\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"$\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%24]\n" +
+                        "      \"#\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%23]\n" +
+                        "      \"?\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00?]\n" +
+                        "      \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
+                        "      \",\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%2C]\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00.]\n" +
+                        "      \"E\" DISABLED\n" +
+                        "      \"/\" DISABLED\n" +
+                        "      \"%\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%25]\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%3B]\n"
         );
     }
 
@@ -351,16 +362,17 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseNumberParsePattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"$\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%24]\n" +
-                        "    \"#\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%23]\n" +
-                        "    \"?\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00?]\n" +
-                        "    \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
-                        "    \",\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%2C]\n" +
-                        "    \".\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00.]\n" +
-                        "    \"E\" DISABLED\n" +
-                        "    \"/\" DISABLED\n" +
-                        "    \"%\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%25]\n" +
-                        "    \";\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"$\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%24]\n" +
+                        "      \"#\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%23]\n" +
+                        "      \"?\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00?]\n" +
+                        "      \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
+                        "      \",\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%2C]\n" +
+                        "      \".\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00.]\n" +
+                        "      \"E\" DISABLED\n" +
+                        "      \"/\" DISABLED\n" +
+                        "      \"%\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%25]\n" +
+                        "      \";\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%3B]\n"
         );
     }
 
@@ -374,9 +386,10 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseTextFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/@]\n" +
-                        "    \"* \" [#/1/Untitled/cell/A1/format-pattern/text/save/@*+]\n" +
-                        "    \"_ \" [#/1/Untitled/cell/A1/format-pattern/text/save/@_+]\n"
+                        "    Append new component(s)\n" +
+                        "      \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/@]\n" +
+                        "      \"* \" [#/1/Untitled/cell/A1/format-pattern/text/save/@*+]\n" +
+                        "      \"_ \" [#/1/Untitled/cell/A1/format-pattern/text/save/@_+]\n"
         );
     }
 
@@ -388,9 +401,10 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseTextFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@]\n" +
-                        "    \"* \" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@*+]\n" +
-                        "    \"_ \" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@_+]\n" // expected
+                        "    Append new component(s)\n" +
+                        "      \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@]\n" +
+                        "      \"* \" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@*+]\n" +
+                        "      \"_ \" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@_+]\n" // expected
         );
     }
 
@@ -403,9 +417,10 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseTextFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"@\" [#/1/Untitled/metadata/text-format-pattern/save/@]\n" +
-                        "    \"* \" [#/1/Untitled/metadata/text-format-pattern/save/@*+]\n" +
-                        "    \"_ \" [#/1/Untitled/metadata/text-format-pattern/save/@_+]\n"
+                        "    Append new component(s)\n" +
+                        "      \"@\" [#/1/Untitled/metadata/text-format-pattern/save/@]\n" +
+                        "      \"* \" [#/1/Untitled/metadata/text-format-pattern/save/@*+]\n" +
+                        "      \"_ \" [#/1/Untitled/metadata/text-format-pattern/save/@_+]\n"
         );
     }
 
@@ -419,19 +434,20 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseTimeFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"0\" DISABLED\n" +
-                        "    \".\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss.]\n" +
-                        "    \"hh\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:sshh]\n" +
-                        "    \"h\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssh]\n" +
-                        "    \"mm\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssm]\n" +
-                        "    \"ss\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss]\n" +
-                        "    \"s\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:s]\n" +
-                        "    \"am/pm\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssam/pm]\n" +
-                        "    \"AM/PM\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssAM/PM]\n" +
-                        "    \"a/p\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssa/p]\n" +
-                        "    \"A/P\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssA/P]\n" +
-                        "    \";\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"0\" DISABLED\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss.]\n" +
+                        "      \"hh\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:sshh]\n" +
+                        "      \"h\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssh]\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssm]\n" +
+                        "      \"ss\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss]\n" +
+                        "      \"s\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:s]\n" +
+                        "      \"am/pm\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssam/pm]\n" +
+                        "      \"AM/PM\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssAM/PM]\n" +
+                        "      \"a/p\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssa/p]\n" +
+                        "      \"A/P\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssA/P]\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss%3B]\n"
         );
     }
 
@@ -443,19 +459,20 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseTimeFormatPattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"0\" DISABLED\n" +
-                        "    \".\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss.]\n" +
-                        "    \"hh\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:sshh]\n" +
-                        "    \"h\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssh]\n" +
-                        "    \"mm\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssm]\n" +
-                        "    \"ss\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n" +
-                        "    \"s\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:s]\n" +
-                        "    \"am/pm\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssam/pm]\n" +
-                        "    \"AM/PM\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssAM/PM]\n" +
-                        "    \"a/p\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssa/p]\n" +
-                        "    \"A/P\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssA/P]\n" +
-                        "    \";\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"0\" DISABLED\n" +
+                        "      \".\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss.]\n" +
+                        "      \"hh\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:sshh]\n" +
+                        "      \"h\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssh]\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssm]\n" +
+                        "      \"ss\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n" +
+                        "      \"s\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:s]\n" +
+                        "      \"am/pm\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssam/pm]\n" +
+                        "      \"AM/PM\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssAM/PM]\n" +
+                        "      \"a/p\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssa/p]\n" +
+                        "      \"A/P\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssA/P]\n" +
+                        "      \";\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss%3B]\n"
         );
     }
 
@@ -469,19 +486,20 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseTimeParsePattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"0\" DISABLED\n" +
-                        "    \".\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss.]\n" +
-                        "    \"hh\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:sshh]\n" +
-                        "    \"h\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssh]\n" +
-                        "    \"mm\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssm]\n" +
-                        "    \"ss\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss]\n" +
-                        "    \"s\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:s]\n" +
-                        "    \"am/pm\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssam/pm]\n" +
-                        "    \"AM/PM\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssAM/PM]\n" +
-                        "    \"a/p\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssa/p]\n" +
-                        "    \"A/P\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssA/P]\n" +
-                        "    \";\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"0\" DISABLED\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss.]\n" +
+                        "      \"hh\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:sshh]\n" +
+                        "      \"h\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssh]\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssm]\n" +
+                        "      \"ss\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss]\n" +
+                        "      \"s\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:s]\n" +
+                        "      \"am/pm\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssam/pm]\n" +
+                        "      \"AM/PM\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssAM/PM]\n" +
+                        "      \"a/p\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssa/p]\n" +
+                        "      \"A/P\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssA/P]\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss%3B]\n"
         );
     }
 
@@ -493,19 +511,20 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 SpreadsheetPattern::parseTimeParsePattern,
                 "SpreadsheetCard\n" +
                         "  Card\n" +
-                        "    \"0\" DISABLED\n" +
-                        "    \".\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss.]\n" +
-                        "    \"hh\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:sshh]\n" +
-                        "    \"h\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssh]\n" +
-                        "    \"mm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssmm]\n" +
-                        "    \"m\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssm]\n" +
-                        "    \"ss\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n" +
-                        "    \"s\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:s]\n" +
-                        "    \"am/pm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssam/pm]\n" +
-                        "    \"AM/PM\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssAM/PM]\n" +
-                        "    \"a/p\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssa/p]\n" +
-                        "    \"A/P\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssA/P]\n" +
-                        "    \";\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss%3B]\n"
+                        "    Append new component(s)\n" +
+                        "      \"0\" DISABLED\n" +
+                        "      \".\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss.]\n" +
+                        "      \"hh\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:sshh]\n" +
+                        "      \"h\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssh]\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssmm]\n" +
+                        "      \"m\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssm]\n" +
+                        "      \"ss\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n" +
+                        "      \"s\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:s]\n" +
+                        "      \"am/pm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssam/pm]\n" +
+                        "      \"AM/PM\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssAM/PM]\n" +
+                        "      \"a/p\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssa/p]\n" +
+                        "      \"A/P\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssA/P]\n" +
+                        "      \";\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss%3B]\n"
         );
     }
 
