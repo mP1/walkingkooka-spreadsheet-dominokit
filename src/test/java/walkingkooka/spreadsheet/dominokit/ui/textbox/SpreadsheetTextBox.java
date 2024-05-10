@@ -94,6 +94,11 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    @Override
+    public boolean isRequired() {
+        return this.required;
+    }
+
     private boolean required;
 
     @Override

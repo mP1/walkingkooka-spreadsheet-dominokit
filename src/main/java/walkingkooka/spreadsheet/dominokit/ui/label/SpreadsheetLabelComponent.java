@@ -103,6 +103,11 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         return this;
     }
 
+    @Override
+    public boolean isRequired() {
+        return this.required;
+    }
+
     boolean required;
 
     @Override

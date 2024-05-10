@@ -77,6 +77,11 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         return this;
     }
 
+    @Override
+    public boolean isRequired() {
+        return this.required;
+    }
+
     boolean required;
 
     @Override

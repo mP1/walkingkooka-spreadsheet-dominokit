@@ -86,6 +86,12 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     }
 
     @Override
+    default boolean isRequired() {
+        return this.parserSpreadsheetTextBox()
+                .isRequired();
+    }
+
+    @Override
     default C validate() {
         this.parserSpreadsheetTextBox()
                 .validate();

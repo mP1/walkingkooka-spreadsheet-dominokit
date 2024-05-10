@@ -93,6 +93,11 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
     }
 
     @Override
+    public boolean isRequired() {
+        return this.select.isRequired();
+    }
+
+    @Override
     public SpreadsheetCellRangeReferencePathComponent validate() {
         this.select.validate();
         return this;
