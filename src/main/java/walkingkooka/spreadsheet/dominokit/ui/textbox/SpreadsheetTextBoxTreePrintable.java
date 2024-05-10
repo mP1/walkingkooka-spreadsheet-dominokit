@@ -45,7 +45,7 @@ public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFi
 
             final String label = this.label();
             if (null != label) {
-                components.add(label + ":");
+                components.add(label);
             }
 
             components.add(

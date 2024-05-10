@@ -35,7 +35,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
                 SpreadsheetTextBox.empty()
                         .setLabel("Label123"),
                 "SpreadsheetTextBox\n" +
-                        "  Label123: []\n"
+                        "  Label123 []\n"
         );
     }
 
@@ -46,7 +46,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
                         .setLabel("Label123")
                         .setValue(Optional.of("Value456")),
                 "SpreadsheetTextBox\n" +
-                        "  Label123: [Value456]\n"
+                        "  Label123 [Value456]\n"
         );
     }
 
@@ -194,7 +194,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
         this.treePrintAndCheck(
                 new TestValueComponent(),
                 "TestValueComponent\n" +
-                        "  Label123: [Value123] id=id123 helperText=\"HelperText123\" DISABLED REQUIRED\n" +
+                        "  Label123 [Value123] id=id123 helperText=\"HelperText123\" DISABLED REQUIRED\n" +
                         "    Value1a\n" +
                         "    Value2b\n" +
                         "    Value3c\n"
@@ -213,7 +213,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
                         .setHelperText(Optional.of("HelperText789"))
                 ,
                 "SpreadsheetTextBox\n" +
-                        "  Label123: [Value456] id=id987 helperText=\"HelperText789\" DISABLED REQUIRED\n"
+                        "  Label123 [Value456] id=id987 helperText=\"HelperText789\" DISABLED REQUIRED\n"
         );
     }
 }
