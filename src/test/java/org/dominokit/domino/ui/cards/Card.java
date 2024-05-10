@@ -17,6 +17,7 @@
 
 package org.dominokit.domino.ui.cards;
 
+import com.google.gwt.thirdparty.guava.common.base.Strings;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
@@ -31,6 +32,13 @@ public class Card implements IsElement<Element>,
     public static Card create() {
         return new Card();
     }
+
+    public Card setTitle(final String title) {
+        this.title = title;
+        return this;
+    }
+
+    private String title;
 
     public IsElement<?> clearElement() {
         this.components.clear();
@@ -64,15 +72,30 @@ public class Card implements IsElement<Element>,
         printer.println("Card");
         printer.indent();
         {
-            for (final IsElement<?> component : this.components) {
-                printer.lineStart();
-                TreePrintable.printTreeOrToString(
-                        component,
-                        printer
-                );
+            final String title = this.title;
+            if (Strings.isNullOrEmpty(title)) {
+                this.printTreeComponents(printer);
+            } else {
+                printer.println(title);
+
+                printer.indent();
+                {
+                    this.printTreeComponents(printer);
+                }
+                printer.outdent();
             }
         }
         printer.outdent();
+    }
+
+    private void printTreeComponents(final IndentingPrinter printer) {
+        for (final IsElement<?> component : this.components) {
+            printer.lineStart();
+            TreePrintable.printTreeOrToString(
+                    component,
+                    printer
+            );
+        }
     }
 
     private final List<IsElement<?>> components = Lists.array();
