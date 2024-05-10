@@ -32,7 +32,7 @@ import java.util.Optional;
  * {@link SpreadsheetTextBox}.
  */
 public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox> {
+        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String> {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();
