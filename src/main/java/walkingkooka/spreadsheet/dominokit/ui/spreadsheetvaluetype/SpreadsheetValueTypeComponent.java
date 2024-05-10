@@ -23,6 +23,8 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -30,7 +32,8 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link String spreadsheet value type}.
  */
-public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetValueTypeComponent> {
+public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetValueTypeComponent>,
+        TreePrintable {
 
     public static SpreadsheetValueTypeComponent empty() {
         return new SpreadsheetValueTypeComponent();
@@ -196,5 +199,17 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     @Override
     public String toString() {
         return this.select.toString();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.select.printTree(printer);
+        }
+        printer.outdent();
     }
 }
