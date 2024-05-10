@@ -65,6 +65,11 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
     }
 
     @Override
+    public String label() {
+        return this.select.label();
+    }
+
+    @Override
     public boolean isDisabled() {
         return this.select.isDisabled();
     }

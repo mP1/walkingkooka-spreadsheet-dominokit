@@ -37,6 +37,8 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     C setLabel(final String label);
 
+    String label();
+
     C setValue(final Optional<V> value);
 
     default C clearValue() {

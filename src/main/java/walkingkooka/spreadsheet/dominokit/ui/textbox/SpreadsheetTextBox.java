@@ -202,6 +202,10 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    @Override
+    public String label() {
+        return this.textBox.getLabel();
+    }
 
     public SpreadsheetTextBox setValidator(final Validator<String> validator) {
         final TextBox textBox = this.textBox;

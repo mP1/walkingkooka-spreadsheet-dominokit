@@ -69,6 +69,11 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public String label() {
+        return this.select.label();
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent focus() {
         this.select.focus();
         return this;
