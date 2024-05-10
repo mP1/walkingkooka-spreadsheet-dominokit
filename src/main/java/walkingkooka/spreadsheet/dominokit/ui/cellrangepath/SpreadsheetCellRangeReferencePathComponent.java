@@ -54,6 +54,11 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
     }
 
     @Override
+    public String id() {
+        return this.select.id();
+    }
+
+    @Override
     public SpreadsheetCellRangeReferencePathComponent setLabel(final String label) {
         this.select.setLabel(label);
         return this;

@@ -64,6 +64,12 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     }
 
     @Override
+    public String id() {
+        return this.suggestBox.getInputElement()
+                .getId();
+    }
+
+    @Override
     public SpreadsheetLabelComponent setLabel(final String label) {
         this.suggestBox.setLabel(label);
         return this;

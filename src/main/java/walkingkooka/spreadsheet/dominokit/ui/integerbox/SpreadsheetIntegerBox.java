@@ -198,6 +198,12 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     }
 
     @Override
+    public String id() {
+        return this.integerBox.getInputElement()
+                .getId();
+    }
+
+    @Override
     public SpreadsheetIntegerBox setLabel(final String label) {
         this.integerBox.setLabel(label);
         return this;
