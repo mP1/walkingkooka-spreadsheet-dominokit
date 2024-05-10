@@ -176,6 +176,13 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     }
 
     @Override
+    public Optional<String> helperText() {
+        return Optional.ofNullable(
+                this.integerBox.getHelperText()
+        );
+    }
+
+    @Override
     public SpreadsheetIntegerBox hideMarginBottom() {
         this.integerBox.setMarginBottom("0");
         return this;

@@ -86,6 +86,11 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
     }
 
     /**
+     * Getter that returns the current helper text.
+     */
+    Optional<String> helperText();
+
+    /**
      * Constant height for containers holding helper text.
      */
     String HELPER_TEXT_HEIGHT = "4em";

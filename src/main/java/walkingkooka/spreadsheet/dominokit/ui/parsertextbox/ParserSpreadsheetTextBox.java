@@ -146,6 +146,11 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     @Override
+    public Optional<String> helperText() {
+        return this.textBox.helperText();
+    }
+
+    @Override
     public ParserSpreadsheetTextBox<T> hideMarginBottom() {
         this.textBox.hideMarginBottom();
         return this;

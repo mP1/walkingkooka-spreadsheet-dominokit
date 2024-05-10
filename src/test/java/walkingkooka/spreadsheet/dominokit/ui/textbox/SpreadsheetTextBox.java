@@ -151,6 +151,10 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    public Optional<String> helperText() {
+        return this.helperText;
+    }
+
     private Optional<String> helperText = Optional.empty();
 
     @Override

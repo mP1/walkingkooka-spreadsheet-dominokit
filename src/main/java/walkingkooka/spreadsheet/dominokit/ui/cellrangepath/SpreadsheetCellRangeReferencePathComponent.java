@@ -122,6 +122,11 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
     }
 
     @Override
+    public Optional<String> helperText() {
+        return this.select.helperText();
+    }
+
+    @Override
     public SpreadsheetCellRangeReferencePathComponent hideMarginBottom() {
         this.select.hideMarginBottom();
         return this;

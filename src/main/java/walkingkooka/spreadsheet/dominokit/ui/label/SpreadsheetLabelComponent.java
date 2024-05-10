@@ -143,6 +143,13 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     }
 
     @Override
+    public Optional<String> helperText() {
+        return Optional.ofNullable(
+                this.suggestBox.getHelperText()
+        );
+    }
+
+    @Override
     public SpreadsheetLabelComponent hideMarginBottom() {
         this.suggestBox.setMarginBottom("");
         return this;
