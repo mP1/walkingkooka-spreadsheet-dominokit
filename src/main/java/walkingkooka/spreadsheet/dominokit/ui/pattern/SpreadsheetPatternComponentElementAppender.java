@@ -106,7 +106,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                                         anchor
                                 )
                         );
-                        parent.append(anchor);
+                        parent.appendChild(anchor);
                     }
                     break;
             }
