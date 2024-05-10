@@ -41,22 +41,23 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"dd\" [#/1/Untitled/cell/A1/format-pattern/date/save//mm/yyyy]\n" +
-                        "          pattern-alternative-0-MenuItem \"d\" [/1/Untitled/cell/A1/format-pattern/date/save/d/mm/yyyy]\n" +
-                        "          pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n" +
-                        "          pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/cell/A1/format-pattern/date/save/ddd/mm/yyyy]\n" +
-                        "          pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/cell/A1/format-pattern/date/save/dddd/mm/yyyy]\n" +
-                        "      \"/\" [#/1/Untitled/cell/A1/format-pattern/date/save/ddmm/yyyy]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd//yyyy]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/m/yyyy]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n" +
-                        "          pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mmm/yyyy]\n" +
-                        "          pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mmmm/yyyy]\n" +
-                        "          pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mmmmm/yyyy]\n" +
-                        "      \"/\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mmyyyy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/]\n" +
-                        "          pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yy]\n" +
-                        "          pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"dd\" [#/1/Untitled/cell/A1/format-pattern/date/save//mm/yyyy]\n" +
+                        "            pattern-alternative-0-MenuItem \"d\" [/1/Untitled/cell/A1/format-pattern/date/save/d/mm/yyyy]\n" +
+                        "            pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n" +
+                        "            pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/cell/A1/format-pattern/date/save/ddd/mm/yyyy]\n" +
+                        "            pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/cell/A1/format-pattern/date/save/dddd/mm/yyyy]\n" +
+                        "        \"/\" [#/1/Untitled/cell/A1/format-pattern/date/save/ddmm/yyyy]\n" +
+                        "        \"mm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd//yyyy]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/m/yyyy]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n" +
+                        "            pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mmm/yyyy]\n" +
+                        "            pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mmmm/yyyy]\n" +
+                        "            pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mmmmm/yyyy]\n" +
+                        "        \"/\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mmyyyy]\n" +
+                        "        \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/]\n" +
+                        "            pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yy]\n" +
+                        "            pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n"
         );
     }
 
@@ -69,22 +70,23 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"dd\" [#/1/Untitled/metadata/date-format-pattern/save//mm/yyyy]\n" +
-                        "          pattern-alternative-0-MenuItem \"d\" [/1/Untitled/metadata/date-format-pattern/save/d/mm/yyyy]\n" +
-                        "          pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n" +
-                        "          pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/metadata/date-format-pattern/save/ddd/mm/yyyy]\n" +
-                        "          pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/metadata/date-format-pattern/save/dddd/mm/yyyy]\n" +
-                        "      \"/\" [#/1/Untitled/metadata/date-format-pattern/save/ddmm/yyyy]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-format-pattern/save/dd//yyyy]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-format-pattern/save/dd/m/yyyy]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n" +
-                        "          pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/metadata/date-format-pattern/save/dd/mmm/yyyy]\n" +
-                        "          pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/metadata/date-format-pattern/save/dd/mmmm/yyyy]\n" +
-                        "          pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/metadata/date-format-pattern/save/dd/mmmmm/yyyy]\n" +
-                        "      \"/\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mmyyyy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/]\n" +
-                        "          pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/metadata/date-format-pattern/save/dd/mm/yy]\n" +
-                        "          pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"dd\" [#/1/Untitled/metadata/date-format-pattern/save//mm/yyyy]\n" +
+                        "            pattern-alternative-0-MenuItem \"d\" [/1/Untitled/metadata/date-format-pattern/save/d/mm/yyyy]\n" +
+                        "            pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n" +
+                        "            pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/metadata/date-format-pattern/save/ddd/mm/yyyy]\n" +
+                        "            pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/metadata/date-format-pattern/save/dddd/mm/yyyy]\n" +
+                        "        \"/\" [#/1/Untitled/metadata/date-format-pattern/save/ddmm/yyyy]\n" +
+                        "        \"mm\" [#/1/Untitled/metadata/date-format-pattern/save/dd//yyyy]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-format-pattern/save/dd/m/yyyy]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n" +
+                        "            pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/metadata/date-format-pattern/save/dd/mmm/yyyy]\n" +
+                        "            pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/metadata/date-format-pattern/save/dd/mmmm/yyyy]\n" +
+                        "            pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/metadata/date-format-pattern/save/dd/mmmmm/yyyy]\n" +
+                        "        \"/\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mmyyyy]\n" +
+                        "        \"yyyy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/]\n" +
+                        "            pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/metadata/date-format-pattern/save/dd/mm/yy]\n" +
+                        "            pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n"
         );
     }
 
@@ -99,22 +101,23 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date/save//mm/yyyy]\n" +
-                        "          pattern-alternative-0-MenuItem \"d\" [/1/Untitled/cell/A1/parse-pattern/date/save/d/mm/yyyy]\n" +
-                        "          pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n" +
-                        "          pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/cell/A1/parse-pattern/date/save/ddd/mm/yyyy]\n" +
-                        "          pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/cell/A1/parse-pattern/date/save/dddd/mm/yyyy]\n" +
-                        "      \"/\" [#/1/Untitled/cell/A1/parse-pattern/date/save/ddmm/yyyy]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd//yyyy]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/m/yyyy]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n" +
-                        "          pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmm/yyyy]\n" +
-                        "          pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmmm/yyyy]\n" +
-                        "          pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmmmm/yyyy]\n" +
-                        "      \"/\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmyyyy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/]\n" +
-                        "          pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yy]\n" +
-                        "          pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date/save//mm/yyyy]\n" +
+                        "            pattern-alternative-0-MenuItem \"d\" [/1/Untitled/cell/A1/parse-pattern/date/save/d/mm/yyyy]\n" +
+                        "            pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n" +
+                        "            pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/cell/A1/parse-pattern/date/save/ddd/mm/yyyy]\n" +
+                        "            pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/cell/A1/parse-pattern/date/save/dddd/mm/yyyy]\n" +
+                        "        \"/\" [#/1/Untitled/cell/A1/parse-pattern/date/save/ddmm/yyyy]\n" +
+                        "        \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd//yyyy]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/m/yyyy]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n" +
+                        "            pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmm/yyyy]\n" +
+                        "            pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmmm/yyyy]\n" +
+                        "            pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmmmm/yyyy]\n" +
+                        "        \"/\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmyyyy]\n" +
+                        "        \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/]\n" +
+                        "            pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yy]\n" +
+                        "            pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n"
         );
     }
 
@@ -127,22 +130,23 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"dd\" [#/1/Untitled/metadata/date-parse-pattern/save//mm/yyyy]\n" +
-                        "          pattern-alternative-0-MenuItem \"d\" [/1/Untitled/metadata/date-parse-pattern/save/d/mm/yyyy]\n" +
-                        "          pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n" +
-                        "          pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/metadata/date-parse-pattern/save/ddd/mm/yyyy]\n" +
-                        "          pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/metadata/date-parse-pattern/save/dddd/mm/yyyy]\n" +
-                        "      \"/\" [#/1/Untitled/metadata/date-parse-pattern/save/ddmm/yyyy]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd//yyyy]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-parse-pattern/save/dd/m/yyyy]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n" +
-                        "          pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmm/yyyy]\n" +
-                        "          pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmmm/yyyy]\n" +
-                        "          pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmmmm/yyyy]\n" +
-                        "      \"/\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mmyyyy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/]\n" +
-                        "          pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yy]\n" +
-                        "          pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"dd\" [#/1/Untitled/metadata/date-parse-pattern/save//mm/yyyy]\n" +
+                        "            pattern-alternative-0-MenuItem \"d\" [/1/Untitled/metadata/date-parse-pattern/save/d/mm/yyyy]\n" +
+                        "            pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n" +
+                        "            pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/metadata/date-parse-pattern/save/ddd/mm/yyyy]\n" +
+                        "            pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/metadata/date-parse-pattern/save/dddd/mm/yyyy]\n" +
+                        "        \"/\" [#/1/Untitled/metadata/date-parse-pattern/save/ddmm/yyyy]\n" +
+                        "        \"mm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd//yyyy]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-parse-pattern/save/dd/m/yyyy]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n" +
+                        "            pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmm/yyyy]\n" +
+                        "            pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmmm/yyyy]\n" +
+                        "            pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmmmm/yyyy]\n" +
+                        "        \"/\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mmyyyy]\n" +
+                        "        \"yyyy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/]\n" +
+                        "            pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yy]\n" +
+                        "            pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n"
         );
     }
 
@@ -157,40 +161,41 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"dd\" [#/1/Untitled/cell/A2/format-pattern/date-time/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"d\" [/1/Untitled/cell/A2/format-pattern/date-time/save/d/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/cell/A2/format-pattern/date-time/save/ddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"/\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/ddmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd//yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/m/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mmmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mmmmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"/\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mmyyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"yyyy\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \" \" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyyhh:mm:ss+AM/PM]\n" +
-                        "      \"hh\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"h\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+h:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \":\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hhmm:ss+AM/PM]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh::ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:m:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \":\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mmss+AM/PM]\n" +
-                        "      \"ss\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"s\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:s+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \" \" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+]\n" +
-                        "          pattern-alternative-0-MenuItem \"A/P\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+A/P]\n" +
-                        "          pattern-alternative-1-MenuItem \"AM/PM\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"a/p\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+a/p]\n" +
-                        "          pattern-alternative-3-MenuItem \"am/pm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+am/pm]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"dd\" [#/1/Untitled/cell/A2/format-pattern/date-time/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"d\" [/1/Untitled/cell/A2/format-pattern/date-time/save/d/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/cell/A2/format-pattern/date-time/save/ddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"/\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/ddmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"mm\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd//yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/m/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mmmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mmmmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"/\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mmyyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"yyyy\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \" \" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyyhh:mm:ss+AM/PM]\n" +
+                        "        \"hh\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"h\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+h:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \":\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hhmm:ss+AM/PM]\n" +
+                        "        \"mm\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh::ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:m:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \":\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mmss+AM/PM]\n" +
+                        "        \"ss\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"s\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:s+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \" \" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
+                        "        \"AM/PM\" [#/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+]\n" +
+                        "            pattern-alternative-0-MenuItem \"A/P\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+A/P]\n" +
+                        "            pattern-alternative-1-MenuItem \"AM/PM\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"a/p\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+a/p]\n" +
+                        "            pattern-alternative-3-MenuItem \"am/pm\" [/1/Untitled/cell/A2/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+am/pm]\n"
         );
     }
 
@@ -203,40 +208,41 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"dd\" [#/1/Untitled/metadata/date-time-format-pattern/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"d\" [/1/Untitled/metadata/date-time-format-pattern/save/d/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/metadata/date-time-format-pattern/save/ddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/metadata/date-time-format-pattern/save/dddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"/\" [#/1/Untitled/metadata/date-time-format-pattern/save/ddmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd//yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/m/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mmmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mmmmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"/\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mmyyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"yyyy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \" \" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyyhh:mm:ss+AM/PM]\n" +
-                        "      \"hh\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"h\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+h:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \":\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hhmm:ss+AM/PM]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh::ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:m:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \":\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mmss+AM/PM]\n" +
-                        "      \"ss\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"s\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:s+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \" \" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+]\n" +
-                        "          pattern-alternative-0-MenuItem \"A/P\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+A/P]\n" +
-                        "          pattern-alternative-1-MenuItem \"AM/PM\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"a/p\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+a/p]\n" +
-                        "          pattern-alternative-3-MenuItem \"am/pm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+am/pm]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"dd\" [#/1/Untitled/metadata/date-time-format-pattern/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"d\" [/1/Untitled/metadata/date-time-format-pattern/save/d/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/metadata/date-time-format-pattern/save/ddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/metadata/date-time-format-pattern/save/dddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"/\" [#/1/Untitled/metadata/date-time-format-pattern/save/ddmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd//yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/m/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mmmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mmmmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"/\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mmyyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"yyyy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \" \" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyyhh:mm:ss+AM/PM]\n" +
+                        "        \"hh\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"h\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+h:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \":\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hhmm:ss+AM/PM]\n" +
+                        "        \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh::ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:m:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \":\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mmss+AM/PM]\n" +
+                        "        \"ss\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"s\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:s+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \" \" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
+                        "        \"AM/PM\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+]\n" +
+                        "            pattern-alternative-0-MenuItem \"A/P\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+A/P]\n" +
+                        "            pattern-alternative-1-MenuItem \"AM/PM\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"a/p\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+a/p]\n" +
+                        "            pattern-alternative-3-MenuItem \"am/pm\" [/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss+am/pm]\n"
         );
     }
 
@@ -251,40 +257,41 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"dd\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"d\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/d/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/ddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"/\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/ddmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd//yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/m/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmmmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"/\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmyyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"yyyy\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \" \" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyyhh:mm:ss+AM/PM]\n" +
-                        "      \"hh\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"h\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+h:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \":\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hhmm:ss+AM/PM]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh::ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:m:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \":\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mmss+AM/PM]\n" +
-                        "      \"ss\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"s\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:s+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \" \" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+]\n" +
-                        "          pattern-alternative-0-MenuItem \"A/P\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+A/P]\n" +
-                        "          pattern-alternative-1-MenuItem \"AM/PM\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"a/p\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+a/p]\n" +
-                        "          pattern-alternative-3-MenuItem \"am/pm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+am/pm]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"dd\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"d\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/d/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/ddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"/\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/ddmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"mm\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd//yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/m/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmmmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"/\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmyyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"yyyy\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \" \" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyyhh:mm:ss+AM/PM]\n" +
+                        "        \"hh\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"h\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+h:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \":\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hhmm:ss+AM/PM]\n" +
+                        "        \"mm\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh::ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:m:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \":\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mmss+AM/PM]\n" +
+                        "        \"ss\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"s\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:s+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \" \" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
+                        "        \"AM/PM\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+]\n" +
+                        "            pattern-alternative-0-MenuItem \"A/P\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+A/P]\n" +
+                        "            pattern-alternative-1-MenuItem \"AM/PM\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"a/p\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+a/p]\n" +
+                        "            pattern-alternative-3-MenuItem \"am/pm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss+am/pm]\n"
         );
     }
 
@@ -297,40 +304,41 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"dd\" [#/1/Untitled/metadata/date-time-parse-pattern/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"d\" [/1/Untitled/metadata/date-time-parse-pattern/save/d/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/metadata/date-time-parse-pattern/save/ddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/metadata/date-time-parse-pattern/save/dddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"/\" [#/1/Untitled/metadata/date-time-parse-pattern/save/ddmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd//yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/m/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmmmm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"/\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmyyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \"yyyy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \" \" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyyhh:mm:ss+AM/PM]\n" +
-                        "      \"hh\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"h\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+h:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \":\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hhmm:ss+AM/PM]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh::ss+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:m:ss+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \":\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mmss+AM/PM]\n" +
-                        "      \"ss\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:+AM/PM]\n" +
-                        "          pattern-alternative-0-MenuItem \"s\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:s+AM/PM]\n" +
-                        "          pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "      \" \" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+]\n" +
-                        "          pattern-alternative-0-MenuItem \"A/P\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+A/P]\n" +
-                        "          pattern-alternative-1-MenuItem \"AM/PM\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
-                        "          pattern-alternative-2-MenuItem \"a/p\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+a/p]\n" +
-                        "          pattern-alternative-3-MenuItem \"am/pm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+am/pm]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"dd\" [#/1/Untitled/metadata/date-time-parse-pattern/save//mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"d\" [/1/Untitled/metadata/date-time-parse-pattern/save/d/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"dd\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"ddd\" [/1/Untitled/metadata/date-time-parse-pattern/save/ddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-3-MenuItem \"dddd\" [/1/Untitled/metadata/date-time-parse-pattern/save/dddd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"/\" [#/1/Untitled/metadata/date-time-parse-pattern/save/ddmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd//yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/m/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"mmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-3-MenuItem \"mmmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-4-MenuItem \"mmmmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmmmm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"/\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmyyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \"yyyy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"yy\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"yyyy\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \" \" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyyhh:mm:ss+AM/PM]\n" +
+                        "        \"hh\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"h\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+h:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \":\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hhmm:ss+AM/PM]\n" +
+                        "        \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh::ss+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:m:ss+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \":\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mmss+AM/PM]\n" +
+                        "        \"ss\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:+AM/PM]\n" +
+                        "            pattern-alternative-0-MenuItem \"s\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:s+AM/PM]\n" +
+                        "            pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "        \" \" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
+                        "        \"AM/PM\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+]\n" +
+                        "            pattern-alternative-0-MenuItem \"A/P\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+A/P]\n" +
+                        "            pattern-alternative-1-MenuItem \"AM/PM\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+AM/PM]\n" +
+                        "            pattern-alternative-2-MenuItem \"a/p\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+a/p]\n" +
+                        "            pattern-alternative-3-MenuItem \"am/pm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss+am/pm]\n"
         );
     }
 
@@ -345,16 +353,17 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"$\" [#/1/Untitled/cell/A1/format-pattern/number/save/%23.00]\n" +
-                        "          pattern-alternative-0-MenuItem \"$\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
-                        "      \"#\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24.00]\n" +
-                        "          pattern-alternative-0-MenuItem \"#\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
-                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%2300]\n" +
-                        "          pattern-alternative-0-MenuItem \".\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
-                        "      \"0\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.0]\n" +
-                        "          pattern-alternative-0-MenuItem \"0\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
-                        "      \"0\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.0]\n" +
-                        "          pattern-alternative-0-MenuItem \"0\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"$\" [#/1/Untitled/cell/A1/format-pattern/number/save/%23.00]\n" +
+                        "            pattern-alternative-0-MenuItem \"$\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
+                        "        \"#\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24.00]\n" +
+                        "            pattern-alternative-0-MenuItem \"#\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
+                        "        \".\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%2300]\n" +
+                        "            pattern-alternative-0-MenuItem \".\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
+                        "        \"0\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.0]\n" +
+                        "            pattern-alternative-0-MenuItem \"0\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
+                        "        \"0\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.0]\n" +
+                        "            pattern-alternative-0-MenuItem \"0\" [/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n"
         );
     }
 
@@ -367,16 +376,17 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"$\" [#/1/Untitled/metadata/number-format-pattern/save/%23.00]\n" +
-                        "          pattern-alternative-0-MenuItem \"$\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
-                        "      \"#\" [#/1/Untitled/metadata/number-format-pattern/save/%24.00]\n" +
-                        "          pattern-alternative-0-MenuItem \"#\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
-                        "      \".\" [#/1/Untitled/metadata/number-format-pattern/save/%24%2300]\n" +
-                        "          pattern-alternative-0-MenuItem \".\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
-                        "      \"0\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.0]\n" +
-                        "          pattern-alternative-0-MenuItem \"0\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
-                        "      \"0\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.0]\n" +
-                        "          pattern-alternative-0-MenuItem \"0\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"$\" [#/1/Untitled/metadata/number-format-pattern/save/%23.00]\n" +
+                        "            pattern-alternative-0-MenuItem \"$\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
+                        "        \"#\" [#/1/Untitled/metadata/number-format-pattern/save/%24.00]\n" +
+                        "            pattern-alternative-0-MenuItem \"#\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
+                        "        \".\" [#/1/Untitled/metadata/number-format-pattern/save/%24%2300]\n" +
+                        "            pattern-alternative-0-MenuItem \".\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
+                        "        \"0\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.0]\n" +
+                        "            pattern-alternative-0-MenuItem \"0\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
+                        "        \"0\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.0]\n" +
+                        "            pattern-alternative-0-MenuItem \"0\" [/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n"
         );
     }
 
@@ -391,16 +401,17 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"$\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%23.00]\n" +
-                        "          pattern-alternative-0-MenuItem \"$\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
-                        "      \"#\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24.00]\n" +
-                        "          pattern-alternative-0-MenuItem \"#\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
-                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%2300]\n" +
-                        "          pattern-alternative-0-MenuItem \".\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
-                        "      \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.0]\n" +
-                        "          pattern-alternative-0-MenuItem \"0\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
-                        "      \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.0]\n" +
-                        "          pattern-alternative-0-MenuItem \"0\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"$\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%23.00]\n" +
+                        "            pattern-alternative-0-MenuItem \"$\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
+                        "        \"#\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24.00]\n" +
+                        "            pattern-alternative-0-MenuItem \"#\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
+                        "        \".\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%2300]\n" +
+                        "            pattern-alternative-0-MenuItem \".\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
+                        "        \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.0]\n" +
+                        "            pattern-alternative-0-MenuItem \"0\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
+                        "        \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.0]\n" +
+                        "            pattern-alternative-0-MenuItem \"0\" [/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n"
         );
     }
 
@@ -413,16 +424,17 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"$\" [#/1/Untitled/metadata/number-parse-pattern/save/%23.00]\n" +
-                        "          pattern-alternative-0-MenuItem \"$\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
-                        "      \"#\" [#/1/Untitled/metadata/number-parse-pattern/save/%24.00]\n" +
-                        "          pattern-alternative-0-MenuItem \"#\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
-                        "      \".\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%2300]\n" +
-                        "          pattern-alternative-0-MenuItem \".\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
-                        "      \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.0]\n" +
-                        "          pattern-alternative-0-MenuItem \"0\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
-                        "      \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.0]\n" +
-                        "          pattern-alternative-0-MenuItem \"0\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"$\" [#/1/Untitled/metadata/number-parse-pattern/save/%23.00]\n" +
+                        "            pattern-alternative-0-MenuItem \"$\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
+                        "        \"#\" [#/1/Untitled/metadata/number-parse-pattern/save/%24.00]\n" +
+                        "            pattern-alternative-0-MenuItem \"#\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
+                        "        \".\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%2300]\n" +
+                        "            pattern-alternative-0-MenuItem \".\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
+                        "        \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.0]\n" +
+                        "            pattern-alternative-0-MenuItem \"0\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
+                        "        \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.0]\n" +
+                        "            pattern-alternative-0-MenuItem \"0\" [/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n"
         );
     }
 
@@ -437,8 +449,9 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/]\n" +
-                        "          pattern-alternative-0-MenuItem \"@\" [/1/Untitled/cell/A1/format-pattern/text/save/@]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/]\n" +
+                        "            pattern-alternative-0-MenuItem \"@\" [/1/Untitled/cell/A1/format-pattern/text/save/@]\n"
         );
     }
 
@@ -451,8 +464,9 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"@\" [#/1/Untitled/metadata/text-format-pattern/save/]\n" +
-                        "          pattern-alternative-0-MenuItem \"@\" [/1/Untitled/metadata/text-format-pattern/save/@]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"@\" [#/1/Untitled/metadata/text-format-pattern/save/]\n" +
+                        "            pattern-alternative-0-MenuItem \"@\" [/1/Untitled/metadata/text-format-pattern/save/@]\n"
         );
     }
 
@@ -465,9 +479,10 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"\"Hello\"\" [#/1/Untitled/metadata/text-format-pattern/save/@]\n" +
-                        "      \"@\" [#/1/Untitled/metadata/text-format-pattern/save/%22Hello%22]\n" +
-                        "          pattern-alternative-0-MenuItem \"@\" [/1/Untitled/metadata/text-format-pattern/save/%22Hello%22@]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"\"Hello\"\" [#/1/Untitled/metadata/text-format-pattern/save/@]\n" +
+                        "        \"@\" [#/1/Untitled/metadata/text-format-pattern/save/%22Hello%22]\n" +
+                        "            pattern-alternative-0-MenuItem \"@\" [/1/Untitled/metadata/text-format-pattern/save/%22Hello%22@]\n"
         );
     }
 
@@ -482,17 +497,18 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"hh\" [#/1/Untitled/cell/A4/format-pattern/time/save/:mm:ss]\n" +
-                        "          pattern-alternative-0-MenuItem \"h\" [/1/Untitled/cell/A4/format-pattern/time/save/h:mm:ss]\n" +
-                        "          pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:ss]\n" +
-                        "      \":\" [#/1/Untitled/cell/A4/format-pattern/time/save/hhmm:ss]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A4/format-pattern/time/save/hh::ss]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:m:ss]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:ss]\n" +
-                        "      \":\" [#/1/Untitled/cell/A4/format-pattern/time/save/hh:mmss]\n" +
-                        "      \"ss\" [#/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:]\n" +
-                        "          pattern-alternative-0-MenuItem \"s\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:s]\n" +
-                        "          pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:ss]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"hh\" [#/1/Untitled/cell/A4/format-pattern/time/save/:mm:ss]\n" +
+                        "            pattern-alternative-0-MenuItem \"h\" [/1/Untitled/cell/A4/format-pattern/time/save/h:mm:ss]\n" +
+                        "            pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:ss]\n" +
+                        "        \":\" [#/1/Untitled/cell/A4/format-pattern/time/save/hhmm:ss]\n" +
+                        "        \"mm\" [#/1/Untitled/cell/A4/format-pattern/time/save/hh::ss]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:m:ss]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:ss]\n" +
+                        "        \":\" [#/1/Untitled/cell/A4/format-pattern/time/save/hh:mmss]\n" +
+                        "        \"ss\" [#/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:]\n" +
+                        "            pattern-alternative-0-MenuItem \"s\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:s]\n" +
+                        "            pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/cell/A4/format-pattern/time/save/hh:mm:ss]\n"
         );
     }
 
@@ -505,17 +521,18 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"hh\" [#/1/Untitled/metadata/time-format-pattern/save/:mm:ss]\n" +
-                        "          pattern-alternative-0-MenuItem \"h\" [/1/Untitled/metadata/time-format-pattern/save/h:mm:ss]\n" +
-                        "          pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n" +
-                        "      \":\" [#/1/Untitled/metadata/time-format-pattern/save/hhmm:ss]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/time-format-pattern/save/hh::ss]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/time-format-pattern/save/hh:m:ss]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n" +
-                        "      \":\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mmss]\n" +
-                        "      \"ss\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:]\n" +
-                        "          pattern-alternative-0-MenuItem \"s\" [/1/Untitled/metadata/time-format-pattern/save/hh:mm:s]\n" +
-                        "          pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"hh\" [#/1/Untitled/metadata/time-format-pattern/save/:mm:ss]\n" +
+                        "            pattern-alternative-0-MenuItem \"h\" [/1/Untitled/metadata/time-format-pattern/save/h:mm:ss]\n" +
+                        "            pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n" +
+                        "        \":\" [#/1/Untitled/metadata/time-format-pattern/save/hhmm:ss]\n" +
+                        "        \"mm\" [#/1/Untitled/metadata/time-format-pattern/save/hh::ss]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/time-format-pattern/save/hh:m:ss]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n" +
+                        "        \":\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mmss]\n" +
+                        "        \"ss\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:]\n" +
+                        "            pattern-alternative-0-MenuItem \"s\" [/1/Untitled/metadata/time-format-pattern/save/hh:mm:s]\n" +
+                        "            pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n"
         );
     }
 
@@ -530,17 +547,18 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"hh\" [#/1/Untitled/cell/A4/parse-pattern/time/save/:mm:ss]\n" +
-                        "          pattern-alternative-0-MenuItem \"h\" [/1/Untitled/cell/A4/parse-pattern/time/save/h:mm:ss]\n" +
-                        "          pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss]\n" +
-                        "      \":\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hhmm:ss]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh::ss]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:m:ss]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss]\n" +
-                        "      \":\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh:mmss]\n" +
-                        "      \"ss\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:]\n" +
-                        "          pattern-alternative-0-MenuItem \"s\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:s]\n" +
-                        "          pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"hh\" [#/1/Untitled/cell/A4/parse-pattern/time/save/:mm:ss]\n" +
+                        "            pattern-alternative-0-MenuItem \"h\" [/1/Untitled/cell/A4/parse-pattern/time/save/h:mm:ss]\n" +
+                        "            pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss]\n" +
+                        "        \":\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hhmm:ss]\n" +
+                        "        \"mm\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh::ss]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:m:ss]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss]\n" +
+                        "        \":\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh:mmss]\n" +
+                        "        \"ss\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:]\n" +
+                        "            pattern-alternative-0-MenuItem \"s\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:s]\n" +
+                        "            pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss]\n"
         );
     }
 
@@ -553,17 +571,18 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"hh\" [#/1/Untitled/metadata/time-parse-pattern/save/:mm:ss]\n" +
-                        "          pattern-alternative-0-MenuItem \"h\" [/1/Untitled/metadata/time-parse-pattern/save/h:mm:ss]\n" +
-                        "          pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n" +
-                        "      \":\" [#/1/Untitled/metadata/time-parse-pattern/save/hhmm:ss]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh::ss]\n" +
-                        "          pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/time-parse-pattern/save/hh:m:ss]\n" +
-                        "          pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n" +
-                        "      \":\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mmss]\n" +
-                        "      \"ss\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:]\n" +
-                        "          pattern-alternative-0-MenuItem \"s\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:s]\n" +
-                        "          pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n"
+                        "      Remove individual component(s)\n" +
+                        "        \"hh\" [#/1/Untitled/metadata/time-parse-pattern/save/:mm:ss]\n" +
+                        "            pattern-alternative-0-MenuItem \"h\" [/1/Untitled/metadata/time-parse-pattern/save/h:mm:ss]\n" +
+                        "            pattern-alternative-1-MenuItem \"hh\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n" +
+                        "        \":\" [#/1/Untitled/metadata/time-parse-pattern/save/hhmm:ss]\n" +
+                        "        \"mm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh::ss]\n" +
+                        "            pattern-alternative-0-MenuItem \"m\" [/1/Untitled/metadata/time-parse-pattern/save/hh:m:ss]\n" +
+                        "            pattern-alternative-1-MenuItem \"mm\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n" +
+                        "        \":\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mmss]\n" +
+                        "        \"ss\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:]\n" +
+                        "            pattern-alternative-0-MenuItem \"s\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:s]\n" +
+                        "            pattern-alternative-1-MenuItem \"ss\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n"
         );
     }
 
