@@ -59,7 +59,8 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     }
 
     private SpreadsheetPatternComponentElementRemover() {
-        this.parent = SpreadsheetCard.empty();
+        this.parent = SpreadsheetCard.empty()
+                .setTitle("Remove individual component(s)");
         this.tokenKinds = Lists.array();
         this.texts = Lists.array();
     }
