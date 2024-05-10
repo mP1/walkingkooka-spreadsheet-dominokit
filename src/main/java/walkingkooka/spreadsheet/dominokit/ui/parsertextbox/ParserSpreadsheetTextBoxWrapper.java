@@ -22,6 +22,8 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.HasText;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
@@ -29,7 +31,8 @@ import java.util.Optional;
  * A helper interface that implements delegator methods for a wrapped {@link ParserSpreadsheetTextBox}.
  */
 public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetTextBoxWrapper<C, T>, T extends HasText>
-        extends ValueComponent<HTMLFieldSetElement, T, C> {
+        extends ValueComponent<HTMLFieldSetElement, T, C>,
+        TreePrintable {
 
     @Override
     default C setId(final String id) {
@@ -200,4 +203,17 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
      * The wrapped {@link ParserSpreadsheetTextBox}, which is the target of all delegated methods.
      */
     ParserSpreadsheetTextBox<T> parserSpreadsheetTextBox();
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    default void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.parserSpreadsheetTextBox()
+                    .printTree(printer);
+        }
+        printer.outdent();
+    }
 }
