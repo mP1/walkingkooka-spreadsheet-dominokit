@@ -75,6 +75,11 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    @Override
+    public Optional<String> value() {
+        return this.value;
+    }
+
     private Optional<String> value = Optional.empty();
 
     @Override
@@ -165,11 +170,6 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public SpreadsheetTextBox removeBorders() {
         return this;
-    }
-
-    @Override
-    public Optional<String> value() {
-        return Optional.empty();
     }
 
     @Override
