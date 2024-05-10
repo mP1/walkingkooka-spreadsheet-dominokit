@@ -42,7 +42,7 @@ public final class SpreadsheetSelectComponentTest implements ClassTesting<Spread
                         .appendValue("text3", "value3")
                 ,
                 "SpreadsheetSelectComponent\n" +
-                        "  Label123: [Value456] id=id987 DISABLED REQUIRED\n" +
+                        "  Label123 [Value456] id=id987 DISABLED REQUIRED\n" +
                         "    text1=value1\n" +
                         "    text2=value2\n" +
                         "    text3=value3\n"
