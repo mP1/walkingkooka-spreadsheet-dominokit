@@ -91,6 +91,10 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
         return this;
     }
 
+    public Optional<String> helperText() {
+        return this.select.helperText();
+    }
+
     @Override
     public SpreadsheetValueTypeComponent hideMarginBottom() {
         this.select.hideMarginBottom();

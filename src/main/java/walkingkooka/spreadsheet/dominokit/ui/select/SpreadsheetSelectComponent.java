@@ -118,6 +118,11 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
+    public Optional<String> helperText() {
+        return Optional.empty();
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> hideMarginBottom() {
         this.select.setMarginBottom("");
         return this;

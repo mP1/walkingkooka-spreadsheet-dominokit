@@ -154,6 +154,12 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     }
 
     @Override
+    default Optional<String> helperText() {
+        return this.parserSpreadsheetTextBox()
+                .helperText();
+    }
+
+    @Override
     default C hideMarginBottom() {
         this.parserSpreadsheetTextBox()
                 .hideMarginBottom();
