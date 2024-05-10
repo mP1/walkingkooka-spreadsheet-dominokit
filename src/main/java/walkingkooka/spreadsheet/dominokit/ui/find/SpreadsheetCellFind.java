@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.ui.find;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
