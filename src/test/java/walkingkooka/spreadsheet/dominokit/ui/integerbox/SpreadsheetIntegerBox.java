@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
@@ -202,5 +203,12 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     @Override
     public HTMLFieldSetElement element() {
         throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetTextBoxTreePrintable..................................................................................
+
+    @Override
+    public void treePrintAlternateValues(final IndentingPrinter printer) {
+        // NOP
     }
 }

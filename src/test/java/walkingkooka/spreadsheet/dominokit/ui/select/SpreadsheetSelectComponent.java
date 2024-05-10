@@ -23,8 +23,10 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -222,5 +224,24 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
 
     private static <T> T checkValue(final T value) {
         return Objects.requireNonNull(value, "value");
+    }
+
+    // SpreadsheetTextBoxTreePrintable..................................................................................
+
+    @Override
+    public void treePrintAlternateValues(final IndentingPrinter printer) {
+        printer.indent();
+        {
+            for (final Entry<String, Optional<T>> textAndValue : this.textToValue.entrySet()) {
+                printer.println(
+                        textAndValue.getKey() +
+                                "=" +
+                                textAndValue.getValue()
+                                        .map(Object::toString)
+                                        .orElse("")
+                );
+            }
+        }
+        printer.outdent();
     }
 }

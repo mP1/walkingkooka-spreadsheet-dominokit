@@ -75,7 +75,15 @@ public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFi
                     components.stream()
                             .collect(Collectors.joining(" "))
             );
+
+            this.treePrintAlternateValues(printer);
         }
         printer.outdent();
     }
+
+    /**
+     * Provides an opportunity for {@link walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent} to print
+     * drop down values.
+     */
+    void treePrintAlternateValues(final IndentingPrinter printer);
 }

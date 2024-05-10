@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -292,4 +293,11 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     }
 
     private final TextBox textBox;
+
+    // SpreadsheetTextBoxTreePrintable..................................................................................
+
+    @Override
+    public void treePrintAlternateValues(final IndentingPrinter printer) {
+        // NOP
+    }
 }

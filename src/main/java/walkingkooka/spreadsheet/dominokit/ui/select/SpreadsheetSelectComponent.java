@@ -25,6 +25,8 @@ import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -254,5 +256,20 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     @Override
     public String toString() {
         return this.select.toString();
+    }
+
+    // SpreadsheetTextBoxTreePrintable..................................................................................
+
+    @Override
+    public void treePrintAlternateValues(final IndentingPrinter printer) {
+        printer.indent();
+        {
+            // Not sure what this will print...
+            TreePrintable.printTreeOrToString(
+                    this.select.getOptionsMenu(),
+                    printer
+            );
+        }
+        printer.outdent();
     }
 }
