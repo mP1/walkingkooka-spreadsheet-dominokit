@@ -53,7 +53,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     }
 
     private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender(final int index) {
-        this.parent = SpreadsheetCard.empty();
+        this.parent = SpreadsheetCard.empty()
+                .setTitle("Append comparator(s)");
 
         this.index = index;
     }
