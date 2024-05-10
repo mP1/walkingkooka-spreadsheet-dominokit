@@ -44,6 +44,9 @@ import java.util.stream.Collectors;
 
 import static org.dominokit.domino.ui.pagination.PaginationStyles.dui_pager;
 
+/**
+ * A table where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
+ */
 public class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentTable> {
 
     /**
