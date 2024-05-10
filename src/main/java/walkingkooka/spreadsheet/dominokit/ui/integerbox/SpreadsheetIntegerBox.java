@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -304,4 +305,11 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     }
 
     private final IntegerBox integerBox;
+
+    // SpreadsheetTextBoxTreePrintable..................................................................................
+
+    @Override
+    public void treePrintAlternateValues(final IndentingPrinter printer) {
+        // NOP
+    }
 }

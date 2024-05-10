@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
@@ -187,5 +188,12 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public HTMLFieldSetElement element() {
         throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetTextBoxTreePrintable..................................................................................
+
+    @Override
+    public void treePrintAlternateValues(final IndentingPrinter printer) {
+        // NOP
     }
 }
