@@ -121,6 +121,11 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public boolean isRequired() {
+        return this.select.isRequired();
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent optional() {
         this.select.optional();
         return this;

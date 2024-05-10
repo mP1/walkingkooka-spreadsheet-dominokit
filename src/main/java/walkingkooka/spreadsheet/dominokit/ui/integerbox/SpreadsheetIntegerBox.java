@@ -265,6 +265,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
 
     @Override
     public SpreadsheetIntegerBox required() {
+        this.required = true;
         return this.setValidator(
                 new RequiredValidator<>(this.integerBox)
         );
@@ -274,6 +275,12 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     public SpreadsheetIntegerBox optional() {
         throw new UnsupportedOperationException();
     }
+
+    public boolean isRequired() {
+        return this.required;
+    }
+
+    private boolean required;
 
     @Override
     public SpreadsheetIntegerBox validate() {

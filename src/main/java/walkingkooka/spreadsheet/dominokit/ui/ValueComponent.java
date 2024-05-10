@@ -51,6 +51,8 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     C required();
 
+    boolean isRequired();
+
     C validate();
 
     boolean isDisabled();
