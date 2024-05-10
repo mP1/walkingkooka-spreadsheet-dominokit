@@ -29,7 +29,7 @@ public final class SpreadsheetCardTest implements ClassTesting<SpreadsheetCard>,
         TreePrintableTesting {
 
     @Test
-    public void testTreePrint() {
+    public void testTreePrintWithoutTitle() {
         this.treePrintAndCheck(
                 SpreadsheetCard.empty()
                         .appendChild(
@@ -42,6 +42,25 @@ public final class SpreadsheetCardTest implements ClassTesting<SpreadsheetCard>,
                         "  Card\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [Value123]\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintWithTitle() {
+        this.treePrintAndCheck(
+                SpreadsheetCard.empty()
+                        .setTitle("CardTitle123")
+                        .appendChild(
+                                SpreadsheetTextBox.empty()
+                                        .setValue(
+                                                Optional.of("Value123")
+                                        )
+                        ),
+                "SpreadsheetCard\n" +
+                        "  Card\n" +
+                        "    CardTitle123\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [Value123]\n"
         );
     }
 

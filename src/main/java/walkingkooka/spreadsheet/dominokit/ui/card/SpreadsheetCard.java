@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.Objects;
+
 /**
  * A {@link Card} that auto hides when empty.
  */
@@ -36,6 +38,13 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
 
     private SpreadsheetCard() {
         this.card = Card.create();
+    }
+
+    public SpreadsheetCard setTitle(final String title) {
+        Objects.requireNonNull(title, "title");
+
+        this.card.setTitle(title);
+        return this;
     }
 
     public SpreadsheetCard clear() {
@@ -61,9 +70,16 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
 
     // TreePrintable....................................................................................................
 
+    // SpreadsheetCard
+    //   title
+    //     this.card
+    //
+    // Spreadsheet
+    //   this.card
     @Override
     public void printTree(final IndentingPrinter printer) {
         printer.println("SpreadsheetCard");
+
         printer.indent();
         {
             TreePrintable.printTreeOrToString(
