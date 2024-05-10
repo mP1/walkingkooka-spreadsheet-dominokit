@@ -29,12 +29,12 @@ public final class SpreadsheetValueTypeComponentTest implements ClassTesting<Spr
         TreePrintableTesting {
 
     @Test
-    public void testTreePrint() {
+    public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
                 SpreadsheetValueTypeComponent.empty(),
                 "SpreadsheetValueTypeComponent\n" +
                         "  SpreadsheetSelectComponent\n" +
-                        "    \n" +
+                        "    []\n" +
                         "      Any=*\n" +
                         "      Boolean=boolean\n" +
                         "      Date=date\n" +

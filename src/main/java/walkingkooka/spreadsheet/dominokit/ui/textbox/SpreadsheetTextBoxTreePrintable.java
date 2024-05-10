@@ -48,10 +48,13 @@ public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFi
                 components.add(label + ":");
             }
 
-            final Optional<?> value = this.value();
-            if (value.isPresent()) {
-                components.add("[" + value.get() + "]");
-            }
+            components.add(
+                    "[" +
+                            this.value()
+                                    .map(Object::toString)
+                                    .orElse("") +
+                            "]"
+            );
 
             final String id = this.id();
             if (null != id) {
