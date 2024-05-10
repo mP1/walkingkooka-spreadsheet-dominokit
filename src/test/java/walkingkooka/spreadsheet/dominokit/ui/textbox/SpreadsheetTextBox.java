@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.textbox;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -164,6 +165,22 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
 
     @Override
     public SpreadsheetTextBox removeBorders() {
+        return this;
+    }
+
+    public SpreadsheetTextBox clearIcon() {
+        return this;
+    }
+
+    public SpreadsheetTextBox disableSpellcheck() {
+        return this;
+    }
+
+    public SpreadsheetTextBox enterFiresValueChange() {
+        return this;
+    }
+
+    public SpreadsheetTextBox setValidator(final Validator<String> validator) {
         return this;
     }
 
