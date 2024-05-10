@@ -33,6 +33,8 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     C setId(final String id);
 
+    String id();
+
     C setLabel(final String label);
 
     C setValue(final Optional<V> value);

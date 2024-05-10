@@ -39,6 +39,12 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     }
 
     @Override
+    default String id() {
+        return this.parserSpreadsheetTextBox()
+                .id();
+    }
+
+    @Override
     default C setLabel(final String label) {
         this.parserSpreadsheetTextBox()
                 .setLabel(label);

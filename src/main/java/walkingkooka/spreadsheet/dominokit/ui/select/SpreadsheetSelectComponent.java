@@ -50,6 +50,11 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
+    public String id() {
+        return this.select.getId();
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> setLabel(final String label) {
         this.select.setLabel(label);
         return this;

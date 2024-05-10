@@ -191,6 +191,12 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     }
 
     @Override
+    public String id() {
+        return this.textBox.getInputElement()
+                .getId();
+    }
+
+    @Override
     public SpreadsheetTextBox setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;

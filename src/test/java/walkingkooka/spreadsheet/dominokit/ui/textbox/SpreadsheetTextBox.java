@@ -48,6 +48,11 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    @Override
+    public String id() {
+        return this.id;
+    }
+
     private String id;
 
     @Override

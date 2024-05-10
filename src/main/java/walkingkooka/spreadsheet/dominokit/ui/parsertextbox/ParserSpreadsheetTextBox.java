@@ -64,6 +64,11 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     @Override
+    public String id() {
+        return this.textBox.id();
+    }
+
+    @Override
     public ParserSpreadsheetTextBox<T> setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
