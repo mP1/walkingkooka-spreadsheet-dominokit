@@ -229,26 +229,11 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
             printer.print(") ");
         }
 
-        printer.print(this.id);
-        printer.print(" ");
-
-        final String key = this.key;
-        if (false == key.isEmpty()) {
-            printer.print("key=");
-            printer.print(key);
-            printer.print(" ");
-        }
-
         printer.print(CharSequences.quoteAndEscape(this.text));
 
         final Optional<HistoryToken> token = this.historyToken;
         if (token.isPresent()) {
             printer.print(" [");
-
-            if (false == this.enabled) {
-                printer.print("disabled ");
-            }
-
             printer.print(token.get().urlFragment().toString());
             printer.print("]");
         }
@@ -262,6 +247,20 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
             printer.print(" [");
             printer.print(badge.get());
             printer.print("]");
+        }
+
+        if (false == this.enabled) {
+            printer.print(" DISABLED");
+        }
+
+        printer.print(" id=");
+        printer.print(this.id);
+
+        final String key = this.key;
+        if (false == key.isEmpty()) {
+            printer.print(" key=");
+            printer.print(key);
+            printer.print(" ");
         }
 
         printer.println();

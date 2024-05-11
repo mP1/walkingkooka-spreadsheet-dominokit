@@ -199,17 +199,17 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                 HistoryTokenContexts.fake()
         ).item(
                 SpreadsheetContextMenuItem.with(
-                        "menu-item-1-" + SpreadsheetIds.MENU_ITEM,
+                        "menu-item-1" + SpreadsheetIds.MENU_ITEM,
                         "Item 1"
                 )
         ).item(
                 SpreadsheetContextMenuItem.with(
-                        "menu-item-2-" + SpreadsheetIds.MENU_ITEM,
+                        "menu-item-2" + SpreadsheetIds.MENU_ITEM,
                         "Item 2"
                 )
         ).item(
                 SpreadsheetContextMenuItem.with(
-                        "menu-item-3-" + SpreadsheetIds.MENU_ITEM,
+                        "menu-item-3" + SpreadsheetIds.MENU_ITEM,
                         "Item 3"
                 )
         );
@@ -219,9 +219,9 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
         this.treePrintAndCheck(
                 anchor,
                 "\"Hello\" [#/1/SpreadsheetName234/cell/A1]\n" +
-                        "    menu-item-1--MenuItem \"Item 1\"\n" +
-                        "    menu-item-2--MenuItem \"Item 2\"\n" +
-                        "    menu-item-3--MenuItem \"Item 3\"\n"
+                        "    \"Item 1\" id=menu-item-1-MenuItem\n" +
+                        "    \"Item 2\" id=menu-item-2-MenuItem\n" +
+                        "    \"Item 3\" id=menu-item-3-MenuItem\n"
         );
     }
 
