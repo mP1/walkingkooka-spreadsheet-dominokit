@@ -62,54 +62,25 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     /**
      * Creates links to append each of the {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName} that are missing from the current {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
      */
-    void refresh(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> namesList,
-                 final SpreadsheetColumnOrRowReference columnOrRow,
+    void refresh(final SpreadsheetColumnOrRowReference columnOrRow,
+                 final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                 final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                  final SpreadsheetSortDialogComponentContext context) {
-        final int index = this.index;
 
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNames columnOrRowSpreadsheetComparatorNames;
-        final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections = Lists.array();
-        Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> columnOrRowSpreadsheetComparatorNamesToNamesList = null;
-
-        if (namesList.isPresent()) {
-            final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList namesListPresent = namesList.get();
-            if (index < namesListPresent.size()) {
-                columnOrRowSpreadsheetComparatorNames = namesListPresent.get(index);
-
-                spreadsheetComparatorNameAndDirections.addAll(
-                        columnOrRowSpreadsheetComparatorNames.comparatorNameAndDirections()
-                );
-                columnOrRowSpreadsheetComparatorNamesToNamesList = (names) ->
-                        namesListPresent.replace(
-                                index,
-                                names
-                        );
-            } else {
-                columnOrRowSpreadsheetComparatorNamesToNamesList = (names) ->
-                        namesListPresent.concat(
-                                names
-                        );
-            }
-        }
-
-        if (null == columnOrRowSpreadsheetComparatorNamesToNamesList) {
-            columnOrRowSpreadsheetComparatorNamesToNamesList = (names) ->
-                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.with(
-                            Lists.of(names)
-                    );
-        }
+        final List<SpreadsheetComparatorNameAndDirection> copy = Lists.array();
+        copy.addAll(spreadsheetComparatorNameAndDirections);
 
         this.refresh0(
                 columnOrRow,
-                spreadsheetComparatorNameAndDirections,
-                columnOrRowSpreadsheetComparatorNamesToNamesList,
+                copy,
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                 context
         );
     }
 
     void refresh0(final SpreadsheetColumnOrRowReference columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
-                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> columnOrRowSpreadsheetComparatorNamesToNamesList,
+                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                   final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard parent = this.parent;
         parent.clear();
@@ -147,11 +118,12 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
                             .setTextContent(comparatorName.toString())
                             .setHistoryToken(
                                     Optional.of(
-                                            historyToken.setSortEdit(
-                                                    columnOrRowSpreadsheetComparatorNamesToNamesList.apply(
-                                                            append
-                                                    ).text()
-                                            )
+//                                            historyToken.setSortEdit(
+//                                                    columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
+//                                                            append
+//                                                    ).text()
+//                                            )
+                                            columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(append)
                                     )
                             )
             );
