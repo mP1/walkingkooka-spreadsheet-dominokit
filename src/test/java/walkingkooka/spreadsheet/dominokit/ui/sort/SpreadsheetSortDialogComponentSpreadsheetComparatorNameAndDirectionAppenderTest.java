@@ -120,6 +120,44 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
         );
     }
 
+    // column...........................................................................................................
+
+    @Test
+    public void testColumnLastNotEmptySomeSkipped() {
+        this.refreshAndCheck(
+                1, // index within namesList
+                "B=text;C=comparator-3", // namesList
+                "C", // columnOrRow
+                "/1/spreadsheetName23/column/B:C/sort/edit/IGNORED", // historyToken
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Append comparator(s)\n" +
+                        "        \"comparator-1\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/B%3Dtext%3BC%3Dcomparator-3%2Ccomparator-1]\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/B%3Dtext%3BC%3Dcomparator-3%2Ccomparator-2]\n"
+        );
+    }
+
+    // row///...........................................................................................................
+
+    @Test
+    public void testRowLastNotEmptySomeSkipped() {
+        this.refreshAndCheck(
+                1, // index within namesList
+                "2=text;3=comparator-3", // namesList
+                "3", // columnOrRow
+                "/1/spreadsheetName23/row/2:3/sort/edit/IGNORED", // historyToken
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Append comparator(s)\n" +
+                        "        \"comparator-1\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/2%3Dtext%3B3%3Dcomparator-3%2Ccomparator-1]\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/2%3Dtext%3B3%3Dcomparator-3%2Ccomparator-2]\n"
+        );
+    }
+
+    // helper...........................................................................................................
+
     private void refreshAndCheck(final int index,
                                  final String namesList,
                                  final String columnOrRow,
