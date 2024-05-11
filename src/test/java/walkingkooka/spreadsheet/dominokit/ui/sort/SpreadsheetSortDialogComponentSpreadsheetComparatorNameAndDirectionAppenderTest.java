@@ -35,6 +35,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -45,19 +46,16 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     // cell.............................................................................................................
 
     @Test
-    public void testCell() {
+    public void testCellMissingColumnOrRow() {
         this.refreshAndCheck(
                 0, // index within namesList
-                "A", // columnOrRow
+                "", // columnOrRow
                 "", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Append comparator(s)\n" +
-                        "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dcomparator-1]\n" +
-                        "        \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dcomparator-2]\n" +
-                        "        \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dcomparator-3]\n"
+                        "      Append comparator(s)\n"
         );
     }
 
@@ -144,7 +142,11 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final String expected) {
         this.refreshAndCheck(
                 index,
-                SpreadsheetSelection.parseColumnOrRow(columnOrRow),
+                columnOrRow.isEmpty() ?
+                        Optional.empty() :
+                        Optional.of(
+                                SpreadsheetSelection.parseColumnOrRow(columnOrRow)
+                        ),
                 spreadsheetComparatorNameAndDirections.isEmpty() ?
                         Lists.empty() :
                         Arrays.stream(spreadsheetComparatorNameAndDirections.split(","))
@@ -183,7 +185,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     }
 
     private void refreshAndCheck(final int index,
-                                 final SpreadsheetColumnOrRowReference columnOrRow,
+                                 final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final SpreadsheetSortDialogComponentContext context,

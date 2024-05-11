@@ -62,20 +62,24 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     /**
      * Creates links to append each of the {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName} that are missing from the current {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
      */
-    void refresh(final SpreadsheetColumnOrRowReference columnOrRow,
+    void refresh(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                  final SpreadsheetSortDialogComponentContext context) {
+        this.parent.clear();
 
-        final List<SpreadsheetComparatorNameAndDirection> copy = Lists.array();
-        copy.addAll(spreadsheetComparatorNameAndDirections);
+        if (columnOrRow.isPresent()) {
+            final List<SpreadsheetComparatorNameAndDirection> copy = Lists.array();
+            copy.addAll(spreadsheetComparatorNameAndDirections);
 
-        this.refresh0(
-                columnOrRow,
-                copy,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
-                context
-        );
+
+            this.refresh0(
+                    columnOrRow.get(),
+                    copy,
+                    columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                    context
+            );
+        }
     }
 
     void refresh0(final SpreadsheetColumnOrRowReference columnOrRow,
@@ -83,7 +87,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
                   final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                   final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard parent = this.parent;
-        parent.clear();
 
         final HistoryToken historyToken = context.historyToken();
 
