@@ -101,13 +101,13 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
 
             for (final String text : texts) {
                 final HistoryToken historyToken = context.historyToken();
-                final String idPrefix = SpreadsheetPatternDialogComponent.ID_PREFIX + "remove-";
+                final String id = SpreadsheetPatternDialogComponent.ID_PREFIX + "remove-" + i;
 
                 final List<String> removed = Lists.array();
                 removed.addAll(texts);
                 removed.remove(i);
 
-                final HistoryTokenAnchorComponent patternElement = historyToken.link(idPrefix + i)
+                final HistoryTokenAnchorComponent patternElement = historyToken.link(id)
                         .setTextContent(text)
                         .setHistoryToken(
                                 Optional.of(
@@ -142,7 +142,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
                         contextMenu = contextMenu.item(
                                 historyToken.setSave(newPattern)
                                         .contextMenuItem(
-                                                SpreadsheetPatternDialogComponent.ID_PREFIX + "alternative-" + j + SpreadsheetIds.MENU_ITEM,
+                                                id + "-alt-" + j + SpreadsheetIds.MENU_ITEM,
                                                 alternative
                                         )
                         );
