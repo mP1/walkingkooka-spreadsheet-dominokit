@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.elements.DivElement;
@@ -26,9 +26,9 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class FlexLayout extends BaseDominoElement<HTMLDivElement, FlexLayout> {
+public class SpreadsheetFlexLayout extends BaseDominoElement<HTMLDivElement, SpreadsheetFlexLayout> {
 
-    public FlexLayout() {
+    public SpreadsheetFlexLayout() {
         this.init(this);
     }
 
