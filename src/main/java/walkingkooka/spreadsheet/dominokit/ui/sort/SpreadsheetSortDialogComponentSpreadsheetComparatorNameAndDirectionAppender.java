@@ -147,7 +147,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
                             .setTextContent(comparatorName.toString())
                             .setHistoryToken(
                                     Optional.of(
-                                            historyToken.setSave(
+                                            historyToken.setSortEdit(
                                                     columnOrRowSpreadsheetComparatorNamesToNamesList.apply(
                                                             append
                                                     ).text()
