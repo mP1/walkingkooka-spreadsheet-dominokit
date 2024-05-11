@@ -29,11 +29,21 @@ import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
  */
 public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout> {
 
-    public static SpreadsheetFlexLayout empty() {
-        return new SpreadsheetFlexLayout();
+    public static SpreadsheetFlexLayout emptyRow() {
+        return new SpreadsheetFlexLayout()
+                .row();
     }
 
     private SpreadsheetFlexLayout() {
+    }
+
+    private SpreadsheetFlexLayout row() {
+        this.div.addCss(
+                SpacingCss.dui_flex_row,
+                SpacingCss.dui_h_full,
+                SpacingCss.dui_items_start,
+                SpacingCss.dui_gap_4);
+        return this;
     }
 
     public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
@@ -49,10 +59,5 @@ public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElemen
         return this.div.element();
     }
 
-    private final DivElement div = ElementsFactory.elements.div()
-            .addCss(
-                    SpacingCss.dui_flex_row,
-                    SpacingCss.dui_h_full,
-                    SpacingCss.dui_items_start,
-                    SpacingCss.dui_gap_4);
+    private final DivElement div = ElementsFactory.elements.div();
 }
