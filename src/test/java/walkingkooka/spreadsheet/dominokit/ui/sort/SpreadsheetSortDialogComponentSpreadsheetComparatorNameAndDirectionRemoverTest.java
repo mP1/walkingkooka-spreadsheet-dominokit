@@ -18,12 +18,22 @@
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover>,
         TreePrintableTesting {
@@ -31,125 +41,151 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     // cell.............................................................................................................
 
     @Test
-    public void testCellOneNameOnly() {
+    public void testCellEmpty() {
         this.refreshAndCheck(
-                0,
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text"),
-                "/1/spreadsheetName23/cell/A1:B2/sort/edit/A=text",
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n"
-        );
-    }
-
-    @Test
-    public void testCellTwoNameFirstOnly() {
-        this.refreshAndCheck(
-                0,
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text"),
-                "/1/spreadsheetName23/cell/A1:B2/sort/edit/IGNORED",
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n"
-        );
-    }
-
-    @Test
-    public void testCellTwoNameLastOnly() {
-        this.refreshAndCheck(
-                0,
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text"),
-                "/1/spreadsheetName23/cell/A1:B2/sort/edit/IGNORED",
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n"
-        );
-    }
-
-    @Test
-    public void testCellTwoNameFirstSeveral() {
-        this.refreshAndCheck(
-                0,
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text1,text2;B=ignored1,ignored2"),
-                "/1/spreadsheetName23/cell/A1:B2/sort/edit/IGNORED",
+                0, // index within namesList
+                "A", // columnOrRow
+                "", // namesList
+                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
+                        "      Remove comparator(s)\n"
         );
     }
 
     @Test
-    public void testCellTwoNameLastSeveral() {
+    public void testCellOnly() {
         this.refreshAndCheck(
-                1,
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=ignored1,ignored2;B=text1,text2"),
-                "/1/spreadsheetName23/cell/A1:B2/sort/edit/IGNORED",
+                0, // index within namesList
+                "A", // columnOrRow
+                "comparator-1", // namesList
+                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dignored1%2Cignored2%3BB%3Dtext2]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dignored1%2Cignored2%3BB%3Dtext1]\n"
+                        "      Remove comparator(s)\n" +
+                        "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit]\n"
         );
     }
 
     @Test
-    public void testCellTwoNameLastSeveral2() {
+    public void testCellNotEmpty() {
         this.refreshAndCheck(
-                2,
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=day-of-month;B=month-of-year;C=text1,text2,text3"),
-                "/1/spreadsheetName23/cell/A1:C3/sort/edit/IGNORED",
+                0, // index within namesList
+                "A", // columnOrRow
+                "comparator-1,comparator-2,comparator-3", // namesList
+                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/edit/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext2%2Ctext3]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/edit/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext1%2Ctext3]\n" +
-                        "      \"text3\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/edit/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext1%2Ctext2]\n"
+                        "      Remove comparator(s)\n" +
+                        "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dcomparator-2%2Ccomparator-3]\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dcomparator-1%2Ccomparator-3]\n" +
+                        "        \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dcomparator-1%2Ccomparator-2]\n"
+        );
+    }
+
+    @Test
+    public void testCellNotEmpty2() {
+        this.refreshAndCheck(
+                0, // index within namesList
+                "A", // columnOrRow
+                "comparator-1,comparator-2,comparator-3", // namesList
+                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
+                (names) -> HistoryToken.parse(
+                        UrlFragment.parse(
+                                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," +
+                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                                .orElse("")
+                        )
+                ),
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Remove comparator(s)\n" +
+                        "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-2%2Ccomparator-3]\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-1%2Ccomparator-3]\n" +
+                        "        \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-1%2Ccomparator-2]\n"
         );
     }
 
     // column...........................................................................................................
 
     @Test
-    public void testColumnTwoNameFirstSeveral() {
+    public void testColumn() {
         this.refreshAndCheck(
-                0,
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text1,text2;B=ignored1,ignored2"),
-                "/1/spreadsheetName23/column/A:B/sort/edit/IGNORED",
+                0, // index within namesList
+                "B", // columnOrRow
+                "comparator-1,comparator-2,comparator-3", // namesList
+                "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/column/A:B/right/sort/edit/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/column/A:B/right/sort/edit/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
+                        "      Remove comparator(s)\n" +
+                        "        \"comparator-1\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/B%3Dcomparator-2%2Ccomparator-3]\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/B%3Dcomparator-1%2Ccomparator-3]\n" +
+                        "        \"comparator-3\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/B%3Dcomparator-1%2Ccomparator-2]\n"
         );
     }
 
-    // row...........................................................................................................
+    // row///...........................................................................................................
 
     @Test
-    public void testRowTwoNameFirstSeveral() {
+    public void testRow() {
         this.refreshAndCheck(
-                0,
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text1,text2;B=ignored1,ignored2"),
-                "/1/spreadsheetName23/row/1:2/sort/edit/IGNORED",
+                0, // index within namesList
+                "3", // columnOrRow
+                "comparator-1,comparator-2,comparator-3", // namesList
+                "/1/spreadsheetName23/row/3:4/top/sort/edit/", // historyToken
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/row/1:2/bottom/sort/edit/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/row/1:2/bottom/sort/edit/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
+                        "      Remove comparator(s)\n" +
+                        "        \"comparator-1\" [#/1/spreadsheetName23/row/3:4/top/sort/edit/3%3Dcomparator-2%2Ccomparator-3]\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/row/3:4/top/sort/edit/3%3Dcomparator-1%2Ccomparator-3]\n" +
+                        "        \"comparator-3\" [#/1/spreadsheetName23/row/3:4/top/sort/edit/3%3Dcomparator-1%2Ccomparator-2]\n"
         );
     }
 
     // helper...........................................................................................................
 
     private void refreshAndCheck(final int index,
-                                 final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList namesList,
+                                 final String columnOrRow,
+                                 final String spreadsheetComparatorNameAndDirections,
                                  final String historyToken,
                                  final String expected) {
         this.refreshAndCheck(
                 index,
-                namesList,
+                columnOrRow,
+                spreadsheetComparatorNameAndDirections,
+                historyToken,
+                (names) -> HistoryToken.parse(
+                        UrlFragment.parse(
+                                historyToken +
+                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                                .orElse("")
+                        )
+                ),
+                expected
+        );
+    }
+
+    private void refreshAndCheck(final int index,
+                                 final String columnOrRow,
+                                 final String spreadsheetComparatorNameAndDirections,
+                                 final String historyToken,
+                                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                                 final String expected) {
+        this.refreshAndCheck(
+                index,
+                SpreadsheetSelection.parseColumnOrRow(columnOrRow),
+                spreadsheetComparatorNameAndDirections.isEmpty() ?
+                        Lists.empty() :
+                        Arrays.stream(spreadsheetComparatorNameAndDirections.split(","))
+                                .map(SpreadsheetComparatorNameAndDirection::parse)
+                                .collect(Collectors.toList()),
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                 new FakeSpreadsheetSortDialogComponentContext() {
 
                     @Override
@@ -164,13 +200,17 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     }
 
     private void refreshAndCheck(final int index,
-                                 final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList namesList,
+                                 final SpreadsheetColumnOrRowReference columnOrRow,
+                                 final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(index);
 
         remover.refresh(
-                namesList,
+                columnOrRow,
+                spreadsheetComparatorNameAndDirections,
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                 context
         );
 
@@ -179,6 +219,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 expected
         );
     }
+
+    // ClassTesting.....................................................................................................
 
     @Override
     public Class<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover> type() {

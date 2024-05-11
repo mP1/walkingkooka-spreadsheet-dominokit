@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.collect.list.ImmutableList;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
@@ -26,10 +25,13 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * A container that presents LINKS each missing a component from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
@@ -45,7 +47,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     }
 
     private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final int index) {
-        this.parent = SpreadsheetCard.empty();
+        this.parent = SpreadsheetCard.empty()
+                .setTitle("Remove comparator(s)");
 
         this.index = index;
     }
@@ -53,48 +56,48 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     /**
      * Clears existing links and recreates a link that will remove an individual component of the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
      */
-    void refresh(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList namesList,
+    /**
+     * Creates links to append each of the {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName} that are missing from the current {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
+     */
+    void refresh(final SpreadsheetColumnOrRowReference columnOrRow,
+                 final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                  final SpreadsheetSortDialogComponentContext context) {
-
         final SpreadsheetCard parent = this.parent;
         parent.clear();
 
         final HistoryToken historyToken = context.historyToken();
 
         final int index = this.index;
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNames names = namesList.get(index);
         final String idPrefix = SpreadsheetSortDialogComponent.ID_PREFIX + index + '-';
 
-        int i = 0;
-        final ImmutableList<SpreadsheetComparatorNameAndDirection> nameAndDirections = Lists.immutable(
-                names.comparatorNameAndDirections()
-        );
+        final int count = spreadsheetComparatorNameAndDirections.size();
 
-        if (nameAndDirections.size() > 1) {
-            for (final SpreadsheetComparatorNameAndDirection comparatorNameAndDirections : names.comparatorNameAndDirections()) {
+        for (int i = 0; i < count; i++) {
+            final List<SpreadsheetComparatorNameAndDirection> removed = Lists.array();
+            removed.addAll(spreadsheetComparatorNameAndDirections);
+            final String text = removed.remove(i)
+                    .name()
+                    .text();
 
-                final SpreadsheetColumnOrRowSpreadsheetComparatorNames removed = names.setComparatorNameAndDirections(
-                        nameAndDirections.removeAtIndex(i)
-                );
-
-                // replace the old names at $index with $removed
-                parent.appendChild(
-                        historyToken.link(idPrefix + "-remove-" + i)
-                                .setTextContent(comparatorNameAndDirections.toString())
-                                .setHistoryToken(
-                                        Optional.of(
-                                                historyToken.setSortEdit(
-                                                        namesList.replace(
-                                                                index,
-                                                                removed
-                                                        ).text()
-                                                )
-                                        )
-                                )
-                );
-
-                i++;
-            }
+            parent.appendChild(
+                    historyToken.link(idPrefix + "-remove-" + i)
+                            .setTextContent(text)
+                            .setHistoryToken(
+                                    Optional.of(
+                                            columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
+                                                    Optional.ofNullable(
+                                                            removed.isEmpty() ?
+                                                                    null :
+                                                                    SpreadsheetColumnOrRowSpreadsheetComparatorNames.with(
+                                                                            columnOrRow,
+                                                                            removed
+                                                                    )
+                                                    )
+                                            )
+                                    )
+                            )
+            );
         }
     }
 
