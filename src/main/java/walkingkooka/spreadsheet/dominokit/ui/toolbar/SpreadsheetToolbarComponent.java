@@ -28,9 +28,9 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.FlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetViewportComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -79,13 +79,13 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         return this.flexLayout.element();
     }
 
-    private final FlexLayout flexLayout;
+    private final SpreadsheetFlexLayout flexLayout;
 
     /**
-     * Creates a {@link FlexLayout} and populates it with the toolbar icons etc.
+     * Creates a {@link SpreadsheetFlexLayout} and populates it with the toolbar icons etc.
      */
-    private FlexLayout createFlexLayout() {
-        final FlexLayout flexLayout = new FlexLayout();
+    private SpreadsheetFlexLayout createFlexLayout() {
+        final SpreadsheetFlexLayout flexLayout = new SpreadsheetFlexLayout();
 
         for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
             flexLayout.appendChild(
