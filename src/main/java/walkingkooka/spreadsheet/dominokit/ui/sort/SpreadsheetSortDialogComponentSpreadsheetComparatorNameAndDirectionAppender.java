@@ -117,7 +117,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
             );
 
             parent.appendChild(
-                    historyToken.link(idPrefix + "-append-" + i)
+                    historyToken.link(idPrefix + "append-" + i)
                             .setTextContent(comparatorName.toString())
                             .setHistoryToken(
                                     Optional.of(
