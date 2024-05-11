@@ -167,7 +167,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
 
         this.treePrintAndCheck(
                 menu,
-                "id-top-Menu \"Top Menu!\"\n" +
+                "\"Top Menu!\" id=id-top-Menu\n" +
                         "  \"item-text-111\" id=id-MenuItem\n" +
                         "  \"item-text-222\" id=id-MenuItem\n"
         );
@@ -193,7 +193,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
 
         this.treePrintAndCheck(
                 menu,
-                "id-top-Menu \"Top Menu!\"\n" +
+                "\"Top Menu!\" id=id-top-Menu\n" +
                         "  \"item-text-111\" id=id-MenuItem\n" +
                         "  -----\n" +
                         "  \"item-text-222\" id=id-MenuItem\n"
@@ -240,7 +240,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
 
         this.treePrintAndCheck(
                 menu,
-                "id-top-Menu \"Top Menu!\"\n" +
+                "\"Top Menu!\" id=id-top-Menu\n" +
                         "  (mdi-reload) \"item-text-111\" [Badge-text-111] id=id-MenuItem\n" +
                         "  \"item-text-222\" [Badge-text-222] id=id-MenuItem\n" +
                         "  (mdi-format-align-left) \"item-text-333\" id=id-MenuItem\n"
@@ -266,7 +266,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
 
         this.treePrintAndCheck(
                 menu,
-                "id-top-Menu \"Top Menu!\"\n" +
+                "\"Top Menu!\" id=id-top-Menu\n" +
                         "  \"item-text-111-checked\" CHECKED id=id-MenuItem\n" +
                         "  \"item-text-222\" id=id-MenuItem\n"
         );
@@ -311,7 +311,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
 
         this.treePrintAndCheck(
                 menu,
-                "id-top-Menu \"Top Menu!\"\n" +
+                "\"Top Menu!\" id=id-top-Menu\n" +
                         "  \"item-text-111\" [/1/Spreadsheet-Name-111/reload] id=id-MenuItem\n" +
                         "  \"item-text-222\" [/1/Spreadsheet-Name-222/cell/A1/delete] id=id-MenuItem\n" +
                         "  \"item-text-333\" id=id-MenuItem\n"
@@ -347,10 +347,10 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
 
         this.treePrintAndCheck(
                 menu,
-                "id-top-Menu \"Top Menu!\"\n" +
+                "\"Top Menu!\" id=id-top-Menu\n" +
                         "  \"item-text-111\" id=id-1-MenuItem\n" +
                         "  \"item-text-222\" id=id-2-MenuItem\n" +
-                        "  id-3-SubMenu \"sub-menu-item-text-333\"\n" +
+                        "  \"sub-menu-item-text-333\" id=id-3-SubMenu\n" +
                         "    \"item-text-444\" id=id-4-MenuItem\n"
         );
     }
@@ -401,13 +401,13 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
 
         this.treePrintAndCheck(
                 menu,
-                "id-top-Menu \"Top Menu!\"\n" +
+                "\"Top Menu!\" id=id-top-Menu\n" +
                         "  \"item-text-111\" id=id-1-MenuItem\n" +
                         "  \"item-text-222\" id=id-2-MenuItem\n" +
-                        "  id-3-SubMenu \"sub-menu-item-text-333\"\n" +
+                        "  \"sub-menu-item-text-333\" id=id-3-SubMenu\n" +
                         "    \"item-text-444\" id=id-4-MenuItem\n" +
                         "    \"item-text-777\" id=id-7-MenuItem\n" +
-                        "  id-5-SubMenu \"sub-sub-menu-item-text-555\"\n" +
+                        "  \"sub-sub-menu-item-text-555\" id=id-5-SubMenu\n" +
                         "    \"item-text-666\" id=id-6-MenuItem\n"
         );
     }

@@ -83,22 +83,22 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Cell-MenuId \"Cell A1 Menu\"\n" +
-                        "  (mdi-content-cut) test-clipboard-cut-SubMenu \"Cut\"\n" +
+                "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                        "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/format-pattern] id=test-clipboard-cut-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/parse-pattern] id=test-clipboard-cut-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
-                        "  (mdi-content-copy) test-clipboard-copy-SubMenu \"Copy\"\n" +
+                        "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/format-pattern] id=test-clipboard-copy-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/parse-pattern] id=test-clipboard-copy-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
-                        "  (mdi-content-paste) test-clipboard-paste-SubMenu \"Paste\"\n" +
+                        "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/paste/format-pattern] id=test-clipboard-paste-format-pattern-MenuItem\n" +
@@ -106,108 +106,108 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                         "  -----\n" +
-                        "  test-style-SubMenu \"Style\"\n" +
-                        "    test-alignment-SubMenu \"Alignment\"\n" +
+                        "  \"Style\" id=test-style-SubMenu\n" +
+                        "    \"Alignment\" id=test-alignment-SubMenu\n" +
                         "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem key=L \n" +
                         "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-center-MenuItem key=C \n" +
                         "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/RIGHT] id=test-right-MenuItem key=R \n" +
                         "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/JUSTIFY] id=test-justify-MenuItem key=J \n" +
-                        "    test-vertical-alignment-SubMenu \"Vertical Alignment\"\n" +
+                        "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
                         "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
                         "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                         "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
-                        "    (mdi-palette) test-color-SubMenu \"Color\"\n" +
+                        "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
                         "      metadata color picker\n" +
-                        "    (mdi-palette) test-background-color-SubMenu \"Background color\"\n" +
+                        "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
                         "      metadata color picker\n" +
                         "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                         "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                         "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
                         "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem key=u \n" +
-                        "    test-text-case-SubMenu \"Text case\"\n" +
+                        "    \"Text case\" id=test-text-case-SubMenu\n" +
                         "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/] id=test-normal-MenuItem\n" +
                         "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
                         "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
                         "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
-                        "    test-text-wrapping-SubMenu \"Wrapping\"\n" +
+                        "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
                         "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
                         "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
                         "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
-                        "    test-border-SubMenu \"Border\"\n" +
-                        "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
-                        "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
+                        "    \"Border\" id=test-border-SubMenu\n" +
+                        "      (mdi-border-top-variant) \"Top\" id=test-border-top--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-top-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-top-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
-                        "        test-border-top-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-top-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
-                        "      (mdi-border-left-variant) test-border-left--SubMenu \"Left\"\n" +
-                        "        (mdi-palette) test-test-border-left-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-left-variant) \"Left\" id=test-border-left--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-left-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-left-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
-                        "        test-border-left-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-left-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
-                        "      (mdi-border-right-variant) test-border-right--SubMenu \"Right\"\n" +
-                        "        (mdi-palette) test-test-border-right-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-right-variant) \"Right\" id=test-border-right--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-right-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-right-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
-                        "        test-border-right-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-right-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
-                        "      (mdi-border-bottom-variant) test-border-bottom--SubMenu \"Bottom\"\n" +
-                        "        (mdi-palette) test-test-border-bottom-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-bottom-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
-                        "        test-border-bottom-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
-                        "      (mdi-border-all-variant) test-border-all--SubMenu \"All\"\n" +
-                        "        (mdi-palette) test-test-border-all-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-all-variant) \"All\" id=test-border-all--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-all-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-all-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
-                        "        test-border-all-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-all-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
@@ -215,55 +215,55 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
-                        "    test-format-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
+                        "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date] id=test-format-edit-MenuItem\n" +
-                        "    test-format-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
-                        "    test-format-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number] id=test-format-edit-MenuItem\n" +
-                        "    test-format-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text] id=test-format-edit-MenuItem\n" +
-                        "    test-format-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-format-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
                         "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time] id=test-format-edit-MenuItem\n" +
-                        "  (mdi-format-text) test-parse--SubMenu \"Parse\"\n" +
-                        "    test-parse-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
+                        "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-parse-number-SubMenu\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-parse-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
@@ -273,23 +273,23 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/A/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
@@ -298,7 +298,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                         "  -----\n" +
-                        "  test-label-SubMenu \"Labels\" [1]\n" +
+                        "  \"Labels\" [1] id=test-label-SubMenu\n" +
                         "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                         "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
         );
@@ -337,22 +337,22 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Cell-MenuId \"Cell A1 Menu\"\n" +
-                        "  (mdi-content-cut) test-clipboard-cut-SubMenu \"Cut\"\n" +
+                "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                        "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/format-pattern] id=test-clipboard-cut-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/parse-pattern] id=test-clipboard-cut-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
-                        "  (mdi-content-copy) test-clipboard-copy-SubMenu \"Copy\"\n" +
+                        "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/format-pattern] id=test-clipboard-copy-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/parse-pattern] id=test-clipboard-copy-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
-                        "  (mdi-content-paste) test-clipboard-paste-SubMenu \"Paste\"\n" +
+                        "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/paste/format-pattern] id=test-clipboard-paste-format-pattern-MenuItem\n" +
@@ -360,108 +360,108 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                         "  -----\n" +
-                        "  test-style-SubMenu \"Style\"\n" +
-                        "    test-alignment-SubMenu \"Alignment\"\n" +
+                        "  \"Style\" id=test-style-SubMenu\n" +
+                        "    \"Alignment\" id=test-alignment-SubMenu\n" +
                         "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem key=L \n" +
                         "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-center-MenuItem key=C \n" +
                         "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/RIGHT] id=test-right-MenuItem key=R \n" +
                         "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/JUSTIFY] id=test-justify-MenuItem key=J \n" +
-                        "    test-vertical-alignment-SubMenu \"Vertical Alignment\"\n" +
+                        "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
                         "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
                         "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                         "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
-                        "    (mdi-palette) test-color-SubMenu \"Color\"\n" +
+                        "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
                         "      metadata color picker\n" +
-                        "    (mdi-palette) test-background-color-SubMenu \"Background color\"\n" +
+                        "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
                         "      metadata color picker\n" +
                         "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                         "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                         "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
                         "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem key=u \n" +
-                        "    test-text-case-SubMenu \"Text case\"\n" +
+                        "    \"Text case\" id=test-text-case-SubMenu\n" +
                         "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/] id=test-normal-MenuItem\n" +
                         "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
                         "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
                         "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
-                        "    test-text-wrapping-SubMenu \"Wrapping\"\n" +
+                        "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
                         "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
                         "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
                         "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
-                        "    test-border-SubMenu \"Border\"\n" +
-                        "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
-                        "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
+                        "    \"Border\" id=test-border-SubMenu\n" +
+                        "      (mdi-border-top-variant) \"Top\" id=test-border-top--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-top-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-top-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
-                        "        test-border-top-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-top-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
-                        "      (mdi-border-left-variant) test-border-left--SubMenu \"Left\"\n" +
-                        "        (mdi-palette) test-test-border-left-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-left-variant) \"Left\" id=test-border-left--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-left-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-left-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
-                        "        test-border-left-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-left-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
-                        "      (mdi-border-right-variant) test-border-right--SubMenu \"Right\"\n" +
-                        "        (mdi-palette) test-test-border-right-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-right-variant) \"Right\" id=test-border-right--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-right-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-right-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
-                        "        test-border-right-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-right-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
-                        "      (mdi-border-bottom-variant) test-border-bottom--SubMenu \"Bottom\"\n" +
-                        "        (mdi-palette) test-test-border-bottom-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-bottom-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
-                        "        test-border-bottom-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
-                        "      (mdi-border-all-variant) test-border-all--SubMenu \"All\"\n" +
-                        "        (mdi-palette) test-test-border-all-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-all-variant) \"All\" id=test-border-all--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-all-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-all-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
-                        "        test-border-all-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-all-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
@@ -469,30 +469,30 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
-                        "    test-format-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
+                        "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date] id=test-format-edit-MenuItem\n" +
-                        "    test-format-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
-                        "    test-format-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number] id=test-format-edit-MenuItem\n" +
-                        "    test-format-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text] id=test-format-edit-MenuItem\n" +
-                        "    test-format-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-format-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
@@ -500,26 +500,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time] id=test-format-edit-MenuItem\n" +
                         "    -----\n" +
                         "    \"dd/mm/yyyy\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dd/mm/yyyy] id=test-format-recent-0-MenuItem\n" +
-                        "  (mdi-format-text) test-parse--SubMenu \"Parse\"\n" +
-                        "    test-parse-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
+                        "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-parse-number-SubMenu\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-parse-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
@@ -529,23 +529,23 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/A/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
@@ -554,7 +554,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                         "  -----\n" +
-                        "  test-label-SubMenu \"Labels\" [1]\n" +
+                        "  \"Labels\" [1] id=test-label-SubMenu\n" +
                         "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                         "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
         );
@@ -593,22 +593,22 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Cell-MenuId \"Cell A1 Menu\"\n" +
-                        "  (mdi-content-cut) test-clipboard-cut-SubMenu \"Cut\"\n" +
+                "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                        "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/format-pattern] id=test-clipboard-cut-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/parse-pattern] id=test-clipboard-cut-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
-                        "  (mdi-content-copy) test-clipboard-copy-SubMenu \"Copy\"\n" +
+                        "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/format-pattern] id=test-clipboard-copy-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/parse-pattern] id=test-clipboard-copy-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
-                        "  (mdi-content-paste) test-clipboard-paste-SubMenu \"Paste\"\n" +
+                        "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/paste/format-pattern] id=test-clipboard-paste-format-pattern-MenuItem\n" +
@@ -616,108 +616,108 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                         "  -----\n" +
-                        "  test-style-SubMenu \"Style\"\n" +
-                        "    test-alignment-SubMenu \"Alignment\"\n" +
+                        "  \"Style\" id=test-style-SubMenu\n" +
+                        "    \"Alignment\" id=test-alignment-SubMenu\n" +
                         "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem key=L \n" +
                         "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-center-MenuItem key=C \n" +
                         "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/RIGHT] id=test-right-MenuItem key=R \n" +
                         "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/JUSTIFY] id=test-justify-MenuItem key=J \n" +
-                        "    test-vertical-alignment-SubMenu \"Vertical Alignment\"\n" +
+                        "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
                         "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
                         "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                         "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
-                        "    (mdi-palette) test-color-SubMenu \"Color\"\n" +
+                        "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
                         "      metadata color picker\n" +
-                        "    (mdi-palette) test-background-color-SubMenu \"Background color\"\n" +
+                        "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
                         "      metadata color picker\n" +
                         "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                         "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                         "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
                         "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem key=u \n" +
-                        "    test-text-case-SubMenu \"Text case\"\n" +
+                        "    \"Text case\" id=test-text-case-SubMenu\n" +
                         "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/] id=test-normal-MenuItem\n" +
                         "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
                         "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
                         "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
-                        "    test-text-wrapping-SubMenu \"Wrapping\"\n" +
+                        "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
                         "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
                         "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
                         "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
-                        "    test-border-SubMenu \"Border\"\n" +
-                        "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
-                        "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
+                        "    \"Border\" id=test-border-SubMenu\n" +
+                        "      (mdi-border-top-variant) \"Top\" id=test-border-top--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-top-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-top-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
-                        "        test-border-top-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-top-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
-                        "      (mdi-border-left-variant) test-border-left--SubMenu \"Left\"\n" +
-                        "        (mdi-palette) test-test-border-left-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-left-variant) \"Left\" id=test-border-left--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-left-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-left-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
-                        "        test-border-left-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-left-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
-                        "      (mdi-border-right-variant) test-border-right--SubMenu \"Right\"\n" +
-                        "        (mdi-palette) test-test-border-right-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-right-variant) \"Right\" id=test-border-right--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-right-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-right-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
-                        "        test-border-right-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-right-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
-                        "      (mdi-border-bottom-variant) test-border-bottom--SubMenu \"Bottom\"\n" +
-                        "        (mdi-palette) test-test-border-bottom-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-bottom-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
-                        "        test-border-bottom-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
-                        "      (mdi-border-all-variant) test-border-all--SubMenu \"All\"\n" +
-                        "        (mdi-palette) test-test-border-all-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-all-variant) \"All\" id=test-border-all--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-all-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-all-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
-                        "        test-border-all-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-all-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
@@ -725,55 +725,55 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
-                        "    test-format-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
+                        "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date] id=test-format-edit-MenuItem\n" +
-                        "    test-format-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
-                        "    test-format-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number] id=test-format-edit-MenuItem\n" +
-                        "    test-format-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text] id=test-format-edit-MenuItem\n" +
-                        "    test-format-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-format-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
                         "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time] id=test-format-edit-MenuItem\n" +
-                        "  (mdi-format-text) test-parse--SubMenu \"Parse\"\n" +
-                        "    test-parse-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
+                        "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-parse-number-SubMenu\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-parse-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
@@ -785,23 +785,23 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/A/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
@@ -810,7 +810,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                         "  -----\n" +
-                        "  test-label-SubMenu \"Labels\" [1]\n" +
+                        "  \"Labels\" [1] id=test-label-SubMenu\n" +
                         "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                         "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
         );
@@ -851,22 +851,22 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Cell-MenuId \"Cell A1 Menu\"\n" +
-                        "  (mdi-content-cut) test-clipboard-cut-SubMenu \"Cut\"\n" +
+                "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                        "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/format-pattern] id=test-clipboard-cut-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/cut/parse-pattern] id=test-clipboard-cut-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
-                        "  (mdi-content-copy) test-clipboard-copy-SubMenu \"Copy\"\n" +
+                        "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/format-pattern] id=test-clipboard-copy-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/A1/copy/parse-pattern] id=test-clipboard-copy-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
-                        "  (mdi-content-paste) test-clipboard-paste-SubMenu \"Paste\"\n" +
+                        "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/A1/paste/format-pattern] id=test-clipboard-paste-format-pattern-MenuItem\n" +
@@ -874,108 +874,108 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                         "  -----\n" +
-                        "  test-style-SubMenu \"Style\"\n" +
-                        "    test-alignment-SubMenu \"Alignment\"\n" +
+                        "  \"Style\" id=test-style-SubMenu\n" +
+                        "    \"Alignment\" id=test-alignment-SubMenu\n" +
                         "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem key=L \n" +
                         "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-center-MenuItem key=C \n" +
                         "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/RIGHT] id=test-right-MenuItem key=R \n" +
                         "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/JUSTIFY] id=test-justify-MenuItem key=J \n" +
-                        "    test-vertical-alignment-SubMenu \"Vertical Alignment\"\n" +
+                        "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
                         "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
                         "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                         "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
-                        "    (mdi-palette) test-color-SubMenu \"Color\"\n" +
+                        "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
                         "      metadata color picker\n" +
-                        "    (mdi-palette) test-background-color-SubMenu \"Background color\"\n" +
+                        "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
                         "      metadata color picker\n" +
                         "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                         "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                         "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
                         "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem key=u \n" +
-                        "    test-text-case-SubMenu \"Text case\"\n" +
+                        "    \"Text case\" id=test-text-case-SubMenu\n" +
                         "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/] id=test-normal-MenuItem\n" +
                         "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
                         "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
                         "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
-                        "    test-text-wrapping-SubMenu \"Wrapping\"\n" +
+                        "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
                         "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
                         "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
                         "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
-                        "    test-border-SubMenu \"Border\"\n" +
-                        "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
-                        "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
+                        "    \"Border\" id=test-border-SubMenu\n" +
+                        "      (mdi-border-top-variant) \"Top\" id=test-border-top--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-top-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-top-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
-                        "        test-border-top-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-top-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
-                        "      (mdi-border-left-variant) test-border-left--SubMenu \"Left\"\n" +
-                        "        (mdi-palette) test-test-border-left-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-left-variant) \"Left\" id=test-border-left--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-left-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-left-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
-                        "        test-border-left-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-left-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
-                        "      (mdi-border-right-variant) test-border-right--SubMenu \"Right\"\n" +
-                        "        (mdi-palette) test-test-border-right-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-right-variant) \"Right\" id=test-border-right--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-right-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-right-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
-                        "        test-border-right-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-right-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
-                        "      (mdi-border-bottom-variant) test-border-bottom--SubMenu \"Bottom\"\n" +
-                        "        (mdi-palette) test-test-border-bottom-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-bottom-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
-                        "        test-border-bottom-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
-                        "      (mdi-border-all-variant) test-border-all--SubMenu \"All\"\n" +
-                        "        (mdi-palette) test-test-border-all-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-all-variant) \"All\" id=test-border-all--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-all-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-all-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
-                        "        test-border-all-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-all-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
@@ -983,30 +983,30 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
-                        "    test-format-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
+                        "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date] id=test-format-edit-MenuItem\n" +
-                        "    test-format-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
-                        "    test-format-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number] id=test-format-edit-MenuItem\n" +
-                        "    test-format-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text] id=test-format-edit-MenuItem\n" +
-                        "    test-format-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-format-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
@@ -1014,26 +1014,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time] id=test-format-edit-MenuItem\n" +
                         "    -----\n" +
                         "    \"dd/mm/yyyy\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dd/mm/yyyy] id=test-format-recent-0-MenuItem\n" +
-                        "  (mdi-format-text) test-parse--SubMenu \"Parse\"\n" +
-                        "    test-parse-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
+                        "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-parse-number-SubMenu\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-parse-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
@@ -1045,23 +1045,23 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/A/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
@@ -1070,7 +1070,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                         "  -----\n" +
-                        "  test-label-SubMenu \"Labels\" [1]\n" +
+                        "  \"Labels\" [1] id=test-label-SubMenu\n" +
                         "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                         "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
         );
@@ -1108,22 +1108,22 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Cell-MenuId \"Cell B2:C3 Menu\"\n" +
-                        "  (mdi-content-cut) test-clipboard-cut-SubMenu \"Cut\"\n" +
+                "\"Cell B2:C3 Menu\" id=Cell-MenuId\n" +
+                        "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/format-pattern] id=test-clipboard-cut-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/parse-pattern] id=test-clipboard-cut-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
-                        "  (mdi-content-copy) test-clipboard-copy-SubMenu \"Copy\"\n" +
+                        "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/format-pattern] id=test-clipboard-copy-format-pattern-MenuItem\n" +
                         "    \"Parse Pattern\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/parse-pattern] id=test-clipboard-copy-parse-pattern-MenuItem\n" +
                         "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
-                        "  (mdi-content-paste) test-clipboard-paste-SubMenu \"Paste\"\n" +
+                        "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                         "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                         "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                         "    \"Format Pattern\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/format-pattern] id=test-clipboard-paste-format-pattern-MenuItem\n" +
@@ -1131,108 +1131,108 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                         "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                         "  -----\n" +
-                        "  test-style-SubMenu \"Style\"\n" +
-                        "    test-alignment-SubMenu \"Alignment\"\n" +
+                        "  \"Style\" id=test-style-SubMenu\n" +
+                        "    \"Alignment\" id=test-alignment-SubMenu\n" +
                         "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/LEFT] id=test-left-MenuItem key=L \n" +
                         "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/CENTER] id=test-center-MenuItem key=C \n" +
                         "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/RIGHT] id=test-right-MenuItem key=R \n" +
                         "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/JUSTIFY] id=test-justify-MenuItem key=J \n" +
-                        "    test-vertical-alignment-SubMenu \"Vertical Alignment\"\n" +
+                        "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
                         "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
                         "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                         "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
-                        "    (mdi-palette) test-color-SubMenu \"Color\"\n" +
+                        "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
                         "      metadata color picker\n" +
-                        "    (mdi-palette) test-background-color-SubMenu \"Background color\"\n" +
+                        "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
                         "      metadata color picker\n" +
                         "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                         "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                         "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
                         "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem key=u \n" +
-                        "    test-text-case-SubMenu \"Text case\"\n" +
+                        "    \"Text case\" id=test-text-case-SubMenu\n" +
                         "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/] id=test-normal-MenuItem\n" +
                         "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
                         "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
                         "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
-                        "    test-text-wrapping-SubMenu \"Wrapping\"\n" +
+                        "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
                         "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
                         "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
                         "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
-                        "    test-border-SubMenu \"Border\"\n" +
-                        "      (mdi-border-top-variant) test-border-top--SubMenu \"Top\"\n" +
-                        "        (mdi-palette) test-test-border-top-color-SubMenu \"Color\"\n" +
+                        "    \"Border\" id=test-border-SubMenu\n" +
+                        "      (mdi-border-top-variant) \"Top\" id=test-border-top--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-top-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-top-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
-                        "        test-border-top-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-top-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
-                        "      (mdi-border-left-variant) test-border-left--SubMenu \"Left\"\n" +
-                        "        (mdi-palette) test-test-border-left-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-left-variant) \"Left\" id=test-border-left--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-left-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-left-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
-                        "        test-border-left-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-left-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
-                        "      (mdi-border-right-variant) test-border-right--SubMenu \"Right\"\n" +
-                        "        (mdi-palette) test-test-border-right-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-right-variant) \"Right\" id=test-border-right--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-right-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-right-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
-                        "        test-border-right-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-right-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
-                        "      (mdi-border-bottom-variant) test-border-bottom--SubMenu \"Bottom\"\n" +
-                        "        (mdi-palette) test-test-border-bottom-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-bottom-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
-                        "        test-border-bottom-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                         "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
-                        "      (mdi-border-all-variant) test-border-all--SubMenu \"All\"\n" +
-                        "        (mdi-palette) test-test-border-all-color-SubMenu \"Color\"\n" +
+                        "      (mdi-border-all-variant) \"All\" id=test-border-all--SubMenu\n" +
+                        "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
                         "          metadata color picker\n" +
-                        "        test-border-all-style-SubMenu \"Style\"\n" +
+                        "        \"Style\" id=test-border-all-style-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                         "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
                         "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
                         "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
-                        "        test-border-all-width-SubMenu \"Width\"\n" +
+                        "        \"Width\" id=test-border-all-width-SubMenu\n" +
                         "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
                         "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
                         "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
@@ -1240,55 +1240,55 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  (mdi-format-text) test-format--SubMenu \"Format\"\n" +
-                        "    test-format-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
+                        "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date] id=test-format-edit-MenuItem\n" +
-                        "    test-format-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
-                        "    test-format-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number] id=test-format-edit-MenuItem\n" +
-                        "    test-format-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/text] id=test-format-edit-MenuItem\n" +
-                        "    test-format-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-format-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
                         "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time] id=test-format-edit-MenuItem\n" +
-                        "  (mdi-format-text) test-parse--SubMenu \"Parse\"\n" +
-                        "    test-parse-date-SubMenu \"Date\"\n" +
+                        "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
+                        "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-datetime-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
                         "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
                         "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
                         "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-parse-number-SubMenu\n" +
                         "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
                         "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
                         "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
                         "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
-                        "    test-parse-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-parse-time-SubMenu\n" +
                         "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
                         "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
                         "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
@@ -1298,120 +1298,120 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-sort) test-column-sort-SubMenu \"Sort Column\"\n" +
-                        "    test-column-sort-date-SubMenu \"Date\"\n" +
+                        "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
+                        "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Ddate+UP] id=test-column-sort-date-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Ddate+DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
-                        "    test-column-sort-date-time-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Ddate-time+UP] id=test-column-sort-date-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Ddate-time+DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
-                        "    test-column-sort-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dday-of-month+UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dday-of-month+DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
-                        "    test-column-sort-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dday-of-week+UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dday-of-week+DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
-                        "    test-column-sort-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dhour-of-am-pm+UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dhour-of-am-pm+DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
-                        "    test-column-sort-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dhour-of-day+UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dhour-of-day+DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
-                        "    test-column-sort-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dminute-of-hour+UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dminute-of-hour+DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
-                        "    test-column-sort-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dmonth-of-year+UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dmonth-of-year+DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
-                        "    test-column-sort-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dnano-of-second+UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dnano-of-second+DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
-                        "    test-column-sort-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-column-sort-number-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dnumber+UP] id=test-column-sort-number-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dnumber+DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
-                        "    test-column-sort-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dseconds-of-minute+UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dseconds-of-minute+DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
-                        "    test-column-sort-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-column-sort-text-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtext+UP] id=test-column-sort-text-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtext+DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
-                        "    test-column-sort-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtext-case-insensitive+UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtext-case-insensitive+DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
-                        "    test-column-sort-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-column-sort-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtime+UP] id=test-column-sort-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtime+DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
-                        "    test-column-sort-year-SubMenu \"Year\"\n" +
+                        "    \"Year\" id=test-column-sort-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dyear+UP] id=test-column-sort-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dyear+DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
                         "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/B%3D] id=test-column-sort-edit-MenuItem\n" +
-                        "  (mdi-sort) test-row-sort-SubMenu \"Sort Row\"\n" +
-                        "    test-row-sort-date-SubMenu \"Date\"\n" +
+                        "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
+                        "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Ddate+UP] id=test-row-sort-date-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Ddate+DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
-                        "    test-row-sort-date-time-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Ddate-time+UP] id=test-row-sort-date-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Ddate-time+DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
-                        "    test-row-sort-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dday-of-month+UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dday-of-month+DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
-                        "    test-row-sort-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dday-of-week+UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dday-of-week+DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
-                        "    test-row-sort-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dhour-of-am-pm+UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dhour-of-am-pm+DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
-                        "    test-row-sort-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dhour-of-day+UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dhour-of-day+DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
-                        "    test-row-sort-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dminute-of-hour+UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dminute-of-hour+DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
-                        "    test-row-sort-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dmonth-of-year+UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dmonth-of-year+DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
-                        "    test-row-sort-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dnano-of-second+UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dnano-of-second+DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
-                        "    test-row-sort-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-row-sort-number-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dnumber+UP] id=test-row-sort-number-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dnumber+DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
-                        "    test-row-sort-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dseconds-of-minute+UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dseconds-of-minute+DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
-                        "    test-row-sort-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-row-sort-text-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtext+UP] id=test-row-sort-text-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtext+DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
-                        "    test-row-sort-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtext-case-insensitive+UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtext-case-insensitive+DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
-                        "    test-row-sort-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtime+UP] id=test-row-sort-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtime+DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
-                        "    test-row-sort-year-SubMenu \"Year\"\n" +
+                        "    \"Year\" id=test-row-sort-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dyear+UP] id=test-row-sort-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dyear+DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
@@ -1420,7 +1420,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  \"Freeze\" id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" id=test-unfreeze-MenuItem\n" +
                         "  -----\n" +
-                        "  test-label-SubMenu \"Labels\" [1]\n" +
+                        "  \"Labels\" [1] id=test-label-SubMenu\n" +
                         "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                         "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
         );
@@ -1453,16 +1453,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Column-MenuId \"Column B Menu\"\n" +
+                "\"Column B Menu\" id=Column-MenuId\n" +
                         "  \"Clear\" [/1/SpreadsheetName-1/column/B/clear] id=test-clear-MenuItem\n" +
                         "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/B/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/B/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/B/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/B/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/B/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/B/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/B/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
@@ -1500,65 +1500,65 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Column-MenuId \"Column B:C Menu\"\n" +
+                "\"Column B:C Menu\" id=Column-MenuId\n" +
                         "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/left/clear] id=test-clear-MenuItem\n" +
                         "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/left/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-sort) test-column-sort-SubMenu \"Sort Column\"\n" +
-                        "    test-column-sort-date-SubMenu \"Date\"\n" +
+                        "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
+                        "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Ddate+UP] id=test-column-sort-date-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Ddate+DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
-                        "    test-column-sort-date-time-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Ddate-time+UP] id=test-column-sort-date-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Ddate-time+DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
-                        "    test-column-sort-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dday-of-month+UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dday-of-month+DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
-                        "    test-column-sort-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dday-of-week+UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dday-of-week+DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
-                        "    test-column-sort-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dhour-of-am-pm+UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dhour-of-am-pm+DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
-                        "    test-column-sort-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dhour-of-day+UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dhour-of-day+DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
-                        "    test-column-sort-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dminute-of-hour+UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dminute-of-hour+DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
-                        "    test-column-sort-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dmonth-of-year+UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dmonth-of-year+DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
-                        "    test-column-sort-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dnano-of-second+UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dnano-of-second+DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
-                        "    test-column-sort-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-column-sort-number-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dnumber+UP] id=test-column-sort-number-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dnumber+DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
-                        "    test-column-sort-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dseconds-of-minute+UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dseconds-of-minute+DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
-                        "    test-column-sort-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-column-sort-text-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtext+UP] id=test-column-sort-text-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtext+DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
-                        "    test-column-sort-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtext-case-insensitive+UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtext-case-insensitive+DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
-                        "    test-column-sort-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-column-sort-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtime+UP] id=test-column-sort-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtime+DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
-                        "    test-column-sort-year-SubMenu \"Year\"\n" +
+                        "    \"Year\" id=test-column-sort-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dyear+UP] id=test-column-sort-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dyear+DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
@@ -1596,65 +1596,65 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Column-MenuId \"Column B:C Menu\"\n" +
+                "\"Column B:C Menu\" id=Column-MenuId\n" +
                         "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/right/clear] id=test-clear-MenuItem\n" +
                         "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/right/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-column-plus-before) test-column-insert-before-SubMenu \"Insert before column\"\n" +
+                        "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-column-plus-after) test-column-insert-after-SubMenu \"Insert after column\"\n" +
+                        "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-sort) test-column-sort-SubMenu \"Sort Column\"\n" +
-                        "    test-column-sort-date-SubMenu \"Date\"\n" +
+                        "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
+                        "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Ddate+UP] id=test-column-sort-date-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Ddate+DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
-                        "    test-column-sort-date-time-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Ddate-time+UP] id=test-column-sort-date-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Ddate-time+DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
-                        "    test-column-sort-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dday-of-month+UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dday-of-month+DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
-                        "    test-column-sort-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dday-of-week+UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dday-of-week+DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
-                        "    test-column-sort-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dhour-of-am-pm+UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dhour-of-am-pm+DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
-                        "    test-column-sort-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dhour-of-day+UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dhour-of-day+DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
-                        "    test-column-sort-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dminute-of-hour+UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dminute-of-hour+DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
-                        "    test-column-sort-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dmonth-of-year+UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dmonth-of-year+DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
-                        "    test-column-sort-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dnano-of-second+UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dnano-of-second+DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
-                        "    test-column-sort-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-column-sort-number-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dnumber+UP] id=test-column-sort-number-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dnumber+DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
-                        "    test-column-sort-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dseconds-of-minute+UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dseconds-of-minute+DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
-                        "    test-column-sort-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-column-sort-text-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtext+UP] id=test-column-sort-text-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtext+DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
-                        "    test-column-sort-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtext-case-insensitive+UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtext-case-insensitive+DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
-                        "    test-column-sort-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-column-sort-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtime+UP] id=test-column-sort-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtime+DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
-                        "    test-column-sort-year-SubMenu \"Year\"\n" +
+                        "    \"Year\" id=test-column-sort-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dyear+UP] id=test-column-sort-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dyear+DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
@@ -1692,16 +1692,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Row-MenuId \"Row 3 Menu\"\n" +
+                "\"Row 3 Menu\" id=Row-MenuId\n" +
                         "  \"Clear\" [/1/SpreadsheetName-1/row/3/clear] id=test-clear-MenuItem\n" +
                         "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/3/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/3/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/3/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/3/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/3/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/3/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/3/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
@@ -1739,65 +1739,65 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Row-MenuId \"Row 3:4 Menu\"\n" +
+                "\"Row 3:4 Menu\" id=Row-MenuId\n" +
                         "  \"Clear\" [/1/SpreadsheetName-1/row/3:4/top/clear] id=test-clear-MenuItem\n" +
                         "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3:4/top/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-sort) test-row-sort-SubMenu \"Sort Row\"\n" +
-                        "    test-row-sort-date-SubMenu \"Date\"\n" +
+                        "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
+                        "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Ddate+UP] id=test-row-sort-date-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Ddate+DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
-                        "    test-row-sort-date-time-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Ddate-time+UP] id=test-row-sort-date-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Ddate-time+DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
-                        "    test-row-sort-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dday-of-month+UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dday-of-month+DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
-                        "    test-row-sort-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dday-of-week+UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dday-of-week+DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
-                        "    test-row-sort-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dhour-of-am-pm+UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dhour-of-am-pm+DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
-                        "    test-row-sort-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dhour-of-day+UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dhour-of-day+DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
-                        "    test-row-sort-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dminute-of-hour+UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dminute-of-hour+DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
-                        "    test-row-sort-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dmonth-of-year+UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dmonth-of-year+DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
-                        "    test-row-sort-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dnano-of-second+UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dnano-of-second+DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
-                        "    test-row-sort-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-row-sort-number-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dnumber+UP] id=test-row-sort-number-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dnumber+DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
-                        "    test-row-sort-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dseconds-of-minute+UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dseconds-of-minute+DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
-                        "    test-row-sort-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-row-sort-text-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtext+UP] id=test-row-sort-text-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtext+DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
-                        "    test-row-sort-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtext-case-insensitive+UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtext-case-insensitive+DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
-                        "    test-row-sort-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtime+UP] id=test-row-sort-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtime+DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
-                        "    test-row-sort-year-SubMenu \"Year\"\n" +
+                        "    \"Year\" id=test-row-sort-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dyear+UP] id=test-row-sort-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dyear+DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
@@ -1835,65 +1835,65 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck(
                 menu,
-                "Row-MenuId \"Row 3:4 Menu\"\n" +
+                "\"Row 3:4 Menu\" id=Row-MenuId\n" +
                         "  \"Clear\" [/1/SpreadsheetName-1/row/3:4/bottom/clear] id=test-clear-MenuItem\n" +
                         "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3:4/bottom/delete] id=test-delete-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-table-row-plus-before) test-row-insert-before-SubMenu \"Insert before row\"\n" +
+                        "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                        "  (mdi-table-row-plus-after) test-row-insert-after-SubMenu \"Insert after row\"\n" +
+                        "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
                         "    \"1\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
                         "    \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
-                        "  (mdi-sort) test-row-sort-SubMenu \"Sort Row\"\n" +
-                        "    test-row-sort-date-SubMenu \"Date\"\n" +
+                        "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
+                        "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Ddate+UP] id=test-row-sort-date-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Ddate+DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
-                        "    test-row-sort-date-time-SubMenu \"Date Time\"\n" +
+                        "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Ddate-time+UP] id=test-row-sort-date-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Ddate-time+DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
-                        "    test-row-sort-day-of-month-SubMenu \"Day Of Month\"\n" +
+                        "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dday-of-month+UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dday-of-month+DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
-                        "    test-row-sort-day-of-week-SubMenu \"Day Of Week\"\n" +
+                        "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dday-of-week+UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dday-of-week+DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
-                        "    test-row-sort-hour-of-am-pm-SubMenu \"Hour Of Am Pm\"\n" +
+                        "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dhour-of-am-pm+UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dhour-of-am-pm+DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
-                        "    test-row-sort-hour-of-day-SubMenu \"Hour Of Day\"\n" +
+                        "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dhour-of-day+UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dhour-of-day+DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
-                        "    test-row-sort-minute-of-hour-SubMenu \"Minute Of Hour\"\n" +
+                        "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dminute-of-hour+UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dminute-of-hour+DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
-                        "    test-row-sort-month-of-year-SubMenu \"Month Of Year\"\n" +
+                        "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dmonth-of-year+UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dmonth-of-year+DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
-                        "    test-row-sort-nano-of-second-SubMenu \"Nano Of Second\"\n" +
+                        "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dnano-of-second+UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dnano-of-second+DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
-                        "    test-row-sort-number-SubMenu \"Number\"\n" +
+                        "    \"Number\" id=test-row-sort-number-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dnumber+UP] id=test-row-sort-number-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dnumber+DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
-                        "    test-row-sort-seconds-of-minute-SubMenu \"Seconds Of Minute\"\n" +
+                        "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dseconds-of-minute+UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dseconds-of-minute+DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
-                        "    test-row-sort-text-SubMenu \"Text\"\n" +
+                        "    \"Text\" id=test-row-sort-text-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtext+UP] id=test-row-sort-text-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtext+DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
-                        "    test-row-sort-text-case-insensitive-SubMenu \"Text Case Insensitive\"\n" +
+                        "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtext-case-insensitive+UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtext-case-insensitive+DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
-                        "    test-row-sort-time-SubMenu \"Time\"\n" +
+                        "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtime+UP] id=test-row-sort-time-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtime+DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
-                        "    test-row-sort-year-SubMenu \"Year\"\n" +
+                        "    \"Year\" id=test-row-sort-year-SubMenu\n" +
                         "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dyear+UP] id=test-row-sort-year-UP-MenuItem\n" +
                         "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dyear+DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
