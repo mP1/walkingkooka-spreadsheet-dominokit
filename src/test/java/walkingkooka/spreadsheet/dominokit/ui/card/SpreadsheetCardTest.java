@@ -29,6 +29,14 @@ public final class SpreadsheetCardTest implements ClassTesting<SpreadsheetCard>,
         TreePrintableTesting {
 
     @Test
+    public void testTreePrintWhenEmpty() {
+        this.treePrintAndCheck(
+                SpreadsheetCard.empty(),
+                ""
+        );
+    }
+
+    @Test
     public void testTreePrintWithoutTitle() {
         this.treePrintAndCheck(
                 SpreadsheetCard.empty()

@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.card;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
+import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -30,7 +31,8 @@ import java.util.Objects;
  * A {@link Card} that auto hides when empty.
  */
 public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElement, SpreadsheetCard>,
-        TreePrintable {
+        TreePrintable,
+        CanBeEmpty {
 
     public static SpreadsheetCard empty() {
         return new SpreadsheetCard();
@@ -38,6 +40,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
 
     private SpreadsheetCard() {
         this.card = Card.create();
+        this.empty = true;
     }
 
     public SpreadsheetCard setTitle(final String title) {
@@ -50,14 +53,22 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     public SpreadsheetCard clear() {
         this.card.clearElement();
         this.card.setDisplay("none");
+        this.empty = true;
         return this;
     }
 
     public SpreadsheetCard appendChild(final IsElement<?> child) {
         this.card.appendChild(child);
         this.card.setDisplay("");
+        this.empty = false;
         return this;
     }
+
+    public boolean isEmpty() {
+        return this.empty;
+    }
+
+    private boolean empty;
 
     // Component........................................................................................................
 
@@ -73,20 +84,24 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     // SpreadsheetCard
     //   title
     //     this.card
+    //       XXX
     //
     // Spreadsheet
     //   this.card
+    //     XXX
     @Override
     public void printTree(final IndentingPrinter printer) {
-        printer.println("SpreadsheetCard");
+        if (false == this.isEmpty()) {
+            printer.println("SpreadsheetCard");
 
-        printer.indent();
-        {
-            TreePrintable.printTreeOrToString(
-                    this.card,
-                    printer
-            );
+            printer.indent();
+            {
+                TreePrintable.printTreeOrToString(
+                        this.card,
+                        printer
+                );
+            }
+            printer.outdent();
         }
-        printer.outdent();
     }
 }
