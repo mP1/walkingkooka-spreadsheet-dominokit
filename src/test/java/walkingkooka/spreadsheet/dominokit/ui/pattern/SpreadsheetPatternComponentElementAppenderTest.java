@@ -47,18 +47,18 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"dd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyydd]\n" +
-                        "      \"d\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyyd]\n" +
-                        "      \"ddd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyyddd]\n" +
-                        "      \"dddd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyydddd]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymm]\n" +
-                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyym]\n" +
-                        "      \"mmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmm]\n" +
-                        "      \"mmmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmmm]\n" +
-                        "      \"mmmmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmmmm]\n" +
-                        "      \"yy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy]\n" +
-                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy%3B]\n"
+                        "      \"dd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyydd] id=pattern-append-dd-Link\n" +
+                        "      \"d\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyyd] id=pattern-append-d-Link\n" +
+                        "      \"ddd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyyddd] id=pattern-append-ddd-Link\n" +
+                        "      \"dddd\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyydddd] id=pattern-append-dddd-Link\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyym] id=pattern-append-m-Link\n" +
+                        "      \"mmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmm] id=pattern-append-mmm-Link\n" +
+                        "      \"mmmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmmm] id=pattern-append-mmmm-Link\n" +
+                        "      \"mmmmm\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyymmmmm] id=pattern-append-mmmmm-Link\n" +
+                        "      \"yy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yy] id=pattern-append-yy-Link\n" +
+                        "      \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy] id=pattern-append-yyyy-Link\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/date/save/dd/mm/yyyy%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -71,18 +71,18 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"dd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyydd]\n" +
-                        "      \"d\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyyd]\n" +
-                        "      \"ddd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyyddd]\n" +
-                        "      \"dddd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyydddd]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymm]\n" +
-                        "      \"m\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyym]\n" +
-                        "      \"mmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmm]\n" +
-                        "      \"mmmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmmm]\n" +
-                        "      \"mmmmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmmmm]\n" +
-                        "      \"yy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy]\n" +
-                        "      \";\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy%3B]\n"
+                        "      \"dd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyydd] id=pattern-append-dd-Link\n" +
+                        "      \"d\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyyd] id=pattern-append-d-Link\n" +
+                        "      \"ddd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyyddd] id=pattern-append-ddd-Link\n" +
+                        "      \"dddd\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyydddd] id=pattern-append-dddd-Link\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyym] id=pattern-append-m-Link\n" +
+                        "      \"mmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmm] id=pattern-append-mmm-Link\n" +
+                        "      \"mmmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmmm] id=pattern-append-mmmm-Link\n" +
+                        "      \"mmmmm\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyymmmmm] id=pattern-append-mmmmm-Link\n" +
+                        "      \"yy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yy] id=pattern-append-yy-Link\n" +
+                        "      \"yyyy\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy] id=pattern-append-yyyy-Link\n" +
+                        "      \";\" [#/1/Untitled/metadata/date-format-pattern/save/dd/mm/yyyy%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -97,18 +97,18 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyydd]\n" +
-                        "      \"d\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyyd]\n" +
-                        "      \"ddd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyyddd]\n" +
-                        "      \"dddd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyydddd]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymm]\n" +
-                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyym]\n" +
-                        "      \"mmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmm]\n" +
-                        "      \"mmmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmmm]\n" +
-                        "      \"mmmmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmmmm]\n" +
-                        "      \"yy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy]\n" +
-                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy%3B]\n"
+                        "      \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyydd] id=pattern-append-dd-Link\n" +
+                        "      \"d\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyyd] id=pattern-append-d-Link\n" +
+                        "      \"ddd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyyddd] id=pattern-append-ddd-Link\n" +
+                        "      \"dddd\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyydddd] id=pattern-append-dddd-Link\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyym] id=pattern-append-m-Link\n" +
+                        "      \"mmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmm] id=pattern-append-mmm-Link\n" +
+                        "      \"mmmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmmm] id=pattern-append-mmmm-Link\n" +
+                        "      \"mmmmm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyymmmmm] id=pattern-append-mmmmm-Link\n" +
+                        "      \"yy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yy] id=pattern-append-yy-Link\n" +
+                        "      \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy] id=pattern-append-yyyy-Link\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -121,18 +121,18 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"dd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyydd]\n" +
-                        "      \"d\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyyd]\n" +
-                        "      \"ddd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyyddd]\n" +
-                        "      \"dddd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyydddd]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymm]\n" +
-                        "      \"m\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyym]\n" +
-                        "      \"mmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmm]\n" +
-                        "      \"mmmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmmm]\n" +
-                        "      \"mmmmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmmmm]\n" +
-                        "      \"yy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy]\n" +
-                        "      \";\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy%3B]\n"
+                        "      \"dd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyydd] id=pattern-append-dd-Link\n" +
+                        "      \"d\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyyd] id=pattern-append-d-Link\n" +
+                        "      \"ddd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyyddd] id=pattern-append-ddd-Link\n" +
+                        "      \"dddd\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyydddd] id=pattern-append-dddd-Link\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyym] id=pattern-append-m-Link\n" +
+                        "      \"mmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmm] id=pattern-append-mmm-Link\n" +
+                        "      \"mmmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmmm] id=pattern-append-mmmm-Link\n" +
+                        "      \"mmmmm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyymmmmm] id=pattern-append-mmmmm-Link\n" +
+                        "      \"yy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yy] id=pattern-append-yy-Link\n" +
+                        "      \"yyyy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy] id=pattern-append-yyyy-Link\n" +
+                        "      \";\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -147,30 +147,30 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"dd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
-                        "      \"d\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssd]\n" +
-                        "      \"ddd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
-                        "      \"dddd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "      \"mmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
-                        "      \"mmmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
-                        "      \"mmmmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
-                        "      \"yy\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
-                        "      \"0\" DISABLED\n" +
-                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss.]\n" +
-                        "      \"hh\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:sshh]\n" +
-                        "      \"h\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssh]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "      \"ss\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss]\n" +
-                        "      \"s\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:s]\n" +
-                        "      \"am/pm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "      \"a/p\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
-                        "      \"A/P\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
-                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
+                        "      \"dd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdd] id=pattern-append-dd-Link\n" +
+                        "      \"d\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssd] id=pattern-append-d-Link\n" +
+                        "      \"ddd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssddd] id=pattern-append-ddd-Link\n" +
+                        "      \"dddd\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdddd] id=pattern-append-dddd-Link\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"mmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmm] id=pattern-append-mmm-Link\n" +
+                        "      \"mmmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmm] id=pattern-append-mmmm-Link\n" +
+                        "      \"mmmmm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmmm] id=pattern-append-mmmmm-Link\n" +
+                        "      \"yy\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyy] id=pattern-append-yy-Link\n" +
+                        "      \"yyyy\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyyyy] id=pattern-append-yyyy-Link\n" +
+                        "      \"0\" DISABLED id=pattern-append-0-Link\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss.] id=pattern-append-.-Link\n" +
+                        "      \"hh\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:sshh] id=pattern-append-hh-Link\n" +
+                        "      \"h\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssh] id=pattern-append-h-Link\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"ss\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss] id=pattern-append-ss-Link\n" +
+                        "      \"s\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:s] id=pattern-append-s-Link\n" +
+                        "      \"am/pm\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssam/pm] id=pattern-append-am/pm-Link\n" +
+                        "      \"AM/PM\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM] id=pattern-append-AM/PM-Link\n" +
+                        "      \"a/p\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssa/p] id=pattern-append-a/p-Link\n" +
+                        "      \"A/P\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssA/P] id=pattern-append-A/P-Link\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -183,30 +183,30 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"dd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
-                        "      \"d\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssd]\n" +
-                        "      \"ddd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
-                        "      \"dddd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "      \"mmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
-                        "      \"mmmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
-                        "      \"mmmmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
-                        "      \"yy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
-                        "      \"0\" DISABLED\n" +
-                        "      \".\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss.]\n" +
-                        "      \"hh\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:sshh]\n" +
-                        "      \"h\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssh]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "      \"ss\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss]\n" +
-                        "      \"s\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:s]\n" +
-                        "      \"am/pm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "      \"a/p\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
-                        "      \"A/P\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
-                        "      \";\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
+                        "      \"dd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssdd] id=pattern-append-dd-Link\n" +
+                        "      \"d\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssd] id=pattern-append-d-Link\n" +
+                        "      \"ddd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssddd] id=pattern-append-ddd-Link\n" +
+                        "      \"dddd\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssdddd] id=pattern-append-dddd-Link\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"mmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmm] id=pattern-append-mmm-Link\n" +
+                        "      \"mmmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmmm] id=pattern-append-mmmm-Link\n" +
+                        "      \"mmmmm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmmmmm] id=pattern-append-mmmmm-Link\n" +
+                        "      \"yy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssyy] id=pattern-append-yy-Link\n" +
+                        "      \"yyyy\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssyyyy] id=pattern-append-yyyy-Link\n" +
+                        "      \"0\" DISABLED id=pattern-append-0-Link\n" +
+                        "      \".\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss.] id=pattern-append-.-Link\n" +
+                        "      \"hh\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:sshh] id=pattern-append-hh-Link\n" +
+                        "      \"h\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssh] id=pattern-append-h-Link\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"ss\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss] id=pattern-append-ss-Link\n" +
+                        "      \"s\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:s] id=pattern-append-s-Link\n" +
+                        "      \"am/pm\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssam/pm] id=pattern-append-am/pm-Link\n" +
+                        "      \"AM/PM\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM] id=pattern-append-AM/PM-Link\n" +
+                        "      \"a/p\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssa/p] id=pattern-append-a/p-Link\n" +
+                        "      \"A/P\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ssA/P] id=pattern-append-A/P-Link\n" +
+                        "      \";\" [#/1/Untitled/metadata/date-time-format-pattern/save/dd/mm/yyyy+hh:mm:ss%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -221,30 +221,30 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
-                        "      \"d\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssd]\n" +
-                        "      \"ddd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
-                        "      \"dddd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "      \"mmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
-                        "      \"mmmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
-                        "      \"mmmmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
-                        "      \"yy\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
-                        "      \"0\" DISABLED\n" +
-                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss.]\n" +
-                        "      \"hh\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:sshh]\n" +
-                        "      \"h\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssh]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "      \"ss\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss]\n" +
-                        "      \"s\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:s]\n" +
-                        "      \"am/pm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "      \"a/p\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
-                        "      \"A/P\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
-                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
+                        "      \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdd] id=pattern-append-dd-Link\n" +
+                        "      \"d\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssd] id=pattern-append-d-Link\n" +
+                        "      \"ddd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssddd] id=pattern-append-ddd-Link\n" +
+                        "      \"dddd\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssdddd] id=pattern-append-dddd-Link\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"mmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmm] id=pattern-append-mmm-Link\n" +
+                        "      \"mmmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmm] id=pattern-append-mmmm-Link\n" +
+                        "      \"mmmmm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmmmmm] id=pattern-append-mmmmm-Link\n" +
+                        "      \"yy\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyy] id=pattern-append-yy-Link\n" +
+                        "      \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssyyyy] id=pattern-append-yyyy-Link\n" +
+                        "      \"0\" DISABLED id=pattern-append-0-Link\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss.] id=pattern-append-.-Link\n" +
+                        "      \"hh\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:sshh] id=pattern-append-hh-Link\n" +
+                        "      \"h\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssh] id=pattern-append-h-Link\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"ss\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss] id=pattern-append-ss-Link\n" +
+                        "      \"s\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:s] id=pattern-append-s-Link\n" +
+                        "      \"am/pm\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssam/pm] id=pattern-append-am/pm-Link\n" +
+                        "      \"AM/PM\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssAM/PM] id=pattern-append-AM/PM-Link\n" +
+                        "      \"a/p\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssa/p] id=pattern-append-a/p-Link\n" +
+                        "      \"A/P\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ssA/P] id=pattern-append-A/P-Link\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy+hh:mm:ss%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -257,30 +257,30 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"dd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssdd]\n" +
-                        "      \"d\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssd]\n" +
-                        "      \"ddd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssddd]\n" +
-                        "      \"dddd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssdddd]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "      \"mmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmm]\n" +
-                        "      \"mmmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmmm]\n" +
-                        "      \"mmmmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmmmm]\n" +
-                        "      \"yy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssyy]\n" +
-                        "      \"yyyy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssyyyy]\n" +
-                        "      \"0\" DISABLED\n" +
-                        "      \".\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss.]\n" +
-                        "      \"hh\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:sshh]\n" +
-                        "      \"h\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssh]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssm]\n" +
-                        "      \"ss\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss]\n" +
-                        "      \"s\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:s]\n" +
-                        "      \"am/pm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssam/pm]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM]\n" +
-                        "      \"a/p\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssa/p]\n" +
-                        "      \"A/P\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssA/P]\n" +
-                        "      \";\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss%3B]\n"
+                        "      \"dd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssdd] id=pattern-append-dd-Link\n" +
+                        "      \"d\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssd] id=pattern-append-d-Link\n" +
+                        "      \"ddd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssddd] id=pattern-append-ddd-Link\n" +
+                        "      \"dddd\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssdddd] id=pattern-append-dddd-Link\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"mmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmm] id=pattern-append-mmm-Link\n" +
+                        "      \"mmmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmmm] id=pattern-append-mmmm-Link\n" +
+                        "      \"mmmmm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmmmmm] id=pattern-append-mmmmm-Link\n" +
+                        "      \"yy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssyy] id=pattern-append-yy-Link\n" +
+                        "      \"yyyy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssyyyy] id=pattern-append-yyyy-Link\n" +
+                        "      \"0\" DISABLED id=pattern-append-0-Link\n" +
+                        "      \".\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss.] id=pattern-append-.-Link\n" +
+                        "      \"hh\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:sshh] id=pattern-append-hh-Link\n" +
+                        "      \"h\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssh] id=pattern-append-h-Link\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"ss\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss] id=pattern-append-ss-Link\n" +
+                        "      \"s\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:s] id=pattern-append-s-Link\n" +
+                        "      \"am/pm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssam/pm] id=pattern-append-am/pm-Link\n" +
+                        "      \"AM/PM\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssAM/PM] id=pattern-append-AM/PM-Link\n" +
+                        "      \"a/p\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssa/p] id=pattern-append-a/p-Link\n" +
+                        "      \"A/P\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ssA/P] id=pattern-append-A/P-Link\n" +
+                        "      \";\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy+hh:mm:ss%3B] id=pattern-append-;-Link\n"
         );
     }
     
@@ -295,16 +295,16 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"$\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%24]\n" +
-                        "      \"#\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%23]\n" +
-                        "      \"?\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00?]\n" +
-                        "      \"0\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00]\n" +
-                        "      \",\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%2C]\n" +
-                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00.]\n" +
-                        "      \"E\" DISABLED\n" +
-                        "      \"/\" DISABLED\n" +
-                        "      \"%\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%25]\n" +
-                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%3B]\n"
+                        "      \"$\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%24] id=pattern-append-$-Link\n" +
+                        "      \"#\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%23] id=pattern-append-#-Link\n" +
+                        "      \"?\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00?] id=pattern-append-?-Link\n" +
+                        "      \"0\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00] id=pattern-append-0-Link\n" +
+                        "      \",\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%2C] id=pattern-append-,-Link\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00.] id=pattern-append-.-Link\n" +
+                        "      \"E\" DISABLED id=pattern-append-E-Link\n" +
+                        "      \"/\" DISABLED id=pattern-append-/-Link\n" +
+                        "      \"%\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%25] id=pattern-append-%-Link\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/number/save/%24%23.00%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -317,16 +317,16 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"$\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%24]\n" +
-                        "      \"#\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%23]\n" +
-                        "      \"?\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00?]\n" +
-                        "      \"0\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00]\n" +
-                        "      \",\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%2C]\n" +
-                        "      \".\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00.]\n" +
-                        "      \"E\" DISABLED\n" +
-                        "      \"/\" DISABLED\n" +
-                        "      \"%\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%25]\n" +
-                        "      \";\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%3B]\n"
+                        "      \"$\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%24] id=pattern-append-$-Link\n" +
+                        "      \"#\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%23] id=pattern-append-#-Link\n" +
+                        "      \"?\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00?] id=pattern-append-?-Link\n" +
+                        "      \"0\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00] id=pattern-append-0-Link\n" +
+                        "      \",\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%2C] id=pattern-append-,-Link\n" +
+                        "      \".\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00.] id=pattern-append-.-Link\n" +
+                        "      \"E\" DISABLED id=pattern-append-E-Link\n" +
+                        "      \"/\" DISABLED id=pattern-append-/-Link\n" +
+                        "      \"%\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%25] id=pattern-append-%-Link\n" +
+                        "      \";\" [#/1/Untitled/metadata/number-format-pattern/save/%24%23.00%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -341,16 +341,16 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"$\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%24]\n" +
-                        "      \"#\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%23]\n" +
-                        "      \"?\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00?]\n" +
-                        "      \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00]\n" +
-                        "      \",\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%2C]\n" +
-                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00.]\n" +
-                        "      \"E\" DISABLED\n" +
-                        "      \"/\" DISABLED\n" +
-                        "      \"%\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%25]\n" +
-                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%3B]\n"
+                        "      \"$\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%24] id=pattern-append-$-Link\n" +
+                        "      \"#\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%23] id=pattern-append-#-Link\n" +
+                        "      \"?\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00?] id=pattern-append-?-Link\n" +
+                        "      \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00] id=pattern-append-0-Link\n" +
+                        "      \",\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%2C] id=pattern-append-,-Link\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00.] id=pattern-append-.-Link\n" +
+                        "      \"E\" DISABLED id=pattern-append-E-Link\n" +
+                        "      \"/\" DISABLED id=pattern-append-/-Link\n" +
+                        "      \"%\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%25] id=pattern-append-%-Link\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%24%23.00%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -363,16 +363,16 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"$\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%24]\n" +
-                        "      \"#\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%23]\n" +
-                        "      \"?\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00?]\n" +
-                        "      \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00]\n" +
-                        "      \",\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%2C]\n" +
-                        "      \".\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00.]\n" +
-                        "      \"E\" DISABLED\n" +
-                        "      \"/\" DISABLED\n" +
-                        "      \"%\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%25]\n" +
-                        "      \";\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%3B]\n"
+                        "      \"$\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%24] id=pattern-append-$-Link\n" +
+                        "      \"#\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%23] id=pattern-append-#-Link\n" +
+                        "      \"?\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00?] id=pattern-append-?-Link\n" +
+                        "      \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00] id=pattern-append-0-Link\n" +
+                        "      \",\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%2C] id=pattern-append-,-Link\n" +
+                        "      \".\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00.] id=pattern-append-.-Link\n" +
+                        "      \"E\" DISABLED id=pattern-append-E-Link\n" +
+                        "      \"/\" DISABLED id=pattern-append-/-Link\n" +
+                        "      \"%\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%25] id=pattern-append-%-Link\n" +
+                        "      \";\" [#/1/Untitled/metadata/number-parse-pattern/save/%24%23.00%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -387,9 +387,9 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/@]\n" +
-                        "      \"* \" [#/1/Untitled/cell/A1/format-pattern/text/save/@*+]\n" +
-                        "      \"_ \" [#/1/Untitled/cell/A1/format-pattern/text/save/@_+]\n"
+                        "      \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/@] id=pattern-append-@-Link\n" +
+                        "      \"* \" [#/1/Untitled/cell/A1/format-pattern/text/save/@*+] id=pattern-append-* -Link\n" +
+                        "      \"_ \" [#/1/Untitled/cell/A1/format-pattern/text/save/@_+] id=pattern-append-_ -Link\n"
         );
     }
 
@@ -402,9 +402,9 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@]\n" +
-                        "      \"* \" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@*+]\n" +
-                        "      \"_ \" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@_+]\n" // expected
+                        "      \"@\" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@] id=pattern-append-@-Link\n" +
+                        "      \"* \" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@*+] id=pattern-append-* -Link\n" +
+                        "      \"_ \" [#/1/Untitled/cell/A1/format-pattern/text/save/%22Hello%22+@_+] id=pattern-append-_ -Link\n" // expected
         );
     }
 
@@ -418,9 +418,9 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"@\" [#/1/Untitled/metadata/text-format-pattern/save/@]\n" +
-                        "      \"* \" [#/1/Untitled/metadata/text-format-pattern/save/@*+]\n" +
-                        "      \"_ \" [#/1/Untitled/metadata/text-format-pattern/save/@_+]\n"
+                        "      \"@\" [#/1/Untitled/metadata/text-format-pattern/save/@] id=pattern-append-@-Link\n" +
+                        "      \"* \" [#/1/Untitled/metadata/text-format-pattern/save/@*+] id=pattern-append-* -Link\n" +
+                        "      \"_ \" [#/1/Untitled/metadata/text-format-pattern/save/@_+] id=pattern-append-_ -Link\n"
         );
     }
 
@@ -435,19 +435,19 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"0\" DISABLED\n" +
-                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss.]\n" +
-                        "      \"hh\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:sshh]\n" +
-                        "      \"h\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssh]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssm]\n" +
-                        "      \"ss\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss]\n" +
-                        "      \"s\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:s]\n" +
-                        "      \"am/pm\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssam/pm]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssAM/PM]\n" +
-                        "      \"a/p\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssa/p]\n" +
-                        "      \"A/P\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssA/P]\n" +
-                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss%3B]\n"
+                        "      \"0\" DISABLED id=pattern-append-0-Link\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss.] id=pattern-append-.-Link\n" +
+                        "      \"hh\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:sshh] id=pattern-append-hh-Link\n" +
+                        "      \"h\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssh] id=pattern-append-h-Link\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"ss\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss] id=pattern-append-ss-Link\n" +
+                        "      \"s\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:s] id=pattern-append-s-Link\n" +
+                        "      \"am/pm\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssam/pm] id=pattern-append-am/pm-Link\n" +
+                        "      \"AM/PM\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssAM/PM] id=pattern-append-AM/PM-Link\n" +
+                        "      \"a/p\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssa/p] id=pattern-append-a/p-Link\n" +
+                        "      \"A/P\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ssA/P] id=pattern-append-A/P-Link\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/format-pattern/time/save/hh:mm:ss%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -460,19 +460,19 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"0\" DISABLED\n" +
-                        "      \".\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss.]\n" +
-                        "      \"hh\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:sshh]\n" +
-                        "      \"h\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssh]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssm]\n" +
-                        "      \"ss\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss]\n" +
-                        "      \"s\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:s]\n" +
-                        "      \"am/pm\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssam/pm]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssAM/PM]\n" +
-                        "      \"a/p\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssa/p]\n" +
-                        "      \"A/P\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssA/P]\n" +
-                        "      \";\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss%3B]\n"
+                        "      \"0\" DISABLED id=pattern-append-0-Link\n" +
+                        "      \".\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss.] id=pattern-append-.-Link\n" +
+                        "      \"hh\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:sshh] id=pattern-append-hh-Link\n" +
+                        "      \"h\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssh] id=pattern-append-h-Link\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"ss\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss] id=pattern-append-ss-Link\n" +
+                        "      \"s\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:s] id=pattern-append-s-Link\n" +
+                        "      \"am/pm\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssam/pm] id=pattern-append-am/pm-Link\n" +
+                        "      \"AM/PM\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssAM/PM] id=pattern-append-AM/PM-Link\n" +
+                        "      \"a/p\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssa/p] id=pattern-append-a/p-Link\n" +
+                        "      \"A/P\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ssA/P] id=pattern-append-A/P-Link\n" +
+                        "      \";\" [#/1/Untitled/metadata/time-format-pattern/save/hh:mm:ss%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -487,19 +487,19 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"0\" DISABLED\n" +
-                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss.]\n" +
-                        "      \"hh\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:sshh]\n" +
-                        "      \"h\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssh]\n" +
-                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssm]\n" +
-                        "      \"ss\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss]\n" +
-                        "      \"s\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:s]\n" +
-                        "      \"am/pm\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssam/pm]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssAM/PM]\n" +
-                        "      \"a/p\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssa/p]\n" +
-                        "      \"A/P\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssA/P]\n" +
-                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss%3B]\n"
+                        "      \"0\" DISABLED id=pattern-append-0-Link\n" +
+                        "      \".\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss.] id=pattern-append-.-Link\n" +
+                        "      \"hh\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:sshh] id=pattern-append-hh-Link\n" +
+                        "      \"h\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssh] id=pattern-append-h-Link\n" +
+                        "      \"mm\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"ss\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss] id=pattern-append-ss-Link\n" +
+                        "      \"s\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:s] id=pattern-append-s-Link\n" +
+                        "      \"am/pm\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssam/pm] id=pattern-append-am/pm-Link\n" +
+                        "      \"AM/PM\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssAM/PM] id=pattern-append-AM/PM-Link\n" +
+                        "      \"a/p\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssa/p] id=pattern-append-a/p-Link\n" +
+                        "      \"A/P\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ssA/P] id=pattern-append-A/P-Link\n" +
+                        "      \";\" [#/1/Untitled/cell/A1/parse-pattern/time/save/hh:mm:ss%3B] id=pattern-append-;-Link\n"
         );
     }
 
@@ -512,19 +512,19 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
                 "SpreadsheetCard\n" +
                         "  Card\n" +
                         "    Append new component(s)\n" +
-                        "      \"0\" DISABLED\n" +
-                        "      \".\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss.]\n" +
-                        "      \"hh\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:sshh]\n" +
-                        "      \"h\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssh]\n" +
-                        "      \"mm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssmm]\n" +
-                        "      \"m\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssm]\n" +
-                        "      \"ss\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss]\n" +
-                        "      \"s\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:s]\n" +
-                        "      \"am/pm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssam/pm]\n" +
-                        "      \"AM/PM\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssAM/PM]\n" +
-                        "      \"a/p\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssa/p]\n" +
-                        "      \"A/P\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssA/P]\n" +
-                        "      \";\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss%3B]\n"
+                        "      \"0\" DISABLED id=pattern-append-0-Link\n" +
+                        "      \".\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss.] id=pattern-append-.-Link\n" +
+                        "      \"hh\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:sshh] id=pattern-append-hh-Link\n" +
+                        "      \"h\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssh] id=pattern-append-h-Link\n" +
+                        "      \"mm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssmm] id=pattern-append-mm-Link\n" +
+                        "      \"m\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssm] id=pattern-append-m-Link\n" +
+                        "      \"ss\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss] id=pattern-append-ss-Link\n" +
+                        "      \"s\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:s] id=pattern-append-s-Link\n" +
+                        "      \"am/pm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssam/pm] id=pattern-append-am/pm-Link\n" +
+                        "      \"AM/PM\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssAM/PM] id=pattern-append-AM/PM-Link\n" +
+                        "      \"a/p\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssa/p] id=pattern-append-a/p-Link\n" +
+                        "      \"A/P\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ssA/P] id=pattern-append-A/P-Link\n" +
+                        "      \";\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss%3B] id=pattern-append-;-Link\n"
         );
     }
 
