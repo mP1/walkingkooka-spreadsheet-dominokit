@@ -20,11 +20,13 @@ package walkingkooka.spreadsheet.dominokit.ui.select;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -105,6 +107,11 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     public SpreadsheetSelectComponent<T> validate() {
         // TODO enable later somehow ?
         return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return Lists.empty();
     }
 
     @Override

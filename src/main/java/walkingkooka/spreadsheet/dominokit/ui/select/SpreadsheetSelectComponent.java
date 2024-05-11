@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrint
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -103,6 +104,11 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     public SpreadsheetSelectComponent<T> validate() {
         this.select.validate();
         return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return this.select.getErrors();
     }
 
     @Override

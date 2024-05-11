@@ -28,6 +28,7 @@ import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
@@ -139,6 +140,11 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     public ParserSpreadsheetTextBox<T> validate() {
         this.textBox.validate();
         return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return this.textBox.errors();
     }
 
     @Override

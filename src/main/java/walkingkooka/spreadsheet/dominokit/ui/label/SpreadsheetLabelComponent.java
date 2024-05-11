@@ -27,10 +27,12 @@ import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Context;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -114,6 +116,13 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     public SpreadsheetLabelComponent validate() {
         this.suggestBox.validate();
         return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return Lists.readOnly(
+                this.suggestBox.getErrors()
+        );
     }
 
     @Override

@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintableTesting;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableTesting {
@@ -111,6 +112,11 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
 
             @Override
             public SpreadsheetTextBox validate() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public List<String> errors() {
                 throw new UnsupportedOperationException();
             }
 

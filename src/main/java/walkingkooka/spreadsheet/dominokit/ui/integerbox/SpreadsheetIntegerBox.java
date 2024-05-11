@@ -30,12 +30,14 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -296,6 +298,13 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     public SpreadsheetIntegerBox validate() {
         this.integerBox.validate();
         return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return Lists.readOnly(
+                this.integerBox.getErrors()
+        );
     }
 
     // Object...........................................................................................................

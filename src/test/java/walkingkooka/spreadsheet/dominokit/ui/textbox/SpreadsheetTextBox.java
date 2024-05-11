@@ -21,10 +21,12 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -106,6 +108,11 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public SpreadsheetTextBox validate() {
         return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return Lists.empty();
     }
 
     @Override

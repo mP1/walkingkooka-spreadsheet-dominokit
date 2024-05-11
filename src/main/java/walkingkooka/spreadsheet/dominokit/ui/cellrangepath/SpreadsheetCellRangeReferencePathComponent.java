@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -104,6 +105,11 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
     public SpreadsheetCellRangeReferencePathComponent validate() {
         this.select.validate();
         return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return this.select.errors();
     }
 
     @Override
