@@ -41,6 +41,20 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     // cell.............................................................................................................
 
     @Test
+    public void testCellMissingColumnORow() {
+        this.refreshAndCheck(
+                0, // index within namesList
+                "", // columnOrRow
+                "ignored-comparator-1", // namesList
+                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Remove comparator(s)\n"
+        );
+    }
+
+    @Test
     public void testCellEmpty() {
         this.refreshAndCheck(
                 0, // index within namesList
@@ -179,7 +193,11 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final String expected) {
         this.refreshAndCheck(
                 index,
-                SpreadsheetSelection.parseColumnOrRow(columnOrRow),
+                columnOrRow.isEmpty() ?
+                        Optional.empty() :
+                        Optional.of(
+                                SpreadsheetSelection.parseColumnOrRow(columnOrRow)
+                        ),
                 spreadsheetComparatorNameAndDirections.isEmpty() ?
                         Lists.empty() :
                         Arrays.stream(spreadsheetComparatorNameAndDirections.split(","))
@@ -200,7 +218,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     }
 
     private void refreshAndCheck(final int index,
-                                 final SpreadsheetColumnOrRowReference columnOrRow,
+                                 final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final SpreadsheetSortDialogComponentContext context,
