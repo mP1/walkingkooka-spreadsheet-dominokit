@@ -26,16 +26,10 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuTarget;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -43,9 +37,7 @@ import java.util.Optional;
 /**
  * Abstraction for working with a HTML anchor.
  */
-public final class HistoryTokenAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent>,
-        SpreadsheetContextMenuTarget<HTMLAnchorElement>,
-        TreePrintable {
+public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComponentLike {
 
     /**
      * Creates a new un-attached ANCHOR.
@@ -84,13 +76,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // disabled.........................................................................................................
 
-    /**
-     * An {@link HistoryTokenAnchorComponent} is considered disabled when it has no href.
-     */
-    public boolean isDisabled() {
-        return null == this.href();
-    }
-
+    @Override
     public HistoryTokenAnchorComponent setDisabled(final boolean disabled) {
         this.element.setAttribute("aria-disabled", disabled);
 
@@ -119,36 +105,9 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
     // historyToken....................................................................................................
 
     /**
-     * If the HREF contains a url with a fragment it will be parsed into a {@link HistoryToken} otherwise
-     * an {@link Optional#empty()} will be returned.
-     */
-    public Optional<HistoryToken> historyToken() {
-        final Url url = this.href();
-
-        return Optional.ofNullable(
-                url instanceof HasUrlFragment ?
-                        HistoryToken.parse(
-                                ((HasUrlFragment) url).urlFragment()
-                        ) :
-                        null
-        );
-    }
-
-    public HistoryTokenAnchorComponent setHistoryToken(final Optional<HistoryToken> historyToken) {
-        final HistoryToken historyTokenOrNull = historyToken.orElse(null);
-
-        return this.setHref(
-                null == historyTokenOrNull ?
-                        null :
-                        Url.parseRelative(
-                                "" + Url.FRAGMENT_START + historyTokenOrNull.urlFragment()
-                        )
-        );
-    }
-
-    /**
      * The {@link #historyToken()} will be pushed if this anchor is clicked or ENTER key downed.
      */
+    @Override
     public HistoryTokenAnchorComponent addPushHistoryToken(final HistoryTokenContext context) {
         return this.addClickAndKeydownEnterListener(
                 (e) -> {
@@ -164,10 +123,12 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // checked.........................................................................................................
 
+    @Override
     public boolean isChecked() {
         return this.checked;
     }
 
+    @Override
     public HistoryTokenAnchorComponent setChecked(final boolean checked) {
         final AnchorElement element = this.element;
         if (checked) {
@@ -186,6 +147,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // href.............................................................................................................
 
+    @Override
     public Url href() {
         final String href = this.element().href;
         return CharSequences.isNullOrEmpty(href) ?
@@ -193,6 +155,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
                 Url.parseAbsoluteOrRelative(href);
     }
 
+    @Override
     public HistoryTokenAnchorComponent setHref(final Url url) {
         this.element().href =
                 null == url ?
@@ -203,10 +166,12 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // id...............................................................................................................
 
+    @Override
     public String id() {
         return this.element.getId();
     }
 
+    @Override
     public HistoryTokenAnchorComponent setId(final String id) {
         this.element.setId(id);
         return this;
@@ -214,10 +179,12 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // tabIndex.........................................................................................................
 
+    @Override
     public int tabIndex() {
         return this.element().tabIndex;
     }
 
+    @Override
     public HistoryTokenAnchorComponent setTabIndex(final int tabIndex) {
         this.element.setTabIndex(tabIndex);
         return this;
@@ -225,10 +192,12 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // target.........................................................................................................
 
+    @Override
     public String target() {
         return this.element().getAttribute(TARGET);
     }
 
+    @Override
     public HistoryTokenAnchorComponent setTarget(final String target) {
         this.element.setAttribute(
                 TARGET,
@@ -241,10 +210,12 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // textContent......................................................................................................
 
+    @Override
     public String textContent() {
         return this.element.getTextContent();
     }
 
+    @Override
     public HistoryTokenAnchorComponent setTextContent(final String text) {
         this.element.setTextContent(text);
         return this;
@@ -254,10 +225,12 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // iconBefore......................................................................................................
 
+    @Override
     public Optional<Icon<?>> iconBefore() {
         return Optional.ofNullable(this.iconBefore);
     }
 
+    @Override
     public HistoryTokenAnchorComponent setIconBefore(final Optional<Icon<?>> icon) {
         Objects.requireNonNull(icon, "icon");
 
@@ -288,10 +261,12 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // iconAfter......................................................................................................
 
+    @Override
     public Optional<Icon<?>> iconAfter() {
         return Optional.ofNullable(this.iconAfter);
     }
 
+    @Override
     public HistoryTokenAnchorComponent setIconAfter(final Optional<Icon<?>> icon) {
         Objects.requireNonNull(icon, "icon");
 
@@ -322,6 +297,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // tooltip..........................................................................................................
 
+    @Override
     public HistoryTokenAnchorComponent setTooltip(final String text,
                                                   final DropDirection dropDirection) {
         this.element.setTooltip(
@@ -332,6 +308,8 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
     }
 
     // events..........................................................................................................
+
+    @Override
     public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
         this.element.addEventListener(
                 EventType.click.getName(),
@@ -340,6 +318,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         return this;
     }
 
+    @Override
     public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
         this.element.addEventListener(
                 EventType.focus.getName(),
@@ -348,6 +327,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
         return this;
     }
 
+    @Override
     public HistoryTokenAnchorComponent addKeydownListener(final EventListener listener) {
         this.element.addEventListener(
                 EventType.keydown.getName(),
@@ -372,6 +352,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
     /**
      * Adds a {@link EventListener} that receives click and keydown with ENTER events.
      */
+    @Override
     public HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener) {
         this.element.onKeyPress(e -> e.onEnter(listener));
 
@@ -380,6 +361,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     // focus............................................................................................................
 
+    @Override
     public void focus() {
         this.element().focus();
     }
@@ -397,19 +379,7 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
 
     @Override
     public String toString() {
-        return this.element.element().href;
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        final Url url = this.href();
-        printer.print(
-                null != url ?
-                        url.toString() :
-                        ""
-        );
+        return HistoryTokenAnchorComponentToString.toString(this);
     }
 
     // SpreadsheetContextMenuTarget.....................................................................................
