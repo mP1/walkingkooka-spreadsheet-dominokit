@@ -95,6 +95,7 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
         return this;
     }
 
+    @Override
     public Optional<String> helperText() {
         return this.select.helperText();
     }
