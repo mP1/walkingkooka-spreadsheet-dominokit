@@ -101,13 +101,13 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
 
             for (final String text : texts) {
                 final HistoryToken historyToken = context.historyToken();
-                final String idPrefix = SpreadsheetPatternDialogComponent.ID_PREFIX + i;
+                final String idPrefix = SpreadsheetPatternDialogComponent.ID_PREFIX + "remove-";
 
                 final List<String> removed = Lists.array();
                 removed.addAll(texts);
                 removed.remove(i);
 
-                final HistoryTokenAnchorComponent patternElement = historyToken.link(idPrefix + "-component")
+                final HistoryTokenAnchorComponent patternElement = historyToken.link(idPrefix + i)
                         .setTextContent(text)
                         .setHistoryToken(
                                 Optional.of(
