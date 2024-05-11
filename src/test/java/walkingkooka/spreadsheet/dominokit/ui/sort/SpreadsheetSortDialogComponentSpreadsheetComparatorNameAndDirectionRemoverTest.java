@@ -47,7 +47,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "", // columnOrRow
                 "ignored-comparator-1", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n"
+                ""
         );
     }
 
@@ -58,7 +58,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "A", // columnOrRow
                 "", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n"
+                ""
         );
     }
 
