@@ -85,17 +85,7 @@ public class Menu<V> implements TreePrintable {
             printer.print(") ");
         }
 
-        final String id = this.id;
         final String text = this.text;
-
-        if (null != id) {
-            printer.print(id);
-
-            if (null != text) {
-                printer.print(" ");
-            }
-        }
-
         if (null != text) {
             printer.print(CharSequences.quoteAndEscape(text));
         }
@@ -107,9 +97,15 @@ public class Menu<V> implements TreePrintable {
             printer.print("]");
         }
 
+        final String id = this.id;
+        if (null != id) {
+            printer.print(" id=");
+            printer.print(id);
+        }
+        printer.lineStart();
+
         printer.indent();
         {
-
             for (final Object child : this.children) {
                 printer.lineStart();
                 TreePrintable.printTreeOrToString(
