@@ -43,8 +43,6 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
      * Creates a new {@link ParserSpreadsheetTextBox}.
      */
     public static <T extends HasText> ParserSpreadsheetTextBox<T> with(final Function<String, T> parser) {
-        Objects.requireNonNull(parser, "parser");
-
         return new ParserSpreadsheetTextBox<>(parser);
     }
 
@@ -53,12 +51,25 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
                 .clearIcon()
                 .disableSpellcheck()
                 .enterFiresValueChange();
+        this.setParser(parser);
+        this.required();
+    }
+
+    /**
+     * Sets a new {@link Function} will be used to parse String into values.
+     */
+    public ParserSpreadsheetTextBox<T> setParser(final Function<String, T> parser) {
+        Objects.requireNonNull(parser, "parser");
+
         this.parser = parser;
         this.setValidator(
                 SpreadsheetTextBoxValidators.parser(parser::apply)
         );
-        this.required();
+        this.validate();
+        return this;
     }
+
+    private Function<String, T> parser;
 
     @Override
     public ParserSpreadsheetTextBox<T> setId(final String id) {
@@ -236,8 +247,6 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
         }
         return Optional.ofNullable(parsed);
     }
-
-    private final Function<String, T> parser;
 
     /**
      * Sets the given {@link String value} on the wrapped {@link org.dominokit.domino.ui.forms.TextBox} skipping any
