@@ -82,7 +82,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
         final HistoryToken historyToken = context.historyToken();
 
         final int index = this.index;
-        final String idPrefix = SpreadsheetSortDialogComponent.ID_PREFIX + index + '-';
+        final String idPrefix = SpreadsheetSortDialogComponent.ID_PREFIX + "comparator-" + index + '-';
 
         final int count = spreadsheetComparatorNameAndDirections.size();
 
@@ -94,7 +94,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
                     .text();
 
             parent.appendChild(
-                    historyToken.link(idPrefix + "-remove-" + i)
+                    historyToken.link(idPrefix + "remove-" + i)
                             .setTextContent(text)
                             .setHistoryToken(
                                     Optional.of(
