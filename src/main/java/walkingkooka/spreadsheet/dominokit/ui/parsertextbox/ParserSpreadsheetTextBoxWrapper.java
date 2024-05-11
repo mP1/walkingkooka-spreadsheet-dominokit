@@ -25,6 +25,7 @@ import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -99,6 +100,12 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
         this.parserSpreadsheetTextBox()
                 .validate();
         return (C) this;
+    }
+
+    @Override
+    default List<String> errors() {
+        return this.parserSpreadsheetTextBox()
+                .errors();
     }
 
     @Override

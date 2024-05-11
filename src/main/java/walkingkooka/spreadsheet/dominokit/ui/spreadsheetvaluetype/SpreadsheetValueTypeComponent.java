@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -96,6 +97,11 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
 
     public Optional<String> helperText() {
         return this.select.helperText();
+    }
+
+    @Override
+    public List<String> errors() {
+        return this.select.errors();
     }
 
     @Override
