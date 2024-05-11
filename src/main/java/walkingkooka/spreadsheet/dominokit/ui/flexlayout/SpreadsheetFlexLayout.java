@@ -18,18 +18,30 @@
 package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
 
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.style.SpacingCss;
-import org.dominokit.domino.ui.utils.BaseDominoElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class SpreadsheetFlexLayout extends BaseDominoElement<HTMLDivElement, SpreadsheetFlexLayout> {
+public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout> {
 
-    public SpreadsheetFlexLayout() {
-        this.init(this);
+    public static SpreadsheetFlexLayout empty() {
+        return new SpreadsheetFlexLayout();
+    }
+
+    private SpreadsheetFlexLayout() {
+    }
+
+    public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
+        this.div.element()
+                .appendChild(
+                        child.element()
+                );
+        return this;
     }
 
     @Override
