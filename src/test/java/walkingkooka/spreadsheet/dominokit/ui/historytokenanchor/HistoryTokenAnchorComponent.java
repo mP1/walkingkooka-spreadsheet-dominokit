@@ -300,5 +300,10 @@ public final class HistoryTokenAnchorComponent implements IsElement<Element>,
         this.menu = menu;
     }
 
+    @Override
+    public Optional<SpreadsheetContextMenu> spreadsheetContextMenu() {
+        return Optional.ofNullable(this.menu);
+    }
+
     private SpreadsheetContextMenu menu;
 }

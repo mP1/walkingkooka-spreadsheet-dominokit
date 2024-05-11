@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 
+import java.util.Optional;
+
 /**
  * The parent component for a {@link SpreadsheetContextMenu}
  */
@@ -29,4 +31,10 @@ public interface SpreadsheetContextMenuTarget<E extends Element> extends IsEleme
      * Called by the {@link SpreadsheetContextMenu} when given this target.
      */
     void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu);
+
+
+    /**
+     * Getter that returns any present {@link SpreadsheetContextMenu}
+     */
+    Optional<SpreadsheetContextMenu> spreadsheetContextMenu();
 }

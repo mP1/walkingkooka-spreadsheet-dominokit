@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 import elemental2.dom.Element;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetContextMenuTarget} that wraps an {@link Element}.
@@ -40,8 +41,15 @@ public final class ElementSpreadsheetContextMenuTarget implements SpreadsheetCon
 
     @Override
     public void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu) {
-        // TODO
+        this.menu = menu;
     }
+
+    @Override
+    public Optional<SpreadsheetContextMenu> spreadsheetContextMenu() {
+        return Optional.ofNullable(this.menu);
+    }
+
+    private SpreadsheetContextMenu menu;
 
     // IsElement........................................................................................................
 
