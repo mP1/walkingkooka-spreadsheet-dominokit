@@ -40,7 +40,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellDateFormat() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/format-pattern/date", // historyToken
                 "dd/mm/yyyy",
                 SpreadsheetPattern::parseDateFormatPattern,
@@ -64,7 +64,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testMetadataDateFormat() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/date-format-pattern", // historyToken
                 "dd/mm/yyyy",
                 SpreadsheetPattern::parseDateFormatPattern,
@@ -90,7 +90,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellDateParse() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/parse-pattern/date", // historyToken
                 "dd/mm/yyyy",
                 SpreadsheetPattern::parseDateParsePattern,
@@ -114,7 +114,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testMetadataDateParse() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/date-parse-pattern", // historyToken
                 "dd/mm/yyyy",
                 SpreadsheetPattern::parseDateParsePattern,
@@ -140,7 +140,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellDateTimeFormat() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/format-pattern/date-time", // historyToken
                 "dd/mm/yyyy hh:mm:ss",
                 SpreadsheetPattern::parseDateTimeFormatPattern,
@@ -176,7 +176,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testMetadataDateTimeFormat() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/date-time-format-pattern", // historyToken
                 "dd/mm/yyyy hh:mm:ss",
                 SpreadsheetPattern::parseDateTimeFormatPattern,
@@ -214,7 +214,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellDateTimeParse() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/parse-pattern/date-time", // historyToken
                 "dd/mm/yyyy hh:mm:ss",
                 SpreadsheetPattern::parseDateTimeParsePattern,
@@ -250,7 +250,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testMetadataDateTimeParse() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/date-time-parse-pattern", // historyToken
                 "dd/mm/yyyy hh:mm:ss",
                 SpreadsheetPattern::parseDateTimeParsePattern,
@@ -288,7 +288,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellNumberFormat() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/format-pattern/number", // historyToken
                 "$#.00",
                 SpreadsheetPattern::parseNumberFormatPattern,
@@ -310,7 +310,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testMetadataNumberFormat() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/number-format-pattern", // historyToken
                 "$#.00",
                 SpreadsheetPattern::parseNumberFormatPattern,
@@ -334,7 +334,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellNumberParse() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/parse-pattern/number", // historyToken
                 "$#.00",
                 SpreadsheetPattern::parseNumberParsePattern,
@@ -356,7 +356,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testMetadataNumberParse() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/number-parse-pattern", // historyToken
                 "$#.00",
                 SpreadsheetPattern::parseNumberParsePattern,
@@ -380,7 +380,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellTextFormatAtSign() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/format-pattern/text", // historyToken
                 "@",
                 SpreadsheetPattern::parseTextFormatPattern,
@@ -395,7 +395,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellTextFormatIncludesLiteral() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/format-pattern/text", // historyToken
                 "\"Hello\" @",
                 SpreadsheetPattern::parseTextFormatPattern,
@@ -411,7 +411,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     @Test
     public void testMetadataTextFormatAtSign() {
         //http://localhost:12345/index.html#/1/Untitled/metadata/date-format-pattern
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/text-format-pattern", // historyToken
                 "@",
                 SpreadsheetPattern::parseTextFormatPattern,
@@ -428,7 +428,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellTimeFormat() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/format-pattern/time", // historyToken
                 "hh:mm:ss",
                 SpreadsheetPattern::parseTimeFormatPattern,
@@ -453,7 +453,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testMetadataTimeFormat() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/time-format-pattern", // historyToken
                 "hh:mm:ss",
                 SpreadsheetPattern::parseTimeFormatPattern,
@@ -480,7 +480,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testCellTimeParse() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/cell/A1/parse-pattern/time", // historyToken
                 "hh:mm:ss",
                 SpreadsheetPattern::parseTimeParsePattern,
@@ -505,7 +505,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     @Test
     public void testMetadataTimeParse() {
-        this.recreateRefreshLinksAndCheck(
+        this.refreshAndCheck(
                 "/1/Untitled/metadata/time-parse-pattern", // historyToken
                 "hh:mm:ss",
                 SpreadsheetPattern::parseTimeParsePattern,
@@ -530,14 +530,14 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
 
     // helpers..........................................................................................................
 
-    private void recreateRefreshLinksAndCheck(final String historyToken,
-                                              final String patternText,
-                                              final Function<String, SpreadsheetPattern> patternParser,
-                                              final String expected) {
+    private void refreshAndCheck(final String historyToken,
+                                 final String patternText,
+                                 final Function<String, SpreadsheetPattern> patternParser,
+                                 final String expected) {
         final SpreadsheetPatternComponentElementAppender component = SpreadsheetPatternComponentElementAppender.empty();
         final SpreadsheetPatternDialogComponentContext context = this.context(historyToken);
 
-        component.recreate(
+        component.refresh(
                 RECREATE_NULL_CONSUMER,
                 context
         );

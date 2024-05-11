@@ -351,7 +351,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 this.spreadsheetPatternKinds(),
                 componentContext
         );
-        this.elementAppender.recreate(
+        this.elementAppender.refresh(
                 this::setPatternText,
                 componentContext
         );

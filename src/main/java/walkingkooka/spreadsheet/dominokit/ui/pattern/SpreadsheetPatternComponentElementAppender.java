@@ -58,9 +58,9 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
      * Uses the current {@link SpreadsheetPatternKind} to recreates all links for each and every pattern for each and every {@link SpreadsheetFormatParserTokenKind}.
      * Note a few {@link SpreadsheetFormatParserTokenKind} are skipped for now for technical and other reasons.
      */
-    void recreate(final Consumer<String> setPatternText,
-                  final SpreadsheetPatternDialogComponentContext context) {
-        context.debug(this.getClass().getSimpleName() + ".recreate");
+    void refresh(final Consumer<String> setPatternText,
+                 final SpreadsheetPatternDialogComponentContext context) {
+        context.debug(this.getClass().getSimpleName() + ".refresh");
 
         final SpreadsheetCard parent = this.parent.clear();
         final List<SpreadsheetPatternComponentElementAppenderLink> links = this.links;
