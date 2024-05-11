@@ -54,17 +54,30 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     }
 
     /**
-     * Clears existing links and recreates a link that will remove an individual component of the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
-     */
-    /**
      * Creates links to append each of the {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName} that are missing from the current {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
      */
-    void refresh(final SpreadsheetColumnOrRowReference columnOrRow,
+    void refresh(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                  final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard parent = this.parent;
         parent.clear();
+
+        if (columnOrRow.isPresent()) {
+            this.refresh0(
+                    columnOrRow.get(),
+                    spreadsheetComparatorNameAndDirections,
+                    columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                    context
+            );
+        }
+    }
+
+    void refresh0(final SpreadsheetColumnOrRowReference columnOrRow,
+                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                  final SpreadsheetSortDialogComponentContext context) {
+        final SpreadsheetCard parent = this.parent;
 
         final HistoryToken historyToken = context.historyToken();
 
