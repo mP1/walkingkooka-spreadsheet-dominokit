@@ -85,12 +85,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
      * Creates a {@link SpreadsheetFlexLayout} and populates it with the toolbar icons etc.
      */
     private SpreadsheetFlexLayout createFlexLayout() {
-        final SpreadsheetFlexLayout flexLayout = new SpreadsheetFlexLayout();
+        final SpreadsheetFlexLayout flexLayout = SpreadsheetFlexLayout.empty();
 
         for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
-            flexLayout.appendChild(
-                    component.element()
-            );
+            flexLayout.appendChild(component);
         }
 
         return flexLayout;
