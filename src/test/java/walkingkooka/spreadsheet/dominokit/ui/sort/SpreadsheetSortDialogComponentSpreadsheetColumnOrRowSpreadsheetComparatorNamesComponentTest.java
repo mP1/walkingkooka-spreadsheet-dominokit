@@ -63,9 +63,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
                         "          Append comparator(s)\n" +
-                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n"
+                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-0-Link\n" +
+                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-1-Link\n" +
+                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-2-Link\n"
         );
     }
 
@@ -83,9 +83,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
                         "          Append comparator(s)\n" +
-                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n"
+                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-0-Link\n" +
+                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-1-Link\n" +
+                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-2-Link\n"
         );
     }
 
@@ -103,9 +103,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
                         "          Append comparator(s)\n" +
-                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n"
+                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-0-Link\n" +
+                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-1-Link\n" +
+                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-2-Link\n"
         );
     }
 
@@ -123,13 +123,13 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
                         "          Append comparator(s)\n" +
-                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
+                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-0-Link\n" +
+                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-1-Link\n" +
                         "    SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
                         "          Remove comparator(s)\n" +
-                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit]\n"
+                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit] id=sort-1--remove-0-Link\n"
         );
     }
 
@@ -147,13 +147,13 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
                         "          Append comparator(s)\n" +
-                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
+                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--append-0-Link\n" +
                         "    SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
                         "          Remove comparator(s)\n" +
-                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n"
+                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--remove-0-Link\n" +
+                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--remove-1-Link\n"
         );
     }
 
@@ -171,9 +171,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
                         "          Remove comparator(s)\n" +
-                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n" +
-                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right]\n"
+                        "            \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--remove-0-Link\n" +
+                        "            \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--remove-1-Link\n" +
+                        "            \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right] id=sort-1--remove-2-Link\n"
         );
     }
 

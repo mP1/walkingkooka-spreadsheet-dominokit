@@ -55,6 +55,8 @@ final class HistoryTokenAnchorComponentToString {
                 .value(component.target())
                 .value(component.isChecked() ? "CHECKED" : "")
                 .value(component.iconAfter().map(Icon::getName))
+                .label("id")
+                .value(component.id())
                 .build();
     }
 

@@ -155,11 +155,10 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                                 )
                         ).setTextContent(
                                 "Text789"
-                        )
-                        .setHref(
+                        ).setHref(
                                 Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
-                        ),
-                "IconBefore456 \"Text789\" [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123"
+                        ).setId("id789"),
+                "IconBefore456 \"Text789\" [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123 id=id789"
         );
     }
 

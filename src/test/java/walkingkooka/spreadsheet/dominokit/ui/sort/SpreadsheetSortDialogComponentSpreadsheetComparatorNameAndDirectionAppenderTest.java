@@ -70,9 +70,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append comparator(s)\n" +
-                        "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-1]\n" +
-                        "        \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-2]\n" +
-                        "        \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-3]\n"
+                        "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-1] id=sort-0--append-0-Link\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-2] id=sort-0--append-1-Link\n" +
+                        "        \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B%3Dtext%2CA%3Dcomparator-3] id=sort-0--append-2-Link\n"
         );
     }
 
@@ -89,8 +89,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append comparator(s)\n" +
-                        "        \"comparator-1\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C%3Dcomparator-3%2Ccomparator-1]\n" +
-                        "        \"comparator-2\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C%3Dcomparator-3%2Ccomparator-2]\n"
+                        "        \"comparator-1\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C%3Dcomparator-3%2Ccomparator-1] id=sort-1--append-0-Link\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C%3Dcomparator-3%2Ccomparator-2] id=sort-1--append-1-Link\n"
         );
     }
 
@@ -107,8 +107,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append comparator(s)\n" +
-                        "        \"comparator-1\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3%3Dcomparator-3%2Ccomparator-1]\n" +
-                        "        \"comparator-2\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3%3Dcomparator-3%2Ccomparator-2]\n"
+                        "        \"comparator-1\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3%3Dcomparator-3%2Ccomparator-1] id=sort-1--append-0-Link\n" +
+                        "        \"comparator-2\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3%3Dcomparator-3%2Ccomparator-2] id=sort-1--append-1-Link\n"
         );
     }
 
