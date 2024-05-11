@@ -436,5 +436,14 @@ public final class HistoryTokenAnchorComponent implements HtmlElementComponent<H
     @Override
     public void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu) {
         Objects.requireNonNull(menu, "menu");
+
+        this.menu = menu;
     }
+
+    @Override
+    public Optional<SpreadsheetContextMenu> spreadsheetContextMenu() {
+        return Optional.ofNullable(this.menu);
+    }
+
+    private SpreadsheetContextMenu menu;
 }
