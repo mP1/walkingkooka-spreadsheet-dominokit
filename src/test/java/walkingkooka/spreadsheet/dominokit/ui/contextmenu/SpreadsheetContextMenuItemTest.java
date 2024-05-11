@@ -41,7 +41,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
     public void testTreePrint() {
         this.treePrintAndCheck(
                 SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123"),
-                "id1-MenuItem \"text-123\"\n"
+                "\"text-123\" id=id1-MenuItem\n"
         );
     }
 
@@ -52,7 +52,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                         .badge(
                                 Optional.of("Badge-123")
                         ),
-                "id1-MenuItem \"text-123\" [Badge-123]\n"
+                "\"text-123\" [Badge-123] id=id1-MenuItem\n"
         );
     }
 
@@ -61,7 +61,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
         this.treePrintAndCheck(
                 SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
                         .checked(true),
-                "id1-MenuItem \"text-123\" CHECKED\n"
+                "\"text-123\" CHECKED id=id1-MenuItem\n"
         );
     }
 
@@ -75,7 +75,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                                         HistoryToken.parse(UrlFragment.with("/1/Spreadsheet-name-2/cell/A1:B2/cell"))
                                 )
                         ),
-                "id1-MenuItem \"text-123\" [disabled /1/Spreadsheet-name-2/cell/A1:B2/bottom-right]\n"
+                "\"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] DISABLED id=id1-MenuItem\n"
         );
     }
 
@@ -88,7 +88,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                                         HistoryToken.parse(UrlFragment.with("/1/Spreadsheet-name-2/cell/A1:B2/cell"))
                                 )
                         ),
-                "id1-MenuItem \"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right]\n"
+                "\"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] id=id1-MenuItem\n"
         );
     }
 
@@ -101,7 +101,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                                         SpreadsheetIcons.alignLeft()
                                 )
                         ),
-                "(mdi-format-align-left) id1-MenuItem \"text-123\"\n"
+                "(mdi-format-align-left) \"text-123\" id=id1-MenuItem\n"
         );
     }
 
@@ -123,7 +123,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                         ).key(
                                 "Key1"
                         ),
-                "(mdi-format-align-left) id1-MenuItem key=Key1 \"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] CHECKED [123]\n"
+                "(mdi-format-align-left) \"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] CHECKED [123] id=id1-MenuItem key=Key1 \n"
         );
     }
 
