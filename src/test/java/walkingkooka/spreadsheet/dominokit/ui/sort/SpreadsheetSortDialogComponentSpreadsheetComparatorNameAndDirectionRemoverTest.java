@@ -75,8 +75,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
+                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
+                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
         );
     }
 
@@ -89,8 +89,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dignored1%2Cignored2%3BB%3Dtext2]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/save/A%3Dignored1%2Cignored2%3BB%3Dtext1]\n"
+                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dignored1%2Cignored2%3BB%3Dtext2]\n" +
+                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A%3Dignored1%2Cignored2%3BB%3Dtext1]\n"
         );
     }
 
@@ -103,9 +103,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/save/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext2%2Ctext3]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/save/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext1%2Ctext3]\n" +
-                        "      \"text3\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/save/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext1%2Ctext2]\n"
+                        "      \"text1\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/edit/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext2%2Ctext3]\n" +
+                        "      \"text2\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/edit/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext1%2Ctext3]\n" +
+                        "      \"text3\" [#/1/spreadsheetName23/cell/A1:C3/bottom-right/sort/edit/A%3Dday-of-month%3BB%3Dmonth-of-year%3BC%3Dtext1%2Ctext2]\n"
         );
     }
 
@@ -120,8 +120,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/column/A:B/right/sort/save/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/column/A:B/right/sort/save/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
+                        "      \"text1\" [#/1/spreadsheetName23/column/A:B/right/sort/edit/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
+                        "      \"text2\" [#/1/spreadsheetName23/column/A:B/right/sort/edit/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
         );
     }
 
@@ -136,8 +136,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      \"text1\" [#/1/spreadsheetName23/row/1:2/bottom/sort/save/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
-                        "      \"text2\" [#/1/spreadsheetName23/row/1:2/bottom/sort/save/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
+                        "      \"text1\" [#/1/spreadsheetName23/row/1:2/bottom/sort/edit/A%3Dtext2%3BB%3Dignored1%2Cignored2]\n" +
+                        "      \"text2\" [#/1/spreadsheetName23/row/1:2/bottom/sort/edit/A%3Dtext1%3BB%3Dignored1%2Cignored2]\n"
         );
     }
 

@@ -83,7 +83,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
                                 .setTextContent(comparatorNameAndDirections.toString())
                                 .setHistoryToken(
                                         Optional.of(
-                                                historyToken.setSave(
+                                                historyToken.setSortEdit(
                                                         namesList.replace(
                                                                 index,
                                                                 removed
