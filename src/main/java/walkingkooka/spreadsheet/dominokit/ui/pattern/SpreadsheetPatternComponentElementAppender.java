@@ -66,6 +66,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
         final List<SpreadsheetPatternComponentElementAppenderLink> links = this.links;
         links.clear();
 
+        int i = 0;
         for (final SpreadsheetFormatParserTokenKind formatParserTokenKind : context.patternKind().spreadsheetFormatParserTokenKinds()) {
 
             switch (formatParserTokenKind) {
@@ -85,7 +86,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                                 .setId(
                                         SpreadsheetPatternDialogComponent.ID_PREFIX +
                                                 "append-" +
-                                                pattern +
+                                                i +
                                                 SpreadsheetIds.LINK
                                 ).setTextContent(pattern);
                         anchor.addClickAndKeydownEnterListener(
@@ -108,6 +109,8 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                                 )
                         );
                         parent.appendChild(anchor);
+
+                        i++;
                     }
                     break;
             }
