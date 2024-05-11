@@ -52,7 +52,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "", // columnOrRow
                 "", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n"
+                ""
         );
     }
 

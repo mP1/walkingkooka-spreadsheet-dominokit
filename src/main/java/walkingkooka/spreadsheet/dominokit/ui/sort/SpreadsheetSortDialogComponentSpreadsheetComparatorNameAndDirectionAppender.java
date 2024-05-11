@@ -152,14 +152,19 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
 
     // TreePrintable....................................................................................................
 
+    /**
+     * If there are no links, nothing will be printed.
+     */
     @Override
     public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            this.parent.printTree(printer);
-            printer.lineStart();
+        if (false == this.parent.isEmpty()) {
+            printer.println(this.getClass().getSimpleName());
+            printer.indent();
+            {
+                this.parent.printTree(printer);
+                printer.lineStart();
+            }
+            printer.outdent();
         }
-        printer.outdent();
     }
 }
