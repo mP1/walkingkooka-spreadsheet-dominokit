@@ -63,26 +63,22 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetColumnRowInsertCountDialogComponentContext context = this.context;
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID,
-                context.dialogTitle(),
-                true, // includeClose
-                context
-        );
 
-        dialog.appendChild(this.count);
-
-        dialog.appendChild(
-                SpreadsheetFlexLayout.emptyRow()
-                        .appendChild(this.go)
-                        .appendChild(
-                                this.closeAnchor(
-                                        context.historyToken()
+        return SpreadsheetDialogComponent.with(
+                        ID,
+                        context.dialogTitle(),
+                        true, // includeClose
+                        context
+                ).appendChild(this.count)
+                .appendChild(
+                        SpreadsheetFlexLayout.emptyRow()
+                                .appendChild(this.go)
+                                .appendChild(
+                                        this.closeAnchor(
+                                                context.historyToken()
+                                        )
                                 )
-                        )
-        );
-
-        return dialog;
+                );
     }
 
     private final SpreadsheetDialogComponent dialog;
