@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -29,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -125,7 +125,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
         dialog.appendChild(patternTextBox);
 
         dialog.appendChild(
-                ElementsFactory.elements.div()
+                SpreadsheetFlexLayout.emptyRow()
                         .appendChild(this.save)
                         .appendChild(this.undo)
                         .appendChild(this.clear)
