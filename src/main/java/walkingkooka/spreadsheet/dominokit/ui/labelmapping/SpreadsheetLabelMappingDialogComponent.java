@@ -87,29 +87,24 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetLabelMappingDialogComponentContext context = this.context;
 
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID,
-                "Label",
-                true, // includeClose
-                context
-        );
-
-        dialog.appendChild(this.label);
-        dialog.appendChild(this.target);
-
-        dialog.appendChild(
-                SpreadsheetFlexLayout.emptyRow()
-                        .appendChild(this.save)
-                        .appendChild(this.undo)
-                        .appendChild(this.delete)
-                        .appendChild(
-                                this.closeAnchor(
-                                        context.historyToken()
+        return SpreadsheetDialogComponent.with(
+                        ID,
+                        "Label",
+                        true, // includeClose
+                        context
+                ).appendChild(this.label)
+                .appendChild(this.target)
+                .appendChild(
+                        SpreadsheetFlexLayout.emptyRow()
+                                .appendChild(this.save)
+                                .appendChild(this.undo)
+                                .appendChild(this.delete)
+                                .appendChild(
+                                        this.closeAnchor(
+                                                context.historyToken()
+                                        )
                                 )
-                        )
-        );
-
-        return dialog;
+                );
     }
 
     private final SpreadsheetDialogComponent dialog;
