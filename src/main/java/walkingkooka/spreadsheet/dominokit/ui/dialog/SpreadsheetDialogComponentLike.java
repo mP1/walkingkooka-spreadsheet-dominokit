@@ -34,6 +34,12 @@ public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTM
      */
     void setTitle(final String title);
 
+
+    /**
+     * Getter that returns the current title
+     */
+    String title();
+
     /**
      * Appends a new child to this {@link SpreadsheetDialogComponent}
      */

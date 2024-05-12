@@ -151,6 +151,11 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         this.navBar.setTitle(title);
     }
 
+    @Override
+    public String title() {
+        return this.navBar.getTitle();
+    }
+
     /**
      * Appends a child to the dialog.
      */
