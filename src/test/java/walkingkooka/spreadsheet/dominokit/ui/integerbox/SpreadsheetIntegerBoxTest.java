@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.integerbox;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetIntegerBoxTest implements ClassTesting<SpreadsheetIntegerBox>,
-        TreePrintableTesting {
+public final class SpreadsheetIntegerBoxTest implements ValueComponentTesting<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox> {
 
     @Test
     public void testTreePrint() {

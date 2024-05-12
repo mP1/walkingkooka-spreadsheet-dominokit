@@ -17,13 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.cellrangepath;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 
-public final class SpreadsheetCellRangeReferencePathComponentTest implements ClassTesting<SpreadsheetCellRangeReferencePathComponent>,
-        TreePrintableTesting {
+public final class SpreadsheetCellRangeReferencePathComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
 
     @Test
     public void testTreePrint() {

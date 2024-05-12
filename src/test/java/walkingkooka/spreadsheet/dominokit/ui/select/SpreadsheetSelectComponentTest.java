@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.select;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetSelectComponentTest implements ClassTesting<SpreadsheetSelectComponent<String>>,
-        TreePrintableTesting {
+public final class SpreadsheetSelectComponentTest implements ValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetSelectComponent<String>> {
 
     @Test
     public void testTreePrint() {
