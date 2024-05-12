@@ -23,13 +23,16 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
 /**
  * A specialized {@link ComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
  */
-public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle {
+public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle,
+        TreePrintable {
 
     /**
      * Getter that returns the {@link SpreadsheetDialogComponent}. This is required by the other default methods.
@@ -89,5 +92,18 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle 
     @Override
     default boolean shouldLogLifecycleChanges() {
         return false; // no need to log, dialog will disappear/appear is enough
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    default void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.dialog()
+                    .printTree(printer);
+        }
+        printer.outdent();
     }
 }
