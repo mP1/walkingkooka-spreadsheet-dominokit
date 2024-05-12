@@ -32,12 +32,26 @@ import walkingkooka.text.printer.TreePrintable;
 public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
         TreePrintable {
 
+    public static SpreadsheetFlexLayout emptyColumn() {
+        return new SpreadsheetFlexLayout()
+                .column();
+    }
+
     public static SpreadsheetFlexLayout emptyRow() {
         return new SpreadsheetFlexLayout()
                 .row();
     }
 
     private SpreadsheetFlexLayout() {
+    }
+
+    private SpreadsheetFlexLayout column() {
+        this.div.addCss(
+                SpacingCss.dui_flex_col,
+                //SpacingCss.dui_v_full,
+                SpacingCss.dui_items_start,
+                SpacingCss.dui_gap_4);
+        return this;
     }
 
     private SpreadsheetFlexLayout row() {
