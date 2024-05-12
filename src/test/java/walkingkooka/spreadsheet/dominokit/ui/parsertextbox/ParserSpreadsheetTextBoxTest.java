@@ -17,20 +17,19 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.parsertextbox;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ParserSpreadsheetTextBoxTest implements ClassTesting<ParserSpreadsheetTextBox<SpreadsheetCellReference>>,
-        TreePrintableTesting {
+public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, ParserSpreadsheetTextBox<SpreadsheetCellReference>> {
 
     @Test
     public void testWithNullFunctionFails() {

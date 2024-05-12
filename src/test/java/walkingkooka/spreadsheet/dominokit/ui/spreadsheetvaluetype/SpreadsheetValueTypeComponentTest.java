@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
-import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetValueTypeComponentTest implements ClassTesting<SpreadsheetValueTypeComponent>,
-        TreePrintableTesting {
+public final class SpreadsheetValueTypeComponentTest implements ValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetValueTypeComponent> {
 
     @Test
     public void testTreePrintWithoutValue() {
