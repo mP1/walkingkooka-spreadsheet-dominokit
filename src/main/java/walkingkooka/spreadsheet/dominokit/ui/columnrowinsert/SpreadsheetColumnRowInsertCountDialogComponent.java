@@ -94,10 +94,16 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
         return this.dialog;
     }
 
+    // id...............................................................................................................
+
     @Override
     public String idPrefix() {
         return ID_PREFIX;
     }
+
+    private final static String ID = "columnRowInsert";
+
+    private final static String ID_PREFIX = ID + "-";
 
     // SpreadsheetLabelComponent........................................................................................
 
@@ -157,12 +163,6 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     public void refresh(final AppContext context) {
         // NOP
     }
-
-    // UI...............................................................................................................
-
-    private final static String ID = "columnRowInsert";
-
-    private final static String ID_PREFIX = ID + "-";
 
     // Object..........................................................................................................
 
