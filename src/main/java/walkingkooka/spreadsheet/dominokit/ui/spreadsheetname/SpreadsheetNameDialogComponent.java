@@ -42,11 +42,6 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         SpreadsheetMetadataFetcherWatcher,
         NopFetcherWatcher {
 
-    final static String ID = "name";
-
-    final static String ID_PREFIX = ID + '-';
-
-
     public static SpreadsheetNameDialogComponent with(final SpreadsheetNameDialogComponentContext context) {
         return new SpreadsheetNameDialogComponent(
                 Objects.requireNonNull(context, "context")
@@ -105,10 +100,18 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetDialogComponent dialog;
 
+    // id...............................................................................................................
+
     @Override
     public String idPrefix() {
         return ID_PREFIX;
     }
+
+    final static String ID = "name";
+
+    final static String ID_PREFIX = ID + '-';
+
+    // name.............................................................................................................
 
     private SpreadsheetNameComponent name() {
         return SpreadsheetNameComponent.empty()
