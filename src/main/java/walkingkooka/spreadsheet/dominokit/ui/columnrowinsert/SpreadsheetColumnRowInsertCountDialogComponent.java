@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.columnrowinsert;
 
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.integerbox.SpreadsheetIntegerBox;
 
@@ -73,7 +73,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
         dialog.appendChild(this.count);
 
         dialog.appendChild(
-                ElementsFactory.elements.div()
+                SpreadsheetFlexLayout.emptyRow()
                         .appendChild(this.go)
                         .appendChild(
                                 this.closeAnchor(
