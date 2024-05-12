@@ -22,6 +22,7 @@ import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +32,8 @@ import java.util.Optional;
  */
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
         extends HtmlElementComponent<E, C>,
-        Value<Optional<V>> {
+        Value<Optional<V>>,
+        TreePrintable {
 
     C setId(final String id);
 
