@@ -144,10 +144,19 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
 
     private final SpreadsheetPatternDialogComponentContext context;
 
+    // ids..............................................................................................................
+
     @Override
     public final String idPrefix() {
         return ID_PREFIX;
     }
+
+    /**
+     * The ID assigned to the container TABLE element.
+     */
+    private final static String ID = "pattern";
+
+    final static String ID_PREFIX = ID + "-";
 
     // tabs............................................................................................................
 
@@ -393,15 +402,6 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 CaseKind.TITLE
         ).replace("Pattern", "pattern");
     }
-
-    // ids..............................................................................................................
-
-    /**
-     * The ID assigned to the container TABLE element.
-     */
-    private final static String ID = "pattern";
-
-    final static String ID_PREFIX = ID + "-";
 
     // @VisibleForTesting
     static String spreadsheetPatternKindId(final SpreadsheetPatternKind kind) {
