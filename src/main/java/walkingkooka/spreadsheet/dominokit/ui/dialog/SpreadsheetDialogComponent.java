@@ -165,8 +165,9 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
      * Appends a child to the dialog.
      */
     @Override
-    public void appendChild(final IsElement<?> child) {
+    public SpreadsheetDialogComponent appendChild(final IsElement<?> child) {
         this.dialog.appendChild(child);
+        return this;
     }
 
     /**

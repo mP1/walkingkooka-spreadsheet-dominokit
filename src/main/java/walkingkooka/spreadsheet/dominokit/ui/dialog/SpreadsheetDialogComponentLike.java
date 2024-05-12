@@ -48,7 +48,7 @@ public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTM
     /**
      * Appends a new child to this {@link SpreadsheetDialogComponent}
      */
-    void appendChild(final IsElement<?> child);
+    SpreadsheetDialogComponent appendChild(final IsElement<?> child);
 
     /**
      * Tests if the dialog is open.

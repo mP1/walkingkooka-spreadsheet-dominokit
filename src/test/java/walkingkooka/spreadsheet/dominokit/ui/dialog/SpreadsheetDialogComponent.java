@@ -105,9 +105,10 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
     private boolean includeClose;
 
     @Override
-    public void appendChild(final IsElement<?> child) {
+    public SpreadsheetDialogComponent appendChild(final IsElement<?> child) {
         Objects.requireNonNull(child, "child");
         this.children.add(child);
+        return this;
     }
 
     private List<IsElement<?>> children = Lists.array();
