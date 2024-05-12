@@ -30,6 +30,11 @@ public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTM
         TreePrintable {
 
     /**
+     * Getter that returns the ID.
+     */
+    String id();
+
+    /**
      * Sets a new title on the dialog.
      */
     void setTitle(final String title);
