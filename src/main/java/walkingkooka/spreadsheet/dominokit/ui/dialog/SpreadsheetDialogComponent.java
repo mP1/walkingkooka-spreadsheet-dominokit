@@ -36,7 +36,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A standard dialog model aialog component with support for title and close icon.
+ * A standard dialog model component with support for title and close icon.
  */
 public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent>,
         TreePrintable {
