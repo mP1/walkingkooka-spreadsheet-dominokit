@@ -29,6 +29,13 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentContexts implem
         return AppContextSpreadsheetColumnRowInsertCountDialogComponentContext.with(context);
     }
 
+    /**
+     * {@see FakeSpreadsheetColumnRowInsertCountDialogComponentContext}
+     */
+    public static SpreadsheetColumnRowInsertCountDialogComponentContext fake() {
+        return new FakeSpreadsheetColumnRowInsertCountDialogComponentContext();
+    }
+
     private SpreadsheetColumnRowInsertCountDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
