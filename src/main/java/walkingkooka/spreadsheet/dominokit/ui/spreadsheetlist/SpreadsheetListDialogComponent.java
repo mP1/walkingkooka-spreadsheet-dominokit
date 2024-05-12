@@ -114,26 +114,22 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListComponentContext context) {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID, // id
-                "Spreadsheet List", // title
-                false, // includeClose
-                context
-        );
-
-        dialog.appendChild(this.table);
-
-        dialog.appendChild(
-                SpreadsheetFlexLayout.emptyRow()
-                        .appendChild(
-                                HistoryToken.spreadsheetCreate()
-                                        .link(ID_PREFIX + "create")
-                                        .setTextContent("Create")
-                        ).appendChild(this.reload)
-                        .appendChild(this.count10)
-                        .appendChild(this.count20)
-        );
-        return dialog;
+        return SpreadsheetDialogComponent.with(
+                        ID, // id
+                        "Spreadsheet List", // title
+                        false, // includeClose
+                        context
+                ).appendChild(this.table)
+                .appendChild(
+                        SpreadsheetFlexLayout.emptyRow()
+                                .appendChild(
+                                        HistoryToken.spreadsheetCreate()
+                                                .link(ID_PREFIX + "create")
+                                                .setTextContent("Create")
+                                ).appendChild(this.reload)
+                                .appendChild(this.count10)
+                                .appendChild(this.count20)
+                );
     }
 
     @Override
