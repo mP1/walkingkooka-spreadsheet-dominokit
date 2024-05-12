@@ -45,10 +45,6 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
         NopFetcherWatcher,
         NopNoResponseWatcher {
 
-    final static String ID = "spreadsheet-list";
-
-    final static String ID_PREFIX = ID + '-';
-
     public static SpreadsheetListDialogComponent with(final SpreadsheetListComponentContext context) {
         Objects.requireNonNull(context, "context");
 
@@ -149,6 +145,17 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetListComponentContext context;
 
+    // id...............................................................................................................
+
+    @Override
+    public String idPrefix() {
+        return ID_PREFIX;
+    }
+
+    final static String ID = "spreadsheet-list";
+
+    final static String ID_PREFIX = ID + '-';
+
     // SpreadsheetMetadataFetcherWatcher................................................................................
 
     @Override
@@ -170,11 +177,6 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     }
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
-
-    @Override
-    public String idPrefix() {
-        return ID_PREFIX;
-    }
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
