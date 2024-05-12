@@ -102,7 +102,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         return ID_PREFIX;
     }
 
-    final static String ID = "name";
+    final static String ID = "spreadsheet-name";
 
     final static String ID_PREFIX = ID + '-';
 
@@ -110,7 +110,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetNameComponent name() {
         return SpreadsheetNameComponent.empty()
-                .setId(ID_PREFIX + "name")
+                .setId(ID_PREFIX + "TextBox") // SpreadsheetIds.TEXT_BOX
                 .addKeyupListener(
                         (e) -> this.onNameChange(this.name.value())
                 ).addChangeListener(
