@@ -71,22 +71,17 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     // dialog..........................................................................................................
 
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID,
-                "Sort",
-                true, // includeClose
-                this.context
-        );
-
-        dialog.appendChild(this.comparatorNamesList);
-
-        dialog.appendChild(
-                SpreadsheetFlexLayout.emptyRow()
-                        .appendChild(this.sort)
-                        .appendChild(this.close)
-        );
-
-        return dialog;
+        return SpreadsheetDialogComponent.with(
+                        ID,
+                        "Sort",
+                        true, // includeClose
+                        this.context
+                ).appendChild(this.comparatorNamesList)
+                .appendChild(
+                        SpreadsheetFlexLayout.emptyRow()
+                                .appendChild(this.sort)
+                                .appendChild(this.close)
+                );
     }
 
     @Override
