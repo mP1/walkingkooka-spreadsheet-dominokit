@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -33,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortSaveHistoryT
 import walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornameslist.SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 
 import java.util.Objects;
@@ -81,7 +81,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         dialog.appendChild(this.comparatorNamesList);
 
         dialog.appendChild(
-                ElementsFactory.elements.div()
+                SpreadsheetFlexLayout.emptyRow()
                         .appendChild(this.sort)
                         .appendChild(this.close)
         );
