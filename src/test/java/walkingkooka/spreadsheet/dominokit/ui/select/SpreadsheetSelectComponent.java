@@ -111,15 +111,18 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
 
     @Override
     public List<String> errors() {
-        return Lists.empty();
+        return Lists.immutable(this.errors);
     }
 
     @Override
     public SpreadsheetSelectComponent<T> setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
 
+        this.errors = Lists.immutable(errors);
         return this;
     }
+
+    private List<String> errors = Lists.empty();
 
     @Override
     public SpreadsheetSelectComponent<T> focus() {
