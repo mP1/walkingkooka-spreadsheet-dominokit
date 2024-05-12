@@ -33,11 +33,6 @@ public interface SpreadsheetDialogComponentLifecycleTesting<T extends Spreadshee
                 previous,
                 context
         );
-        this.checkEquals(
-                true,
-                dialog.isOpen(),
-                () -> "dialog must be open for " + context.historyToken()
-        );
         this.treePrintAndCheck(
                 dialog,
                 expected

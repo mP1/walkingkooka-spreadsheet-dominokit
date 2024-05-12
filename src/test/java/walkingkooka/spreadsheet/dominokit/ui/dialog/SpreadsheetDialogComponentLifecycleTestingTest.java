@@ -35,7 +35,34 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
     private final static HistoryToken HISTORY_TOKEN = HistoryToken.spreadsheetCreate();
 
     @Test
-    public void testOnHistoryTokenChangeAndCheck() {
+    public void testNoMatchedOnHistoryTokenChangeAndCheck() {
+        final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
+        this.onHistoryTokenChangeAndCheck(
+                table,
+                HistoryToken.unknown(
+                        UrlFragment.SLASH
+                ),
+                new FakeAppContext() {
+                    @Override
+                    public HistoryToken historyToken() {
+                        return HistoryToken.unknown(
+                                UrlFragment.parse("/unknown!")
+                        );
+                    }
+                },
+                "TestSpreadsheetDialogComponentLifecycle\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Title456\n" +
+                        "    id=id123 includeClose=true CLOSED\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [NOT onGiveFocus]\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [NOT refreshed]\n"
+        );
+    }
+
+    @Test
+    public void testMatchedOnHistoryTokenChangeAndCheck() {
         final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
         this.onHistoryTokenChangeAndCheck(
                 table,
@@ -63,8 +90,14 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
             TreePrintable {
 
         TestSpreadsheetDialogComponentLifecycle() {
-            this.onGiveFocus = SpreadsheetTextBox.empty();
-            this.refreshed = SpreadsheetTextBox.empty();
+            this.onGiveFocus = SpreadsheetTextBox.empty()
+                    .setValue(
+                            Optional.of("NOT onGiveFocus")
+                    );
+            this.refreshed = SpreadsheetTextBox.empty()
+                    .setValue(
+                            Optional.of("NOT refreshed")
+                    );
             this.dialog = SpreadsheetDialogComponent.with(
                             "id123",
                             "Title456",
