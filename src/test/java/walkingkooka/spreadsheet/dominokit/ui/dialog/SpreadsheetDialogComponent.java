@@ -77,12 +77,20 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
 
     private boolean open;
 
+    // title............................................................................................................
+
     @Override
     public void setTitle(final String title) {
         this.title = title;
     }
 
+    public String title() {
+        return this.title;
+    }
+
     private String title;
+
+    // id...............................................................................................................
 
     private String id;
 
