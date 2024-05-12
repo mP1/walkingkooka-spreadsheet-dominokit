@@ -84,6 +84,7 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
         this.title = title;
     }
 
+    @Override
     public String title() {
         return this.title;
     }
