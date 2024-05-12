@@ -18,28 +18,42 @@
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
+import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
-public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle> {
+public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<TestSpreadsheetDialogComponentLifecycle> {
+
+    private final static HistoryToken HISTORY_TOKEN = HistoryToken.spreadsheetCreate();
 
     @Test
-    public void testOpenAndRefreshAndCheck() {
+    public void testOnHistoryTokenChangeAndCheck() {
         final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
-        this.openAndRefreshAndCheck(
+        this.onHistoryTokenChangeAndCheck(
                 table,
-                AppContexts.fake(),
+                HistoryToken.unknown(
+                        UrlFragment.SLASH
+                ),
+                new FakeAppContext() {
+                    @Override
+                    public HistoryToken historyToken() {
+                        return HISTORY_TOKEN;
+                    }
+                },
                 "TestSpreadsheetDialogComponentLifecycle\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Title456\n" +
                         "    id=id123 includeClose=true\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [onGiveFocus]\n" +
                         "      SpreadsheetTextBox\n" +
                         "        [refreshed]\n"
         );
@@ -49,19 +63,25 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
             TreePrintable {
 
         TestSpreadsheetDialogComponentLifecycle() {
-            this.textBox = SpreadsheetTextBox.empty();
+            this.onGiveFocus = SpreadsheetTextBox.empty();
+            this.refreshed = SpreadsheetTextBox.empty();
             this.dialog = SpreadsheetDialogComponent.with(
-                    "id123",
-                    "Title456",
-                    true, // includeClose
-                    HistoryTokenContexts.fake()
-            );
-            this.dialog.appendChild(this.textBox);
+                            "id123",
+                            "Title456",
+                            true, // includeClose
+                            HistoryTokenContexts.fake()
+                    ).appendChild(this.onGiveFocus)
+                    .appendChild(this.refreshed);
         }
 
         @Override
-        public void openGiveFocus(AppContext context) {
+        public void openGiveFocus(final AppContext context) {
+            this.onGiveFocus.setValue(
+                    Optional.of("onGiveFocus")
+            );
         }
+
+        private SpreadsheetTextBox onGiveFocus;
 
         @Override
         public boolean shouldIgnore(final HistoryToken token) {
@@ -70,17 +90,17 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
 
         @Override
         public boolean isMatch(final HistoryToken token) {
-            return true;
+            return token.equals(HISTORY_TOKEN);
         }
 
         @Override
         public void refresh(final AppContext context) {
-            this.textBox.setValue(
+            this.refreshed.setValue(
                     Optional.of("refreshed")
             );
         }
 
-        private SpreadsheetTextBox textBox;
+        private SpreadsheetTextBox refreshed;
 
         @Override
         public SpreadsheetDialogComponent dialog() {

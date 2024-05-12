@@ -19,23 +19,25 @@ package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends ClassTesting<T>,
         TreePrintableTesting {
 
-    default void openAndRefreshAndCheck(final T dialog,
-                                        final AppContext context,
-                                        final String expected) {
-        dialog.open(context);
+    default void onHistoryTokenChangeAndCheck(final T dialog,
+                                              final HistoryToken previous,
+                                              final AppContext context,
+                                              final String expected) {
+        dialog.onHistoryTokenChange(
+                previous,
+                context
+        );
         this.checkEquals(
                 true,
                 dialog.isOpen(),
                 () -> "dialog must be open for " + context.historyToken()
         );
-
-        dialog.refresh(context);
-
         this.treePrintAndCheck(
                 dialog,
                 expected
