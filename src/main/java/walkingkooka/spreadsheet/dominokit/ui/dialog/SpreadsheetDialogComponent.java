@@ -245,15 +245,13 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         return this.dialog.toString();
     }
 
-    // TreePrintable..........................................................................................................
+    // TreePrintable....................................................................................................
 
     @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            printer.println(this.element().toString());
-        }
-        printer.outdent();
+    public void printTreeChildren(final IndentingPrinter printer) {
+        printer.println(
+                this.element()
+                        .toString()
+        );
     }
 }

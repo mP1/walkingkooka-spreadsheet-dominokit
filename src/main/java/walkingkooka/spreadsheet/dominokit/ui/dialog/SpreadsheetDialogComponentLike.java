@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.dialog;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 /**
@@ -69,4 +70,25 @@ public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTM
      * Closes or hides the dialog.
      */
     void close();
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    default void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            printer.println(this.title());
+            printer.println("id=" + this.id() + " includeClose=" + this.isTitleIncludeClose());
+
+            printer.indent();
+            {
+                this.printTreeChildren(printer);
+            }
+            printer.outdent();
+        }
+        printer.outdent();
+    }
+
+    void printTreeChildren(final IndentingPrinter printer);
 }

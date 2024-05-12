@@ -131,25 +131,13 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
     // TreePrintable....................................................................................................
 
     @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            printer.println(this.title);
-            printer.println("id=" + id + " includeClose=" + includeClose);
-
-            printer.indent();
-            {
-                for (final IsElement<?> child : this.children) {
-                    TreePrintable.printTreeOrToString(
-                            child,
-                            printer
-                    );
-                    printer.lineStart();
-                }
-            }
-            printer.outdent();
+    public void printTreeChildren(final IndentingPrinter printer) {
+        for (final IsElement<?> child : this.children) {
+            TreePrintable.printTreeOrToString(
+                    child,
+                    printer
+            );
+            printer.lineStart();
         }
-        printer.outdent();
     }
 }
