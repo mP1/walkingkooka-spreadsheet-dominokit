@@ -23,8 +23,10 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
-import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintable;
+
+import java.util.Optional;
 
 public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle> {
 
@@ -35,13 +37,27 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                 table,
                 AppContexts.fake(),
                 "TestSpreadsheetDialogComponentLifecycle\n" +
-                        "  opened\n" +
-                        "  refreshed\n"
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Title456\n" +
+                        "    id=id123 includeClose=true\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [refreshed]\n"
         );
     }
 
     final class TestSpreadsheetDialogComponentLifecycle implements SpreadsheetDialogComponentLifecycle,
             TreePrintable {
+
+        TestSpreadsheetDialogComponentLifecycle() {
+            this.textBox = SpreadsheetTextBox.empty();
+            this.dialog = SpreadsheetDialogComponent.with(
+                    "id123",
+                    "Title456",
+                    true, // includeClose
+                    HistoryTokenContexts.fake()
+            );
+            this.dialog.appendChild(this.textBox);
+        }
 
         @Override
         public void openGiveFocus(AppContext context) {
@@ -59,37 +75,23 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
 
         @Override
         public void refresh(final AppContext context) {
-            this.refreshed = true;
+            this.textBox.setValue(
+                    Optional.of("refreshed")
+            );
         }
 
-        private boolean refreshed;
+        private SpreadsheetTextBox textBox;
 
         @Override
         public SpreadsheetDialogComponent dialog() {
             return this.dialog;
         }
 
-        private SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                "id123",
-                "Title456",
-                true, // includeClose
-                HistoryTokenContexts.fake()
-        );
+        private SpreadsheetDialogComponent dialog;
 
         @Override
         public String idPrefix() {
             return "id123-";
-        }
-
-        @Override
-        public void printTree(final IndentingPrinter printer) {
-            printer.println(this.getClass().getSimpleName());
-            printer.indent();
-            {
-                printer.println(this.dialog().isOpen() ? "opened" : "");
-                printer.println(this.refreshed ? "refreshed" : "");
-            }
-            printer.outdent();
         }
     }
 
