@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -29,8 +28,7 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.List;
 import java.util.Objects;
 
-public final class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent>,
-        TreePrintable {
+public final class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike {
 
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
@@ -62,20 +60,24 @@ public final class SpreadsheetDialogComponent implements HtmlElementComponent<HT
 
     // main/SpreadsheetDialogComponent public members...................................................................
 
+    @Override
     public boolean isOpen() {
         return this.open;
     }
 
+    @Override
     public void open() {
         this.open = true;
     }
 
+    @Override
     public void close() {
         this.open = false;
     }
 
     private boolean open;
 
+    @Override
     public void setTitle(final String title) {
         this.title = title;
     }
@@ -86,6 +88,7 @@ public final class SpreadsheetDialogComponent implements HtmlElementComponent<HT
 
     private boolean includeClose;
 
+    @Override
     public void appendChild(final IsElement<?> child) {
         Objects.requireNonNull(child, "child");
         this.children.add(child);
