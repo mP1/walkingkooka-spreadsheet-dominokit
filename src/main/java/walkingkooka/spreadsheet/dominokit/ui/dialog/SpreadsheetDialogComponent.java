@@ -152,8 +152,9 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
      * Replaces the existing title with the new title.
      */
     @Override
-    public void setTitle(final String title) {
+    public SpreadsheetDialogComponent setTitle(final String title) {
         this.navBar.setTitle(title);
+        return this;
     }
 
     @Override
