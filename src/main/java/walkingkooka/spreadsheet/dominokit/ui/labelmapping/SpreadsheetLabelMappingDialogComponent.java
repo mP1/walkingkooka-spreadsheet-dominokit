@@ -121,10 +121,16 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         return this.dialog;
     }
 
+    // id...............................................................................................................
+
     @Override
     public String idPrefix() {
         return ID_PREFIX;
     }
+
+    private final static String ID = "labelMapping";
+
+    private final static String ID_PREFIX = ID + "-";
 
     // SpreadsheetLabelComponent........................................................................................
 
@@ -283,12 +289,6 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         this.undoTarget = mapping.map(SpreadsheetLabelMapping::target);
         this.refresh();
     }
-
-    // UI...............................................................................................................
-
-    private final static String ID = "labelMapping";
-
-    private final static String ID_PREFIX = ID + "-";
 
     // Object..........................................................................................................
 
