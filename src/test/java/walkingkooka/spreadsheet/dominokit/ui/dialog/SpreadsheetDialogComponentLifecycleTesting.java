@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
+import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -24,6 +25,27 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends ClassTesting<T>,
         TreePrintableTesting {
+
+    HistoryToken NOT_MATCHED = HistoryToken.parse(
+            UrlFragment.parse("/not-matched-123")
+    );
+
+    default void onHistoryTokenChangeAndCheck(final T dialog,
+                                              final AppContext context,
+                                              final String expected) {
+        this.checkEquals(
+                false,
+                dialog.isMatch(NOT_MATCHED),
+                () -> "should not be matched " + NOT_MATCHED
+        );
+
+        onHistoryTokenChangeAndCheck(
+                dialog,
+                NOT_MATCHED,
+                context,
+                expected
+        );
+    }
 
     default void onHistoryTokenChangeAndCheck(final T dialog,
                                               final HistoryToken previous,

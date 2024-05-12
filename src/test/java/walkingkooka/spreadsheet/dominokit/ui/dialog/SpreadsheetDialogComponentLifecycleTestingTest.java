@@ -39,9 +39,6 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
         this.onHistoryTokenChangeAndCheck(
                 table,
-                HistoryToken.unknown(
-                        UrlFragment.SLASH
-                ),
                 new FakeAppContext() {
                     @Override
                     public HistoryToken historyToken() {
@@ -66,9 +63,6 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
         this.onHistoryTokenChangeAndCheck(
                 table,
-                HistoryToken.unknown(
-                        UrlFragment.SLASH
-                ),
                 new FakeAppContext() {
                     @Override
                     public HistoryToken historyToken() {
