@@ -113,13 +113,16 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
 
     @Override
     public List<String> errors() {
-        return Lists.empty();
+        return this.errors;
     }
 
     @Override
     public SpreadsheetIntegerBox setErrors(final List<String> errors) {
+        this.errors = Lists.immutable(errors);
         return this;
     }
+
+    private List<String> errors = Lists.array();
 
     @Override
     public boolean isDisabled() {
