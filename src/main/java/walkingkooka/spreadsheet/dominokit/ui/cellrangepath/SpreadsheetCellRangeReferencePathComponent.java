@@ -113,6 +113,12 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
     }
 
     @Override
+    public SpreadsheetCellRangeReferencePathComponent setErrors(final List<String> errors) {
+        this.select.setErrors(errors);
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeReferencePathComponent focus() {
         this.select.focus();
         return this;

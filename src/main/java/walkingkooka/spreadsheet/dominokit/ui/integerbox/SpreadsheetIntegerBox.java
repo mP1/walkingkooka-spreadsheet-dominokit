@@ -307,6 +307,16 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         );
     }
 
+    @Override
+    public SpreadsheetIntegerBox setErrors(final List<String> errors) {
+        Objects.requireNonNull(errors, "errors");
+
+        this.integerBox.invalidate(
+                Lists.immutable(errors)
+        );
+        return this;
+    }
+
     // Object...........................................................................................................
 
     public String toString() {

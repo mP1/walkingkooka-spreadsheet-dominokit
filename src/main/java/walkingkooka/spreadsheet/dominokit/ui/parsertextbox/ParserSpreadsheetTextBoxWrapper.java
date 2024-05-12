@@ -109,6 +109,12 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     }
 
     @Override
+    default C setErrors(final List<String> errors) {
+        this.parserSpreadsheetTextBox()
+                .setErrors(errors);
+        return (C) this;
+    }
+    @Override
     default boolean isDisabled() {
         return this.parserSpreadsheetTextBox()
                 .isDisabled();

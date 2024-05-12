@@ -115,6 +115,13 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetSelectComponent<T> setErrors(final List<String> errors) {
+        Objects.requireNonNull(errors, "errors");
+
+        return this;
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> focus() {
         return this;
     }

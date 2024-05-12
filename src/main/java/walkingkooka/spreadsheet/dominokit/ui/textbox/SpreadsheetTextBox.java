@@ -295,6 +295,16 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         );
     }
 
+    @Override
+    public SpreadsheetTextBox setErrors(final List<String> errors) {
+        Objects.requireNonNull(errors, "errors");
+
+        this.textBox.invalidate(
+                Lists.immutable(errors)
+        );
+        return this;
+    }
+
     // Object...........................................................................................................
 
     public String toString() {

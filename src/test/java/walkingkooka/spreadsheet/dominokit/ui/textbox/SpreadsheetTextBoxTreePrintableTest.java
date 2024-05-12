@@ -121,6 +121,10 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             }
 
             @Override
+            public SpreadsheetTextBox setErrors(final List<String> errors) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
             public boolean isDisabled() {
                 return true;
             }
