@@ -25,13 +25,12 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.elements.DivElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextAlign;
@@ -41,8 +40,6 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
-import static org.dominokit.domino.ui.pagination.PaginationStyles.dui_pager;
 
 /**
  * A table where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
@@ -82,13 +79,13 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
         this.next = next(context);
         this.next.element().style.setProperty("float", "right");
 
-        final DivElement pager = ElementsFactory.elements.div()
-                .addCss(dui_pager)
-                .setWidth("100%");
-        pager.appendChild(this.previous);
-        pager.appendChild(this.next);
         this.table.element()
-                .appendChild(pager.element());
+                .appendChild(
+                        SpreadsheetFlexLayout.emptyRow()
+                                .appendChild(this.previous)
+                                .appendChild(this.next)
+                                .element()
+                );
 
         this.card.appendChild(table);
 
