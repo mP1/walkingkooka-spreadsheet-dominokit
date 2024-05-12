@@ -30,6 +30,10 @@ import java.util.Objects;
 public final class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
         TreePrintable {
 
+    public static SpreadsheetFlexLayout emptyColumn() {
+        return new SpreadsheetFlexLayout();
+    }
+
     public static SpreadsheetFlexLayout emptyRow() {
         return new SpreadsheetFlexLayout();
     }
