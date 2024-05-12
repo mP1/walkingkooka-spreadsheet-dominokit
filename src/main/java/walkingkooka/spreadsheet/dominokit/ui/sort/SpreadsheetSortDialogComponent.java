@@ -159,7 +159,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
                                     return list;
                                 }
-                        ));
+                        )
+        );
 
         this.refreshClose();
     }
