@@ -31,8 +31,7 @@ import java.util.stream.Collectors;
 /**
  * Provides a default {@link TreePrintable#printTree(IndentingPrinter)}.
  */
-public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFieldSetElement, T, V>, T> extends ValueComponent<HTMLFieldSetElement, T, V>,
-        TreePrintable {
+public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFieldSetElement, T, V>, T> extends ValueComponent<HTMLFieldSetElement, T, V> {
 
     // TreePrintable....................................................................................................
 

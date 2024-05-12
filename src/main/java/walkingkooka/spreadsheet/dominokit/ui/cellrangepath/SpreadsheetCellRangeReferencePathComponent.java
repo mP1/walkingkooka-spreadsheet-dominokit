@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
@@ -33,8 +32,7 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link SpreadsheetCellRangeReferencePath}.
  */
-public final class SpreadsheetCellRangeReferencePathComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent>,
-        TreePrintable {
+public final class SpreadsheetCellRangeReferencePathComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
 
     public static SpreadsheetCellRangeReferencePathComponent empty() {
         return new SpreadsheetCellRangeReferencePathComponent();

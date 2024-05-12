@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,8 +31,7 @@ import java.util.Optional;
  * A helper interface that implements delegator methods for a wrapped {@link ParserSpreadsheetTextBox}.
  */
 public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetTextBoxWrapper<C, T>, T extends HasText>
-        extends ValueComponent<HTMLFieldSetElement, T, C>,
-        TreePrintable {
+        extends ValueComponent<HTMLFieldSetElement, T, C> {
 
     @Override
     default C setId(final String id) {

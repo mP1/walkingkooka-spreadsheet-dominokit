@@ -31,6 +31,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
@@ -268,6 +269,13 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     }
 
     private final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox;
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        throw new UnsupportedOperationException();
+    }
 
     // Object...........................................................................................................
 
