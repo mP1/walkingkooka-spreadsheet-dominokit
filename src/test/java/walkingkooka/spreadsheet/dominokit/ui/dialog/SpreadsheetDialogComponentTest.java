@@ -30,7 +30,7 @@ public final class SpreadsheetDialogComponentTest implements TreePrintableTestin
         ClassTesting<SpreadsheetDialogComponent> {
 
     @Test
-    public void testTitleCloseableChildren() {
+    public void testOpenTitleCloseableChildren() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 "id123",
                 "Title456",
@@ -56,6 +56,8 @@ public final class SpreadsheetDialogComponentTest implements TreePrintableTestin
                         )
         );
 
+        dialog.open();
+
         this.treePrintAndCheck(
                 dialog,
                 "SpreadsheetDialogComponent\n" +
@@ -65,6 +67,33 @@ public final class SpreadsheetDialogComponentTest implements TreePrintableTestin
                         "      [Value111] id=TextBoxId111\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [Value222] id=TextBoxId222\n"
+        );
+    }
+
+    @Test
+    public void testClosedTitleCloseableChildren() {
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+                "id123",
+                "Title456",
+                true, // includeClose,
+                HistoryTokenContexts.fake()
+        ).appendChild(
+                SpreadsheetTextBox.empty()
+                        .setId("TextBoxId111")
+                        .setValue(
+                                Optional.of(
+                                        "Value111"
+                                )
+                        )
+        );
+
+        this.treePrintAndCheck(
+                dialog,
+                "SpreadsheetDialogComponent\n" +
+                        "  Title456\n" +
+                        "  id=id123 includeClose=true CLOSED\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Value111] id=TextBoxId111\n"
         );
     }
 
