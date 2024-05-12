@@ -143,6 +143,11 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
 
     private final HistoryTokenContext context;
 
+    @Override
+    public String id() {
+        return this.dialog.getId();
+    }
+
     /**
      * Replaces the existing title with the new title.
      */

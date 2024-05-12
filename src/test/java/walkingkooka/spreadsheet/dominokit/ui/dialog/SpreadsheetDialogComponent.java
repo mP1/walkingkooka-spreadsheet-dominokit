@@ -94,6 +94,13 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
 
     private String id;
 
+    @Override
+    public String id() {
+        return this.id;
+    }
+
+    // id...............................................................................................................
+
     private boolean includeClose;
 
     @Override
