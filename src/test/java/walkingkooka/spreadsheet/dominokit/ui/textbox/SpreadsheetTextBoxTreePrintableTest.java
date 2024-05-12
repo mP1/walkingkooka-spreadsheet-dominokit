@@ -63,10 +63,10 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
 
     @Test
     public void testTreePrintAlternateValues() {
-        class TestValueComponent implements ValueComponent<HTMLFieldSetElement, String, walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox>,
-                SpreadsheetTextBoxTreePrintable<walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox, String> {
+        class TestValueComponent implements ValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
+                SpreadsheetTextBoxTreePrintable<TestValueComponent, String> {
             @Override
-            public SpreadsheetTextBox setId(String id) {
+            public TestValueComponent setId(String id) {
                 throw new UnsupportedOperationException();
             }
 
@@ -76,7 +76,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             }
 
             @Override
-            public SpreadsheetTextBox setLabel(String label) {
+            public TestValueComponent setLabel(String label) {
                 throw new UnsupportedOperationException();
             }
 
@@ -86,22 +86,22 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             }
 
             @Override
-            public SpreadsheetTextBox setValue(final Optional<String> value) {
+            public TestValueComponent setValue(final Optional<String> value) {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox focus() {
+            public TestValueComponent focus() {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox optional() {
+            public TestValueComponent optional() {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox required() {
+            public TestValueComponent required() {
                 throw new UnsupportedOperationException();
             }
 
@@ -111,7 +111,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             }
 
             @Override
-            public SpreadsheetTextBox validate() {
+            public TestValueComponent validate() {
                 throw new UnsupportedOperationException();
             }
 
@@ -121,7 +121,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             }
 
             @Override
-            public SpreadsheetTextBox setErrors(final List<String> errors) {
+            public TestValueComponent setErrors(final List<String> errors) {
                 throw new UnsupportedOperationException();
             }
             @Override
@@ -130,37 +130,37 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             }
 
             @Override
-            public SpreadsheetTextBox setDisabled(final boolean disabled) {
+            public TestValueComponent setDisabled(final boolean disabled) {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox addChangeListener(final ChangeListener<Optional<String>> listener) {
+            public TestValueComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox addFocusListener(final EventListener listener) {
+            public TestValueComponent addFocusListener(final EventListener listener) {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox addKeydownListener(final EventListener listener) {
+            public TestValueComponent addKeydownListener(final EventListener listener) {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox addKeyupListener(final EventListener listener) {
+            public TestValueComponent addKeyupListener(final EventListener listener) {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox alwaysShowHelperText() {
+            public TestValueComponent alwaysShowHelperText() {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox setHelperText(final Optional<String> text) {
+            public TestValueComponent setHelperText(final Optional<String> text) {
                 throw new UnsupportedOperationException();
             }
 
@@ -170,12 +170,12 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             }
 
             @Override
-            public SpreadsheetTextBox hideMarginBottom() {
+            public TestValueComponent hideMarginBottom() {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public SpreadsheetTextBox removeBorders() {
+            public TestValueComponent removeBorders() {
                 throw new UnsupportedOperationException();
             }
 
