@@ -26,7 +26,6 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -46,6 +45,7 @@ import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeRefer
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangeReferencePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype.SpreadsheetValueTypeComponent;
@@ -60,9 +60,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
-
-import static org.dominokit.domino.ui.utils.Domino.div;
-import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
 
 /**
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
@@ -120,7 +117,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         dialog.appendChild(this.query);
 
         dialog.appendChild(
-                ElementsFactory.elements.div()
+                SpreadsheetFlexLayout.emptyRow()
                         .appendChild(this.find)
                         .appendChild(this.reset)
                         .appendChild(
@@ -131,11 +128,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         );
 
         dialog.appendChild(
-                div()
-                        .addCss(dui_p_2)
-                        .appendChild(
-                                this.dataTable()
-                        )
+                this.dataTable()
         );
 
         return dialog;
