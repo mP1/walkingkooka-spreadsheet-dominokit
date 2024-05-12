@@ -18,15 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
-import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
-public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<TestSpreadsheetDialogComponentLifecycle> {
+public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle> {
 
     @Test
     public void testOpenAndRefreshAndCheck() {
@@ -91,5 +91,20 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
             }
             printer.outdent();
         }
+    }
+
+    @Override
+    public void testTestNaming() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Class<TestSpreadsheetDialogComponentLifecycle> type() {
+        return TestSpreadsheetDialogComponentLifecycle.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
+import walkingkooka.reflect.ClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle & TreePrintable>
-        extends TreePrintableTesting {
+public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends ClassTesting<T>,
+        TreePrintableTesting {
 
     default void openAndRefreshAndCheck(final T dialog,
                                         final AppContext context,
