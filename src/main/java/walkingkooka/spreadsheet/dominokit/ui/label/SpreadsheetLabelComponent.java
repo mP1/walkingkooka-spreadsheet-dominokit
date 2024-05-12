@@ -126,6 +126,14 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     }
 
     @Override
+    public SpreadsheetLabelComponent setErrors(final List<String> errors) {
+        this.suggestBox.invalidate(
+                Lists.immutable(errors)
+        );
+        return this;
+    }
+
+    @Override
     public SpreadsheetLabelComponent focus() {
         this.suggestBox.focus();
         return this;

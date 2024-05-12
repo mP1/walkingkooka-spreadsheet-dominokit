@@ -106,6 +106,12 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetValueTypeComponent setErrors(final List<String> errors) {
+        this.select.setErrors(errors);
+        return this;
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent hideMarginBottom() {
         this.select.hideMarginBottom();
         return this;

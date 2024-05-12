@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -109,6 +110,16 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     @Override
     public List<String> errors() {
         return this.select.getErrors();
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> setErrors(final List<String> errors) {
+        Objects.requireNonNull(errors, "errors");
+
+        this.select.invalidate(
+                Lists.immutable(errors)
+        );
+        return this;
     }
 
     @Override

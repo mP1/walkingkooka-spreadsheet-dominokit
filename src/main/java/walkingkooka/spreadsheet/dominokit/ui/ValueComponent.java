@@ -97,6 +97,11 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
     List<String> errors();
 
     /**
+     * Sets or replaces any existing error messages.
+     */
+    C setErrors(final List<String> errors);
+
+    /**
      * Constant height for containers holding helper text.
      */
     String HELPER_TEXT_HEIGHT = "4em";

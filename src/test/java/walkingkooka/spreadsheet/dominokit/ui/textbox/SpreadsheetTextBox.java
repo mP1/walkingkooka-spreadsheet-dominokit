@@ -116,6 +116,12 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     }
 
     @Override
+    public SpreadsheetTextBox setErrors(final List<String> errors) {
+        Objects.requireNonNull(errors, "errors");
+        return this;
+    }
+
+    @Override
     public boolean isDisabled() {
         return this.disabled;
     }

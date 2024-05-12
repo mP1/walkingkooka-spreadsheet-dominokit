@@ -148,6 +148,11 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     @Override
+    public ParserSpreadsheetTextBox<T> setErrors(final List<String> errors) {
+        this.textBox.setErrors(errors);
+        return this;
+    }
+    @Override
     public ParserSpreadsheetTextBox<T> focus() {
         this.textBox.focus();
         return this;
