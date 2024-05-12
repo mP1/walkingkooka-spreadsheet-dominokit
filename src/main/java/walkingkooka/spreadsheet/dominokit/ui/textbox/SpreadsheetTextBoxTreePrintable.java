@@ -80,6 +80,18 @@ public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFi
             );
 
             this.treePrintAlternateValues(printer);
+
+            final List<String> errors = this.errors();
+            if (false == errors.isEmpty()) {
+                printer.println("Errors");
+                printer.indent();
+                {
+                    for (final String error : errors) {
+                        printer.println(error);
+                    }
+                }
+                printer.outdent();
+            }
         }
         printer.outdent();
     }

@@ -21,6 +21,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -62,7 +63,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     }
 
     @Test
-    public void testTreePrintAlternateValues() {
+    public void testTreePrintAlternateValuesAndErrors() {
         class TestValueComponent implements ValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
                 SpreadsheetTextBoxTreePrintable<TestValueComponent, String> {
             @Override
@@ -117,13 +118,17 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
 
             @Override
             public List<String> errors() {
-                throw new UnsupportedOperationException();
+                return Lists.of(
+                        "Error1a",
+                        "Error2b"
+                );
             }
 
             @Override
             public TestValueComponent setErrors(final List<String> errors) {
                 throw new UnsupportedOperationException();
             }
+
             @Override
             public boolean isDisabled() {
                 return true;
@@ -207,7 +212,10 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
                         "  Label123 [Value123] id=id123 helperText=\"HelperText123\" DISABLED REQUIRED\n" +
                         "    Value1a\n" +
                         "    Value2b\n" +
-                        "    Value3c\n"
+                        "    Value3c\n" +
+                        "  Errors\n" +
+                        "    Error1a\n" +
+                        "    Error2b\n"
         );
     }
 
