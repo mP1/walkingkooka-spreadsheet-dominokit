@@ -64,6 +64,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         return this;
     }
 
+    @Override
     public boolean isEmpty() {
         return this.empty;
     }
