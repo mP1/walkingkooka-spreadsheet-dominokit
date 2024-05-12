@@ -79,6 +79,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         } else {
             close = null;
         }
+        this.includeClose = includeClose;
         this.close = close;
 
         this.navBar = navBar;
@@ -161,6 +162,17 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     public String title() {
         return this.navBar.getTitle();
     }
+
+    // isTitleIncludesClose.............................................................................................
+
+    @Override
+    public boolean isTitleIncludeClose() {
+        return this.includeClose;
+    }
+
+    private boolean includeClose;
+
+    // appendChild......................................................................................................
 
     /**
      * Appends a child to the dialog.

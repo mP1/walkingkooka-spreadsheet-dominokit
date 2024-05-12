@@ -46,6 +46,11 @@ public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTM
     String title();
 
     /**
+     * Tests if the title includes a CLOSE X.
+     */
+    boolean isTitleIncludeClose();
+
+    /**
      * Appends a new child to this {@link SpreadsheetDialogComponent}
      */
     SpreadsheetDialogComponent appendChild(final IsElement<?> child);

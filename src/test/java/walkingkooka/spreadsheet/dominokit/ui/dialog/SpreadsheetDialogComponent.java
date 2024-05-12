@@ -101,9 +101,16 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
         return this.id;
     }
 
-    // id...............................................................................................................
+    // isTitleIncludesClose.............................................................................................
+
+    @Override
+    public boolean isTitleIncludeClose() {
+        return this.includeClose;
+    }
 
     private boolean includeClose;
+
+    // appendChild......................................................................................................
 
     @Override
     public SpreadsheetDialogComponent appendChild(final IsElement<?> child) {
