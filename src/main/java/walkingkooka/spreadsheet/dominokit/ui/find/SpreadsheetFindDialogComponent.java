@@ -104,34 +104,27 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private SpreadsheetDialogComponent dialogCreate() {
         final HistoryTokenContext context = this.context;
 
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID,
-                "Find",
-                true, // includeClose
-                context
-        );
-
-        dialog.appendChild(this.cellRange);
-        dialog.appendChild(this.path);
-        dialog.appendChild(this.valueType);
-        dialog.appendChild(this.query);
-
-        dialog.appendChild(
-                SpreadsheetFlexLayout.emptyRow()
-                        .appendChild(this.find)
-                        .appendChild(this.reset)
-                        .appendChild(
-                                this.closeAnchor(
-                                        context.historyToken()
+        return SpreadsheetDialogComponent.with(
+                        ID,
+                        "Find",
+                        true, // includeClose
+                        context
+                ).appendChild(this.cellRange)
+                .appendChild(this.path)
+                .appendChild(this.valueType)
+                .appendChild(this.query)
+                .appendChild(
+                        SpreadsheetFlexLayout.emptyRow()
+                                .appendChild(this.find)
+                                .appendChild(this.reset)
+                                .appendChild(
+                                        this.closeAnchor(
+                                                context.historyToken()
+                                        )
                                 )
-                        )
-        );
-
-        dialog.appendChild(
-                this.dataTable()
-        );
-
-        return dialog;
+                ).appendChild(
+                        this.dataTable()
+                );
     }
 
     private final SpreadsheetDialogComponent dialog;
