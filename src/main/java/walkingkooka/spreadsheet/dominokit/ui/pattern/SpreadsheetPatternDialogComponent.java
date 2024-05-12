@@ -105,34 +105,23 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetPatternDialogComponentContext context = this.context;
 
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID,
-                "Pattern", // will be replaced by refresh when "opened"
-                true, // includeClose
-                context
-        );
-
-        dialog.appendChild(this.tabs);
-
-        dialog.appendChild(
-                this.table
-        );
-
-        dialog.appendChild(this.elementRemover);
-        dialog.appendChild(this.elementAppender);
-
-        final SpreadsheetTextBox patternTextBox = this.patternTextBox;
-        dialog.appendChild(patternTextBox);
-
-        dialog.appendChild(
-                SpreadsheetFlexLayout.emptyRow()
-                        .appendChild(this.save)
-                        .appendChild(this.undo)
-                        .appendChild(this.clear)
-                        .appendChild(this.close)
-        );
-
-        return dialog;
+        return SpreadsheetDialogComponent.with(
+                        ID,
+                        "Pattern", // will be replaced by refresh when "opened"
+                        true, // includeClose
+                        context
+                ).appendChild(this.tabs)
+                .appendChild(this.table)
+                .appendChild(this.elementRemover)
+                .appendChild(this.elementAppender)
+                .appendChild(this.patternTextBox)
+                .appendChild(
+                        SpreadsheetFlexLayout.emptyRow()
+                                .appendChild(this.save)
+                                .appendChild(this.undo)
+                                .appendChild(this.clear)
+                                .appendChild(this.close)
+                );
     }
 
     @Override
