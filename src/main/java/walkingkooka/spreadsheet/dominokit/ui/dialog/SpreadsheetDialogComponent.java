@@ -25,12 +25,10 @@ import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -38,8 +36,7 @@ import java.util.Optional;
 /**
  * A standard dialog model component with support for title and close icon.
  */
-public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent>,
-        TreePrintable {
+public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike {
 
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
@@ -149,6 +146,7 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
     /**
      * Replaces the existing title with the new title.
      */
+    @Override
     public void setTitle(final String title) {
         this.navBar.setTitle(title);
     }
@@ -156,13 +154,15 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
     /**
      * Appends a child to the dialog.
      */
-    public void appendChild(final IsElement<?> is) {
-        this.dialog.appendChild(is);
+    @Override
+    public void appendChild(final IsElement<?> child) {
+        this.dialog.appendChild(child);
     }
 
     /**
      * Tests if the dialog is open.
      */
+    @Override
     public boolean isOpen() {
         return this.open;
     }
@@ -170,6 +170,7 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
     /**
      * Opens the modal dialog.
      */
+    @Override
     public void open() {
         this.open = true;
         this.dialog.open();
@@ -188,6 +189,7 @@ public class SpreadsheetDialogComponent implements HtmlElementComponent<HTMLDivE
     /**
      * Closes the modal dialog.
      */
+    @Override
     public void close() {
         this.open = false;
         this.dialog.close();
