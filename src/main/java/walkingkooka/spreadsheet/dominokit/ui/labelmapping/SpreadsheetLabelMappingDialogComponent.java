@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.labelmapping;
 
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -30,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.label.SpreadsheetLabelComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
@@ -98,7 +98,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         dialog.appendChild(this.target);
 
         dialog.appendChild(
-                ElementsFactory.elements.div()
+                SpreadsheetFlexLayout.emptyRow()
                         .appendChild(this.save)
                         .appendChild(this.undo)
                         .appendChild(this.delete)
