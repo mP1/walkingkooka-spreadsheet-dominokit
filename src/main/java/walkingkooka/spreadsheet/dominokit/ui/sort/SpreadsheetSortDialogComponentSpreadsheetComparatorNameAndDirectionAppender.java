@@ -91,7 +91,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
         final HistoryToken historyToken = context.historyToken();
 
         final int index = this.index;
-        final String idPrefix = SpreadsheetSortDialogComponent.ID_PREFIX + "comparator-" + index + '-';
+        final String idPrefix = SpreadsheetSortDialogComponent.comparatorIdPrefix(index);
 
         final Set<SpreadsheetComparatorName> existing = spreadsheetComparatorNameAndDirections.stream()
                 .map(nad -> nad.name())

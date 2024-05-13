@@ -82,7 +82,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
         final HistoryToken historyToken = context.historyToken();
 
         final int index = this.index;
-        final String idPrefix = SpreadsheetSortDialogComponent.ID_PREFIX + "comparator-" + index + '-';
+        final String idPrefix = SpreadsheetSortDialogComponent.comparatorIdPrefix(index);
 
         final int count = spreadsheetComparatorNameAndDirections.size();
 
