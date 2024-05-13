@@ -53,6 +53,24 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
     }
 
     @Test
+    public void testPrintTreeSetStringValueInvalidCharacter() {
+        this.treePrintAndCheck(
+                ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseCell)
+                        .setId("id123")
+                        .setStringValue(
+                                Optional.of(
+                                        "AB!12"
+                                )
+                        ),
+                "ParserSpreadsheetTextBox\n" +
+                        "  SpreadsheetTextBox\n" +
+                        "    [AB!12] id=id123\n" +
+                        "    Errors\n" +
+                        "      Invalid character '!' at 2\n"
+        );
+    }
+
+    @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
                 ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseCell)

@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.textbox;
 
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.InvalidCharacterException;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -52,6 +53,8 @@ final class SpreadsheetTextBoxStringParserValidator implements Validator<Optiona
                     value.orElse("")
             );
             result = ValidationResult.valid();
+        } catch (final InvalidCharacterException fail) {
+            result = ValidationResult.invalid(fail.getShortMessage());
         } catch (final Exception fail) {
             result = ValidationResult.invalid(fail.getMessage());
         }
