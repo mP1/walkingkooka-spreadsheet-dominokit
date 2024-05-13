@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.text.CharSequences;
 
 import java.util.List;
 
@@ -43,6 +44,22 @@ public interface ComponentWithErrors<T> {
      * Sets or replaces any existing error messages.
      */
     T setErrors(final List<String> errors);
+
+    /**
+     * Adds a new error to any existing errors only if it is a new message.
+     */
+    default T addError(final String error) {
+        CharSequences.failIfNullOrEmpty(error, "error");
+
+        final List<String> newErrors = Lists.array();
+        newErrors.addAll(this.errors());
+        if (false == newErrors.contains(error)) {
+            newErrors.add(error);
+            this.setErrors(newErrors);
+        }
+
+        return (T) this;
+    }
 
     /**
      * Clears any error messages, leaving no errors.
