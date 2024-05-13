@@ -80,7 +80,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ParserSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            [B=text] id=sort-comparatorNamesList\n" +
+                        "            [B=text] id=sort-comparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B%3Dtext] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -133,7 +133,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ParserSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            [B=text] id=sort-comparatorNamesList\n" +
+                        "            [B=text] id=sort-comparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/column/B:C/right/sort/save/B%3Dtext] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
@@ -186,7 +186,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ParserSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            [3=text] id=sort-comparatorNamesList\n" +
+                        "            [3=text] id=sort-comparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/row/3:4/bottom/sort/save/3%3Dtext] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/row/3:4/bottom] id=sort-close-Link\n"
