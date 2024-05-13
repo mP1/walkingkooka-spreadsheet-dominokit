@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.ui.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -35,7 +36,8 @@ import java.util.Optional;
  * {@link SpreadsheetTextBox}.
  */
 public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String> {
+        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String>,
+        ValidatorHelper {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();
@@ -71,7 +73,13 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     public SpreadsheetTextBox setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
         this.value = value;
-        return this;
+
+        return this.setErrors(
+                this.validateAndGetErrors(
+                        value,
+                        Optional.ofNullable(this.validator)
+                )
+        );
     }
 
     @Override
@@ -105,21 +113,37 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
 
     private boolean required;
 
+    public SpreadsheetTextBox setValidator(final Validator<Optional<String>> validator) {
+        this.validator = validator;
+        return this;
+    }
+
+    private Validator<Optional<String>> validator;
+
     @Override
     public SpreadsheetTextBox validate() {
+        this.validateAndGetErrors(
+                this.value,
+                Optional.ofNullable(
+                        this.validator
+                )
+        );
         return this;
     }
 
     @Override
     public List<String> errors() {
-        return Lists.empty();
+        return this.errors;
     }
 
     @Override
     public SpreadsheetTextBox setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
+        this.errors = Lists.immutable(errors);
         return this;
     }
+
+    private List<String> errors = Lists.empty();
 
     @Override
     public boolean isDisabled() {
@@ -191,10 +215,6 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     }
 
     public SpreadsheetTextBox enterFiresValueChange() {
-        return this;
-    }
-
-    public SpreadsheetTextBox setValidator(final Validator<Optional<String>> validator) {
         return this;
     }
 
