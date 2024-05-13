@@ -75,12 +75,12 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
-    public Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+    public Runnable addSpreadsheetLabelMappingFetcherWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+    public Runnable addSpreadsheetLabelMappingFetcherWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
