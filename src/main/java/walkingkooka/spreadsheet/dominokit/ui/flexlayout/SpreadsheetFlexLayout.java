@@ -73,6 +73,7 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
                 .appendChild(
                         child.element()
                 );
+        this.children.add(child);
         return this;
     }
 
@@ -81,7 +82,7 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
      */
     @Override
     public SpreadsheetFlexLayout removeChild(final int index) {
-        final IsElement<?> child = this.children.get(index);
+        final IsElement<?> child = this.children.remove(index);
         this.div.element()
                 .removeChild(child.element());
         return this;
