@@ -37,6 +37,14 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
     SpreadsheetFlexLayout appendChild(final IsElement<?> child);
 
     /**
+     * Getter that returns the child at index.
+     */
+    default IsElement<?> child(final int index) {
+        return this.children()
+                .get(index);
+    }
+
+    /**
      * Removes an existing child.
      */
     SpreadsheetFlexLayout removeChild(final int index);
