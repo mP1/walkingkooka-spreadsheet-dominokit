@@ -79,12 +79,12 @@ public final class BasicSpreadsheetListComponentContext implements SpreadsheetLi
     private final HistoryTokenContext historyTokenContext;
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.metadataFetcherWatchers.add(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
+    public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.metadataFetcherWatchers.addOnce(watcher);
     }
 

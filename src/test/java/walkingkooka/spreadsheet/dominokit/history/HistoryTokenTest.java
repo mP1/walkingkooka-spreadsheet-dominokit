@@ -4257,7 +4257,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             }
 
             @Override
-            public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
             }
 

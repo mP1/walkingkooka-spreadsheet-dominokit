@@ -95,7 +95,7 @@ public interface AppContext extends CanGiveFocus,
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(previous, "previous");
 
-        this.addSpreadsheetMetadataWatcherOnce(
+        this.addSpreadsheetMetadataFetcherWatcherOnce(
                 new SpreadsheetMetadataFetcherWatcher() {
 
                     @Override

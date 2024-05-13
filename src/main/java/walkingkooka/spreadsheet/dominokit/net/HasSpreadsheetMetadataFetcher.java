@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 public interface HasSpreadsheetMetadataFetcher {
-    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
+    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
-    Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher);
+    Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher);
 
     SpreadsheetMetadataFetcher spreadsheetMetadataFetcher();
 }

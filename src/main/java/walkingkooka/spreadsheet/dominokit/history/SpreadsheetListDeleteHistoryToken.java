@@ -90,7 +90,7 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
                 previous.clearAction()
         );
 
-        context.addSpreadsheetMetadataWatcherOnce(
+        context.addSpreadsheetMetadataFetcherWatcherOnce(
                 new SpreadsheetMetadataFetcherWatcher() {
                     @Override
                     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,

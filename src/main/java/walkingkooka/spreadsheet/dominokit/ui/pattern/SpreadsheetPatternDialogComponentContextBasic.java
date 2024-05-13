@@ -93,7 +93,7 @@ abstract class SpreadsheetPatternDialogComponentContextBasic implements Spreadsh
 
     @Override
     public final Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.context.addSpreadsheetMetadataWatcher(watcher);
+        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
     @Override

@@ -139,7 +139,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetLabelMappingFetcherWatcher(this);
-        context.addSpreadsheetMetadataWatcher(this);
+        context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
 
         this.recentFormatPatterns = this.recentPatternSaves(

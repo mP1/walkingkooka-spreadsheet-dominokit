@@ -67,7 +67,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         this.dialog = this.dialogCreate();
 
         if (context.shouldLoadSpreadsheetMetadata()) {
-            context.addSpreadsheetMetadataWatcher(this);
+            context.addSpreadsheetMetadataFetcherWatcher(this);
         }
     }
 

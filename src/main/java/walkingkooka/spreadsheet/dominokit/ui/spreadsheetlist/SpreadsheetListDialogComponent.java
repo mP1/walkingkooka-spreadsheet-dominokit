@@ -55,7 +55,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
         this.context = context;
 
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetMetadataWatcher(this);
+        context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.reload = this.reload();
 

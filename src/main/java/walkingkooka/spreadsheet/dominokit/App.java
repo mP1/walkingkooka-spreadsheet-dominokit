@@ -146,7 +146,7 @@ public class App implements EntryPoint,
                 this.metadataWatchers,
                 this
         );
-        this.addSpreadsheetMetadataWatcher(this);
+        this.addSpreadsheetMetadataFetcherWatcher(this);
 
         // delta
         this.spreadsheetDeltaWatchers = SpreadsheetDeltaFetcherWatchers.empty();
@@ -517,12 +517,12 @@ public class App implements EntryPoint,
     private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.metadataWatchers.add(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
+    public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.metadataWatchers.add(watcher);
     }
 

@@ -371,7 +371,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             }
 
             @Override
-            public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
             }
 

@@ -30,13 +30,13 @@ abstract class BasicSpreadsheetNameDialogComponentContext implements Spreadsheet
     }
 
     @Override
-    public final Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.context.addSpreadsheetMetadataWatcher(watcher);
+    public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
     @Override
-    public final Runnable addSpreadsheetMetadataWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.context.addSpreadsheetMetadataWatcherOnce(watcher);
+    public final Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.context.addSpreadsheetMetadataFetcherWatcherOnce(watcher);
     }
 
     @Override

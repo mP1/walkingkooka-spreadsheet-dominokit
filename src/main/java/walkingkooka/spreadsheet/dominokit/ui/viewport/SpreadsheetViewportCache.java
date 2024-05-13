@@ -95,7 +95,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaWatcher(this);
-        context.addSpreadsheetMetadataWatcher(this);
+        context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.spreadsheetId = null;
     }
