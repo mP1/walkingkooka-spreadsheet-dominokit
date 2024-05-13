@@ -22,35 +22,37 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A {@link Validator} that only sends non empty {@link String} to a wrapped {@link Validator}.
  * This has the effect of making string values optional.
  */
-final class SpreadsheetTextBoxOptionalValidator implements Validator<String> {
+final class SpreadsheetTextBoxOptionalValidator implements Validator<Optional<String>> {
 
     /**
      * Factory
      */
-    static SpreadsheetTextBoxOptionalValidator with(final Validator<String> validator) {
+    static SpreadsheetTextBoxOptionalValidator with(final Validator<Optional<String>> validator) {
         Objects.requireNonNull(validator, "validator");
 
         return new SpreadsheetTextBoxOptionalValidator(validator);
     }
 
-    private SpreadsheetTextBoxOptionalValidator(final Validator<String> validator) {
+    private SpreadsheetTextBoxOptionalValidator(final Validator<Optional<String>> validator) {
         super();
         this.validator = validator;
     }
 
     @Override
-    public ValidationResult isValid(final String value) {
-        return CharSequences.isNullOrEmpty(value) ?
+    public ValidationResult isValid(final Optional<String> value) {
+        // empty Optional or empty String are both missing
+        return value.isPresent() || CharSequences.isNullOrEmpty(value.get()) ?
                 ValidationResult.valid() :
                 this.validator.isValid(value);
     }
 
-    private final Validator<String> validator;
+    private final Validator<Optional<String>> validator;
 
     @Override
     public String toString() {

@@ -126,13 +126,13 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
 
     private boolean required;
 
-    public ParserSpreadsheetTextBox<T> setValidator(final Validator<String> validator) {
+    public ParserSpreadsheetTextBox<T> setValidator(final Validator<Optional<String>> validator) {
         this.textBox.setValidator(validator);
         this.validator = validator;
         return this;
     }
 
-    private Validator<String> validator;
+    private Validator<Optional<String>> validator;
 
     @Override
     public ParserSpreadsheetTextBox<T> validate() {
