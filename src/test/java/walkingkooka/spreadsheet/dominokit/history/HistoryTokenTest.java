@@ -4252,7 +4252,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             }
 
             @Override
-            public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
                 return null;
             }
 

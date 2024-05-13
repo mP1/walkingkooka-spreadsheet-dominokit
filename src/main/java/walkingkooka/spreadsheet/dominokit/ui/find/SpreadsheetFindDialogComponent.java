@@ -93,7 +93,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetDeltaWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
     }
 
     // dialog...........................................................................................................
