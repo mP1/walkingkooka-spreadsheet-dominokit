@@ -102,6 +102,12 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
     final static String ID_PREFIX = ID + "-";
 
+    static String comparatorIdPrefix(final int index) {
+        return COMPARATOR_ID_PREFIX + index + '-';
+    }
+
+    private final static String COMPARATOR_ID_PREFIX = ID_PREFIX + "comparator-";
+
     // lifecycle........................................................................................................
 
     @Override
