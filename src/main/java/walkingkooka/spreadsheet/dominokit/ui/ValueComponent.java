@@ -21,10 +21,8 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.text.printer.TreePrintable;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -32,6 +30,7 @@ import java.util.Optional;
  */
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
         extends HtmlElementComponent<E, C>,
+        ComponentWithErrors<ValueComponent<E, V, C>>,
         Value<Optional<V>>,
         TreePrintable {
 
@@ -93,23 +92,6 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
      * Getter that returns the current helper text.
      */
     Optional<String> helperText();
-
-    /**
-     * Getter that returns any current errors.
-     */
-    List<String> errors();
-
-    /**
-     * Sets or replaces any existing error messages.
-     */
-    C setErrors(final List<String> errors);
-
-    /**
-     * Clears any error messages, leaving no errors.
-     */
-    default C clearErrors() {
-        return this.setErrors(Lists.empty());
-    }
 
     /**
      * Constant height for containers holding helper text.
