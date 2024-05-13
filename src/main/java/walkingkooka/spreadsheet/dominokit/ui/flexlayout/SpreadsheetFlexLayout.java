@@ -22,9 +22,12 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.style.SpacingCss;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+
+import java.util.List;
 
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
@@ -43,6 +46,7 @@ public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElemen
     }
 
     private SpreadsheetFlexLayout() {
+        this.children = Lists.array();
     }
 
     private SpreadsheetFlexLayout column() {
@@ -63,6 +67,8 @@ public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElemen
         return this;
     }
 
+    // children.........................................................................................................
+
     public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
         this.div.element()
                 .appendChild(
@@ -70,6 +76,32 @@ public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElemen
                 );
         return this;
     }
+
+    /**
+     * Removes an existing child.
+     */
+    public SpreadsheetFlexLayout removeChild(final int index) {
+        final IsElement<?> child = this.children.get(index);
+        this.div.element()
+                .removeChild(child.element());
+        return this;
+    }
+
+    /**
+     * Getter that returns all children.
+     */
+    public List<IsElement<?>> children() {
+        return Lists.immutable(
+                this.children
+        );
+    }
+
+    /**
+     * Holds all added child components.
+     */
+    private List<IsElement<?>> children;
+
+    // IsElement........................................................................................................
 
     @Override
     public HTMLDivElement element() {
@@ -85,10 +117,12 @@ public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElemen
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            TreePrintable.printTreeOrToString(
-                    this.div,
-                    printer
-            );
+            for (final IsElement<?> child : this.children) {
+                TreePrintable.printTreeOrToString(
+                        child,
+                        printer
+                );
+            }
         }
         printer.outdent();
     }

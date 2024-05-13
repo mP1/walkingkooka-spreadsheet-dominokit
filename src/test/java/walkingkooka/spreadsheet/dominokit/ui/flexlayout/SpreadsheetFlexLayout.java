@@ -49,6 +49,17 @@ public final class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDiv
         return this;
     }
 
+    public SpreadsheetFlexLayout removeChild(final int index) {
+        this.children.remove(index);
+        return this;
+    }
+
+    public List<IsElement<?>> children() {
+        return Lists.immutable(
+                this.children
+        );
+    }
+
     private final List<IsElement<?>> children = Lists.array();
 
     @Override
