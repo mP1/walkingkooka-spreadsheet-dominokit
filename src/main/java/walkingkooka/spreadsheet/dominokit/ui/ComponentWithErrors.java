@@ -32,6 +32,14 @@ public interface ComponentWithErrors<T> {
     List<String> errors();
 
     /**
+     * Returns true only if this component has at least one error.
+     */
+    default boolean hasErrors() {
+        return false == this.errors()
+                .isEmpty();
+    }
+
+    /**
      * Sets or replaces any existing error messages.
      */
     T setErrors(final List<String> errors);
