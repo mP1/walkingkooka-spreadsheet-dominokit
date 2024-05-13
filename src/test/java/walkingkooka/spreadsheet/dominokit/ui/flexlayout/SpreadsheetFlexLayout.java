@@ -20,15 +20,11 @@ package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
 
-public final class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
-        TreePrintable {
+public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
     public static SpreadsheetFlexLayout emptyColumn() {
         return new SpreadsheetFlexLayout();
@@ -42,6 +38,7 @@ public final class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDiv
         super();
     }
 
+    @Override
     public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
         Objects.requireNonNull(child, "child");
 
@@ -49,11 +46,13 @@ public final class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDiv
         return this;
     }
 
+    @Override
     public SpreadsheetFlexLayout removeChild(final int index) {
         this.children.remove(index);
         return this;
     }
 
+    @Override
     public List<IsElement<?>> children() {
         return Lists.immutable(
                 this.children
@@ -65,23 +64,5 @@ public final class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDiv
     @Override
     public HTMLDivElement element() {
         throw new UnsupportedOperationException();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            for (final IsElement<?> child : this.children) {
-                TreePrintable.printTreeOrToString(
-                        child,
-                        printer
-                );
-                printer.lineStart();
-            }
-        }
-        printer.outdent();
     }
 }

@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.style.SpacingCss;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -32,8 +31,7 @@ import java.util.List;
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
-        TreePrintable {
+public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
     public static SpreadsheetFlexLayout emptyColumn() {
         return new SpreadsheetFlexLayout()
@@ -69,6 +67,7 @@ public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElemen
 
     // children.........................................................................................................
 
+    @Override
     public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
         this.div.element()
                 .appendChild(
@@ -80,6 +79,7 @@ public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElemen
     /**
      * Removes an existing child.
      */
+    @Override
     public SpreadsheetFlexLayout removeChild(final int index) {
         final IsElement<?> child = this.children.get(index);
         this.div.element()
@@ -90,6 +90,7 @@ public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElemen
     /**
      * Getter that returns all children.
      */
+    @Override
     public List<IsElement<?>> children() {
         return Lists.immutable(
                 this.children
