@@ -42,7 +42,7 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
 
     @Override
     public void addLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
-        this.context.addSpreadsheetLabelMappingWatcher(watcher);
+        this.context.addSpreadsheetLabelMappingFetcherWatcher(watcher);
     }
 
     @Override

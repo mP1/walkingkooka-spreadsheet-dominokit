@@ -486,12 +486,12 @@ public class App implements EntryPoint,
     // SpreadsheetLabelMapping..........................................................................................
 
     @Override
-    public Runnable addSpreadsheetLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+    public Runnable addSpreadsheetLabelMappingFetcherWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         return this.spreadsheetLabelMappingFetcherWatchers.add(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetLabelMappingWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+    public Runnable addSpreadsheetLabelMappingFetcherWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher) {
         return this.spreadsheetLabelMappingFetcherWatchers.addOnce(watcher);
     }
 
