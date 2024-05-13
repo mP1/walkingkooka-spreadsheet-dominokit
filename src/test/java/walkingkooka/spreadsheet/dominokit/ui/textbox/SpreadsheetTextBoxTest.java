@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.junit.jupiter.api.Test;
+import walkingkooka.InvalidCharacterException;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
 
@@ -43,6 +44,25 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
                         ).setValue(Optional.of("Value456")),
                 "SpreadsheetTextBox\n" +
                         "  Label123 [Value456]\n"
+        );
+    }
+
+    @Test
+    public void testValidationFailureInvalidCharacterException() {
+        this.treePrintAndCheck(
+                SpreadsheetTextBox.empty()
+                        .setLabel("Label123")
+                        .setValidator(
+                                SpreadsheetTextBoxValidators.parser(
+                                        (s) -> {
+                                            throw new InvalidCharacterException(s, 2);
+                                        }
+                                )
+                        ).setValue(Optional.of("Value456")),
+                "SpreadsheetTextBox\n" +
+                        "  Label123 [Value456]\n" +
+                        "  Errors\n" +
+                        "    Invalid character 'l' at 2\n"
         );
     }
 
