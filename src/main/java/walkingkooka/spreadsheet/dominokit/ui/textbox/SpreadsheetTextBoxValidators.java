@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.textbox;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.reflect.PublicStaticHelper;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
@@ -30,14 +31,14 @@ public final class SpreadsheetTextBoxValidators implements PublicStaticHelper {
     /**
      * {@see SpreadsheetTextBoxOptionalValidator}
      */
-    public static Validator<String> optional(final Validator<String> validator) {
+    public static Validator<Optional<String>> optional(final Validator<Optional<String>> validator) {
         return SpreadsheetTextBoxOptionalValidator.with(validator);
     }
 
     /**
      * {@see SpreadsheetTextBoxStringParserValidator}
      */
-    public static Validator<String> parser(final Consumer<String> parser) {
+    public static Validator<Optional<String>> parser(final Consumer<String> parser) {
         return SpreadsheetTextBoxStringParserValidator.with(parser);
     }
 

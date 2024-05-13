@@ -20,28 +20,36 @@ package walkingkooka.spreadsheet.dominokit.ui.textbox;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 final class SpreadsheetTextBoxValidator implements Validator<TextBox> {
 
-    static SpreadsheetTextBoxValidator with(final Validator<String> validator) {
+    static SpreadsheetTextBoxValidator with(final Validator<Optional<String>> validator) {
         Objects.requireNonNull(validator, "validator");
         return new SpreadsheetTextBoxValidator(validator);
     }
 
-    private SpreadsheetTextBoxValidator(final Validator<String> validator) {
+    private SpreadsheetTextBoxValidator(final Validator<Optional<String>> validator) {
         this.validator = validator;
     }
 
     @Override
     public ValidationResult isValid(final TextBox component) {
+        final String value = component.getValue();
+
         return this.validator.isValid(
-                component.getValue()
+                Optional.ofNullable(
+                        CharSequences.isNullOrEmpty(value) ?
+                                null :
+                                value
+                )
         );
     }
 
-    private final Validator<String> validator;
+    private final Validator<Optional<String>> validator;
 
     @Override
     public String toString() {

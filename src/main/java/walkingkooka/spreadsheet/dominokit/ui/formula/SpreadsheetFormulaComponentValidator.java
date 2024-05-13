@@ -24,13 +24,14 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
  * A {@link Validator} that uses the function to parse new text. If the parser throws an exception or returns a {@link SpreadsheetFormula#error()},
  * the message will be used as the validation text.
  */
-final class SpreadsheetFormulaComponentValidator implements Validator<String> {
+final class SpreadsheetFormulaComponentValidator implements Validator<Optional<String>> {
 
     /**
      * Factory
@@ -47,11 +48,13 @@ final class SpreadsheetFormulaComponentValidator implements Validator<String> {
     }
 
     @Override
-    public ValidationResult isValid(final String value) {
+    public ValidationResult isValid(final Optional<String> value) {
         String message;
 
         try {
-            final SpreadsheetFormula formula = this.parser.apply(value);
+            final SpreadsheetFormula formula = this.parser.apply(
+                    value.orElse("")
+            );
             message = formula.error()
                     .map(SpreadsheetError::message)
                     .orElse(

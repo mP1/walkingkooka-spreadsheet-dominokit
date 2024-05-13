@@ -215,7 +215,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this.textBox.getLabel();
     }
 
-    public SpreadsheetTextBox setValidator(final Validator<String> validator) {
+    public SpreadsheetTextBox setValidator(final Validator<Optional<String>> validator) {
         final TextBox textBox = this.textBox;
         textBox.setAutoValidation(true);
         textBox.getValidators().clear();

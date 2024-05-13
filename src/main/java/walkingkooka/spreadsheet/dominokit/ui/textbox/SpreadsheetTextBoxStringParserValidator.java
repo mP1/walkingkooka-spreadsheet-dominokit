@@ -21,12 +21,13 @@ import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
  * A {@link Validator} that invokes {@link Consumer#accept(Object)}, catching any exceptions and using that as the fail message.
  */
-final class SpreadsheetTextBoxStringParserValidator implements Validator<String> {
+final class SpreadsheetTextBoxStringParserValidator implements Validator<Optional<String>> {
 
     /**
      * Factory
@@ -43,11 +44,13 @@ final class SpreadsheetTextBoxStringParserValidator implements Validator<String>
     }
 
     @Override
-    public ValidationResult isValid(final String value) {
+    public ValidationResult isValid(final Optional<String> value) {
         ValidationResult result;
 
         try {
-            this.parser.accept(value);
+            this.parser.accept(
+                    value.orElse("")
+            );
             result = ValidationResult.valid();
         } catch (final Exception fail) {
             result = ValidationResult.invalid(fail.getMessage());

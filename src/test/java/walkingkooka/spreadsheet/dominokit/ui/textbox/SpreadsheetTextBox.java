@@ -194,7 +194,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
-    public SpreadsheetTextBox setValidator(final Validator<String> validator) {
+    public SpreadsheetTextBox setValidator(final Validator<Optional<String>> validator) {
         return this;
     }
 
