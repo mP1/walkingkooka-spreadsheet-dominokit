@@ -154,7 +154,7 @@ public class App implements EntryPoint,
                 this.spreadsheetDeltaWatchers,
                 this
         );
-        this.addSpreadsheetDeltaWatcher(this);
+        this.addSpreadsheetDeltaFetcherWatcher(this);
 
         // labelMapping
         this.spreadsheetLabelMappingFetcherWatchers = SpreadsheetLabelMappingFetcherWatchers.empty();
@@ -439,12 +439,12 @@ public class App implements EntryPoint,
     private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.spreadsheetDeltaWatchers.add(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.spreadsheetDeltaWatchers.addOnce(watcher);
     }
 

@@ -75,7 +75,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         this.context = context;
 
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetDeltaWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
 
         // The inner class ComponentLifecycle is used to track SpreadsheetCellFormulaHistoryToken and give focus to
         // SpreadsheetFormulaComponent.

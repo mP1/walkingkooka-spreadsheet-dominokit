@@ -65,7 +65,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         this.flexLayout = this.createFlexLayout();
 
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetDeltaWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.setVisibility(false); // initially hidden.
 

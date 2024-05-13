@@ -88,7 +88,7 @@ abstract class SpreadsheetPatternDialogComponentContextBasic implements Spreadsh
 
     @Override
     public final Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.context.addSpreadsheetDeltaWatcher(watcher);
+        return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     @Override

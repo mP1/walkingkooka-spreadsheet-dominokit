@@ -60,12 +60,12 @@ public class FakeAppContext implements AppContext {
     // SpreadsheetDeltaWatcher.........................................................................................
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

@@ -71,13 +71,13 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     // HasSpreadsheetDeltaWatcher.......................................................................................
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.context.addSpreadsheetDeltaWatcher(watcher);
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.context.addSpreadsheetDeltaWatcherOnce(watcher);
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.context.addSpreadsheetDeltaFetcherWatcherOnce(watcher);
     }
 
     @Override
