@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.ui.textbox;
 
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.forms.validations.ValidationResult;
+import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
@@ -27,7 +29,45 @@ import java.util.Optional;
 public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetTextBox> {
 
     @Test
-    public void testLabelAndValue() {
+    public void testValidationPass() {
+        this.treePrintAndCheck(
+                SpreadsheetTextBox.empty()
+                        .setLabel("Label123")
+                        .setValidator(
+                                new Validator<Optional<String>>() {
+                                    @Override
+                                    public ValidationResult isValid(final Optional<String> component) {
+                                        return ValidationResult.valid();
+                                    }
+                                }
+                        ).setValue(Optional.of("Value456")),
+                "SpreadsheetTextBox\n" +
+                        "  Label123 [Value456]\n"
+        );
+    }
+
+    @Test
+    public void testValidationFailure() {
+        this.treePrintAndCheck(
+                SpreadsheetTextBox.empty()
+                        .setLabel("Label123")
+                        .setValidator(
+                                new Validator<Optional<String>>() {
+                                    @Override
+                                    public ValidationResult isValid(final Optional<String> component) {
+                                        return ValidationResult.invalid("Error message 123");
+                                    }
+                                }
+                        ).setValue(Optional.of("Value456")),
+                "SpreadsheetTextBox\n" +
+                        "  Label123 [Value456]\n" +
+                        "  Errors\n" +
+                        "    Error message 123\n"
+        );
+    }
+
+    @Test
+    public void testLabelAndValueWithoutValidator() {
         this.treePrintAndCheck(
                 SpreadsheetTextBox.empty()
                         .setLabel("Label123")

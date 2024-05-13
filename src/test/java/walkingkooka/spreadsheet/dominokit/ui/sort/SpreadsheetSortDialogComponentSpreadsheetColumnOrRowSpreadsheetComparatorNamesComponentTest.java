@@ -45,7 +45,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "      ParserSpreadsheetTextBox\n" +
                         "        SpreadsheetTextBox\n" +
-                        "          [] id=sort-comparator-1-TextBox\n"
+                        "          [] id=sort-comparator-1-TextBox\n" +
+                        "          Errors\n" +
+                        "            text is empty\n"
         );
     }
 
@@ -59,6 +61,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      ParserSpreadsheetTextBox\n" +
                         "        SpreadsheetTextBox\n" +
                         "          [A] id=sort-comparator-1-TextBox\n" +
+                        "          Errors\n" +
+                        "            Missing '='\n" +
                         "    SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
@@ -79,6 +83,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      ParserSpreadsheetTextBox\n" +
                         "        SpreadsheetTextBox\n" +
                         "          [A=] id=sort-comparator-1-TextBox\n" +
+                        "          Errors\n" +
+                        "            Missing comparator name\n" +
                         "    SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
@@ -99,6 +105,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      ParserSpreadsheetTextBox\n" +
                         "        SpreadsheetTextBox\n" +
                         "          [12=] id=sort-comparator-1-TextBox\n" +
+                        "          Errors\n" +
+                        "            Missing comparator name\n" +
                         "    SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
                         "      SpreadsheetCard\n" +
                         "        Card\n" +
