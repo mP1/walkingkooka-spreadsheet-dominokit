@@ -231,7 +231,6 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 .orElse("");
 
         final Optional<SpreadsheetColumnOrRowReference> firstColumnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(text);
-        final Set<SpreadsheetColumnOrRowReference> columnOrRows = Sets.sorted();
 
         final String[] tokens = text.isEmpty() ?
                 new String[0] :
