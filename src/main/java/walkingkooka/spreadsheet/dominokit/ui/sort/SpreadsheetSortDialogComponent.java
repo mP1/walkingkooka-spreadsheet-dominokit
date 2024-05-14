@@ -257,7 +257,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         final Set<SpreadsheetColumnOrRowReference> previousColumnOrRows = Sets.sorted();
         int i = 0;
         for (String name : names) {
-            this.getColumnOrRowComparatorNamesComponentOrCreate(
+            this.getOrCreateColumnOrRowComparatorNamesComponent(
                     i,
                     name,
                     previousColumnOrRows
@@ -338,7 +338,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
     // List<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>..................................................
 
-    private void getColumnOrRowComparatorNamesComponentOrCreate(final int i,
+    private void getOrCreateColumnOrRowComparatorNamesComponent(final int i,
                                                                 final String text,
                                                                 final Set<SpreadsheetColumnOrRowReference> previousColumnOrRows) {
         final SpreadsheetFlexLayout parent = this.columnOrRowComparatorNamesParent;
