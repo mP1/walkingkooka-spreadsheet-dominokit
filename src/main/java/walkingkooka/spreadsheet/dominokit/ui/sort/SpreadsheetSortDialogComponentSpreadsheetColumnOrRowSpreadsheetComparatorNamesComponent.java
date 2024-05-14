@@ -43,6 +43,9 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         TreePrintable {
 
     static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final int index) {
+        if (index < 0) {
+            throw new IllegalArgumentException("Invalid index " + index + " < 0");
+        }
         return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(index);
     }
 

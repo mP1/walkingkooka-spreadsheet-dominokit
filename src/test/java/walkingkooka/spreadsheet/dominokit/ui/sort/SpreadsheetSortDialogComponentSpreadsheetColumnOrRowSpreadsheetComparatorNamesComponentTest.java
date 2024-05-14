@@ -33,8 +33,18 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
         TreePrintableTesting {
+
+    @Test
+    public void testWithInvalidIndexFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(-1)
+        );
+    }
 
     @Test
     public void testCellEmptyColumnOrRowSpreadsheetComparatorNames() {
