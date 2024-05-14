@@ -65,6 +65,19 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
         return this;
     }
 
+    // id...............................................................................................................
+
+    @Override
+    public SpreadsheetFlexLayout setId(final String id) {
+        this.div.setId(id);
+        return this;
+    }
+
+    @Override
+    public String id() {
+        return this.div.getId();
+    }
+
     // children.........................................................................................................
 
     @Override

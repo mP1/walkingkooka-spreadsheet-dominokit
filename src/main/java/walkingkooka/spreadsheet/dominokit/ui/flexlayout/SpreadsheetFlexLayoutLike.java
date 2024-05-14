@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -30,6 +31,10 @@ import java.util.List;
  */
 public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
         TreePrintable {
+
+    SpreadsheetFlexLayout setId(final String id);
+
+    String id();
 
     /**
      * Appends a new child.
@@ -61,12 +66,23 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
+            final String id = this.id();
+            if (false == CharSequences.isNullOrEmpty(id)) {
+                printer.println("id=" + id);
+                printer.indent();
+            }
+
+
             for (final IsElement<?> child : this.children()) {
                 TreePrintable.printTreeOrToString(
                         child,
                         printer
                 );
                 printer.lineStart();
+            }
+
+            if (false == CharSequences.isNullOrEmpty(id)) {
+                printer.outdent();
             }
         }
         printer.outdent();

@@ -51,6 +51,31 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<Spreadsheet
         );
     }
 
+    @Test
+    public void testTreePrintIncludesId() {
+        this.treePrintAndCheck(
+                SpreadsheetFlexLayout.emptyRow()
+                        .setId("Id123")
+                        .appendChild(
+                                SpreadsheetTextBox.empty()
+                                        .setValue(
+                                                Optional.of("Value111")
+                                        )
+                        ).appendChild(
+                                SpreadsheetTextBox.empty()
+                                        .setValue(
+                                                Optional.of("Value222")
+                                        )
+                        ),
+                "SpreadsheetFlexLayout\n" +
+                        "  id=Id123\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Value111]\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Value222]\n"
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override
