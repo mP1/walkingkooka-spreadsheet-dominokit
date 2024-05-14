@@ -21,6 +21,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +35,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Set;
 
 public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetSortDialogComponent> {
 
@@ -661,6 +668,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
             }
+
+            @Override
+            public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
+                return SpreadsheetComparatorProviders.builtIn();
+            }
         };
     }
 
@@ -676,6 +688,18 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                     @Override
                     public HistoryToken historyToken() {
                         return context.historyToken();
+                    }
+
+                    @Override
+                    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+                        return context.spreadsheetComparatorProvider()
+                                .spreadsheetComparator(spreadsheetComparatorName);
+                    }
+
+                    @Override
+                    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
+                        return context.spreadsheetComparatorProvider()
+                                .spreadsheetComparatorInfos();
                     }
                 }
         );

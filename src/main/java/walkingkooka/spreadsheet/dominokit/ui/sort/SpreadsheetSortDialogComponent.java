@@ -36,7 +36,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortEditHistoryT
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
-import walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornames.SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent;
 import walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornameslist.SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
@@ -50,6 +49,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -226,7 +226,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     private final SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent columnOrRowComparatorNamesList;
 
     /**
-     * Creates/refreshes a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for each token within the text / string value of the
+     * Creates/refreshes a {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for each token within the text / string value of the
      * {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent}.
      */
     private void refreshColumnOrRowComparatorNamesList() {
@@ -237,11 +237,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
         final Optional<SpreadsheetColumnOrRowReference> firstColumnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(text);
 
-        final String[] tokens = text.isEmpty() ?
-                new String[0] :
-                text.split(
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
-                );
+        final String[] tokens = toSpreadsheetColumnOrRowSpreadsheetComparatorNames(text);
+        ;
 
         final List<String> names = Lists.array();
         names.addAll(
@@ -272,6 +269,17 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         }
 
         this.refreshSort();
+    }
+
+    /**
+     * Helper that splits any given {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames} text into tokens.
+     */
+    private String[] toSpreadsheetColumnOrRowSpreadsheetComparatorNames(final String spreadsheetColumnOrRowSpreadsheetComparatorNames) {
+        return spreadsheetColumnOrRowSpreadsheetComparatorNames.isEmpty() ?
+                new String[0] :
+                spreadsheetColumnOrRowSpreadsheetComparatorNames.split(
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
+                );
     }
 
     private void clearIfMax(final List<String> names,
@@ -336,10 +344,10 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 (int) max;
     }
 
-    // SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent........................................................
+    // SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent........................................................
 
     /**
-     * Get or lazily creates {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for the nth token in the
+     * Get or lazily creates {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for the nth token in the
      * {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
      */
     private void getOrCreateColumnOrRowComparatorNamesComponent(final int i,
@@ -348,12 +356,17 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         final SpreadsheetFlexLayout parent = this.columnOrRowComparatorNamesParent;
         final List<IsElement<?>> children = parent.children();
 
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
+        final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
         if (i < children.size()) {
-            names = (SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) children.get(i);
+            names = (SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) children.get(i);
         } else {
-            names = SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
-                    .setId(ID_PREFIX + "comparatorNames-" + i + SpreadsheetIds.TEXT_BOX);
+            // final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+
+
+            names = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                    ID_PREFIX + "comparatorNames-" + i + "-", // id-prefix
+                    this.columnOrRowSpreadsheetComparatorNamesToHistoryToken(i)
+            );
 
             names.addKeyupListener((e) -> this.refreshColumnOrRowComparatorNames(names))
                     .addChangeListener((o, n) -> this.refreshColumnOrRowComparatorNames(names));
@@ -362,6 +375,11 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
         names.setStringValue(
                 Optional.of(text)
+        );
+
+        names.refresh(
+                text,
+                this.context
         );
 
         // dont add more errors if it already has one.
@@ -403,37 +421,57 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         }
     }
 
+    private Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken(final int index) {
+        return (names) -> {
+            final String[] tokens = this.toSpreadsheetColumnOrRowSpreadsheetComparatorNames(
+                    this.columnOrRowComparatorNamesList.stringValue()
+                            .orElse("")
+            );
+            return this.context.historyToken()
+                    .setSortEdit(
+                            index < tokens.length ?
+                                    tokens[index] :
+                                    ""
+                    );
+        };
+    }
+
     /**
-     * Concatenate the string value of all {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} and update {@link #columnOrRowComparatorNamesList}.
+     * Concatenate the string value of all {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} and update {@link #columnOrRowComparatorNamesList}.
      */
-    private void refreshColumnOrRowComparatorNames(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component) {
+    private void refreshColumnOrRowComparatorNames(final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component) {
         component.validate();
 
-        String text = this.columnOrRowComparatorNamesParent.children()
+        String columnOrRowSpreadsheetComparatorNames = this.columnOrRowComparatorNamesParent.children()
                 .stream()
-                .map(c -> ((SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) c).stringValue().orElse(""))
+                .map(c -> ((SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) c).stringValue().orElse(""))
                 .collect(
                         Collectors.joining(
                                 SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
                         )
                 );
-        if (text.endsWith(SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string())) {
-            text = CharSequences.subSequence(
-                    text,
+        if (columnOrRowSpreadsheetComparatorNames.endsWith(SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string())) {
+            columnOrRowSpreadsheetComparatorNames = CharSequences.subSequence(
+                    columnOrRowSpreadsheetComparatorNames,
                     0,
                     -SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
                             .length()
             ).toString();
         }
 
+        component.refresh(
+                columnOrRowSpreadsheetComparatorNames,
+                this.context
+        );
+
         this.columnOrRowComparatorNamesList.setStringValue(
-                Optional.of(text)
+                Optional.of(columnOrRowSpreadsheetComparatorNames)
         );
         this.refreshSort();
     }
 
     /**
-     * Holds all the many {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent}.
+     * Holds all the many {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent}.
      */
     private SpreadsheetFlexLayout columnOrRowComparatorNamesParent;
 
