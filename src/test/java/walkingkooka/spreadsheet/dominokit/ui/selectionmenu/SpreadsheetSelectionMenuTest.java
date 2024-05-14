@@ -218,56 +218,56 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
                         "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date] id=test-format-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
                         "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230] id=test-format-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230%25] id=test-format-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/$%23,%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number] id=test-format-edit-MenuItem\n" +
                         "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text] id=test-format-edit-MenuItem\n" +
                         "    \"Time\" id=test-format-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm%20AM/PM] id=test-format-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time] id=test-format-edit-MenuItem\n" +
                         "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
                         "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
                         "    \"Number\" id=test-parse-number-SubMenu\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230] id=test-parse-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230%25] id=test-parse-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/$%23,%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
                         "    \"Time\" id=test-parse-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm%20AM/PM] id=test-parse-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time] id=test-parse-edit-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
@@ -472,58 +472,58 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
                         "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date] id=test-format-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
                         "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230] id=test-format-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230%25] id=test-format-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/$%23,%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number] id=test-format-edit-MenuItem\n" +
                         "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text] id=test-format-edit-MenuItem\n" +
                         "    \"Time\" id=test-format-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm%20AM/PM] id=test-format-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time] id=test-format-edit-MenuItem\n" +
                         "    -----\n" +
                         "    \"dd/mm/yyyy\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dd/mm/yyyy] id=test-format-recent-0-MenuItem\n" +
                         "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
                         "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
                         "    \"Number\" id=test-parse-number-SubMenu\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230] id=test-parse-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230%25] id=test-parse-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/$%23,%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
                         "    \"Time\" id=test-parse-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm%20AM/PM] id=test-parse-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time] id=test-parse-edit-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
@@ -728,59 +728,59 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
                         "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date] id=test-format-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
                         "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230] id=test-format-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230%25] id=test-format-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/$%23,%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number] id=test-format-edit-MenuItem\n" +
                         "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text] id=test-format-edit-MenuItem\n" +
                         "    \"Time\" id=test-format-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm%20AM/PM] id=test-format-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time] id=test-format-edit-MenuItem\n" +
                         "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
                         "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
                         "    \"Number\" id=test-parse-number-SubMenu\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230] id=test-parse-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230%25] id=test-parse-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/$%23,%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
                         "    \"Time\" id=test-parse-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm%20AM/PM] id=test-parse-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time] id=test-parse-edit-MenuItem\n" +
                         "    -----\n" +
-                        "    \"$0.00\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%240.00] id=test-parse-recent-0-MenuItem\n" +
+                        "    \"$0.00\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/$0.00] id=test-parse-recent-0-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -986,61 +986,61 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
                         "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date] id=test-format-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
                         "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230] id=test-format-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/%23,%23%230%25] id=test-format-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number/save/$%23,%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/number] id=test-format-edit-MenuItem\n" +
                         "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/text] id=test-format-edit-MenuItem\n" +
                         "    \"Time\" id=test-format-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm%20AM/PM] id=test-format-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/format-pattern/time] id=test-format-edit-MenuItem\n" +
                         "    -----\n" +
                         "    \"dd/mm/yyyy\" [/1/SpreadsheetName-1/cell/A1/format-pattern/date/save/dd/mm/yyyy] id=test-format-recent-0-MenuItem\n" +
                         "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
                         "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
                         "    \"Number\" id=test-parse-number-SubMenu\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230] id=test-parse-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%23,%23%230%25] id=test-parse-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/$%23,%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
                         "    \"Time\" id=test-parse-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm%20AM/PM] id=test-parse-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/time] id=test-parse-edit-MenuItem\n" +
                         "    -----\n" +
-                        "    \"$0.00\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/%240.00] id=test-parse-recent-0-MenuItem\n" +
+                        "    \"$0.00\" [/1/SpreadsheetName-1/cell/A1/parse-pattern/number/save/$0.00] id=test-parse-recent-0-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -1243,56 +1243,56 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  (mdi-format-text) \"Format\" id=test-format--SubMenu\n" +
                         "    \"Date\" id=test-format-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d/m/yy] id=test-format-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d+mmm+yyyy] id=test-format-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d+mmmm+yyyy] id=test-format-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date] id=test-format-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-format-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d/m/yy] id=test-format-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d+mmm+yyyy] id=test-format-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d+mmmm+yyyy] id=test-format-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-format-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d%20mmm%20yyyy] id=test-format-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/d%20mmmm%20yyyy] id=test-format-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-format-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/date-time] id=test-format-edit-MenuItem\n" +
                         "    \"Number\" id=test-format-number-SubMenu\n" +
                         "      \"General \\\"General\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/General] id=test-format-number-general-MenuItem\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23%2C%23%230] id=test-format-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23%2C%23%230%25] id=test-format-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%24%23%2C%23%230.00] id=test-format-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23,%23%230.%23%23%23] id=test-format-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23,%23%230] id=test-format-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/%23,%23%230%25] id=test-format-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number/save/$%23,%23%230.00] id=test-format-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/number] id=test-format-edit-MenuItem\n" +
                         "    \"Text\" id=test-format-text-SubMenu\n" +
                         "      \"Default \\\"@\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/text/save/@] id=test-format-text-default-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/text] id=test-format-edit-MenuItem\n" +
                         "    \"Time\" id=test-format-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm+AM/PM] id=test-format-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss+AM/PM] id=test-format-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm%20AM/PM] id=test-format-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time/save/h:mm:ss%20AM/PM] id=test-format-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/format-pattern/time] id=test-format-edit-MenuItem\n" +
                         "  (mdi-format-text) \"Parse\" id=test-parse--SubMenu\n" +
                         "    \"Date\" id=test-parse-date-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d/m/yy] id=test-parse-date-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-date-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-date-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-date-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-date-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-date-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-date-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date] id=test-parse-edit-MenuItem\n" +
                         "    \"Date Time\" id=test-parse-datetime-SubMenu\n" +
                         "      \"Short \\\"d/m/yy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d/m/yy] id=test-parse-datetime-short-MenuItem\n" +
-                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d+mmm+yyyy] id=test-parse-datetime-medium-MenuItem\n" +
-                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d+mmmm+yyyy] id=test-parse-datetime-long-MenuItem\n" +
-                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/dddd%2C+d+mmmm+yyyy] id=test-parse-datetime-full-MenuItem\n" +
+                        "      \"Medium \\\"d mmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d%20mmm%20yyyy] id=test-parse-datetime-medium-MenuItem\n" +
+                        "      \"Long \\\"d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/d%20mmmm%20yyyy] id=test-parse-datetime-long-MenuItem\n" +
+                        "      \"Full \\\"dddd, d mmmm yyyy\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=test-parse-datetime-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/date-time] id=test-parse-edit-MenuItem\n" +
                         "    \"Number\" id=test-parse-number-SubMenu\n" +
-                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23%2C%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
-                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23%2C%23%230] id=test-parse-number-integer-MenuItem\n" +
-                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23%2C%23%230%25] id=test-parse-number-percent-MenuItem\n" +
-                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%24%23%2C%23%230.00] id=test-parse-number-currency-MenuItem\n" +
+                        "      \"Number \\\"#,##0.###\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23,%23%230.%23%23%23] id=test-parse-number-number-MenuItem\n" +
+                        "      \"Integer \\\"#,##0\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23,%23%230] id=test-parse-number-integer-MenuItem\n" +
+                        "      \"Percent \\\"#,##0%\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/%23,%23%230%25] id=test-parse-number-percent-MenuItem\n" +
+                        "      \"Currency \\\"$#,##0.00\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number/save/$%23,%23%230.00] id=test-parse-number-currency-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/number] id=test-parse-edit-MenuItem\n" +
                         "    \"Time\" id=test-parse-time-SubMenu\n" +
-                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm+AM/PM] id=test-parse-time-short-MenuItem\n" +
-                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-medium-MenuItem\n" +
-                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-long-MenuItem\n" +
-                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm:ss+AM/PM] id=test-parse-time-full-MenuItem\n" +
+                        "      \"Short \\\"h:mm AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm%20AM/PM] id=test-parse-time-short-MenuItem\n" +
+                        "      \"Medium \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-medium-MenuItem\n" +
+                        "      \"Long \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-long-MenuItem\n" +
+                        "      \"Full \\\"h:mm:ss AM/PM\\\"\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time/save/h:mm:ss%20AM/PM] id=test-parse-time-full-MenuItem\n" +
                         "      \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parse-pattern/time] id=test-parse-edit-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
@@ -1322,100 +1322,100 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                         "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Ddate+UP] id=test-column-sort-date-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Ddate+DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date%20UP] id=test-column-sort-date-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date%20DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
                         "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Ddate-time+UP] id=test-column-sort-date-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Ddate-time+DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-time%20UP] id=test-column-sort-date-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-time%20DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
                         "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dday-of-month+UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dday-of-month+DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-month%20UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-month%20DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
                         "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dday-of-week+UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dday-of-week+DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week%20UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week%20DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
                         "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dhour-of-am-pm+UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dhour-of-am-pm+DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm%20UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm%20DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
                         "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dhour-of-day+UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dhour-of-day+DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day%20UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day%20DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
                         "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dminute-of-hour+UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dminute-of-hour+DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour%20UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour%20DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
                         "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dmonth-of-year+UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dmonth-of-year+DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=month-of-year%20UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=month-of-year%20DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
                         "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dnano-of-second+UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dnano-of-second+DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=nano-of-second%20UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=nano-of-second%20DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
                         "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dnumber+UP] id=test-column-sort-number-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dnumber+DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number%20UP] id=test-column-sort-number-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number%20DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
                         "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dseconds-of-minute+UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dseconds-of-minute+DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute%20UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute%20DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
                         "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtext+UP] id=test-column-sort-text-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtext+DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text%20UP] id=test-column-sort-text-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text%20DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
                         "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtext-case-insensitive+UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtext-case-insensitive+DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive%20UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive%20DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
                         "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtime+UP] id=test-column-sort-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dtime+DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time%20UP] id=test-column-sort-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time%20DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
                         "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dyear+UP] id=test-column-sort-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B%3Dyear+DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year%20UP] id=test-column-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year%20DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/B%3D] id=test-column-sort-edit-MenuItem\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                         "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                         "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Ddate+UP] id=test-row-sort-date-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Ddate+DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date%20UP] id=test-row-sort-date-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date%20DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
                         "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Ddate-time+UP] id=test-row-sort-date-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Ddate-time+DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-time%20UP] id=test-row-sort-date-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-time%20DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
                         "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dday-of-month+UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dday-of-month+DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-month%20UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-month%20DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
                         "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dday-of-week+UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dday-of-week+DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week%20UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week%20DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
                         "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dhour-of-am-pm+UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dhour-of-am-pm+DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm%20UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm%20DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
                         "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dhour-of-day+UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dhour-of-day+DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day%20UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day%20DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
                         "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dminute-of-hour+UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dminute-of-hour+DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour%20UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour%20DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
                         "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dmonth-of-year+UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dmonth-of-year+DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=month-of-year%20UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=month-of-year%20DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
                         "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dnano-of-second+UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dnano-of-second+DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=nano-of-second%20UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=nano-of-second%20DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
                         "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dnumber+UP] id=test-row-sort-number-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dnumber+DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number%20UP] id=test-row-sort-number-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number%20DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
                         "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dseconds-of-minute+UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dseconds-of-minute+DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute%20UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute%20DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
                         "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtext+UP] id=test-row-sort-text-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtext+DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text%20UP] id=test-row-sort-text-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text%20DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
                         "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtext-case-insensitive+UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtext-case-insensitive+DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive%20UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive%20DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
                         "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtime+UP] id=test-row-sort-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dtime+DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time%20UP] id=test-row-sort-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time%20DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
                         "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dyear+UP] id=test-row-sort-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2%3Dyear+DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year%20UP] id=test-row-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year%20DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/2%3D] id=test-row-sort-edit-MenuItem\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/2=] id=test-row-sort-edit-MenuItem\n" +
                         "  -----\n" +
                         "  \"Freeze\" id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" id=test-unfreeze-MenuItem\n" +
@@ -1517,52 +1517,52 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                         "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Ddate+UP] id=test-column-sort-date-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Ddate+DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date%20UP] id=test-column-sort-date-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date%20DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
                         "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Ddate-time+UP] id=test-column-sort-date-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Ddate-time+DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time%20UP] id=test-column-sort-date-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time%20DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
                         "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dday-of-month+UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dday-of-month+DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month%20UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month%20DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
                         "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dday-of-week+UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dday-of-week+DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week%20UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week%20DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
                         "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dhour-of-am-pm+UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dhour-of-am-pm+DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm%20UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm%20DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
                         "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dhour-of-day+UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dhour-of-day+DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day%20UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day%20DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
                         "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dminute-of-hour+UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dminute-of-hour+DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour%20UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour%20DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
                         "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dmonth-of-year+UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dmonth-of-year+DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year%20UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year%20DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
                         "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dnano-of-second+UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dnano-of-second+DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second%20UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second%20DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
                         "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dnumber+UP] id=test-column-sort-number-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dnumber+DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number%20UP] id=test-column-sort-number-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number%20DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
                         "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dseconds-of-minute+UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dseconds-of-minute+DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute%20UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute%20DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
                         "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtext+UP] id=test-column-sort-text-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtext+DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text%20UP] id=test-column-sort-text-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text%20DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
                         "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtext-case-insensitive+UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtext-case-insensitive+DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive%20UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive%20DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
                         "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtime+UP] id=test-column-sort-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dtime+DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time%20UP] id=test-column-sort-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time%20DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
                         "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dyear+UP] id=test-column-sort-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B%3Dyear+DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year%20UP] id=test-column-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year%20DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/left/sort/edit/B%3D] id=test-column-sort-edit-MenuItem\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/left/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                         "  -----\n" +
                         "  \"Freeze\" id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
@@ -1613,52 +1613,52 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                         "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Ddate+UP] id=test-column-sort-date-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Ddate+DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date%20UP] id=test-column-sort-date-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date%20DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
                         "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Ddate-time+UP] id=test-column-sort-date-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Ddate-time+DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-time%20UP] id=test-column-sort-date-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-time%20DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
                         "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dday-of-month+UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dday-of-month+DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-month%20UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-month%20DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
                         "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dday-of-week+UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dday-of-week+DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-week%20UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-week%20DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
                         "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dhour-of-am-pm+UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dhour-of-am-pm+DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-am-pm%20UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-am-pm%20DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
                         "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dhour-of-day+UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dhour-of-day+DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-day%20UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-day%20DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
                         "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dminute-of-hour+UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dminute-of-hour+DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=minute-of-hour%20UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=minute-of-hour%20DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
                         "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dmonth-of-year+UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dmonth-of-year+DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=month-of-year%20UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=month-of-year%20DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
                         "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dnano-of-second+UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dnano-of-second+DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=nano-of-second%20UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=nano-of-second%20DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
                         "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dnumber+UP] id=test-column-sort-number-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dnumber+DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=number%20UP] id=test-column-sort-number-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=number%20DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
                         "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dseconds-of-minute+UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dseconds-of-minute+DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=seconds-of-minute%20UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=seconds-of-minute%20DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
                         "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtext+UP] id=test-column-sort-text-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtext+DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text%20UP] id=test-column-sort-text-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text%20DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
                         "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtext-case-insensitive+UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtext-case-insensitive+DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-case-insensitive%20UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-case-insensitive%20DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
                         "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtime+UP] id=test-column-sort-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dtime+DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=time%20UP] id=test-column-sort-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=time%20DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
                         "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dyear+UP] id=test-column-sort-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B%3Dyear+DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year%20UP] id=test-column-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year%20DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/right/sort/edit/B%3D] id=test-column-sort-edit-MenuItem\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                         "  -----\n" +
                         "  \"Freeze\" id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
@@ -1756,52 +1756,52 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                         "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Ddate+UP] id=test-row-sort-date-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Ddate+DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date%20UP] id=test-row-sort-date-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date%20DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
                         "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Ddate-time+UP] id=test-row-sort-date-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Ddate-time+DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-time%20UP] id=test-row-sort-date-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-time%20DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
                         "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dday-of-month+UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dday-of-month+DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-month%20UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-month%20DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
                         "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dday-of-week+UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dday-of-week+DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week%20UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week%20DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
                         "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dhour-of-am-pm+UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dhour-of-am-pm+DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-am-pm%20UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-am-pm%20DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
                         "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dhour-of-day+UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dhour-of-day+DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day%20UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day%20DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
                         "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dminute-of-hour+UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dminute-of-hour+DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour%20UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour%20DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
                         "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dmonth-of-year+UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dmonth-of-year+DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=month-of-year%20UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=month-of-year%20DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
                         "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dnano-of-second+UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dnano-of-second+DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=nano-of-second%20UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=nano-of-second%20DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
                         "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dnumber+UP] id=test-row-sort-number-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dnumber+DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number%20UP] id=test-row-sort-number-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number%20DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
                         "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dseconds-of-minute+UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dseconds-of-minute+DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute%20UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute%20DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
                         "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtext+UP] id=test-row-sort-text-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtext+DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text%20UP] id=test-row-sort-text-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text%20DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
                         "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtext-case-insensitive+UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtext-case-insensitive+DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive%20UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive%20DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
                         "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtime+UP] id=test-row-sort-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dtime+DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time%20UP] id=test-row-sort-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time%20DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
                         "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dyear+UP] id=test-row-sort-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3%3Dyear+DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year%20UP] id=test-row-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year%20DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/top/sort/edit/3%3D] id=test-row-sort-edit-MenuItem\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/top/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                         "  -----\n" +
                         "  \"Freeze\" id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
@@ -1852,52 +1852,52 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  -----\n" +
                         "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                         "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Ddate+UP] id=test-row-sort-date-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Ddate+DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date%20UP] id=test-row-sort-date-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date%20DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
                         "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Ddate-time+UP] id=test-row-sort-date-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Ddate-time+DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-time%20UP] id=test-row-sort-date-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-time%20DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
                         "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dday-of-month+UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dday-of-month+DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-month%20UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-month%20DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
                         "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dday-of-week+UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dday-of-week+DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week%20UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week%20DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
                         "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dhour-of-am-pm+UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dhour-of-am-pm+DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-am-pm%20UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-am-pm%20DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
                         "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dhour-of-day+UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dhour-of-day+DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day%20UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day%20DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
                         "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dminute-of-hour+UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dminute-of-hour+DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour%20UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour%20DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
                         "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dmonth-of-year+UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dmonth-of-year+DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=month-of-year%20UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=month-of-year%20DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
                         "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dnano-of-second+UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dnano-of-second+DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=nano-of-second%20UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=nano-of-second%20DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
                         "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dnumber+UP] id=test-row-sort-number-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dnumber+DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number%20UP] id=test-row-sort-number-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number%20DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
                         "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dseconds-of-minute+UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dseconds-of-minute+DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute%20UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute%20DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
                         "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtext+UP] id=test-row-sort-text-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtext+DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text%20UP] id=test-row-sort-text-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text%20DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
                         "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtext-case-insensitive+UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtext-case-insensitive+DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive%20UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive%20DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
                         "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtime+UP] id=test-row-sort-time-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dtime+DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time%20UP] id=test-row-sort-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time%20DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
                         "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dyear+UP] id=test-row-sort-year-UP-MenuItem\n" +
-                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3%3Dyear+DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year%20UP] id=test-row-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year%20DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/edit/3%3D] id=test-row-sort-edit-MenuItem\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                         "  -----\n" +
                         "  \"Freeze\" id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
