@@ -270,6 +270,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         while (names.size() < parent.children().size()) {
             parent.removeChild(names.size());
         }
+
+        this.refreshSort();
     }
 
     private void clearIfMax(final List<String> names,
@@ -423,6 +425,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         this.columnOrRowComparatorNamesList.setStringValue(
                 Optional.of(text)
         );
+        this.refreshSort();
     }
 
     /**
@@ -464,7 +467,6 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 listComponent.addError(cause.getMessage());
             }
         }
-
         this.sort.setHistoryToken(historyToken);
     }
 
