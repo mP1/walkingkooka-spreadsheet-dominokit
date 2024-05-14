@@ -45,22 +45,16 @@ import java.util.function.Function;
 final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
 
     static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final String id,
-                                                                                                        final int index,
                                                                                                         final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
         CharSequences.failIfNullOrEmpty(id, "id");
-        if (index < 0) {
-            throw new IllegalArgumentException("Invalid index " + index + " < 0");
-        }
         Objects.requireNonNull(columnOrRowSpreadsheetComparatorNamesToHistoryToken, "columnOrRowSpreadsheetComparatorNamesToHistoryToken");
         return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(
                 id,
-                index,
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
     }
 
     private SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final String id,
-                                                                                                    final int index,
                                                                                                     final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
         final SpreadsheetFlexLayout parent = SpreadsheetFlexLayout.emptyRow();
 
