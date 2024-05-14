@@ -30,8 +30,8 @@ import java.util.Optional;
 /**
  * A helper interface that implements delegator methods for a wrapped {@link ParserSpreadsheetTextBox}.
  */
-public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetTextBoxWrapper<C, T>, T extends HasText>
-        extends ValueComponent<HTMLFieldSetElement, T, C> {
+public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetTextBoxWrapper<C, V>, V extends HasText>
+        extends ValueComponent<HTMLFieldSetElement, V, C> {
 
     @Override
     default C setId(final String id) {
@@ -60,7 +60,7 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     }
 
     @Override
-    default C setValue(final Optional<T> value) {
+    default C setValue(final Optional<V> value) {
         this.parserSpreadsheetTextBox()
                 .setValue(value);
         return (C) this;
@@ -126,7 +126,7 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     }
 
     @Override
-    default C addChangeListener(final ChangeListener<Optional<T>> listener) {
+    default C addChangeListener(final ChangeListener<Optional<V>> listener) {
         this.parserSpreadsheetTextBox()
                 .addChangeListener(listener);
         return (C) this;
@@ -188,7 +188,7 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     }
 
     @Override
-    default Optional<T> value() {
+    default Optional<V> value() {
         return this.parserSpreadsheetTextBox()
                 .value();
     }
@@ -213,7 +213,7 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     /**
      * The wrapped {@link ParserSpreadsheetTextBox}, which is the target of all delegated methods.
      */
-    ParserSpreadsheetTextBox<T> parserSpreadsheetTextBox();
+    ParserSpreadsheetTextBox<V> parserSpreadsheetTextBox();
 
     // TreePrintable....................................................................................................
 
