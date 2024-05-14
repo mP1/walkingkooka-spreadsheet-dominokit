@@ -38,6 +38,20 @@ public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
         super();
     }
 
+
+    @Override
+    public SpreadsheetFlexLayout setId(final String id) {
+        this.id = id;
+        return this;
+    }
+
+    @Override
+    public String id() {
+        return this.id;
+    }
+
+    private String id;
+
     @Override
     public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
         Objects.requireNonNull(child, "child");
