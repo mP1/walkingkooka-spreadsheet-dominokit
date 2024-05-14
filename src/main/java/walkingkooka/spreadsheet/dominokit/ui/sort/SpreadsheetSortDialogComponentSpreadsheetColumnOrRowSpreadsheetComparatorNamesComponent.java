@@ -84,7 +84,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         this.appender = appender;
 
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(
-                index,
+                id,
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
         parent.appendChild(remover);

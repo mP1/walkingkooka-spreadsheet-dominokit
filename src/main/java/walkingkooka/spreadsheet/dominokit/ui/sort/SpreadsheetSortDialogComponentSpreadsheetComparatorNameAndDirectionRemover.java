@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.sort;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
@@ -42,20 +41,20 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     /**
      * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover}.
      */
-    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover empty(final int index,
+    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover empty(final String id,
                                                                                             final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
         return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(
-                index,
+                id,
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
     }
 
-    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final int index,
+    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final String id,
                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
         this.parent = SpreadsheetCard.empty()
                 .setTitle("Remove comparator(s)");
 
-        this.index = index;
+        this.id = id;
         this.columnOrRowSpreadsheetComparatorNamesToHistoryToken = columnOrRowSpreadsheetComparatorNamesToHistoryToken;
     }
 
@@ -84,8 +83,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
 
         final HistoryToken historyToken = context.historyToken();
 
-        final int index = this.index;
-        final String idPrefix = SpreadsheetSortDialogComponent.comparatorIdPrefix(index);
+        final String idPrefix = this.id;
 
         final int count = spreadsheetComparatorNameAndDirections.size();
 
@@ -117,10 +115,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
         }
     }
 
-    /**
-     * An index for this {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames} within a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
-     */
-    private final int index;
+    private final String id;
 
     private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken;
 
