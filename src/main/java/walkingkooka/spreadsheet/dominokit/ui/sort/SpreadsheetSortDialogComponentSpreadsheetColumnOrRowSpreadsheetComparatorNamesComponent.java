@@ -32,6 +32,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -42,15 +43,23 @@ import java.util.function.Function;
 final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
         TreePrintable {
 
-    static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final int index) {
+    static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final int index,
+                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
         if (index < 0) {
             throw new IllegalArgumentException("Invalid index " + index + " < 0");
         }
-        return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(index);
+        Objects.requireNonNull(columnOrRowSpreadsheetComparatorNamesToHistoryToken, "columnOrRowSpreadsheetComparatorNamesToHistoryToken");
+        return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(
+                index,
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+        );
     }
 
-    private SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final int index) {
+    private SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final int index,
+                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
         final String idPrefix = ID_PREFIX + index;
+
+        this.columnOrRowSpreadsheetComparatorNamesToHistoryToken = columnOrRowSpreadsheetComparatorNamesToHistoryToken;
 
         final SpreadsheetFlexLayout parent = SpreadsheetFlexLayout.emptyRow();
 
@@ -71,7 +80,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     void refresh(final String columnOrRowSpreadsheetComparatorNames,
-                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                  final SpreadsheetSortDialogComponentContext context) {
         this.names.setStringValue(
                 Optional.ofNullable(
@@ -95,7 +103,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         this.appender.refresh(
                 columnOrRow,
                 comparatorNameAndDirections,
-                (names) -> columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
+                (names) -> this.columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
                         Optional.of(names)
                 ),
                 context
@@ -103,10 +111,12 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         this.remover.refresh(
                 columnOrRow,
                 comparatorNameAndDirections,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                this.columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                 context
         );
     }
+
+    private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken;
 
     private final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
 
