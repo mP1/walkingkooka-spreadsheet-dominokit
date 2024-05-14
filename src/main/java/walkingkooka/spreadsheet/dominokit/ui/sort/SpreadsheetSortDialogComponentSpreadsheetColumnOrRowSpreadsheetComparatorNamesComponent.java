@@ -17,19 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.sort;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornames.SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
@@ -40,24 +42,27 @@ import java.util.function.Function;
  * A {@link walkingkooka.spreadsheet.dominokit.ui.Component} that supports editing an individual {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName}
  * within a larger {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
  */
-final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
-        TreePrintable {
+final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
 
-    static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final int index,
+    static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final String id,
+                                                                                                        final int index,
                                                                                                         final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
+        CharSequences.failIfNullOrEmpty(id, "id");
         if (index < 0) {
             throw new IllegalArgumentException("Invalid index " + index + " < 0");
         }
         Objects.requireNonNull(columnOrRowSpreadsheetComparatorNamesToHistoryToken, "columnOrRowSpreadsheetComparatorNamesToHistoryToken");
         return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(
+                id,
                 index,
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
     }
 
-    private SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final int index,
+    private SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final String id,
+                                                                                                    final int index,
                                                                                                     final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
-        final String idPrefix = ID_PREFIX + index;
+        final String idPrefix = id + index;
 
         final SpreadsheetFlexLayout parent = SpreadsheetFlexLayout.emptyRow();
 
@@ -124,6 +129,142 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
 
     private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover;
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setId(final String id) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String id() {
+        return null;
+    }
+
+    @Override
+    public boolean isDisabled() {
+        return this.names.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setDisabled(final boolean disabled) {
+        this.names.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setLabel(final String label) {
+        this.names.setLabel(label);
+        return this;
+    }
+
+    @Override
+    public String label() {
+        return this.names.label();
+    }
+
+    @Override
+    public Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value() {
+        return this.names.value();
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setValue(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value) {
+        this.names.setValue(value);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent alwaysShowHelperText() {
+        this.names.alwaysShowHelperText();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setHelperText(final Optional<String> text) {
+        this.names.setHelperText(text);
+        return this;
+    }
+
+    @Override
+    public Optional<String> helperText() {
+        return this.names.helperText();
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent optional() {
+        this.names.optional();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent required() {
+        this.names.required();
+        return this;
+    }
+
+    @Override
+    public boolean isRequired() {
+        return this.names.isRequired();
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent validate() {
+        this.names.validate();
+        return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return this.names.errors();
+    }
+
+    @Override
+    public ValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> setErrors(final List<String> errors) {
+        this.names.setErrors(errors);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent hideMarginBottom() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent removeBorders() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent focus() {
+        this.names.focus();
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addChangeListener(final ChangeListener<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>> listener) {
+        this.names.addChangeListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addFocusListener(final EventListener listener) {
+        this.names.addFocusListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeydownListener(final EventListener listener) {
+        this.names.addKeydownListener(listener);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeyupListener(final EventListener listener) {
+        this.names.addKeyupListener(listener);
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override
@@ -132,8 +273,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     private final SpreadsheetFlexLayout parent;
-
-    private final static String ID_PREFIX = SpreadsheetSortDialogComponent.ID_PREFIX + "comparator-";
 
     // TreePrintable....................................................................................................
 

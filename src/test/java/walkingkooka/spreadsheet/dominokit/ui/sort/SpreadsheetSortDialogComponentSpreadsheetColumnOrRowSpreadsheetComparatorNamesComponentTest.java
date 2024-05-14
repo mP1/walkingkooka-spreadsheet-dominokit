@@ -38,11 +38,42 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
         TreePrintableTesting {
 
+    private final static String ID = SpreadsheetSortDialogComponent.ID_PREFIX + "comparator-";
+
+    @Test
+    public void testWithNullIdFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                        null,
+                        1,
+                        (names) -> {
+                            throw new UnsupportedOperationException();
+                        }
+                )
+        );
+    }
+
+    @Test
+    public void testWithEmptyIdFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                        "",
+                        1,
+                        (names) -> {
+                            throw new UnsupportedOperationException();
+                        }
+                )
+        );
+    }
+
     @Test
     public void testWithInvalidIndexFails() {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                        ID,
                         -1,
                         (names) -> {
                             throw new UnsupportedOperationException();
@@ -56,6 +87,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                        ID,
                         12,
                         null
                 )
@@ -271,6 +303,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                          final SpreadsheetSortDialogComponentContext context,
                          final String expected) {
         final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                ID,
                 1,
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
