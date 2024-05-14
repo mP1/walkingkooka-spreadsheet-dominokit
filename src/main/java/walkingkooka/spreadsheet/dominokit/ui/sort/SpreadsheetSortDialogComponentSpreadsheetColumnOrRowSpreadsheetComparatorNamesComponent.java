@@ -59,8 +59,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
                                                                                                     final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
         final String idPrefix = ID_PREFIX + index;
 
-        this.columnOrRowSpreadsheetComparatorNamesToHistoryToken = columnOrRowSpreadsheetComparatorNamesToHistoryToken;
-
         final SpreadsheetFlexLayout parent = SpreadsheetFlexLayout.emptyRow();
 
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
@@ -77,7 +75,10 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         parent.appendChild(appender);
         this.appender = appender;
 
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(index);
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(
+                index,
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+        );
         parent.appendChild(remover);
         this.remover = remover;
 
@@ -113,12 +114,9 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         this.remover.refresh(
                 columnOrRow,
                 comparatorNameAndDirections,
-                this.columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                 context
         );
     }
-
-    private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken;
 
     private final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
 
