@@ -42,15 +42,21 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     /**
      * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover}.
      */
-    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover empty(final int index) {
-        return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(index);
+    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover empty(final int index,
+                                                                                            final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
+        return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(
+                index,
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+        );
     }
 
-    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final int index) {
+    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final int index,
+                                                                                       final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
         this.parent = SpreadsheetCard.empty()
                 .setTitle("Remove comparator(s)");
 
         this.index = index;
+        this.columnOrRowSpreadsheetComparatorNamesToHistoryToken = columnOrRowSpreadsheetComparatorNamesToHistoryToken;
     }
 
     /**
@@ -58,7 +64,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
      */
     void refresh(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
-                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                  final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard parent = this.parent;
         parent.clear();
@@ -67,7 +72,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
             this.refresh0(
                     columnOrRow.get(),
                     spreadsheetComparatorNameAndDirections,
-                    columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                     context
             );
         }
@@ -75,7 +79,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
 
     void refresh0(final SpreadsheetColumnOrRowReference columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
-                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                   final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard parent = this.parent;
 
@@ -98,7 +101,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
                             .setTextContent(text)
                             .setHistoryToken(
                                     Optional.of(
-                                            columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
+                                            this.columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
                                                     Optional.ofNullable(
                                                             removed.isEmpty() ?
                                                                     null :
@@ -118,6 +121,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
      * An index for this {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames} within a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
      */
     private final int index;
+
+    private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken;
 
     // HtmlElementComponent.............................................................................................
 

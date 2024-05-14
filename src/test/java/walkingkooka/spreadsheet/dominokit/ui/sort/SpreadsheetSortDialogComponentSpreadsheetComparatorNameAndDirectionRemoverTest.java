@@ -217,12 +217,14 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(index);
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(
+                index,
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+        );
 
         remover.refresh(
                 columnOrRow,
                 spreadsheetComparatorNameAndDirections,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                 context
         );
 
