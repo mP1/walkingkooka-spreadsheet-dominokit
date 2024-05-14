@@ -354,9 +354,6 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         if (i < children.size()) {
             names = (SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) children.get(i);
         } else {
-            // final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
-
-
             names = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
                     ID_PREFIX + "comparatorNames-" + i + "-", // id-prefix
                     this.columnOrRowSpreadsheetComparatorNamesToHistoryToken(i)
