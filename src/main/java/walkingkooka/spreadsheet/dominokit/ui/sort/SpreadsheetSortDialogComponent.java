@@ -133,6 +133,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      */
     @Override
     public void openGiveFocus(final AppContext context) {
+        this.refreshColumnOrRowComparatorNamesList(context);
         this.columnOrRowComparatorNamesListHistoryTokenEdit = null;
         this.columnOrRowComparatorNamesList.focus();
     }
@@ -142,8 +143,10 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     @Override
     public void refresh(final AppContext context) {
         this.refreshSelection(context);
-        this.refreshColumnOrRowComparatorNamesList(context);
-        this.refreshLinks();
+        this.refreshColumnOrRowComparatorNamesList(context); // maybe sync from history token
+        this.refreshColumnOrRowComparatorNamesList(); // sync everything from the namesList component
+        this.refreshSort();
+        this.refreshClose();
     }
 
     /**
@@ -223,7 +226,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     private final SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent columnOrRowComparatorNamesList;
 
     /**
-     * Creates/refreshes a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for each token within a
+     * Creates/refreshes a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for each token within the text / string value of the
      * {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent}.
      */
     private void refreshColumnOrRowComparatorNamesList() {
@@ -426,18 +429,6 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      * Holds all the many {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent}.
      */
     private SpreadsheetFlexLayout columnOrRowComparatorNamesParent;
-
-    // links............................................................................................................
-
-    /**
-     * Refresh the SORT links only if the {@link #columnOrRowComparatorNamesList} is valid otherwise they will be
-     * disabled.
-     */
-    private void refreshLinks() {
-        this.refreshColumnOrRowComparatorNamesList();
-        this.refreshSort();
-        this.refreshClose();
-    }
 
     // sort.............................................................................................................
 
