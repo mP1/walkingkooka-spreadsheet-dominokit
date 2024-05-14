@@ -431,47 +431,40 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      */
     private void refreshLinks() {
         this.refreshColumnOrRowComparatorNamesParent();
-
-        // try and parse columnOrRowComparatorNamesList into a List.
-        this.setSort(
-                this.columnOrRowComparatorNamesList.stringValue()
-                        .map(
-                                ls -> {
-                                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList list;
-
-                                    try {
-                                        list = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(ls);
-                                    } catch (final RuntimeException ignore) {
-                                        list = null;
-                                    }
-
-                                    return list;
-                                }
-                        )
-        );
-
+        this.refreshSort();
         this.refreshClose();
     }
 
     // sort.............................................................................................................
 
-    /**
-     * Updates the SORT link. If the {@link Optional} is empty the link will be disabled otherwise it will be enabled with
-     * a SAVE link which executes the sort.
-     */
-    private void setSort(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> list) {
+    private void refreshSort() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent listComponent = this.columnOrRowComparatorNamesList;
+
+        // try and parse columnOrRowComparatorNamesList into a List.
         Optional<HistoryToken> historyToken;
 
         try {
-            historyToken = list.map(
-                    l -> this.context.historyToken()
-                            .setSave(l.text())
-            );
+            historyToken = listComponent.stringValue()
+                    .map(
+                            ls -> {
+                                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList list;
+
+                                try {
+                                    list = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(ls);
+                                } catch (final RuntimeException ignore) {
+                                    list = null;
+                                }
+
+                                return list;
+                            }
+                    ).map(
+                            l -> this.context.historyToken()
+                                    .setSave(l.text())
+                    );
         } catch (final IllegalArgumentException cause) {
             // some columns/rows could be out of the selection range.
             historyToken = Optional.empty();
 
-            final SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent listComponent = this.columnOrRowComparatorNamesList;
             if (false == listComponent.hasErrors()) {
                 listComponent.addError(cause.getMessage());
             }
