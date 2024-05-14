@@ -336,8 +336,12 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 (int) max;
     }
 
-    // List<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>..................................................
+    // SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent........................................................
 
+    /**
+     * Get or lazily creates {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for the nth token in the
+     * {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
+     */
     private void getOrCreateColumnOrRowComparatorNamesComponent(final int i,
                                                                 final String text,
                                                                 final Set<SpreadsheetColumnOrRowReference> previousColumnOrRows) {
