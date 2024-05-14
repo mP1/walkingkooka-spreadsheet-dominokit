@@ -113,7 +113,7 @@ public final class SpreadsheetCellSaveFormatPatternHistoryTokenTest extends Spre
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/format-pattern/%7B%0A++%22A1%22:+%7B%0A++++%22type%22:+%22spreadsheet-text-format-pattern%22%2C%0A++++%22value%22:+%22@%22%0A++%7D%0A%7D",
+                "/123/SpreadsheetName456/cell/A1/save/format-pattern/{%20\"A1\":%20{%20\"type\":%20\"spreadsheet-text-format-pattern\",%20\"value\":%20\"@\"%20}%20}",
                 SpreadsheetCellSaveFormatPatternHistoryToken.with(
                         ID,
                         NAME,
@@ -141,7 +141,7 @@ public final class SpreadsheetCellSaveFormatPatternHistoryTokenTest extends Spre
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/format-pattern/%7B%0A++%22A1%22:+%7B%0A++++%22type%22:+%22spreadsheet-date-format-pattern%22%2C%0A++++%22value%22:+%22dd/mm/yyyy%22%0A++%7D%2C%0A++%22A2%22:+%7B%0A++++%22type%22:+%22spreadsheet-time-format-pattern%22%2C%0A++++%22value%22:+%22hh:mm%22%0A++%7D%0A%7D",
+                "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/format-pattern/{%20%22A1%22:%20{%20%22type%22:%20%22spreadsheet-date-format-pattern%22,%20%22value%22:%20%22dd/mm/yyyy%22%20},%20%22A2%22:%20{%20%22type%22:%20%22spreadsheet-time-format-pattern%22,%20%22value%22:%20%22hh:mm%22%20}%20}",
                 SpreadsheetCellSaveFormatPatternHistoryToken.with(
                         ID,
                         NAME,
