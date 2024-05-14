@@ -188,7 +188,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(
-                index,
+                "sort-comparator-" + index + "-",
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
 

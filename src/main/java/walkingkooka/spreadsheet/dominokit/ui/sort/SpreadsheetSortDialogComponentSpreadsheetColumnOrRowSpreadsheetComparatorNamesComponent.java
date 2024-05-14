@@ -65,12 +65,17 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         final SpreadsheetFlexLayout parent = SpreadsheetFlexLayout.emptyRow();
 
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
-                .setId(id + SpreadsheetIds.TEXT_BOX);
+                .setId(
+                        CharSequences.subSequence(
+                                id,
+                                0,
+                                -1
+                        ) + SpreadsheetIds.TEXT_BOX);
         parent.appendChild(names);
         this.names = names;
 
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(
-                index,
+                id,
                 (newNames) -> columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
                         Optional.of(newNames)
                 )
