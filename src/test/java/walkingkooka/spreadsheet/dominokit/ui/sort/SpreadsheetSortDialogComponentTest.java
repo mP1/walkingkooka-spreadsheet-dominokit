@@ -63,12 +63,14 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-0-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-0-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -94,18 +96,45 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Some sort columns/rows are not within B2:C3 got Z\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [Z=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "              Errors\n" +
-                        "                Invalid Column Z is not within B2:C3\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [Z=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Invalid Column Z is not within B2:C3\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -131,18 +160,45 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Some sort columns/rows are not within B2:C3 got 99\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [99=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "              Errors\n" +
-                        "                Invalid Row 99 is not within B2:C3\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [99=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Invalid Row 99 is not within B2:C3\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -169,18 +225,41 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Missing '='\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B] id=sort-comparatorNames-0-TextBox\n" +
-                        "              Errors\n" +
-                        "                Missing '='\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B] id=sort-comparatorNames-0-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Missing '='\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-14-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -205,18 +284,41 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Missing comparator name\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=] id=sort-comparatorNames-0-TextBox\n" +
-                        "              Errors\n" +
-                        "                Missing comparator name\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=] id=sort-comparatorNames-0-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Missing comparator name\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-14-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -241,16 +343,43 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            [B=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B%3Dtext] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -273,16 +402,44 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            [B=text,text2] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text,text2] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text,text2] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-remove-1-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B%3Dtext%2Ctext2] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -305,14 +462,65 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            [B=text;C=text2] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [C=text2] id=sort-comparatorNames-1-TextBox\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [C=text2] id=sort-comparatorNames-1-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-14-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B%3Dtext%3BC%3Dtext2] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -339,16 +547,67 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Duplicate column B\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text2] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                Duplicate Column B\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text2] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Duplicate Column B\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-14-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -372,20 +631,73 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            [B=text;C=text2] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [C=text2] id=sort-comparatorNames-1-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-2-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [C=text2] id=sort-comparatorNames-1-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-14-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-2-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/save/B%3Dtext%3BC%3Dtext2] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right] id=sort-close-Link\n"
@@ -413,16 +725,43 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            [B=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/column/B:C/right/sort/save/B%3Dtext] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
@@ -453,16 +792,66 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Duplicate column B\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text-case-insensitive] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                Duplicate Column B\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text-case-insensitive] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Duplicate Column B\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
@@ -492,16 +881,66 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Got Row 2 expected Column\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [B=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [2=text-case-insensitive] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                Got Row 2 expected Column\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [B=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [2=text-case-insensitive] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Got Row 2 expected Column\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
@@ -529,16 +968,43 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            [3=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [3=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                text is empty\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [3=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/row/3:4/bottom/sort/save/3%3Dtext] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/row/3:4/bottom] id=sort-close-Link\n"
@@ -569,20 +1035,95 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Duplicate row 3\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [3=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [4=text] id=sort-comparatorNames-1-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [3=text-case-insensitive] id=sort-comparatorNames-2-TextBox\n" +
-                        "              Errors\n" +
-                        "                Duplicate Row 3\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [3=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [4=text] id=sort-comparatorNames-1-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [3=text-case-insensitive] id=sort-comparatorNames-2-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Duplicate Row 3\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/row/3:5/bottom] id=sort-close-Link\n"
@@ -612,16 +1153,66 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "            Errors\n" +
                         "              Got Column A expected Row\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [3=text] id=sort-comparatorNames-0-TextBox\n" +
-                        "        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "          ParserSpreadsheetTextBox\n" +
-                        "            SpreadsheetTextBox\n" +
-                        "              [A=text] id=sort-comparatorNames-1-TextBox\n" +
-                        "              Errors\n" +
-                        "                Got Column A expected Row\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [3=text] id=sort-comparatorNames-0-TextBox\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "              ParserSpreadsheetTextBox\n" +
+                        "                SpreadsheetTextBox\n" +
+                        "                  [A=text] id=sort-comparatorNames-1-TextBox\n" +
+                        "                  Errors\n" +
+                        "                    Got Column A expected Row\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Append comparator(s)\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "              SpreadsheetCard\n" +
+                        "                Card\n" +
+                        "                  Remove comparator(s)\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/row/3:4/bottom] id=sort-close-Link\n"
