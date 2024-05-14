@@ -133,9 +133,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      */
     @Override
     public void openGiveFocus(final AppContext context) {
-        //this.refreshSelection(context);
         this.columnOrRowComparatorNamesListHistoryTokenEdit = null;
-        //this.refreshColumnOrRowComparatorNamesList(context);
         this.columnOrRowComparatorNamesList.focus();
     }
 
