@@ -187,12 +187,14 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(index);
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(
+                index,
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+        );
 
         appender.refresh(
                 columnOrRow,
                 spreadsheetComparatorNameAndDirections,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                 context
         );
 

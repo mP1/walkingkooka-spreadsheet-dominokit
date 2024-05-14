@@ -68,7 +68,12 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         parent.appendChild(names);
         this.names = names;
 
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(index);
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(
+                index,
+                (newNames) -> columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
+                        Optional.of(newNames)
+                )
+        );
         parent.appendChild(appender);
         this.appender = appender;
 
@@ -103,9 +108,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         this.appender.refresh(
                 columnOrRow,
                 comparatorNameAndDirections,
-                (names) -> this.columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
-                        Optional.of(names)
-                ),
                 context
         );
         this.remover.refresh(
