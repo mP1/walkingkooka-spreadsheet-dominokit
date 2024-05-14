@@ -38,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
         TreePrintableTesting {
 
-    private final static String ID = SpreadsheetSortDialogComponent.ID_PREFIX + "comparator-";
+    private final static String ID = SpreadsheetSortDialogComponent.ID_PREFIX + "comparator-1";
 
     @Test
     public void testWithNullIdFails() {
