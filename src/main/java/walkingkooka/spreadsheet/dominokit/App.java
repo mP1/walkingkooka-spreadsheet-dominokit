@@ -42,6 +42,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
@@ -956,6 +957,15 @@ public class App implements EntryPoint,
      * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
      */
     private long lastResize;
+
+    // Has SpreadsheetComparatorProvider................................................................................
+
+    // TODO https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2948
+    // App should load SpreadsheetComparatorProvider from server.
+    @Override
+    public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
+        return SpreadsheetComparatorProviders.builtIn();
+    }
 
     // logging..........................................................................................................
 

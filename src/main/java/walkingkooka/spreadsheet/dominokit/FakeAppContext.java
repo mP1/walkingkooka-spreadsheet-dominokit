@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.net.header.MediaType;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
@@ -214,6 +215,13 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public OptionalInt spreadsheetListDialogComponentDefaultCount() {
+        throw new UnsupportedOperationException();
+    }
+
+    // Has SpreadsheetComparatorProvider................................................................................
+
+    @Override
+    public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
         throw new UnsupportedOperationException();
     }
 

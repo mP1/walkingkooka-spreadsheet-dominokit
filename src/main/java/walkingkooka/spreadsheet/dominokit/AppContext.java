@@ -27,6 +27,7 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -230,4 +231,11 @@ public interface AppContext extends CanGiveFocus,
      * missing a count.
      */
     OptionalInt spreadsheetListDialogComponentDefaultCount();
+
+    // Has SpreadsheetComparatorProvider................................................................................
+
+    /**
+     * Returns the current {@link SpreadsheetComparatorProvider}.
+     */
+    SpreadsheetComparatorProvider spreadsheetComparatorProvider();
 }
