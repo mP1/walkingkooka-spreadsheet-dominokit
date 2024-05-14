@@ -42,7 +42,23 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
     public void testWithInvalidIndexFails() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(-1)
+                () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                        -1,
+                        (names) -> {
+                            throw new UnsupportedOperationException();
+                        }
+                )
+        );
+    }
+
+    @Test
+    public void testWithNullColumnOrRowSpreadsheetComparatorNamesToHistoryTokenFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                        12,
+                        null
+                )
         );
     }
 
@@ -254,10 +270,12 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                          final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                          final SpreadsheetSortDialogComponentContext context,
                          final String expected) {
-        final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(1);
+        final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+                1,
+                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+        );
         component.refresh(
                 columnOrRowSpreadsheetComparatorNames,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                 context
         );
         this.treePrintAndCheck(
