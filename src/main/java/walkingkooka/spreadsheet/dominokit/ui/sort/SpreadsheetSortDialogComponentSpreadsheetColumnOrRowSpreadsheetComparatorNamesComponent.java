@@ -174,6 +174,16 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         return this;
     }
 
+    public Optional<String> stringValue() {
+        return this.names.stringValue();
+    }
+
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setStringValue(final Optional<String> value) {
+        this.names.setStringValue(value);
+        return this;
+    }
+
+
     @Override
     public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent alwaysShowHelperText() {
         this.names.alwaysShowHelperText();

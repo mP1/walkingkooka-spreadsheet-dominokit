@@ -317,6 +317,15 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
         );
     }
 
+    @Test
+    @Override
+    public void testAllMethodsVisibility() {
+        this.allMethodsVisibilityCheck(
+                "setStringValue",
+                "stringValue"
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override
