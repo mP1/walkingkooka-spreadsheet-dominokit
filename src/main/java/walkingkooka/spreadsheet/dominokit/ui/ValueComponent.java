@@ -42,13 +42,18 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     String label();
 
+    /**
+     * Getter that returns the current helper text.
+     */
+    Optional<String> helperText();
+
     C setValue(final Optional<V> value);
 
     default C clearValue() {
         return this.setValue(Optional.empty());
     }
 
-    C focus();
+    C validate();
 
     C optional();
 
@@ -56,19 +61,9 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     boolean isRequired();
 
-    C validate();
-
     boolean isDisabled();
 
     C setDisabled(final boolean disabled);
-
-    C addChangeListener(final ChangeListener<Optional<V>> listener);
-
-    C addFocusListener(final EventListener listener);
-
-    C addKeydownListener(final EventListener listener);
-
-    C addKeyupListener(final EventListener listener);
 
     /**
      * The normal domino-kit behaviour is to only show helper text where validation error text appears, as necessary.
@@ -88,10 +83,13 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
         return this.setHelperText(Optional.empty());
     }
 
-    /**
-     * Getter that returns the current helper text.
-     */
-    Optional<String> helperText();
+    C addChangeListener(final ChangeListener<Optional<V>> listener);
+
+    C addFocusListener(final EventListener listener);
+
+    C addKeydownListener(final EventListener listener);
+
+    C addKeyupListener(final EventListener listener);
 
     /**
      * Constant height for containers holding helper text.
@@ -101,4 +99,6 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
     C hideMarginBottom();
 
     C removeBorders();
+
+    C focus();
 }
