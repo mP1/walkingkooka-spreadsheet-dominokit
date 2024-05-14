@@ -108,25 +108,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cdate] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cdate-time] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cday-of-month] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cday-of-week] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Chour-of-am-pm] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Chour-of-day] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cminute-of-hour] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cmonth-of-year] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cnano-of-second] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cnumber] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cseconds-of-minute] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Ctext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Ctime] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext%2Cyear] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -172,25 +172,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cdate] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cdate-time] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cday-of-month] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cday-of-week] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Chour-of-am-pm] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Chour-of-day] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cminute-of-hour] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cmonth-of-year] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cnano-of-second] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cnumber] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cseconds-of-minute] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Ctext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Ctime] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext%2Cyear] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -237,21 +237,21 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B] id=sort-comparatorNames-0-append-14-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Ddate] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Ddate-time] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dday-of-month] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dday-of-week] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dhour-of-am-pm] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dhour-of-day] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dminute-of-hour] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dmonth-of-year] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dnano-of-second] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dnumber] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dseconds-of-minute] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtime] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dyear] id=sort-comparatorNames-0-append-14-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -296,21 +296,21 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3D] id=sort-comparatorNames-0-append-14-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Ddate] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Ddate-time] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dday-of-month] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dday-of-week] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dhour-of-am-pm] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dhour-of-day] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dminute-of-hour] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dmonth-of-year] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dnano-of-second] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dnumber] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dseconds-of-minute] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtime] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dyear] id=sort-comparatorNames-0-append-14-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -353,25 +353,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cdate] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cdate-time] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cday-of-month] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cday-of-week] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Chour-of-am-pm] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Chour-of-day] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cminute-of-hour] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cmonth-of-year] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cnano-of-second] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cnumber] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cseconds-of-minute] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctime] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cyear] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -412,26 +412,26 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cdate] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cdate-time] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cday-of-month] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cday-of-week] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Chour-of-am-pm] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Chour-of-day] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cminute-of-hour] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cmonth-of-year] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cnano-of-second] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cnumber] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cseconds-of-minute] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Ctext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Ctime] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2%2Cyear] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-remove-0-Link\n" +
-                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext2] id=sort-comparatorNames-0-remove-1-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-1-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -472,25 +472,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cdate%3BC%3Dtext2] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cdate-time%3BC%3Dtext2] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cday-of-month%3BC%3Dtext2] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cday-of-week%3BC%3Dtext2] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Chour-of-am-pm%3BC%3Dtext2] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Chour-of-day%3BC%3Dtext2] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cminute-of-hour%3BC%3Dtext2] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cmonth-of-year%3BC%3Dtext2] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cnano-of-second%3BC%3Dtext2] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cnumber%3BC%3Dtext2] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cseconds-of-minute%3BC%3Dtext2] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext-case-insensitive%3BC%3Dtext2] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctime%3BC%3Dtext2] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cyear%3BC%3Dtext2] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/%3BC%3Dtext2] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -501,26 +501,26 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-10-Link\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-11-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-12-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-13-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-14-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cdate] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cdate-time] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cday-of-month] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cday-of-week] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Chour-of-am-pm] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Chour-of-day] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cminute-of-hour] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cmonth-of-year] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cnano-of-second] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cnumber] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cseconds-of-minute] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Ctext] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Ctext-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Ctime] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cyear] id=sort-comparatorNames-1-append-14-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3B] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B%3Dtext%3BC%3Dtext2] id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -557,25 +557,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cdate%3BB%3Dtext2] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cdate-time%3BB%3Dtext2] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cday-of-month%3BB%3Dtext2] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cday-of-week%3BB%3Dtext2] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Chour-of-am-pm%3BB%3Dtext2] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Chour-of-day%3BB%3Dtext2] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cminute-of-hour%3BB%3Dtext2] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cmonth-of-year%3BB%3Dtext2] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cnano-of-second%3BB%3Dtext2] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cnumber%3BB%3Dtext2] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cseconds-of-minute%3BB%3Dtext2] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctext-case-insensitive%3BB%3Dtext2] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Ctime%3BB%3Dtext2] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%2Cyear%3BB%3Dtext2] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/%3BB%3Dtext2] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -588,26 +588,26 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-10-Link\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-11-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-12-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-13-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-append-14-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cdate] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cdate-time] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cday-of-month] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cday-of-week] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Chour-of-am-pm] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Chour-of-day] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cminute-of-hour] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cmonth-of-year] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cnano-of-second] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cnumber] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cseconds-of-minute] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Ctext] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Ctext-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Ctime] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3BB%3Dtext2%2Cyear] id=sort-comparatorNames-1-append-14-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext2] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B%3Dtext%3B] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
@@ -641,25 +641,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cdate%3BC%3Dtext2] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cdate-time%3BC%3Dtext2] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cday-of-month%3BC%3Dtext2] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cday-of-week%3BC%3Dtext2] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Chour-of-am-pm%3BC%3Dtext2] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Chour-of-day%3BC%3Dtext2] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cminute-of-hour%3BC%3Dtext2] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cmonth-of-year%3BC%3Dtext2] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cnano-of-second%3BC%3Dtext2] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cnumber%3BC%3Dtext2] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cseconds-of-minute%3BC%3Dtext2] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Ctext-case-insensitive%3BC%3Dtext2] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Ctime%3BC%3Dtext2] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%2Cyear%3BC%3Dtext2] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/%3BC%3Dtext2] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -670,26 +670,26 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-10-Link\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-11-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-12-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-13-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-append-14-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cdate] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cdate-time] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cday-of-month] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cday-of-week] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Chour-of-am-pm] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Chour-of-day] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cminute-of-hour] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cmonth-of-year] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cnano-of-second] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cnumber] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cseconds-of-minute] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Ctext] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Ctext-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Ctime] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3BC%3Dtext2%2Cyear] id=sort-comparatorNames-1-append-14-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C%3Dtext2] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "                    \"text2\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B%3Dtext%3B] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -735,25 +735,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cdate] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cdate-time] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cday-of-month] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cday-of-week] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Chour-of-am-pm] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Chour-of-day] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cminute-of-hour] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cmonth-of-year] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cnano-of-second] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cnumber] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cseconds-of-minute] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Ctext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Ctime] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cyear] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -802,25 +802,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cdate%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cdate-time%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cday-of-month%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cday-of-week%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Chour-of-am-pm%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Chour-of-day%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cminute-of-hour%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cmonth-of-year%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cnano-of-second%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cnumber%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cseconds-of-minute%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Ctext-case-insensitive%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Ctime%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cyear%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/%3BB%3Dtext-case-insensitive] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -833,25 +833,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-10-Link\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cdate] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cdate-time] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cday-of-month] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cday-of-week] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Chour-of-am-pm] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Chour-of-day] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cminute-of-hour] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cmonth-of-year] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cnano-of-second] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cnumber] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cseconds-of-minute] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Ctext] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Ctime] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3BB%3Dtext-case-insensitive%2Cyear] id=sort-comparatorNames-1-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext-case-insensitive] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
@@ -891,25 +891,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cdate%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cdate-time%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cday-of-month%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cday-of-week%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Chour-of-am-pm%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Chour-of-day%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cminute-of-hour%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cmonth-of-year%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cnano-of-second%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cnumber%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cseconds-of-minute%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Ctext-case-insensitive%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Ctime%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%2Cyear%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/%3B2%3Dtext-case-insensitive] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -922,25 +922,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-10-Link\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cdate] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cdate-time] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cday-of-month] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cday-of-week] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Chour-of-am-pm] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Chour-of-day] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cminute-of-hour] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cmonth-of-year] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cnano-of-second] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cnumber] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cseconds-of-minute] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Ctext] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Ctime] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B2%3Dtext-case-insensitive%2Cyear] id=sort-comparatorNames-1-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2%3Dtext-case-insensitive] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B%3Dtext%3B] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
@@ -978,25 +978,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cdate] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cdate-time] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cday-of-month] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cday-of-week] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Chour-of-am-pm] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Chour-of-day] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cminute-of-hour] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cmonth-of-year] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cnano-of-second] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cnumber] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cseconds-of-minute] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Ctext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Ctime] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cyear] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -1045,25 +1045,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cdate%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cdate-time%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cday-of-month%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cday-of-week%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Chour-of-am-pm%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Chour-of-day%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cminute-of-hour%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cmonth-of-year%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cnano-of-second%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cnumber%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cseconds-of-minute%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Ctext-case-insensitive%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Ctime%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%2Cyear%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/%3B4%3Dtext%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -1074,25 +1074,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cdate%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cdate-time%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cday-of-month%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cday-of-week%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Chour-of-am-pm%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Chour-of-day%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cminute-of-hour%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cmonth-of-year%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cnano-of-second%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cnumber%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cseconds-of-minute%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Ctext-case-insensitive%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Ctime%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%2Cyear%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4%3Dtext] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B%3B3%3Dtext-case-insensitive] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -1105,25 +1105,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-10-Link\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cdate] id=sort-comparatorNames-2-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cdate-time] id=sort-comparatorNames-2-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cday-of-month] id=sort-comparatorNames-2-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cday-of-week] id=sort-comparatorNames-2-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Chour-of-am-pm] id=sort-comparatorNames-2-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Chour-of-day] id=sort-comparatorNames-2-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cminute-of-hour] id=sort-comparatorNames-2-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cmonth-of-year] id=sort-comparatorNames-2-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cnano-of-second] id=sort-comparatorNames-2-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cnumber] id=sort-comparatorNames-2-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cseconds-of-minute] id=sort-comparatorNames-2-append-10-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Ctext] id=sort-comparatorNames-2-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Ctime] id=sort-comparatorNames-2-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B3%3Dtext-case-insensitive%2Cyear] id=sort-comparatorNames-2-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext-case-insensitive] id=sort-comparatorNames-2-remove-0-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3%3Dtext%3B4%3Dtext%3B] id=sort-comparatorNames-2-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/row/3:5/bottom] id=sort-close-Link\n"
@@ -1163,25 +1163,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cdate%3BA%3Dtext] id=sort-comparatorNames-0-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cdate-time%3BA%3Dtext] id=sort-comparatorNames-0-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cday-of-month%3BA%3Dtext] id=sort-comparatorNames-0-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cday-of-week%3BA%3Dtext] id=sort-comparatorNames-0-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Chour-of-am-pm%3BA%3Dtext] id=sort-comparatorNames-0-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Chour-of-day%3BA%3Dtext] id=sort-comparatorNames-0-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cminute-of-hour%3BA%3Dtext] id=sort-comparatorNames-0-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cmonth-of-year%3BA%3Dtext] id=sort-comparatorNames-0-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cnano-of-second%3BA%3Dtext] id=sort-comparatorNames-0-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cnumber%3BA%3Dtext] id=sort-comparatorNames-0-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cseconds-of-minute%3BA%3Dtext] id=sort-comparatorNames-0-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Ctext-case-insensitive%3BA%3Dtext] id=sort-comparatorNames-0-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Ctime%3BA%3Dtext] id=sort-comparatorNames-0-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%2Cyear%3BA%3Dtext] id=sort-comparatorNames-0-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/%3BA%3Dtext] id=sort-comparatorNames-0-remove-0-Link\n" +
                         "        SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -1194,25 +1194,25 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Append comparator(s)\n" +
-                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-0-Link\n" +
-                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-1-Link\n" +
-                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-2-Link\n" +
-                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-3-Link\n" +
-                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-4-Link\n" +
-                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-5-Link\n" +
-                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-6-Link\n" +
-                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-7-Link\n" +
-                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-8-Link\n" +
-                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-9-Link\n" +
-                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-10-Link\n" +
-                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-11-Link\n" +
-                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-12-Link\n" +
-                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-append-13-Link\n" +
+                        "                    \"date\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cdate] id=sort-comparatorNames-1-append-0-Link\n" +
+                        "                    \"date-time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cdate-time] id=sort-comparatorNames-1-append-1-Link\n" +
+                        "                    \"day-of-month\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cday-of-month] id=sort-comparatorNames-1-append-2-Link\n" +
+                        "                    \"day-of-week\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cday-of-week] id=sort-comparatorNames-1-append-3-Link\n" +
+                        "                    \"hour-of-am-pm\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Chour-of-am-pm] id=sort-comparatorNames-1-append-4-Link\n" +
+                        "                    \"hour-of-day\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Chour-of-day] id=sort-comparatorNames-1-append-5-Link\n" +
+                        "                    \"minute-of-hour\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cminute-of-hour] id=sort-comparatorNames-1-append-6-Link\n" +
+                        "                    \"month-of-year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cmonth-of-year] id=sort-comparatorNames-1-append-7-Link\n" +
+                        "                    \"nano-of-second\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cnano-of-second] id=sort-comparatorNames-1-append-8-Link\n" +
+                        "                    \"number\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cnumber] id=sort-comparatorNames-1-append-9-Link\n" +
+                        "                    \"seconds-of-minute\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cseconds-of-minute] id=sort-comparatorNames-1-append-10-Link\n" +
+                        "                    \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Ctext-case-insensitive] id=sort-comparatorNames-1-append-11-Link\n" +
+                        "                    \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Ctime] id=sort-comparatorNames-1-append-12-Link\n" +
+                        "                    \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3BA%3Dtext%2Cyear] id=sort-comparatorNames-1-append-13-Link\n" +
                         "            SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "              SpreadsheetCard\n" +
                         "                Card\n" +
                         "                  Remove comparator(s)\n" +
-                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A%3Dtext] id=sort-comparatorNames-1-remove-0-Link\n" +
+                        "                    \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3%3Dtext%3B] id=sort-comparatorNames-1-remove-0-Link\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        \"Sort\" DISABLED id=sort-sort-Link\n" +
                         "        \"Close\" [#/1/spreadsheetName123/row/3:4/bottom] id=sort-close-Link\n"

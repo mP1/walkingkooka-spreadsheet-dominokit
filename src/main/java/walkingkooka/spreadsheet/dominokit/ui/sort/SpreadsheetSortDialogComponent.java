@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -418,11 +419,16 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                     this.columnOrRowComparatorNamesList.stringValue()
                             .orElse("")
             );
+
+            if (index < tokens.length) {
+                tokens[index] = names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                        .orElse("");
+            }
+
             return this.context.historyToken()
                     .setSortEdit(
-                            index < tokens.length ?
-                                    tokens[index] :
-                                    ""
+                            Arrays.stream(tokens)
+                                    .collect(Collectors.joining(SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()))
                     );
         };
     }
