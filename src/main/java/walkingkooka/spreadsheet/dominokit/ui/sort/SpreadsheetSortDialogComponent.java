@@ -210,9 +210,9 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
                 .setId(ID_PREFIX + "columnOrRowComparatorNamesList" + SpreadsheetIds.TEXT_BOX)
                 .addKeyupListener(
-                        (e) -> this.refreshColumnOrRowComparatorNamesParent()
+                        (e) -> this.refreshColumnOrRowComparatorNamesList()
                 ).addChangeListener(
-                        (oldValue, newValue) -> this.refreshColumnOrRowComparatorNamesParent()
+                        (oldValue, newValue) -> this.refreshColumnOrRowComparatorNamesList()
                 );
     }
 
@@ -226,7 +226,9 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      * Creates/refreshes a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for each token within a
      * {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent}.
      */
-    private void refreshColumnOrRowComparatorNamesParent() {
+    private void refreshColumnOrRowComparatorNamesList() {
+        this.columnOrRowComparatorNamesList.validate();
+
         final String text = this.columnOrRowComparatorNamesList.stringValue()
                 .orElse("");
 
@@ -337,15 +339,15 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         final SpreadsheetFlexLayout parent = this.columnOrRowComparatorNamesParent;
         final List<IsElement<?>> children = parent.children();
 
-        SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = null;
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
         if (i < children.size()) {
             names = (SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) children.get(i);
-        }
-        if (null == names) {
+        } else {
             names = SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
-                    .setId(ID_PREFIX + "comparatorNames-" + i + SpreadsheetIds.TEXT_BOX)
-                    .addKeyupListener((e) -> this.refreshColumnOrRowComparatorNamesList())
-                    .addChangeListener((o, n) -> this.refreshColumnOrRowComparatorNamesList());
+                    .setId(ID_PREFIX + "comparatorNames-" + i + SpreadsheetIds.TEXT_BOX);
+
+            names.addKeyupListener((e) -> this.refreshColumnOrRowComparatorNames(names))
+                    .addChangeListener((o, n) -> this.refreshColumnOrRowComparatorNames(names));
             parent.appendChild(names);
         }
 
@@ -395,7 +397,9 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     /**
      * Concatenate the string value of all {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} and update {@link #columnOrRowComparatorNamesList}.
      */
-    private void refreshColumnOrRowComparatorNamesList() {
+    private void refreshColumnOrRowComparatorNames(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component) {
+        component.validate();
+
         String text = this.columnOrRowComparatorNamesParent.children()
                 .stream()
                 .map(c -> ((SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) c).stringValue().orElse(""))
@@ -430,7 +434,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      * disabled.
      */
     private void refreshLinks() {
-        this.refreshColumnOrRowComparatorNamesParent();
+        this.refreshColumnOrRowComparatorNamesList();
         this.refreshSort();
         this.refreshClose();
     }
