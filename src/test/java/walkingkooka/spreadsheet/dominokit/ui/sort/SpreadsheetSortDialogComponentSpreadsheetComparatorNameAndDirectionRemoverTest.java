@@ -43,7 +43,6 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testCellMissingColumnORow() {
         this.refreshAndCheck(
-                0, // index within namesList
                 "", // columnOrRow
                 "ignored-comparator-1", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
@@ -54,7 +53,6 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testCellEmpty() {
         this.refreshAndCheck(
-                0, // index within namesList
                 "A", // columnOrRow
                 "", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
@@ -65,7 +63,6 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testCellOnly() {
         this.refreshAndCheck(
-                0, // index within namesList
                 "A", // columnOrRow
                 "comparator-1", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
@@ -80,7 +77,6 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testCellNotEmpty() {
         this.refreshAndCheck(
-                0, // index within namesList
                 "A", // columnOrRow
                 "comparator-1,comparator-2,comparator-3", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
@@ -97,7 +93,6 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testCellNotEmpty2() {
         this.refreshAndCheck(
-                0, // index within namesList
                 "A", // columnOrRow
                 "comparator-1,comparator-2,comparator-3", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
@@ -123,7 +118,6 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testColumn() {
         this.refreshAndCheck(
-                0, // index within namesList
                 "B", // columnOrRow
                 "comparator-1,comparator-2,comparator-3", // namesList
                 "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
@@ -142,7 +136,6 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testRow() {
         this.refreshAndCheck(
-                0, // index within namesList
                 "3", // columnOrRow
                 "comparator-1,comparator-2,comparator-3", // namesList
                 "/1/spreadsheetName23/row/3:4/top/sort/edit/", // historyToken
@@ -158,13 +151,11 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
 
     // helper...........................................................................................................
 
-    private void refreshAndCheck(final int index,
-                                 final String columnOrRow,
+    private void refreshAndCheck(final String columnOrRow,
                                  final String spreadsheetComparatorNameAndDirections,
                                  final String historyToken,
                                  final String expected) {
         this.refreshAndCheck(
-                index,
                 columnOrRow,
                 spreadsheetComparatorNameAndDirections,
                 historyToken,
@@ -179,14 +170,12 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
         );
     }
 
-    private void refreshAndCheck(final int index,
-                                 final String columnOrRow,
+    private void refreshAndCheck(final String columnOrRow,
                                  final String spreadsheetComparatorNameAndDirections,
                                  final String historyToken,
                                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final String expected) {
         this.refreshAndCheck(
-                index,
                 columnOrRow.isEmpty() ?
                         Optional.empty() :
                         Optional.of(
@@ -211,14 +200,13 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
         );
     }
 
-    private void refreshAndCheck(final int index,
-                                 final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
+    private void refreshAndCheck(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(
-                index,
+                "sort-comparator-0-",
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
 
