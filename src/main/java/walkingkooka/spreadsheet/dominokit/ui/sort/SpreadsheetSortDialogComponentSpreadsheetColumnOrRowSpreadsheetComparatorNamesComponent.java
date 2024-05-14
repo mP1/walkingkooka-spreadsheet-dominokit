@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.sort;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
@@ -98,15 +97,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         );
 
         final Optional<SpreadsheetColumnOrRowReference> columnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(columnOrRowSpreadsheetComparatorNames);
-
-        List<SpreadsheetComparatorNameAndDirection> comparatorNameAndDirections;
-
-        try {
-            comparatorNameAndDirections = SpreadsheetColumnOrRowSpreadsheetComparatorNames.parse(columnOrRowSpreadsheetComparatorNames)
-                    .comparatorNameAndDirections();
-        } catch (final RuntimeException ignore) {
-            comparatorNameAndDirections = Lists.empty();
-        }
+        final List<SpreadsheetComparatorNameAndDirection> comparatorNameAndDirections = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseSpreadsheetComparatorNameAndDirections(columnOrRowSpreadsheetComparatorNames);
 
         this.appender.refresh(
                 columnOrRow,
