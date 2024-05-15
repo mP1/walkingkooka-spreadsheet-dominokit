@@ -58,6 +58,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     public SpreadsheetCard appendChild(final IsElement<?> child) {
         this.card.appendChild(child);
         this.card.setDisplay("");
+        this.children.add(child);
         return this;
     }
 
