@@ -68,7 +68,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     @Override
     public SpreadsheetCard removeChild(final int index) {
         final IsElement<?> child = this.children.remove(index);
-        this.card.element()
+        this.card.getAppendTarget()
                 .removeChild(child.element());
         return this;
     }
