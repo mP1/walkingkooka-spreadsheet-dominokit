@@ -67,7 +67,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
     }
 
     @Test
-    public void testWithNullColumnOrRowSpreadsheetComparatorNamesToHistoryTokenFails() {
+    public void testWithNullSetterFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
@@ -246,11 +246,11 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
 
     void refreshAndCheck(final String columnOrRowSpreadsheetComparatorNames,
                          final String historyToken,
-                         final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                         final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
                          final String expected) {
         this.refreshAndCheck(
                 columnOrRowSpreadsheetComparatorNames,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                setter,
                 new FakeSpreadsheetSortDialogComponentContext() {
                     @Override
                     public HistoryToken historyToken() {
@@ -282,12 +282,12 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
     }
 
     void refreshAndCheck(final String columnOrRowSpreadsheetComparatorNames,
-                         final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                         final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
                          final SpreadsheetSortDialogComponentContext context,
                          final String expected) {
         final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
                 ID,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+                setter
         );
         component.refresh(
                 columnOrRowSpreadsheetComparatorNames,
