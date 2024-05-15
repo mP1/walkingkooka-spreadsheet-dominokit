@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.card;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
-import walkingkooka.CanBeEmpty;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
@@ -35,7 +34,6 @@ import java.util.Objects;
  */
 public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElement, SpreadsheetCard>,
         TreePrintable,
-        CanBeEmpty,
         ComponentWithChildren<SpreadsheetCard, HTMLDivElement> {
 
     public static SpreadsheetCard empty() {
@@ -87,13 +85,6 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
      * Holds all added child components.
      */
     private List<IsElement<?>> children;
-
-    // CanBeEmpty.......................................................................................................
-
-    @Override
-    public boolean isEmpty() {
-        return this.children.isEmpty();
-    }
 
     // Component........................................................................................................
 
