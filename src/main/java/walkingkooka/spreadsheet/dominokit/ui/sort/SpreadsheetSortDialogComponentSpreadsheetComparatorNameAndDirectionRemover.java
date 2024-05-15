@@ -42,20 +42,20 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
      * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover}.
      */
     static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover empty(final String id,
-                                                                                            final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
+                                                                                            final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
         return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(
                 id,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+                setter
         );
     }
 
     private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final String id,
-                                                                                       final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
+                                                                                       final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
         this.parent = SpreadsheetCard.empty()
                 .setTitle("Remove comparator(s)");
 
         this.id = id;
-        this.columnOrRowSpreadsheetComparatorNamesToHistoryToken = columnOrRowSpreadsheetComparatorNamesToHistoryToken;
+        this.setter = setter;
     }
 
     /**
@@ -99,7 +99,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
                             .setTextContent(text)
                             .setHistoryToken(
                                     Optional.of(
-                                            this.columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
+                                            this.setter.apply(
                                                     Optional.ofNullable(
                                                             removed.isEmpty() ?
                                                                     null :
@@ -117,7 +117,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
 
     private final String id;
 
-    private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken;
+    private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter;
 
     // HtmlElementComponent.............................................................................................
 
