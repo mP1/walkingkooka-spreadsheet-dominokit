@@ -24,10 +24,12 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornames.SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -44,17 +46,30 @@ import java.util.function.Function;
 final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
 
     static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final String id,
-                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
+                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp,
+                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown,
+                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
+                                                                                                        final HistoryTokenContext context) {
         CharSequences.failIfNullOrEmpty(id, "id");
+        Objects.requireNonNull(moveUp, "moveUp");
+        Objects.requireNonNull(moveDown, "moveDown");
         Objects.requireNonNull(setter, "setter");
+        Objects.requireNonNull(context, "context");
+
         return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(
                 id,
-                setter
+                moveUp,
+                moveDown,
+                setter,
+                context
         );
     }
 
     private SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final String id,
-                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
+                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp,
+                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown,
+                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
+                                                                                                    final HistoryTokenContext context) {
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
                 .setId(
                         CharSequences.subSequence(
@@ -63,6 +78,18 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
                                 -1
                         ) + SpreadsheetIds.TEXT_BOX);
         this.names = names;
+
+        final HistoryTokenAnchorComponent moveUpLink = context.historyToken()
+                .link(id + "moveUp")
+                .setTextContent("Move Up");
+        this.moveUpLink = moveUpLink;
+        this.moveUp = moveUp;
+
+        final HistoryTokenAnchorComponent moveDownLink = context.historyToken()
+                .link(id + "moveDown")
+                .setTextContent("Move Down");
+        this.moveDownLink = moveDownLink;
+        this.moveDown = moveDown;
 
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(
                 id,
@@ -79,20 +106,39 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         this.remover = remover;
 
         this.root = SpreadsheetFlexLayout.emptyRow()
-                .appendChild(names)
+                .appendChild(
+                        SpreadsheetFlexLayout.emptyColumn()
+                                .appendChild(names)
+                                .appendChild(moveUpLink)
+                                .appendChild(moveDownLink)
+                )
                 .appendChild(appender)
                 .appendChild(remover);
     }
 
     void refresh(final String columnOrRowSpreadsheetComparatorNames,
                  final SpreadsheetSortDialogComponentContext context) {
-        this.names.setStringValue(
+
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = this.names;
+        names.setStringValue(
                 Optional.ofNullable(
                         columnOrRowSpreadsheetComparatorNames.isEmpty() ?
                                 null :
                                 columnOrRowSpreadsheetComparatorNames
                 )
         );
+
+        {
+            final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value = names.value();
+
+            this.moveUpLink.setHistoryToken(
+                    this.moveUp.apply(value)
+            );
+
+            this.moveDownLink.setHistoryToken(
+                    this.moveDown.apply(value)
+            );
+        }
 
         final Optional<SpreadsheetColumnOrRowReference> columnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(columnOrRowSpreadsheetComparatorNames);
         final List<SpreadsheetComparatorNameAndDirection> comparatorNameAndDirections = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseSpreadsheetComparatorNameAndDirections(columnOrRowSpreadsheetComparatorNames);
@@ -110,6 +156,14 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     private final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
+
+    private final HistoryTokenAnchorComponent moveUpLink;
+
+    private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp;
+
+    private final HistoryTokenAnchorComponent moveDownLink;
+
+    private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown;
 
     private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender;
 
