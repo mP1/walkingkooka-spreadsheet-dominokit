@@ -357,7 +357,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         } else {
             names = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
                     ID_PREFIX + "comparatorNames-" + i + "-", // id-prefix
-                    this.columnOrRowSpreadsheetComparatorNamesToHistoryToken(i)
+                    this.setter(i)
             );
 
             names.addKeyupListener((e) -> this.refreshColumnOrRowComparatorNames(names))
@@ -413,7 +413,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         }
     }
 
-    private Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken(final int index) {
+    private Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter(final int index) {
         return (names) -> {
             final String[] tokens = this.toSpreadsheetColumnOrRowSpreadsheetComparatorNames(
                     this.columnOrRowComparatorNamesList.stringValue()
