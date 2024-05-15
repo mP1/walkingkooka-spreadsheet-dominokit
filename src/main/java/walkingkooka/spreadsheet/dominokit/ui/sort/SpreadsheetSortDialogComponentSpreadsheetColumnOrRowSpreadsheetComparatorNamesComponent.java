@@ -107,7 +107,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
 
         this.root = SpreadsheetFlexLayout.emptyRow()
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyColumn()
+                        SpreadsheetFlexLayout.emptyRow()
                                 .appendChild(names)
                                 .appendChild(moveUpLink)
                                 .appendChild(moveDownLink)
