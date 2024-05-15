@@ -233,7 +233,6 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         final Optional<SpreadsheetColumnOrRowReference> firstColumnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(text);
 
         final String[] tokens = toSpreadsheetColumnOrRowSpreadsheetComparatorNames(text);
-        ;
 
         final List<String> names = Lists.array();
         names.addAll(
