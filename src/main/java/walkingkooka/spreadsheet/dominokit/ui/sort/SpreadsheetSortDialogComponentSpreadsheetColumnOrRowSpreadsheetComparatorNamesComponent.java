@@ -123,7 +123,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
 
     void refresh(final String columnOrRowSpreadsheetComparatorNames,
                  final SpreadsheetSortDialogComponentContext context) {
-
+        // DomGlobal.console.error("@refresh " + this.names.id() + " " + CharSequences.quoteAndEscape(columnOrRowSpreadsheetComparatorNames));
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = this.names;
         names.setStringValue(
                 Optional.ofNullable(

@@ -364,8 +364,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                     context
             );
 
-            names.addKeyupListener((e) -> this.refreshColumnOrRowComparatorNames(names))
-                    .addChangeListener((o, n) -> this.refreshColumnOrRowComparatorNames(names));
+            names.addKeyupListener((e) -> this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names))
+                    .addChangeListener((o, n) -> this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names));
             parent.appendChild(names);
         }
 
@@ -499,9 +499,11 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                         .orElse("");
             }
 
-            return this.setEdit(
+            final HistoryToken h = this.setEdit(
                     this.mergeSpreadsheetColumnOrRowSpreadsheetComparatorNames(tokens)
             );
+            //DomGlobal.console.error("@setter " + index + " " + names.toString() + " " + h);
+            return h;
         };
     }
 
@@ -520,10 +522,11 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 .setSortEdit(sortEdit);
     }
 
+
     /**
      * Concatenate the string value of all {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} and update {@link #columnOrRowComparatorNamesList}.
      */
-    private void refreshColumnOrRowComparatorNames(final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component) {
+    private void onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component) {
         component.validate();
 
         String columnOrRowSpreadsheetComparatorNames = this.columnOrRowComparatorNamesParent.children()
@@ -545,7 +548,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         }
 
         component.refresh(
-                columnOrRowSpreadsheetComparatorNames,
+                component.stringValue()
+                        .orElse(""),
                 this.context
         );
 
