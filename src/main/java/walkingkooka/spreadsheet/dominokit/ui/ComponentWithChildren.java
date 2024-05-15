@@ -19,13 +19,14 @@ package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
+import walkingkooka.CanBeEmpty;
 
 import java.util.List;
 
 /**
  * Defines methods for a {@link Component} that has children.
  */
-public interface ComponentWithChildren<C extends Component<E>, E extends Element> {
+public interface ComponentWithChildren<C extends Component<E>, E extends Element> extends CanBeEmpty {
 
     /**
      * Appends a new child.
@@ -62,4 +63,12 @@ public interface ComponentWithChildren<C extends Component<E>, E extends Element
      * Getter that returns all children.
      */
     List<IsElement<?>> children();
+
+    /**
+     * Returns true if this component is empty (has no children).
+     */
+    default boolean isEmpty() {
+        return this.children()
+                .isEmpty();
+    }
 }
