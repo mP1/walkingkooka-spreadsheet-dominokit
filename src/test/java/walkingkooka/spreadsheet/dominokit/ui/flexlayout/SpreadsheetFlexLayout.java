@@ -26,11 +26,11 @@ import java.util.Objects;
 
 public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
-    public static SpreadsheetFlexLayout emptyColumn() {
+    public static SpreadsheetFlexLayout column() {
         return new SpreadsheetFlexLayout();
     }
 
-    public static SpreadsheetFlexLayout emptyRow() {
+    public static SpreadsheetFlexLayout row() {
         return new SpreadsheetFlexLayout();
     }
 

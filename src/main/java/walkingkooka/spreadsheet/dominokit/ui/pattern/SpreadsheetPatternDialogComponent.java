@@ -116,7 +116,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 .appendChild(this.elementAppender)
                 .appendChild(this.patternTextBox)
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyRow()
+                        SpreadsheetFlexLayout.row()
                                 .appendChild(this.save)
                                 .appendChild(this.undo)
                                 .appendChild(this.clear)

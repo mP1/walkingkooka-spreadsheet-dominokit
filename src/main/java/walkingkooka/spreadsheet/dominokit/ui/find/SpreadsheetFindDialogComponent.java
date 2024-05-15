@@ -114,7 +114,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .appendChild(this.valueType)
                 .appendChild(this.query)
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyRow()
+                        SpreadsheetFlexLayout.row()
                                 .appendChild(this.find)
                                 .appendChild(this.reset)
                                 .appendChild(

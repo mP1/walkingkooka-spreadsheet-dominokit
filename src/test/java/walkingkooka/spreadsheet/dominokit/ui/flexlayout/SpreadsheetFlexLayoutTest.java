@@ -31,7 +31,7 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<Spreadsheet
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetFlexLayout.emptyRow()
+                SpreadsheetFlexLayout.row()
                         .appendChild(
                                 SpreadsheetTextBox.empty()
                                         .setValue(
@@ -54,7 +54,7 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<Spreadsheet
     @Test
     public void testTreePrintIncludesId() {
         this.treePrintAndCheck(
-                SpreadsheetFlexLayout.emptyRow()
+                SpreadsheetFlexLayout.row()
                         .setId("Id123")
                         .appendChild(
                                 SpreadsheetTextBox.empty()

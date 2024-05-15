@@ -82,7 +82,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
                         this.context
                 ).appendChild(this.name)
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyRow()
+                        SpreadsheetFlexLayout.row()
                                 .appendChild(this.save)
                                 .appendChild(this.undo)
                                 .appendChild(this.close)

@@ -81,7 +81,7 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
 
         this.table.element()
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyRow()
+                        SpreadsheetFlexLayout.row()
                                 .appendChild(this.previous)
                                 .appendChild(this.next)
                                 .element()
