@@ -21,10 +21,13 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
 import walkingkooka.CanBeEmpty;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -32,7 +35,8 @@ import java.util.Objects;
  */
 public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElement, SpreadsheetCard>,
         TreePrintable,
-        CanBeEmpty {
+        CanBeEmpty,
+        ComponentWithChildren<SpreadsheetCard, HTMLDivElement> {
 
     public static SpreadsheetCard empty() {
         return new SpreadsheetCard();
@@ -40,7 +44,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
 
     private SpreadsheetCard() {
         this.card = Card.create();
-        this.empty = true;
+        this.children = Lists.array();
     }
 
     public SpreadsheetCard setTitle(final String title) {
@@ -50,26 +54,45 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         return this;
     }
 
-    public SpreadsheetCard clear() {
-        this.card.clearElement();
-        this.card.setDisplay("none");
-        this.empty = true;
-        return this;
-    }
-
+    @Override
     public SpreadsheetCard appendChild(final IsElement<?> child) {
         this.card.appendChild(child);
         this.card.setDisplay("");
-        this.empty = false;
         return this;
     }
 
+    /**
+     * Removes an existing child.
+     */
     @Override
-    public boolean isEmpty() {
-        return this.empty;
+    public SpreadsheetCard removeChild(final int index) {
+        final IsElement<?> child = this.children.remove(index);
+        this.card.element()
+                .removeChild(child.element());
+        return this;
     }
 
-    private boolean empty;
+    /**
+     * Getter that returns all children.
+     */
+    @Override
+    public List<IsElement<?>> children() {
+        return Lists.immutable(
+                this.children
+        );
+    }
+
+    /**
+     * Holds all added child components.
+     */
+    private List<IsElement<?>> children;
+
+    // CanBeEmpty.......................................................................................................
+
+    @Override
+    public boolean isEmpty() {
+        return this.children.isEmpty();
+    }
 
     // Component........................................................................................................
 

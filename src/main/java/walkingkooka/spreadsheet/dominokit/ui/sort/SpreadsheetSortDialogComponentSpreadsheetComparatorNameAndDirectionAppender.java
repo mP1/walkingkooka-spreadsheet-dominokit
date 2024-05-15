@@ -70,7 +70,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     void refresh(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final SpreadsheetSortDialogComponentContext context) {
-        this.root.clear();
+        this.root.removeAllChildren();
 
         if (columnOrRow.isPresent()) {
             final List<SpreadsheetComparatorNameAndDirection> copy = Lists.array();
