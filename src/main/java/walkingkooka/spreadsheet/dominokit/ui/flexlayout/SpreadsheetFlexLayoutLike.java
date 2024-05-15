@@ -20,57 +20,21 @@ package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.ui.ParentContainer;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
-
-import java.util.List;
 
 /**
  * Defines the public API for {@link SpreadsheetFlexLayout}. Used to keep the main/text versions in sync.
  */
 public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
+        ParentContainer<SpreadsheetFlexLayout, HTMLDivElement>,
         TreePrintable {
 
     SpreadsheetFlexLayout setId(final String id);
 
     String id();
-
-    /**
-     * Appends a new child.
-     */
-    SpreadsheetFlexLayout appendChild(final IsElement<?> child);
-
-    /**
-     * Getter that returns the child at index.
-     */
-    default IsElement<?> child(final int index) {
-        return this.children()
-                .get(index);
-    }
-
-    /**
-     * Removes an existing child.
-     */
-    SpreadsheetFlexLayout removeChild(final int index);
-
-    /**
-     * Removes all children.
-     */
-    default SpreadsheetFlexLayout clearChildren() {
-        final int count = this.children()
-                .size();
-        for (int i = 0; i < count; i++) {
-            this.removeChild(0);
-        }
-
-        return (SpreadsheetFlexLayout) this;
-    }
-
-    /**
-     * Getter that returns all children.
-     */
-    List<IsElement<?>> children();
 
     // TreePrintable....................................................................................................
 
