@@ -44,19 +44,17 @@ import java.util.function.Function;
 final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
 
     static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final String id,
-                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
+                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
         CharSequences.failIfNullOrEmpty(id, "id");
-        Objects.requireNonNull(columnOrRowSpreadsheetComparatorNamesToHistoryToken, "columnOrRowSpreadsheetComparatorNamesToHistoryToken");
+        Objects.requireNonNull(setter, "setter");
         return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(
                 id,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+                setter
         );
     }
 
     private SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final String id,
-                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
-        final SpreadsheetFlexLayout parent = SpreadsheetFlexLayout.emptyRow();
-
+                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
                 .setId(
                         CharSequences.subSequence(
@@ -64,26 +62,26 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
                                 0,
                                 -1
                         ) + SpreadsheetIds.TEXT_BOX);
-        parent.appendChild(names);
         this.names = names;
 
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(
                 id,
-                (newNames) -> columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(
+                (newNames) -> setter.apply(
                         Optional.of(newNames)
                 )
         );
-        parent.appendChild(appender);
         this.appender = appender;
 
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(
                 id,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+                setter
         );
-        parent.appendChild(remover);
         this.remover = remover;
 
-        this.parent = parent;
+        this.root = SpreadsheetFlexLayout.emptyRow()
+                .appendChild(names)
+                .appendChild(appender)
+                .appendChild(remover);
     }
 
     void refresh(final String columnOrRowSpreadsheetComparatorNames,
@@ -267,10 +265,10 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
 
     @Override
     public HTMLDivElement element() {
-        return this.parent.element();
+        return this.root.element();
     }
 
-    private final SpreadsheetFlexLayout parent;
+    private final SpreadsheetFlexLayout root;
 
     // TreePrintable....................................................................................................
 
@@ -279,7 +277,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            this.parent.printTree(printer);
+            this.root.printTree(printer);
         }
         printer.outdent();
     }
