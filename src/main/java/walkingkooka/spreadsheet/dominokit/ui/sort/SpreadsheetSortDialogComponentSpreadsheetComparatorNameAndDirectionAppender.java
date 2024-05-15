@@ -76,7 +76,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
             final List<SpreadsheetComparatorNameAndDirection> copy = Lists.array();
             copy.addAll(spreadsheetComparatorNameAndDirections);
 
-
             this.refresh0(
                     columnOrRow.get(),
                     copy,
@@ -126,7 +125,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
                                     )
                             )
             );
-
 
             spreadsheetComparatorNameAndDirections.remove(addIndex);
 
