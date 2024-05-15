@@ -49,6 +49,14 @@ public class Card implements IsElement<Element>,
         return null;
     }
 
+    public IsElement<?> show() {
+        return this;
+    }
+
+    public IsElement<?> hide() {
+        return this;
+    }
+
     public IsElement<?> appendChild(final IsElement<?> component) {
         this.components.add(component);
         return this;
