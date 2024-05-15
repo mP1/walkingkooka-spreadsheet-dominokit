@@ -45,10 +45,6 @@ public class Card implements IsElement<Element>,
         return null;
     }
 
-    public IsElement<?> setDisplay(final String display) {
-        return null;
-    }
-
     public IsElement<?> show() {
         return this;
     }
