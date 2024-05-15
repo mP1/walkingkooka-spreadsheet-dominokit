@@ -48,7 +48,7 @@ public interface ParentContainer<C extends Component<E>, E extends Element> {
     /**
      * Removes all children.
      */
-    default C clearChildren() {
+    default C removeAllChildren() {
         final int count = this.children()
                 .size();
         for (int i = 0; i < count; i++) {
