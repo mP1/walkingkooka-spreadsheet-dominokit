@@ -48,20 +48,20 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
      * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender}.
      */
     static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender empty(final String id,
-                                                                                             final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
+                                                                                             final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
         return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender(
                 id,
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+                setter
         );
     }
 
     private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender(final String id,
-                                                                                        final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken) {
-        this.parent = SpreadsheetCard.empty()
+                                                                                        final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
+        this.root = SpreadsheetCard.empty()
                 .setTitle("Append comparator(s)");
 
         this.id = id;
-        this.columnOrRowSpreadsheetComparatorNamesToHistoryToken = columnOrRowSpreadsheetComparatorNamesToHistoryToken;
+        this.setter = setter;
     }
 
     /**
@@ -70,7 +70,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     void refresh(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final SpreadsheetSortDialogComponentContext context) {
-        this.parent.clear();
+        this.root.clear();
 
         if (columnOrRow.isPresent()) {
             final List<SpreadsheetComparatorNameAndDirection> copy = Lists.array();
@@ -88,7 +88,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     void refresh0(final SpreadsheetColumnOrRowReference columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                   final SpreadsheetSortDialogComponentContext context) {
-        final SpreadsheetCard parent = this.parent;
+        final SpreadsheetCard root = this.root;
 
         final HistoryToken historyToken = context.historyToken();
 
@@ -117,12 +117,12 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
                     spreadsheetComparatorNameAndDirections
             );
 
-            parent.appendChild(
+            root.appendChild(
                     historyToken.link(idPrefix + "append-" + i)
                             .setTextContent(comparatorName.toString())
                             .setHistoryToken(
                                     Optional.of(
-                                            columnOrRowSpreadsheetComparatorNamesToHistoryToken.apply(append)
+                                            setter.apply(append)
                                     )
                             )
             );
@@ -136,19 +136,19 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
 
     private final String id;
 
-    private final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken;
+    private final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter;
 
     // HtmlElementComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {
-        return this.parent.element();
+        return this.root.element();
     }
 
     /**
      * The parent holding all the current links to remove individual components of a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
      */
-    private final SpreadsheetCard parent;
+    private final SpreadsheetCard root;
 
     // TreePrintable....................................................................................................
 
@@ -157,11 +157,11 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
      */
     @Override
     public void printTree(final IndentingPrinter printer) {
-        if (false == this.parent.isEmpty()) {
+        if (false == this.root.isEmpty()) {
             printer.println(this.getClass().getSimpleName());
             printer.indent();
             {
-                this.parent.printTree(printer);
+                this.root.printTree(printer);
                 printer.lineStart();
             }
             printer.outdent();
