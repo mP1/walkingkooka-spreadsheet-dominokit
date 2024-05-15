@@ -116,13 +116,13 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
 
     private void refreshAndCheck(final int index,
                                  final String columnOrRow,
-                                 final String spreadsheetComparatorNameAndDirections,
+                                 final String setter,
                                  final String historyToken,
                                  final String expected) {
         this.refreshAndCheck(
                 index,
                 columnOrRow,
-                spreadsheetComparatorNameAndDirections,
+                setter,
                 historyToken,
                 (names) -> HistoryToken.parse(
                         UrlFragment.parse(historyToken + names)
@@ -133,7 +133,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
 
     private void refreshAndCheck(final int index,
                                  final String columnOrRow,
-                                 final String spreadsheetComparatorNameAndDirections,
+                                 final String setter,
                                  final String historyToken,
                                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final String expected) {
@@ -144,9 +144,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         Optional.of(
                                 SpreadsheetSelection.parseColumnOrRow(columnOrRow)
                         ),
-                spreadsheetComparatorNameAndDirections.isEmpty() ?
+                setter.isEmpty() ?
                         Lists.empty() :
-                        Arrays.stream(spreadsheetComparatorNameAndDirections.split(","))
+                        Arrays.stream(setter.split(","))
                                 .map(SpreadsheetComparatorNameAndDirection::parse)
                                 .collect(Collectors.toList()),
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken,
@@ -183,7 +183,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
 
     private void refreshAndCheck(final int index,
                                  final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
-                                 final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                                 final List<SpreadsheetComparatorNameAndDirection> setter,
                                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
@@ -194,7 +194,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
 
         appender.refresh(
                 columnOrRow,
-                spreadsheetComparatorNameAndDirections,
+                setter,
                 context
         );
 
