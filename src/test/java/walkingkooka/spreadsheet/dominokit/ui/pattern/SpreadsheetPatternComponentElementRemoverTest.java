@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -601,9 +600,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
 
                     @Override
                     public HistoryToken historyToken() {
-                        return HistoryToken.parse(
-                                UrlFragment.parse(historyToken)
-                        );
+                        return HistoryToken.parseString(historyToken);
                     }
 
                     @Override

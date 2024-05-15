@@ -4229,9 +4229,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Override
     public HistoryToken parseString(final String urlFragment) {
-        return HistoryToken.parse(
-                UrlFragment.with(urlFragment)
-        );
+        return HistoryToken.parseString(urlFragment);
     }
 
     @Override
