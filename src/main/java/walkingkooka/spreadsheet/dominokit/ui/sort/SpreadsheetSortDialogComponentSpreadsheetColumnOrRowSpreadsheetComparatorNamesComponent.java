@@ -105,7 +105,12 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         );
         this.remover = remover;
 
-        this.root = SpreadsheetFlexLayout.emptyRow()
+        //
+        // NAMES MOVEUP MOVEDOWN
+        // APPENDER
+        // REMOVER
+        //
+        this.root = SpreadsheetFlexLayout.emptyColumn()
                 .appendChild(
                         SpreadsheetFlexLayout.emptyRow()
                                 .appendChild(names)
