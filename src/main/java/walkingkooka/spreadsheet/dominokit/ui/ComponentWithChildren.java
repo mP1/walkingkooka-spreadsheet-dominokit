@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Defines methods for a {@link Component} that has children.
  */
-public interface ParentContainer<C extends Component<E>, E extends Element> {
+public interface ComponentWithChildren<C extends Component<E>, E extends Element> {
 
     /**
      * Appends a new child.

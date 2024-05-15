@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.ParentContainer;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -29,7 +29,7 @@ import walkingkooka.text.printer.TreePrintable;
  * Defines the public API for {@link SpreadsheetFlexLayout}. Used to keep the main/text versions in sync.
  */
 public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
-        ParentContainer<SpreadsheetFlexLayout, HTMLDivElement>,
+        ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement>,
         TreePrintable {
 
     SpreadsheetFlexLayout setId(final String id);
