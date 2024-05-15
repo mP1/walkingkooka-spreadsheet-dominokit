@@ -173,7 +173,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     private void refreshAndCheck(final String columnOrRow,
                                  final String spreadsheetComparatorNameAndDirections,
                                  final String historyToken,
-                                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
                                  final String expected) {
         this.refreshAndCheck(
                 columnOrRow.isEmpty() ?
@@ -186,7 +186,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                         Arrays.stream(spreadsheetComparatorNameAndDirections.split(","))
                                 .map(SpreadsheetComparatorNameAndDirection::parse)
                                 .collect(Collectors.toList()),
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                setter,
                 new FakeSpreadsheetSortDialogComponentContext() {
 
                     @Override
@@ -202,12 +202,12 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
 
     private void refreshAndCheck(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
-                                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+                                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(
                 "sort-comparator-0-",
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+                setter
         );
 
         remover.refresh(
