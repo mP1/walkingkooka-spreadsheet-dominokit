@@ -427,7 +427,12 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
             return this.context.historyToken()
                     .setSortEdit(
                             Arrays.stream(tokens)
-                                    .collect(Collectors.joining(SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()))
+                                    .filter(s -> false == s.isEmpty())
+                                    .collect(
+                                            Collectors.joining(
+                                                    SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
+                                            )
+                                    )
                     );
         };
     }
@@ -441,6 +446,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         String columnOrRowSpreadsheetComparatorNames = this.columnOrRowComparatorNamesParent.children()
                 .stream()
                 .map(c -> ((SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) c).stringValue().orElse(""))
+                .filter(s -> false == s.isEmpty())
                 .collect(
                         Collectors.joining(
                                 SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
