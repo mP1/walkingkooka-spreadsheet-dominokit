@@ -75,7 +75,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
         this.columnOrRowComparatorNamesList = this.columnOrRowComparatorNamesList();
 
-        this.columnOrRowComparatorNamesParent = SpreadsheetFlexLayout.emptyRow();
+        this.columnOrRowComparatorNamesParent = SpreadsheetFlexLayout.row();
 
         this.sort = this.anchor("Sort")
                 .setDisabled(true);
@@ -97,7 +97,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 ).appendChild(this.columnOrRowComparatorNamesList)
                 .appendChild(this.columnOrRowComparatorNamesParent)
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyRow()
+                        SpreadsheetFlexLayout.row()
                                 .appendChild(this.sort)
                                 .appendChild(this.close)
                 );

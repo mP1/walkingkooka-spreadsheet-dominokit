@@ -121,7 +121,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
                         context
                 ).appendChild(this.table)
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyRow()
+                        SpreadsheetFlexLayout.row()
                                 .appendChild(
                                         HistoryToken.spreadsheetCreate()
                                                 .link(ID_PREFIX + "create")

@@ -71,7 +71,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
                         context
                 ).appendChild(this.count)
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyRow()
+                        SpreadsheetFlexLayout.row()
                                 .appendChild(this.go)
                                 .appendChild(
                                         this.closeAnchor(

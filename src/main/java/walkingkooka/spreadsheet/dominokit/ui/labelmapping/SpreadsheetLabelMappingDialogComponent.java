@@ -95,7 +95,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                 ).appendChild(this.label)
                 .appendChild(this.target)
                 .appendChild(
-                        SpreadsheetFlexLayout.emptyRow()
+                        SpreadsheetFlexLayout.row()
                                 .appendChild(this.save)
                                 .appendChild(this.undo)
                                 .appendChild(this.delete)

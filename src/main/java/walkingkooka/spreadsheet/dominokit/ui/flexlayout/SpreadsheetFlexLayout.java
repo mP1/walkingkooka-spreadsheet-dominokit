@@ -33,36 +33,28 @@ import java.util.List;
  */
 public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
-    public static SpreadsheetFlexLayout emptyColumn() {
-        return new SpreadsheetFlexLayout()
-                .column();
-    }
-
-    public static SpreadsheetFlexLayout emptyRow() {
-        return new SpreadsheetFlexLayout()
-                .row();
-    }
-
-    private SpreadsheetFlexLayout() {
-        this.children = Lists.array();
-    }
-
-    private SpreadsheetFlexLayout column() {
-        this.div.addCss(
+    public static SpreadsheetFlexLayout column() {
+        final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout();
+        flex.div.addCss(
                 SpacingCss.dui_flex_col,
                 //SpacingCss.dui_v_full,
                 SpacingCss.dui_items_start,
                 SpacingCss.dui_gap_4);
-        return this;
+        return flex;
     }
 
-    private SpreadsheetFlexLayout row() {
-        this.div.addCss(
+    public static SpreadsheetFlexLayout row() {
+        final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout();
+        flex.div.addCss(
                 SpacingCss.dui_flex_row,
                 SpacingCss.dui_h_full,
                 SpacingCss.dui_items_start,
                 SpacingCss.dui_gap_4);
-        return this;
+        return flex;
+    }
+
+    private SpreadsheetFlexLayout() {
+        this.children = Lists.array();
     }
 
     // id...............................................................................................................
