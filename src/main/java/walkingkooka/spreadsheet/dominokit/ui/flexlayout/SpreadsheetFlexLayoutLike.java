@@ -55,6 +55,19 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
     SpreadsheetFlexLayout removeChild(final int index);
 
     /**
+     * Removes all children.
+     */
+    default SpreadsheetFlexLayout clearChildren() {
+        final int count = this.children()
+                .size();
+        for (int i = 0; i < count; i++) {
+            this.removeChild(0);
+        }
+
+        return (SpreadsheetFlexLayout) this;
+    }
+
+    /**
      * Getter that returns all children.
      */
     List<IsElement<?>> children();
