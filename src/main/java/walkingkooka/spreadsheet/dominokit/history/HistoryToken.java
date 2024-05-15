@@ -1049,7 +1049,16 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Parses the given {@link UrlFragment} if matching fails a {@link UnknownHistoryToken} is returned.
+     * Parses the given {@link String} if that matching fails a {@link UnknownHistoryToken} is returned.
+     */
+    public static HistoryToken parseString(final String fragment) {
+        return parse(
+                UrlFragment.parse(fragment)
+        );
+    }
+
+    /**
+     * Parses the given {@link UrlFragment} if that matching fails a {@link UnknownHistoryToken} is returned.
      */
     public static HistoryToken parse(final UrlFragment fragment) {
         Objects.requireNonNull(fragment, "fragment");

@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.sort;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
-import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
@@ -301,28 +300,24 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                 "A=comparator-1",
                 (names) -> Optional.empty(), // first CANT move-up
                 (names) -> Optional.of(
-                        HistoryToken.parse(
-                                UrlFragment.parse(
-                                        HISTORY_TOKEN +
-                                                concat(
-                                                        "B=comparator-2",
-                                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
-                                                                .orElse(""),
-                                                        "C=comparator-3"
-                                                )
-                                )
-                        )
-                ), // move-down
-                (names) -> HistoryToken.parse(
-                        UrlFragment.parse(
+                        HistoryToken.parseString(
                                 HISTORY_TOKEN +
                                         concat(
+                                                "B=comparator-2",
                                                 names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
                                                         .orElse(""),
-                                                "B=comparator-2",
                                                 "C=comparator-3"
                                         )
                         )
+                ), // move-down
+                (names) -> HistoryToken.parseString(
+                        HISTORY_TOKEN +
+                                concat(
+                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                                .orElse(""),
+                                        "B=comparator-2",
+                                        "C=comparator-3"
+                                )
                 ), // setter
                 "SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "  SpreadsheetFlexLayout\n" +
@@ -352,41 +347,35 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
         this.refreshAndCheck(
                 "B=comparator-2",
                 (names) -> Optional.of(
-                        HistoryToken.parse(
-                                UrlFragment.parse(
-                                        HISTORY_TOKEN +
-                                                concat(
-                                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
-                                                                .orElse(""),
-                                                        "A=comparator-1",
-                                                        "C=comparator-3"
-                                                )
-                                )
-                        )
-                ), // move-up
-                (names) -> Optional.of(
-                        HistoryToken.parse(
-                                UrlFragment.parse(
-                                        HISTORY_TOKEN +
-                                                concat(
-                                                        "A=comparator-1",
-                                                        "C=comparator-3",
-                                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
-                                                                .orElse("")
-                                                )
-                                )
-                        )
-                ), // move-down
-                (names) -> HistoryToken.parse(
-                        UrlFragment.parse(
+                        HistoryToken.parseString(
                                 HISTORY_TOKEN +
                                         concat(
-                                                "A=comparator-1",
                                                 names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
                                                         .orElse(""),
+                                                "A=comparator-1",
                                                 "C=comparator-3"
                                         )
                         )
+                ), // move-up
+                (names) -> Optional.of(
+                        HistoryToken.parseString(
+                                HISTORY_TOKEN +
+                                        concat(
+                                                "A=comparator-1",
+                                                "C=comparator-3",
+                                                names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                                        .orElse("")
+                                        )
+                        )
+                ), // move-down
+                (names) -> HistoryToken.parseString(
+                        HISTORY_TOKEN +
+                                concat(
+                                        "A=comparator-1",
+                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                                .orElse(""),
+                                        "C=comparator-3"
+                                )
                 ), // setter
                 "SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "  SpreadsheetFlexLayout\n" +
@@ -416,29 +405,25 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
         this.refreshAndCheck(
                 "C=comparator-3",
                 (names) -> Optional.of(
-                        HistoryToken.parse(
-                                UrlFragment.parse(
-                                        HISTORY_TOKEN +
-                                                concat(
-                                                        "A=comparator-1",
-                                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
-                                                                .orElse(""),
-                                                        "B=comparator-2"
-                                                )
-                                )
-                        )
-                ), // move-up
-                (names) -> Optional.empty(), // LAST CANT move-down
-                (names) -> HistoryToken.parse(
-                        UrlFragment.parse(
+                        HistoryToken.parseString(
                                 HISTORY_TOKEN +
                                         concat(
                                                 "A=comparator-1",
-                                                "B=comparator-2",
                                                 names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
-                                                        .orElse("")
+                                                        .orElse(""),
+                                                "B=comparator-2"
                                         )
                         )
+                ), // move-up
+                (names) -> Optional.empty(), // LAST CANT move-down
+                (names) -> HistoryToken.parseString(
+                        HISTORY_TOKEN +
+                                concat(
+                                        "A=comparator-1",
+                                        "B=comparator-2",
+                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                                .orElse("")
+                                )
                 ), // setter
                 "SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                         "  SpreadsheetFlexLayout\n" +
@@ -469,14 +454,12 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                 columnOrRowSpreadsheetComparatorNames,
                 (names) -> Optional.empty(),
                 (names) -> Optional.empty(),
-                (names) -> HistoryToken.parse(
-                        UrlFragment.parse(
-                                HISTORY_TOKEN +
-                                        concat(
-                                                names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
-                                                        .orElse("")
-                                        )
-                        )
+                (names) -> HistoryToken.parseString(
+                        HISTORY_TOKEN +
+                                concat(
+                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                                .orElse("")
+                                )
                 ),
                 expected
         );
@@ -511,9 +494,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                 new FakeSpreadsheetSortDialogComponentContext() {
                     @Override
                     public HistoryToken historyToken() {
-                        return HistoryToken.parse(
-                                UrlFragment.parse(historyToken)
-                        );
+                        return HistoryToken.parseString(historyToken);
                     }
 
                     @Override

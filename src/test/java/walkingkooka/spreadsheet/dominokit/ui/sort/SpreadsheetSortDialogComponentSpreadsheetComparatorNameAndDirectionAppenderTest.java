@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
-import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
@@ -63,9 +62,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "A", // columnOrRow
                 "", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                (names) -> HistoryToken.parse(
-                        UrlFragment.parse("/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," + names)
-                ),
+                (names) -> HistoryToken.parseString("/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," + names),
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
@@ -124,9 +121,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 columnOrRow,
                 setter,
                 historyToken,
-                (names) -> HistoryToken.parse(
-                        UrlFragment.parse(historyToken + names)
-                ),
+                (names) -> HistoryToken.parseString(historyToken + names),
                 expected
         );
     }
@@ -154,9 +149,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
 
                     @Override
                     public HistoryToken historyToken() {
-                        return HistoryToken.parse(
-                                UrlFragment.parse(historyToken)
-                        );
+                        return HistoryToken.parseString(historyToken);
                     }
 
                     @Override

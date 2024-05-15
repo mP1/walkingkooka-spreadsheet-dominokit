@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.contextmenu;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
-import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -72,7 +71,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                         .enabled(false)
                         .historyToken(
                                 Optional.of(
-                                        HistoryToken.parse(UrlFragment.with("/1/Spreadsheet-name-2/cell/A1:B2/cell"))
+                                        HistoryToken.parseString("/1/Spreadsheet-name-2/cell/A1:B2/cell")
                                 )
                         ),
                 "\"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] DISABLED id=id1-MenuItem\n"
@@ -85,7 +84,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                 SpreadsheetContextMenuItem.with("id1-MenuItem", "text-123")
                         .historyToken(
                                 Optional.of(
-                                        HistoryToken.parse(UrlFragment.with("/1/Spreadsheet-name-2/cell/A1:B2/cell"))
+                                        HistoryToken.parseString("/1/Spreadsheet-name-2/cell/A1:B2/cell")
                                 )
                         ),
                 "\"text-123\" [/1/Spreadsheet-name-2/cell/A1:B2/bottom-right] id=id1-MenuItem\n"
@@ -114,7 +113,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
                         ).checked(true)
                         .historyToken(
                                 Optional.of(
-                                        HistoryToken.parse(UrlFragment.with("/1/Spreadsheet-name-2/cell/A1:B2/cell"))
+                                        HistoryToken.parseString("/1/Spreadsheet-name-2/cell/A1:B2/cell")
                                 )
                         ).icon(
                                 Optional.of(

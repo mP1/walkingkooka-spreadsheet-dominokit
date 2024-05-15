@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.sort;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
@@ -96,12 +95,10 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "A", // columnOrRow
                 "comparator-1,comparator-2,comparator-3", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                (names) -> HistoryToken.parse(
-                        UrlFragment.parse(
-                                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," +
-                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
-                                                .orElse("")
-                        )
+                (names) -> HistoryToken.parseString(
+                        "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," +
+                                names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                        .orElse("")
                 ),
                 "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "  SpreadsheetCard\n" +
@@ -159,12 +156,10 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 columnOrRow,
                 spreadsheetComparatorNameAndDirections,
                 historyToken,
-                (names) -> HistoryToken.parse(
-                        UrlFragment.parse(
-                                historyToken +
-                                        names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
-                                                .orElse("")
-                        )
+                (names) -> HistoryToken.parseString(
+                        historyToken +
+                                names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                                        .orElse("")
                 ),
                 expected
         );
@@ -191,9 +186,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
 
                     @Override
                     public HistoryToken historyToken() {
-                        return HistoryToken.parse(
-                                UrlFragment.parse(historyToken)
-                        );
+                        return HistoryToken.parseString(historyToken);
                     }
                 },
                 expected

@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
 import org.dominokit.domino.ui.icons.Icon;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.Url;
-import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -53,9 +52,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                 HistoryTokenAnchorComponent.empty()
                         .setHistoryToken(
                                 Optional.of(
-                                        HistoryToken.parse(
-                                                UrlFragment.parse(href)
-                                        )
+                                        HistoryToken.parseString(href)
                                 )
                         ),
                 "[#/1/SpreadsheetName234/cell/A1]"
