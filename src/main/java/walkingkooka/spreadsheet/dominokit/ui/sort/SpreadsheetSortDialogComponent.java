@@ -51,6 +51,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -347,6 +348,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     private void getOrCreateColumnOrRowComparatorNamesComponent(final int i,
                                                                 final String text,
                                                                 final Set<SpreadsheetColumnOrRowReference> previousColumnOrRows) {
+        final SpreadsheetSortDialogComponentContext context = this.context;
         final SpreadsheetFlexLayout parent = this.columnOrRowComparatorNamesParent;
         final List<IsElement<?>> children = parent.children();
 
@@ -356,7 +358,10 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         } else {
             names = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
                     ID_PREFIX + "comparatorNames-" + i + "-", // id-prefix
-                    this.setter(i)
+                    this.moveUp(i),
+                    this.moveDown(i),
+                    this.setter(i),
+                    context
             );
 
             names.addKeyupListener((e) -> this.refreshColumnOrRowComparatorNames(names))
@@ -370,7 +375,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
         names.refresh(
                 text,
-                this.context
+                context
         );
 
         // dont add more errors if it already has one.
@@ -412,6 +417,80 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         }
     }
 
+    // 0 = A swap = index - 1
+    // 1 = B index = 2
+    // 2 = C
+    private Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp(final int index) {
+        return (names) -> {
+            HistoryToken historyToken;
+
+            if (0 == index) {
+                historyToken = null;
+            } else {
+                final String namesList = this.columnOrRowComparatorNamesList.stringValue()
+                        .orElse("");
+                final String[] tokens = this.toSpreadsheetColumnOrRowSpreadsheetComparatorNames(namesList);
+
+                if (index < tokens.length) {
+                    final String down = tokens[index - 1];
+                    tokens[index - 1] = names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                            .orElse(""); // move up
+                    tokens[index] = down;
+                }
+
+                historyToken = this.mergeSpreadsheetColumnOrRowSpreadsheetComparatorNamesAndSetSortEdit(
+                        tokens,
+                        namesList
+                );
+            }
+
+            return Optional.ofNullable(historyToken);
+        };
+    }
+
+    // 0 = A
+    // 1 = B index = 2
+    // 2 = C swap = index + 1
+    private Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown(final int index) {
+        return (names) -> {
+            HistoryToken historyToken;
+
+            final String namesList = this.columnOrRowComparatorNamesList.stringValue()
+                    .orElse("");
+            final String[] tokens = this.toSpreadsheetColumnOrRowSpreadsheetComparatorNames(namesList);
+
+            if (index + 1 < tokens.length) {
+                final String up = tokens[index + 1];
+                tokens[index + 1] = names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
+                        .orElse(""); // move up
+                tokens[index] = up;
+
+                historyToken = this.mergeSpreadsheetColumnOrRowSpreadsheetComparatorNamesAndSetSortEdit(
+                        tokens,
+                        namesList
+                );
+            } else {
+                historyToken = null;
+            }
+
+            return Optional.ofNullable(historyToken);
+        };
+    }
+
+    private HistoryToken mergeSpreadsheetColumnOrRowSpreadsheetComparatorNamesAndSetSortEdit(final String[] names,
+                                                                                             final String previousNameList) {
+        final HistoryToken historyToken;
+
+        final String newNamesList = mergeSpreadsheetColumnOrRowSpreadsheetComparatorNames(names);
+        if (false == previousNameList.equals(newNamesList)) {
+            historyToken = this.setEdit(newNamesList);
+        } else {
+            historyToken = null;
+        }
+
+        return historyToken;
+    }
+
     private Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter(final int index) {
         return (names) -> {
             final String[] tokens = this.toSpreadsheetColumnOrRowSpreadsheetComparatorNames(
@@ -424,17 +503,25 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                         .orElse("");
             }
 
-            return this.context.historyToken()
-                    .setSortEdit(
-                            Arrays.stream(tokens)
-                                    .filter(s -> false == s.isEmpty())
-                                    .collect(
-                                            Collectors.joining(
-                                                    SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
-                                            )
-                                    )
-                    );
+            return this.setEdit(
+                    this.mergeSpreadsheetColumnOrRowSpreadsheetComparatorNames(tokens)
+            );
         };
+    }
+
+    private String mergeSpreadsheetColumnOrRowSpreadsheetComparatorNames(final String[] names) {
+        return Arrays.stream(names)
+                .filter(NOT_EMPTY_STRING)
+                .collect(
+                        Collectors.joining(
+                                SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
+                        )
+                );
+    }
+
+    private HistoryToken setEdit(final String sortEdit) {
+        return this.context.historyToken()
+                .setSortEdit(sortEdit);
     }
 
     /**
@@ -446,7 +533,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         String columnOrRowSpreadsheetComparatorNames = this.columnOrRowComparatorNamesParent.children()
                 .stream()
                 .map(c -> ((SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) c).stringValue().orElse(""))
-                .filter(s -> false == s.isEmpty())
+                .filter(NOT_EMPTY_STRING)
                 .collect(
                         Collectors.joining(
                                 SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_COMPARATOR_NAMES_SEPARATOR.string()
@@ -471,6 +558,11 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         );
         this.refreshSort();
     }
+
+    /**
+     * A predicate that only matches non-empty strings. Used when concatenating {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames} which may include empty entries.
+     */
+    private final static Predicate<String> NOT_EMPTY_STRING = s -> false == s.isEmpty();
 
     /**
      * Holds all the many {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent}.
