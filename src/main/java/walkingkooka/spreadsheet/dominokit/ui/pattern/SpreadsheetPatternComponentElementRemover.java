@@ -71,7 +71,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     void refresh(final SpreadsheetPattern pattern,
                  final String errorPattern,
                  final SpreadsheetPatternDialogComponentContext context) {
-        final SpreadsheetCard parent = this.parent.clear();
+        final SpreadsheetCard parent = this.parent.removeAllChildren();
 
         final List<SpreadsheetFormatParserTokenKind> tokenKinds = this.tokenKinds;
         tokenKinds.clear();

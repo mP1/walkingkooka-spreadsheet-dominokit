@@ -65,7 +65,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard parent = this.parent;
-        parent.clear();
+        parent.removeAllChildren();
 
         if (columnOrRow.isPresent()) {
             this.refresh0(

@@ -59,7 +59,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
 
         // recreate table if pattern kind different
         if (false == patternKind.equals(this.patternKind)) {
-            this.card.clear();
+            this.card.removeAllChildren();
 
             this.patternKind = patternKind;
 
