@@ -369,10 +369,6 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
             parent.appendChild(names);
         }
 
-        names.setStringValue(
-                Optional.of(text)
-        );
-
         names.refresh(
                 text,
                 context
