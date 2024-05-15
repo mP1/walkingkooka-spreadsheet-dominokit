@@ -43,6 +43,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     private SpreadsheetCard() {
         this.card = Card.create();
         this.children = Lists.array();
+        this.updateShowOrHide();
     }
 
     public SpreadsheetCard setTitle(final String title) {
@@ -55,8 +56,8 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     @Override
     public SpreadsheetCard appendChild(final IsElement<?> child) {
         this.card.appendChild(child);
-        this.card.setDisplay("");
         this.children.add(child);
+        this.updateShowOrHide();
         return this;
     }
 
@@ -68,7 +69,16 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         final IsElement<?> child = this.children.remove(index);
         this.card.getAppendTarget()
                 .removeChild(child.element());
+        this.updateShowOrHide();
         return this;
+    }
+
+    private void updateShowOrHide() {
+        if (this.isEmpty()) {
+            this.card.hide();
+        } else {
+            this.card.show();
+        }
     }
 
     /**
