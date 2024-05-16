@@ -41,12 +41,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
     public void testPrintTreeWhenEmpty() {
         this.refreshAndCheck(
                 SpreadsheetListComponentTable.empty(
-                        new FakeSpreadsheetListComponentContext() {
-                            @Override
-                            public HistoryToken historyToken() {
-                                return HistoryToken.parseString("/");
-                            }
-                        }
+                        context("/")
                 ),
                 "/",
                 "SpreadsheetListComponentTable\n" +
@@ -72,17 +67,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
     public void testPrintTreeWhenSeveralSpreadsheets() {
         this.refreshAndCheck(
                 SpreadsheetListComponentTable.empty(
-                        new FakeSpreadsheetListComponentContext() {
-                            @Override
-                            public HistoryToken historyToken() {
-                                return HistoryToken.parseString("/");
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return Locale.forLanguageTag("EN-AU");
-                            }
-                        }
+                        context("/")
                 ).setMetadata(
                         Lists.of(
                                 spreadsheetMetadata(1, "Spreadsheet111"),
@@ -157,17 +142,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
     public void testPrintTreeWhenSeveralSpreadsheetsAndPrevious() {
         this.refreshAndCheck(
                 SpreadsheetListComponentTable.empty(
-                        new FakeSpreadsheetListComponentContext() {
-                            @Override
-                            public HistoryToken historyToken() {
-                                return HistoryToken.parseString("/");
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return Locale.forLanguageTag("EN-AU");
-                            }
-                        }
+                        context("/from/1/count/2")
                 ).setMetadata(
                         Lists.of(
                                 spreadsheetMetadata(1, "Spreadsheet111"),
@@ -242,17 +217,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
     public void testPrintTreeWhenSeveralSpreadsheetsAndNext() {
         this.refreshAndCheck(
                 SpreadsheetListComponentTable.empty(
-                        new FakeSpreadsheetListComponentContext() {
-                            @Override
-                            public HistoryToken historyToken() {
-                                return HistoryToken.parseString("/");
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return Locale.forLanguageTag("EN-AU");
-                            }
-                        }
+                        context("/")
                 ).setMetadata(
                         Lists.of(
                                 spreadsheetMetadata(1, "Spreadsheet111"),
@@ -321,6 +286,20 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
                         "              \"next\" [#/from/1/count/2] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
         );
+    }
+
+    private static FakeSpreadsheetListComponentContext context(final String historyToken) {
+        return new FakeSpreadsheetListComponentContext() {
+            @Override
+            public HistoryToken historyToken() {
+                return HistoryToken.parseString(historyToken);
+            }
+
+            @Override
+            public Locale locale() {
+                return Locale.forLanguageTag("EN-AU");
+            }
+        };
     }
 
     private void refreshAndCheck(final SpreadsheetListComponentTable table,
