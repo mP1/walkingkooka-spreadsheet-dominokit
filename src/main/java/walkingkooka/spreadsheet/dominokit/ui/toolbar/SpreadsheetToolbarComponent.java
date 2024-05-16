@@ -72,6 +72,14 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         this.context = context;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetToolbarComponent setCssText(final String css) {
+        this.flexLayout.setCssText(css);
+        return this;
+    }
+
     // isElement........................................................................................................
 
     @Override

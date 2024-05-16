@@ -46,4 +46,11 @@ public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlEleme
                 );
         return (C) this;
     }
+
+    // setCssText.......................................................................................................
+
+    /**
+     * Sets the CSS text on the element returned by {@link org.dominokit.domino.ui.IsElement}.
+     */
+    C setCssText(final String css);
 }

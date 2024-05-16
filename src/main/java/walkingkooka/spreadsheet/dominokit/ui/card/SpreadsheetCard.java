@@ -62,6 +62,17 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetCard setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.card.style()
+                .cssText(css);
+        return this;
+    }
+
     // ComponentWithChildren............................................................................................
 
     @Override

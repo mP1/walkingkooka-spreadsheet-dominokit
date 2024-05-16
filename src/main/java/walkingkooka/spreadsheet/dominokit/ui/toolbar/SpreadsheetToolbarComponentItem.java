@@ -32,6 +32,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -291,6 +292,18 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
                 "Align bottom",
                 context
         );
+    }
+
+    // setCssText.......................................................................................................
+
+    @Override
+    public final C setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.element()
+                .style
+                .cssText = css;
+        return (C) this;
     }
 
     /**

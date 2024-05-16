@@ -317,6 +317,16 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetIntegerBox setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.integerBox.cssText(css);
+        return this;
+    }
+
     // Object...........................................................................................................
 
     public String toString() {

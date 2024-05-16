@@ -201,6 +201,16 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetSelectComponent<T> setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.select.cssText(css);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

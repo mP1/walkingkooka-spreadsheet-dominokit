@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.Function;
@@ -262,6 +263,16 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
     private final HistoryTokenAnchorComponent next;
 
     private final SpreadsheetListComponentContext context;
+
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetListComponentTable setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.card.setCssText(css);
+        return this;
+    }
 
     // HtmlElementComponent.............................................................................................
 

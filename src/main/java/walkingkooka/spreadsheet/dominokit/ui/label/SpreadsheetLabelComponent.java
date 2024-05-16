@@ -229,6 +229,16 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetLabelComponent setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.suggestBox.cssText(css);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

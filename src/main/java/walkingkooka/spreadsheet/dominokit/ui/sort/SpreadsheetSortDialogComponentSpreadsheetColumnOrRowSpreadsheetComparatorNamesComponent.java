@@ -320,6 +320,14 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setCssText(final String css) {
+        this.root.setCssText(css);
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override

@@ -32,6 +32,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -175,6 +176,18 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     private final List<SpreadsheetFormatParserTokenKind> tokenKinds;
 
     private final List<String> texts;
+
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetPatternComponentElementRemover setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.root.setCssText(css);
+        return this;
+    }
+
+    // IsElement........................................................................................................
 
     @Override
     public HTMLDivElement element() {

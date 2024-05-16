@@ -29,4 +29,12 @@ public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlE
     default E element() {
         throw new UnsupportedOperationException();
     }
+
+    // setCssText.......................................................................................................
+
+    @Override
+    default C setCssText(final String css) {
+        // ignore
+        return (C) this;
+    }
 }

@@ -183,6 +183,14 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetValueTypeComponent setCssText(final String css) {
+        this.select.setCssText(css);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
@@ -116,6 +117,16 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
      * Holds all added child components.
      */
     private List<IsElement<?>> children;
+
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetFlexLayout setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.div.cssText(css);
+        return this;
+    }
 
     // IsElement........................................................................................................
 
