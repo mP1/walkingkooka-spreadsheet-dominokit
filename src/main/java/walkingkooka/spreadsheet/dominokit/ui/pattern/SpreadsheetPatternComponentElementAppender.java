@@ -49,7 +49,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
     }
 
     private SpreadsheetPatternComponentElementAppender() {
-        this.parent = SpreadsheetCard.empty()
+        this.root = SpreadsheetCard.empty()
                 .setTitle("Append new component(s)");
         this.links = Lists.array();
     }
@@ -62,7 +62,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                  final SpreadsheetPatternDialogComponentContext context) {
         context.debug(this.getClass().getSimpleName() + ".refresh");
 
-        final SpreadsheetCard parent = this.parent.removeAllChildren();
+        final SpreadsheetCard root = this.root.removeAllChildren();
         final List<SpreadsheetPatternComponentElementAppenderLink> links = this.links;
         links.clear();
 
@@ -108,7 +108,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                                         anchor
                                 )
                         );
-                        parent.appendChild(anchor);
+                        root.appendChild(anchor);
 
                         i++;
                     }
@@ -180,7 +180,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
     /**
      * THe {@link SpreadsheetCard} holding all the links.
      */
-    private final SpreadsheetCard parent;
+    private final SpreadsheetCard root;
 
     /**
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
@@ -190,14 +190,14 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
 
     @Override
     public HTMLDivElement element() {
-        return this.parent.element();
+        return this.root.element();
     }
 
     // TreePrintable....................................................................................................
 
     @Override
     public void printTree(final IndentingPrinter printer) {
-        this.parent.printTree(printer);
+        this.root.printTree(printer);
         printer.lineStart();
     }
 }
