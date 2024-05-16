@@ -150,6 +150,14 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
 
     private final LocalListDataStore<T> dataStore;
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> setCssText(final String css) {
+        this.table.cssText(css);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override
