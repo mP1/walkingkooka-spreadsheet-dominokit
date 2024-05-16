@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextAlign;
 
 import java.time.LocalDateTime;
@@ -47,7 +49,8 @@ import java.util.function.BiFunction;
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
  */
-final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentTable> {
+final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentTable>,
+        TreePrintable {
 
     /**
      * Creates an empty {@link SpreadsheetListComponentTable}.
@@ -79,12 +82,10 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
         this.next = next(context);
         this.next.setCssText("float=right");
 
-        this.table.element()
-                .appendChild(
+        this.table.appendChild(
                         SpreadsheetFlexLayout.row()
                                 .appendChild(this.previous)
                                 .appendChild(this.next)
-                                .element()
                 );
 
         this.card.appendChild(table);
@@ -242,13 +243,15 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
 
     private final SpreadsheetDataTableComponent<SpreadsheetMetadata> table;
 
-    void setMetadata(final List<SpreadsheetMetadata> metadatas) {
+    SpreadsheetListComponentTable setMetadata(final List<SpreadsheetMetadata> metadatas) {
         this.table.setValue(
                 Optional.of(
                         metadatas
                 )
         );
         this.tableCount = metadatas.size();
+
+        return this;
     }
 
     private int tableCount;
@@ -345,4 +348,16 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
     }
 
     private final SpreadsheetCard card;
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.card.printTree(printer);
+        }
+        printer.outdent();
+    }
 }
