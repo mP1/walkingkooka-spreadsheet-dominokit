@@ -17,9 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.datatable;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -34,6 +37,109 @@ import java.util.function.BiFunction;
  */
 public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponentLike<T>>,
         TreePrintable {
+
+    // label............................................................................................................
+
+    @Override
+    default SpreadsheetDataTableComponent<T> setLabel(String label) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default String label() {
+        throw new UnsupportedOperationException();
+    }
+
+    // helperText.......................................................................................................
+
+    @Override
+    default SpreadsheetDataTableComponent<T> alwaysShowHelperText() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default Optional<String> helperText() {
+        return Optional.empty();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> setHelperText(final Optional<String> text) {
+        throw new UnsupportedOperationException();
+    }
+
+    // validate.........................................................................................................
+
+    @Override
+    default SpreadsheetDataTableComponent<T> validate() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> optional() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> required() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default boolean isRequired() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default List<String> errors() {
+        return Lists.empty();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> setErrors(final List<String> errors) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> setCssText(String css) {
+        throw new UnsupportedOperationException();
+    }
+
+    // events...........................................................................................................
+
+    @Override
+    default SpreadsheetDataTableComponent<T> addChangeListener(final ChangeListener<Optional<List<T>>> listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> addFocusListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> addKeydownListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> addKeyupListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> hideMarginBottom() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> removeBorders() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetDataTableComponent<T> focus() {
+        throw new UnsupportedOperationException();
+    }
 
     // TreePrintable....................................................................................................
 
