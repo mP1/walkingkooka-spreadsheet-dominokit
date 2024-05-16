@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -59,8 +60,10 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     }
 
     private SpreadsheetPatternComponentElementRemover() {
+        this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Remove individual component(s)");
+                .setTitle("Remove individual component(s)")
+                .appendChild(this.flex);
         this.tokenKinds = Lists.array();
         this.texts = Lists.array();
     }
@@ -71,7 +74,8 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     void refresh(final SpreadsheetPattern pattern,
                  final String errorPattern,
                  final SpreadsheetPatternDialogComponentContext context) {
-        final SpreadsheetCard root = this.root.removeAllChildren();
+        this.root.hide();
+        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
         final List<SpreadsheetFormatParserTokenKind> tokenKinds = this.tokenKinds;
         tokenKinds.clear();
@@ -150,17 +154,23 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
                         j++;
                     }
                 }
-                root.appendChild(patternElement);
+                flex.appendChild(patternElement);
 
                 i++;
             }
         }
+
+        if (false == texts.isEmpty()) {
+            this.root.show();
+        }
     }
 
-    /**
-     * THe root holding LINKS which contain the pattern without a component.
-     */
     private final SpreadsheetCard root;
+
+    /**
+     * The parent holding LINKS which contain the pattern without a component.
+     */
+    private final SpreadsheetFlexLayout flex;
 
     private final List<SpreadsheetFormatParserTokenKind> tokenKinds;
 
