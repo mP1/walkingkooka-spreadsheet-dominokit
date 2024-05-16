@@ -195,4 +195,12 @@ public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivEle
         }
         printer.outdent();
     }
+
+    // Object...........................................................................................................
+
+    public String toString() {
+        return CharSequences.quoteAndEscape(
+                this.value.orElse("")
+        ).toString();
+    }
 }
