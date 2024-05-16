@@ -89,7 +89,7 @@ public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivEle
 
     @Override
     public Optional<String> value() {
-        return Optional.empty();
+        return this.value;
     }
 
     private Optional<String> value;
