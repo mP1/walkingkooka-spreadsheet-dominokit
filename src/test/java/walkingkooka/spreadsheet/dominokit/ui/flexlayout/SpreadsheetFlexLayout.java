@@ -20,11 +20,13 @@ package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 
 import java.util.List;
 import java.util.Objects;
 
-public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
+public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike,
+        TestHtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout> {
 
     public static SpreadsheetFlexLayout column() {
         return new SpreadsheetFlexLayout(true);
@@ -81,9 +83,4 @@ public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
     }
 
     private final List<IsElement<?>> children = Lists.array();
-
-    @Override
-    public HTMLDivElement element() {
-        throw new UnsupportedOperationException();
-    }
 }
