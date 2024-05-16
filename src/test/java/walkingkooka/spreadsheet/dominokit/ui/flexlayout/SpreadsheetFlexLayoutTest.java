@@ -44,10 +44,11 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<Spreadsheet
                                         )
                         ),
                 "SpreadsheetFlexLayout\n" +
-                        "  SpreadsheetTextBox\n" +
-                        "    [Value111]\n" +
-                        "  SpreadsheetTextBox\n" +
-                        "    [Value222]\n"
+                        "  ROW\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Value111]\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Value222]\n"
         );
     }
 
@@ -68,11 +69,12 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<Spreadsheet
                                         )
                         ),
                 "SpreadsheetFlexLayout\n" +
-                        "  id=Id123\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Value111]\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Value222]\n"
+                        "  ROW\n" +
+                        "    id=Id123\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [Value111]\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [Value222]\n"
         );
     }
 

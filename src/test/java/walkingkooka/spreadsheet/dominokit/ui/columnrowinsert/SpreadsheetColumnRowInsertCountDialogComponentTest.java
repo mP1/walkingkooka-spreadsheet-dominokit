@@ -122,8 +122,9 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                         "      SpreadsheetIntegerBox\n" +
                         "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        \"Go\" id=columnRowInsert-go-Link\n" +
-                        "        \"Close\" [#/1/spreadsheetName123/column/A:B/right] id=columnRowInsert-close-Link\n"
+                        "        ROW\n" +
+                        "          \"Go\" id=columnRowInsert-go-Link\n" +
+                        "          \"Close\" [#/1/spreadsheetName123/column/A:B/right] id=columnRowInsert-close-Link\n"
         );
     }
 
@@ -193,8 +194,9 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                         "      SpreadsheetIntegerBox\n" +
                         "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
                         "      SpreadsheetFlexLayout\n" +
-                        "        \"Go\" id=columnRowInsert-go-Link\n" +
-                        "        \"Close\" [#/1/spreadsheetName123/row/1:23/bottom] id=columnRowInsert-close-Link\n"
+                        "        ROW\n" +
+                        "          \"Go\" id=columnRowInsert-go-Link\n" +
+                        "          \"Close\" [#/1/spreadsheetName123/row/1:23/bottom] id=columnRowInsert-close-Link\n"
         );
     }
 
