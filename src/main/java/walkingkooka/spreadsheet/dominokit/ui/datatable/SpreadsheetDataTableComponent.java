@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
@@ -37,9 +36,9 @@ import java.util.Optional;
 import java.util.function.BiFunction;
 
 /**
- * A {@link ValueComponent} wrapper around a {@link org.dominokit.domino.ui.datatable.DataTable}.
+ * A {@link ValueComponent} wrapper around a {@link DataTable}.
  */
-public final class SpreadsheetDataTableComponent<T> implements ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>> {
+public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableComponentLike<T> {
 
     public static <T> SpreadsheetDataTableComponent<T> with(final String id,
                                                             final List<ColumnConfig<T>> columnConfigs,
@@ -264,60 +263,12 @@ public final class SpreadsheetDataTableComponent<T> implements ValueComponent<HT
     // TODO print row by row etc
     @Override
     public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            final List<ColumnConfig<T>> columnConfigs = this.table.getTableConfig()
-                    .getColumns();
-
-            // print columns
-            printer.println("COLUMN(S)");
-            printer.indent();
-            {
-                for (final ColumnConfig<T> columnConfig : columnConfigs) {
-                    printer.println(
-                            columnConfig.getTitle()
-                    );
-                }
-            }
-            printer.outdent();
-
-            final Optional<List<T>> maybeValues = this.value();
-            if (maybeValues.isPresent()) {
-                printer.println("ROW(S)");
-                printer.indent();
-                {
-                    final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer = this.cellRenderer;
-
-                    int row = 0;
-                    final int columnCount = columnConfigs.size();
-
-                    for (final T value : maybeValues.get()) {
-                        printer.println("ROW " + row);
-                        printer.indent();
-                        {
-                            for (int column = 0; column < columnCount; column++) {
-                                // eventually all HtmlElementComponents will implement printTree
-                                TreePrintable.printTreeOrToString(
-                                        cellRenderer.apply(
-                                                column,
-                                                value
-                                        ),
-                                        printer
-                                );
-                                printer.lineStart();
-                            }
-                        }
-                        printer.outdent();
-                        row++;
-                    }
-                }
-                printer.outdent();
-            }
-
-            printer.println();
-        }
-        printer.outdent();
+        this.printTreeTable(
+                this.table.getTableConfig()
+                        .getColumns(),
+                this.cellRenderer,
+                printer
+        );
     }
 
     private final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer;
