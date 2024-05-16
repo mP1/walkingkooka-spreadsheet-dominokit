@@ -24,6 +24,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -38,7 +39,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
 
     @Test
     public void testPrintTreeWhenEmpty() {
-        this.treePrintAndCheck(
+        this.refreshAndCheck(
                 SpreadsheetListComponentTable.empty(
                         new FakeSpreadsheetListComponentContext() {
                             @Override
@@ -47,6 +48,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                             }
                         }
                 ),
+                "/",
                 "SpreadsheetListComponentTable\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
@@ -61,14 +63,14 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" [#/] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "              \"next\" [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+                        "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
+                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
         );
     }
 
     @Test
     public void testPrintTreeWhenSeveralSpreadsheets() {
-        this.treePrintAndCheck(
+        this.refreshAndCheck(
                 SpreadsheetListComponentTable.empty(
                         new FakeSpreadsheetListComponentContext() {
                             @Override
@@ -88,6 +90,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                                 spreadsheetMetadata(3, "Spreadsheet333")
                         )
                 ),
+                "/",
                 "SpreadsheetListComponentTable\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
@@ -145,8 +148,200 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" [#/] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "              \"next\" [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+                        "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
+                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+        );
+    }
+
+    @Test
+    public void testPrintTreeWhenSeveralSpreadsheetsAndPrevious() {
+        this.refreshAndCheck(
+                SpreadsheetListComponentTable.empty(
+                        new FakeSpreadsheetListComponentContext() {
+                            @Override
+                            public HistoryToken historyToken() {
+                                return HistoryToken.parseString("/");
+                            }
+
+                            @Override
+                            public Locale locale() {
+                                return Locale.forLanguageTag("EN-AU");
+                            }
+                        }
+                ).setMetadata(
+                        Lists.of(
+                                spreadsheetMetadata(1, "Spreadsheet111"),
+                                spreadsheetMetadata(2, "Spreadsheet222"),
+                                spreadsheetMetadata(3, "Spreadsheet333")
+                        )
+                ),
+                "/from/1/count/2",
+                "SpreadsheetListComponentTable\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      SpreadsheetDataTableComponent\n" +
+                        "        COLUMN(S)\n" +
+                        "          Name\n" +
+                        "          Created by\n" +
+                        "          Created\n" +
+                        "          Last modified by\n" +
+                        "          Last modified\n" +
+                        "          Links\n" +
+                        "        ROW(S)\n" +
+                        "          ROW 0\n" +
+                        "            \"Spreadsheet111\" [#/1] id=spreadsheet-list-1-Link-Link\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/12/99, 12:01 pm\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/1/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Rename\" [#/rename/1] id=spreadsheet-list-1-rename-Link\n" +
+                        "                \"Delete\" [#/delete/1] id=spreadsheet-list-1-delete-Link\n" +
+                        "          ROW 1\n" +
+                        "            \"Spreadsheet222\" [#/2] id=spreadsheet-list-2-Link-Link\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/12/99, 12:01 pm\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/1/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Rename\" [#/rename/2] id=spreadsheet-list-2-rename-Link\n" +
+                        "                \"Delete\" [#/delete/2] id=spreadsheet-list-2-delete-Link\n" +
+                        "          ROW 2\n" +
+                        "            \"Spreadsheet333\" [#/3] id=spreadsheet-list-3-Link-Link\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/12/99, 12:01 pm\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/1/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Rename\" [#/rename/3] id=spreadsheet-list-3-rename-Link\n" +
+                        "                \"Delete\" [#/delete/3] id=spreadsheet-list-3-delete-Link\n" +
+                        "        CHILDREN\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            ROW\n" +
+                        "              mdi-arrow-left \"previous\" [#/from/0/count/2] id=spreadsheet-list-datatable-previous-Link\n" +
+                        "              \"next\" [#/from/2/count/2] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+        );
+    }
+
+    @Test
+    public void testPrintTreeWhenSeveralSpreadsheetsAndNext() {
+        this.refreshAndCheck(
+                SpreadsheetListComponentTable.empty(
+                        new FakeSpreadsheetListComponentContext() {
+                            @Override
+                            public HistoryToken historyToken() {
+                                return HistoryToken.parseString("/");
+                            }
+
+                            @Override
+                            public Locale locale() {
+                                return Locale.forLanguageTag("EN-AU");
+                            }
+                        }
+                ).setMetadata(
+                        Lists.of(
+                                spreadsheetMetadata(1, "Spreadsheet111"),
+                                spreadsheetMetadata(2, "Spreadsheet222"),
+                                spreadsheetMetadata(3, "Spreadsheet333")
+                        )
+                ),
+                "/count/2",
+                "SpreadsheetListComponentTable\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      SpreadsheetDataTableComponent\n" +
+                        "        COLUMN(S)\n" +
+                        "          Name\n" +
+                        "          Created by\n" +
+                        "          Created\n" +
+                        "          Last modified by\n" +
+                        "          Last modified\n" +
+                        "          Links\n" +
+                        "        ROW(S)\n" +
+                        "          ROW 0\n" +
+                        "            \"Spreadsheet111\" [#/1] id=spreadsheet-list-1-Link-Link\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/12/99, 12:01 pm\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/1/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Rename\" [#/rename/1] id=spreadsheet-list-1-rename-Link\n" +
+                        "                \"Delete\" [#/delete/1] id=spreadsheet-list-1-delete-Link\n" +
+                        "          ROW 1\n" +
+                        "            \"Spreadsheet222\" [#/2] id=spreadsheet-list-2-Link-Link\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/12/99, 12:01 pm\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/1/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Rename\" [#/rename/2] id=spreadsheet-list-2-rename-Link\n" +
+                        "                \"Delete\" [#/delete/2] id=spreadsheet-list-2-delete-Link\n" +
+                        "          ROW 2\n" +
+                        "            \"Spreadsheet333\" [#/3] id=spreadsheet-list-3-Link-Link\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/12/99, 12:01 pm\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"31/1/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Rename\" [#/rename/3] id=spreadsheet-list-3-rename-Link\n" +
+                        "                \"Delete\" [#/delete/3] id=spreadsheet-list-3-delete-Link\n" +
+                        "        CHILDREN\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            ROW\n" +
+                        "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
+                        "              \"next\" [#/from/1/count/2] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+        );
+    }
+
+    private void refreshAndCheck(final SpreadsheetListComponentTable table,
+                                 final String historyToken,
+                                 final String expected) {
+        this.refreshAndCheck(
+                table,
+                HistoryToken.parseString(historyToken)
+                        .cast(SpreadsheetListHistoryToken.class),
+                expected
+        );
+    }
+
+    private void refreshAndCheck(final SpreadsheetListComponentTable table,
+                                 final SpreadsheetListHistoryToken historyToken,
+                                 final String expected) {
+        table.refresh(historyToken);
+
+        this.treePrintAndCheck(
+                table,
+                expected
         );
     }
 
