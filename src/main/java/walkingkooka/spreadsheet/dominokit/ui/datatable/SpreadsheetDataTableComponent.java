@@ -17,13 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.datatable;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
@@ -100,11 +98,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         return tableConfig;
     }
 
-    @Override
-    public SpreadsheetDataTableComponent<T> setId(final String id) {
-        this.table.setId(id);
-        return this;
-    }
+    // id...............................................................................................................
 
     @Override
     public String id() {
@@ -112,13 +106,9 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     }
 
     @Override
-    public SpreadsheetDataTableComponent<T> setLabel(String label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public String label() {
-        return "";
+    public SpreadsheetDataTableComponent<T> setId(final String id) {
+        this.table.setId(id);
+        return this;
     }
 
     // disabled.........................................................................................................
@@ -132,23 +122,6 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     public SpreadsheetDataTableComponent<T> setDisabled(final boolean disabled) {
         this.table.setDisabled(disabled);
         return this;
-    }
-
-    // helperText.......................................................................................................
-
-    @Override
-    public SpreadsheetDataTableComponent<T> alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return Optional.empty();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
     }
 
     // value............................................................................................................
@@ -176,80 +149,6 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     private final DataTable<T> table;
 
     private final LocalListDataStore<T> dataStore;
-
-    // validate.........................................................................................................
-
-    @Override
-    public SpreadsheetDataTableComponent<T> validate() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> optional() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> required() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isRequired() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public List<String> errors() {
-        return Lists.empty();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> setErrors(final List<String> errors) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> setCssText(String css) {
-        throw new UnsupportedOperationException();
-    }
-
-    // events...........................................................................................................
-
-    @Override
-    public SpreadsheetDataTableComponent<T> addChangeListener(final ChangeListener<Optional<List<T>>> listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> addKeydownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> addKeyupListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDataTableComponent<T> focus() {
-        throw new UnsupportedOperationException();
-    }
 
     // IsElement........................................................................................................
 
