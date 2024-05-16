@@ -64,6 +64,17 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     }
 
     @Test
+    public void testSetCssText() {
+        this.treePrintAndCheck(
+                SpreadsheetTextBox.empty()
+                        .setValue(Optional.of("Value456"))
+                        .setCssText("background-color: lavender;"),
+                "SpreadsheetTextBox\n" +
+                        "  [Value456]\n"
+        );
+    }
+
+    @Test
     public void testTreePrintAlternateValuesAndErrors() {
         class TestValueComponent implements ValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
                 SpreadsheetTextBoxTreePrintable<TestValueComponent, String>,

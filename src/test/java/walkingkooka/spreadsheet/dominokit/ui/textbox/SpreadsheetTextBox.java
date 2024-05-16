@@ -220,6 +220,15 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    // FIXES
+    //
+    // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/SpreadsheetTextBox;
+    @Override
+    public SpreadsheetTextBox setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+        return this;
+    }
+
     // SpreadsheetTextBoxTreePrintable..................................................................................
 
     @Override
