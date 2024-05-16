@@ -62,7 +62,8 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                  final SpreadsheetPatternDialogComponentContext context) {
         context.debug(this.getClass().getSimpleName() + ".refresh");
 
-        final SpreadsheetCard root = this.root.removeAllChildren();
+        final SpreadsheetCard root = this.root.removeAllChildren()
+                .hide();
         final List<SpreadsheetPatternComponentElementAppenderLink> links = this.links;
         links.clear();
 
@@ -114,6 +115,10 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                     }
                     break;
             }
+        }
+
+        if (i > 0) {
+            root.show();
         }
     }
 
