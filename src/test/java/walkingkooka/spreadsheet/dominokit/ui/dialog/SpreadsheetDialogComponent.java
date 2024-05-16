@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.dialog;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -28,7 +29,8 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.List;
 import java.util.Objects;
 
-public final class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike {
+public final class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike,
+        TestHtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
 
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
@@ -120,13 +122,6 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
     }
 
     private List<IsElement<?>> children = Lists.array();
-
-    // HtmlElementComponent.............................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        throw new UnsupportedOperationException();
-    }
 
     // TreePrintable....................................................................................................
 
