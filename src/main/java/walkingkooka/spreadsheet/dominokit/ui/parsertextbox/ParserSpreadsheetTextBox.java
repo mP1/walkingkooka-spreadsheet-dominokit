@@ -219,6 +219,14 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public ParserSpreadsheetTextBox<T> setCssText(final String css) {
+        this.textBox.setCssText(css);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

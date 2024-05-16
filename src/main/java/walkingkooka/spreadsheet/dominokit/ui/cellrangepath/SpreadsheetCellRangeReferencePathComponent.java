@@ -175,6 +175,14 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetCellRangeReferencePathComponent setCssText(final String css) {
+        this.select.setCssText(css);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

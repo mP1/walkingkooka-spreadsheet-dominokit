@@ -46,6 +46,13 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
 
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public HistoryTokenAnchorComponent setCssText(final String css) {
+        return this;
+    }
+
     // disabled.........................................................................................................
 
     @Override

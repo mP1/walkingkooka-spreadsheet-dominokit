@@ -266,6 +266,16 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private boolean shiftKeyDown;
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetViewportComponent setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.root.cssText(css);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     /**

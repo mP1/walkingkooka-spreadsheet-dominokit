@@ -204,6 +204,14 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
         return this.root.element();
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetPatternComponentElementAppender setCssText(final String css) {
+        this.root.setCssText(css);
+        return this;
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

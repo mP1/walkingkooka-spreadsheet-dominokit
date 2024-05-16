@@ -442,6 +442,16 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         );
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetMetadataPanelComponent setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.table.cssText(css);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

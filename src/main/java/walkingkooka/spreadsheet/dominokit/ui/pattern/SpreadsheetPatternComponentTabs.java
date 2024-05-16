@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -157,5 +158,15 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
     @Override
     public HTMLDivElement element() {
         return this.tabsPanel.element();
+    }
+
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetPatternComponentTabs setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.tabsPanel.cssText(css);
+        return this;
     }
 }

@@ -174,6 +174,14 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
     private Optional<String> undoText;
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetViewportFormulaComponent setCssText(final String css) {
+        this.formula.setCssText(css);
+        return this;
+    }
+
     // IsElement.......................................................................................................
 
     @Override

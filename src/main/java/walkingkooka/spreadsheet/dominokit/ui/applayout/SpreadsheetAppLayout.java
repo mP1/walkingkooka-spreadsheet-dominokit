@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 
+import java.util.Objects;
+
 public final class SpreadsheetAppLayout extends AppLayout implements VisibleComponentLifecycle<HTMLDivElement, SpreadsheetAppLayout> {
 
     public static SpreadsheetAppLayout empty() {
@@ -57,5 +59,15 @@ public final class SpreadsheetAppLayout extends AppLayout implements VisibleComp
     @Override
     public boolean shouldLogLifecycleChanges() {
         return false;
+    }
+
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetAppLayout setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.element.cssText(css);
+        return this;
     }
 }

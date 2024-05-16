@@ -210,6 +210,13 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
                 .element();
     }
 
+    @Override
+    default C setCssText(final String css) {
+        this.parserSpreadsheetTextBox()
+                .setCssText(css);
+        return (C) this;
+    }
+
     /**
      * The wrapped {@link ParserSpreadsheetTextBox}, which is the target of all delegated methods.
      */

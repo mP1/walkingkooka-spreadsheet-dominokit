@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -65,7 +66,8 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testTreePrintAlternateValuesAndErrors() {
         class TestValueComponent implements ValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
-                SpreadsheetTextBoxTreePrintable<TestValueComponent, String> {
+                SpreadsheetTextBoxTreePrintable<TestValueComponent, String>,
+                TestHtmlElementComponent<HTMLFieldSetElement, TestValueComponent> {
             @Override
             public TestValueComponent setId(String id) {
                 throw new UnsupportedOperationException();

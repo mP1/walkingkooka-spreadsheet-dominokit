@@ -144,6 +144,14 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
 
     private final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter;
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender setCssText(final String css) {
+        this.root.setCssText(css);
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override

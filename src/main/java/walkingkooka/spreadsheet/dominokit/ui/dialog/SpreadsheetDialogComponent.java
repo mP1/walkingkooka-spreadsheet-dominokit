@@ -231,6 +231,14 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
      */
     private final NavBar navBar;
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetDialogComponent setCssText(final String css) {
+        this.dialog.cssText(css);
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override

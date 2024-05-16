@@ -305,6 +305,16 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetTextBox setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.textBox.cssText(css);
+        return this;
+    }
+
     // Object...........................................................................................................
 
     public String toString() {
