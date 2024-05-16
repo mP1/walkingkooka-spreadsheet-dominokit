@@ -74,10 +74,10 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
         );
 
         this.previous = previous(context);
-        this.previous.element().style.setProperty("float", "left");
+        this.previous.setCssText("float=left");
 
         this.next = next(context);
-        this.next.element().style.setProperty("float", "right");
+        this.next.setCssText("float=right");
 
         this.table.element()
                 .appendChild(
