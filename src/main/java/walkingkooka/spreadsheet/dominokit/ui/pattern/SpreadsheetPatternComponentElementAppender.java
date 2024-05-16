@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -49,8 +50,10 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
     }
 
     private SpreadsheetPatternComponentElementAppender() {
+        this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Append new component(s)");
+                .setTitle("Append new component(s)")
+                .appendChild(this.flex);
         this.links = Lists.array();
     }
 
@@ -62,8 +65,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                  final SpreadsheetPatternDialogComponentContext context) {
         context.debug(this.getClass().getSimpleName() + ".refresh");
 
-        final SpreadsheetCard root = this.root.removeAllChildren()
-                .hide();
+        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
         final List<SpreadsheetPatternComponentElementAppenderLink> links = this.links;
         links.clear();
 
@@ -109,7 +111,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                                         anchor
                                 )
                         );
-                        root.appendChild(anchor);
+                        flex.appendChild(anchor);
 
                         i++;
                     }
@@ -117,8 +119,10 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
             }
         }
 
-        if (i > 0) {
-            root.show();
+        if (0 == i) {
+            this.root.hide();
+        } else {
+            this.root.show();
         }
     }
 
@@ -182,10 +186,12 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
         }
     }
 
-    /**
-     * THe {@link SpreadsheetCard} holding all the links.
-     */
     private final SpreadsheetCard root;
+
+    /**
+     * A {@link SpreadsheetFlexLayout} holding all the links.
+     */
+    private final SpreadsheetFlexLayout flex;
 
     /**
      * A cache of a single pattern from a {@link SpreadsheetFormatParserTokenKind} to its matching ANCHOR.
