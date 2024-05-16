@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -37,6 +38,7 @@ import java.util.Optional;
  */
 public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
         SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String>,
+        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTextBox>,
         ValidatorHelper {
 
     public static SpreadsheetTextBox empty() {
@@ -216,11 +218,6 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
 
     public SpreadsheetTextBox enterFiresValueChange() {
         return this;
-    }
-
-    @Override
-    public HTMLFieldSetElement element() {
-        throw new UnsupportedOperationException();
     }
 
     // SpreadsheetTextBoxTreePrintable..................................................................................
