@@ -86,6 +86,9 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
      */
     private SpreadsheetFlexLayout createFlexLayout() {
         final SpreadsheetFlexLayout flexLayout = SpreadsheetFlexLayout.row();
+        flexLayout.element()
+                .style
+                .display = "block"; // without this the toolbar rows have a undesirable line "height" instead of meeting.
 
         for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
             flexLayout.appendChild(component);
