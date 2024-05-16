@@ -59,7 +59,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     }
 
     private SpreadsheetPatternComponentElementRemover() {
-        this.parent = SpreadsheetCard.empty()
+        this.root = SpreadsheetCard.empty()
                 .setTitle("Remove individual component(s)");
         this.tokenKinds = Lists.array();
         this.texts = Lists.array();
@@ -71,7 +71,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     void refresh(final SpreadsheetPattern pattern,
                  final String errorPattern,
                  final SpreadsheetPatternDialogComponentContext context) {
-        final SpreadsheetCard parent = this.parent.removeAllChildren();
+        final SpreadsheetCard root = this.root.removeAllChildren();
 
         final List<SpreadsheetFormatParserTokenKind> tokenKinds = this.tokenKinds;
         tokenKinds.clear();
@@ -150,7 +150,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
                         j++;
                     }
                 }
-                parent.appendChild(patternElement);
+                root.appendChild(patternElement);
 
                 i++;
             }
@@ -158,9 +158,9 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     }
 
     /**
-     * THe parent holding LINKS which contain the pattern without a component.
+     * THe root holding LINKS which contain the pattern without a component.
      */
-    private final SpreadsheetCard parent;
+    private final SpreadsheetCard root;
 
     private final List<SpreadsheetFormatParserTokenKind> tokenKinds;
 
@@ -168,7 +168,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
 
     @Override
     public HTMLDivElement element() {
-        return this.parent.element();
+        return this.root.element();
     }
 
     // TreePrintable....................................................................................................
@@ -178,7 +178,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            this.parent.printTree(printer);
+            this.root.printTree(printer);
         }
         printer.outdent();
     }
