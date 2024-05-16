@@ -23,8 +23,6 @@ import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.style.SpacingCss;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 
@@ -116,21 +114,4 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
     }
 
     private final DivElement div = ElementsFactory.elements.div();
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            for (final IsElement<?> child : this.children) {
-                TreePrintable.printTreeOrToString(
-                        child,
-                        printer
-                );
-            }
-        }
-        printer.outdent();
-    }
 }
