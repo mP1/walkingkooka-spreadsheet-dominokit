@@ -41,6 +41,13 @@ public final class SpreadsheetListComponentContexts implements PublicStaticHelpe
     }
 
     /**
+     * {@see FakeSpreadsheetListComponentContext}
+     */
+    public static SpreadsheetListComponentContext fake() {
+        return new FakeSpreadsheetListComponentContext();
+    }
+
+    /**
      * Stop creation
      */
     private SpreadsheetListComponentContexts() {
