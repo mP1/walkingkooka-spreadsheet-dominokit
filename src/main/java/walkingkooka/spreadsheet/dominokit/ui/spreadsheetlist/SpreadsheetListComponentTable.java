@@ -140,7 +140,6 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
     }
 
     private HtmlElementComponent<?, ?> spreadsheetName(final SpreadsheetMetadata metadata) {
-//        component = hasText(
         final SpreadsheetId id = metadata.id().orElse(null);
 
         return HistoryToken.spreadsheetLoad(id)
