@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.datatable;
 
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
@@ -101,6 +102,29 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     }
 
     private Optional<List<T>> value = Optional.empty();
+
+    // children.........................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> appendChild(final IsElement<?> child) {
+        this.children.add(child);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetDataTableComponent<T> removeChild(final int child) {
+        this.children.remove(child);
+        return this;
+    }
+
+    @Override
+    public List<IsElement<?>> children() {
+        return Lists.immutable(
+                this.children
+        );
+    }
+
+    private final List<IsElement<?>> children = Lists.array();
 
     // TreePrintable....................................................................................................
 
