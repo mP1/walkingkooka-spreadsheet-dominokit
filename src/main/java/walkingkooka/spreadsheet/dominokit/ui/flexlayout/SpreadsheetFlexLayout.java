@@ -32,7 +32,7 @@ import java.util.List;
 public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
     public static SpreadsheetFlexLayout column() {
-        final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout();
+        final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout(true);
         flex.div.addCss(
                 SpacingCss.dui_flex_col,
                 //SpacingCss.dui_v_full,
@@ -42,7 +42,7 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
     }
 
     public static SpreadsheetFlexLayout row() {
-        final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout();
+        final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout(false);
         flex.div.addCss(
                 SpacingCss.dui_flex_row,
                 SpacingCss.dui_h_full,
@@ -51,9 +51,18 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
         return flex;
     }
 
-    private SpreadsheetFlexLayout() {
+    private SpreadsheetFlexLayout(final boolean column) {
+        super();
         this.children = Lists.array();
+        this.column = column;
     }
+
+    @Override
+    public boolean isColumn() {
+        return this.column;
+    }
+
+    private final boolean column;
 
     // id...............................................................................................................
 
