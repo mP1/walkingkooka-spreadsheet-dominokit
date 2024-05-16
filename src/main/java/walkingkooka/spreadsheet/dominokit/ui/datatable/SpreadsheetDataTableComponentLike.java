@@ -99,11 +99,6 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    default SpreadsheetDataTableComponent<T> setCssText(String css) {
-        throw new UnsupportedOperationException();
-    }
-
     // events...........................................................................................................
 
     @Override
