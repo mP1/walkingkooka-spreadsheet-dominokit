@@ -43,29 +43,41 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
 
     // TreePrintable....................................................................................................
 
+    // SpreadsheetFlexLayout
+    //  ROW
+    //    id=Id123
+    //      SpreadsheetTextBox
+    //        [Value111]
+    //      SpreadsheetTextBox
+    //        [Value222]
     @Override
     default void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            final String id = this.id();
-            if (false == CharSequences.isNullOrEmpty(id)) {
-                printer.println("id=" + id);
-                printer.indent();
-            }
+            printer.println(this.isColumn() ? "COLUMN" : "ROW");
+            printer.indent();
+            {
+                final String id = this.id();
+                if (false == CharSequences.isNullOrEmpty(id)) {
+                    printer.println("id=" + id);
+                    printer.indent();
+                }
 
 
-            for (final IsElement<?> child : this.children()) {
-                TreePrintable.printTreeOrToString(
-                        child,
-                        printer
-                );
-                printer.lineStart();
-            }
+                for (final IsElement<?> child : this.children()) {
+                    TreePrintable.printTreeOrToString(
+                            child,
+                            printer
+                    );
+                    printer.lineStart();
+                }
 
-            if (false == CharSequences.isNullOrEmpty(id)) {
-                printer.outdent();
+                if (false == CharSequences.isNullOrEmpty(id)) {
+                    printer.outdent();
+                }
             }
+            printer.outdent();
         }
         printer.outdent();
     }
