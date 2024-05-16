@@ -43,6 +43,8 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
     public static SpreadsheetFlexLayout row() {
         final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout(false);
+        flex.div.style()
+                .cssText("display:flex; flex-wrap: wrap;");
         flex.div.addCss(
                 SpacingCss.dui_flex_row,
                 SpacingCss.dui_h_full,
