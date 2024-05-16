@@ -30,7 +30,7 @@ import java.util.Optional;
  */
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
         extends HtmlElementComponent<E, C>,
-        ComponentWithErrors<ValueComponent<E, V, C>>,
+        ComponentWithErrors<C>,
         Value<Optional<V>>,
         TreePrintable {
 

@@ -127,7 +127,7 @@ public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivEle
     }
 
     @Override
-    public ValueComponent<HTMLDivElement, String, SpreadsheetTextComponent> setErrors(final List<String> errors) {
+    public SpreadsheetTextComponent setErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
     }
 
