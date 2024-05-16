@@ -35,7 +35,7 @@ import java.util.function.BiFunction;
 /**
  * A {@link ValueComponent} wrapper around a {@link DataTable}.
  */
-public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponentLike<T>>,
+public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
         TreePrintable {
 
     // label............................................................................................................
