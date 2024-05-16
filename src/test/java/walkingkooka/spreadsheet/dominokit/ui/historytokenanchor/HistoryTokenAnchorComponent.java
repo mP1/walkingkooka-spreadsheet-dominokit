@@ -22,6 +22,7 @@ import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.net.Url;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.text.CharSequences;
 
@@ -34,7 +35,8 @@ import java.util.Optional;
  * <br>
  * The goal of this class is to allow JVM unit-testing of more complex components such as a Card that has a row of {@link HistoryTokenAnchorComponent}.
  */
-public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComponentLike {
+public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComponentLike,
+        TestHtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     public static HistoryTokenAnchorComponent empty() {
         return new HistoryTokenAnchorComponent();
@@ -220,13 +222,6 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     @Override
     public HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener) {
         return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLAnchorElement element() {
-        throw new UnsupportedOperationException();
     }
 
     // focus............................................................................................................
