@@ -27,17 +27,24 @@ import java.util.Objects;
 public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
     public static SpreadsheetFlexLayout column() {
-        return new SpreadsheetFlexLayout();
+        return new SpreadsheetFlexLayout(true);
     }
 
     public static SpreadsheetFlexLayout row() {
-        return new SpreadsheetFlexLayout();
+        return new SpreadsheetFlexLayout(false);
     }
 
-    private SpreadsheetFlexLayout() {
+    private SpreadsheetFlexLayout(final boolean column) {
         super();
+        this.column = column;
     }
 
+    @Override
+    public boolean isColumn() {
+        return this.column;
+    }
+
+    private final boolean column;
 
     @Override
     public SpreadsheetFlexLayout setId(final String id) {

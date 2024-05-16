@@ -36,6 +36,11 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
 
     String id();
 
+    /**
+     * Returns true if this flex is COLUMN otherwise returns false for ROW.
+     */
+    boolean isColumn();
+
     // TreePrintable....................................................................................................
 
     @Override
