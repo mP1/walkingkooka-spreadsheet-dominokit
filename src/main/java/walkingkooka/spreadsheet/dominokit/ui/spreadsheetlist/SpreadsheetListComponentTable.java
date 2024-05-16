@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
@@ -144,13 +143,12 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
 
         return HistoryToken.spreadsheetLoad(id)
                 .link(
-                        SpreadsheetListDialogComponent.ID_PREFIX + id.toString() + SpreadsheetIds.LINK
+                        SpreadsheetListDialogComponent.ID_PREFIX + id.toString()
                 ).setTextContent(
                         metadata.name()
                                 .orElse(null)
                                 .toString()
                 );
-
     }
 
     private <TT extends Value<String>> SpreadsheetTextComponent hasText(final SpreadsheetMetadataPropertyName<TT> propertyName,
