@@ -18,43 +18,47 @@
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
-import org.dominokit.domino.ui.datatable.DataTable;
-import org.dominokit.domino.ui.datatable.TableConfig;
-import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
-import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.Value;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.TextAlign;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.function.BiFunction;
 
 /**
- * A table where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
+ * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
  */
 final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentTable> {
 
     /**
-     * Creates an empty {@link walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentTable}.
+     * Creates an empty {@link SpreadsheetListComponentTable}.
      */
     static SpreadsheetListComponentTable empty(final SpreadsheetListComponentContext context) {
+        Objects.requireNonNull(context, "context");
+
         return new SpreadsheetListComponentTable(context);
     }
 
-    private final static String ID = SpreadsheetListDialogComponent.ID_PREFIX + "table";
+    private final static String ID = SpreadsheetListDialogComponent.ID_PREFIX + "datatable";
 
     private final static String ID_PREFIX = ID + '-';
 
@@ -63,16 +67,11 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
     private SpreadsheetListComponentTable(final SpreadsheetListComponentContext context) {
         this.card = SpreadsheetCard.empty();
 
-        final LocalListDataStore<SpreadsheetListComponentTableRow> localListDataStore = new LocalListDataStore<>();
-
-        final DataTable<SpreadsheetListComponentTableRow> table = new DataTable<>(
-                tableConfig(),
-                localListDataStore
+        this.table = SpreadsheetDataTableComponent.with(
+                ID,
+                columnConfigs(),
+                cellRenderer()
         );
-        table.id(ID);
-
-        this.table = table;
-        this.dataStore = localListDataStore;
 
         this.previous = previous(context);
         this.previous.element().style.setProperty("float", "left");
@@ -95,96 +94,160 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
         this.tableCount = 0;
     }
 
-    private static TableConfig<SpreadsheetListComponentTableRow> tableConfig() {
-        return new TableConfig<SpreadsheetListComponentTableRow>()
-                .addColumn(
-                        columnConfig(
-                                "Name",
-                                "name",
-                                TextAlign.LEFT,
-                                row -> row.name().element()
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "Created by",
-                                "created-by",
-                                TextAlign.CENTER,
-                                row -> Doms.textNode(
-                                        row.createdBy()
-                                )
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "Created",
-                                "create-date-time",
-                                TextAlign.CENTER,
-                                row -> Doms.textNode(
-                                        row.createDateTime()
-                                )
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "Last modified by",
-                                "last-modified-by",
-                                TextAlign.CENTER,
-                                row -> Doms.textNode(
-                                        row.lastModifiedBy()
-                                )
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "Last modified",
-                                "last-modified-date-time",
-                                TextAlign.CENTER,
-                                row -> Doms.textNode(
-                                        row.lastModifiedDateTime()
-                                )
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "Links",
-                                "links",
-                                TextAlign.CENTER,
-                                row -> Doms.div(
-                                        row.links()
-                                )
-                        )
-                ).addPlugin(
-                        EmptyStatePlugin.create(
-                                SpreadsheetIcons.spreadsheetListTableEmpty(),
-                                "No spreadsheet(s) found."
-                        )
-                );
+    private BiFunction<Integer, SpreadsheetMetadata, HtmlElementComponent<?, ?>> cellRenderer() {
+        return (column, metadata) -> {
+            final HtmlElementComponent<?, ?> component;
+
+            switch (column) {
+                case 0: // name
+                    component = spreadsheetName(metadata);
+                    break;
+                case 1: // created by
+                    component = hasText(
+                            SpreadsheetMetadataPropertyName.CREATOR,
+                            metadata
+                    );
+                    break;
+                case 2: // create-date-time
+                    component = dateTime(
+                            SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
+                            metadata
+                    );
+                    break;
+                case 3: // lastmod by
+                    component = hasText(
+                            SpreadsheetMetadataPropertyName.MODIFIED_BY,
+                            metadata
+                    );
+                    break;
+                case 4: // create-date-time
+                    component = dateTime(
+                            SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
+                            metadata
+                    );
+                    break;
+                case 5: // links
+                    component = links(metadata);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unknown column " + column);
+            }
+
+
+            return component;
+        };
     }
 
-    private static ColumnConfig<SpreadsheetListComponentTableRow> columnConfig(final String title,
-                                                                               final String columnName,
-                                                                               final TextAlign textAlign,
-                                                                               final Function<SpreadsheetListComponentTableRow, Node> cellMapper) {
-        return ColumnConfig.<SpreadsheetListComponentTableRow>create(columnName)
+    private HtmlElementComponent<?, ?> spreadsheetName(final SpreadsheetMetadata metadata) {
+//        component = hasText(
+        final SpreadsheetId id = metadata.id().orElse(null);
+
+        return HistoryToken.spreadsheetLoad(id)
+                .link(
+                        SpreadsheetListDialogComponent.ID_PREFIX + id.toString() + SpreadsheetIds.LINK
+                ).setTextContent(
+                        metadata.name()
+                                .orElse(null)
+                                .toString()
+                );
+
+    }
+
+    private <TT extends Value<String>> SpreadsheetTextComponent hasText(final SpreadsheetMetadataPropertyName<TT> propertyName,
+                                                                        final SpreadsheetMetadata metadata) {
+        return text(
+                metadata.get(propertyName)
+                        .map(Value::value)
+        );
+    }
+
+    private SpreadsheetTextComponent dateTime(final SpreadsheetMetadataPropertyName<LocalDateTime> propertyName,
+                                              final SpreadsheetMetadata metadata) {
+        return text(
+                metadata.get(propertyName)
+                        .map(this.context::formatDateTime)
+        );
+    }
+
+    private SpreadsheetTextComponent text(final Optional<String> text) {
+        return SpreadsheetTextComponent.with(text);
+    }
+
+    private SpreadsheetFlexLayout links(final SpreadsheetMetadata metadata) {
+        final SpreadsheetId id = metadata.id()
+                .orElse(null);
+
+        final HistoryTokenAnchorComponent rename = HistoryToken.spreadsheetListRenameSelect(
+                        id
+                ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-rename")
+                .setTextContent("Rename");
+
+        final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetListDelete(
+                        id
+                ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-delete")
+                .setTextContent("Delete");
+
+        return SpreadsheetFlexLayout.row()
+                .appendChild(rename)
+                .appendChild(delete);
+    }
+
+    private List<ColumnConfig<SpreadsheetMetadata>> columnConfigs() {
+        return Lists.of(
+                columnConfig(
+                        "Name",
+                        "name",
+                        TextAlign.LEFT
+                ),
+                columnConfig(
+                        "Created by",
+                        "created-by",
+                        TextAlign.CENTER
+                ),
+                columnConfig(
+                        "Created",
+                        "create-date-time",
+                        TextAlign.CENTER
+                ),
+                columnConfig(
+                        "Last modified by",
+                        "last-modified-by",
+                        TextAlign.CENTER
+                ),
+                columnConfig(
+                        "Last modified",
+                        "last-modified-date-time",
+                        TextAlign.CENTER
+                ),
+                columnConfig(
+                        "Links",
+                        "links",
+                        TextAlign.CENTER
+                )
+        );
+    }
+
+    private static ColumnConfig<SpreadsheetMetadata> columnConfig(final String title,
+                                                                  final String columnName,
+                                                                  final TextAlign textAlign) {
+        return ColumnConfig.<SpreadsheetMetadata>create(columnName)
                 .setTitle(title)
                 .setFixed(true)
                 .setTextAlign(
                         CellTextAlign.valueOf(
                                 textAlign.name()
                         )
-                )
-                .setCellRenderer(cell -> cellMapper.apply(
-                                cell.getTableRow()
-                                        .getRecord()
-                        )
                 );
     }
 
-    private final DataTable<SpreadsheetListComponentTableRow> table;
-
-    private final LocalListDataStore<SpreadsheetListComponentTableRow> dataStore;
+    private final SpreadsheetDataTableComponent<SpreadsheetMetadata> table;
 
     void setMetadata(final List<SpreadsheetMetadata> metadatas) {
-        this.dataStore.setData(
-                metadatas.stream()
-                        .map(m -> SpreadsheetListComponentTableRow.with(m, this.context))
-                        .collect(Collectors.toList()));
+        this.table.setValue(
+                Optional.of(
+                        metadatas
+                )
+        );
         this.tableCount = metadatas.size();
     }
 
