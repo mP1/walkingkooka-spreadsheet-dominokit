@@ -165,9 +165,11 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
-                        "              \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1] id=sort-comparator-1-append-0-Link\n" +
-                        "              \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-2] id=sort-comparator-1-append-1-Link\n" +
-                        "              \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-3] id=sort-comparator-1-append-2-Link\n"
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1] id=sort-comparator-1-append-0-Link\n" +
+                        "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-2] id=sort-comparator-1-append-1-Link\n" +
+                        "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-3] id=sort-comparator-1-append-2-Link\n"
         );
     }
 
@@ -192,9 +194,11 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
-                        "              \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1] id=sort-comparator-1-append-0-Link\n" +
-                        "              \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-2] id=sort-comparator-1-append-1-Link\n" +
-                        "              \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-3] id=sort-comparator-1-append-2-Link\n"
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1] id=sort-comparator-1-append-0-Link\n" +
+                        "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-2] id=sort-comparator-1-append-1-Link\n" +
+                        "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-3] id=sort-comparator-1-append-2-Link\n"
         );
     }
 
@@ -219,9 +223,11 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
-                        "              \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/12=comparator-1] id=sort-comparator-1-append-0-Link\n" +
-                        "              \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/12=comparator-2] id=sort-comparator-1-append-1-Link\n" +
-                        "              \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/12=comparator-3] id=sort-comparator-1-append-2-Link\n"
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/12=comparator-1] id=sort-comparator-1-append-0-Link\n" +
+                        "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/12=comparator-2] id=sort-comparator-1-append-1-Link\n" +
+                        "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/12=comparator-3] id=sort-comparator-1-append-2-Link\n"
         );
     }
 
@@ -244,8 +250,10 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
-                        "              \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2] id=sort-comparator-1-append-0-Link\n" +
-                        "              \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-3] id=sort-comparator-1-append-1-Link\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2] id=sort-comparator-1-append-0-Link\n" +
+                        "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-3] id=sort-comparator-1-append-1-Link\n" +
                         "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -273,7 +281,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
-                        "              \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2,comparator-3] id=sort-comparator-1-append-0-Link\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2,comparator-3] id=sort-comparator-1-append-0-Link\n" +
                         "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -348,8 +358,10 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
-                        "              \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2;B=comparator-2;C=comparator-3] id=sort-comparator-1-append-0-Link\n" +
-                        "              \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-3;B=comparator-2;C=comparator-3] id=sort-comparator-1-append-1-Link\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2;B=comparator-2;C=comparator-3] id=sort-comparator-1-append-0-Link\n" +
+                        "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-3;B=comparator-2;C=comparator-3] id=sort-comparator-1-append-1-Link\n" +
                         "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -408,8 +420,10 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
-                        "              \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2,comparator-1;C=comparator-3] id=sort-comparator-1-append-0-Link\n" +
-                        "              \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2,comparator-3;C=comparator-3] id=sort-comparator-1-append-1-Link\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2,comparator-1;C=comparator-3] id=sort-comparator-1-append-0-Link\n" +
+                        "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2,comparator-3;C=comparator-3] id=sort-comparator-1-append-1-Link\n" +
                         "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -458,8 +472,10 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
-                        "              \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2;C=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
-                        "              \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2;C=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2;C=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
+                        "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2;C=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n" +
                         "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
