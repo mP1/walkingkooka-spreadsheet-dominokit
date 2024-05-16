@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.datatable;
 
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
@@ -73,6 +74,8 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         this.cellRenderer = cellRenderer;
 
         this.setId(id);
+
+        this.children = Lists.array();
     }
 
     private TableConfig<T> tableConfig(final List<ColumnConfig<T>> columnConfigs,
@@ -157,6 +160,32 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         this.table.cssText(css);
         return this;
     }
+
+    // ComponentWithChildren............................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> appendChild(final IsElement<?> child) {
+        this.table.element()
+                .appendChild(child.element());
+        return this;
+    }
+
+    @Override
+    public SpreadsheetDataTableComponent<T> removeChild(final int index) {
+        final IsElement<?> child = this.children.remove(index);
+        this.table.element()
+                .removeChild(child.element());
+        return this;
+    }
+
+    @Override
+    public List<IsElement<?>> children() {
+        return Lists.immutable(
+                this.children
+        );
+    }
+
+    private final List<IsElement<?>> children;
 
     // IsElement........................................................................................................
 

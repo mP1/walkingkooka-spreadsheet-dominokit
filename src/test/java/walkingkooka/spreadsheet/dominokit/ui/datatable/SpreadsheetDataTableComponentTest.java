@@ -58,8 +58,47 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         "  COLUMN(S)\n" +
                         "    column-1A-title\n" +
                         "    column-2B-title\n" +
+                        "    column-3C-title\n"
+        );
+    }
+
+    @Test
+    public void testThreeColumnsNotValueWithChildren() {
+        this.treePrintAndCheck(
+                SpreadsheetDataTableComponent.<String>with(
+                        "tableId123", // id
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> SpreadsheetTextComponent.with(
+                                Optional.of(
+                                        CharSequences.repeating(
+                                                data.charAt(column),
+                                                3
+                                        ).toString()
+                                )
+                        )
+                ).appendChild(
+                        SpreadsheetTextComponent.with(
+                                Optional.of("child-1A")
+                        )
+                ).appendChild(
+                        SpreadsheetTextComponent.with(
+                                Optional.of("child-2B")
+                        )
+                ),
+                "SpreadsheetDataTableComponent\n" +
+                        "  COLUMN(S)\n" +
+                        "    column-1A-title\n" +
+                        "    column-2B-title\n" +
                         "    column-3C-title\n" +
-                        "  \n"
+                        "  CHILDREN\n" +
+                        "    SpreadsheetTextComponent\n" +
+                        "      \"child-1A\"\n" +
+                        "    SpreadsheetTextComponent\n" +
+                        "      \"child-2B\"\n"
         );
     }
 
@@ -116,8 +155,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         "      SpreadsheetTextComponent\n" +
                         "        \"HHH\"\n" +
                         "      SpreadsheetTextComponent\n" +
-                        "        \"III\"\n" +
-                        "  \n"
+                        "        \"III\"\n"
         );
     }
 
@@ -184,8 +222,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         "        \"GHI\"\n" +
                         "      [#/1/SpreadsheetName123/cell/A1]\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        []\n" +
-                        "  \n"
+                        "        []\n"
         );
     }
 

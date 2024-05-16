@@ -19,10 +19,12 @@ package walkingkooka.spreadsheet.dominokit.ui.datatable;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -36,6 +38,7 @@ import java.util.function.BiFunction;
  * A {@link ValueComponent} wrapper around a {@link DataTable}.
  */
 public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
+        ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement>,
         TreePrintable {
 
     // label............................................................................................................
@@ -187,7 +190,22 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                 printer.outdent();
             }
 
-            printer.println();
+            {
+                final List<IsElement<?>> children = this.children();
+                if (children.size() > 0) {
+                    printer.println("CHILDREN");
+                    printer.indent();
+                    {
+                        for (final IsElement<?> child : children) {
+                            TreePrintable.printTreeOrToString(
+                                    child,
+                                    printer
+                            );
+                        }
+                    }
+                    printer.outdent();
+                }
+            }
         }
         printer.outdent();
     }
