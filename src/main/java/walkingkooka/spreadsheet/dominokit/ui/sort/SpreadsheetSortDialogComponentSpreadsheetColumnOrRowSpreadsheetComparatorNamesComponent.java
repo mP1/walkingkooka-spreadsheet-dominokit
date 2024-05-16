@@ -70,24 +70,32 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
                                                                                                     final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown,
                                                                                                     final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
                                                                                                     final HistoryTokenContext context) {
+
+        // NAMES MOVE_UP MOVE_DOW
+        //
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
                 .setId(
                         CharSequences.subSequence(
                                 id,
                                 0,
                                 -1
-                        ) + SpreadsheetIds.TEXT_BOX);
+                        ) + SpreadsheetIds.TEXT_BOX
+                ).setCssText("flex-grow: 1; width: fit-content;");
         this.names = names;
+
+        final String linkCss = "padding-top: 10px";
 
         final HistoryTokenAnchorComponent moveUpLink = context.historyToken()
                 .link(id + "moveUp")
-                .setTextContent("Move Up");
+                .setTextContent("Move Up")
+                .setCssText(linkCss);
         this.moveUpLink = moveUpLink;
         this.moveUp = moveUp;
 
         final HistoryTokenAnchorComponent moveDownLink = context.historyToken()
                 .link(id + "moveDown")
-                .setTextContent("Move Down");
+                .setTextContent("Move Down")
+                .setCssText(linkCss);
         this.moveDownLink = moveDownLink;
         this.moveDown = moveDown;
 
