@@ -51,7 +51,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
 
     private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final String id,
                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
-        this.parent = SpreadsheetCard.empty()
+        this.root = SpreadsheetCard.empty()
                 .setTitle("Remove comparator(s)");
 
         this.id = id;
@@ -64,8 +64,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     void refresh(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final SpreadsheetSortDialogComponentContext context) {
-        final SpreadsheetCard parent = this.parent;
-        parent.removeAllChildren();
+        final SpreadsheetCard root = this.root;
+        root.removeAllChildren();
 
         if (columnOrRow.isPresent()) {
             this.refresh0(
@@ -79,7 +79,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     void refresh0(final SpreadsheetColumnOrRowReference columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                   final SpreadsheetSortDialogComponentContext context) {
-        final SpreadsheetCard parent = this.parent;
+        final SpreadsheetCard root = this.root;
 
         final HistoryToken historyToken = context.historyToken();
 
@@ -94,7 +94,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
                     .name()
                     .text();
 
-            parent.appendChild(
+            root.appendChild(
                     historyToken.link(idPrefix + "remove-" + i)
                             .setTextContent(text)
                             .setHistoryToken(
@@ -123,23 +123,23 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
 
     @Override
     public HTMLDivElement element() {
-        return this.parent.element();
+        return this.root.element();
     }
 
     /**
      * The parent holding all the current links to remove individual components of a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
      */
-    private final SpreadsheetCard parent;
+    private final SpreadsheetCard root;
 
     // TreePrintable....................................................................................................
 
     @Override
     public void printTree(final IndentingPrinter printer) {
-        if (false == this.parent.isEmpty()) {
+        if (false == this.root.isEmpty()) {
             printer.println(this.getClass().getSimpleName());
             printer.indent();
             {
-                this.parent.printTree(printer);
+                this.root.printTree(printer);
                 printer.lineStart();
             }
             printer.outdent();
