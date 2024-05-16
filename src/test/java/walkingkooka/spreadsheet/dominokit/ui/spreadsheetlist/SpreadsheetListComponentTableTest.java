@@ -104,7 +104,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "          Links\n" +
                         "        ROW(S)\n" +
                         "          ROW 0\n" +
-                        "            \"Spreadsheet111\" [#/1] id=spreadsheet-list-1-Link-Link\n" +
+                        "            \"Spreadsheet111\" [#/1] id=spreadsheet-list-1-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -118,7 +118,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "                \"Rename\" [#/rename/1] id=spreadsheet-list-1-rename-Link\n" +
                         "                \"Delete\" [#/delete/1] id=spreadsheet-list-1-delete-Link\n" +
                         "          ROW 1\n" +
-                        "            \"Spreadsheet222\" [#/2] id=spreadsheet-list-2-Link-Link\n" +
+                        "            \"Spreadsheet222\" [#/2] id=spreadsheet-list-2-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -132,7 +132,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "                \"Rename\" [#/rename/2] id=spreadsheet-list-2-rename-Link\n" +
                         "                \"Delete\" [#/delete/2] id=spreadsheet-list-2-delete-Link\n" +
                         "          ROW 2\n" +
-                        "            \"Spreadsheet333\" [#/3] id=spreadsheet-list-3-Link-Link\n" +
+                        "            \"Spreadsheet333\" [#/3] id=spreadsheet-list-3-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -189,7 +189,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "          Links\n" +
                         "        ROW(S)\n" +
                         "          ROW 0\n" +
-                        "            \"Spreadsheet111\" [#/1] id=spreadsheet-list-1-Link-Link\n" +
+                        "            \"Spreadsheet111\" [#/1] id=spreadsheet-list-1-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -203,7 +203,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "                \"Rename\" [#/rename/1] id=spreadsheet-list-1-rename-Link\n" +
                         "                \"Delete\" [#/delete/1] id=spreadsheet-list-1-delete-Link\n" +
                         "          ROW 1\n" +
-                        "            \"Spreadsheet222\" [#/2] id=spreadsheet-list-2-Link-Link\n" +
+                        "            \"Spreadsheet222\" [#/2] id=spreadsheet-list-2-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -217,7 +217,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "                \"Rename\" [#/rename/2] id=spreadsheet-list-2-rename-Link\n" +
                         "                \"Delete\" [#/delete/2] id=spreadsheet-list-2-delete-Link\n" +
                         "          ROW 2\n" +
-                        "            \"Spreadsheet333\" [#/3] id=spreadsheet-list-3-Link-Link\n" +
+                        "            \"Spreadsheet333\" [#/3] id=spreadsheet-list-3-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -274,7 +274,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "          Links\n" +
                         "        ROW(S)\n" +
                         "          ROW 0\n" +
-                        "            \"Spreadsheet111\" [#/1] id=spreadsheet-list-1-Link-Link\n" +
+                        "            \"Spreadsheet111\" [#/1] id=spreadsheet-list-1-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -288,7 +288,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "                \"Rename\" [#/rename/1] id=spreadsheet-list-1-rename-Link\n" +
                         "                \"Delete\" [#/delete/1] id=spreadsheet-list-1-delete-Link\n" +
                         "          ROW 1\n" +
-                        "            \"Spreadsheet222\" [#/2] id=spreadsheet-list-2-Link-Link\n" +
+                        "            \"Spreadsheet222\" [#/2] id=spreadsheet-list-2-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -302,7 +302,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "                \"Rename\" [#/rename/2] id=spreadsheet-list-2-rename-Link\n" +
                         "                \"Delete\" [#/delete/2] id=spreadsheet-list-2-delete-Link\n" +
                         "          ROW 2\n" +
-                        "            \"Spreadsheet333\" [#/3] id=spreadsheet-list-3-Link-Link\n" +
+                        "            \"Spreadsheet333\" [#/3] id=spreadsheet-list-3-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
