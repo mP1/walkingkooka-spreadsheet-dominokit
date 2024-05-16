@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -36,7 +37,8 @@ import java.util.Optional;
  * A select component with a few helpers to assist with build and working with values.
  */
 public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T> {
+        SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T>,
+        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSelectComponent<T>> {
 
     public static <T> SpreadsheetSelectComponent<T> empty() {
         return new SpreadsheetSelectComponent<>();
