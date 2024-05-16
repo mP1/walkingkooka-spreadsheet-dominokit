@@ -17,13 +17,177 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.datatable;
 
+import org.dominokit.domino.ui.datatable.ColumnConfig;
+import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.TreePrintableTesting;
+
+import java.util.Optional;
 
 public final class SpreadsheetDataTableComponentTest implements ClassTesting<SpreadsheetDataTableComponent<String>>,
         TreePrintableTesting {
+
+    @Test
+    public void testThreeColumnsNotValue() {
+        this.treePrintAndCheck(
+                SpreadsheetDataTableComponent.<String>with(
+                        "tableId123", // id
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> SpreadsheetTextComponent.with(
+                                Optional.of(
+                                        CharSequences.repeating(
+                                                data.charAt(column),
+                                                3
+                                        ).toString()
+                                )
+                        )
+                ),
+                "SpreadsheetDataTableComponent\n" +
+                        "  COLUMN(S)\n" +
+                        "    column-1A-title\n" +
+                        "    column-2B-title\n" +
+                        "    column-3C-title\n" +
+                        "  \n"
+        );
+    }
+
+    @Test
+    public void testThreeColumnsThreeRows() {
+        this.treePrintAndCheck(
+                SpreadsheetDataTableComponent.<String>with(
+                        "tableId123", // id
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> SpreadsheetTextComponent.with(
+                                Optional.of(
+                                        CharSequences.repeating(
+                                                data.charAt(column),
+                                                3
+                                        ).toString()
+                                )
+                        )
+                ).setValue(
+                        Optional.of(
+                                Lists.of(
+                                        "ABC",
+                                        "DEF",
+                                        "GHI"
+                                )
+                        )
+                ),
+                "SpreadsheetDataTableComponent\n" +
+                        "  COLUMN(S)\n" +
+                        "    column-1A-title\n" +
+                        "    column-2B-title\n" +
+                        "    column-3C-title\n" +
+                        "  ROW(S)\n" +
+                        "    ROW 0\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"AAA\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"BBB\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"CCC\"\n" +
+                        "    ROW 1\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"DDD\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"EEE\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"FFF\"\n" +
+                        "    ROW 2\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"GGG\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"HHH\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"III\"\n" +
+                        "  \n"
+        );
+    }
+
+    @Test
+    public void testThreeColumnsMixedComponentTypes() {
+        this.treePrintAndCheck(
+                SpreadsheetDataTableComponent.<String>with(
+                        "tableId123", // id
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> {
+                            switch (column) {
+                                case 0:
+                                    return SpreadsheetTextComponent.with(
+                                            Optional.of(
+                                                    data
+                                            )
+                                    );
+                                case 1:
+                                    return HistoryTokenAnchorComponent.empty()
+                                            .setHistoryToken(
+                                                    Optional.of(
+                                                            HistoryToken.parseString("/1/SpreadsheetName123/cell/A1")
+                                                    )
+                                            );
+                                case 2:
+                                    return SpreadsheetTextBox.empty();
+                                default:
+                                    throw new IllegalArgumentException("Invalid column " + column);
+                            }
+                        }
+                ).setValue(
+                        Optional.of(
+                                Lists.of(
+                                        "ABC",
+                                        "DEF",
+                                        "GHI"
+                                )
+                        )
+                ),
+                "SpreadsheetDataTableComponent\n" +
+                        "  COLUMN(S)\n" +
+                        "    column-1A-title\n" +
+                        "    column-2B-title\n" +
+                        "    column-3C-title\n" +
+                        "  ROW(S)\n" +
+                        "    ROW 0\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"ABC\"\n" +
+                        "      [#/1/SpreadsheetName123/cell/A1]\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        []\n" +
+                        "    ROW 1\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"DEF\"\n" +
+                        "      [#/1/SpreadsheetName123/cell/A1]\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        []\n" +
+                        "    ROW 2\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"GHI\"\n" +
+                        "      [#/1/SpreadsheetName123/cell/A1]\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        []\n" +
+                        "  \n"
+        );
+    }
 
     @Override
     public Class<SpreadsheetDataTableComponent<String>> type() {
