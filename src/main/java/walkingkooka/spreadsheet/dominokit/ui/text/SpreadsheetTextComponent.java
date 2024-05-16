@@ -103,7 +103,7 @@ public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivEle
 
     @Override
     public SpreadsheetTextComponent validate() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
