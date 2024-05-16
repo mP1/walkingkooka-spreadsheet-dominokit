@@ -159,7 +159,6 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
 
     // TreePrintable....................................................................................................
 
-    // TODO print row by row etc
     @Override
     public void printTree(final IndentingPrinter printer) {
         this.printTreeTable(
