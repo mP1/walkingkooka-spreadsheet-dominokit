@@ -228,6 +228,35 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     }
 
     @Test
+    public void testBodyScrollPlugin() {
+        this.treePrintAndCheck(
+                SpreadsheetDataTableComponent.<String>with(
+                        "tableId123", // id
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> SpreadsheetTextComponent.with(
+                                Optional.of(
+                                        CharSequences.repeating(
+                                                data.charAt(column),
+                                                3
+                                        ).toString()
+                                )
+                        )
+                ).bodyScrollPlugin(),
+                "SpreadsheetDataTableComponent\n" +
+                        "  COLUMN(S)\n" +
+                        "    column-1A-title\n" +
+                        "    column-2B-title\n" +
+                        "    column-3C-title\n" +
+                        "  PLUGINS\n" +
+                        "    BodyScrollPlugin\n"
+        );
+    }
+
+    @Test
     public void testEmptyStatePlugin() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(

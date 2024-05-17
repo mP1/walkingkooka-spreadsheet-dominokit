@@ -131,6 +131,14 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     // plugins..........................................................................................................
 
     @Override
+    public SpreadsheetDataTableComponent<T> bodyScrollPlugin() {
+        this.plugins.add(
+                SpreadsheetDataTableComponentLike.bodyScrollPluginText()
+        );
+        return this;
+    }
+
+    @Override
     public SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
                                                              final String title) {
         this.plugins.add(

@@ -22,6 +22,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
+import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -144,6 +145,18 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
     }
 
     // plugins..........................................................................................................
+
+    /**
+     * Registers the {@link org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin}
+     */
+    SpreadsheetDataTableComponent<T> bodyScrollPlugin();
+
+    /**
+     * Prepares text for the {@link BodyScrollPlugin} which will be printed by {@link #printTreeTable(List, BiFunction, List, IndentingPrinter)}.
+     */
+    static String bodyScrollPluginText() {
+        return "BodyScrollPlugin";
+    }
 
     /**
      * Registers a plugin which will display an ICON and the given TITLE when the table is empty.
