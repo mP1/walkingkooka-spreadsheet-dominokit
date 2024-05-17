@@ -22,7 +22,9 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
+import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
@@ -76,6 +78,8 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         this.setId(id);
 
         this.children = Lists.array();
+
+        this.plugins = Lists.array();
     }
 
     private TableConfig<T> tableConfig(final List<ColumnConfig<T>> columnConfigs,
@@ -194,6 +198,29 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         return this.table.element();
     }
 
+    // plugins..........................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
+                                                             final String title) {
+        this.plugins.add(
+                SpreadsheetDataTableComponentLike.emptyStatePluginText(
+                        icon,
+                        title
+                )
+        );
+        this.table.getTableConfig()
+                .addPlugin(
+                        EmptyStatePlugin.create(
+                                icon,
+                                title
+                        )
+                );
+        return this;
+    }
+
+    private final List<String> plugins;
+
     // TreePrintable....................................................................................................
 
     @Override
@@ -202,6 +229,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
                 this.table.getTableConfig()
                         .getColumns(),
                 this.cellRenderer,
+                this.plugins,
                 printer
         );
     }

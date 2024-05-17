@@ -22,15 +22,19 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
+import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.BiFunction;
 
@@ -139,10 +143,30 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         throw new UnsupportedOperationException();
     }
 
+    // plugins..........................................................................................................
+
+    /**
+     * Registers a plugin which will display an ICON and the given TITLE when the table is empty.
+     */
+    SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
+                                                      final String title);
+
+    /**
+     * Prepares text for the {@link EmptyStatePlugin} which will be printed by {@link #printTreeTable(List, BiFunction, List, IndentingPrinter)}.
+     */
+    static String emptyStatePluginText(final Icon<?> icon,
+                                       final String title) {
+        Objects.requireNonNull(icon, "icon");
+        CharSequences.failIfNullOrEmpty(title, "title");
+
+        return "EmptyStatePlugin (" + icon.getName() + ") " + CharSequences.quoteAndEscape(title);
+    }
+
     // TreePrintable....................................................................................................
 
     default void printTreeTable(final List<ColumnConfig<T>> columnConfigs,
                                 final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer,
+                                final List<String> plugins,
                                 final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
@@ -201,6 +225,19 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                                     child,
                                     printer
                             );
+                        }
+                    }
+                    printer.outdent();
+                }
+            }
+
+            {
+                if (plugins.size() > 0) {
+                    printer.println("PLUGINS");
+                    printer.indent();
+                    {
+                        for (final String plugin : plugins) {
+                            printer.println(plugin);
                         }
                     }
                     printer.outdent();
