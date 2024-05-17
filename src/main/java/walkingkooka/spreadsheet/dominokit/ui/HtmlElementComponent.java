@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 
 /**
  * A {@link Component} that adds a few helpers to get/set {@link #VISIBILITY}.
@@ -53,4 +54,8 @@ public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlEleme
      * Sets the CSS text on the element returned by {@link org.dominokit.domino.ui.IsElement}.
      */
     C setCssText(final String css);
+
+    // node.............................................................................................................
+
+    Node node();
 }

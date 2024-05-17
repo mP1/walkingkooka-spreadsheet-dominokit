@@ -19,8 +19,10 @@ package walkingkooka.spreadsheet.dominokit.ui.text;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -179,6 +181,21 @@ public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivEle
     public HTMLDivElement element() {
         throw new UnsupportedOperationException();
     }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        // would be better to do create the TextNode in setValue but that would cause failures in test/SpreadsheetTextBox.setValue
+        if (null == this.node) {
+            this.node = Doms.textNode(
+                    this.value.orElse("")
+            );
+        }
+        return node;
+    }
+
+    private Node node;
 
     // TreePrintable....................................................................................................
 

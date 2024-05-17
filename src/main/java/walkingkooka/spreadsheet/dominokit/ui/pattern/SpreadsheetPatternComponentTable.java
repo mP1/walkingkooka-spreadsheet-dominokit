@@ -200,6 +200,13 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
         return this.card.element();
     }
 
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
+    }
+
     // setCssText.......................................................................................................
 
     @Override

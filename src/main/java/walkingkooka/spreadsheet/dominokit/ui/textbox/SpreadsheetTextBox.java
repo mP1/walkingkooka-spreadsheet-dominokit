@@ -22,6 +22,7 @@ import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
+import elemental2.dom.Node;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
@@ -230,6 +231,13 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public HTMLFieldSetElement element() {
         return this.textBox.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     // Value............................................................................................................

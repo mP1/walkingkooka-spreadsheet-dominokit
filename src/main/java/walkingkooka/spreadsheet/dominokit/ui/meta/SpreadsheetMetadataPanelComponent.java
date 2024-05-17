@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.meta;
 
 import elemental2.dom.HTMLTableElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.elements.TBodyElement;
 import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
@@ -457,6 +458,13 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
     @Override
     public HTMLTableElement element() {
         return this.table.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     private final TableElement table;

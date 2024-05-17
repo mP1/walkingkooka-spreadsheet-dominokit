@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -304,6 +305,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
                 .style
                 .cssText = css;
         return (C) this;
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public final Node node() {
+        return this.element();
     }
 
     /**

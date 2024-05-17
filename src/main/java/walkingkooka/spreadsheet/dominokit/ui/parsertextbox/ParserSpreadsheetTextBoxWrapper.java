@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.parsertextbox;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.HasText;
@@ -215,6 +216,12 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
         this.parserSpreadsheetTextBox()
                 .setCssText(css);
         return (C) this;
+    }
+
+    @Override
+    default Node node() {
+        return this.parserSpreadsheetTextBox()
+                .node();
     }
 
     /**

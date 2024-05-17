@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
@@ -214,6 +215,13 @@ public final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLF
     }
 
     private final SpreadsheetSelectComponent<String> select;
+
+    // Node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
+    }
 
     // Object...........................................................................................................
 

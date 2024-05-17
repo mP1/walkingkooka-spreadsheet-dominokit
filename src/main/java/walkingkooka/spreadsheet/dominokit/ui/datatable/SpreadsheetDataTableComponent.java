@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.datatable;
 
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
@@ -197,6 +198,13 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     @Override
     public HTMLDivElement element() {
         return this.table.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     // plugins..........................................................................................................

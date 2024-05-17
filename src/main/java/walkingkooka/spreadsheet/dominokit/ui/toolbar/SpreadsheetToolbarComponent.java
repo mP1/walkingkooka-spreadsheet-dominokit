@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.Node;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -85,6 +86,13 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     @Override
     public HTMLDivElement element() {
         return this.flexLayout.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     private final SpreadsheetFlexLayout flexLayout;

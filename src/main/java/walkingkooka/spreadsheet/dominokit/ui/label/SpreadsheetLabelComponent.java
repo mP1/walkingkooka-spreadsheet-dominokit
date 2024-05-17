@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.label;
 import elemental2.dom.Element;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
@@ -244,6 +245,13 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     @Override
     public HTMLFieldSetElement element() {
         return this.suggestBox.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     // Value............................................................................................................
