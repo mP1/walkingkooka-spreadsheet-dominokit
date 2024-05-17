@@ -73,6 +73,9 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
                 ID,
                 columnConfigs(),
                 cellRenderer()
+        ).emptyStatePlugin(
+                SpreadsheetIcons.spreadsheetListTableEmpty(),
+                "No spreadsheets"
         );
 
         this.previous = previous(context);
