@@ -27,6 +27,7 @@ import elemental2.dom.HTMLTableElement;
 import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
+import elemental2.dom.Node;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.elements.DivElement;
@@ -284,6 +285,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     @Override
     public HTMLDivElement element() {
         return this.root.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     // formulaComponent.................................................................................................

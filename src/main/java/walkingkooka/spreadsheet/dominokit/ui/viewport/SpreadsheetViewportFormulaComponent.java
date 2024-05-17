@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.viewport;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
+import elemental2.dom.Node;
 import jsinterop.base.Js;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -187,6 +188,13 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     @Override
     public HTMLFieldSetElement element() {
         return this.formula.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     // ComponentLifecycle..............................................................................................

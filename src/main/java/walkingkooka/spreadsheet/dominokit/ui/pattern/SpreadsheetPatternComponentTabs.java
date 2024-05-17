@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -158,6 +159,13 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
     @Override
     public HTMLDivElement element() {
         return this.tabsPanel.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     // setCssText.......................................................................................................

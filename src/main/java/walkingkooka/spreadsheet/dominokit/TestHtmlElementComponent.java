@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 
 /**
@@ -27,6 +28,11 @@ public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlE
 
     @Override
     default E element() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default Node node() {
         throw new UnsupportedOperationException();
     }
 

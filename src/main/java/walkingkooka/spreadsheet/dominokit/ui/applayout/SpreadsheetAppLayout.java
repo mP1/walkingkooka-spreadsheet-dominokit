@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.applayout;
 
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.layout.AppLayout;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -69,5 +70,12 @@ public final class SpreadsheetAppLayout extends AppLayout implements VisibleComp
 
         this.element.cssText(css);
         return this;
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 }

@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
 import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
@@ -244,6 +245,13 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     @Override
     public HTMLDivElement element() {
         return this.dialog.element();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     // Object..........................................................................................................
