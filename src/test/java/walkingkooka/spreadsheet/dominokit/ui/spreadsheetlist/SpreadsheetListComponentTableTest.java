@@ -59,7 +59,9 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
                         "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
+                        "        PLUGINS\n" +
+                        "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
     }
 
@@ -134,7 +136,9 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
                         "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
+                        "        PLUGINS\n" +
+                        "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
     }
 
@@ -209,7 +213,9 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
                         "              mdi-arrow-left \"previous\" [#/from/0/count/2] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "              \"next\" [#/from/2/count/2] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+                        "              \"next\" [#/from/2/count/2] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
+                        "        PLUGINS\n" +
+                        "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
     }
 
@@ -284,7 +290,9 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
                         "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "              \"next\" [#/from/1/count/2] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n"
+                        "              \"next\" [#/from/1/count/2] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
+                        "        PLUGINS\n" +
+                        "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
     }
 

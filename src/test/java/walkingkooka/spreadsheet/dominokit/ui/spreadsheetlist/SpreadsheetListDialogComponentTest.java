@@ -63,6 +63,8 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "                  ROW\n" +
                         "                    mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
                         "                    \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
+                        "              PLUGINS\n" +
+                        "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheet-list-create-Link\n" +
@@ -104,6 +106,8 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "                  ROW\n" +
                         "                    mdi-arrow-left \"previous\" [#/from/0/count/3] id=spreadsheet-list-datatable-previous-Link\n" +
                         "                    \"next\" DISABLED [#/from/1/count/3] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
+                        "              PLUGINS\n" +
+                        "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheet-list-create-Link\n" +
@@ -189,6 +193,8 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "                  ROW\n" +
                         "                    mdi-arrow-left \"previous\" [#/from/0/count/3] id=spreadsheet-list-datatable-previous-Link\n" +
                         "                    \"next\" [#/from/3/count/3] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
+                        "              PLUGINS\n" +
+                        "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheet-list-create-Link\n" +
