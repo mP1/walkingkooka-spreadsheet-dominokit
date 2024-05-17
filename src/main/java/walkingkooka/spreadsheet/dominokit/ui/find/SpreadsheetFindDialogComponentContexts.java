@@ -26,6 +26,13 @@ public final class SpreadsheetFindDialogComponentContexts implements PublicStati
         return AppContextSpreadsheetFindDialogComponentContext.with(context);
     }
 
+    /**
+     * {@see FakeSpreadsheetFindDialogComponentContext}
+     */
+    public static SpreadsheetFindDialogComponentContext fake() {
+        return new FakeSpreadsheetFindDialogComponentContext();
+    }
+
     private SpreadsheetFindDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
