@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
+import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.icons.Icon;
@@ -199,6 +200,18 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     }
 
     // plugins..........................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> bodyScrollPlugin() {
+        this.plugins.add(
+                SpreadsheetDataTableComponentLike.bodyScrollPluginText()
+        );
+        this.table.getTableConfig()
+                .addPlugin(
+                        new BodyScrollPlugin()
+                );
+        return this;
+    }
 
     @Override
     public SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
