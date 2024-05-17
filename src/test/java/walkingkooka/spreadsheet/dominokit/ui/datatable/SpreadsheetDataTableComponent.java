@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.datatable;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
@@ -51,6 +52,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
 
         this.columnConfigs = Lists.immutable(columnConfigs);
         this.cellRenderer = cellRenderer;
+        this.plugins = Lists.array();
 
         this.setId(id);
     }
@@ -126,6 +128,22 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
 
     private final List<IsElement<?>> children = Lists.array();
 
+    // plugins..........................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
+                                                             final String title) {
+        this.plugins.add(
+                SpreadsheetDataTableComponentLike.emptyStatePluginText(
+                        icon,
+                        title
+                )
+        );
+        return this;
+    }
+
+    private final List<String> plugins;
+
     // TreePrintable....................................................................................................
 
     @Override
@@ -133,6 +151,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
         this.printTreeTable(
                 this.columnConfigs,
                 this.cellRenderer,
+                this.plugins,
                 printer
         );
     }
