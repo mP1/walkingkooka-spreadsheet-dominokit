@@ -46,4 +46,9 @@ public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLD
      * Returns the selected tab index.
      */
     int selectedTab();
+
+    /**
+     * Returns the number of added tabs
+     */
+    int tabCount();
 }
