@@ -107,6 +107,21 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         return this;
     }
 
+    @Override
+    public int selectedTab() {
+        int index = -1;
+
+        int i = 0;
+        for (final Tab tab : this.tabs) {
+            if (tab.isActive()) {
+                index = -1;
+                break;
+            }
+        }
+
+        return index;
+    }
+
     private final List<Tab> tabs;
 
     // setCssText.......................................................................................................
