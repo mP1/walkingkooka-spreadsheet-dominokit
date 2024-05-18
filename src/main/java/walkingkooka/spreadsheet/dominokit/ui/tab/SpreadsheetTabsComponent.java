@@ -24,7 +24,6 @@ import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
 
@@ -34,7 +33,7 @@ import java.util.Objects;
 /**
  * Wraps a DOMINO-KIT TabsPanel and tabs.
  */
-public final class SpreadsheetTabsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
+public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike {
 
     public static SpreadsheetTabsComponent with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
@@ -52,6 +51,7 @@ public final class SpreadsheetTabsComponent implements HtmlElementComponent<HTML
     /**
      * Appends a new tab. The anchor holding the title will be disabled.
      */
+    @Override
     public SpreadsheetTabsComponent appendTab(final String id,
                                               final String title) {
         CharSequences.failIfNullOrEmpty(id, "id");
@@ -83,6 +83,7 @@ public final class SpreadsheetTabsComponent implements HtmlElementComponent<HTML
     /**
      * Returns the anchor for the given tab.
      */
+    @Override
     public HistoryTokenAnchorComponent anchor(final int index) {
         return this.anchors.get(index);
     }
@@ -92,6 +93,7 @@ public final class SpreadsheetTabsComponent implements HtmlElementComponent<HTML
     /**
      * Activate the given tab and de-actives all other tabs.
      */
+    @Override
     public SpreadsheetTabsComponent setTab(final int index) {
         int i = 0;
 
