@@ -207,6 +207,18 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         return this.element();
     }
 
+    // header...........................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> hideHeaders() {
+        this.table.headerElement()
+                .hide();
+        this.headersHidden = true;
+        return this;
+    }
+
+    private boolean headersHidden;
+
     // plugins..........................................................................................................
 
     @Override
@@ -249,6 +261,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         this.printTreeTable(
                 this.table.getTableConfig()
                         .getColumns(),
+                this.headersHidden,
                 this.cellRenderer,
                 this.plugins,
                 printer

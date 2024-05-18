@@ -128,6 +128,16 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
 
     private final List<IsElement<?>> children = Lists.array();
 
+    // header...........................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> hideHeaders() {
+        this.headersHidden = true;
+        return this;
+    }
+
+    private boolean headersHidden;
+
     // plugins..........................................................................................................
 
     @Override
@@ -158,6 +168,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     public void printTree(final IndentingPrinter printer) {
         this.printTreeTable(
                 this.columnConfigs,
+                this.headersHidden,
                 this.cellRenderer,
                 this.plugins,
                 printer

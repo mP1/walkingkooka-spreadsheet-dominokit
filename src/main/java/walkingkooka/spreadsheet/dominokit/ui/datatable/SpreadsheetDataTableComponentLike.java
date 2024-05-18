@@ -144,6 +144,10 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         throw new UnsupportedOperationException();
     }
 
+    // header...........................................................................................................
+
+    SpreadsheetDataTableComponent<T> hideHeaders();
+
     // plugins..........................................................................................................
 
     /**
@@ -152,7 +156,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
     SpreadsheetDataTableComponent<T> bodyScrollPlugin();
 
     /**
-     * Prepares text for the {@link BodyScrollPlugin} which will be printed by {@link #printTreeTable(List, BiFunction, List, IndentingPrinter)}.
+     * Prepares text for the {@link BodyScrollPlugin} which will be printed by {@link #printTreeTable(List, boolean, BiFunction, List, IndentingPrinter)}.
      */
     static String bodyScrollPluginText() {
         return "BodyScrollPlugin";
@@ -165,7 +169,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                                                       final String title);
 
     /**
-     * Prepares text for the {@link EmptyStatePlugin} which will be printed by {@link #printTreeTable(List, BiFunction, List, IndentingPrinter)}.
+     * Prepares text for the {@link EmptyStatePlugin} which will be printed by {@link #printTreeTable(List, boolean, BiFunction, List, IndentingPrinter)}.
      */
     static String emptyStatePluginText(final Icon<?> icon,
                                        final String title) {
@@ -178,6 +182,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
     // TreePrintable....................................................................................................
 
     default void printTreeTable(final List<ColumnConfig<T>> columnConfigs,
+                                final boolean headersHidden,
                                 final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer,
                                 final List<String> plugins,
                                 final IndentingPrinter printer) {
@@ -185,16 +190,18 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         printer.indent();
         {
             // print columns
-            printer.println("COLUMN(S)");
-            printer.indent();
-            {
-                for (final ColumnConfig<T> columnConfig : columnConfigs) {
-                    printer.println(
-                            columnConfig.getTitle()
-                    );
+            if (false == headersHidden) {
+                printer.println("COLUMN(S)");
+                printer.indent();
+                {
+                    for (final ColumnConfig<T> columnConfig : columnConfigs) {
+                        printer.println(
+                                columnConfig.getTitle()
+                        );
+                    }
                 }
+                printer.outdent();
             }
-            printer.outdent();
 
             final Optional<List<T>> maybeValues = this.value();
             if (maybeValues.isPresent()) {

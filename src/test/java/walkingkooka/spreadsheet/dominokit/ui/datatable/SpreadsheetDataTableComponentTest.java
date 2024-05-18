@@ -288,6 +288,82 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
         );
     }
 
+    @Test
+    public void testThreeColumnsNoValueHeadersHidden() {
+        this.treePrintAndCheck(
+                SpreadsheetDataTableComponent.<String>with(
+                        "tableId123", // id
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> SpreadsheetTextComponent.with(
+                                Optional.of(
+                                        CharSequences.repeating(
+                                                data.charAt(column),
+                                                3
+                                        ).toString()
+                                )
+                        )
+                ).hideHeaders(),
+                "SpreadsheetDataTableComponent\n"
+        );
+    }
+
+    @Test
+    public void testThreeColumnsThreeRowsHeadersHidden() {
+        this.treePrintAndCheck(
+                SpreadsheetDataTableComponent.<String>with(
+                        "tableId123", // id
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> SpreadsheetTextComponent.with(
+                                Optional.of(
+                                        CharSequences.repeating(
+                                                data.charAt(column),
+                                                3
+                                        ).toString()
+                                )
+                        )
+                ).setValue(
+                        Optional.of(
+                                Lists.of(
+                                        "ABC",
+                                        "DEF",
+                                        "GHI"
+                                )
+                        )
+                ).hideHeaders(),
+                "SpreadsheetDataTableComponent\n" +
+                        "  ROW(S)\n" +
+                        "    ROW 0\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"AAA\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"BBB\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"CCC\"\n" +
+                        "    ROW 1\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"DDD\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"EEE\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"FFF\"\n" +
+                        "    ROW 2\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"GGG\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"HHH\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"III\"\n"
+        );
+    }
+
     @Override
     public Class<SpreadsheetDataTableComponent<String>> type() {
         return Cast.to(SpreadsheetDataTableComponent.class);
