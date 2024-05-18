@@ -17,11 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
-public final class SpreadsheetToolbarComponentItemTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItem> {
+import walkingkooka.Cast;
 
+public final class SpreadsheetToolbarComponentItemTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItem<?>> {
 
     @Override
-    public Class<SpreadsheetToolbarComponentItem> type() {
-        return SpreadsheetToolbarComponentItem.class;
+    public Class<SpreadsheetToolbarComponentItem<?>> type() {
+        return Cast.to(SpreadsheetToolbarComponentItem.class);
     }
 }

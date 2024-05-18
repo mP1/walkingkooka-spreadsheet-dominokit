@@ -30,7 +30,7 @@ final class SpreadsheetDataTableComponentCellRenderer<T> implements CellRenderer
 
     static <T> SpreadsheetDataTableComponentCellRenderer<T> with(final int columnNumber,
                                                                  final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
-        return new SpreadsheetDataTableComponentCellRenderer(
+        return new SpreadsheetDataTableComponentCellRenderer<>(
                 columnNumber,
                 cellRenderer
         );

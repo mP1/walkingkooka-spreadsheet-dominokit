@@ -91,7 +91,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                 HistoryTokenAnchorComponent.empty()
                         .setIconAfter(
                                 Optional.of(
-                                        new Icon("Icon123")
+                                        new Icon<>("Icon123")
                                 )
                         )
                         .setHref(
@@ -109,7 +109,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                 HistoryTokenAnchorComponent.empty()
                         .setIconBefore(
                                 Optional.of(
-                                        new Icon("Icon123")
+                                        new Icon<>("Icon123")
                                 )
                         )
                         .setHref(

@@ -228,7 +228,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         );
         this.table.getTableConfig()
                 .addPlugin(
-                        new BodyScrollPlugin()
+                        new BodyScrollPlugin<>()
                 );
         return this;
     }
