@@ -125,7 +125,6 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
                                 )
                 )
         );
-        //this.table.load();
     }
 
     private SpreadsheetPatternKind patternKind;
