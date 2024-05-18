@@ -58,5 +58,5 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.
      */
-    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
+    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 }

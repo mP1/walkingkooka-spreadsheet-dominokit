@@ -56,7 +56,7 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
     // SpreadsheetMetadataFetcherWatcher.......................................................................................
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 

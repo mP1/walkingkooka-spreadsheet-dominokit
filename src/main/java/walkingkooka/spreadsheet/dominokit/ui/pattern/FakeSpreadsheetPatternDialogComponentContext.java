@@ -65,7 +65,7 @@ public class FakeSpreadsheetPatternDialogComponentContext extends FakeSpreadshee
     }
 
     @Override
-    public Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 }
