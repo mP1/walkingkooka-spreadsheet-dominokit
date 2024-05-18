@@ -99,7 +99,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
         final String idPrefix = this.id;
 
         final Set<SpreadsheetComparatorName> existing = spreadsheetComparatorNameAndDirections.stream()
-                .map(nad -> nad.name())
+                .map(SpreadsheetComparatorNameAndDirection::name)
                 .collect(Collectors.toSet());
 
         final int addIndex = spreadsheetComparatorNameAndDirections.size();

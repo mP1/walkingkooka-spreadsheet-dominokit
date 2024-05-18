@@ -198,7 +198,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             SpreadsheetIcons.cut()
                     ),
                     itemIdPrefix + '-',
-                    (k) -> historyToken.setCellCut(k)
+                    historyToken::setCellCut
             );
         }
 
@@ -226,7 +226,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             SpreadsheetIcons.paste()
                     ),
                     itemIdPrefix + '-',
-                    (k) -> historyToken.setCellPaste(k)
+                    historyToken::setCellPaste
             );
 
             // PASTE items are initially disabled and then async enabled after the clipboard is examined.

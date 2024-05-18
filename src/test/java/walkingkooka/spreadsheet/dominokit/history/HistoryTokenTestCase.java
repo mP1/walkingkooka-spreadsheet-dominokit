@@ -394,7 +394,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         this.checkEquals(
                 expected,
                 token.setReload(),
-                () -> token.toString()
+                token::toString
         );
     }
 
