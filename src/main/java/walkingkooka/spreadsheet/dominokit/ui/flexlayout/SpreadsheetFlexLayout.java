@@ -117,7 +117,7 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
     /**
      * Holds all added child components.
      */
-    private List<IsElement<?>> children;
+    private final List<IsElement<?>> children;
 
     // setCssText.......................................................................................................
 

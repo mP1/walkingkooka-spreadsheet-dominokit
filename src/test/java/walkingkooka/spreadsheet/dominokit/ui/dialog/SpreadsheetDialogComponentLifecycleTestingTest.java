@@ -108,7 +108,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
             );
         }
 
-        private SpreadsheetTextBox onGiveFocus;
+        private final SpreadsheetTextBox onGiveFocus;
 
         @Override
         public boolean shouldIgnore(final HistoryToken token) {
@@ -127,14 +127,14 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
             );
         }
 
-        private SpreadsheetTextBox refreshed;
+        private final SpreadsheetTextBox refreshed;
 
         @Override
         public SpreadsheetDialogComponent dialog() {
             return this.dialog;
         }
 
-        private SpreadsheetDialogComponent dialog;
+        private final SpreadsheetDialogComponent dialog;
 
         @Override
         public String idPrefix() {

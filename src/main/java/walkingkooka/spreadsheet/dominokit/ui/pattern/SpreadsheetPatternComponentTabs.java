@@ -71,7 +71,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
         return tabs;
     }
 
-    private SpreadsheetTabsComponent tabsComponent;
+    private final SpreadsheetTabsComponent tabsComponent;
 
     /**
      * Returns the text that will appear on a tab that when clicked switches to the given {@link SpreadsheetPatternKind}.

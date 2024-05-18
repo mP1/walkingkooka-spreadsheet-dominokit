@@ -107,7 +107,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     /**
      * Holds all added child components.
      */
-    private List<IsElement<?>> children;
+    private final List<IsElement<?>> children;
 
     // CanBeEmpty.......................................................................................................
 

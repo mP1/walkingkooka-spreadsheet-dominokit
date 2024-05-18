@@ -171,7 +171,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         return this.includeClose;
     }
 
-    private boolean includeClose;
+    private final boolean includeClose;
 
     // appendChild......................................................................................................
 
