@@ -35,7 +35,6 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.tree.text.TextAlign;
 
-import java.util.Objects;
 import java.util.function.Function;
 
 /**
@@ -211,8 +210,6 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
 
     @Override
     public SpreadsheetPatternComponentTable setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
         this.card.setCssText(css);
         return this;
     }
