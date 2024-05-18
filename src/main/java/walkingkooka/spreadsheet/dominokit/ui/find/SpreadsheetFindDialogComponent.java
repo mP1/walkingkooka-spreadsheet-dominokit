@@ -17,15 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.find;
 
-import elemental2.dom.Node;
-import org.dominokit.domino.ui.datatable.CellRenderer;
-import org.dominokit.domino.ui.datatable.CellRenderer.CellInfo;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
-import org.dominokit.domino.ui.datatable.DataTable;
-import org.dominokit.domino.ui.datatable.TableConfig;
-import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
-import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -33,7 +26,6 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -41,24 +33,28 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangeReferencePathComponent;
+import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype.SpreadsheetValueTypeComponent;
+import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.ui.textnode.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.Expression;
-import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -89,6 +85,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
         this.find = this.anchor("Find");
         this.reset = this.anchor("Reset");
+
+        this.dataTable = this.dataTable();
 
         this.dialog = this.dialogCreate();
 
@@ -123,7 +121,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                         )
                                 )
                 ).appendChild(
-                        this.dataTable()
+                        this.dataTable
                 );
     }
 
@@ -131,12 +129,17 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetFindDialogComponentContext context;
 
-    private DataTable<SpreadsheetCell> dataTable() {
-        return new DataTable<>(
-                this.tableConfig(),
-                this.cellDataStore
-        );
+    // datatable........................................................................................................
+
+    private SpreadsheetDataTableComponent<SpreadsheetCell> dataTable() {
+        return SpreadsheetDataTableComponent.with(
+                ID_PREFIX + "cells-Table", // id
+                this.columnConfigs(), // column confiss
+                this.cellRenderer()
+        ).bodyScrollPlugin();
     }
+
+    private final SpreadsheetDataTableComponent<SpreadsheetCell> dataTable;
 
     /**
      * The table showing matching cells will have four columns.
@@ -144,45 +147,63 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      * cell | formula | value | formatted
      * </pre>
      */
-    private TableConfig<SpreadsheetCell> tableConfig() {
-        return new TableConfig<SpreadsheetCell>()
-                .addColumn(
-                        columnConfig(
-                                "Cell",
-                                CellTextAlign.LEFT,
-                                this::renderCellReference
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "Formula",
-                                CellTextAlign.LEFT,
-                                this::renderCellFormula
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "Formatted",
-                                CellTextAlign.LEFT,
-                                this::renderCellFormattedValue
-                        )
-                ).addColumn(
-                        columnConfig(
-                                "Value",
-                                CellTextAlign.LEFT,
-                                this::renderCellValue
-                        )
-                ).addPlugin(new BodyScrollPlugin<>());
+    private List<ColumnConfig<SpreadsheetCell>> columnConfigs() {
+        return Lists.of(
+                columnConfig(
+                        "Cell",
+                        CellTextAlign.LEFT
+                ),
+
+                columnConfig(
+                        "Formula",
+                        CellTextAlign.LEFT
+                ),
+                columnConfig(
+                        "Formatted",
+                        CellTextAlign.LEFT
+                ),
+                columnConfig(
+                        "Value",
+                        CellTextAlign.LEFT
+                )
+        );
     }
 
     private ColumnConfig<SpreadsheetCell> columnConfig(final String title,
-                                                       final CellTextAlign cellTextAlign,
-                                                       final CellRenderer<SpreadsheetCell> renderer) {
-        return ColumnConfig.<SpreadsheetCell>create(title.toLowerCase(), title)
-                .setTextAlign(cellTextAlign)
-                .setCellRenderer(renderer);
+                                                       final CellTextAlign cellTextAlign) {
+        return ColumnConfig.<SpreadsheetCell>create(
+                title.toLowerCase(),
+                title
+        ).setTextAlign(cellTextAlign);
     }
 
-    private Node renderCellReference(final CellInfo<SpreadsheetCell> info) {
-        final SpreadsheetCell cell = info.getRecord();
+    private BiFunction<Integer, SpreadsheetCell, HtmlElementComponent<?, ?>> cellRenderer() {
+        return (column, cell) -> {
+            final HtmlElementComponent<?, ?> component;
+
+            switch (column) {
+                case 0: // cell
+                    component = renderCellReference(cell);
+                    break;
+                case 1: // formula
+                    component = renderCellFormula(cell);
+                    break;
+                case 2: // cell formatted value
+                    component = renderCellFormattedValue(cell);
+                    break;
+                case 3: // value
+                    component = renderCellValue(cell);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unknown column " + column);
+            }
+
+
+            return component;
+        };
+    }
+
+    private HistoryTokenAnchorComponent renderCellReference(final SpreadsheetCell cell) {
         final HistoryToken historyToken = this.context.historyToken();
 
         return HistoryTokenAnchorComponent.empty()
@@ -197,11 +218,10 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                                 )
                                         )
                         )
-                ).element();
+                );
     }
 
-    private Node renderCellFormula(final CellInfo<SpreadsheetCell> info) {
-        final SpreadsheetCell cell = info.getRecord();
+    private HistoryTokenAnchorComponent renderCellFormula(final SpreadsheetCell cell) {
         final HistoryToken historyToken = this.context.historyToken();
 
         return HistoryTokenAnchorComponent.empty()
@@ -216,36 +236,27 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                                 )
                                         ).setFormula()
                         )
-                ).element();
+                );
     }
 
-    private Node renderCellFormattedValue(final CellInfo<SpreadsheetCell> cell) {
-        return Doms.node(
-                cell.getRecord()
-                        .formattedValue()
-                        .orElse(TextNode.EMPTY_TEXT)
+    private SpreadsheetTextNodeComponent renderCellFormattedValue(final SpreadsheetCell cell) {
+        return SpreadsheetTextNodeComponent.with(
+                cell.formattedValue()
         );
     }
 
-    private Node renderCellValue(final CellInfo<SpreadsheetCell> cell) {
-        return Doms.textNode(
-                        cell.getRecord()
-                                .formula()
-                                .value()
-                                .map(Object::toString)
-                                .orElse("")
+    private SpreadsheetTextComponent renderCellValue(final SpreadsheetCell cell) {
+        return SpreadsheetTextComponent.with(
+                cell.formula()
+                        .value()
+                        .map(Object::toString)
         );
     }
-
-    /**
-     * Holds all the cells from the last search
-     */
-    private final LocalListDataStore<SpreadsheetCell> cellDataStore = new LocalListDataStore<>();
 
     // SpreadsheetDeltaWatcher.........................................................................................
 
     /**
-     * Replaces the cells in the {@link #cellDataStore}.
+     * Replaces the cells in the {@link SpreadsheetDataTableComponent#setValue(Optional)}.
      */
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
@@ -254,7 +265,10 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                    final AppContext context) {
         final List<SpreadsheetCell> cells = Lists.array();
         cells.addAll(delta.cells());
-        this.cellDataStore.setData(cells);
+
+        this.dataTable.setValue(
+                Optional.of(cells)
+        );
     }
 
     // path.....................................................................................................
