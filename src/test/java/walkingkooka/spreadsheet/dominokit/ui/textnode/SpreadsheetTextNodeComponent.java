@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.textnode;
 
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.tree.text.TextNode;
 
@@ -57,6 +58,13 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
 
     @Override
     public HTMLDivElement element() {
+        throw new UnsupportedOperationException();
+    }
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
         throw new UnsupportedOperationException();
     }
 
