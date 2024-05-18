@@ -775,7 +775,7 @@ public class App implements EntryPoint,
 
             final Optional<AnchoredSpreadsheetSelection> previousSelection = context.spreadsheetMetadata()
                     .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                    .flatMap(v -> v.anchoredSelection());
+                    .flatMap(SpreadsheetViewport::anchoredSelection);
             if (false == selection.equals(previousSelection)) {
 
                 context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
