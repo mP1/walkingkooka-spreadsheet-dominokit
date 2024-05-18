@@ -41,4 +41,9 @@ public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLD
      * Activate the given tab and de-actives all other tabs.
      */
     SpreadsheetTabsComponentLike setTab(final int index);
+
+    /**
+     * Returns the selected tab index.
+     */
+    int selectedTab();
 }
