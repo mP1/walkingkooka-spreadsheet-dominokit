@@ -122,6 +122,11 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         return index;
     }
 
+    @Override
+    public int tabCount() {
+        return this.tabs.size();
+    }
+
     private final List<Tab> tabs;
 
     // setCssText.......................................................................................................
