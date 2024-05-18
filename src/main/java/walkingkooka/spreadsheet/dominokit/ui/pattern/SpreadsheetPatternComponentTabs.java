@@ -17,18 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.tabs.Tab;
-import org.dominokit.domino.ui.tabs.TabsPanel;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.ui.tab.SpreadsheetTabsComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -49,60 +46,29 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
 
     private SpreadsheetPatternComponentTabs(final SpreadsheetPatternKind[] kinds,
                                             final SpreadsheetPatternDialogComponentContext context) {
-        this.tabs = this.tabsCreate(
+        this.tabsComponent = this.tabsComponentCreate(
                 kinds,
                 context
         );
-        this.tabsPanel = this.tabsPanelCreate();
     }
 
-    // TabPanel.........................................................................................................
+    // SpreadsheetTabsComponent.........................................................................................
 
-    /**
-     * Returns a {@link TabsPanel} with tabs for each of the possible {@link SpreadsheetPatternKind}, with each
-     * tab holding a link which will switch to that pattern.
-     */
-    private TabsPanel tabsPanelCreate() {
-        final TabsPanel tabsPanel = TabsPanel.create();
+    private SpreadsheetTabsComponent tabsComponentCreate(final SpreadsheetPatternKind[] kinds,
+                                                         final SpreadsheetPatternDialogComponentContext context) {
+        final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(context);
 
-        for (final Tab tab : this.tabs) {
-            tabsPanel.appendChild(tab);
-        }
-
-        return tabsPanel;
-    }
-
-    private final TabsPanel tabsPanel;
-
-    // Tab(s)..........................................................................................................
-
-    /**
-     * Creates a tab for each {@link SpreadsheetPatternKind}.
-     */
-    private Tab[] tabsCreate(final SpreadsheetPatternKind[] kinds,
-                             final SpreadsheetPatternDialogComponentContext context) {
-        final Tab[] tabs = new Tab[kinds.length];
-
-        int i = 0;
         for (final SpreadsheetPatternKind kind : kinds) {
-            final Tab tab = Tab.create(
+            tabs.appendTab(
+                    SpreadsheetPatternDialogComponent.spreadsheetPatternKindId(kind),
                     tabTitle(kind)
             );
-
-            HistoryTokenAnchorComponent.with(
-                            (HTMLAnchorElement)
-                                    tab.getTab()
-                                            .element()
-                                            .firstElementChild
-                    ).setId(SpreadsheetPatternDialogComponent.spreadsheetPatternKindId(kind))
-                    .addPushHistoryToken(context)
-                    .setDisabled(false);
-
-            tabs[i++] = tab;
         }
 
         return tabs;
     }
+
+    private SpreadsheetTabsComponent tabsComponent;
 
     /**
      * Returns the text that will appear on a tab that when clicked switches to the given {@link SpreadsheetPatternKind}.
@@ -119,36 +85,27 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
         ).trim();
     }
 
-    private final Tab[] tabs;
-
-    // refresh.........................................................................................................
+    // refresh..........................................................................................................
 
     /**
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
      */
     void refresh(final SpreadsheetPatternKind[] kinds,
                  final SpreadsheetPatternDialogComponentContext context) {
+        final SpreadsheetTabsComponent tabs = this.tabsComponent;
         final SpreadsheetPatternKind kind = context.patternKind();
 
         int i = 0;
-        final Tab[] tabs = this.tabs;
         for (final SpreadsheetPatternKind possible : kinds) {
-            final Tab tab = tabs[i++];
-            final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.with(
-                    (HTMLAnchorElement)
-                            tab.getTab()
-                                    .element()
-                                    .firstElementChild
-            ).setId(SpreadsheetPatternDialogComponent.spreadsheetPatternKindId(possible));
+            final HistoryTokenAnchorComponent anchor = tabs.anchor(i);
 
             final boolean match = kind.equals(possible);
             anchor.setDisabled(match);
 
             if (match) {
-                tab.activate(true); // true=silent
+                tabs.setTab(i);
+                context.debug(this.getClass().getSimpleName() + ".patternKindTabsRefresh setTab=" + i + " " + kind);
             } else {
-                tab.deActivate(true); // true=silent
-
                 final HistoryToken historyToken = context.historyToken();
                 final HistoryToken historyTokenWithPatternKind = historyToken.setPatternKind(
                         Optional.of(possible)
@@ -159,6 +116,8 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
 
                 context.debug(this.getClass().getSimpleName() + ".patternKindTabsRefresh " + historyTokenWithPatternKind);
             }
+
+            i++;
         }
     }
 
@@ -166,7 +125,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
 
     @Override
     public HTMLDivElement element() {
-        return this.tabsPanel.element();
+        return this.tabsComponent.element();
     }
 
     // node.............................................................................................................
@@ -180,9 +139,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
 
     @Override
     public SpreadsheetPatternComponentTabs setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.tabsPanel.cssText(css);
+        this.tabsComponent.setCssText(css);
         return this;
     }
 }
