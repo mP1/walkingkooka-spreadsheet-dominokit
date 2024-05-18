@@ -834,7 +834,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
         assertThrows(
                 NullPointerException.class,
-                () -> fetcher.url(
+                () -> SpreadsheetDeltaFetcher.url(
                         id,
                         selection,
                         path
@@ -893,7 +893,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
         this.checkEquals(
                 url,
-                fetcher.url(
+                SpreadsheetDeltaFetcher.url(
                         id,
                         selection,
                         path
