@@ -49,24 +49,44 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
 
     private SpreadsheetPatternComponentTabs(final SpreadsheetPatternKind[] kinds,
                                             final SpreadsheetPatternDialogComponentContext context) {
-        this.tabs = this.patternKindTabs(
+        this.tabs = this.tabsCreate(
                 kinds,
                 context
         );
-        this.tabsPanel = this.tabsPanel();
+        this.tabsPanel = this.tabsPanelCreate();
     }
+
+    // TabPanel.........................................................................................................
+
+    /**
+     * Returns a {@link TabsPanel} with tabs for each of the possible {@link SpreadsheetPatternKind}, with each
+     * tab holding a link which will switch to that pattern.
+     */
+    private TabsPanel tabsPanelCreate() {
+        final TabsPanel tabsPanel = TabsPanel.create();
+
+        for (final Tab tab : this.tabs) {
+            tabsPanel.appendChild(tab);
+        }
+
+        return tabsPanel;
+    }
+
+    private final TabsPanel tabsPanel;
+
+    // Tab(s)..........................................................................................................
 
     /**
      * Creates a tab for each {@link SpreadsheetPatternKind}.
      */
-    private Tab[] patternKindTabs(final SpreadsheetPatternKind[] kinds,
-                                  final SpreadsheetPatternDialogComponentContext context) {
+    private Tab[] tabsCreate(final SpreadsheetPatternKind[] kinds,
+                             final SpreadsheetPatternDialogComponentContext context) {
         final Tab[] tabs = new Tab[kinds.length];
 
         int i = 0;
         for (final SpreadsheetPatternKind kind : kinds) {
             final Tab tab = Tab.create(
-                    title(kind)
+                    tabTitle(kind)
             );
 
             HistoryTokenAnchorComponent.with(
@@ -90,7 +110,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
      * SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
      * </pre>
      */
-    static String title(final SpreadsheetPatternKind kind) {
+    static String tabTitle(final SpreadsheetPatternKind kind) {
         return CaseKind.SNAKE.change(
                 kind.name()
                         .replace("FORMAT_PATTERN", "")
@@ -101,21 +121,7 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
 
     private final Tab[] tabs;
 
-    /**
-     * Returns a {@link TabsPanel} with tabs for each of the possible {@link SpreadsheetPatternKind}, with each
-     * tab holding a link which will switch to that pattern.
-     */
-    private TabsPanel tabsPanel() {
-        final TabsPanel tabsPanel = TabsPanel.create();
-
-        for (final Tab tab : this.tabs) {
-            tabsPanel.appendChild(tab);
-        }
-
-        return tabsPanel;
-    }
-
-    private final TabsPanel tabsPanel;
+    // refresh.........................................................................................................
 
     /**
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
@@ -155,6 +161,8 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
             }
         }
     }
+
+    // IsElement........................................................................................................
 
     @Override
     public HTMLDivElement element() {
