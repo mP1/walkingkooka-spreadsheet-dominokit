@@ -35,6 +35,7 @@ public final class SpreadsheetIds implements PublicStaticHelper {
 
     public final static String SUB_MENU = "-SubMenu";
 
+    public final static String TABLE = "-Table";
     public final static String TEXT_BOX = "-TextBox";
 
     private SpreadsheetIds() {
