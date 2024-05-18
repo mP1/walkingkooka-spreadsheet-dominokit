@@ -53,7 +53,7 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
     /**
      * Adds a {@link SpreadsheetDeltaFetcherWatcher}.
      */
-    Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
+    Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.

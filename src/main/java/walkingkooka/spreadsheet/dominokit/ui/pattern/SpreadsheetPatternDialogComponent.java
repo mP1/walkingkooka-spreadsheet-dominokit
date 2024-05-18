@@ -69,7 +69,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
     SpreadsheetPatternDialogComponent(final SpreadsheetPatternDialogComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetDeltaWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataWatcher(this);
 
         this.tabs = SpreadsheetPatternComponentTabs.empty(
