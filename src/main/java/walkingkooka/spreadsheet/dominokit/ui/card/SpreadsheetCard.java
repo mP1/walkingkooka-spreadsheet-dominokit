@@ -109,6 +109,13 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
      */
     private List<IsElement<?>> children;
 
+    // CanBeEmpty.......................................................................................................
+
+    @Override
+    public boolean isEmpty() {
+        return this.isEmptyIfChildrenAreEmpty();
+    }
+
     // Component........................................................................................................
 
     @Override

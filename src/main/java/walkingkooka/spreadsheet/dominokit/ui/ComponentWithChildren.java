@@ -67,7 +67,7 @@ public interface ComponentWithChildren<C extends Component<E>, E extends Element
     /**
      * Returns true if this component is empty (has no children).
      */
-    default boolean isEmpty() {
+    default boolean isEmptyIfChildrenAreEmpty() {
         boolean hide = true;
         
         for (final IsElement<?> child : this.children()) {

@@ -179,6 +179,16 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         return "EmptyStatePlugin (" + icon.getName() + ") " + CharSequences.quoteAndEscape(title);
     }
 
+    // CanBeEmpty.......................................................................................................
+
+    /**
+     * A table is never empty, best to show columns or any empty state plugin etc even when there are no rows.
+     */
+    @Override
+    default boolean isEmpty() {
+        return false;
+    }
+
     // TreePrintable....................................................................................................
 
     default void printTreeTable(final List<ColumnConfig<T>> columnConfigs,
