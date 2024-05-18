@@ -60,7 +60,7 @@ public class FakeSpreadsheetPatternDialogComponentContext extends FakeSpreadshee
     }
 
     @Override
-    public Runnable addSpreadsheetDeltaWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
