@@ -19,9 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.datatable;
 
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellRenderer;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
 
 import java.util.function.BiFunction;
 
@@ -51,20 +49,7 @@ final class SpreadsheetDataTableComponentCellRenderer<T> implements CellRenderer
                 cellInfo.getRecord()
         );
 
-        Node node;
-
-        // special case we dont want the element only the TextNode.
-        if (component instanceof SpreadsheetTextComponent) {
-            SpreadsheetTextComponent spreadsheetTextComponent = (SpreadsheetTextComponent) component;
-            node = Doms.textNode(
-                    spreadsheetTextComponent.value()
-                            .orElse("")
-            );
-        } else {
-            node = component.element();
-        }
-
-        return node;
+        return component.node();
     }
 
     private final Integer columnNumber;
