@@ -85,7 +85,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
                                               final SpreadsheetMetadataPanelComponentContext context) {
         this.drawer = drawer;
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetMetadataWatcher(this);
+        context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.context = context;
 

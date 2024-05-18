@@ -35,7 +35,7 @@ public interface SpreadsheetMetadataPanelComponentContext extends HistoryTokenCo
         UiFormattingContext,
         LoggingContext {
 
-    Runnable addSpreadsheetMetadataWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
+    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
     default String datePattern() {
         final SimpleDateFormat simpleDateFormat = (SimpleDateFormat)
