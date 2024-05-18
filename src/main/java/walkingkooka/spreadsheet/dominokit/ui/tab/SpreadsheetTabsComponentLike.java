@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 /**
  * Defines the public interface of a {@link SpreadsheetTabsComponent}.
  */
-public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponentLike> {
+public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
 
     /**
      * Appends a new tab. The anchor holding the title will be disabled.
