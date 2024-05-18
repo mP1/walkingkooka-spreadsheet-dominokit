@@ -32,6 +32,8 @@ import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textnode.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
@@ -40,7 +42,8 @@ import java.util.Optional;
 /**
  * A table that holds available patterns used to format values.
  */
-final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentTable> {
+final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentTable>,
+        TreePrintable {
 
     /**
      * Creates an empty {@link SpreadsheetPatternComponentTable}.
@@ -249,4 +252,16 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
     }
 
     private final SpreadsheetCard card;
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.card.printTree(printer);
+        }
+        printer.outdent();
+    }
 }
