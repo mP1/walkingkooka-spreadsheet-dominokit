@@ -41,6 +41,13 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
      */
     boolean isColumn();
 
+    // CanBeEmpty.......................................................................................................
+
+    @Override
+    default boolean isEmpty() {
+        return this.isEmptyIfChildrenAreEmpty();
+    }
+
     // TreePrintable....................................................................................................
 
     // SpreadsheetFlexLayout
