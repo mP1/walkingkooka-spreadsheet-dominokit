@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
+import walkingkooka.Cast;
+
 @SuppressWarnings("rawtypes")
-public final class SpreadsheetToolbarComponentItemAnchorTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItemAnchor> {
+public final class SpreadsheetToolbarComponentItemAnchorTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItemAnchor<?>> {
     @Override
-    public Class<SpreadsheetToolbarComponentItemAnchor> type() {
-        return SpreadsheetToolbarComponentItemAnchor.class;
+    public Class<SpreadsheetToolbarComponentItemAnchor<?>> type() {
+        return Cast.to(SpreadsheetToolbarComponentItemAnchor.class);
     }
 }

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public abstract class SpreadsheetToolbarComponentItemTestCase<T extends SpreadsheetToolbarComponentItem> implements ClassTesting<T> {
+public abstract class SpreadsheetToolbarComponentItemTestCase<T extends SpreadsheetToolbarComponentItem<?>> implements ClassTesting<T> {
 
     SpreadsheetToolbarComponentItemTestCase() {
         super();
