@@ -24,7 +24,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
- * The event payload used by {@link FetcherWatcher#onFailure(HttpStatus, Headers, String, AppContext)}.
+ * The event payload used by {@link FetcherWatcher#onFailure(HttpMethod, AbsoluteOrRelativeUrl, HttpStatus, Headers, String, AppContext)}.
  */
 final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
