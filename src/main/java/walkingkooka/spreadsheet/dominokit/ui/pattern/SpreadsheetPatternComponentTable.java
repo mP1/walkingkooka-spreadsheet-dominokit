@@ -136,11 +136,16 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
      * Prepares the {@link ColumnConfig} for each of the columns that will appear in the table.
      */
     private static List<ColumnConfig<SpreadsheetPatternComponentTableRow>> columnConfigs(final SpreadsheetPatternKind kind) {
-        final List<ColumnConfig<SpreadsheetPatternComponentTableRow>> columns = Lists.of(
+        final List<ColumnConfig<SpreadsheetPatternComponentTableRow>> columns = Lists.array();
+
+        columns.add(
                 columnConfig(
                         "label",
                         TextAlign.LEFT
-                ),
+                )
+        );
+
+        columns.add(
                 columnConfig(
                         "pattern-text",
                         TextAlign.CENTER
