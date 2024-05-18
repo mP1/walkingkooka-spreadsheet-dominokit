@@ -25,13 +25,16 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 import walkingkooka.spreadsheet.dominokit.ui.tab.SpreadsheetTabsComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
 /**
  * Capture the tabs functionality within a {@link SpreadsheetPatternDialogComponent}.
  */
-final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentTabs> {
+final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternComponentTabs>,
+        TreePrintable {
 
     /**
      * Creates an empty {@link SpreadsheetPatternComponentTabs}.
@@ -141,5 +144,17 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
     public SpreadsheetPatternComponentTabs setCssText(final String css) {
         this.tabsComponent.setCssText(css);
         return this;
+    }
+
+    // TreePrinter......................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.tabsComponent.printTree(printer);
+        }
+        printer.outdent();
     }
 }
