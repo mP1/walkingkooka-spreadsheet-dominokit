@@ -96,7 +96,7 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
 
     // id...............................................................................................................
 
-    private String id;
+    private final String id;
 
     @Override
     public String id() {
@@ -110,7 +110,7 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
         return this.includeClose;
     }
 
-    private boolean includeClose;
+    private final boolean includeClose;
 
     // appendChild......................................................................................................
 
@@ -121,7 +121,7 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
         return this;
     }
 
-    private List<IsElement<?>> children = Lists.array();
+    private final List<IsElement<?>> children = Lists.array();
 
     // TreePrintable....................................................................................................
 

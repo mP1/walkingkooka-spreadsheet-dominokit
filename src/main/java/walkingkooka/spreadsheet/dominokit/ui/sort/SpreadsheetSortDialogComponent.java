@@ -108,7 +108,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         return this.dialog;
     }
 
-    private SpreadsheetDialogComponent dialog;
+    private final SpreadsheetDialogComponent dialog;
 
     // id...............................................................................................................
 
@@ -567,7 +567,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     /**
      * Holds all the many {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent}.
      */
-    private SpreadsheetFlexLayout columnOrRowComparatorNamesParent;
+    private final SpreadsheetFlexLayout columnOrRowComparatorNamesParent;
 
     // sort.............................................................................................................
 
