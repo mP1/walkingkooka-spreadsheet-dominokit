@@ -20,11 +20,14 @@ package walkingkooka.spreadsheet.dominokit.ui.tab;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 /**
  * Defines the public interface of a {@link SpreadsheetTabsComponent}.
  */
-public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
+public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent>,
+        TreePrintable {
 
     /**
      * Appends a new tab. The anchor holding the title will be disabled.
@@ -51,4 +54,29 @@ public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLD
      * Returns the number of added tabs
      */
     int tabCount();
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    default void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            final int selected = this.selectedTab();
+
+            final int count = this.tabCount();
+            for (int i = 0; i < count; i++) {
+
+                printer.println("TAB " + i + (selected == i ? " SELECTED" : ""));
+                printer.indent();
+                {
+                    this.anchor(i)
+                            .printTree(printer);
+                    printer.lineStart();
+                }
+                printer.outdent();
+            }
+        }
+        printer.outdent();
+    }
 }
