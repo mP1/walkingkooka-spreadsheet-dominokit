@@ -28,6 +28,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuTarget;
+import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponentTarget;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -38,6 +40,7 @@ import java.util.Optional;
  */
 public interface HistoryTokenAnchorComponentLike extends HtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent>,
         SpreadsheetContextMenuTarget<HTMLAnchorElement>,
+        SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent>,
         TreePrintable {
 
     default boolean isDisabled() {
@@ -172,11 +175,29 @@ public interface HistoryTokenAnchorComponentLike extends HtmlElementComponent<HT
 
     void focus();
 
+    // SpreadsheetTooltipComponentTarget................................................................................
+
+    /**
+     * Retrieves any {@link SpreadsheetTooltipComponent}
+     */
+    Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent();
+
     // TreePrintable....................................................................................................
 
     @Override
     default void printTree(final IndentingPrinter printer) {
         printer.print(this.toString());
+
+        final Optional<SpreadsheetTooltipComponent> tooltip = this.spreadsheetTooltipComponent();
+        if (tooltip.isPresent()) {
+            printer.indent();
+            {
+                printer.lineStart();
+                tooltip.get()
+                        .printTree(printer);
+            }
+            printer.outdent();
+        }
 
         // print any attached context menu
         final Optional<SpreadsheetContextMenu> menu = this.spreadsheetContextMenu();

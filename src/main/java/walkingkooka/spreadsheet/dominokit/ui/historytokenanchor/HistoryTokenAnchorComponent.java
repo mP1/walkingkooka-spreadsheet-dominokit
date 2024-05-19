@@ -30,6 +30,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -73,6 +74,8 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
         style.set("text-wrap", "nowrap");
 
         this.element = element;
+
+        this.tooltip = Optional.empty();
     }
 
     // setCssText.......................................................................................................
@@ -415,4 +418,24 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     private SpreadsheetContextMenu menu;
+
+    // SpreadsheetTooltipComponentTarget................................................................................
+
+    @Override
+    public void tooltipAttached(final SpreadsheetTooltipComponent tooltip) {
+        Objects.requireNonNull(tooltip, "tooltip");
+
+        this.tooltip = Optional.of(tooltip);
+    }
+
+    @Override
+    public void tooltipDetached() {
+        this.tooltip = Optional.empty();
+    }
+
+    public Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent() {
+        return this.tooltip;
+    }
+
+    private Optional<SpreadsheetTooltipComponent> tooltip;
 }
