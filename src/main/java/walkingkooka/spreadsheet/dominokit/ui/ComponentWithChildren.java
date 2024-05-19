@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.IsElement;
 import walkingkooka.CanBeEmpty;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Defines methods for a {@link Component} that has children.
@@ -32,6 +33,19 @@ public interface ComponentWithChildren<C extends Component<E>, E extends Element
      * Appends a new child.
      */
     C appendChild(final IsElement<?> child);
+
+    /**
+     * Appends all the given children.
+     */
+    default C appendChildren(final List<IsElement<?>> children) {
+        Objects.requireNonNull(children, "children");
+
+        for (final IsElement<?> child : children) {
+            this.appendChild(child);
+        }
+
+        return (C) this;
+    }
 
     /**
      * Getter that returns the child at index.
