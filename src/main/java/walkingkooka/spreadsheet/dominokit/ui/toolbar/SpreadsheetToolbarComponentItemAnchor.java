@@ -21,10 +21,9 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
-import org.dominokit.domino.ui.popover.Tooltip;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
 
 import java.util.Optional;
 
@@ -46,10 +45,11 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
 
         this.anchor = anchor;
 
-        this.tooltip = Tooltip.create(
+        this.tooltip = SpreadsheetTooltipComponent.attach(
                 anchor,
-                tooltipText
-        ).setPosition(DropDirection.BOTTOM_MIDDLE);
+                tooltipText,
+                DropDirection.BOTTOM_MIDDLE
+        );
 
         context.addHistoryTokenWatcher(this);
 
@@ -62,10 +62,7 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
      * Replaces the current tooltip text with the new {@link String text}.
      */
     final void setTooltipText(final String text) {
-        // setTextContent only updates the text and not the Node.
-        this.tooltip.setContent(
-                Doms.textNode(text)
-        );
+        this.tooltip.setTextContent(text);
     }
 
     // setCssText.......................................................................................................
@@ -85,7 +82,7 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
 
     final HistoryTokenAnchorComponent anchor;
 
-    final Tooltip tooltip;
+    final SpreadsheetTooltipComponent tooltip;
 
     final HistoryTokenContext context;
 
