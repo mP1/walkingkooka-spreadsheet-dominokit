@@ -26,6 +26,14 @@ import walkingkooka.text.printer.TreePrintable;
  */
 public interface SpreadsheetTooltipComponentLike extends TreePrintable {
 
+    /**
+     * Getter that returns the text content of this tooltip.
+     */
+    String textContent();
+
+    /**
+     * Sets or replaces the text content of this tooltip.
+     */
     SpreadsheetTooltipComponentLike setTextContent(final String text);
 
     /**
@@ -35,13 +43,15 @@ public interface SpreadsheetTooltipComponentLike extends TreePrintable {
 
     // TreePrintable....................................................................................................
 
-    default void printTreeText(final String text,
-                               final IndentingPrinter printer) {
+    @Override
+    default void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
             printer.println(
-                    CharSequences.quoteAndEscape(text)
+                    CharSequences.quoteAndEscape(
+                            this.textContent()
+                    )
             );
         }
     }
