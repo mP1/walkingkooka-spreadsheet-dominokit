@@ -141,6 +141,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
                 // FindCells | Highlight
                 SpreadsheetToolbarComponentItem.findCells(context),
                 SpreadsheetToolbarComponentItem.highlightCells(context),
+                // SORT
+                SpreadsheetToolbarComponentItem.sort(context),
                 // label
                 SpreadsheetToolbarComponentItem.labelCreate(context),
                 // reload

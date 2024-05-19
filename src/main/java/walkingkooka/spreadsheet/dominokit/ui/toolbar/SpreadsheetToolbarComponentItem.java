@@ -132,6 +132,14 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorReload.with(context);
     }
 
+
+    /**
+     * {@link SpreadsheetToolbarComponentItemAnchorSort}
+     */
+    static SpreadsheetToolbarComponentItem<?> sort(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemAnchorSort.with(context);
+    }
+
     static SpreadsheetToolbarComponentItem<?> strikeThru(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
