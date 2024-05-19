@@ -56,6 +56,13 @@ public final class SpreadsheetTooltipComponent implements TreePrintable {
         this.component = component;
     }
 
+    /**
+     * Getter that returns the text content of this tooltip.
+     */
+    public String textContent() {
+        return this.tooltip.getTextContent();
+    }
+
     public SpreadsheetTooltipComponent setTextContent(final String text) {
         CharSequences.failIfNullOrEmpty(text, "text");
 
@@ -84,7 +91,7 @@ public final class SpreadsheetTooltipComponent implements TreePrintable {
         {
             printer.println(
                     CharSequences.quoteAndEscape(
-                            this.tooltip.getTextContent()
+                            this.textContent()
                     )
             );
         }
