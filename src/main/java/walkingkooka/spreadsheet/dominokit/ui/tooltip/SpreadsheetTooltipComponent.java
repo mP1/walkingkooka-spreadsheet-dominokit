@@ -20,13 +20,15 @@ package walkingkooka.spreadsheet.dominokit.ui.tooltip;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 
 /**
  * Wraps a {@link Tooltip}.
  */
-public final class SpreadsheetTooltipComponent {
+public final class SpreadsheetTooltipComponent implements TreePrintable {
 
     public static SpreadsheetTooltipComponent attach(final SpreadsheetTooltipComponentTarget component,
                                                      final String text,
@@ -72,4 +74,19 @@ public final class SpreadsheetTooltipComponent {
     private final Tooltip tooltip;
 
     private final SpreadsheetTooltipComponentTarget component;
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            printer.println(
+                    CharSequences.quoteAndEscape(
+                            this.tooltip.getTextContent()
+                    )
+            );
+        }
+    }
 }
