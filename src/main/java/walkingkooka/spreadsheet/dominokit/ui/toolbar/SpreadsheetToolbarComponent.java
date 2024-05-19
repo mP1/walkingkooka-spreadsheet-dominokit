@@ -178,13 +178,11 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     @Override
     public void open(final AppContext context) {
         this.open = true;
-        this.setVisibility(true); // show
     }
 
     @Override
     public void close(final AppContext context) {
         this.open = false;
-        this.setVisibility(false); // hidden
     }
 
     private boolean open;
