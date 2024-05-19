@@ -25,7 +25,6 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
-import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -308,18 +307,6 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     private Icon<?> iconAfter;
-
-    // tooltip..........................................................................................................
-
-    @Override
-    public HistoryTokenAnchorComponent setTooltip(final String text,
-                                                  final DropDirection dropDirection) {
-        this.element.setTooltip(
-                text,
-                dropDirection
-        );
-        return this;
-    }
 
     // events..........................................................................................................
 
